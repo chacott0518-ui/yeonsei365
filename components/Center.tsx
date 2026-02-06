@@ -13,7 +13,7 @@ const Center: React.FC = () => {
 
   return (
     <section id="clinics" className="relative py-20 md:py-32 bg-background z-10 border-t border-white" style={{ scrollMarginTop: '80px' }}>
-      <div className="container mx-auto px-6 md:px-12">
+      <div className="container mx-auto px-5 md:px-12">
         
         {/* Section Header */}
         <div className="text-center mb-12 md:mb-20">
@@ -70,14 +70,11 @@ const Center: React.FC = () => {
                  transition={{ duration: 0.4 }}
                  className="h-full bg-white rounded-3xl overflow-hidden shadow-xl border border-primary/10 flex flex-row"
                >
-                 <div className="w-1/2 relative">
+                 <div className="w-1/2 relative" style={{ aspectRatio: '16/9' }}>
                     <img 
-                      src={`https://source.unsplash.com/random/800x1000/?woman,pink,flower,${CLINICS[activeTab].id}`} 
-                      onError={(e) => {
-                          e.currentTarget.src = "https://images.unsplash.com/photo-1576091160399-112ba8d25d1d?q=80&w=2070&auto=format&fit=crop"
-                      }}
+                      src={CLINICS[activeTab].image} 
                       alt={CLINICS[activeTab].title} 
-                      className="w-full h-full object-cover"
+                      className="absolute inset-0 w-full h-full object-cover"
                     />
                     <div className="absolute inset-0 bg-primary/20 mix-blend-multiply" />
                  </div>
@@ -93,18 +90,12 @@ const Center: React.FC = () => {
                     </p>
 
                     <div className="space-y-4">
-                        <div className="flex items-start gap-3">
-                           <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                           <p className="text-gray-600 text-sm">프라이빗한 1:1 맞춤 진료 공간</p>
-                        </div>
-                        <div className="flex items-start gap-3">
-                           <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                           <p className="text-gray-600 text-sm">여성 전문의의 섬세한 상담</p>
-                        </div>
-                        <div className="flex items-start gap-3">
-                           <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
-                           <p className="text-gray-600 text-sm">최신 여성 검진 장비 보유</p>
-                        </div>
+                        {CLINICS[activeTab].details.map((detail, i) => (
+                          <div key={i} className="flex items-start gap-3">
+                             <div className="w-1.5 h-1.5 rounded-full bg-primary mt-2 flex-shrink-0" />
+                             <p className="text-gray-600 text-sm">{detail}</p>
+                          </div>
+                        ))}
                     </div>
                  </div>
                </motion.div>
@@ -112,58 +103,74 @@ const Center: React.FC = () => {
           </div>
         </div>
 
-        {/* --- MOBILE VIEW --- */}
-        <div className="lg:hidden flex flex-col gap-4">
+        {/* --- MOBILE VIEW — 이미지 썸네일 + 아코디언 --- */}
+        <div className="lg:hidden flex flex-col gap-3">
           {CLINICS.map((clinic, idx) => (
-            <motion.div 
-              key={clinic.id} 
-              layout
-              onClick={() => toggleMobile(idx)}
-              className="relative rounded-2xl overflow-hidden shadow-md cursor-pointer group"
-            >
-               {/* Background Image & Overlay */}
-               <div className="absolute inset-0 z-0">
-                 <img 
-                    src={`https://source.unsplash.com/random/800x600/?flower,pink,${clinic.id}`}
-                    onError={(e) => {
-                      e.currentTarget.src = "https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=2080&auto=format&fit=crop"
-                    }}
+            <div key={clinic.id} className="rounded-2xl overflow-hidden shadow-md bg-white border border-primary/10">
+              {/* 헤더 (항상 보임): 썸네일 + 제목 */}
+              <button
+                onClick={() => toggleMobile(idx)}
+                className="w-full flex items-center gap-3 p-3 pr-4 text-left focus:outline-none active:bg-surface transition-colors"
+              >
+                {/* 썸네일 이미지 */}
+                <div className="w-16 h-16 rounded-xl overflow-hidden flex-shrink-0">
+                  <img 
+                    src={clinic.image} 
                     alt={clinic.title}
-                    className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                 />
-                 <div className="absolute inset-0 bg-gradient-to-r from-primary/90 to-primary/60" />
-               </div>
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+                {/* 텍스트 */}
+                <div className="flex-1 min-w-0">
+                  <span className="text-primary/50 text-[10px] font-bold tracking-widest uppercase block">0{idx + 1} Clinic</span>
+                  <h4 className="text-base font-bold text-gray-800 truncate">{clinic.title}</h4>
+                  <p className="text-xs text-gray-500 truncate">{clinic.description}</p>
+                </div>
+                {/* 화살표 */}
+                <ChevronDown 
+                  size={18} 
+                  className={`text-primary/40 transition-transform duration-300 flex-shrink-0 ${mobileExpanded === idx ? 'rotate-180 text-primary' : ''}`}
+                />
+              </button>
 
-               {/* Content Overlay */}
-               <div className="relative z-10 p-6 flex flex-col min-h-[120px] justify-center">
-                 <div className="flex items-center justify-between">
-                     <div>
-                        <span className="text-white/60 text-[10px] font-bold tracking-widest uppercase block mb-1">0{idx + 1} Clinic</span>
-                        <h4 className="text-xl font-bold text-white">{clinic.title}</h4>
-                     </div>
-                     <ChevronDown 
-                        size={20} 
-                        className={`text-white/80 transition-transform duration-300 ${mobileExpanded === idx ? 'rotate-180' : ''}`}
-                     />
-                 </div>
-                 
-                 <AnimatePresence>
-                   {mobileExpanded === idx && (
-                     <motion.div
-                       initial={{ height: 0, opacity: 0 }}
-                       animate={{ height: 'auto', opacity: 1 }}
-                       exit={{ height: 0, opacity: 0 }}
-                       transition={{ duration: 0.3 }}
-                       className="mt-4"
-                     >
-                       <p className="text-white/90 text-sm mb-4 leading-relaxed pl-3 border-l-2 border-white/50">
-                         {clinic.description}
-                       </p>
-                     </motion.div>
-                   )}
-                 </AnimatePresence>
-               </div>
-            </motion.div>
+              {/* 확장 영역: 큰 이미지 + 상세 설명 + 디테일 리스트 */}
+              <AnimatePresence>
+                {mobileExpanded === idx && (
+                  <motion.div
+                    initial={{ height: 0, opacity: 0 }}
+                    animate={{ height: 'auto', opacity: 1 }}
+                    exit={{ height: 0, opacity: 0 }}
+                    transition={{ duration: 0.35, ease: 'easeInOut' }}
+                    className="overflow-hidden"
+                  >
+                    {/* 이미지 영역 */}
+                    <div className="relative aspect-[4/3] mx-3">
+                      <img 
+                        src={clinic.image} 
+                        alt={clinic.title}
+                        className="w-full h-full object-cover rounded-xl"
+                      />
+                      <div className="absolute inset-0 bg-primary/10 mix-blend-multiply rounded-xl" />
+                    </div>
+
+                    {/* 텍스트 영역 */}
+                    <div className="p-4 pt-4">
+                      <p className="text-sm text-gray-600 leading-relaxed mb-4 pl-3 border-l-2 border-primary/30">
+                        {clinic.description}
+                      </p>
+                      <div className="space-y-2.5 bg-surface/50 rounded-xl p-4">
+                        {clinic.details.map((detail, i) => (
+                          <div key={i} className="flex items-start gap-2.5">
+                            <div className="w-1.5 h-1.5 rounded-full bg-primary mt-1.5 flex-shrink-0" />
+                            <p className="text-sm text-gray-700">{detail}</p>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
           ))}
         </div>
 

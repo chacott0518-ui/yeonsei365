@@ -9,11 +9,12 @@ import Review from './components/Review';
 import FAQ from './components/FAQ';
 import Consultation from './components/Booking';
 import Footer from './components/Footer';
-import { Phone, MapPin } from 'lucide-react';
+import ConsultModal from './components/ConsultModal';
+import { Phone, MapPin, MessageCircle } from 'lucide-react';
 
 function App() {
   return (
-    <div className="bg-background text-gray-dark min-h-screen pb-16 md:pb-0 font-sans">
+    <div className="relative bg-background text-gray-dark min-h-screen pb-0 font-sans">
       <Header />
       <main>
         <Hero />
@@ -28,21 +29,35 @@ function App() {
         </div>
       </main>
       <Footer />
+      <ConsultModal />
 
-      <div className="fixed bottom-0 left-0 right-0 h-16 bg-primary border-t border-white/20 z-50 md:hidden flex items-center justify-around shadow-[0_-4px_10px_rgba(214,51,108,0.2)]">
-        <a href="tel:0507-1423-6302" className="flex items-center justify-center gap-2 w-full h-full active:bg-white/10 transition-colors">
-          <Phone size={18} className="text-white" />
-          <span className="text-sm font-bold text-white">전화문의</span>
+      {/* 모바일 하단 고정 플로팅 바 — 3단 레이아웃 */}
+      <div className="fixed bottom-0 left-0 right-0 h-14 bg-primary border-t border-white/20 z-50 md:hidden flex items-center shadow-[0_-4px_10px_rgba(214,51,108,0.2)]">
+        <a href="tel:02-585-3650" className="flex items-center justify-center gap-1.5 flex-1 h-full active:bg-white/10 transition-colors">
+          <Phone size={16} className="text-white" />
+          <span className="text-xs font-bold text-white">전화문의</span>
         </a>
 
-        <div className="w-[1px] h-6 bg-white/20"></div>
+        <div className="w-[1px] h-5 bg-white/20"></div>
+
+        <a 
+          href="http://pf.kakao.com/_TpaBj/chat" 
+          target="_blank"
+          rel="noopener noreferrer"
+          className="flex items-center justify-center gap-1.5 flex-1 h-full active:bg-white/10 transition-colors"
+        >
+          <MessageCircle size={16} className="text-white" />
+          <span className="text-xs font-bold text-white">카톡상담</span>
+        </a>
+
+        <div className="w-[1px] h-5 bg-white/20"></div>
 
         <a href="#location" onClick={(e) => {
           e.preventDefault();
           document.getElementById('location')?.scrollIntoView({ behavior: 'smooth' });
-        }} className="flex items-center justify-center gap-2 w-full h-full active:bg-white/10 transition-colors">
-          <MapPin size={18} className="text-white" />
-          <span className="text-sm font-bold text-white">오시는길</span>
+        }} className="flex items-center justify-center gap-1.5 flex-1 h-full active:bg-white/10 transition-colors">
+          <MapPin size={16} className="text-white" />
+          <span className="text-xs font-bold text-white">오시는길</span>
         </a>
       </div>
     </div>

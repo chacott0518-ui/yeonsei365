@@ -94,14 +94,54 @@ export const DOCTORS = [
 ];
 
 export const CLINICS: ClinicItem[] = [
-  { id: 'prenatal', title: '산전 관리', description: '임신 초기부터 출산까지 체계적인 1:1 맞춤 케어', icon: 'baby' },
-  { id: 'exam', title: '여성 검진', description: '미혼여성, 웨딩검진, 갱년기 정밀 검진', icon: 'activity' },
-  { id: 'vaginoplasty', title: '여성 성형', description: '소음순, 질 성형 등 기능과 미용을 동시에', icon: 'heart' },
-  { id: 'infertility', title: '난임 클리닉', description: '정확한 원인 분석 및 인공수정, 배란 유도', icon: 'users' },
-  { id: 'antiaging', title: '웰빙/수액', description: '태반주사, 비타민D, 만성피로 회복 수액', icon: 'sun' },
-  { id: 'vaccine', title: '예방 접종', description: '자궁경부암(가다실), 대상포진, 독감 예방접종', icon: 'shield' },
-  { id: 'menopause', title: '갱년기/폐경', description: '호르몬 치료 및 골다공증 예방 관리', icon: 'moon' },
-  { id: 'laser', title: '질 레이저', description: '질 건조증 완화 및 탄력 개선 (모나리자터치)', icon: 'zap' },
+  {
+    id: 'prenatal', title: '산전 관리', icon: 'baby',
+    description: '임신 초기부터 출산까지 체계적인 맞춤 케어',
+    image: 'https://i.pinimg.com/736x/aa/af/36/aaaf36ea0723f19ed8cc1f674d051815.jpg',
+    details: ['임신 주차별 정밀 관리', '산모 건강 집중 케어', '태아 성장 정기 체크', '안전한 출산 준비'],
+  },
+  {
+    id: 'exam', title: '여성 검진', icon: 'activity',
+    description: '연령과 라이프스타일별 맞춤 검진',
+    image: 'https://i.pinimg.com/736x/24/b8/d0/24b8d0a0ccbdfa832c90d8fd649eb901.jpg',
+    details: ['미혼 여성 기본 검진', '웨딩 전 정밀 검사', '갱년기 종합 검진', '정기 여성 건강 체크'],
+  },
+  {
+    id: 'vaginoplasty', title: '여성 성형', icon: 'heart',
+    description: '기능과 미용을 동시에 고려한 여성 성형',
+    image: 'https://i.pinimg.com/736x/fa/65/74/fa65745aa71808c6ab6952e330165f9c.jpg',
+    details: ['소음순 교정 수술', '질 성형 개선 시술', '기능·미용 동시 개선', '개인 맞춤 디자인'],
+  },
+  {
+    id: 'infertility', title: '난임 클리닉', icon: 'users',
+    description: '정확한 진단 기반의 단계별 난임 치료',
+    image: 'https://i.pinimg.com/736x/24/85/6b/24856b4169d886d4abe4fbdc34d76efb.jpg',
+    details: ['난임 원인 정밀 분석', '배란 유도 치료', '인공수정 프로그램', '임신 성공률 관리'],
+  },
+  {
+    id: 'antiaging', title: '웰빙 / 수액', icon: 'sun',
+    description: '몸 컨디션 회복을 위한 맞춤 케어',
+    image: 'https://i.pinimg.com/1200x/96/38/8d/96388d7ce9e87100281592a167f4d7fe.jpg',
+    details: ['피로 회복 수액', '면역력 강화 관리', '영양 밸런스 보충', '개인 컨디션 맞춤'],
+  },
+  {
+    id: 'vaccine', title: '예방 접종', icon: 'shield',
+    description: '연령별 필수 예방 접종 관리',
+    image: 'https://i.pinimg.com/736x/54/4d/90/544d90da9345b5663c4c49d736861039.jpg',
+    details: ['여성 필수 예방 접종', '임신 전 접종 관리', '계절성 감염 예방', '안전 접종 시스템'],
+  },
+  {
+    id: 'menopause', title: '갱년기 / 폐경', icon: 'moon',
+    description: '변화하는 몸을 위한 전문 관리',
+    image: 'https://i.pinimg.com/736x/2c/04/7e/2c047e9ff6d7867fa401a5daa8e8539d.jpg',
+    details: ['호르몬 변화 상담', '갱년기 증상 완화', '폐경 후 건강 관리', '삶의 질 개선 치료'],
+  },
+  {
+    id: 'laser', title: '질 레이저', icon: 'zap',
+    description: '비수술적 여성 질 건강 케어',
+    image: 'https://i.pinimg.com/736x/5c/41/db/5c41db478dffb3be8fe39cc4f33ddeac.jpg',
+    details: ['질 탄력 개선', '질 건조증 완화', '요실금 증상 개선', '회복 빠른 레이저'],
+  },
 ];
 
 export const PRICES: PriceItem[] = [

@@ -71,14 +71,14 @@ const Review: React.FC = () => {
 
   return (
     <section id="review" className="relative py-20 md:py-32 bg-background z-10 overflow-hidden">
-      <div className="container mx-auto px-6 md:px-12 mb-12 md:mb-20 text-center">
+      <div className="container mx-auto px-5 md:px-12 mb-12 md:mb-20 text-center">
         <span className="text-primary text-sm font-bold tracking-widest block mb-3 uppercase">Testimonials</span>
         <h2 className="text-3xl md:text-5xl font-bold text-primary font-serif">수술 후기</h2>
         <p className="mt-4 text-gray-600">환자분들이 직접 남겨주신 소중한 이야기입니다.</p>
       </div>
 
       {/* --- MOBILE VIEW --- */}
-      <div className="lg:hidden px-6">
+      <div className="lg:hidden px-5">
         <AnimatePresence mode="wait">
             {!isExpanded ? (
                 <motion.div
@@ -87,10 +87,10 @@ const Review: React.FC = () => {
                     animate={{ opacity: 1, y: 0 }}
                     exit={{ opacity: 0 }}
                     onClick={() => setIsExpanded(true)}
-                    className="relative w-full h-[300px] rounded-2xl overflow-hidden shadow-xl cursor-pointer group"
+                    className="relative w-full h-[280px] rounded-2xl overflow-hidden shadow-xl cursor-pointer group"
                 >
                     <img 
-                        src="https://images.unsplash.com/photo-1543332143-651859920567?q=80&w=2070&auto=format&fit=crop"
+                        src="https://i.pinimg.com/736x/c6/14/45/c61445700aca583f2657e1714379cf7d.jpg"
                         alt="Reviews Cover" 
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                     />
@@ -174,10 +174,6 @@ const Review: React.FC = () => {
         </div>
       </div>
 
-      {/* ✅ 우측 하단 SEO 키워드 */}
-      <div className="absolute bottom-4 right-4 text-[10px] text-gray-300 leading-relaxed opacity-30 pointer-events-none select-none">
-        임신초기낙태, 임신중절, 낙태수술, 낙태비용, 임신중절수술, 임신초기낙태, 중절수술, 낙태비용가격, 임신중절수술금액, 중절수술비용
-      </div>
     </section>
   );
 };

@@ -37,7 +37,7 @@ const FAQ: React.FC = () => {
 
   return (
     <section id="faq" className="relative py-20 md:py-32 bg-surface z-10">
-      <div className="container mx-auto px-6 md:px-12 max-w-4xl">
+      <div className="container mx-auto px-5 md:px-12 max-w-4xl">
         <div className="text-center mb-12 md:mb-20">
           <span className="text-primary text-sm font-bold tracking-widest block mb-4 uppercase">FAQ</span>
           <h2 className="text-3xl md:text-5xl font-bold text-primary font-serif">자주 묻는 질문</h2>
@@ -54,10 +54,10 @@ const FAQ: React.FC = () => {
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0 }}
                         onClick={() => setIsExpanded(true)}
-                        className="relative w-full h-[250px] rounded-2xl overflow-hidden shadow-xl cursor-pointer group"
+                        className="relative w-full h-[280px] rounded-2xl overflow-hidden shadow-xl cursor-pointer group"
                     >
                         <img 
-                            src="https://images.unsplash.com/photo-1579154204601-01588f351e67?q=80&w=2070&auto=format&fit=crop"
+                            src="https://i.pinimg.com/736x/b8/84/e8/b884e8986a22eb03cf9dcfd9e5d97be1.jpg"
                             alt="FAQ Cover"
                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                         />

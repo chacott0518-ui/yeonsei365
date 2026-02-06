@@ -19,6 +19,8 @@ export interface ClinicItem {
   title: string;
   description: string;
   icon: string;
+  image: string;
+  details: string[];
 }
 
 export interface PriceItem {

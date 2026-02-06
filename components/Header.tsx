@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { motion, useScroll, AnimatePresence } from 'framer-motion';
 import { NAV_LINKS } from '../constants';
 import { X, Menu } from 'lucide-react';
@@ -9,6 +9,7 @@ const Header: React.FC = () => {
   const [activeSection, setActiveSection] = useState('');
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const { scrollY } = useScroll();
+  const isClickScrolling = useRef(false);
 
   useEffect(() => {
     let lastScrollY = window.scrollY;
@@ -50,8 +51,9 @@ const Header: React.FC = () => {
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
-      // 즉시 activeSection 설정
+      // 즉시 activeSection 설정 & 스크롤 감지 잠금
       setActiveSection(id);
+      isClickScrolling.current = true;
       
       const headerOffset = 80; 
       const elementPosition = element.getBoundingClientRect().top;
@@ -61,6 +63,12 @@ const Header: React.FC = () => {
         top: offsetPosition,
         behavior: 'smooth'
       });
+
+      // smooth scroll 완료 후 스크롤 감지 재활성화
+      setTimeout(() => {
+        isClickScrolling.current = false;
+      }, 1000);
+
       setIsMobileMenuOpen(false);
     }
   };
@@ -68,6 +76,9 @@ const Header: React.FC = () => {
   // ✅ 스크롤 감지는 보조용으로만 사용
   useEffect(() => {
     const updateActiveSection = () => {
+      // 클릭 스크롤 중이면 감지하지 않음
+      if (isClickScrolling.current) return;
+
       const scrollPos = window.scrollY + 150;
       
       if (window.scrollY < 100) {
@@ -134,7 +145,7 @@ const Header: React.FC = () => {
             : 'bg-transparent py-6 border-b border-transparent' 
         }`}
       >
-        <div className="container mx-auto px-6 md:px-12 flex items-center justify-between">
+        <div className="container mx-auto px-5 md:px-12 flex items-center justify-between">
           
           <div 
             className="flex items-center cursor-pointer z-50 relative" 
@@ -160,6 +171,7 @@ const Header: React.FC = () => {
                     ? (isScrolled ? 'text-primary font-bold' : 'text-white font-bold') 
                     : (isScrolled ? 'text-gray-600 hover:text-primary' : 'text-white/80 hover:text-white')
                 }`}
+                style={!isScrolled ? { textShadow: '0 1px 3px rgba(0, 0, 0, 0.3)' } : undefined}
               >
                 {link.label}
                 {activeSection === link.id && (
