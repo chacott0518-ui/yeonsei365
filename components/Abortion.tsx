@@ -1,10 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef, useCallback } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MessageCircle } from 'lucide-react';
+
+const DESKTOP_SECTION_IDS = ['ab-diagnosis', 'ab-cost', 'ab-procedure', 'ab-faq'];
 
 const Abortion: React.FC = () => {
   const [expandedFaq, setExpandedFaq] = useState<number | null>(null);
   const [mobileTab, setMobileTab] = useState(0);
+  const [activeDesktopTab, setActiveDesktopTab] = useState(0);
+  const sectionRef = useRef<HTMLElement>(null);
+  const isScrollingToRef = useRef(false);
 
   const symptoms = [
     { id: 1, title: '무월경', description: '생리 예정일이 1주 이상 지났음에도 생리가 없다면 임신 가능성을 확인해보세요.' },
@@ -102,8 +107,67 @@ const Abortion: React.FC = () => {
 
   const tabLabels = ['확인방법', '비용안내', '수술안내', 'FAQ'];
 
+  const desktopTabs = [
+    { label: '확인방법', sectionId: 'ab-diagnosis' },
+    { label: '비용안내', sectionId: 'ab-cost' },
+    { label: '수술안내', sectionId: 'ab-procedure' },
+    { label: 'FAQ', sectionId: 'ab-faq' },
+  ];
+
+  // Desktop scroll spy — tracks which sub-section is in view
+  useEffect(() => {
+    const handleScroll = () => {
+      if (isScrollingToRef.current) return;
+
+      // Only run when inside the abortion section
+      if (sectionRef.current) {
+        const sectionRect = sectionRef.current.getBoundingClientRect();
+        if (sectionRect.bottom < 0 || sectionRect.top > window.innerHeight) return;
+      }
+
+      const offset = 120;
+      for (let i = DESKTOP_SECTION_IDS.length - 1; i >= 0; i--) {
+        const el = document.getElementById(DESKTOP_SECTION_IDS[i]);
+        if (el) {
+          const rect = el.getBoundingClientRect();
+          if (rect.top <= offset) {
+            setActiveDesktopTab(i);
+            return;
+          }
+        }
+      }
+    };
+
+    let ticking = false;
+    const onScroll = () => {
+      if (!ticking) {
+        window.requestAnimationFrame(() => {
+          handleScroll();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    };
+
+    window.addEventListener('scroll', onScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener('scroll', onScroll);
+  }, []);
+
+  // Smooth scroll to desktop sub-section on tab click
+  const scrollToDesktopSection = useCallback((idx: number) => {
+    const el = document.getElementById(DESKTOP_SECTION_IDS[idx]);
+    if (el) {
+      setActiveDesktopTab(idx);
+      isScrollingToRef.current = true;
+      const top = el.getBoundingClientRect().top + window.scrollY - 72;
+      window.scrollTo({ top, behavior: 'smooth' });
+      setTimeout(() => { isScrollingToRef.current = false; }, 1000);
+    }
+  }, []);
+
   return (
-    <section id="abortion-clinic" className="relative py-20 md:py-32 bg-white z-10">
+    <section id="abortion-clinic" ref={sectionRef} className="relative py-20 md:py-32 bg-white z-10">
       <div className="container mx-auto px-5 md:px-12">
         
         {/* 섹션 타이틀 — 공통 */}
@@ -154,26 +218,28 @@ const Abortion: React.FC = () => {
         {/* ===== MOBILE — 통합 탭 시스템 ===== */}
         {/* =============================================================== */}
         <div className="md:hidden">
-          {/* 탭 바 */}
-          <div className="flex border-b-2 border-primary/10 mb-6 sticky top-[60px] bg-white z-20 -mx-5 px-5">
-            {tabLabels.map((label, idx) => (
-              <button
-                key={idx}
-                onClick={() => { setMobileTab(idx); setExpandedFaq(null); }}
-                className={`flex-1 py-3 text-xs font-bold transition-all duration-200 relative ${
-                  mobileTab === idx ? 'text-primary' : 'text-gray-400'
-                }`}
-              >
-                {label}
-                {mobileTab === idx && (
-                  <motion.div
-                    layoutId="abortion-tab"
-                    className="absolute bottom-0 left-2 right-2 h-0.5 bg-primary rounded-full"
-                    transition={{ type: 'spring', stiffness: 400, damping: 30 }}
-                  />
-                )}
-              </button>
-            ))}
+          {/* 탭 바 — Hybrid Sticky Glass Tab */}
+          <div className="sticky top-0 z-40 -mx-5 px-3 pt-2 pb-2 mb-4 pointer-events-none">
+            <div className="bg-white/70 backdrop-blur-2xl rounded-full border border-primary/10 shadow-lg shadow-primary/5 p-1 flex pointer-events-auto">
+              {tabLabels.map((label, idx) => (
+                <button
+                  key={idx}
+                  onClick={() => { setMobileTab(idx); setExpandedFaq(null); }}
+                  className={`flex-1 py-2.5 text-xs font-bold rounded-full transition-colors duration-300 relative ${
+                    mobileTab === idx ? 'text-white' : 'text-gray-400'
+                  }`}
+                >
+                  <span className="relative z-10">{label}</span>
+                  {mobileTab === idx && (
+                    <motion.div
+                      layoutId="abortion-tab"
+                      className="absolute inset-0 bg-primary rounded-full shadow-md shadow-primary/25"
+                      transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+                    />
+                  )}
+                </button>
+              ))}
+            </div>
           </div>
 
           {/* 탭 컨텐츠 */}
@@ -402,8 +468,34 @@ const Abortion: React.FC = () => {
         {/* =============================================================== */}
         <div className="hidden md:block">
 
+          {/* Desktop Hybrid Sticky Tab Bar */}
+          <div className="sticky top-0 z-40 py-3 pointer-events-none">
+            <div className="max-w-lg mx-auto bg-white/70 backdrop-blur-2xl rounded-full border border-primary/10 shadow-lg shadow-primary/5 p-1.5 pointer-events-auto">
+              <div className="flex items-center justify-center">
+                {desktopTabs.map((tab, idx) => (
+                  <button
+                    key={idx}
+                    onClick={() => scrollToDesktopSection(idx)}
+                    className={`relative flex-1 px-6 py-2.5 text-sm font-semibold rounded-full transition-colors duration-300 ${
+                      activeDesktopTab === idx ? 'text-white' : 'text-gray-500 hover:text-primary'
+                    }`}
+                  >
+                    <span className="relative z-10">{tab.label}</span>
+                    {activeDesktopTab === idx && (
+                      <motion.div
+                        layoutId="desktopAbTab"
+                        className="absolute inset-0 bg-primary rounded-full shadow-md shadow-primary/25"
+                        transition={{ type: 'spring', stiffness: 400, damping: 30 }}
+                      />
+                    )}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+
           {/* 임신중절수술 법적 정보 */}
-          <div className="max-w-5xl mx-auto mb-16">
+          <div id="ab-diagnosis" className="max-w-5xl mx-auto mb-16 scroll-mt-20">
             <div className="bg-gradient-to-br from-pink-50 to-purple-50 rounded-2xl p-8 md:p-12 border border-primary/10 text-center">
               <div className="flex justify-center mb-6">
                 <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center">
@@ -515,7 +607,7 @@ const Abortion: React.FC = () => {
           </div>
 
           {/* ========== 임신중절 비용안내 ========== */}
-          <div className="max-w-xl mx-auto mb-16">
+          <div id="ab-cost" className="max-w-xl mx-auto mb-16 scroll-mt-20">
             <div className="bg-gradient-to-br from-pink-50 to-purple-50 rounded-2xl shadow-lg overflow-hidden border border-primary/10">
 
               {/* 상단 타이틀 영역 */}
@@ -563,7 +655,7 @@ const Abortion: React.FC = () => {
           </div>
 
           {/* 안전한 수술 진행 절차 */}
-          <div className="max-w-5xl mx-auto mb-16">
+          <div id="ab-procedure" className="max-w-5xl mx-auto mb-16 scroll-mt-20">
             <h3 className="text-2xl md:text-3xl font-bold text-center text-gray-800 mb-4">안전한 임신중절 수술 절차</h3>
             <p className="text-center text-gray-600 mb-12 text-sm">연세365산부인과는 체계적인 낙태수술 프로세스로 안전을 지킵니다</p>
             <div className="space-y-4">
@@ -609,7 +701,7 @@ const Abortion: React.FC = () => {
           </div>
 
           {/* 자주 묻는 질문 */}
-          <div className="max-w-4xl mx-auto mb-16">
+          <div id="ab-faq" className="max-w-4xl mx-auto mb-16 scroll-mt-20">
             <h3 className="text-2xl md:text-3xl font-bold text-center text-gray-800 mb-4">자주 묻는 질문</h3>
             <p className="text-center text-gray-600 mb-12 text-sm">낙태비용, 낙태수술 절차 등 궁금하신 내용을 확인하세요</p>
             <div className="space-y-4">
