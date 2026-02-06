@@ -12,10 +12,10 @@ const Abortion: React.FC = () => {
   const isScrollingToRef = useRef(false);
 
   const symptoms = [
-    { id: 1, title: '무월경', description: '생리 예정일이 1주 이상 지났음에도 생리가 없다면 임신 가능성을 확인해보세요.' },
-    { id: 2, title: '입덧 증상', description: '호르몬 변화로 인해 메스꺼움, 구토 등의 입덧 증상이 나타날 수 있습니다.' },
-    { id: 3, title: '유방 변화', description: '유방이 부풀고 민감해지며, 유두 색이 진해지는 등의 변화가 있을 수 있습니다.' },
-    { id: 4, title: '피로감 증가', description: '평소보다 쉽게 피곤함을 느끼고 수면 시간이 길어질 수 있습니다.' }
+    { id: 1, title: '무월경', description: '생리 예정일이 1주 이상 지났음에도 생리가 없다면 임신 가능성을 확인해보세요. 무월경은 임신의 가장 대표적인 초기 신호이며, 빠른 산부인과 방문이 중요합니다.' },
+    { id: 2, title: '입덧 증상', description: '호르몬 변화로 인해 메스꺼움, 구토 등의 입덧 증상이 나타날 수 있습니다. 특히 아침에 심해지며, 특정 음식 냄새에 민감해질 수 있습니다.' },
+    { id: 3, title: '유방 변화', description: '유방이 부풀고 민감해지며, 유두 색이 진해지는 등의 변화가 나타납니다. 임신 초기 호르몬 변화로 인한 자연스러운 신체 반응입니다.' },
+    { id: 4, title: '피로감 증가', description: '평소보다 쉽게 피곤함을 느끼고 수면 시간이 길어질 수 있습니다. 프로게스테론 수치 상승에 따른 증상으로, 충분한 휴식이 필요합니다.' }
   ];
 
   const diagnosisMethods = [
@@ -40,61 +40,85 @@ const Abortion: React.FC = () => {
   ];
 
   const procedures = [
-    { step: '01', title: '정확한 임신 주수 확인 및 초음파 검사를 통한 정상 임신 여부 진단' },
-    { step: '02', title: '개인별 건강 상태 확인 및 낙태수술 전 필수 검사 진행' },
-    { step: '03', title: '일회용 멸균 기구 사용으로 감염 위험 최소화' },
-    { step: '04', title: '숙련된 산부인과 전문의의 안전한 임신중절수술 진행' },
-    { step: '05', title: '수술 후 회복실 케어 및 영양수액 처치로 빠른 회복 지원' }
+    { step: '01', title: '초음파 검사를 통한 정확한 임신 주수 확인 및 정상 임신 여부 진단 — 임신중절수술 방법과 비용을 결정하는 핵심 단계' },
+    { step: '02', title: '혈액검사·심전도 등 개인별 건강 상태 정밀 확인 및 낙태수술 전 필수 사전 검사 진행' },
+    { step: '03', title: '일회용 멸균 기구만을 사용하여 감염 위험을 원천 차단하고, 무균 수술 환경을 철저히 관리' },
+    { step: '04', title: '풍부한 임상 경험을 갖춘 산부인과 전문의가 자궁 내막 손상을 최소화하는 안전한 임신중절수술 직접 시행' },
+    { step: '05', title: '수술 후 전용 회복실에서 1:1 케어 및 영양수액 처치를 통한 빠르고 안정적인 회복 지원' }
   ];
 
   const afterCare = [
-    { id: 1, title: '수술 전 최소 6시간 이상 금식이 필요합니다.', image: 'https://images.unsplash.com/photo-1553531889-56cc480ac5cb?w=400&q=80' },
-    { id: 2, title: '낙태수술 후 2주간 무리한 운동, 사우나, 성관계를 피해주세요.', image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&q=80' },
-    { id: 3, title: '첫 월경까지 개인차가 있으며 보통 4~6주 소요됩니다.', image: 'https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=400&q=80' },
-    { id: 4, title: '약물 알레르기나 기저질환은 반드시 의료진에게 알려주세요.', image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=400&q=80' },
-    { id: 5, title: '수술 후 과다 출혈이나 심한 통증 시 즉시 병원에 연락하세요.', image: 'https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=400&q=80' }
+    { id: 1, title: '임신중절수술 전 최소 6시간 이상 금식(물 포함)이 필수이며, 마취 안전을 위해 반드시 지켜주세요.', image: 'https://images.unsplash.com/photo-1553531889-56cc480ac5cb?w=400&q=80' },
+    { id: 2, title: '낙태수술 후 최소 2주간 무리한 운동, 사우나, 성관계를 삼가고 충분한 안정을 취해주세요.', image: 'https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=400&q=80' },
+    { id: 3, title: '수술 후 첫 월경까지 개인차가 있으며 보통 4~6주 소요됩니다. 이상 증상 시 즉시 내원해주세요.', image: 'https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=400&q=80' },
+    { id: 4, title: '약물 알레르기·고혈압·당뇨 등 기저질환은 낙태수술 전 반드시 담당 의료진에게 알려주세요.', image: 'https://images.unsplash.com/photo-1576091160550-2173dba999ef?w=400&q=80' },
+    { id: 5, title: '수술 후 과다 출혈이나 심한 복통 시 즉시 연락해주세요. 1:1 사후 케어로 회복까지 함께합니다.', image: 'https://images.unsplash.com/photo-1587854692152-cbe660dbde88?w=400&q=80' }
   ];
 
   const faqs = [
     {
       q: 'Q. 낙태비용은 얼마인가요?',
-      a: '낙태비용은 임신 주수, 수술 방법, 마취 종류에 따라 달라집니다. 임신 초기(14주 이내)의 경우 낙태비용 부담이 상대적으로 적으며, 임신 주수가 증가할수록 비용이 높아질 수 있습니다. 연세365산부인과는 합리적인 낙태비용으로 투명하게 안내해드리고 있습니다. 정확한 낙태수술 비용은 초음파 검사 후 1:1 상담을 통해 확인하실 수 있습니다.'
+      a: '낙태비용은 임신 주수, 수술 방법, 마취 종류 등 여러 요인에 따라 달라집니다. 일반적으로 임신 초기(8주 미만)의 경우 임신중절수술비용 부담이 상대적으로 적으며, 주수가 증가할수록 수술 난이도와 소요 시간이 늘어나 낙태비용가격이 높아질 수 있습니다. 연세365산부인과는 초음파 검사를 통해 정확한 임신 주수를 확인한 뒤, 추가 비용 없이 투명한 중절수술가격을 1:1 상담에서 안내해드리고 있습니다. 현금과 카드 가격이 동일하며, 합리적인 낙태비용으로 경제적 부담을 최소화하기 위해 노력합니다.'
     },
     {
-      q: 'Q. 낙태비용 가격은 임신 주수에 따라 어떻게 다른가요?',
-      a: '낙태비용 가격은 임신 주수가 증가할수록 높아집니다. 임신 6주 이내 초기의 경우 가장 낮은 낙태비용 가격대이며, 10주 이후부터는 수술 난이도가 높아져 비용이 증가합니다. 연세365산부인과는 주수별 낙태비용 가격을 투명하게 안내드리며, 추가 비용 없이 명확한 가격으로 진료합니다.'
+      q: 'Q. 낙태비용 가격은 임신 주수에 따라 어떻게 달라지나요?',
+      a: '낙태비용가격은 임신 주수가 가장 큰 결정 요인입니다. 임신 8주 미만의 초기에는 중절수술가격이 45만원 수준으로 가장 낮은 가격대이며, 8주·9주·10주로 주수가 증가할수록 수술의 복잡도와 마취 시간이 늘어나 임신중절수술비용이 점진적으로 높아집니다. 이는 태아의 크기와 자궁 상태 변화에 따라 보다 정밀한 시술이 요구되기 때문입니다. 연세365산부인과는 주수별 낙태비용가격을 사전에 명확히 안내드리며, 상담 후 추가 비용이 발생하지 않는 투명한 가격 정책을 시행하고 있습니다.'
     },
     {
       q: 'Q. 낙태수술 후 회복 기간은 얼마나 걸리나요?',
-      a: '대부분 낙태수술 당일 귀가가 가능하며, 다음 날부터 일상생활이 가능합니다. 개인차가 있으나 1~2주 정도 가벼운 출혈이 있을 수 있으며, 이는 정상적인 회복 과정입니다. 무리한 활동은 2주간 피하시고 충분한 휴식을 취하시면 빠른 회복이 가능합니다.'
+      a: '대부분의 환자분들은 낙태수술 당일 귀가가 가능하며, 다음 날부터 가벼운 일상생활을 시작하실 수 있습니다. 수술 후 1~2주 정도 소량의 출혈이 있을 수 있으며, 이는 자궁이 정상적으로 회복되는 과정에서 나타나는 자연스러운 현상입니다. 연세365산부인과에서는 임신중절수술 후 1:1 사후 케어 시스템을 운영하여 회복 경과를 꼼꼼히 확인하고, 이상 증상 발생 시 신속하게 대응합니다. 무리한 활동과 음주는 최소 2주간 피하시고, 충분한 휴식과 영양 섭취를 통해 빠른 회복을 도모하시기 바랍니다.'
     },
     {
       q: 'Q. 낙태수술은 당일 진행이 가능한가요?',
-      a: '네, 가능합니다. 연세365산부인과는 당일 검사, 당일 상담, 당일 낙태수술 시스템을 운영하고 있습니다. 다만 수술 전 6시간 이상 금식이 필요하므로, 아침 일찍 방문하시거나 전날 저녁부터 금식 후 방문하시는 것을 권장합니다. 사전 예약 시 더욱 원활한 당일 수술 진행이 가능합니다.'
+      a: '네, 연세365산부인과는 당일 검사·당일 상담·당일 낙태수술이 가능한 원스톱 시스템을 운영하고 있습니다. 내원 후 초음파 검사와 혈액 검사를 통해 정확한 임신 주수와 건강 상태를 확인한 뒤, 풍부한 임상 경험을 가진 산부인과 전문의와의 1:1 상담을 거쳐 바로 수술을 진행할 수 있습니다. 다만, 수술 전 최소 6시간 이상 금식이 필수이므로 아침 일찍 방문하시거나 전날 저녁부터 금식 후 내원해주시기 바랍니다. 사전 예약 시 대기 시간 없이 보다 원활한 당일 임신중절수술 진행이 가능합니다.'
     },
     {
-      q: 'Q. 임신중절수술 후 임신에 영향이 있나요?',
-      a: '연세365산부인과는 자궁 내막 손상을 최소화하는 안전한 임신중절수술 방법을 사용합니다. 수술 후 적절한 회복 기간을 거치면 향후 임신 및 출산에 큰 영향을 미치지 않습니다. 다만, 수술 후 최소 3개월은 피임을 권장드리며, 자궁 회복을 위해 정기적인 검진을 받으시는 것이 좋습니다.'
+      q: 'Q. 임신중절수술 후 향후 임신에 영향이 있나요?',
+      a: '연세365산부인과는 자궁 내막 손상을 최소화하는 최신 수술 기법을 적용하여 안전한 임신중절수술을 시행하고 있습니다. 풍부한 임상 경험을 가진 산부인과 전문의가 직접 수술을 집도하며, 수술 후 적절한 회복 기간을 거치면 향후 임신과 출산에 큰 영향을 미치지 않습니다. 수술 후에는 최소 3개월간 피임을 권장드리며, 자궁의 완전한 회복 상태를 확인하기 위해 정기 검진을 받으시는 것이 좋습니다. 임신중절수술 후 재임신 계획이 있으시다면 담당 의료진과 충분히 상담해주세요.'
     },
     {
       q: 'Q. 미성년자도 낙태수술이 가능한가요?',
-      a: '만 19세 미만의 경우 법정대리인(부모님)의 동의가 필요합니다. 다만, 특별한 사유가 있는 경우 개별 상담을 통해 진행 가능 여부를 안내해 드립니다. 연세365산부인과는 모든 상담 내용을 철저히 비밀 보장하며, 프라이빗한 환경에서 상담이 이루어집니다.'
+      a: '만 19세 미만 미성년자의 경우, 법정대리인(부모님 또는 법적 보호자)의 동의서가 필요합니다. 다만, 성폭력 피해 등 특별한 사유가 있는 경우에는 개별 상담을 통해 진행 가능 여부를 안내해드립니다. 연세365산부인과는 모든 상담 내용과 진료 기록을 철저히 비밀 보장하며, 프라이빗한 독립 상담실에서 1:1 맞춤 상담을 진행하고 있습니다. 미성년자 환자분도 심리적 부담 없이 편안하게 상담받으실 수 있도록 세심하게 배려합니다.'
     },
     {
-      q: 'Q. 수술 기록이 남거나 타인에게 알려질까요?',
-      a: '의료법에 따라 환자의 진료 기록은 절대적으로 비밀이 보장되며, 본인 외에는 어떠한 경우에도 열람이 불가능합니다. 연세365산부인과는 프라이빗한 진료 환경에서 1:1 맞춤 상담을 진행하고 있어 안심하고 방문하실 수 있습니다.'
+      q: 'Q. 낙태수술 기록이 남거나 타인에게 알려질 수 있나요?',
+      a: '의료법에 따라 환자의 모든 진료 기록은 절대적으로 비밀이 보장됩니다. 낙태수술 기록은 본인의 동의 없이는 가족, 직장, 보험사 등 어떠한 제3자에게도 열람이 불가능합니다. 연세365산부인과는 독립된 프라이빗 진료 공간에서 1:1 상담과 수술을 진행하며, 접수부터 퇴원까지 타 환자와의 동선이 겹치지 않도록 철저히 관리합니다. 임신중절수술과 관련된 모든 과정에서 환자분의 프라이버시를 최우선으로 보호하오니, 안심하고 내원해주시기 바랍니다.'
     },
     {
       q: 'Q. 임신중절수술 방법은 어떻게 되나요?',
-      a: '임신 주수에 따라 적합한 수술 방법이 다릅니다. 임신 초기(7주 이내)에는 흡입소파술을, 그 이후에는 경관확장 후 소파술을 진행합니다. 연세365산부인과는 일회용 멸균 기구를 사용하며, 숙련된 산부인과 전문의가 안전하게 수술을 진행합니다.'
+      a: '임신중절수술 방법은 임신 주수에 따라 가장 안전한 방식이 달라집니다. 임신 초기(7주 이내)에는 흡입소파술을 주로 시행하며, 그 이후에는 경관확장 후 소파술을 진행합니다. 연세365산부인과는 모든 수술에 일회용 멸균 기구만을 사용하여 감염 위험을 원천 차단하고, 풍부한 임상 경험을 가진 산부인과 전문의가 자궁 내막 손상을 최소화하는 정밀한 수술을 직접 시행합니다. 수술 전 충분한 설명과 동의 과정을 거치며, 환자분의 건강 상태에 따라 최적의 낙태수술 방법을 제안해드립니다.'
     },
     {
       q: 'Q. 낙태수술 전 준비사항은 무엇인가요?',
-      a: '낙태수술 전 최소 6시간 이상 금식이 필요하며, 물도 마시지 않으셔야 합니다. 당일 보호자 동반을 권장하며, 편안한 옷차림으로 방문해 주세요. 약물 알레르기나 기저질환이 있는 경우 반드시 사전에 알려주셔야 하며, 생리대를 준비해 오시면 좋습니다.'
+      a: '낙태수술 전 가장 중요한 준비사항은 최소 6시간 이상의 금식입니다. 물을 포함한 모든 음식과 음료 섭취를 중단해야 하며, 이는 마취 과정에서의 안전을 위해 반드시 지켜야 합니다. 내원 시 편안한 옷차림을 권장드리며, 수술 후 귀가 시 보호자 동반을 추천합니다. 약물 알레르기나 고혈압·당뇨 등 기저질환이 있는 경우 반드시 사전에 담당 의료진에게 알려주셔야 합니다. 생리대를 준비해 오시면 좋으며, 사전 전화 또는 카카오톡 상담을 통해 임신중절수술 당일 절차를 미리 안내받으실 수 있습니다.'
     },
     {
-      q: 'Q. 수술 후 언제부터 성관계가 가능한가요?',
-      a: '임신중절수술 후 최소 2주간은 성관계를 피하셔야 합니다. 자궁 내막이 완전히 회복되지 않은 상태에서 성관계를 할 경우 감염 위험이 높아질 수 있습니다. 첫 월경 이후 정상적인 성생활이 가능하며, 수술 후에도 반드시 피임을 실천하시기 바랍니다.'
+      q: 'Q. 임신중절수술 후 언제부터 성관계가 가능한가요?',
+      a: '임신중절수술 후 최소 2주간은 성관계를 피하셔야 합니다. 자궁 내막이 완전히 회복되기 전 성관계를 하면 세균 감염 위험이 크게 높아지며, 자궁 회복에도 악영향을 줄 수 있습니다. 일반적으로 수술 후 첫 월경이 돌아온 이후(약 4~6주)부터 정상적인 성생활이 가능하며, 이후에도 반드시 피임을 실천하시기 바랍니다. 연세365산부인과에서는 낙태수술 후 경과 확인을 위한 후속 진료를 안내드리고 있으니, 회복 상태에 대해 궁금하신 점이 있으시면 언제든 연락해주세요.'
+    },
+    {
+      q: 'Q. 임신중절수술비용에 포함되는 항목은 무엇인가요?',
+      a: '연세365산부인과의 임신중절수술비용에는 수술비, 마취비, 수술 후 영양수액 처치비가 모두 포함되어 있습니다. 현금과 카드 가격이 동일하며, 상담 시 안내받은 중절수술가격 외에 추가 비용은 발생하지 않습니다. 선택 항목으로 유착방지제(5만원)가 있으며, 이는 수술 후 자궁 내 유착을 예방하여 향후 임신 가능성을 보호하는 데 도움이 됩니다. 낙태비용 부담을 최소화하기 위해 불필요한 검사나 추가 시술을 권하지 않으며, 환자분이 납득하신 범위 내에서만 진행합니다.'
+    },
+    {
+      q: 'Q. 임신 몇 주까지 낙태수술이 가능한가요?',
+      a: '임신중절수술은 임신 주수가 적을수록 수술이 간단하고 회복이 빠르며, 낙태비용가격 부담도 적습니다. 일반적으로 임신 14주 이내가 가장 안전한 시기이며, 모자보건법에 따라 14주 이내에는 본인의 결정으로 수술이 가능합니다. 임신 15주 이후에는 법적 허용 사유에 해당하는 경우에만 시행할 수 있으며, 수술 방법과 위험도가 달라집니다. 결정을 내리셨다면 가능한 한 빨리 내원하시는 것이 안전하며, 정확한 임신 주수는 초음파 검사를 통해서만 확인이 가능합니다.'
+    },
+    {
+      q: 'Q. 낙태수술 시 통증이 심한가요?',
+      a: '연세365산부인과에서는 수면마취(정맥마취) 하에 낙태수술을 진행하므로, 수술 중 통증을 거의 느끼지 않습니다. 수면마취는 전신마취와 달리 마취 깊이가 얕아 회복이 빠르며, 수술 후 30분~1시간 내에 의식이 완전히 회복됩니다. 수술 후에는 경미한 하복부 통증이 있을 수 있으나, 처방된 진통제로 충분히 관리 가능한 수준입니다. 풍부한 임상 경험을 가진 산부인과 전문의가 숙련된 기술로 수술 시간을 최소화하여 신체적 부담을 줄이고 있습니다.'
+    },
+    {
+      q: 'Q. 낙태와 임신중절의 차이점은 무엇인가요?',
+      a: '의학적으로 낙태와 임신중절은 동일한 의미를 가지며, 공식 의학 용어로는 "인공임신중절"이라고 합니다. 낙태는 일반적으로 널리 사용되는 표현이고, 임신중절은 의료 현장에서 사용하는 중립적이고 정확한 용어입니다. 연세365산부인과에서 시행하는 임신중절수술은 모자보건법에 따라 합법적으로 시행되며, 풍부한 임상 경험을 가진 산부인과 전문의가 최신 의료 장비를 활용하여 안전하게 수술을 진행합니다. 낙태수술의 방법, 낙태비용, 회복 과정 등에 대해 궁금하신 점은 1:1 상담을 통해 자세히 안내받으실 수 있습니다.'
+    },
+    {
+      q: 'Q. 임신중절수술 후 사후관리는 어떻게 이루어지나요?',
+      a: '연세365산부인과는 임신중절수술 후 체계적인 1:1 사후 케어 시스템을 운영하고 있습니다. 수술 직후 전용 회복실에서 활력 징후를 모니터링하며, 영양수액 처치를 통해 체력 회복을 돕습니다. 퇴원 시에는 회복 기간 동안의 주의사항과 복용 약물에 대해 상세히 안내드리며, 수술 후 이상 증상 발생 시 전화 상담이 가능합니다. 또한 수술 1~2주 후 경과 확인을 위한 후속 진료를 권장드리고 있어, 낙태수술 후에도 자궁이 완전히 회복될 때까지 지속적으로 관리해드립니다. 모든 사후 관리 과정에서도 철저한 비밀 보장이 이루어집니다.'
+    },
+    {
+      q: 'Q. 중절수술가격이 병원마다 다른 이유는 무엇인가요?',
+      a: '중절수술가격은 병원의 의료진 경력, 시설 수준, 마취 방법, 사용 기구(일회용 여부), 사후 관리 범위에 따라 차이가 날 수 있습니다. 극단적으로 저렴한 낙태비용가격을 내세우는 곳은 재사용 기구 사용, 사후 관리 부재, 비전문의 시술 등의 위험이 있을 수 있으므로 주의가 필요합니다. 연세365산부인과는 일회용 멸균 기구만 사용하고, 풍부한 임상 경험을 가진 산부인과 전문의가 직접 수술을 시행하며, 수술 후 1:1 사후 케어를 포함한 합리적인 임신중절수술비용을 제공합니다. 안전과 합리적 가격, 두 가지를 모두 갖춘 신뢰할 수 있는 병원을 선택하시기 바랍니다.'
     }
   ];
 
@@ -180,12 +204,16 @@ const Abortion: React.FC = () => {
           </h2>
           <p className="text-gray-600 text-sm md:text-lg leading-relaxed max-w-3xl mx-auto">
             <span className="md:hidden">
-              연세365산부인과는<br />여성의 건강과 안전을<br />최우선으로 생각합니다.
+              연세365산부인과는<br />여성의 건강과 안전을<br />최우선으로 생각합니다.<br />
+              <strong className="text-gray-700">안전한 낙태수술</strong>,<br />
+              합리적인 <strong className="text-gray-700">낙태비용</strong>,<br />
+              철저한 비밀 보장까지.
             </span>
             <span className="hidden md:inline">
               연세365산부인과는 여성의 건강과 안전을 최우선으로 생각합니다.<br />
-              숙련된 산부인과 전문의가 안전하고 세심한 낙태수술을 진행하며,<br />
-              합리적인 낙태비용과 철저한 사후 관리를 통해 빠른 회복을 돕고 있습니다.
+              풍부한 임상 경험을 가진 산부인과 전문의가 <strong>안전한 임신중절수술</strong>을 직접 시행하며,<br />
+              합리적인 <strong>낙태비용</strong>과 투명한 <strong>중절수술가격</strong> 안내, 철저한 비밀 보장과 1:1 사후 케어를 통해<br />
+              환자분의 신체적·심리적 부담을 최소화하고 빠른 회복을 돕고 있습니다.
             </span>
           </p>
         </div>
@@ -310,6 +338,7 @@ const Abortion: React.FC = () => {
 
               {/* ── Tab 1: 비용안내 ── */}
               {mobileTab === 1 && (
+                <>
                 <div className="bg-gradient-to-br from-pink-50 to-purple-50 rounded-2xl shadow-lg overflow-hidden border border-primary/10">
                   <div className="pt-8 pb-4 px-5 text-center">
                     <span className="inline-block bg-primary text-white text-[10px] font-bold tracking-widest px-4 py-1.5 rounded-full shadow-md mb-4 uppercase">
@@ -339,15 +368,21 @@ const Abortion: React.FC = () => {
                     <span className="flex items-center gap-1"><span className="text-primary font-bold">•</span>선택사항 : 유착방지제 5만원</span>
                   </div>
                 </div>
+                <div className="mt-4 p-4 bg-white/80 rounded-xl border border-primary/5">
+                  <p className="text-[11px] text-gray-600 leading-relaxed">
+                    <strong className="text-gray-700">낙태비용</strong>은 임신 주수에 따라 달라지며, 주수가 적을수록 <strong className="text-gray-700">임신중절수술비용</strong> 부담이 낮아집니다. 연세365산부인과는 초음파 검사 후 정확한 주수를 확인하여 추가 비용 없이 투명한 <strong className="text-gray-700">중절수술가격</strong>을 안내합니다. 풍부한 임상 경험을 가진 산부인과 전문의의 숙련된 수술과 합리적인 <strong className="text-gray-700">낙태비용가격</strong>으로 경제적·신체적 부담을 최소화합니다.
+                  </p>
+                </div>
+                </>
               )}
 
               {/* ── Tab 2: 수술안내 ── */}
               {mobileTab === 2 && (
                 <>
                   <div className="mb-10">
-                    <h3 className="text-lg font-bold text-center text-gray-800 mb-2">안전한 수술 절차</h3>
+                    <h3 className="text-lg font-bold text-center text-gray-800 mb-2">안전한 <strong>임신중절수술</strong> 절차</h3>
                     <p className="text-center text-gray-500 mb-6 text-[11px]">
-                      체계적인 프로세스로<br />안전을 지킵니다
+                      풍부한 임상 경험의<br />산부인과 전문의가 직접 시행
                     </p>
                     <div className="space-y-3">
                       {procedures.map((proc) => (
@@ -362,7 +397,7 @@ const Abortion: React.FC = () => {
                   </div>
 
                   <div>
-                    <h3 className="text-lg font-bold text-center text-gray-800 mb-2">수술 전후 주의사항</h3>
+                    <h3 className="text-lg font-bold text-center text-gray-800 mb-2"><strong>낙태수술</strong> 전후 주의사항</h3>
                     <p className="text-center text-gray-500 mb-6 text-[11px]">빠른 회복을 위해 꼭 지켜주세요</p>
                     <div className="space-y-3">
                       {afterCare.map((care) => (
@@ -374,6 +409,12 @@ const Abortion: React.FC = () => {
                         </div>
                       ))}
                     </div>
+                  </div>
+                  <div className="mt-6 p-4 bg-gradient-to-r from-primary/5 to-purple-50 rounded-xl border border-primary/10">
+                    <h4 className="font-bold text-sm text-gray-800 mb-2">🔒 철저한 비밀 보장 & 1:1 사후 케어</h4>
+                    <p className="text-[11px] text-gray-600 leading-relaxed">
+                      연세365산부인과는 <strong className="text-gray-700">낙태수술</strong> 후 전용 회복실에서 1:1 케어를 제공하며, 퇴원 후에도 전화 상담과 후속 진료를 통해 완전한 회복을 돕습니다. 접수부터 퇴원까지 모든 과정에서 <strong className="text-gray-700">철저한 비밀 보장</strong>이 이루어지며, 풍부한 임상 경험을 가진 산부인과 전문의가 <strong className="text-gray-700">임신중절수술</strong>을 직접 시행합니다.
+                    </p>
                   </div>
                 </>
               )}
@@ -420,10 +461,10 @@ const Abortion: React.FC = () => {
           <div className="mt-8 bg-gradient-to-br from-pink-50 to-purple-50 rounded-xl p-5 border border-primary/10">
             <div className="flex items-center gap-2 mb-3">
               <span className="text-xl">⚖️</span>
-              <h3 className="text-base font-bold text-gray-800">안전한 임신중절수술</h3>
+              <h3 className="text-base font-bold text-gray-800">안전한 <strong>임신중절수술</strong> 안내</h3>
             </div>
             <p className="text-[11px] text-gray-600 leading-relaxed mb-3">
-              2021년 1월부터 모자보건법 개정에 따라 임신 14주 이내의 낙태수술은 본인의 결정으로 가능합니다.
+              2021년 1월부터 모자보건법 개정에 따라 임신 14주 이내의 <strong>낙태수술</strong>은 본인의 결정으로 가능합니다. 연세365산부인과는 의료법을 준수하며 풍부한 임상 경험을 가진 산부인과 전문의가 안전하게 <strong>임신중절</strong> 수술을 시행합니다.
             </p>
             <div className="bg-white/80 rounded-lg p-3">
               <h4 className="font-bold text-primary text-[11px] mb-2">[모자보건법 제14조]</h4>
@@ -439,8 +480,8 @@ const Abortion: React.FC = () => {
 
           {/* 진료 예약 — 모바일 콤팩트 (간편예약 버튼 하나로 통합) */}
           <div className="mt-6 bg-gradient-to-br from-primary/5 to-purple-50 rounded-xl p-5 border border-primary/10">
-            <h3 className="text-base font-bold text-center text-gray-800 mb-2">진료 예약 및 상담</h3>
-            <p className="text-center text-gray-500 text-[11px] mb-4">사전 예약제로 운영됩니다</p>
+            <h3 className="text-base font-bold text-center text-gray-800 mb-2"><strong>임신중절수술</strong> 예약 및 상담</h3>
+            <p className="text-center text-gray-500 text-[11px] mb-4">사전 예약제 · 모든 상담 내용 철저히 비밀 보장</p>
             <button
               onClick={() => window.dispatchEvent(new Event('open-consult-modal'))}
               className="w-full inline-flex items-center justify-center gap-1.5 h-[40px] bg-white/50 hover:bg-white/70 backdrop-blur-sm text-primary font-bold text-xs rounded-full border-2 border-primary/30 shadow-sm active:scale-95 transition-all mb-4"
@@ -454,9 +495,10 @@ const Abortion: React.FC = () => {
               <p className="font-bold text-primary text-[10px] mb-2">💡 상담 시 안내사항</p>
               <ul className="space-y-1 text-[10px] text-gray-600">
                 <li>• 마지막 생리 시작일을 알려주세요</li>
-                <li>• 모든 상담 내용은 비밀 보장됩니다</li>
-                <li>• 비용은 상담 시 정확히 안내드립니다</li>
-                <li>• 당일 수술 시 금식이 필요합니다</li>
+                <li>• 모든 상담 내용은 철저히 비밀 보장됩니다</li>
+                <li>• <strong>낙태비용</strong>은 주수 확인 후 정확히 안내드립니다</li>
+                <li>• 당일 <strong>낙태수술</strong> 시 6시간 금식 필요</li>
+                <li>• 풍부한 임상 경험의 산부인과 전문의 직접 상담</li>
               </ul>
             </div>
           </div>
@@ -502,11 +544,12 @@ const Abortion: React.FC = () => {
                   <span className="text-3xl">⚖️</span>
                 </div>
               </div>
-              <h3 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">안전한 임신중절수술</h3>
+              <h3 className="text-2xl md:text-3xl font-bold text-gray-800 mb-4">안전한 <strong>임신중절수술</strong> 안내</h3>
               <p className="text-gray-700 leading-relaxed mb-8 max-w-3xl mx-auto">
-                2021년 1월부터 모자보건법 개정에 따라 임신 14주 이내의 낙태수술은 본인의 결정으로 가능하며,<br />
+                2021년 1월부터 모자보건법 개정에 따라 임신 14주 이내의 <strong>낙태수술</strong>은 본인의 결정으로 가능하며,<br />
                 임신 15주~24주의 경우 아래 사유에 해당될 시 진행할 수 있습니다.<br />
-                연세365산부인과는 의료법을 준수하며 투명한 낙태비용 가격으로 안전하게 진료하고 있습니다.
+                연세365산부인과는 의료법을 철저히 준수하며, 풍부한 임상 경험을 가진 산부인과 전문의가<br />
+                투명한 <strong>낙태비용가격</strong> 안내와 함께 안전하고 세심한 <strong>임신중절</strong> 진료를 시행하고 있습니다.
               </p>
               
               <div className="bg-white/80 rounded-xl p-6 backdrop-blur-sm max-w-3xl mx-auto text-left">
@@ -539,8 +582,8 @@ const Abortion: React.FC = () => {
 
           {/* 임신초기증상 */}
           <div className="max-w-6xl mx-auto mb-16">
-            <h3 className="text-2xl md:text-3xl font-bold text-center text-gray-800 mb-4">임신 초기 증상</h3>
-            <p className="text-center text-gray-600 mb-12 text-sm">다음과 같은 증상이 있다면 임신 가능성을 확인해보세요</p>
+            <h3 className="text-2xl md:text-3xl font-bold text-center text-gray-800 mb-4"><strong>임신</strong> 초기 증상 체크리스트</h3>
+            <p className="text-center text-gray-600 mb-12 text-sm">다음과 같은 증상이 있다면 임신 가능성을 확인해보세요. 빠른 확인이 안전한 <strong>임신중절</strong> 결정에 중요합니다.</p>
             <div className="grid grid-cols-4 gap-8">
               {symptoms.map((symptom, idx) => (
                 <motion.div
@@ -563,7 +606,8 @@ const Abortion: React.FC = () => {
 
           {/* 임신 확인 방법 */}
           <div className="max-w-6xl mx-auto mb-16">
-            <h3 className="text-2xl md:text-3xl font-bold text-center text-gray-800 mb-12">임신 확인 방법</h3>
+            <h3 className="text-2xl md:text-3xl font-bold text-center text-gray-800 mb-4">임신 확인 방법</h3>
+            <p className="text-center text-gray-600 mb-12 text-sm">정확한 임신 주수 확인은 안전한 <strong>임신중절수술</strong>과 합리적인 <strong>낙태비용</strong> 산정의 첫 단계입니다</p>
             
             <div className="grid grid-cols-3 gap-6 mb-12">
               {diagnosisMethods.map((method, idx) => (
@@ -602,7 +646,7 @@ const Abortion: React.FC = () => {
               ))}
             </div>
             <p className="text-center text-gray-500 text-sm mt-6">
-              ※ 당일 낙태수술 가능 여부는 검사 결과에 따라 달라질 수 있으며, 낙태비용은 상담 시 안내드립니다
+              ※ 당일 <strong>낙태수술</strong> 가능 여부는 검사 결과에 따라 달라질 수 있으며, <strong>낙태비용</strong>은 1:1 상담 시 투명하게 안내드립니다
             </p>
           </div>
 
@@ -652,12 +696,31 @@ const Abortion: React.FC = () => {
                 </span>
               </div>
             </div>
+            {/* 비용 상세 안내 */}
+            <div className="mt-8 bg-white rounded-xl p-6 md:p-8 border border-primary/10 shadow-sm">
+              <h4 className="font-bold text-lg text-gray-800 mb-4 text-center">💡 <strong>임신중절수술비용</strong> 결정 요인 안내</h4>
+              <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
+                <p>
+                  <strong className="text-gray-800">낙태비용</strong>은 임신 주수가 가장 큰 결정 요인입니다. 임신 초기에는 태아의 크기가 작아 수술 시간이 짧고 시술이 비교적 간단하므로 <strong>중절수술가격</strong> 부담이 낮지만, 주수가 증가할수록 수술 난이도와 마취 시간이 늘어나 <strong>낙태비용가격</strong>이 높아지게 됩니다.
+                </p>
+                <p>
+                  연세365산부인과는 <strong className="text-gray-800">합리적인 임신중절수술비용</strong>을 통해 환자분의 경제적 부담을 최소화하는 데 최선을 다하고 있습니다. 불필요한 추가 검사나 시술을 권하지 않으며, 상담 시 안내받은 <strong>낙태비용</strong> 외에 숨겨진 비용은 일절 없습니다. 현금과 카드 가격이 동일하며, 풍부한 임상 경험을 가진 산부인과 전문의가 직접 수술을 시행합니다.
+                </p>
+                <p className="text-primary font-semibold text-xs">
+                  ※ 정확한 <strong>낙태비용가격</strong>은 초음파 검사를 통해 임신 주수를 확인한 후 1:1 상담에서 안내드립니다.
+                </p>
+              </div>
+            </div>
           </div>
 
           {/* 안전한 수술 진행 절차 */}
           <div id="ab-procedure" className="max-w-5xl mx-auto mb-16 scroll-mt-20">
-            <h3 className="text-2xl md:text-3xl font-bold text-center text-gray-800 mb-4">안전한 임신중절 수술 절차</h3>
-            <p className="text-center text-gray-600 mb-12 text-sm">연세365산부인과는 체계적인 낙태수술 프로세스로 안전을 지킵니다</p>
+            <h3 className="text-2xl md:text-3xl font-bold text-center text-gray-800 mb-4">안전한 <strong>임신중절수술</strong> 절차</h3>
+            <p className="text-center text-gray-600 mb-6 text-sm">연세365산부인과는 체계적인 <strong>낙태수술</strong> 프로세스로 환자 안전을 최우선으로 지킵니다</p>
+            <p className="text-center text-gray-500 mb-12 text-sm max-w-3xl mx-auto leading-relaxed">
+              풍부한 임상 경험을 가진 산부인과 전문의가 모든 <strong>임신중절수술</strong>을 직접 집도하며,<br />
+              일회용 멸균 기구만을 사용한 무균 환경과 정밀한 수술 기법으로 자궁 내막 손상을 최소화합니다.
+            </p>
             <div className="space-y-4">
               {procedures.map((proc, idx) => (
                 <motion.div
@@ -679,8 +742,13 @@ const Abortion: React.FC = () => {
 
           {/* 수술 후 주의사항 */}
           <div className="max-w-6xl mx-auto mb-16">
-            <h3 className="text-2xl md:text-3xl font-bold text-center text-gray-800 mb-4">수술 전후 주의사항</h3>
-            <p className="text-center text-gray-600 mb-12 text-sm">빠른 회복을 위해 아래 사항을 꼭 지켜주세요</p>
+            <h3 className="text-2xl md:text-3xl font-bold text-center text-gray-800 mb-4"><strong>낙태수술</strong> 전후 주의사항</h3>
+            <p className="text-center text-gray-600 mb-6 text-sm">빠른 회복을 위해 아래 사항을 꼭 지켜주세요</p>
+            <p className="text-center text-gray-500 mb-12 text-sm max-w-3xl mx-auto leading-relaxed">
+              연세365산부인과는 <strong>임신중절수술</strong> 후 체계적인 <strong>1:1 사후 케어 시스템</strong>을 운영합니다.<br />
+              수술 직후 전용 회복실에서 활력 징후를 모니터링하고, 퇴원 후에도 전화 상담과 후속 진료를 통해<br />
+              자궁이 완전히 회복될 때까지 지속적으로 관리합니다. 모든 과정에서 <strong>철저한 비밀 보장</strong>이 이루어집니다.
+            </p>
             <div className="grid grid-cols-5 gap-8">
               {afterCare.map((care, idx) => (
                 <motion.div
@@ -702,8 +770,8 @@ const Abortion: React.FC = () => {
 
           {/* 자주 묻는 질문 */}
           <div id="ab-faq" className="max-w-4xl mx-auto mb-16 scroll-mt-20">
-            <h3 className="text-2xl md:text-3xl font-bold text-center text-gray-800 mb-4">자주 묻는 질문</h3>
-            <p className="text-center text-gray-600 mb-12 text-sm">낙태비용, 낙태수술 절차 등 궁금하신 내용을 확인하세요</p>
+            <h3 className="text-2xl md:text-3xl font-bold text-center text-gray-800 mb-4"><strong>낙태수술</strong>·<strong>낙태비용</strong> 자주 묻는 질문</h3>
+            <p className="text-center text-gray-600 mb-12 text-sm"><strong>임신중절수술비용</strong>, <strong>중절수술가격</strong>, 수술 방법, 회복 과정 등 환자분들이 가장 궁금해하시는 질문을 모았습니다</p>
             <div className="space-y-4">
               {faqs.map((faq, idx) => (
                 <div
@@ -730,10 +798,11 @@ const Abortion: React.FC = () => {
           {/* 진료 예약 안내 */}
           <div className="max-w-5xl mx-auto">
             <div className="bg-gradient-to-br from-primary/5 to-purple-50 rounded-2xl p-8 md:p-12 border border-primary/10">
-              <h3 className="text-2xl md:text-3xl font-bold text-center text-gray-800 mb-4">진료 예약 및 상담</h3>
+              <h3 className="text-2xl md:text-3xl font-bold text-center text-gray-800 mb-4"><strong>임신중절수술</strong> 진료 예약 및 상담</h3>
               <p className="text-center text-gray-600 mb-8">
-                임신중절수술 및 낙태비용 상담은 사전 예약제로 운영됩니다.<br />
-                프라이빗한 1:1 상담을 원하시는 분은 아래 방법으로 예약해주세요.
+                <strong>임신중절수술</strong> 및 <strong>낙태비용</strong> 상담은 사전 예약제로 운영됩니다.<br />
+                풍부한 임상 경험을 가진 산부인과 전문의와의 프라이빗한 1:1 상담을 원하시는 분은 아래 방법으로 예약해주세요.<br />
+                모든 상담 내용과 진료 기록은 철저히 비밀 보장됩니다.
               </p>
               
               <div className="grid grid-cols-2 gap-6 mb-8">
@@ -762,15 +831,19 @@ const Abortion: React.FC = () => {
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-primary">•</span>
-                    <span>모든 상담 내용은 철저히 비밀이 보장됩니다</span>
+                    <span>모든 상담 내용과 <strong>낙태수술</strong> 기록은 철저히 비밀이 보장됩니다</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-primary">•</span>
-                    <span>낙태비용 가격은 임신 주수와 수술 방법에 따라 상이하며, 상담 시 정확히 안내드립니다</span>
+                    <span><strong>낙태비용가격</strong>은 임신 주수와 수술 방법에 따라 상이하며, 추가 비용 없이 상담 시 정확히 안내드립니다</span>
                   </li>
                   <li className="flex items-start gap-2">
                     <span className="text-primary">•</span>
-                    <span>당일 낙태수술 진행 시 금식이 필요하므로 사전 안내를 꼭 확인해주세요</span>
+                    <span>당일 <strong>임신중절수술</strong> 진행 시 최소 6시간 금식이 필요하므로 사전 안내를 꼭 확인해주세요</span>
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <span className="text-primary">•</span>
+                    <span>풍부한 임상 경험을 가진 산부인과 전문의가 직접 1:1 상담과 수술을 진행합니다</span>
                   </li>
                 </ul>
               </div>
