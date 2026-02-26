@@ -4,7 +4,7 @@ import { Phone, MapPin, MessageCircle, Send } from 'lucide-react';
 
 const Booking: React.FC = () => {
   const [mobileTab, setMobileTab] = useState(0);
-  const tabLabels = ['산부인과', '피부과', '오시는길'];
+  const tabLabels = ['산부인과', '오시는길'];
 
   return (
     <section id="location" className="relative py-20 md:py-32 pb-28 md:pb-32 bg-background z-10">
@@ -60,23 +60,22 @@ const Booking: React.FC = () => {
               {mobileTab === 0 && (
                 <div className="bg-white rounded-2xl shadow-md p-6 border border-primary/10">
                   <h3 className="text-xl font-bold text-primary mb-5 text-center">산부인과</h3>
-                  <ul className="space-y-3 text-gray-700 text-sm">
-                    <li className="flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0" />
-                      <strong className="w-20 flex-shrink-0">평일</strong>
-                      <span>AM 08:00 ~ PM 09:00</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0" />
-                      <strong className="w-20 flex-shrink-0">토요일</strong>
-                      <span>AM 09:00 ~ PM 06:00</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0" />
-                      <strong className="w-20 flex-shrink-0">일/공휴일</strong>
-                      <span>AM 10:00 ~ PM 02:00</span>
-                    </li>
-                  </ul>
+                  <table className="w-full text-sm border-collapse overflow-hidden rounded-xl">
+                    <tbody>
+                      <tr>
+                        <td className="bg-primary/10 text-gray-800 font-bold py-3 px-4 border-b border-white/60 w-28">월 - 금</td>
+                        <td className="bg-white text-gray-700 py-3 px-4 border-b border-primary/5">오전 09:00 - 오후 18:00</td>
+                      </tr>
+                      <tr>
+                        <td className="bg-primary/10 text-gray-800 font-bold py-3 px-4 border-b border-white/60">토요일</td>
+                        <td className="bg-white text-gray-700 py-3 px-4 border-b border-primary/5">오전 09:00 - 오후 18:00</td>
+                      </tr>
+                      <tr>
+                        <td className="bg-primary/10 text-gray-800 font-bold py-3 px-4">일·공휴일</td>
+                        <td className="bg-white text-gray-700 py-3 px-4">오전 10:00 - 오후 14:00</td>
+                      </tr>
+                    </tbody>
+                  </table>
                   <p className="mt-5 text-primary font-bold text-center text-sm">
                     연중무휴 365일 일요일 수술가능
                   </p>
@@ -89,41 +88,8 @@ const Booking: React.FC = () => {
                 </div>
               )}
 
-              {/* ── Tab 1: 피부과 ── */}
+              {/* ── Tab 1: 오시는길 ── */}
               {mobileTab === 1 && (
-                <div className="bg-white rounded-2xl shadow-md p-6 border border-primary/10">
-                  <h3 className="text-xl font-bold text-primary mb-5 text-center">진료과목 피부과</h3>
-                  <ul className="space-y-3 text-gray-700 text-sm">
-                    <li className="flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0" />
-                      <strong className="w-20 flex-shrink-0">월, 수</strong>
-                      <span>AM 10:00 ~ PM 09:00</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0" />
-                      <strong className="w-20 flex-shrink-0">화,목,금</strong>
-                      <span>AM 10:00 ~ PM 07:00</span>
-                    </li>
-                    <li className="flex items-center gap-2">
-                      <span className="w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0" />
-                      <strong className="w-20 flex-shrink-0">토요일</strong>
-                      <span>AM 10:00 ~ PM 04:00</span>
-                    </li>
-                  </ul>
-                  <p className="mt-5 text-primary font-bold text-right text-xs">
-                    ※공휴일 휴진
-                  </p>
-                  <div className="mt-5 pt-5 border-t border-primary/10 text-center">
-                    <p className="text-xs text-gray-500 flex items-center justify-center gap-1">
-                      <MapPin size={12} className="text-primary flex-shrink-0" />
-                      서울시 관악구 과천대로 939, 3층
-                    </p>
-                  </div>
-                </div>
-              )}
-
-              {/* ── Tab 2: 오시는길 ── */}
-              {mobileTab === 2 && (
                 <div className="space-y-4">
                   {/* 지도 + 오버레이 버튼 */}
                   <div className="relative rounded-2xl overflow-hidden shadow-md">
@@ -176,22 +142,22 @@ const Booking: React.FC = () => {
                     <li className="flex items-start gap-2">
                       <span className="mt-1.5 w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></span>
                       <span>
-                        <strong className="inline-block w-28">평 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;일</strong>
-                        <span className="text-gray-500">:</span>&nbsp; AM 08:00 ~ PM 09:00
+                        <strong className="inline-block w-28">월 - 금</strong>
+                        <span className="text-gray-500">:</span>&nbsp; 오전 09:00 - 오후 18:00
                       </span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="mt-1.5 w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></span>
                       <span>
-                        <strong className="inline-block w-28">토 요 일 진 료</strong>
-                        <span className="text-gray-500">:</span>&nbsp; AM 09:00 ~ PM 06:00
+                        <strong className="inline-block w-28">토요일</strong>
+                        <span className="text-gray-500">:</span>&nbsp; 오전 09:00 - 오후 18:00
                       </span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="mt-1.5 w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></span>
                       <span>
-                        <strong className="inline-block w-28">일요일, 공휴일</strong>
-                        <span className="text-gray-500">:</span>&nbsp; AM 10:00 ~ PM 02:00
+                        <strong className="inline-block w-28">일·공휴일</strong>
+                        <span className="text-gray-500">:</span>&nbsp; 오전 10:00 - 오후 14:00
                       </span>
                     </li>
                   </ul>
@@ -199,39 +165,6 @@ const Booking: React.FC = () => {
                     연중무휴 365일 일요일 수술가능
                   </p>
                 </div>
-              </div>
-
-              <div className="mx-8 border-t border-gray-200"></div>
-
-              {/* 피부과 시간표 */}
-              <div className="p-8 pt-6">
-                <h3 className="text-2xl font-bold text-primary mb-2">진료과목 피부과</h3>
-                <ul className="space-y-3 text-gray-700 mt-4">
-                  <li className="flex items-start gap-2">
-                    <span className="mt-1.5 w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></span>
-                    <span>
-                      <strong className="inline-block w-28">월요일, 수요일</strong>
-                      <span className="text-gray-500">:</span>&nbsp; AM 10:00 ~ PM 09:00
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="mt-1.5 w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></span>
-                    <span>
-                      <strong className="inline-block w-28">화,목,금요일</strong>
-                      <span className="text-gray-500">:</span>&nbsp; AM 10:00 ~ PM 07:00
-                    </span>
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <span className="mt-1.5 w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></span>
-                    <span>
-                      <strong className="inline-block w-28">토 요 일 진 료</strong>
-                      <span className="text-gray-500">:</span>&nbsp; AM 10:00 ~ PM 04:00
-                    </span>
-                  </li>
-                </ul>
-                <p className="mt-4 text-primary font-bold text-right text-sm">
-                  ※공휴일 휴진
-                </p>
               </div>
 
               {/* 하단 버튼 3개 */}
