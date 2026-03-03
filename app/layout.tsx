@@ -12,20 +12,21 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    type: 'website',
     title: '연세365산부인과 | 임신중절수술·낙태비용 안내',
     description:
-      '안전한 임신중절수술, 합리적인 낙태비용, 투명한 중절수술가격 안내. 사당역 산부인과 전문의 직접 시행. 당일수술, 1:1 비밀상담.',
+      '안전한 임신중절수술, 합리적인 낙태비용, 투명한 중절수술가격 안내. 사당역 4번출구.',
+    url: 'https://yeonsei365.vercel.app',
+    siteName: '연세365산부인과',
     images: [
       {
-        url: 'https://i.imgur.com/ad3Idtb.png',
+        url: 'https://yeonsei365.vercel.app/og-image.jpg',
         width: 1200,
         height: 630,
+        alt: '연세365산부인과 임신중절수술 안내',
       },
     ],
-    url: 'https://yeonsei365.vercel.app/',
-    siteName: '연세365산부인과',
     locale: 'ko_KR',
+    type: 'website',
   },
   alternates: {
     canonical: 'https://yeonsei365.vercel.app/',
