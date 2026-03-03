@@ -1,6 +1,12 @@
 {
   "/_not-found/page": "app/_not-found/page.js",
   "/page": "app/page.js",
+  "/abortion/info/page": "app/abortion/info/page.js",
+  "/abortion/cost/page": "app/abortion/cost/page.js",
+  "/abortion/hospital/page": "app/abortion/hospital/page.js",
+  "/abortion/legal/page": "app/abortion/legal/page.js",
   "/abortion/page": "app/abortion/page.js",
-  "/abortion/cost/page": "app/abortion/cost/page.js"
+  "/abortion/method/page": "app/abortion/method/page.js",
+  "/abortion/review/page": "app/abortion/review/page.js",
+  "/abortion/recovery/page": "app/abortion/recovery/page.js"
 }
