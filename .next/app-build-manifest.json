@@ -33,6 +33,15 @@
       "static/chunks/301-61cbc87885514b57.js",
       "static/chunks/841-0e544a89660c4337.js",
       "static/chunks/app/abortion/page-e498d1581000ad9f.js"
+    ],
+    "/abortion/cost/page": [
+      "static/chunks/webpack-cc34112d2339d600.js",
+      "static/chunks/fd9d1056-6922f449a204c2cc.js",
+      "static/chunks/117-c86a41b869f6b521.js",
+      "static/chunks/main-app-6ef1a67282eb7b0f.js",
+      "static/chunks/301-61cbc87885514b57.js",
+      "static/chunks/841-0e544a89660c4337.js",
+      "static/chunks/app/abortion/cost/page-a2c3a427d4cd1620.js"
     ]
   }
 }
