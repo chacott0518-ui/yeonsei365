@@ -10,6 +10,8 @@ import FAQ from './components/FAQ';
 import Consultation from './components/Booking';
 import Footer from './components/Footer';
 import ConsultModal from './components/ConsultModal';
+import PricePopup from './components/PricePopup';
+
 import { Phone, MapPin, MessageCircle } from 'lucide-react';
 
 function App() {
@@ -30,6 +32,8 @@ function App() {
       </main>
       <Footer />
       <ConsultModal />
+      <PricePopup />
+    
 
       {/* 모바일 하단 고정 플로팅 바 — 3단 레이아웃 */}
       <div className="fixed bottom-0 left-0 right-0 h-14 bg-primary border-t border-white/20 z-50 md:hidden flex items-center shadow-[0_-4px_10px_rgba(214,51,108,0.2)]">
