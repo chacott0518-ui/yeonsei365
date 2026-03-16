@@ -8,6 +8,7 @@ export const NAV_LINKS: NavItem[] = [
   { id: 'review', label: '수술후기' },
   { id: 'faq', label: 'FAQ' },
   { id: 'location', label: 'CONTACT' },
+  { id: 'blog', label: '공지사항', href: '/blog' },
 ];
 
 export const DOCTORS = [

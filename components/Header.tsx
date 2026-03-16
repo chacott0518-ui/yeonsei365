@@ -162,27 +162,41 @@ const Header: React.FC = () => {
           </div>
 
           <nav className="hidden lg:flex items-center gap-8">
-            {NAV_LINKS.map((link) => (
-              <button
-                key={link.id}
-                onClick={() => scrollToSection(link.id)}
-                className={`relative text-sm font-medium transition-colors duration-300 ${
-                  activeSection === link.id 
-                    ? (isScrolled ? 'text-primary font-bold' : 'text-white font-bold') 
-                    : (isScrolled ? 'text-gray-600 hover:text-primary' : 'text-white/80 hover:text-white')
-                }`}
-                style={!isScrolled ? { textShadow: '0 1px 3px rgba(0, 0, 0, 0.3)' } : undefined}
-              >
-                {link.label}
-                {activeSection === link.id && (
-                  <motion.div
-                    layoutId="activeGlow"
-                    className={`absolute -bottom-2 left-0 right-0 h-[2px] ${isScrolled ? 'bg-primary' : 'bg-white'}`}
-                    transition={{ type: "spring", stiffness: 300, damping: 20 }}
-                  />
-                )}
-              </button>
-            ))}
+          {NAV_LINKS.map((link) => (
+  link.href ? (
+    
+    <a
+    key={link.id}
+      href={link.href}
+      className={`relative text-sm font-medium transition-colors duration-300 ${
+        isScrolled ? 'text-gray-600 hover:text-primary' : 'text-white/80 hover:text-white'
+      }`}
+      style={!isScrolled ? { textShadow: '0 1px 3px rgba(0,0,0,0.3)' } : undefined}
+    >
+      {link.label}
+    </a>
+  ) : (
+    <button
+      key={link.id}
+      onClick={() => scrollToSection(link.id)}
+      className={`relative text-sm font-medium transition-colors duration-300 ${
+        activeSection === link.id
+          ? (isScrolled ? 'text-primary font-bold' : 'text-white font-bold')
+          : (isScrolled ? 'text-gray-600 hover:text-primary' : 'text-white/80 hover:text-white')
+      }`}
+      style={!isScrolled ? { textShadow: '0 1px 3px rgba(0,0,0,0.3)' } : undefined}
+    >
+      {link.label}
+      {activeSection === link.id && (
+        <motion.div
+          layoutId="activeGlow"
+          className={`absolute -bottom-2 left-0 right-0 h-[2px] ${isScrolled ? 'bg-primary' : 'bg-white'}`}
+          transition={{ type: "spring", stiffness: 300, damping: 20 }}
+        />
+      )}
+    </button>
+  )
+))}
           </nav>
 
           <button 
@@ -223,15 +237,26 @@ const Header: React.FC = () => {
               </div>
               
               <div className="flex flex-col px-6 py-4 overflow-y-auto flex-grow space-y-1">
-                 {NAV_LINKS.map((link) => (
-                   <button
-                     key={link.id}
-                     onClick={() => scrollToSection(link.id)}
-                     className="text-left text-sm font-medium text-gray-600 hover:text-primary hover:bg-surface transition-all py-3 px-2 rounded-lg"
-                   >
-                     {link.label}
-                   </button>
-                 ))}
+              {NAV_LINKS.map((link) => (
+  link.href ? (
+    
+    <a
+    key={link.id}
+      href={link.href}
+      className="text-left text-sm font-medium text-gray-600 hover:text-primary hover:bg-surface transition-all py-3 px-2 rounded-lg block"
+    >
+      {link.label}
+    </a>
+  ) : (
+    <button
+      key={link.id}
+      onClick={() => scrollToSection(link.id)}
+      className="text-left text-sm font-medium text-gray-600 hover:text-primary hover:bg-surface transition-all py-3 px-2 rounded-lg"
+    >
+      {link.label}
+    </button>
+  )
+))}
               </div>
               
               <div className="p-6 bg-primary/5 border-t border-primary/10 mt-auto">
