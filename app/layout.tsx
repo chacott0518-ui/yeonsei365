@@ -20,7 +20,7 @@ export const metadata: Metadata = {
     siteName: '연세365산부인과',
     images: [
       {
-        url: 'https://yeonsei365.vercel.app/og-image.jpg',
+        url: 'https://yeonsei365.vercel.app/og',
         width: 1200,
         height: 630,
         alt: '연세365산부인과 임신중절수술 안내',
