@@ -22,6 +22,13 @@ export default function BlogPage() {
         date: '2026.03.16',
         tag: '비용안내',
       },
+      {
+        slug: 'abortion-legal',
+        title: '낙태수술 합법화 뜻 시기와 비용 | 임신초기중절수술 병원',
+        desc: '낙태수술 합법화 뜻과 시기, 합법적 조건 4가지, 임신초기중절수술 비용까지 완벽 정리.',
+        date: '2026.03.17',
+        tag: '합법화안내',
+      },
   ]
   return (
     <>
