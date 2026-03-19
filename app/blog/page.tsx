@@ -2,8 +2,14 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: '공지사항 | 연세365산부인과',
+  title: '낙태 비용 가격 안내 | 연세365산부인과',
   description: '임신중절수술, 낙태비용, 여성건강 관련 정보를 전문의가 직접 안내합니다.',
+  openGraph: {
+    title: '낙태 비용 가격 안내 | 연세365산부인과',
+    description: '임신중절수술 비용, 낙태비용 가격을 전문의가 직접 안내합니다.',
+    url: 'https://yeonsei365.vercel.app/blog',
+    images: [{ url: 'https://yeonsei365.vercel.app/og', width: 1200, height: 630 }],
+  },
 }
 
 export default function BlogPage() {

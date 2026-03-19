@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: '낙태 비용 가격 총정리 2026 | 연세365산부인과',
     description: '낙태 비용 가격 주수별 투명 공개. 8주 미만 45만원. 사당역 4번출구.',
     url: 'https://yeonsei365.vercel.app/blog/abortion-price',
-    images: [{ url: 'https://yeonsei365.vercel.app/og-image.jpg' }],
+    images: [{ url: 'https://yeonsei365.vercel.app/og', width: 1200, height: 630 }],
   },
   alternates: {
     canonical: 'https://yeonsei365.vercel.app/blog/abortion-price',

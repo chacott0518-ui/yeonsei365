@@ -15,7 +15,7 @@ export const metadata: Metadata = {
     title: '임신중절수술 비용 완벽 정리 2026 | 연세365산부인과',
     description: '주수별 임신중절수술 비용 투명 공개. 8주 미만 45만원. 사당역 4번출구.',
     url: 'https://yeonsei365.vercel.app/blog/abortion-cost',
-    images: [{ url: 'https://yeonsei365.vercel.app/og-image.jpg' }],
+    images: [{ url: 'https://yeonsei365.vercel.app/og', width: 1200, height: 630 }],
   },
   alternates: {
     canonical: 'https://yeonsei365.vercel.app/blog/abortion-cost',
