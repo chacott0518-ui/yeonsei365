@@ -24,4 +24,27 @@
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
+  <url>
+    <loc>https://yeonsei365.vercel.app/blog/abortion-legal</loc>
+    <lastmod>2026-03-17</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
 </urlset>
+```
+
+---
+
+## 저장 후 순서
+
+**1.** 저장 → git push 배포
+
+**2.** 구글 서치콘솔 → Sitemaps → `sitemap.xml` 다시 제출
+
+**3.** URL 검사에서 아래 5개 색인 생성 요청:
+```
+https://yeonsei365.vercel.app/
+https://yeonsei365.vercel.app/blog
+https://yeonsei365.vercel.app/blog/abortion-cost
+https://yeonsei365.vercel.app/blog/abortion-price
+https://yeonsei365.vercel.app/blog/abortion-legal
