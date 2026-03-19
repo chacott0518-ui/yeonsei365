@@ -3,12 +3,12 @@ import { NavItem, Doctor, ClinicItem, PriceItem, ReviewItem, FAQItem, EquipmentI
 export const NAV_LINKS: NavItem[] = [
   { id: 'about', label: '병원소개' },
   { id: 'doctors', label: '의료진' },
-  { id: 'clinics', label: '여성검진클리닉' },        // ← center로 바꿔야 함!
-  { id: 'abortion-clinic', label: '임신중절클리닉' }, // ← 수정!
-  { id: 'review', label: '수술후기' },
+  { id: 'clinics', label: '여성검진클리닉' },
+  { id: 'abortion-clinic', label: '임신중절클리닉' },
+  { id: 'review', label: '수술후기·사례' },
   { id: 'faq', label: 'FAQ' },
-  { id: 'location', label: 'CONTACT' },
-  { id: 'blog', label: '공지사항', href: '/blog' },
+  { id: 'location', label: '상담예약' },
+  { id: 'blog', label: '낙태 비용 가격', href: '/blog' },
 ];
 
 export const DOCTORS = [

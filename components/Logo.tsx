@@ -1,3 +1,4 @@
+'use client'
 import React from 'react';
 
 // Replicating the "Yonsei 365" logo style with text/svg combination

@@ -1,18 +1,42 @@
-'use client';
+import type { Metadata } from 'next'
+import Header from '../components/Header'
+import Hero from '../components/Hero'
+import About from '../components/About'
+import Doctors from '../components/Doctors'
+import Center from '../components/Center'
+import Abortion from '../components/Abortion'
+import Review from '../components/Review'
+import FAQ from '../components/FAQ'
+import Consultation from '../components/Booking'
+import Footer from '../components/Footer'
+import ConsultModal from '../components/ConsultModal'
+import FloatingBar from '../components/FloatingBar'
 
-import React from 'react';
-import Header from '../components/Header';
-import Hero from '../components/Hero';
-import About from '../components/About';
-import Doctors from '../components/Doctors';
-import Center from '../components/Center';
-import Abortion from '../components/Abortion';
-import Review from '../components/Review';
-import FAQ from '../components/FAQ';
-import Consultation from '../components/Booking';
-import Footer from '../components/Footer';
-import ConsultModal from '../components/ConsultModal';
-import { Phone, MapPin, MessageCircle } from 'lucide-react';
+export const metadata: Metadata = {
+  title: '연세365산부인과 | 임신중절수술·낙태비용 안내',
+  description:
+    '연세365산부인과 - 안전한 임신중절수술, 합리적인 낙태비용, 투명한 중절수술가격 안내. 사당역 4번출구 산부인과 전문의 직접 시행. 낙태수술비용 상담, 당일수술 및 퇴원, 1:1 비밀상담. 관악구·신림동·과천·강남 임신중절수술.',
+  openGraph: {
+    title: '연세365산부인과 | 임신중절수술·낙태비용 안내',
+    description:
+      '안전한 임신중절수술, 합리적인 낙태비용, 투명한 중절수술가격 안내. 사당역 4번출구.',
+    url: 'https://yeonsei365.vercel.app',
+    siteName: '연세365산부인과',
+    images: [
+      {
+        url: 'https://yeonsei365.vercel.app/og',
+        width: 1200,
+        height: 630,
+        alt: '연세365산부인과 임신중절수술 안내',
+      },
+    ],
+    locale: 'ko_KR',
+    type: 'website',
+  },
+  alternates: {
+    canonical: 'https://yeonsei365.vercel.app/',
+  },
+}
 
 export default function Home() {
   return (
@@ -32,36 +56,7 @@ export default function Home() {
       </main>
       <Footer />
       <ConsultModal />
-
-      {/* 모바일 하단 고정 플로팅 바 — 3단 레이아웃 */}
-      <div className="fixed bottom-0 left-0 right-0 h-14 bg-primary border-t border-white/20 z-50 md:hidden flex items-center shadow-[0_-4px_10px_rgba(214,51,108,0.2)]">
-        <a href="tel:02-585-3650" className="flex items-center justify-center gap-1.5 flex-1 h-full active:bg-white/10 transition-colors">
-          <Phone size={16} className="text-white" />
-          <span className="text-xs font-bold text-white">전화문의</span>
-        </a>
-
-        <div className="w-[1px] h-5 bg-white/20"></div>
-
-        <a 
-          href="http://pf.kakao.com/_TpaBj/chat" 
-          target="_blank"
-          rel="noopener noreferrer"
-          className="flex items-center justify-center gap-1.5 flex-1 h-full active:bg-white/10 transition-colors"
-        >
-          <MessageCircle size={16} className="text-white" />
-          <span className="text-xs font-bold text-white">카톡상담</span>
-        </a>
-
-        <div className="w-[1px] h-5 bg-white/20"></div>
-
-        <a href="#location" onClick={(e) => {
-          e.preventDefault();
-          document.getElementById('location')?.scrollIntoView({ behavior: 'smooth' });
-        }} className="flex items-center justify-center gap-1.5 flex-1 h-full active:bg-white/10 transition-colors">
-          <MapPin size={16} className="text-white" />
-          <span className="text-xs font-bold text-white">오시는길</span>
-        </a>
-      </div>
+      <FloatingBar />
     </div>
-  );
+  )
 }
