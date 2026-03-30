@@ -240,7 +240,7 @@ export default function AbortionPricePage() {
           <img src="https://i.imgur.com/f7h5DY0.png" alt="연세365 로고" style={{ height: '36px', width: 'auto' }} />
         </a>
         <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
-          <a href="/blog" style={{ fontSize: '13px', color: '#7B35E8', textDecoration: 'none', fontWeight: 600 }}>공지사항</a>
+          <a href="/blog" style={{ fontSize: '13px', color: '#7B35E8', textDecoration: 'none', fontWeight: 600 }}>임신중절수술정보</a>
           <a href="/" style={{ fontSize: '13px', color: '#666', textDecoration: 'none' }}>홈으로</a>
           <a href="http://pf.kakao.com/_TpaBj/chat" target="_blank" rel="noopener noreferrer"
             style={{ background: '#FEE500', color: '#3B1B1B', padding: '8px 14px', borderRadius: '20px', fontSize: '12px', fontWeight: 700, textDecoration: 'none' }}>
@@ -262,7 +262,7 @@ export default function AbortionPricePage() {
         <div style={{ marginBottom: '20px', fontSize: '12px', color: '#AA5566' }}>
           <Link href="/" style={{ color: '#AA5566', textDecoration: 'none' }}>홈</Link>
           {' > '}
-          <Link href="/blog" style={{ color: '#AA5566', textDecoration: 'none' }}>공지사항</Link>
+          <Link href="/blog" style={{ color: '#AA5566', textDecoration: 'none' }}>임신중절수술정보</Link>
           {' > '}
           <span>낙태 비용 가격</span>
         </div>

@@ -259,7 +259,7 @@ export default function AbortionLegalPage() {
           <img src="https://i.imgur.com/f7h5DY0.png" alt="연세365 로고" style={{ height: '36px', width: 'auto' }} />
         </a>
         <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
-          <a href="/blog" style={{ fontSize: '13px', color: '#00897B', textDecoration: 'none', fontWeight: 600 }}>공지사항</a>
+          <a href="/blog" style={{ fontSize: '13px', color: '#00897B', textDecoration: 'none', fontWeight: 600 }}>임신중절수술정보</a>
           <a href="/" style={{ fontSize: '13px', color: '#666', textDecoration: 'none' }}>홈으로</a>
           <a href="http://pf.kakao.com/_TpaBj/chat" target="_blank" rel="noopener noreferrer"
             style={{ background: '#FEE500', color: '#3B1B1B', padding: '8px 14px', borderRadius: '20px', fontSize: '12px', fontWeight: 700, textDecoration: 'none' }}>
@@ -281,7 +281,7 @@ export default function AbortionLegalPage() {
         <div style={{ marginBottom: '20px', fontSize: '12px', color: '#999' }}>
           <Link href="/" style={{ color: '#999', textDecoration: 'none' }}>홈</Link>
           {' > '}
-          <Link href="/blog" style={{ color: '#999', textDecoration: 'none' }}>공지사항</Link>
+          <Link href="/blog" style={{ color: '#999', textDecoration: 'none' }}>임신중절수술정보</Link>
           {' > '}
           <span style={{ color: '#00897B' }}>낙태수술 합법화</span>
         </div>

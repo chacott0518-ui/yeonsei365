@@ -47,6 +47,13 @@ export default function BlogPage() {
         date: '2026.03.17',
         tag: '합법화안내',
       },
+      {
+        slug: 'abortion-info',
+        title: '인공임신중절수술 비용·시기·가격 완벽 안내 2026',
+        desc: '인공임신중절수술 비용, 합법적 시기, 주수별 가격까지 전문의가 직접 안내합니다.',
+        date: '2026.03.30',
+        tag: '수술정보',
+      },
   ]
   return (
     <>
@@ -60,6 +67,7 @@ export default function BlogPage() {
           <img src="https://i.imgur.com/f7h5DY0.png" alt="연세365 로고" style={{ height: '36px', width: 'auto' }} />
         </a>
         <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>
+        <a href="/blog" style={{ fontSize: '13px', color: '#994466', textDecoration: 'none', fontWeight: 600 }}>임신중절수술정보</a>
           <a href="/" style={{ fontSize: '13px', color: '#666', textDecoration: 'none' }}>홈으로</a>
           <a href="http://pf.kakao.com/_TpaBj/chat" target="_blank" rel="noopener noreferrer"
             style={{ background: '#FEE500', color: '#3B1B1B', padding: '8px 14px', borderRadius: '20px', fontSize: '12px', fontWeight: 700, textDecoration: 'none' }}>
@@ -70,8 +78,8 @@ export default function BlogPage() {
       <div style={{ height: '64px' }} />
 
       <div style={{ maxWidth: '780px', margin: '0 auto', padding: '40px 20px 80px', fontFamily: 'Pretendard, sans-serif' }}>
-        <h1 style={{ fontSize: '28px', fontWeight: 900, color: '#1A0A10', marginBottom: '8px' }}>공지사항</h1>
-        <p style={{ color: '#AA5566', marginBottom: '32px', fontSize: '15px' }}>전문의가 직접 작성하는 여성건강 정보</p>
+      <h1 style={{ fontSize: '28px', fontWeight: 900, color: '#1A0A10', marginBottom: '8px' }}>임신중절수술정보</h1>
+      <p style={{ color: '#AA5566', marginBottom: '32px', fontSize: '15px' }}>임신중절수술 비용·합법적 조건 전문의 직접 안내</p>
         {posts.map(({ slug, title, desc, date, tag }) => (
           <Link key={slug} href={`/blog/${slug}`} style={{ textDecoration: 'none' }}>
             <div style={{ border: '1px solid #FFE0E8', borderRadius: '16px', padding: '24px', marginBottom: '16px', background: '#FFFAFB', cursor: 'pointer' }}>
