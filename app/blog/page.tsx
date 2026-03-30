@@ -2,13 +2,25 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: '낙태 비용 가격 안내 | 연세365산부인과',
-  description: '임신중절수술, 낙태비용, 여성건강 관련 정보를 전문의가 직접 안내합니다.',
+  title: '낙태비용 가격 금액 | 임신중절수술비용 안내 | 연세365산부인과',
+  description: '낙태비용, 낙태금액, 낙태가격, 임신중절비용, 임신중절수술비용을 주수별로 투명하게 안내합니다. 8주 미만 45만원. 사당역 4번출구 연세365산부인과.',
+  keywords: [
+    '낙태비용', '낙태금액', '낙태가격',
+    '임신중절비용', '임신중절금액', '임신중절가격',
+    '임신중절수술비용', '임신중절수술금액', '임신중절수술가격',
+    '임신초기중절수술비용', '임신초기중절수술금액', '임신초기중절수술가격',
+    '임신초기낙태비용', '임신초기낙태금액', '임신초기낙태가격',
+    '중절수술비용', '중절수술금액', '중절수술가격',
+    '인공임신중절비용', '인공임신중절금액', '인공임신중절가격',
+  ],
   openGraph: {
-    title: '낙태 비용 가격 안내 | 연세365산부인과',
-    description: '임신중절수술 비용, 낙태비용 가격을 전문의가 직접 안내합니다.',
+    title: '낙태비용 가격 금액 | 임신중절수술비용 안내 | 연세365산부인과',
+    description: '낙태비용 가격 주수별 투명 공개. 8주 미만 45만원. 사당역 4번출구.',
     url: 'https://yeonsei365.vercel.app/blog',
     images: [{ url: 'https://yeonsei365.vercel.app/og', width: 1200, height: 630 }],
+  },
+  alternates: {
+    canonical: 'https://yeonsei365.vercel.app/blog',
   },
 }
 

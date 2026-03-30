@@ -13,28 +13,25 @@ import ConsultModal from '../components/ConsultModal'
 import FloatingBar from '../components/FloatingBar'
 
 export const metadata: Metadata = {
-  title: '연세365산부인과 | 임신중절수술·낙태비용 안내',
-  description:
-    '연세365산부인과 - 안전한 임신중절수술, 합리적인 낙태비용, 투명한 중절수술가격 안내. 사당역 4번출구 산부인과 전문의 직접 시행. 낙태수술비용 상담, 당일수술 및 퇴원, 1:1 비밀상담. 관악구·신림동·과천·강남 임신중절수술.',
+  title: '낙태비용 가격 금액 | 임신중절수술비용 안내 | 연세365산부인과',
+  description: '낙태비용, 낙태금액, 낙태가격, 임신중절비용, 임신중절수술비용을 주수별로 투명하게 안내합니다. 8주 미만 45만원. 사당역 4번출구 연세365산부인과.',
+  keywords: [
+    '낙태비용', '낙태금액', '낙태가격',
+    '임신중절비용', '임신중절금액', '임신중절가격',
+    '임신중절수술비용', '임신중절수술금액', '임신중절수술가격',
+    '임신초기중절수술비용', '임신초기중절수술금액', '임신초기중절수술가격',
+    '임신초기낙태비용', '임신초기낙태금액', '임신초기낙태가격',
+    '중절수술비용', '중절수술금액', '중절수술가격',
+    '인공임신중절비용', '인공임신중절금액', '인공임신중절가격',
+  ],
   openGraph: {
-    title: '연세365산부인과 | 임신중절수술·낙태비용 안내',
-    description:
-      '안전한 임신중절수술, 합리적인 낙태비용, 투명한 중절수술가격 안내. 사당역 4번출구.',
-    url: 'https://yeonsei365.vercel.app',
-    siteName: '연세365산부인과',
-    images: [
-      {
-        url: 'https://yeonsei365.vercel.app/og',
-        width: 1200,
-        height: 630,
-        alt: '연세365산부인과 임신중절수술 안내',
-      },
-    ],
-    locale: 'ko_KR',
-    type: 'website',
+    title: '낙태비용 가격 금액 | 임신중절수술비용 안내 | 연세365산부인과',
+    description: '낙태비용 가격 주수별 투명 공개. 8주 미만 45만원. 사당역 4번출구.',
+    url: 'https://yeonsei365.vercel.app/blog',
+    images: [{ url: 'https://yeonsei365.vercel.app/og', width: 1200, height: 630 }],
   },
   alternates: {
-    canonical: 'https://yeonsei365.vercel.app/',
+    canonical: 'https://yeonsei365.vercel.app/blog',
   },
 }
 
