@@ -16,10 +16,10 @@
       "static/chunks/main-app.js",
       "static/chunks/app/blog/page.js"
     ],
-    "/blog/abortion-info/page": [
+    "/blog/abortion-amount/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/blog/abortion-info/page.js"
+      "static/chunks/app/blog/abortion-amount/page.js"
     ]
   }
 }

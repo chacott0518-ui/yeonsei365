@@ -58,8 +58,8 @@ const afterCare = [
 
 const faqs = [
   {
-    q: 'Q. 낙태비용은 얼마인가요?',
-    a: '낙태비용은 임신 주수, 수술 방법, 마취 종류 등 여러 요인에 따라 달라집니다. 낙태비용얼마인지 정확히 알기 위해서는 초음파 검사를 통한 주수 확인이 필수입니다. 일반적으로 임신 초기(8주 미만)의 경우 임신중절수술비용 부담이 상대적으로 적으며, 주수가 증가할수록 수술 난이도와 소요 시간이 늘어나 낙태비용가격이 높아질 수 있습니다. 연세365산부인과는 초음파 검사를 통해 정확한 임신 주수를 확인한 뒤, 추가 비용 없이 투명한 중절수술가격을 1:1 상담에서 안내해드리고 있습니다. 현금과 카드 가격이 동일하며, 합리적인 낙태비용금액으로 경제적 부담을 최소화하기 위해 노력합니다. 낙태금액에 대한 궁금증은 카카오톡 또는 전화로 언제든 문의 가능합니다.'
+    q: 'Q. 임신중절수술 금액은 얼마인가요?',
+    a: '임신중절수술 금액은 임신 주수에 따라 다릅니다. 8주 미만 45만원, 8주 60만원, 9주 70만원, 10주 80만원이며, 임신중절수술 금액에는 수술비·마취비·영양수액이 모두 포함됩니다. 현금과 카드 금액이 동일하며 숨겨진 추가 비용은 없습니다. 정확한 임신중절수술 금액은 초음파 확인 후 1:1 상담에서 투명하게 안내드립니다.'
   },
   {
     q: 'Q. 낙태비용 가격은 임신 주수에 따라 어떻게 달라지나요?',
@@ -257,14 +257,14 @@ const Abortion: React.FC = () => {
             Safe Abortion Clinic
           </span>
           <h2 className="text-2xl md:text-5xl font-bold text-primary font-serif mb-4 md:mb-6">
-            임신중절 클리닉
+          임신중절 클리닉 · 임신중절수술 금액 안내
           </h2>
           <p className="text-gray-600 text-[13px] md:text-lg leading-[1.8] md:leading-relaxed max-w-3xl mx-auto px-1 md:px-0">
             연세365산부인과는 여성의 건강과 안전을 최우선으로 생각합니다.
             <br className="hidden md:block" />
             {' '}풍부한 임상 경험을 가진 산부인과 전문의가 <strong className="text-gray-700">안전한 임신중절수술</strong>을 직접 시행하며,
             <br className="hidden md:block" />
-            {' '}합리적인 <strong className="text-gray-700">낙태비용</strong>과 투명한 <strong className="text-gray-700">중절수술가격</strong> 안내, <strong className="text-gray-700">철저한 비밀 보장</strong>과 1:1 사후 케어를 통해
+            {' '}합리적인 <strong className="text-gray-700">임신중절수술 금액</strong>·<strong className="text-gray-700">임신중절수술 금액</strong>·<strong className="text-gray-700">낙태비용</strong>과 투명한 <strong className="text-gray-700">중절수술가격</strong> 안내, <strong className="text-gray-700">철저한 비밀 보장</strong>과 1:1 사후 케어를 통해
             <br className="hidden md:block" />
             {' '}환자분의 신체적·심리적 부담을 최소화하고 빠른 회복을 돕고 있습니다.
           </p>
@@ -340,8 +340,8 @@ const Abortion: React.FC = () => {
                       사당역 4번출구 연세365산부인과
                     </span>
                     <h3 className="text-2xl font-bold leading-tight font-serif">
-                      <span className="text-primary">임신</span>
-                      <span className="text-gray-800">중절 비용안내</span>
+                    <span className="text-primary">임신중절수술</span>
+                    <span className="text-gray-800"> 금액·비용 안내</span>
                     </h3>
                   </div>
                   <div className="px-6 pb-3">
@@ -365,7 +365,7 @@ const Abortion: React.FC = () => {
                 </div>
                 <div className="mt-4 p-4 bg-white/80 rounded-xl border border-primary/5">
                   <p className="text-[11px] text-gray-600 leading-[1.8]">
-                    <strong className="text-gray-700">낙태비용</strong>은 임신 주수에 따라 달라지며, 주수가 적을수록 <strong className="text-gray-700">임신중절수술비용</strong> 부담이 낮아집니다. 연세365산부인과는 초음파 검사 후 정확한 주수를 확인하여 추가 비용 없이 투명한 <strong className="text-gray-700">중절수술가격</strong>을 안내합니다. <strong className="text-gray-700">낙태비용얼마</strong>인지 궁금하시다면 1:1 상담에서 <strong className="text-gray-700">임신중절수술가격</strong>과 <strong className="text-gray-700">임신중절수술금액</strong>을 명확히 확인하실 수 있습니다. 풍부한 임상 경험을 가진 산부인과 전문의의 숙련된 수술과 합리적인 <strong className="text-gray-700">낙태비용가격</strong>으로 경제적·신체적 부담을 최소화합니다.
+                    <strong className="text-gray-700">임신중절수술 금액</strong>은 8주 미만 45만원, 8주 60만원, 9주 70만원, 10주 80만원입니다. <strong className="text-gray-700">낙태비용</strong>은 임신 주수에 따라 달라지며, 주수가 적을수록 <strong className="text-gray-700">임신중절수술비용</strong> 부담이 낮아집니다. 연세365산부인과는 초음파 검사 후 정확한 주수를 확인하여 추가 비용 없이 투명한 <strong className="text-gray-700">중절수술가격</strong>을 안내합니다. <strong className="text-gray-700">낙태비용얼마</strong>인지 궁금하시다면 1:1 상담에서 <strong className="text-gray-700">임신중절수술가격</strong>과 <strong className="text-gray-700">임신중절수술금액</strong>을 명확히 확인하실 수 있습니다. 풍부한 임상 경험을 가진 산부인과 전문의의 숙련된 수술과 합리적인 <strong className="text-gray-700">낙태비용</strong>으로 경제적·신체적 부담을 최소화합니다.
                   </p>
                 </div>
                 </>
@@ -614,8 +614,8 @@ const Abortion: React.FC = () => {
                   사당역 4번출구 연세365산부인과
                 </span>
                 <h3 className="text-3xl md:text-5xl font-bold leading-tight font-serif">
-                  <span className="text-primary">임신</span>
-                  <span className="text-gray-800">중절 비용안내</span>
+                <span className="text-primary">임신중절수술</span>
+                <span className="text-gray-800"> 금액·비용 안내</span>
                 </h3>
               </div>
 
@@ -652,7 +652,7 @@ const Abortion: React.FC = () => {
             </div>
             {/* 비용 상세 안내 */}
             <div className="mt-8 bg-white rounded-xl p-6 md:p-8 border border-primary/10 shadow-sm">
-              <h4 className="font-bold text-lg text-gray-800 mb-4 text-center">💡 <strong>임신중절수술비용</strong> 결정 요인 안내</h4>
+              <h4 className="font-bold text-lg text-gray-800 mb-4 text-center">💡 <strong>임신중절수술 금액</strong>·<strong>비용</strong> 결정 요인 안내</h4>
               <div className="space-y-3 text-sm text-gray-700 leading-relaxed">
                 <p>
                   <strong className="text-gray-800">낙태비용</strong>은 임신 주수가 가장 큰 결정 요인입니다. 임신 초기에는 태아의 크기가 작아 수술 시간이 짧고 시술이 비교적 간단하므로 <strong>중절수술가격</strong> 부담이 낮지만, 주수가 증가할수록 수술 난이도와 마취 시간이 늘어나 <strong>낙태비용가격</strong>이 높아지게 됩니다.

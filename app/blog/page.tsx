@@ -27,6 +27,13 @@ export const metadata: Metadata = {
 export default function BlogPage() {
   const posts = [
     {
+      slug: 'abortion-amount',
+      category: '비용안내내',
+      title: '임신중절수술 금액과 낙태의 정의와 뜻 비용 가격 완벽 안내 2026',
+      description: '임신중절수술 금액 8주 미만 45만원부터 주수별 완벽 정리. 낙태 정의·뜻·합법조건까지 전문의 직접 안내.',
+      date: '2026.04.01',
+    },
+    {
       slug: 'abortion-cost',
       title: '임신중절수술 비용 완벽 정리 2026',
       desc: '주수별 비용, 수술 과정, 주의사항까지 전문의가 직접 안내합니다.',
