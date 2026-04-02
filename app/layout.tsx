@@ -9,18 +9,18 @@ export const metadata: Metadata = {
   verification: {
     google: 'iVUs-rUXvdFnYyvVaAhuHAdliuBoujmjyq3tyLV23Hc',
     other: {
-      'naver-site-verification': ['d180ee0bb4f343f75020d8cf0e3029af7dfa37f9'],
+      'naver-site-verification': '7dff92f95e9059821e2b9974c70a797935f4a37c',
     },
   },
   openGraph: {
     title: '연세365산부인과 | 임신중절수술·낙태비용 안내',
     description:
       '안전한 임신중절수술, 합리적인 낙태비용, 투명한 중절수술가격 안내. 사당역 4번출구.',
-    url: 'https://yeonsei365.vercel.app',
+      url: 'https://www.yeonsei365.com',
     siteName: '연세365산부인과',
     images: [
       {
-        url: 'https://yeonsei365.vercel.app/og',
+        url: 'https://www.yeonsei365.com/og-image.jpg',
         width: 1200,
         height: 630,
         alt: '연세365산부인과 임신중절수술 안내',
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     type: 'website',
   },
   alternates: {
-    canonical: 'https://yeonsei365.vercel.app/',
+    canonical: 'https://www.yeonsei365.com/',
   },
 };
 
