@@ -6,12 +6,12 @@ export const metadata: Metadata = {
   title: '연세365산부인과 | 임신중절수술·낙태비용 안내',
   description:
     '연세365산부인과 - 안전한 임신중절수술, 합리적인 낙태비용, 투명한 중절수술가격 안내. 사당역 4번출구 산부인과 전문의 직접 시행. 낙태수술비용 상담, 당일수술 및 퇴원, 1:1 비밀상담. 관악구·신림동·과천·강남 임신중절수술.',
-  verification: {
-    google: 'iVUs-rUXvdFnYyvVaAhuHAdliuBoujmjyq3tyLV23Hc',
-    other: {
-      'naver-site-verification': '7dff92f95e9059821e2b9974c70a797935f4a37c',
+    verification: {
+      google: 'rqZ9BSKyrTCirBIR_X38TXF1br3haW9ggHjlX5ETZ6Y',
+      other: {
+        'naver-site-verification': '7dff92f95e9059821e2b9974c70a797935f4a37c',
+      },
     },
-  },
   openGraph: {
     title: '연세365산부인과 | 임신중절수술·낙태비용 안내',
     description:
