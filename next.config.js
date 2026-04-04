@@ -7,6 +7,17 @@ const nextConfig = {
       { protocol: 'https', hostname: 'i.imgur.com' },
     ],
   },
+
+  async redirects() {
+    return [
+      {
+        source: '/:path*',
+        has: [{ type: 'host', value: 'yeonsei365.vercel.app' }],
+        destination: 'https://www.yeonsei365.com/:path*',
+        permanent: true,
+      },
+    ];
+  },
 };
 
 module.exports = nextConfig;
