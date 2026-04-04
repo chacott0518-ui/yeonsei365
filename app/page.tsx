@@ -54,11 +54,18 @@ export const metadata: Metadata = {
   openGraph: {
     title: '낙태비용 가격 금액 | 임신중절수술비용 안내 | 연세365산부인과',
     description: '낙태비용 가격 주수별 투명 공개. 8주 미만 45만원. 사당역 4번출구.',
-    url: 'https://yeonsei365.vercel.app/blog',
-    images: [{ url: 'https://yeonsei365.vercel.app/og', width: 1200, height: 630 }],
+    url: 'https://www.yeonsei365.com',
+    images: [
+      {
+        url: 'https://www.yeonsei365.com/og-image.jpg',
+        width: 1200,
+        height: 630,
+        alt: '연세365산부인과 임신중절수술 비용 안내',
+      },
+    ],
   },
   alternates: {
-    canonical: 'https://yeonsei365.vercel.app/blog',
+    canonical: 'https://www.yeonsei365.com',
   },
 }
 
