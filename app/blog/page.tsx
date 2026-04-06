@@ -56,6 +56,13 @@ export const metadata: Metadata = {
 export default function BlogPage() {
   const posts = [
     {
+      slug: 'abortion-surgery',
+      tag: '수술정보',
+      title: '임신초기중절수술 가능 기간·방법·금액·비용·후기',
+      desc: '임신초기중절수술 가능 기간, 흡입술·소파술 방법 비교, 주수별 금액·비용, 합법 기준까지 투명하게 안내합니다. 8주 미만 45만원.',
+      date: '2026.04.06',
+    },
+    {
       slug: 'abortion-amount',
       tag: '금액안내',
       title: '임신중절수술 금액과 낙태의 정의와 뜻 비용 가격 안내 2026',
