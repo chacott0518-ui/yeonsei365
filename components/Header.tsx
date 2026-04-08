@@ -91,19 +91,17 @@ const Header: React.FC = () => {
     return () => { document.body.style.overflow = 'unset' }
   }, [isMobileMenuOpen])
 
-  // 현재 링크가 활성인지 확인
   const isLinkActive = (link: typeof NAV_LINKS[0]) => {
     if (link.href) return pathname === link.href
     return activeSection === link.id
   }
 
-  // 링크 스타일
   const getLinkClass = (link: typeof NAV_LINKS[0]) => {
     const active = isLinkActive(link)
     const base = 'relative text-[11px] font-semibold tracking-tight transition-all duration-200 whitespace-nowrap px-2 py-1 rounded-full'
     if (active) return `${base} bg-primary text-white font-bold`
     if (link.highlight) return `${base} text-primary font-bold hover:bg-primary/10`
-    return `${base} ${isScrolled ? 'text-gray-700 hover:text-primary hover:bg-primary/5' : 'text-gray-800 hover:text-primary hover:bg-primary/5'}`
+    return `${base} text-primary hover:bg-primary/10`
   }
 
   return (
@@ -114,15 +112,15 @@ const Header: React.FC = () => {
         transition={{ duration: 0.15, ease: 'circOut' }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? 'bg-white/95 backdrop-blur-md py-2 shadow-sm border-b-2 border-primary/30'
-            : 'bg-white py-3 border-b-2 border-primary/20'
+            ? 'bg-white/95 backdrop-blur-md py-2 shadow-sm border-b border-primary/10'
+            : 'bg-transparent py-3'
         }`}
       >
-        <div className="container mx-auto px-5 md:px-10 flex items-center justify-between gap-4">
+        <div className="container mx-auto px-10 flex items-center justify-between">
 
           {/* 로고 */}
           <div
-            className="flex flex-col cursor-pointer z-50 flex-shrink-0 mr-6"
+            className="cursor-pointer z-50 flex-shrink-0"
             onClick={() => { setActiveSection(''); window.scrollTo({ top: 0, behavior: 'smooth' }) }}
           >
             <img
@@ -133,22 +131,14 @@ const Header: React.FC = () => {
           </div>
 
           {/* PC 네비 */}
-          <nav className="hidden lg:flex items-center gap-0.5 flex-1">
+          <nav className="hidden lg:flex items-center justify-center gap-3 flex-1 mx-10">
             {NAV_LINKS.map((link) => (
               link.href ? (
-                <a
-                  key={link.id}
-                  href={link.href}
-                  className={getLinkClass(link)}
-                >
+                <a key={link.id} href={link.href} className={getLinkClass(link)}>
                   {link.label}
                 </a>
               ) : (
-                <button
-                  key={link.id}
-                  onClick={() => scrollToSection(link.id)}
-                  className={getLinkClass(link)}
-                >
+                <button key={link.id} onClick={() => scrollToSection(link.id)} className={getLinkClass(link)}>
                   {link.label}
                 </button>
               )
@@ -158,17 +148,7 @@ const Header: React.FC = () => {
           {/* 모바일 오른쪽 */}
           <div className="lg:hidden flex items-center gap-2">
             
-              <a href="http://pf.kakao.com/_TpaBj/chat"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="bg-[#FEE500] text-[#3B1B1B] text-[11px] font-bold px-3 py-1.5 rounded-full whitespace-nowrap"
-            >
-              💬 카톡상담
-            </a>
-            <button
-              className={`z-50 p-1.5 ${isScrolled ? 'text-primary' : 'text-primary'}`}
-              onClick={() => setIsMobileMenuOpen(true)}
-            >
+            <button className="z-50 p-1.5 text-primary" onClick={() => setIsMobileMenuOpen(true)}>
               <Menu size={24} />
             </button>
           </div>
@@ -204,14 +184,12 @@ const Header: React.FC = () => {
               <div className="flex flex-col px-4 py-3 overflow-y-auto flex-grow">
                 {NAV_LINKS.map((link) => (
                   link.href ? (
-                    <a
-                      key={link.id}
+                    
+                      <a key={link.id}
                       href={link.href}
                       onClick={() => setIsMobileMenuOpen(false)}
                       className={`flex items-center justify-between py-3 px-3 rounded-xl mb-1 text-[13px] font-semibold tracking-tight border-b border-gray-50 ${
-                        link.highlight
-                          ? 'text-primary font-bold bg-primary/5'
-                          : 'text-gray-700 hover:bg-gray-50'
+                        link.highlight ? 'text-primary font-bold bg-primary/5' : 'text-gray-700 hover:bg-gray-50'
                       }`}
                     >
                       <span>{link.label}</span>
@@ -224,9 +202,7 @@ const Header: React.FC = () => {
                       key={link.id}
                       onClick={() => scrollToSection(link.id)}
                       className={`flex items-center justify-between py-3 px-3 rounded-xl mb-1 text-left text-[13px] font-semibold tracking-tight border-b border-gray-50 ${
-                        activeSection === link.id
-                          ? 'text-primary font-bold bg-primary/5'
-                          : 'text-gray-700 hover:bg-gray-50'
+                        activeSection === link.id ? 'text-primary font-bold bg-primary/5' : 'text-gray-700 hover:bg-gray-50'
                       }`}
                     >
                       <span>{link.label}</span>
@@ -235,7 +211,6 @@ const Header: React.FC = () => {
                 ))}
               </div>
 
-              {/* 하단 CTA */}
               <div className="p-4 bg-primary/5 border-t border-primary/10 space-y-2">
                 
                   <a href="http://pf.kakao.com/_TpaBj/chat"
