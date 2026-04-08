@@ -1,93 +1,63 @@
 'use client'
-import React, { useState, useEffect, useRef } from 'react';
-import { motion, useScroll, AnimatePresence } from 'framer-motion';
-import { NAV_LINKS } from '../constants';
-import { X, Menu } from 'lucide-react';
+import React, { useState, useEffect, useRef } from 'react'
+import { motion, AnimatePresence } from 'framer-motion'
+import { NAV_LINKS } from '../constants'
+import { X, Menu } from 'lucide-react'
+import { usePathname } from 'next/navigation'
 
 const Header: React.FC = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
-  const [isVisible, setIsVisible] = useState(true);
-  const [activeSection, setActiveSection] = useState('');
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { scrollY } = useScroll();
-  const isClickScrolling = useRef(false);
+  const [isScrolled, setIsScrolled] = useState(false)
+  const [isVisible, setIsVisible] = useState(true)
+  const [activeSection, setActiveSection] = useState('')
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const isClickScrolling = useRef(false)
+  const pathname = usePathname()
 
   useEffect(() => {
-    let lastScrollY = window.scrollY;
-    let stopTimer: ReturnType<typeof setTimeout>;
-
+    let lastScrollY = window.scrollY
+    let stopTimer: ReturnType<typeof setTimeout>
     const handleAction = () => {
-      const currentScrollY = window.scrollY;
-      const isScrollingDown = currentScrollY > lastScrollY;
-      
+      const currentScrollY = window.scrollY
+      const isScrollingDown = currentScrollY > lastScrollY
       if (isScrollingDown && currentScrollY > 50) {
-        setIsVisible(false);
-        clearTimeout(stopTimer); 
+        setIsVisible(false)
+        clearTimeout(stopTimer)
       } else {
-        setIsVisible(true);
+        setIsVisible(true)
       }
-
       if (!isScrollingDown || currentScrollY <= 50) {
-        clearTimeout(stopTimer);
-        stopTimer = setTimeout(() => {
-          setIsVisible(true);
-        }, 500); 
+        clearTimeout(stopTimer)
+        stopTimer = setTimeout(() => setIsVisible(true), 500)
       }
-
-      lastScrollY = currentScrollY;
-      setIsScrolled(currentScrollY > 50);
-    };
-
-    window.addEventListener('scroll', handleAction, { passive: true });
-    window.addEventListener('mousemove', handleAction, { passive: true });
-    
-    return () => {
-      window.removeEventListener('scroll', handleAction);
-      window.removeEventListener('mousemove', handleAction);
-      clearTimeout(stopTimer);
-    };
-  }, []);
-
-  // ✅ 완전히 새로운 방식: 클릭 시 직접 activeSection 설정
-  const scrollToSection = (id: string) => {
-    const element = document.getElementById(id);
-    if (element) {
-      // 즉시 activeSection 설정 & 스크롤 감지 잠금
-      setActiveSection(id);
-      isClickScrolling.current = true;
-      
-      const headerOffset = 80; 
-      const elementPosition = element.getBoundingClientRect().top;
-      const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
-
-      window.scrollTo({
-        top: offsetPosition,
-        behavior: 'smooth'
-      });
-
-      // smooth scroll 완료 후 스크롤 감지 재활성화
-      setTimeout(() => {
-        isClickScrolling.current = false;
-      }, 1000);
-
-      setIsMobileMenuOpen(false);
+      lastScrollY = currentScrollY
+      setIsScrolled(currentScrollY > 50)
     }
-  };
+    window.addEventListener('scroll', handleAction, { passive: true })
+    window.addEventListener('mousemove', handleAction, { passive: true })
+    return () => {
+      window.removeEventListener('scroll', handleAction)
+      window.removeEventListener('mousemove', handleAction)
+      clearTimeout(stopTimer)
+    }
+  }, [])
 
-  // ✅ 스크롤 감지는 보조용으로만 사용
+  const scrollToSection = (id: string) => {
+    const element = document.getElementById(id)
+    if (element) {
+      setActiveSection(id)
+      isClickScrolling.current = true
+      const offsetPosition = element.getBoundingClientRect().top + window.pageYOffset - 80
+      window.scrollTo({ top: offsetPosition, behavior: 'smooth' })
+      setTimeout(() => { isClickScrolling.current = false }, 1000)
+      setIsMobileMenuOpen(false)
+    }
+  }
+
   useEffect(() => {
     const updateActiveSection = () => {
-      // 클릭 스크롤 중이면 감지하지 않음
-      if (isClickScrolling.current) return;
-
-      const scrollPos = window.scrollY + 150;
-      
-      if (window.scrollY < 100) {
-        setActiveSection('');
-        return;
-      }
-
-      // 역순으로 체크 (아래에서 위로)
+      if (isClickScrolling.current) return
+      const scrollPos = window.scrollY + 150
+      if (window.scrollY < 100) { setActiveSection(''); return }
       const sections = [
         { id: 'location', el: document.getElementById('location') },
         { id: 'faq', el: document.getElementById('faq') },
@@ -95,121 +65,118 @@ const Header: React.FC = () => {
         { id: 'abortion-clinic', el: document.getElementById('abortion-clinic') },
         { id: 'clinics', el: document.getElementById('clinics') },
         { id: 'doctors', el: document.getElementById('doctors') },
-        { id: 'about', el: document.getElementById('about') }
-      ];
-
+        { id: 'about', el: document.getElementById('about') },
+      ]
       for (const section of sections) {
         if (section.el && scrollPos >= section.el.offsetTop) {
-          setActiveSection(section.id);
-          return;
+          setActiveSection(section.id)
+          return
         }
       }
-    };
-
-    let ticking = false;
+    }
+    let ticking = false
     const handleScroll = () => {
       if (!ticking) {
-        window.requestAnimationFrame(() => {
-          updateActiveSection();
-          ticking = false;
-        });
-        ticking = true;
+        window.requestAnimationFrame(() => { updateActiveSection(); ticking = false })
+        ticking = true
       }
-    };
-
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    updateActiveSection();
-    
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
+    }
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    updateActiveSection()
+    return () => window.removeEventListener('scroll', handleScroll)
+  }, [])
 
   useEffect(() => {
-    if (isMobileMenuOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = 'unset';
-    }
-    return () => {
-      document.body.style.overflow = 'unset';
-    };
-  }, [isMobileMenuOpen]);
+    document.body.style.overflow = isMobileMenuOpen ? 'hidden' : 'unset'
+    return () => { document.body.style.overflow = 'unset' }
+  }, [isMobileMenuOpen])
+
+  // 현재 링크가 활성인지 확인
+  const isLinkActive = (link: typeof NAV_LINKS[0]) => {
+    if (link.href) return pathname === link.href
+    return activeSection === link.id
+  }
+
+  // 링크 스타일
+  const getLinkClass = (link: typeof NAV_LINKS[0]) => {
+    const active = isLinkActive(link)
+    const base = 'relative text-[11px] font-semibold tracking-tight transition-all duration-200 whitespace-nowrap px-2 py-1 rounded-full'
+    if (active) return `${base} bg-primary text-white font-bold`
+    if (link.highlight) return `${base} text-primary font-bold hover:bg-primary/10`
+    return `${base} ${isScrolled ? 'text-gray-700 hover:text-primary hover:bg-primary/5' : 'text-gray-800 hover:text-primary hover:bg-primary/5'}`
+  }
 
   return (
     <>
       <motion.header
         initial={{ y: -100 }}
         animate={{ y: isVisible ? 0 : '-100%' }}
-        transition={{ duration: 0.15, ease: "circOut" }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-[background-color,padding] duration-300 ${
-          isScrolled 
-            ? 'bg-white/90 backdrop-blur-md py-4 shadow-sm border-b border-primary/10' 
-            : 'bg-transparent py-6 border-b border-transparent' 
+        transition={{ duration: 0.15, ease: 'circOut' }}
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+          isScrolled
+            ? 'bg-white/95 backdrop-blur-md py-2 shadow-sm border-b-2 border-primary/30'
+            : 'bg-white py-3 border-b-2 border-primary/20'
         }`}
       >
-        <div className="container mx-auto px-5 md:px-12 flex items-center justify-between">
-          
-          <div 
-            className="flex items-center cursor-pointer z-50 relative" 
-            onClick={() => {
-              setActiveSection('');
-              window.scrollTo({ top: 0, behavior: 'smooth'});
-            }}
+        <div className="container mx-auto px-5 md:px-10 flex items-center justify-between gap-4">
+
+          {/* 로고 */}
+          <div
+            className="flex flex-col cursor-pointer z-50 flex-shrink-0 mr-6"
+            onClick={() => { setActiveSection(''); window.scrollTo({ top: 0, behavior: 'smooth' }) }}
           >
-            <img 
-              src="https://i.imgur.com/f7h5DY0.png" 
-              alt="연세365 로고" 
-              className="h-9 md:h-11 w-auto object-contain" 
+            <img
+              src="https://i.imgur.com/f7h5DY0.png"
+              alt="연세365 로고"
+              className={`w-auto object-contain transition-all duration-300 ${isScrolled ? 'h-8' : 'h-9 md:h-10'}`}
             />
           </div>
 
-          <nav className="hidden lg:flex items-center gap-8">
-          {NAV_LINKS.map((link) => (
-  link.href ? (
-    
-    <a
-    key={link.id}
-      href={link.href}
-      className={`relative text-sm font-medium transition-colors duration-300 ${
-        isScrolled ? 'text-gray-800 hover:text-primary font-semibold' : 'text-white hover:text-white/80 font-semibold'
-      }`}
-      style={!isScrolled ? { textShadow: '0 1px 3px rgba(0,0,0,0.3)' } : undefined}
-    >
-      {link.label}
-    </a>
-  ) : (
-    <button
-      key={link.id}
-      onClick={() => scrollToSection(link.id)}
-      className={`relative text-sm font-medium transition-colors duration-300 ${
-        activeSection === link.id
-          ? (isScrolled ? 'text-white bg-primary px-3 py-1 rounded-full font-bold' : 'text-white bg-white/20 px-3 py-1 rounded-full font-bold')
-          : (isScrolled ? 'text-gray-600 hover:text-primary' : 'text-white/80 hover:text-white')
-      }`}
-      style={!isScrolled ? { textShadow: '0 1px 3px rgba(0,0,0,0.3)' } : undefined}
-    >
-      {link.label}
-      {activeSection === link.id && (
-        <motion.div
-          layoutId="activeGlow"
-          className={`absolute -bottom-2 left-0 right-0 h-[2px] ${isScrolled ? 'bg-primary' : 'bg-white'}`}
-          transition={{ type: "spring", stiffness: 300, damping: 20 }}
-        />
-      )}
-    </button>
-  )
-))}
+          {/* PC 네비 */}
+          <nav className="hidden lg:flex items-center gap-0.5 flex-1">
+            {NAV_LINKS.map((link) => (
+              link.href ? (
+                <a
+                  key={link.id}
+                  href={link.href}
+                  className={getLinkClass(link)}
+                >
+                  {link.label}
+                </a>
+              ) : (
+                <button
+                  key={link.id}
+                  onClick={() => scrollToSection(link.id)}
+                  className={getLinkClass(link)}
+                >
+                  {link.label}
+                </button>
+              )
+            ))}
           </nav>
 
-          <button 
-            className={`lg:hidden z-50 relative p-2 ${isMobileMenuOpen ? 'opacity-0 pointer-events-none' : 'opacity-100'} ${isScrolled ? 'text-primary' : 'text-white'}`}
-            onClick={() => setIsMobileMenuOpen(true)}
-          >
-             <Menu size={28} />
-          </button>
+          {/* 모바일 오른쪽 */}
+          <div className="lg:hidden flex items-center gap-2">
+            
+              <a href="http://pf.kakao.com/_TpaBj/chat"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-[#FEE500] text-[#3B1B1B] text-[11px] font-bold px-3 py-1.5 rounded-full whitespace-nowrap"
+            >
+              💬 카톡상담
+            </a>
+            <button
+              className={`z-50 p-1.5 ${isScrolled ? 'text-primary' : 'text-primary'}`}
+              onClick={() => setIsMobileMenuOpen(true)}
+            >
+              <Menu size={24} />
+            </button>
+          </div>
 
         </div>
       </motion.header>
 
+      {/* 모바일 슬라이드 메뉴 */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <>
@@ -220,58 +187,77 @@ const Header: React.FC = () => {
               onClick={() => setIsMobileMenuOpen(false)}
               className="fixed inset-0 bg-black/30 z-[60] lg:hidden backdrop-blur-sm"
             />
-            
             <motion.div
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
-              transition={{ type: "spring", stiffness: 300, damping: 30 }}
-              className="fixed top-0 right-0 h-full w-[200px] bg-background z-[61] lg:hidden flex flex-col shadow-2xl border-l border-primary/10"
+              transition={{ type: 'spring', stiffness: 300, damping: 30 }}
+              className="fixed top-0 right-0 h-full w-[240px] bg-white z-[61] lg:hidden flex flex-col shadow-2xl border-l border-primary/10"
             >
-              <div className="flex items-center justify-end p-4">
-                 <button 
-                   onClick={() => setIsMobileMenuOpen(false)}
-                   className="p-1 text-primary hover:text-primary-dark transition-colors"
-                 >
-                   <X size={24} />
-                 </button>
+              <div className="flex items-center justify-between p-4 border-b border-primary/10">
+                <span className="text-sm font-bold text-primary">메뉴</span>
+                <button onClick={() => setIsMobileMenuOpen(false)} className="p-1 text-primary">
+                  <X size={22} />
+                </button>
               </div>
-              
-              <div className="flex flex-col px-6 py-4 overflow-y-auto flex-grow space-y-1">
-              {NAV_LINKS.map((link) => (
-  link.href ? (
-    
-    <a
-    key={link.id}
-      href={link.href}
-      className="text-left text-sm font-medium text-gray-600 hover:text-primary hover:bg-surface transition-all py-3 px-2 rounded-lg block"
-    >
-      {link.label}
-    </a>
-  ) : (
-    <button
-      key={link.id}
-      onClick={() => scrollToSection(link.id)}
-      className="text-left text-sm font-medium text-gray-600 hover:text-primary hover:bg-surface transition-all py-3 px-2 rounded-lg"
-    >
-      {link.label}
-    </button>
-  )
-))}
+
+              <div className="flex flex-col px-4 py-3 overflow-y-auto flex-grow">
+                {NAV_LINKS.map((link) => (
+                  link.href ? (
+                    <a
+                      key={link.id}
+                      href={link.href}
+                      onClick={() => setIsMobileMenuOpen(false)}
+                      className={`flex items-center justify-between py-3 px-3 rounded-xl mb-1 text-[13px] font-semibold tracking-tight border-b border-gray-50 ${
+                        link.highlight
+                          ? 'text-primary font-bold bg-primary/5'
+                          : 'text-gray-700 hover:bg-gray-50'
+                      }`}
+                    >
+                      <span>{link.label}</span>
+                      {link.highlight && (
+                        <span className="text-[10px] bg-primary/10 text-primary px-2 py-0.5 rounded-full font-bold">핵심</span>
+                      )}
+                    </a>
+                  ) : (
+                    <button
+                      key={link.id}
+                      onClick={() => scrollToSection(link.id)}
+                      className={`flex items-center justify-between py-3 px-3 rounded-xl mb-1 text-left text-[13px] font-semibold tracking-tight border-b border-gray-50 ${
+                        activeSection === link.id
+                          ? 'text-primary font-bold bg-primary/5'
+                          : 'text-gray-700 hover:bg-gray-50'
+                      }`}
+                    >
+                      <span>{link.label}</span>
+                    </button>
+                  )
+                ))}
               </div>
-              
-              <div className="p-6 bg-primary/5 border-t border-primary/10 mt-auto">
-                 <p className="text-[10px] text-primary/70 mb-2 font-bold tracking-wider">예약문의</p>
-                 <a href="tel:02-547-2876" className="text-sm font-bold text-primary block mb-1">
-                   02-547-2876
-                 </a>
+
+              {/* 하단 CTA */}
+              <div className="p-4 bg-primary/5 border-t border-primary/10 space-y-2">
+                
+                  <a href="http://pf.kakao.com/_TpaBj/chat"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block text-center bg-[#FEE500] text-[#3B1B1B] text-[13px] font-bold py-3 rounded-xl"
+                >
+                  💬 카카오톡 상담
+                </a>
+                
+                  <a href="tel:02-585-3650"
+                  className="block text-center bg-primary text-white text-[13px] font-bold py-3 rounded-xl"
+                >
+                  📞 02-585-3650
+                </a>
               </div>
             </motion.div>
           </>
         )}
       </AnimatePresence>
     </>
-  );
-};
+  )
+}
 
-export default Header;
+export default Header

@@ -1,20 +1,16 @@
 import { NavItem, Doctor, ClinicItem, PriceItem, ReviewItem, FAQItem, EquipmentItem } from './types';
 
-export const NAV_LINKS: NavItem[] = [
+export const NAV_LINKS = [
   { id: 'about', label: '병원소개' },
   { id: 'doctors', label: '의료진' },
   { id: 'clinics', label: '여성검진클리닉' },
   { id: 'abortion-clinic', label: '임신중절클리닉' },
-  {
-    id: 'abortion-surgery',
-    label: '임신중절수술',
-    href: '/abortion/surgery',
-  },
+  { id: 'abortion-surgery', label: '임신중절수술', href: '/abortion/surgery', highlight: true },
+  { id: 'price', label: '낙태 비용가격', href: '/price', highlight: true },
   { id: 'review', label: '수술후기·사례' },
   { id: 'faq', label: 'FAQ' },
-  { id: 'location', label: '상담예약' },
-  { id: 'blog', label: '낙태 비용 가격', href: '/blog' },
-];
+  { id: 'location', label: '상담예약', highlight: true },
+]
 
 export const DOCTORS = [
   {
