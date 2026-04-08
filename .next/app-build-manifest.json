@@ -21,10 +21,20 @@
       "static/chunks/main-app.js",
       "static/chunks/app/blog/layout.js"
     ],
-    "/blog/abortion-surgery/page": [
+    "/abortion/surgery/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/blog/abortion-surgery/page.js"
+      "static/chunks/app/abortion/surgery/page.js"
+    ],
+    "/abortion/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/abortion/page.js"
+    ],
+    "/blog/abortion-cost/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/blog/abortion-cost/page.js"
     ]
   }
 }

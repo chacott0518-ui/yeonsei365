@@ -170,7 +170,7 @@ const Header: React.FC = () => {
     key={link.id}
       href={link.href}
       className={`relative text-sm font-medium transition-colors duration-300 ${
-        isScrolled ? 'text-gray-600 hover:text-primary' : 'text-white/80 hover:text-white'
+        isScrolled ? 'text-gray-800 hover:text-primary font-semibold' : 'text-white hover:text-white/80 font-semibold'
       }`}
       style={!isScrolled ? { textShadow: '0 1px 3px rgba(0,0,0,0.3)' } : undefined}
     >
@@ -182,7 +182,7 @@ const Header: React.FC = () => {
       onClick={() => scrollToSection(link.id)}
       className={`relative text-sm font-medium transition-colors duration-300 ${
         activeSection === link.id
-          ? (isScrolled ? 'text-primary font-bold' : 'text-white font-bold')
+          ? (isScrolled ? 'text-white bg-primary px-3 py-1 rounded-full font-bold' : 'text-white bg-white/20 px-3 py-1 rounded-full font-bold')
           : (isScrolled ? 'text-gray-600 hover:text-primary' : 'text-white/80 hover:text-white')
       }`}
       style={!isScrolled ? { textShadow: '0 1px 3px rgba(0,0,0,0.3)' } : undefined}

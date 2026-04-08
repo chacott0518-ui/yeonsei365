@@ -5,6 +5,11 @@ export const NAV_LINKS: NavItem[] = [
   { id: 'doctors', label: '의료진' },
   { id: 'clinics', label: '여성검진클리닉' },
   { id: 'abortion-clinic', label: '임신중절클리닉' },
+  {
+    id: 'abortion-surgery',
+    label: '임신중절수술',
+    href: '/abortion/surgery',
+  },
   { id: 'review', label: '수술후기·사례' },
   { id: 'faq', label: 'FAQ' },
   { id: 'location', label: '상담예약' },

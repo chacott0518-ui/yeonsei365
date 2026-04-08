@@ -12,20 +12,18 @@ export const metadata: Metadata = {
         'naver-site-verification': '7dff92f95e9059821e2b9974c70a797935f4a37c',
       },
     },
-  openGraph: {
-    title: '연세365산부인과 | 임신중절수술·낙태비용 안내',
-    description:
-      '안전한 임신중절수술, 합리적인 낙태비용, 투명한 중절수술가격 안내. 사당역 4번출구.',
+    openGraph: {
+      title: '임신중절수술 금액·비용 | 낙태비용 가격 안내 | 연세365산부인과',
+      description: '낙태비용 가격 주수별 투명 공개. 8주 미만 45만원. 사당역 4번출구.',
       url: 'https://www.yeonsei365.com',
-    siteName: '연세365산부인과',
-    images: [
-      {
-        url: 'https://www.yeonsei365.com/og-image.jpg',
-        width: 1200,
-        height: 630,
-        alt: '연세365산부인과 임신중절수술 안내',
-      },
-    ],
+      images: [
+        {
+          url: 'https://www.yeonsei365.com/og-image.jpg',
+          width: 1200,
+          height: 630,
+          alt: '임신중절수술 금액 45만원 연세365산부인과',
+        },
+      ],
     locale: 'ko_KR',
     type: 'website',
   },
