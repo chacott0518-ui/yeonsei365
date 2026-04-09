@@ -2,16 +2,40 @@
 import React, { useState, useEffect, useRef } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { NAV_LINKS } from '../constants'
-import { X, Menu } from 'lucide-react'
+import { X, Menu, ChevronDown } from 'lucide-react'
 import { usePathname } from 'next/navigation'
+
+const SUB_MENUS: Record<string, { label: string; href: string }[]> = {
+  'abortion-surgery': [
+    { label: '임신중절수술 기간', href: '/blog/abortion-period' },
+    { label: '임신중절수술 후 관리', href: '/blog/abortion-after' },
+    { label: '임신중절수술 금식', href: '/blog/abortion-fasting' },
+    { label: '임신중절수술 부작용', href: '/blog/abortion-side' },
+    { label: '임신중절수술 후 생리', href: '/blog/abortion-menstruation' },
+    { label: '임신중절수술 절차', href: '/blog/abortion-process' },
+    { label: '임신중절수술 보험', href: '/blog/abortion-insurance' },
+    { label: '임신중절수술 보호자', href: '/blog/abortion-guardian' },
+  ],
+  'price': [
+    { label: '낙태 비용 가격 총정리', href: '/blog/abortion-price' },
+    { label: '임신중절수술 비용', href: '/blog/abortion-cost' },
+    { label: '임신중절수술 금액', href: '/blog/abortion-amount' },
+    { label: '인공임신중절수술 비용', href: '/blog/abortion-info' },
+    { label: '임신초기중절수술 안내', href: '/blog/abortion-surgery' },
+    { label: '낙태합법화 뜻·시기', href: '/blog/abortion-legal' },
+  ],
+}
 
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isVisible, setIsVisible] = useState(true)
   const [activeSection, setActiveSection] = useState('')
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const [openDropdown, setOpenDropdown] = useState<string | null>(null)
+  const [mobileExpanded, setMobileExpanded] = useState<string | null>(null)
   const isClickScrolling = useRef(false)
   const pathname = usePathname()
+  const dropdownTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
 
   useEffect(() => {
     let lastScrollY = window.scrollY
@@ -92,16 +116,25 @@ const Header: React.FC = () => {
   }, [isMobileMenuOpen])
 
   const isLinkActive = (link: typeof NAV_LINKS[0]) => {
-    if (link.href) return pathname === link.href
+    if (link.href) return pathname === link.href || pathname.startsWith('/blog/abortion')
     return activeSection === link.id
   }
 
   const getLinkClass = (link: typeof NAV_LINKS[0]) => {
     const active = isLinkActive(link)
-    const base = 'relative text-[11px] font-semibold tracking-tight transition-all duration-200 whitespace-nowrap px-2 py-1 rounded-full'
+    const base = 'relative text-[11px] font-semibold tracking-tight transition-all duration-200 whitespace-nowrap px-2 py-1 rounded-full flex items-center gap-0.5'
     if (active) return `${base} bg-primary text-white font-bold`
     if (link.highlight) return `${base} text-primary font-bold hover:bg-primary/10`
     return `${base} text-primary hover:bg-primary/10`
+  }
+
+  const handleMouseEnter = (id: string) => {
+    if (dropdownTimer.current) clearTimeout(dropdownTimer.current)
+    if (SUB_MENUS[id]) setOpenDropdown(id)
+  }
+
+  const handleMouseLeave = () => {
+    dropdownTimer.current = setTimeout(() => setOpenDropdown(null), 200)
   }
 
   return (
@@ -117,8 +150,6 @@ const Header: React.FC = () => {
         }`}
       >
         <div className="container mx-auto px-10 flex items-center justify-between">
-
-          {/* 로고 */}
           <div
             className="cursor-pointer z-50 flex-shrink-0"
             onClick={() => { setActiveSection(''); window.scrollTo({ top: 0, behavior: 'smooth' }) }}
@@ -130,102 +161,132 @@ const Header: React.FC = () => {
             />
           </div>
 
-          {/* PC 네비 */}
           <nav className="hidden lg:flex items-center justify-center gap-3 flex-1 mx-10">
-            {NAV_LINKS.map((link) => (
-              link.href ? (
-                <a key={link.id} href={link.href} className={getLinkClass(link)}>
-                  {link.label}
-                </a>
-              ) : (
-                <button key={link.id} onClick={() => scrollToSection(link.id)} className={getLinkClass(link)}>
-                  {link.label}
-                </button>
+            {NAV_LINKS.map((link) => {
+              const hasSub = !!SUB_MENUS[link.id]
+              return (
+                <div
+                  key={link.id}
+                  className="relative"
+                  onMouseEnter={() => handleMouseEnter(link.id)}
+                  onMouseLeave={handleMouseLeave}
+                >
+                  {link.href ? (
+                    <a href={link.href} className={getLinkClass(link)}>
+                      {link.label}
+                      {hasSub && <ChevronDown size={10} className={`transition-transform duration-200 ${openDropdown === link.id ? 'rotate-180' : ''}`} />}
+                    </a>
+                  ) : (
+                    <button onClick={() => scrollToSection(link.id)} className={getLinkClass(link)}>
+                      {link.label}
+                      {hasSub && <ChevronDown size={10} />}
+                    </button>
+                  )}
+                  <AnimatePresence>
+                    {hasSub && openDropdown === link.id && (
+                      <motion.div
+                        initial={{ opacity: 0, y: 8 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        exit={{ opacity: 0, y: 8 }}
+                        transition={{ duration: 0.15 }}
+                        className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-52 bg-white rounded-2xl shadow-xl border border-pink-100 overflow-hidden z-[100]"
+                        onMouseEnter={() => { if (dropdownTimer.current) clearTimeout(dropdownTimer.current) }}
+                        onMouseLeave={handleMouseLeave}
+                      >
+                        <div className="py-2">
+                          {SUB_MENUS[link.id].map((sub) => (
+                            <a
+                              key={sub.href}
+                              href={sub.href}
+                              className={`block px-4 py-2.5 text-[12px] font-semibold transition-all duration-150 ${
+                                pathname === sub.href
+                                  ? 'bg-primary/10 text-primary'
+                                  : 'text-gray-700 hover:bg-pink-50 hover:text-primary'
+                              }`}
+                            >
+                              {sub.label}
+                            </a>
+                          ))}
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
               )
-            ))}
+            })}
           </nav>
 
-          {/* 모바일 오른쪽 */}
           <div className="lg:hidden flex items-center gap-2">
-            
             <button className="z-50 p-1.5 text-primary" onClick={() => setIsMobileMenuOpen(true)}>
               <Menu size={24} />
             </button>
           </div>
-
         </div>
       </motion.header>
 
-      {/* 모바일 슬라이드 메뉴 */}
       <AnimatePresence>
         {isMobileMenuOpen && (
           <>
             <motion.div
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
+              initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
               onClick={() => setIsMobileMenuOpen(false)}
               className="fixed inset-0 bg-black/30 z-[60] lg:hidden backdrop-blur-sm"
             />
             <motion.div
-              initial={{ x: '100%' }}
-              animate={{ x: 0 }}
-              exit={{ x: '100%' }}
+              initial={{ x: '100%' }} animate={{ x: 0 }} exit={{ x: '100%' }}
               transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-              className="fixed top-0 right-0 h-full w-[240px] bg-white z-[61] lg:hidden flex flex-col shadow-2xl border-l border-primary/10"
+              className="fixed top-0 right-0 h-full w-[260px] bg-white z-[61] lg:hidden flex flex-col shadow-2xl border-l border-primary/10"
             >
               <div className="flex items-center justify-between p-4 border-b border-primary/10">
                 <span className="text-sm font-bold text-primary">메뉴</span>
-                <button onClick={() => setIsMobileMenuOpen(false)} className="p-1 text-primary">
-                  <X size={22} />
-                </button>
+                <button onClick={() => setIsMobileMenuOpen(false)} className="p-1 text-primary"><X size={22} /></button>
               </div>
-
               <div className="flex flex-col px-4 py-3 overflow-y-auto flex-grow">
-                {NAV_LINKS.map((link) => (
-                  link.href ? (
-                    
-                      <a key={link.id}
-                      href={link.href}
-                      onClick={() => setIsMobileMenuOpen(false)}
-                      className={`flex items-center justify-between py-3 px-3 rounded-xl mb-1 text-[13px] font-semibold tracking-tight border-b border-gray-50 ${
-                        link.highlight ? 'text-primary font-bold bg-primary/5' : 'text-gray-700 hover:bg-gray-50'
-                      }`}
-                    >
-                      <span>{link.label}</span>
-                      {link.highlight && (
-                        <span className="text-[10px] bg-primary/10 text-primary px-2 py-0.5 rounded-full font-bold">핵심</span>
-                      )}
-                    </a>
-                  ) : (
-                    <button
-                      key={link.id}
-                      onClick={() => scrollToSection(link.id)}
-                      className={`flex items-center justify-between py-3 px-3 rounded-xl mb-1 text-left text-[13px] font-semibold tracking-tight border-b border-gray-50 ${
-                        activeSection === link.id ? 'text-primary font-bold bg-primary/5' : 'text-gray-700 hover:bg-gray-50'
-                      }`}
-                    >
-                      <span>{link.label}</span>
-                    </button>
+                {NAV_LINKS.map((link) => {
+                  const hasSub = !!SUB_MENUS[link.id]
+                  const isExpanded = mobileExpanded === link.id
+                  return (
+                    <div key={link.id}>
+                      <div className={`flex items-center justify-between py-3 px-3 rounded-xl mb-1 text-[13px] font-semibold tracking-tight border-b border-gray-50 ${link.highlight ? 'text-primary font-bold bg-primary/5' : 'text-gray-700 hover:bg-gray-50'}`}>
+                        {link.href ? (
+                          <a href={hasSub ? undefined : link.href} onClick={() => hasSub ? setMobileExpanded(isExpanded ? null : link.id) : setIsMobileMenuOpen(false)} className="flex-1">
+                            {link.label}
+                          </a>
+                        ) : (
+                          <button onClick={() => scrollToSection(link.id)} className="flex-1 text-left">{link.label}</button>
+                        )}
+                        {hasSub && (
+                          <button onClick={() => setMobileExpanded(isExpanded ? null : link.id)} className="p-1">
+                            <ChevronDown size={14} className={`text-primary transition-transform duration-200 ${isExpanded ? 'rotate-180' : ''}`} />
+                          </button>
+                        )}
+                      </div>
+                      <AnimatePresence>
+                        {hasSub && isExpanded && (
+                          <motion.div
+                            initial={{ height: 0, opacity: 0 }} animate={{ height: 'auto', opacity: 1 }} exit={{ height: 0, opacity: 0 }}
+                            transition={{ duration: 0.2 }}
+                            className="overflow-hidden"
+                          >
+                            <div className="pl-4 pb-2 flex flex-col gap-0.5">
+                              {SUB_MENUS[link.id].map((sub) => (
+                                <a key={sub.href} href={sub.href} onClick={() => setIsMobileMenuOpen(false)}
+                                  className={`flex items-center gap-2 py-2 px-3 rounded-lg text-[12px] font-semibold transition-all ${pathname === sub.href ? 'text-primary bg-primary/10' : 'text-gray-600 hover:text-primary hover:bg-pink-50'}`}>
+                                  <span className="w-1.5 h-1.5 rounded-full bg-primary/40 flex-shrink-0" />
+                                  {sub.label}
+                                </a>
+                              ))}
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </div>
                   )
-                ))}
+                })}
               </div>
-
               <div className="p-4 bg-primary/5 border-t border-primary/10 space-y-2">
-                
-                  <a href="http://pf.kakao.com/_TpaBj/chat"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="block text-center bg-[#FEE500] text-[#3B1B1B] text-[13px] font-bold py-3 rounded-xl"
-                >
-                  💬 카카오톡 상담
-                </a>
-                
-                  <a href="tel:02-585-3650"
-                  className="block text-center bg-primary text-white text-[13px] font-bold py-3 rounded-xl"
-                >
-                  📞 02-585-3650
-                </a>
+                <a href="http://pf.kakao.com/_TpaBj/chat" target="_blank" rel="noopener noreferrer" className="block text-center bg-[#FEE500] text-[#3B1B1B] text-[13px] font-bold py-3 rounded-xl">💬 카카오톡 상담</a>
+                <a href="tel:02-585-3650" className="block text-center bg-primary text-white text-[13px] font-bold py-3 rounded-xl">📞 02-585-3650</a>
               </div>
             </motion.div>
           </>

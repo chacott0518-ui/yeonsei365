@@ -1,5 +1,4 @@
 {
   "/page": "app/page.js",
-  "/abortion/surgery/page": "app/abortion/surgery/page.js",
-  "/blog/page": "app/blog/page.js"
+  "/blog/abortion-period/page": "app/blog/abortion-period/page.js"
 }
