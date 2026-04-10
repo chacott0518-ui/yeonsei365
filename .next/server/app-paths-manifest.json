@@ -1,9 +1,7 @@
 {
   "/_not-found/page": "app/_not-found/page.js",
   "/page": "app/page.js",
-  "/blog/abortion-after/page": "app/blog/abortion-after/page.js",
-  "/blog/abortion-period/page": "app/blog/abortion-period/page.js",
-  "/blog/abortion-surgery/page": "app/blog/abortion-surgery/page.js",
-  "/blog/abortion-legal/page": "app/blog/abortion-legal/page.js",
-  "/blog/abortion-fasting/page": "app/blog/abortion-fasting/page.js"
+  "/blog/abortion-guardian/page": "app/blog/abortion-guardian/page.js",
+  "/blog/abortion-menstruation/page": "app/blog/abortion-menstruation/page.js",
+  "/blog/abortion-process/page": "app/blog/abortion-process/page.js"
 }
