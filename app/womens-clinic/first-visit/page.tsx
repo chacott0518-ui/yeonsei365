@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: '산부인과 처음 가는 법 완전 가이드 2026 | 연세365산부인과',
     description: '예약부터 진료까지 처음 방문자를 위한 완전 가이드',
     url: 'https://yeonsei365.vercel.app/womens-clinic/first-visit',
-    images: [{ url: 'https://yeonsei365.vercel.app/og-image.jpg', width: 1200, height: 630 }],
+    images: [{ url: 'https://www.yeonsei365.com/og-image.jpg', width: 1200, height: 630 }],
   },
 }
 

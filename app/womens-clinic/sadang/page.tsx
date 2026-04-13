@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     title: '사당역 산부인과 연세365산부인과의원 | 2026',
     description: '사당역 4번출구 도보, 여성검진부터 난임까지. 당일 예약 가능.',
     url: 'https://yeonsei365.vercel.app/womens-clinic/sadang',
-    images: [{ url: 'https://yeonsei365.vercel.app/og-image.jpg', width: 1200, height: 630 }],
+    images: [{ url: 'https://www.yeonsei365.com/og-image.jpg', width: 1200, height: 630 }],
   },
 }
 

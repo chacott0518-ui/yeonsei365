@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: '생리통 참으면 안 되는 이유 5가지 2026 | 연세365산부인과',
     description: '매달 진통제로 버티고 있다면 읽어보세요. 생리통 방치가 위험한 이유.',
     url: 'https://yeonsei365.vercel.app/womens-clinic/menstrual-pain',
-    images: [{ url: 'https://yeonsei365.vercel.app/og-image.jpg', width: 1200, height: 630 }],
+    images: [{ url: 'https://www.yeonsei365.com/og-image.jpg', width: 1200, height: 630 }],
   },
 }
 

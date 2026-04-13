@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: '사당역 산부인과 솔직 후기 | 연세365산부인과',
     description: '처음 방문이라 긴장했는데 생각보다 편안했어요.',
     url: 'https://yeonsei365.vercel.app/blog/hospital-review',
-    images: [{ url: 'https://yeonsei365.vercel.app/og-image.jpg', width: 1200, height: 630 }],
+    images: [{ url: 'https://www.yeonsei365.com/og-image.jpg', width: 1200, height: 630 }],
   },
 }
 
