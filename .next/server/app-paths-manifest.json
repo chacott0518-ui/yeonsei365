@@ -1,3 +1,6 @@
 {
-  "/womens-clinic/sadang/page": "app/womens-clinic/sadang/page.js"
+  "/_not-found/page": "app/_not-found/page.js",
+  "/page": "app/page.js",
+  "/womens-clinic/sadang/page": "app/womens-clinic/sadang/page.js",
+  "/blog/hospital-review/page": "app/blog/hospital-review/page.js"
 }
