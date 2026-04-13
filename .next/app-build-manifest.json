@@ -11,35 +11,25 @@
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
-    "/blog/abortion-menstruation/page": [
+    "/womens-clinic/menstrual-pain/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/blog/abortion-menstruation/page.js"
+      "static/chunks/app/womens-clinic/menstrual-pain/page.js"
+    ],
+    "/blog/hospital-review/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/blog/hospital-review/page.js"
     ],
     "/blog/layout": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
       "static/chunks/app/blog/layout.js"
     ],
-    "/blog/abortion-guardian/page": [
+    "/womens-clinic/first-visit/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/blog/abortion-guardian/page.js"
-    ],
-    "/abortion/surgery/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/abortion/surgery/page.js"
-    ],
-    "/blog/abortion-process/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/blog/abortion-process/page.js"
-    ],
-    "/_not-found/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/_not-found/page.js"
+      "static/chunks/app/womens-clinic/first-visit/page.js"
     ]
   }
 }

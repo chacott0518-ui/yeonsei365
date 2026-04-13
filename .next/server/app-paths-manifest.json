@@ -1,7 +1,6 @@
 {
-  "/_not-found/page": "app/_not-found/page.js",
+  "/womens-clinic/menstrual-pain/page": "app/womens-clinic/menstrual-pain/page.js",
   "/page": "app/page.js",
-  "/blog/abortion-guardian/page": "app/blog/abortion-guardian/page.js",
-  "/blog/abortion-menstruation/page": "app/blog/abortion-menstruation/page.js",
-  "/blog/abortion-process/page": "app/blog/abortion-process/page.js"
+  "/womens-clinic/first-visit/page": "app/womens-clinic/first-visit/page.js",
+  "/blog/hospital-review/page": "app/blog/hospital-review/page.js"
 }
