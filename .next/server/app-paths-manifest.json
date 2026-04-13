@@ -1,6 +1,3 @@
 {
-  "/womens-clinic/menstrual-pain/page": "app/womens-clinic/menstrual-pain/page.js",
-  "/page": "app/page.js",
-  "/womens-clinic/first-visit/page": "app/womens-clinic/first-visit/page.js",
-  "/blog/hospital-review/page": "app/blog/hospital-review/page.js"
+  "/womens-clinic/sadang/page": "app/womens-clinic/sadang/page.js"
 }

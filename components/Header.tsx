@@ -25,6 +25,7 @@ const SUB_MENUS: Record<string, { label: string; href: string }[]> = {
     { label: '낙태합법화 뜻·시기', href: '/blog/abortion-legal' },
   ],
   'clinics': [
+    { label: '사당역 산부인과 연세365', href: '/womens-clinic/sadang' },
     { label: '산부인과 처음 방문 안내', href: '/womens-clinic/first-visit' },
     { label: '생리통 꼭 산부인과 가야 하는 이유', href: '/womens-clinic/menstrual-pain' },
   ],
