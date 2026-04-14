@@ -11,15 +11,10 @@
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
-    "/womens-clinic/sadang/page": [
+    "/blog/abortion-alone/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/womens-clinic/sadang/page.js"
-    ],
-    "/blog/hospital-review/page": [
-      "static/chunks/webpack.js",
-      "static/chunks/main-app.js",
-      "static/chunks/app/blog/hospital-review/page.js"
+      "static/chunks/app/blog/abortion-alone/page.js"
     ],
     "/blog/layout": [
       "static/chunks/webpack.js",

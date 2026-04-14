@@ -28,6 +28,7 @@ const SUB_MENUS: Record<string, { label: string; href: string }[]> = {
     { label: '사당역 산부인과 연세365', href: '/womens-clinic/sadang' },
     { label: '산부인과 처음 방문 안내', href: '/womens-clinic/first-visit' },
     { label: '생리통 꼭 산부인과 가야 하는 이유', href: '/womens-clinic/menstrual-pain' },
+    { label: '임신중절수술 혼자 가도 되나요?', href: '/blog/abortion-alone' },
   ],
   'review': [
     { label: '병원 방문 후기', href: '/blog/hospital-review' },

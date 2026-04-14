@@ -30,4 +30,5 @@ export const posts = [
     { title: '사당역 산부인과 연세365', slug: '/womens-clinic/sadang', description: '사당역 산부인과 안내', date: '2024-03-10' },
     { title: '산부인과 처음 방문 안내', slug: '/womens-clinic/first-visit', description: '처음 방문 안내', date: '2024-03-09' },
     { title: '생리통 꼭 산부인과 가야 하는 이유', slug: '/womens-clinic/menstrual-pain', description: '생리통 산부인과 안내', date: '2024-03-08' },
+    { title: '임신중절수술 혼자 가도 되나요?', slug: '/blog/abortion-alone', description: '보호자 없이 가능한지 총정리', date: '2026-04-14' },
   ];
