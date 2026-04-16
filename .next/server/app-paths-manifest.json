@@ -1,5 +1,6 @@
 {
   "/_not-found/page": "app/_not-found/page.js",
+  "/pregnancy-calculator/page": "app/pregnancy-calculator/page.js",
   "/page": "app/page.js",
-  "/blog/abortion-alone/page": "app/blog/abortion-alone/page.js"
+  "/ovulation-calculator/page": "app/ovulation-calculator/page.js"
 }

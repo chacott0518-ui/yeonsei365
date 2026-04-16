@@ -5,6 +5,7 @@ export const NAV_LINKS = [
   { id: 'doctors', label: '의료진' },
   { id: 'clinics', label: '여성검진클리닉' },
   { id: 'abortion-clinic', label: '임신중절클리닉' },
+  { id: 'pregnancy-calc', label: '임신주수계산기', href: '/pregnancy-calculator', highlight: false },
   { id: 'abortion-surgery', label: '임신중절수술', href: '/abortion/surgery', highlight: true },
   { id: 'price', label: '낙태비용가격', href: '/blog', highlight: true },
   { id: 'review', label: '수술후기·사례' },

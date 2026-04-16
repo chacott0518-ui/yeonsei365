@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import '../index.css';
 import PricePopup from '../components/PricePopup';
+import FloatingChip from '../components/FloatingChip';
 
 export const metadata: Metadata = {
   title: '연세365산부인과 | 임신중절수술·낙태비용 안내',
@@ -58,8 +59,9 @@ export default function RootLayout({
         />
       </head>
       <body>
-        <PricePopup />
+      <PricePopup />
       {children}
+      <FloatingChip />
       </body>
     </html>
   );

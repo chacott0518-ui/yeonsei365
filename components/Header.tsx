@@ -6,6 +6,10 @@ import { X, Menu, ChevronDown } from 'lucide-react'
 import { usePathname } from 'next/navigation'
 
 const SUB_MENUS: Record<string, { label: string; href: string }[]> = {
+  'pregnancy-calc': [
+    { label: '임신주수 계산기', href: '/pregnancy-calculator' },
+{ label: '배란일·가임기 계산기', href: '/ovulation-calculator' },
+  ],
   'abortion-surgery': [
     { label: '임신중절수술 기간', href: '/blog/abortion-period' },
     { label: '임신중절수술 후 관리', href: '/blog/abortion-after' },
