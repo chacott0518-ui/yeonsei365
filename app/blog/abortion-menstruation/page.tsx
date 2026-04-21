@@ -7,6 +7,11 @@ export const metadata: Metadata = {
   keywords: ['임신중절수술후생리','임신중절수술 후 생리','낙태후생리','낙태수술후생리','중절수술후생리','임신중절후생리재개','낙태후생리주기','임신중절수술생리언제','낙태후첫생리','임신중절수술생리불순','낙태후생리불순','사당역산부인과','임신중절수술비용','낙태비용'],
   openGraph: { title: '임신중절수술 후 생리 | 재개 시기 안내 | 연세365산부인과', description: '임신중절수술 후 생리 재개 시기·주기 변화 완벽 안내. 사당역 4번출구.', url: 'https://www.yeonsei365.com/blog/abortion-menstruation', images: [{ url: 'https://www.yeonsei365.com/og-image.jpg', width: 1200, height: 630 }] },
   alternates: { canonical: 'https://www.yeonsei365.com/blog/abortion-menstruation' },
+  twitter: {
+    card: 'summary_large_image',
+    title: '임신중절수술 후 생리 | 재개 시기·주기 변화 완벽 안내 2026 | 연세365산부인과',
+    description: '임신중절수술 후 생리 재개 시기, 생리량·주기 변화, 정상 범위, 이상 증상까지 완벽하게 안내합니다. 사당역 4번출구 연세365산부인과.',
+  },
 }
 
 const jsonLd = {

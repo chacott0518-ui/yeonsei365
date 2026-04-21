@@ -52,11 +52,16 @@ export const metadata: Metadata = {
   openGraph: {
     title: '낙태수술 합법화 뜻 시기와 비용 | 연세365산부인과',
     description: '낙태수술 합법화 뜻과 시기, 합법적 조건 4가지 완벽 정리. 8주 미만 45만원.',
-    url: 'https://yeonsei365.vercel.app/blog/abortion-legal',
-    images: [{ url: 'https://yeonsei365.vercel.app/og' }],
+    url: 'https://www.yeonsei365.com/blog/abortion-legal',
+    images: [{ url: 'https://www.yeonsei365.com/og' }],
   },
   alternates: {
-    canonical: 'https://yeonsei365.vercel.app/blog/abortion-legal',
+    canonical: 'https://www.yeonsei365.com/blog/abortion-legal',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: '낙태수술 합법화 뜻 시기와 비용 | 임신초기중절수술 병원 | 연세365산부인과',
+    description: '낙태수술 합법화 뜻과 시기, 합법적 조건 4가지, 임신초기중절수술 비용까지 완벽 정리. 8주 미만 45만원. 사당역 4번출구 연세365산부인과 전문의 직접 시행.',
   },
 }
 

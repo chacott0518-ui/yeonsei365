@@ -14,6 +14,11 @@ export const metadata: Metadata = {
     locale: 'ko_KR',
     type: 'website',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: '임신중절수술 절차·안전성 | 당일수술·수면마취 안내 | 연세365산부인과',
+    description: '임신중절수술 절차가 궁금하신가요? 수술 전 준비부터 당일 절차, 수면마취 방법, 소요시간까지 단계별로 안내합니다. 임신중절수술 금액·비용·가격, 당일예약·당일수술 가능. 사당역 연세365산부인과.',
+  },
 }
 
 export default function SurgeryPage() {

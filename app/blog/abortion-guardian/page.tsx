@@ -7,6 +7,11 @@ export const metadata: Metadata = {
   keywords: ['임신중절수술보호자','임신중절수술 보호자','낙태수술보호자','임신중절보호자','낙태보호자','임신중절수술혼자','낙태혼자가능','임신중절수술혼자가능','낙태수술혼자','임신중절수술미성년자','낙태미성년자','임신중절수술동반','사당역산부인과','임신중절수술비용','낙태비용'],
   openGraph: { title: '임신중절수술 보호자 | 혼자 가능한가? | 연세365산부인과', description: '임신중절수술 보호자 동반 여부 완벽 안내. 사당역 4번출구.', url: 'https://www.yeonsei365.com/blog/abortion-guardian', images: [{ url: 'https://www.yeonsei365.com/og-image.jpg', width: 1200, height: 630 }] },
   alternates: { canonical: 'https://www.yeonsei365.com/blog/abortion-guardian' },
+  twitter: {
+    card: 'summary_large_image',
+    title: '임신중절수술 보호자 | 혼자 가능한가? 동반 여부 완벽 안내 2026 | 연세365산부인과',
+    description: '임신중절수술 보호자 동반 여부를 완벽하게 안내합니다. 성인 혼자 가능 여부, 미성년자 보호자 필요 여부, 수술 후 귀가까지. 사당역 4번출구 연세365산부인과.',
+  },
 }
 
 const jsonLd = {

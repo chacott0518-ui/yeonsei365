@@ -7,6 +7,20 @@ export const metadata: Metadata = {
   keywords: ['임신중절수술보험','임신중절수술 보험','낙태수술보험','임신중절보험','낙태보험','임신중절수술실손보험','낙태실손보험','임신중절수술건강보험','낙태건강보험','임신중절수술비급여','낙태비용보험처리','임신중절수술영수증','사당역산부인과','임신중절수술비용','낙태비용'],
   openGraph: { title: '임신중절수술 보험 | 실손보험 적용 여부 | 연세365산부인과', description: '임신중절수술 보험 적용 여부 완벽 안내. 사당역 4번출구.', url: 'https://www.yeonsei365.com/blog/abortion-insurance', images: [{ url: 'https://www.yeonsei365.com/og-image.jpg', width: 1200, height: 630 }] },
   alternates: { canonical: 'https://www.yeonsei365.com/blog/abortion-insurance' },
+  twitter: {
+    card: 'summary_large_image',
+    title: '임신중절수술 보험 | 실손보험 적용 여부 완벽 안내 2026 | 연세365산부인과',
+    description: '임신중절수술 보험 적용 여부를 완벽하게 안내합니다. 건강보험·실손보험 적용 여부, 비급여 항목, 영수증 발급까지. 사당역 4번출구 연세365산부인과.',
+  },
+}
+
+const articleJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: '임신중절수술 보험 | 실손보험 적용 여부 완벽 안내 2026',
+  description: '임신중절수술 보험 적용 여부를 완벽하게 안내합니다.',
+  author: { '@type': 'Organization', name: '연세365산부인과' },
+  publisher: { '@type': 'Organization', name: '연세365산부인과' },
 }
 
 const jsonLd = {
@@ -26,6 +40,7 @@ function Divider() { return <hr style={{ border: 'none', borderTop: `1px solid $
 export default function AbortionInsurancePage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <header style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50, background: 'rgba(255,255,255,0.97)', backdropFilter: 'blur(8px)', borderBottom: `2px solid ${C.bd}`, padding: '10px 20px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
         <a href="/" style={{ textDecoration: 'none' }}><img src="https://i.imgur.com/f7h5DY0.png" alt="연세365 로고" style={{ height: '32px', width: 'auto' }} /></a>

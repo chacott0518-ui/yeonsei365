@@ -4,12 +4,17 @@ export const metadata: Metadata = {
   title: '사당역 산부인과 솔직 후기 2026 | 연세365산부인과의원 직접 다녀왔어요',
   description: '사당역 연세365산부인과의원 처음 방문 후기. 대기시간, 진료 분위기, 비용까지 꾸밈없이 적었습니다.',
   keywords: ['사당역산부인과', '사당역산부인과후기', '연세365산부인과후기', '동작구산부인과'],
-  alternates: { canonical: 'https://yeonsei365.vercel.app/blog/hospital-review' },
+  alternates: { canonical: 'https://www.yeonsei365.com/blog/hospital-review' },
   openGraph: {
     title: '사당역 산부인과 솔직 후기 | 연세365산부인과',
     description: '처음 방문이라 긴장했는데 생각보다 편안했어요.',
-    url: 'https://yeonsei365.vercel.app/blog/hospital-review',
+    url: 'https://www.yeonsei365.com/blog/hospital-review',
     images: [{ url: 'https://www.yeonsei365.com/og-image.jpg', width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: '사당역 산부인과 솔직 후기 2026 | 연세365산부인과의원 직접 다녀왔어요',
+    description: '사당역 연세365산부인과의원 처음 방문 후기. 대기시간, 진료 분위기, 비용까지 꾸밈없이 적었습니다.',
   },
 }
 
@@ -42,9 +47,22 @@ const faqJsonLd = {
   })),
 }
 
+const articleJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: '사당역 산부인과 솔직 후기 2026 | 연세365산부인과의원 직접 다녀왔어요',
+  description: '사당역 연세365산부인과의원 처음 방문 후기. 대기시간, 진료 분위기, 비용까지 꾸밈없이 적었습니다.',
+  author: { '@type': 'Organization', name: '연세365산부인과' },
+  publisher: { '@type': 'Organization', name: '연세365산부인과' },
+}
+
 export default function HospitalReviewPage() {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}

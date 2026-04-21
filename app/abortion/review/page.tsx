@@ -20,6 +20,12 @@ export const metadata: Metadata = {
     locale: 'ko_KR',
     type: 'website',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: '임신중절수술 후기 | 낙태 비용 가격·부작용·사례 안내 | 연세365산부인과',
+    description:
+      '임신중절수술 후기가 궁금하신가요? 낙태수술 후기, 중절수술 후기, 임신초기낙태 후기를 솔직하게 안내합니다. 임신중절수술 금액·비용·가격과 부작용 사례까지 한눈에 확인하세요. 사당역 연세365산부인과.',
+  },
 };
 
 export default function ReviewPage() {

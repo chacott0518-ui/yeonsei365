@@ -51,6 +51,11 @@ export const metadata: Metadata = {
   alternates: {
     canonical: 'https://yeonsei365.com/blog',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: '임신중절수술 금액·비용 | 낙태비용 가격 안내 | 연세365산부인과',
+    description: '임신중절수술 금액·비용을 주수별로 투명하게 안내합니다. 8주 미만 45만원. 사당역 4번출구 연세365산부인과.',
+  },
 }
 
 export default function BlogPage() {

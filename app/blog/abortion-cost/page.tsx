@@ -53,11 +53,17 @@ export const metadata: Metadata = {
   openGraph: {
     title: '임신중절수술 비용 완벽 정리 2026 | 연세365산부인과',
     description: '주수별 임신중절수술 비용 투명 공개. 8주 미만 45만원. 사당역 4번출구.',
-    url: 'https://yeonsei365.vercel.app/blog/abortion-cost',
-    images: [{ url: 'https://yeonsei365.vercel.app/og', width: 1200, height: 630 }],
+    url: 'https://www.yeonsei365.com/blog/abortion-cost',
+    images: [{ url: 'https://www.yeonsei365.com/og', width: 1200, height: 630 }],
   },
   alternates: {
-    canonical: 'https://yeonsei365.vercel.app/blog/abortion-cost',
+    canonical: 'https://www.yeonsei365.com/blog/abortion-cost',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: '임신중절수술 비용 완벽 정리 2026 | 주수별 가격·과정·주의사항 | 연세365산부인과',
+    description:
+      '임신중절수술 비용을 주수별로 투명하게 안내합니다. 8주 미만 45만원부터 시작. 흡입식 소파술 과정, 수술 후 주의사항, 합법적 조건까지 전문의가 직접 설명합니다. 사당역 4번출구 연세365산부인과.',
   },
 }
 

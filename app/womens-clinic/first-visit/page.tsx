@@ -4,12 +4,17 @@ export const metadata: Metadata = {
   title: '산부인과 처음 가는 법 완전 가이드 2026 | 예약·준비물·진료순서 | 연세365산부인과',
   description: '산부인과 처음 방문이 두려운 분들을 위한 완전 가이드. 예약 방법, 준비물, 진료 순서, 비용, 자주 묻는 질문까지 사당역 연세365산부인과가 정리했습니다.',
   keywords: ['산부인과처음', '산부인과가는법', '미혼산부인과', '산부인과준비물', '사당역산부인과', '산부인과진료순서'],
-  alternates: { canonical: 'https://yeonsei365.vercel.app/womens-clinic/first-visit' },
+  alternates: { canonical: 'https://www.yeonsei365.com/womens-clinic/first-visit' },
   openGraph: {
     title: '산부인과 처음 가는 법 완전 가이드 2026 | 연세365산부인과',
     description: '예약부터 진료까지 처음 방문자를 위한 완전 가이드',
-    url: 'https://yeonsei365.vercel.app/womens-clinic/first-visit',
+    url: 'https://www.yeonsei365.com/womens-clinic/first-visit',
     images: [{ url: 'https://www.yeonsei365.com/og-image.jpg', width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: '산부인과 처음 가는 법 완전 가이드 2026 | 예약·준비물·진료순서 | 연세365산부인과',
+    description: '산부인과 처음 방문이 두려운 분들을 위한 완전 가이드. 예약 방법, 준비물, 진료 순서, 비용, 자주 묻는 질문까지 사당역 연세365산부인과가 정리했습니다.',
   },
 }
 

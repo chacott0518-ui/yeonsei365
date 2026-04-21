@@ -20,6 +20,11 @@ export const metadata: Metadata = {
     images: [{ url: 'https://www.yeonsei365.com/og-image.jpg', width: 1200, height: 630, alt: '임신중절수술 금식 연세365산부인과' }],
   },
   alternates: { canonical: 'https://www.yeonsei365.com/blog/abortion-fasting' },
+  twitter: {
+    card: 'summary_large_image',
+    title: '임신중절수술 금식 | 수술 전 준비사항 완벽 안내 2026 | 연세365산부인과',
+    description: '임신중절수술 금식 기준을 완벽하게 안내합니다. 6시간 금식 이유, 금식 안 했을 때 위험성, 당일 준비물 체크리스트, 수술 당일 타임라인까지. 사당역 4번출구 연세365산부인과.',
+  },
 }
 
 const jsonLd = {

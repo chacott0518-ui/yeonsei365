@@ -7,6 +7,11 @@ export const metadata: Metadata = {
   keywords: ['임신중절수술부작용','임신중절수술 부작용','낙태부작용','낙태수술부작용','임신중절후유증','낙태후유증','중절수술부작용','임신중절합병증','낙태합병증','임신중절수술위험','낙태수술위험','임신중절수술감염','임신중절수술출혈','임신중절수술자궁손상','사당역산부인과','임신중절수술비용','낙태비용'],
   openGraph: { title: '임신중절수술 부작용 | 연세365산부인과', description: '임신중절수술 부작용·합병증 완벽 안내. 사당역 4번출구.', url: 'https://www.yeonsei365.com/blog/abortion-side', images: [{ url: 'https://www.yeonsei365.com/og-image.jpg', width: 1200, height: 630 }] },
   alternates: { canonical: 'https://www.yeonsei365.com/blog/abortion-side' },
+  twitter: {
+    card: 'summary_large_image',
+    title: '임신중절수술 부작용 | 위험성·합병증 완벽 안내 2026 | 연세365산부인과',
+    description: '임신중절수술 부작용과 합병증을 완벽하게 안내합니다. 출혈·감염·자궁손상 등 부작용 종류, 예방법, 즉시 내원 증상까지. 사당역 4번출구 연세365산부인과.',
+  },
 }
 
 const jsonLd = {

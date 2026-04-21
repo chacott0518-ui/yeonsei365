@@ -20,6 +20,12 @@ export const metadata: Metadata = {
     locale: 'ko_KR',
     type: 'website',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: '임신중절수술 FAQ | 낙태 비용 가격 자주 묻는 질문 70가지 | 연세365산부인과',
+    description:
+      '임신중절수술 비용·금액·가격, 수술 방법, 주수별 기간, 수술 전 준비, 수술 후 관리, 법적 기준까지 자주 묻는 질문 70가지를 전문의가 직접 답변합니다. 사당역 4번출구 연세365산부인과.',
+  },
 };
 
 export default function FAQPage() {

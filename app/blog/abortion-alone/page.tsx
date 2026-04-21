@@ -16,6 +16,11 @@ export const metadata: Metadata = {
     url: 'https://www.yeonsei365.com/blog/abortion-alone',
     images: [{ url: 'https://www.yeonsei365.com/og-image.jpg', width: 1200, height: 630 }],
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: '임신중절수술 혼자 가도 되나요? 보호자 없이 가능한지 총정리 2026 | 연세365산부인과',
+    description: '임신중절수술 혼자 가도 될까요? 보호자 동반 여부, 혼자 내원 시 주의사항, 당일 귀가 가능 여부까지 사당역 연세365산부인과가 솔직하게 알려드립니다.',
+  },
 }
 
 const faqData = [

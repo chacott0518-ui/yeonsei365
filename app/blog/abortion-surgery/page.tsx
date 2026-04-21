@@ -22,6 +22,11 @@ export const metadata: Metadata = {
     images: [{ url: 'https://www.yeonsei365.com/og-image.jpg', width: 1200, height: 630, alt: '임신중절수술 금액 45만원 연세365산부인과' }],
   },
   alternates: { canonical: 'https://www.yeonsei365.com/abortion/surgery' },
+  twitter: {
+    card: 'summary_large_image',
+    title: '임신중절수술 금액·합법기간·방법 안내 | 연세365산부인과',
+    description: '임신중절수술 금액 8주 미만 45만원. 합법 가능 기간, 합법 조건, 흡입술·소파술 방법, 수술 절차, 수술 후 관리, 부작용, 보험, 금식까지 투명하게 안내합니다. 사당역 4번출구 연세365산부인과.',
+  },
 }
 
 const jsonLd = {

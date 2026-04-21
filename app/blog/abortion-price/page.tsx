@@ -41,11 +41,16 @@ export const metadata: Metadata = {
   openGraph: {
     title: '낙태 비용 가격 총정리 2026 | 연세365산부인과',
     description: '낙태 비용 가격 주수별 투명 공개. 8주 미만 45만원. 사당역 4번출구.',
-    url: 'https://yeonsei365.vercel.app/blog/abortion-price',
-    images: [{ url: 'https://yeonsei365.vercel.app/og', width: 1200, height: 630 }],
+    url: 'https://www.yeonsei365.com/blog/abortion-price',
+    images: [{ url: 'https://www.yeonsei365.com/og', width: 1200, height: 630 }],
   },
   alternates: {
-    canonical: 'https://yeonsei365.vercel.app/blog/abortion-price',
+    canonical: 'https://www.yeonsei365.com/blog/abortion-price',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: '낙태 비용 가격 총정리 2026 | 주수별 가격 완벽 공개 | 연세365산부인과',
+    description: '낙태 비용 가격을 주수별로 투명하게 공개합니다. 8주 미만 45만원부터 시작. 숨겨진 추가 비용 없이 영양제·회복실 포함. 사당역 4번출구 연세365산부인과.',
   },
 }
 

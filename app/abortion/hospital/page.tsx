@@ -20,8 +20,36 @@ export const metadata: Metadata = {
     locale: 'ko_KR',
     type: 'website',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: '임신중절수술 병원 | 낙태병원·낙태수술병원 서울 | 연세365산부인과',
+    description:
+      '임신중절수술 병원을 찾고 계신가요? 서울 낙태병원·낙태수술병원 중 사당역 연세365산부인과는 전문의 직접 시행, 당일수술 가능, 비밀보장입니다. 임신중절수술 금액·비용·가격도 투명하게 안내합니다. 사당역 4번출구.',
+  },
+};
+
+const localBusinessJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'LocalBusiness',
+  name: '연세365산부인과',
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: '서울 관악구 과천대로 939 3층',
+    addressCountry: 'KR',
+  },
+  telephone: '02-585-3650',
+  geo: {
+    '@type': 'GeoCoordinates',
+    latitude: 37.4875,
+    longitude: 126.9814,
+  },
 };
 
 export default function HospitalPage() {
-  return <HospitalClient />;
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }} />
+      <HospitalClient />
+    </>
+  );
 }

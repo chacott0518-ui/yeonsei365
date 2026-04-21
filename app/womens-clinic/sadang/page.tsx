@@ -9,12 +9,17 @@ export const metadata: Metadata = {
     '이수역산부인과', '방배동산부인과', '관악구산부인과',
     '사당역여성검진', '사당역자궁경부암검진', '사당역피임상담',
   ],
-  alternates: { canonical: 'https://yeonsei365.vercel.app/womens-clinic/sadang' },
+  alternates: { canonical: 'https://www.yeonsei365.com/womens-clinic/sadang' },
   openGraph: {
     title: '사당역 산부인과 연세365산부인과의원 | 2026',
     description: '사당역 4번출구 도보, 여성검진부터 난임까지. 당일 예약 가능.',
-    url: 'https://yeonsei365.vercel.app/womens-clinic/sadang',
+    url: 'https://www.yeonsei365.com/womens-clinic/sadang',
     images: [{ url: 'https://www.yeonsei365.com/og-image.jpg', width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: '사당역 산부인과 연세365산부인과의원 | 위치·진료항목·비용 완전정리 2026',
+    description: '사당역 4번출구 연세365산부인과의원. 여성검진, 생리불순, 피임상담, 자궁경부암 검진, 난임클리닉까지. 산부인과 전문의 직접 진료. 당일 예약 가능.',
   },
 }
 
@@ -63,7 +68,7 @@ const localBusinessJsonLd = {
     addressCountry: 'KR',
   },
   telephone: '02-585-3650',
-  url: 'https://yeonsei365.vercel.app',
+  url: 'https://www.yeonsei365.com',
   medicalSpecialty: 'Obstetrics and Gynecology',
 }
 

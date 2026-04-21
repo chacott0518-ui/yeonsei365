@@ -20,6 +20,12 @@ export const metadata: Metadata = {
     locale: 'ko_KR',
     type: 'website',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: '낙태 합법화 안내 | 임신중절수술 합법 시기·기간·금액 | 연세365산부인과',
+    description:
+      '낙태 합법화가 궁금하신가요? 2021년 낙태죄 폐지 이후 임신중절수술 합법 시기와 기간을 정확히 안내합니다. 낙태 비용 가격·임신중절수술 금액·비용까지 한눈에 확인하세요. 사당역 연세365산부인과.',
+  },
 };
 
 export default function LegalPage() {

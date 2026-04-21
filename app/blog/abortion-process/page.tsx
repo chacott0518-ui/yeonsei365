@@ -7,6 +7,11 @@ export const metadata: Metadata = {
   keywords: ['임신중절수술절차','임신중절수술 절차','낙태수술절차','임신중절과정','낙태수술과정','임신중절수술과정','낙태절차','임신중절수술순서','낙태수술순서','임신중절수술방법','흡입술과정','소파술과정','임신중절수술소요시간','사당역산부인과','임신중절수술비용','낙태비용'],
   openGraph: { title: '임신중절수술 절차 | 단계별 완벽 안내 | 연세365산부인과', description: '임신중절수술 절차 단계별 완벽 안내. 사당역 4번출구.', url: 'https://www.yeonsei365.com/blog/abortion-process', images: [{ url: 'https://www.yeonsei365.com/og-image.jpg', width: 1200, height: 630 }] },
   alternates: { canonical: 'https://www.yeonsei365.com/blog/abortion-process' },
+  twitter: {
+    card: 'summary_large_image',
+    title: '임신중절수술 절차 | 수술 과정 단계별 완벽 안내 2026 | 연세365산부인과',
+    description: '임신중절수술 절차를 단계별로 완벽하게 안내합니다. 내원부터 퇴원까지 전 과정, 소요 시간, 준비사항까지. 사당역 4번출구 연세365산부인과.',
+  },
 }
 
 const jsonLd = {

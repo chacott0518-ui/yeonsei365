@@ -21,6 +21,20 @@ export const metadata: Metadata = {
     images: [{ url: 'https://www.yeonsei365.com/og-image.jpg', width: 1200, height: 630, alt: '임신중절수술 기간 연세365산부인과' }],
   },
   alternates: { canonical: 'https://www.yeonsei365.com/blog/abortion-period' },
+  twitter: {
+    card: 'summary_large_image',
+    title: '임신중절수술 기간 | 몇 주까지 가능한가? 합법 기간 완벽 안내 2026 | 연세365산부인과',
+    description: '임신중절수술 기간을 주수별로 완벽 정리했습니다. 임신중절수술 몇 주까지 가능한지, 합법 기간, 주수별 시술 방법 차이, 빠른 결정이 중요한 이유, 주수별 비용까지. 사당역 4번출구 연세365산부인과.',
+  },
+}
+
+const articleJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: '임신중절수술 기간 | 몇 주까지 가능한가? 합법 기간 완벽 안내 2026',
+  description: '임신중절수술 기간을 주수별로 완벽 정리했습니다.',
+  author: { '@type': 'Organization', name: '연세365산부인과' },
+  publisher: { '@type': 'Organization', name: '연세365산부인과' },
 }
 
 const jsonLd = {
@@ -66,6 +80,7 @@ const bt: React.CSSProperties = { fontSize: '15px', color: C.ts, lineHeight: 1.9
 export default function AbortionPeriodPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <header style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50, background: 'rgba(255,255,255,0.97)', backdropFilter: 'blur(8px)', borderBottom: `2px solid ${C.bd}`, padding: '10px 20px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
         <a href="/" style={{ textDecoration: 'none' }}><img src="https://i.imgur.com/f7h5DY0.png" alt="연세365 로고" style={{ height: '32px', width: 'auto' }} /></a>

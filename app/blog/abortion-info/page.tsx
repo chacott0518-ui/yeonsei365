@@ -24,11 +24,16 @@ export const metadata: Metadata = {
   openGraph: {
     title: '인공임신중절수술 비용·시기·가격 완벽 안내 2026 | 연세365산부인과',
     description: '인공임신중절수술 비용 주수별 공개. 8주 미만 45만원. 사당역 4번출구.',
-    url: 'https://yeonsei365.vercel.app/blog/abortion-info',
-    images: [{ url: 'https://yeonsei365.vercel.app/og', width: 1200, height: 630 }],
+    url: 'https://www.yeonsei365.com/blog/abortion-info',
+    images: [{ url: 'https://www.yeonsei365.com/og', width: 1200, height: 630 }],
   },
   alternates: {
-    canonical: 'https://yeonsei365.vercel.app/blog/abortion-info',
+    canonical: 'https://www.yeonsei365.com/blog/abortion-info',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: '인공임신중절수술 비용·시기·가격 완벽 안내 2026 | 연세365산부인과',
+    description: '인공임신중절수술 비용, 시기, 가격을 주수별로 투명하게 안내합니다. 8주 미만 45만원. 합법적 조건 4가지, 수술 과정까지 전문의 직접 안내. 사당역 4번출구 연세365산부인과.',
   },
 }
 

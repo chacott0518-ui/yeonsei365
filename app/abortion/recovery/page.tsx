@@ -20,6 +20,12 @@ export const metadata: Metadata = {
     locale: 'ko_KR',
     type: 'website',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: '임신중절수술 후 관리 | 낙태 비용 가격·회복기간·주의사항 | 연세365산부인과',
+    description:
+      '임신중절수술 후 관리가 궁금하신가요? 낙태 수술 회복기간, 수술 후 음식·음주·출혈·생리 재개 시기를 안내합니다. 임신중절수술 금액·비용·가격도 함께 확인하세요. 사당역 연세365산부인과.',
+  },
 };
 
 export default function RecoveryPage() {

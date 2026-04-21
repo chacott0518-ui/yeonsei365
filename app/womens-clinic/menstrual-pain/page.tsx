@@ -4,12 +4,17 @@ export const metadata: Metadata = {
   title: '생리통 참으면 안 되는 이유 5가지 2026 | 자궁내막증·근종 신호 | 연세365산부인과',
   description: '매달 진통제로 버티고 계신가요? 생리통을 방치하면 안 되는 의학적 이유 5가지와 산부인과를 가야 할 신호를 사당역 연세365산부인과가 정리했습니다.',
   keywords: ['생리통심할때', '생리통산부인과', '자궁내막증증상', '생리불순', '사당역산부인과', '생리통원인', '자궁근종증상', '생리통치료'],
-  alternates: { canonical: 'https://yeonsei365.vercel.app/womens-clinic/menstrual-pain' },
+  alternates: { canonical: 'https://www.yeonsei365.com/womens-clinic/menstrual-pain' },
   openGraph: {
     title: '생리통 참으면 안 되는 이유 5가지 2026 | 연세365산부인과',
     description: '매달 진통제로 버티고 있다면 읽어보세요. 생리통 방치가 위험한 이유.',
-    url: 'https://yeonsei365.vercel.app/womens-clinic/menstrual-pain',
+    url: 'https://www.yeonsei365.com/womens-clinic/menstrual-pain',
     images: [{ url: 'https://www.yeonsei365.com/og-image.jpg', width: 1200, height: 630 }],
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: '생리통 참으면 안 되는 이유 5가지 2026 | 자궁내막증·근종 신호 | 연세365산부인과',
+    description: '매달 진통제로 버티고 계신가요? 생리통을 방치하면 안 되는 의학적 이유 5가지와 산부인과를 가야 할 신호를 사당역 연세365산부인과가 정리했습니다.',
   },
 }
 
