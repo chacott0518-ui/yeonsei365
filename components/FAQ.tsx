@@ -1,272 +1,172 @@
 'use client'
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { FAQS } from '../constants';
-import { ChevronDown, ChevronUp, ArrowUp } from 'lucide-react';
+import { useState } from 'react'
+import { FAQS } from '../constants'
+import { ChevronDown, ChevronUp } from 'lucide-react'
+import Link from 'next/link'
 
-const FAQ: React.FC = () => {
-  const [activeIndex, setActiveIndex] = useState<number | null>(null);
-  const [isExpanded, setIsExpanded] = useState(false);
-  const [visibleCount, setVisibleCount] = useState(5);
+const FAQ_SCHEMA = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: FAQS.map(f => ({
+    '@type': 'Question',
+    name: f.question,
+    acceptedAnswer: { '@type': 'Answer', text: f.answer },
+  })),
+}
 
-  const toggleFAQ = (index: number) => {
-    setActiveIndex(activeIndex === index ? null : index);
-  };
+export default function FAQ() {
+  const [openIndex, setOpenIndex] = useState<number | null>(null)
+  const [visibleCount, setVisibleCount] = useState(6)
 
-  const handleLoadMore = () => {
-    setVisibleCount(prev => Math.min(prev + 5, FAQS.length));
-  };
-
-  const handleShowAll = () => {
-    setVisibleCount(FAQS.length);
-  };
-
-  const handleCollapse = () => {
-    setVisibleCount(5);
-    setActiveIndex(null);
-    // 섹션 최상단으로 부드럽게 스크롤
-    setTimeout(() => {
-      document.getElementById('faq')?.scrollIntoView({ 
-        behavior: 'smooth', 
-        block: 'start' 
-      });
-    }, 100);
-  };
-
-  const visibleFAQs = FAQS.slice(0, visibleCount);
-  const remainingCount = FAQS.length - visibleCount;
+  const toggle = (i: number) => setOpenIndex(openIndex === i ? null : i)
+  const visible = FAQS.slice(0, visibleCount)
+  const remaining = FAQS.length - visibleCount
 
   return (
-    <section id="faq" className="relative py-20 md:py-32 bg-surface z-10">
-      <div className="container mx-auto px-5 md:px-12 max-w-4xl">
-        <div className="text-center mb-12 md:mb-20">
-          <span className="text-primary text-sm font-bold tracking-widest block mb-4 uppercase">FAQ</span>
-          <h2 className="text-3xl md:text-5xl font-bold text-primary font-serif">자주 묻는 질문</h2>
-          <p className="mt-4 text-gray-600">궁금하신 점을 빠르게 확인하세요</p>
-        </div>
+    <section id="faq" className="relative py-20 md:py-28 bg-white">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_SCHEMA) }}
+      />
 
-        {/* --- MOBILE VIEW --- */}
-        <div className="lg:hidden">
-            <AnimatePresence mode="wait">
-                {!isExpanded ? (
-                    <motion.div
-                        layout
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        exit={{ opacity: 0 }}
-                        onClick={() => setIsExpanded(true)}
-                        className="relative w-full h-[280px] rounded-2xl overflow-hidden shadow-xl cursor-pointer group"
-                    >
-                        <img 
-                            src="https://i.pinimg.com/736x/b8/84/e8/b884e8986a22eb03cf9dcfd9e5d97be1.jpg"
-                            alt="FAQ Cover"
-                            className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
-                        />
-                        <div className="absolute inset-0 bg-primary/80 mix-blend-multiply" />
-                        <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-6">
-                            <h3 className="text-2xl font-bold text-white mb-2">질문과 답변</h3>
-                            <p className="text-white/80 text-sm mb-6">진료 관련 궁금한 점을 확인하세요</p>
-                            <div className="w-10 h-10 rounded-full bg-white/20 backdrop-blur-sm flex items-center justify-center text-white animate-bounce">
-                                <ChevronDown size={24} />
-                            </div>
-                        </div>
-                    </motion.div>
-                ) : (
-                    <motion.div
-                        layout
-                        initial={{ opacity: 0 }}
-                        animate={{ opacity: 1 }}
-                        exit={{ opacity: 0 }}
-                        className="bg-white rounded-2xl shadow-lg border border-primary/10 overflow-hidden"
-                    >
-                        <div 
-                            onClick={() => setIsExpanded(false)}
-                            className="bg-primary p-4 flex items-center justify-between cursor-pointer sticky top-0 z-20"
-                        >
-                             <span className="text-white font-bold text-sm">자주 묻는 질문</span>
-                             <div className="flex items-center gap-2 text-white/90 text-xs">
-                                닫기 <ChevronUp size={16} />
-                             </div>
-                        </div>
-
-                        <div className="divide-y divide-gray-100 max-h-[60vh] overflow-y-auto">
-                            {visibleFAQs.map((faq, idx) => (
-                                <motion.div 
-                                    key={idx} 
-                                    className="bg-white"
-                                    initial={{ opacity: 0, y: 10 }}
-                                    animate={{ opacity: 1, y: 0 }}
-                                    transition={{ delay: idx * 0.02 }}
-                                >
-                                    <button
-                                        onClick={() => toggleFAQ(idx)}
-                                        className="w-full flex items-center justify-between p-5 text-left focus:outline-none"
-                                    >
-                                        <div className="flex items-center gap-3 w-[90%]">
-                                            <span className={`text-base font-bold flex-shrink-0 ${activeIndex === idx ? 'text-primary' : 'text-gray-400'}`}>Q.</span>
-                                            <span className={`text-sm font-bold truncate ${activeIndex === idx ? 'text-primary' : 'text-gray-700'}`}>
-                                                {faq.question}
-                                            </span>
-                                        </div>
-                                        <ChevronDown 
-                                            size={18}
-                                            className={`transition-transform duration-300 flex-shrink-0 ${activeIndex === idx ? 'rotate-180 text-primary' : 'text-gray-400'}`}
-                                        />
-                                    </button>
-                                    <AnimatePresence>
-                                        {activeIndex === idx && (
-                                            <motion.div
-                                                initial={{ height: 0, opacity: 0 }}
-                                                animate={{ height: 'auto', opacity: 1 }}
-                                                exit={{ height: 0, opacity: 0 }}
-                                                className="overflow-hidden bg-background"
-                                            >
-                                                <div className="p-5 pt-2 pl-10 text-sm text-gray-600 leading-relaxed border-t border-dashed border-gray-200">
-                                                    {faq.answer}
-                                                </div>
-                                            </motion.div>
-                                        )}
-                                    </AnimatePresence>
-                                </motion.div>
-                            ))}
-                        </div>
-
-                        {/* 더보기/접기 버튼 (모바일) */}
-                        <div className="p-4 bg-white border-t border-primary/10 space-y-2">
-                            {visibleCount < FAQS.length && (
-                                <>
-                                    <button 
-                                        onClick={handleLoadMore}
-                                        className="w-full py-3 bg-primary/10 text-primary font-bold text-sm rounded-lg hover:bg-primary/20 transition-colors flex items-center justify-center gap-2"
-                                    >
-                                        더보기 5개 ({remainingCount}개 남음) <ChevronDown size={16} />
-                                    </button>
-                                    <button 
-                                        onClick={handleShowAll}
-                                        className="w-full py-3 bg-primary text-white font-bold text-sm rounded-lg hover:bg-primary/90 transition-colors"
-                                    >
-                                        전체보기 ({FAQS.length}개)
-                                    </button>
-                                </>
-                            )}
-                            {visibleCount >= FAQS.length && (
-                                <button 
-                                    onClick={handleCollapse}
-                                    className="w-full py-3 bg-primary text-white font-bold text-sm rounded-lg hover:bg-primary/90 transition-colors flex items-center justify-center gap-2"
-                                >
-                                    처음으로 돌아가기 <ArrowUp size={16} />
-                                </button>
-                            )}
-                        </div>
-
-                        <button 
-                            onClick={() => setIsExpanded(false)}
-                            className="w-full py-4 bg-background text-primary font-bold text-sm hover:bg-surface transition-colors border-t border-primary/10"
-                        >
-                            닫기
-                        </button>
-                    </motion.div>
-                )}
-            </AnimatePresence>
-        </div>
-
-        {/* --- DESKTOP VIEW --- */}
-        <div className="hidden lg:block">
-          <div className="space-y-4">
-            {visibleFAQs.map((faq, idx) => (
-              <motion.div 
-                key={idx} 
-                className={`border rounded-xl transition-all duration-300 ${
-                  activeIndex === idx ? 'border-primary shadow-md bg-white' : 'border-primary/10 bg-white hover:border-primary/50'
-                }`}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ delay: idx * 0.03 }}
-              >
-                <button
-                  onClick={() => toggleFAQ(idx)}
-                  className="w-full flex items-center justify-between p-6 text-left focus:outline-none"
-                >
-                  <div className="flex items-center gap-4">
-                    <span className={`text-xl font-bold ${activeIndex === idx ? 'text-primary' : 'text-gray-400'}`}>Q.</span>
-                    <span className={`font-bold text-lg ${activeIndex === idx ? 'text-primary' : 'text-gray-700'}`}>
-                      {faq.question}
-                    </span>
-                  </div>
-                  <ChevronDown 
-                    className={`transition-transform duration-300 ${activeIndex === idx ? 'rotate-180 text-primary' : 'text-gray-400'}`}
-                  />
-                </button>
-                
-                <AnimatePresence>
-                  {activeIndex === idx && (
-                    <motion.div
-                      initial={{ height: 0, opacity: 0 }}
-                      animate={{ height: 'auto', opacity: 1 }}
-                      exit={{ height: 0, opacity: 0 }}
-                      transition={{ duration: 0.3 }}
-                      className="overflow-hidden"
-                    >
-                      <div className="p-6 pt-0 pl-14 border-t border-dashed border-primary/10 bg-surface/50 rounded-b-xl">
-                        <div className="flex gap-4">
-                           <span className="text-xl font-bold text-primary/60">A.</span>
-                           <p className="text-gray-600 leading-relaxed pt-1">
-                             {faq.answer}
-                           </p>
-                        </div>
-                      </div>
-                    </motion.div>
-                  )}
-                </AnimatePresence>
-              </motion.div>
+      <div className="container mx-auto px-5 md:px-10 max-w-5xl">
+        {/* 헤더 */}
+        <div className="text-center mb-12">
+          <span className="inline-block bg-[#fff0f4] text-[#D6336C] text-[11px] font-bold tracking-widest px-4 py-1.5 rounded-full mb-4">
+            FAQ
+          </span>
+          <h2 className="text-[28px] md:text-[38px] font-black text-gray-900 mb-3 leading-tight">
+            임신중절수술 자주 묻는 질문
+          </h2>
+          <p className="text-[14px] md:text-[16px] text-gray-500">
+            낙태 비용 가격·합법 기간·수술 방법·후관리까지 — 연세365산부인과가 직접 답변합니다
+          </p>
+          <div className="flex flex-wrap gap-2 justify-center mt-4">
+            {['임신중절수술금액', '낙태비용가격', '낙태합법기간', '흡입술소파술', '임신중절수술후관리'].map(kw => (
+              <span key={kw} className="bg-[#fff5f7] border border-[#f0d0dc] text-[#993556] text-[11px] px-3 py-1 rounded-full">
+                {kw}
+              </span>
             ))}
           </div>
-
-          {/* 더보기/접기 버튼 (데스크톱) */}
-          <div className="mt-8 flex justify-center gap-4">
-            {visibleCount < FAQS.length && (
-              <>
-                <button 
-                  onClick={handleLoadMore}
-                  className="px-8 py-4 bg-white border-2 border-primary text-primary font-bold rounded-xl hover:bg-primary/5 transition-colors flex items-center gap-2"
-                >
-                  더보기 5개 ({remainingCount}개 남음) <ChevronDown size={20} />
-                </button>
-                <button 
-                  onClick={handleShowAll}
-                  className="px-8 py-4 bg-primary text-white font-bold rounded-xl hover:bg-primary/90 transition-colors"
-                >
-                  전체보기 ({FAQS.length}개)
-                </button>
-              </>
-            )}
-            {visibleCount >= FAQS.length && (
-              <button 
-                onClick={handleCollapse}
-                className="px-8 py-4 bg-primary text-white font-bold rounded-xl hover:bg-primary/90 transition-colors flex items-center gap-2"
-              >
-                처음으로 돌아가기 <ArrowUp size={20} />
-              </button>
-            )}
-          </div>
         </div>
 
-        {/* 우측 하단 플로팅 버튼 (50개 이상 표시 시) */}
-        {visibleCount >= 50 && (
-          <motion.button
-            initial={{ opacity: 0, scale: 0 }}
-            animate={{ opacity: 1, scale: 1 }}
-            onClick={handleCollapse}
-            className="fixed bottom-8 right-8 w-14 h-14 bg-primary text-white rounded-full shadow-lg hover:bg-primary/90 transition-all flex items-center justify-center z-50 hover:scale-110"
-            title="맨 위로"
-          >
-            <ArrowUp size={24} />
-          </motion.button>
-        )}
+        {/* PC: 2컬럼 그리드 */}
+        <div className="hidden lg:grid grid-cols-2 gap-4 mb-6">
+          {visible.map((faq, i) => (
+            <div
+              key={i}
+              className={`border rounded-xl overflow-hidden transition-all duration-200 ${
+                openIndex === i
+                  ? 'border-[#D6336C] shadow-sm'
+                  : 'border-[#f0d0dc] hover:border-[#D6336C]/50'
+              }`}
+            >
+              <button
+                onClick={() => toggle(i)}
+                className="w-full flex items-start justify-between p-5 text-left bg-white"
+              >
+                <div className="flex gap-3 items-start flex-1 pr-2">
+                  <span className={`text-[13px] font-black flex-shrink-0 mt-0.5 ${openIndex === i ? 'text-[#D6336C]' : 'text-gray-300'}`}>
+                    Q.
+                  </span>
+                  <span className={`text-[13px] font-semibold leading-snug ${openIndex === i ? 'text-[#D6336C]' : 'text-gray-800'}`}>
+                    {faq.question}
+                  </span>
+                </div>
+                {openIndex === i
+                  ? <ChevronUp size={16} className="text-[#D6336C] flex-shrink-0 mt-0.5" />
+                  : <ChevronDown size={16} className="text-gray-300 flex-shrink-0 mt-0.5" />}
+              </button>
+              {openIndex === i && (
+                <div className="px-5 pb-5 pt-0 bg-[#fff8fa] border-t border-dashed border-[#f0d0dc]">
+                  <div className="flex gap-3 pt-3">
+                    <span className="text-[13px] font-black text-[#D6336C]/50 flex-shrink-0">A.</span>
+                    <p className="text-[13px] text-gray-600 leading-relaxed">{faq.answer}</p>
+                  </div>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
 
+        {/* 모바일: 1컬럼 아코디언 */}
+        <div className="lg:hidden space-y-3 mb-6">
+          {visible.map((faq, i) => (
+            <div
+              key={i}
+              className={`border rounded-xl overflow-hidden ${
+                openIndex === i ? 'border-[#D6336C]' : 'border-[#f0d0dc]'
+              }`}
+            >
+              <button
+                onClick={() => toggle(i)}
+                className="w-full flex items-start justify-between p-4 text-left bg-white"
+              >
+                <div className="flex gap-2 items-start flex-1 pr-2">
+                  <span className={`text-[12px] font-black flex-shrink-0 mt-0.5 ${openIndex === i ? 'text-[#D6336C]' : 'text-gray-300'}`}>
+                    Q.
+                  </span>
+                  <span className={`text-[13px] font-semibold leading-snug ${openIndex === i ? 'text-[#D6336C]' : 'text-gray-800'}`}>
+                    {faq.question}
+                  </span>
+                </div>
+                {openIndex === i
+                  ? <ChevronUp size={15} className="text-[#D6336C] flex-shrink-0 mt-0.5" />
+                  : <ChevronDown size={15} className="text-gray-300 flex-shrink-0 mt-0.5" />}
+              </button>
+              {openIndex === i && (
+                <div className="px-4 pb-4 bg-[#fff8fa] border-t border-dashed border-[#f0d0dc]">
+                  <div className="flex gap-2 pt-3">
+                    <span className="text-[12px] font-black text-[#D6336C]/50 flex-shrink-0">A.</span>
+                    <p className="text-[13px] text-gray-600 leading-relaxed">{faq.answer}</p>
+                  </div>
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+
+        {/* 더보기 / 접기 버튼 */}
+        <div className="flex flex-col sm:flex-row gap-3 justify-center mb-6">
+          {remaining > 0 && (
+            <>
+              <button
+                onClick={() => setVisibleCount(v => Math.min(v + 3, FAQS.length))}
+                className="px-6 py-3 border border-[#f0d0dc] rounded-full text-[13px] font-bold text-[#D6336C] bg-white hover:bg-[#fff5f7] transition-colors flex items-center justify-center gap-1"
+              >
+                더보기 ({remaining}개 남음) <ChevronDown size={15} />
+              </button>
+              <button
+                onClick={() => setVisibleCount(FAQS.length)}
+                className="px-6 py-3 bg-[#D6336C] rounded-full text-[13px] font-bold text-white hover:bg-[#993556] transition-colors"
+              >
+                전체 {FAQS.length}개 보기
+              </button>
+            </>
+          )}
+          {remaining === 0 && visibleCount > 6 && (
+            <button
+              onClick={() => { setVisibleCount(6); setOpenIndex(null) }}
+              className="px-6 py-3 bg-[#D6336C] rounded-full text-[13px] font-bold text-white flex items-center justify-center gap-1"
+            >
+              접기 <ChevronUp size={15} />
+            </button>
+          )}
+        </div>
+
+        {/* 전체 70가지 FAQ 링크 */}
+        <div className="text-center">
+          <Link
+            href="/abortion/faq"
+            className="inline-flex items-center gap-2 bg-gradient-to-r from-[#5c0e20] to-[#D6336C] text-white font-bold text-[14px] px-10 py-4 rounded-xl hover:opacity-90 transition-opacity"
+          >
+            전체 70가지 FAQ 보기 →
+          </Link>
+          <p className="text-[11px] text-gray-400 mt-2">
+            비용·방법·주수·준비·후관리·법적기준·병원예약 총 70가지
+          </p>
+        </div>
       </div>
     </section>
-  );
-};
-
-export default FAQ;
+  )
+}

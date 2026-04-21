@@ -6,9 +6,20 @@ import { X, Menu, ChevronDown } from 'lucide-react'
 import { usePathname } from 'next/navigation'
 
 const SUB_MENUS: Record<string, { label: string; href: string }[]> = {
+  'abortion-clinic': [
+    { label: '임신중절수술', href: '/abortion' },
+    { label: '수술 방법·종류', href: '/abortion/method' },
+    { label: '수술 절차·안전성', href: '/abortion/surgery' },
+    { label: '주수별 비용 안내', href: '/abortion/cost' },
+    { label: '수술 정보·보호자', href: '/abortion/info' },
+    { label: '합법화 안내', href: '/abortion/legal' },
+    { label: '수술 후 관리', href: '/abortion/recovery' },
+    { label: '수술 후기', href: '/abortion/review' },
+    { label: '임신중절 병원', href: '/abortion/hospital' },
+  ],
   'pregnancy-calc': [
     { label: '임신주수 계산기', href: '/pregnancy-calculator' },
-{ label: '배란일·가임기 계산기', href: '/ovulation-calculator' },
+    { label: '배란일·가임기 계산기', href: '/ovulation-calculator' },
   ],
   'abortion-surgery': [
     { label: '임신중절수술 기간', href: '/blog/abortion-period' },
@@ -36,6 +47,12 @@ const SUB_MENUS: Record<string, { label: string; href: string }[]> = {
   ],
   'review': [
     { label: '병원 방문 후기', href: '/blog/hospital-review' },
+  ],
+  'faq': [
+    { label: '임신중절 자주 묻는 질문', href: '/abortion/faq' },
+    { label: '낙태 비용 FAQ', href: '/abortion/faq#cost' },
+    { label: '수술 후 관리 FAQ', href: '/abortion/faq#recovery' },
+    { label: '법적 기준 FAQ', href: '/abortion/faq#legal' },
   ],
 }
 
@@ -129,7 +146,12 @@ const Header: React.FC = () => {
   }, [isMobileMenuOpen])
 
   const isLinkActive = (link: typeof NAV_LINKS[0]) => {
-    if (link.href) return pathname === link.href || pathname.startsWith('/blog/abortion')
+    if (link.href) {
+      if (link.id === 'abortion-clinic') return pathname.startsWith('/abortion')
+      if (link.id === 'faq') return pathname.startsWith('/abortion/faq')
+      if (link.id === 'price') return pathname.startsWith('/abortion/cost') || pathname.startsWith('/blog/abortion')
+      return pathname === link.href || pathname.startsWith('/blog/abortion')
+    }
     return activeSection === link.id
   }
 

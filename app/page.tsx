@@ -12,6 +12,19 @@ import Footer from '../components/Footer'
 import ConsultModal from '../components/ConsultModal'
 import FloatingBar from '../components/FloatingBar'
 
+const FAQ_SCHEMA = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    { '@type': 'Question', name: '임신중절수술 금액이 얼마인가요?', acceptedAnswer: { '@type': 'Answer', text: '사당역 연세365산부인과 기준 8주 미만 45만원, 8주 60만원, 9주 70만원, 10주 80만원. 수술·마취·영양제·부가세 포함 최종 금액, 카드·현금 동일가, 추가 비용 없음.' } },
+    { '@type': 'Question', name: '임신중절수술 합법 기간은 언제까지인가요?', acceptedAnswer: { '@type': 'Answer', text: '2021년 낙태죄 폐지 이후 임신 14주 이내는 본인 동의만으로 합법적으로 수술 가능. 14~24주는 모자보건법 사유 해당 시 조건부 가능.' } },
+    { '@type': 'Question', name: '임신중절수술 혼자 가도 되나요?', acceptedAnswer: { '@type': 'Answer', text: '성인(만 19세 이상)은 보호자 없이 혼자 수술 가능. 수면마취 후 자가 운전은 불가하므로 귀가 시 대중교통 이용 필수. 사당역 4번출구 도보 1분.' } },
+    { '@type': 'Question', name: '흡입술과 소파술 중 어떤 방법이 더 안전한가요?', acceptedAnswer: { '@type': 'Answer', text: '8주 이내라면 흡입술이 자궁 내막 손상이 가장 적고 회복이 빠름. 8~12주는 소파술이 적합. 두 방법 모두 수면마취 하에 진행, 수술 중 통증 없음.' } },
+    { '@type': 'Question', name: '임신중절수술 당일 절차가 어떻게 되나요?', acceptedAnswer: { '@type': 'Answer', text: '내원·접수 → 초음파·혈액검사 → 전문의 상담 → 수면마취 후 시술(10~15분) → 1인 회복실 안정 → 당일 귀가. 총 소요 시간 2~3시간.' } },
+    { '@type': 'Question', name: '낙태수술 기록이 타인에게 알려질 수 있나요?', acceptedAnswer: { '@type': 'Answer', text: '의료법 제19조에 따라 진료 기록은 본인 동의 없이 외부에 절대 공개 불가. 1인 상담실·1인 회복실·독립 동선으로 완전 비밀 보장.' } },
+  ],
+}
+
 export const metadata: Metadata = {
   title: '임신중절수술 금액·비용 | 낙태비용 가격 안내 | 연세365산부인과',
   description: '낙태비용, 낙태금액, 낙태가격, 임신중절비용, 임신중절수술비용을 주수별로 투명하게 안내합니다. 8주 미만 45만원. 사당역 4번출구 연세365산부인과.',
@@ -55,39 +68,36 @@ export const metadata: Metadata = {
     title: '낙태비용 가격 금액 | 임신중절수술비용 안내 | 연세365산부인과',
     description: '낙태비용 가격 주수별 투명 공개. 8주 미만 45만원. 사당역 4번출구.',
     url: 'https://www.yeonsei365.com',
-    images: [
-      {
-        url: 'https://www.yeonsei365.com/og-image.jpg',
-        width: 1200,
-        height: 630,
-        alt: '연세365산부인과 임신중절수술 비용 안내',
-      },
-    ],
+    images: [{ url: 'https://www.yeonsei365.com/og-image.jpg', width: 1200, height: 630, alt: '연세365산부인과 임신중절수술 비용 안내' }],
   },
-  alternates: {
-    canonical: 'https://www.yeonsei365.com',
-  },
+  alternates: { canonical: 'https://www.yeonsei365.com' },
 }
 
 export default function Home() {
   return (
-    <div className="relative bg-background text-gray-dark min-h-screen pb-0 font-sans">
-      <Header />
-      <main>
-        <Hero />
-        <div className="relative z-10 bg-white shadow-2xl">
-          <About />
-          <Doctors />
-          <Center />
-          <Abortion />
-          <Review />
-          <FAQ />
-          <Consultation />
-        </div>
-      </main>
-      <Footer />
-      <ConsultModal />
-      <FloatingBar />
-    </div>
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_SCHEMA) }}
+      />
+      <div className="relative bg-background text-gray-dark min-h-screen pb-0 font-sans">
+        <Header />
+        <main>
+          <Hero />
+          <div className="relative z-10 bg-white shadow-2xl">
+            <About />
+            <Doctors />
+            <Center />
+            <Abortion />
+            <Review />
+            <FAQ />
+            <Consultation />
+          </div>
+        </main>
+        <Footer />
+        <ConsultModal />
+        <FloatingBar />
+      </div>
+    </>
   )
 }

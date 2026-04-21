@@ -11,10 +11,20 @@
       "static/css/app/layout.css",
       "static/chunks/app/layout.js"
     ],
-    "/blog/abortion-after/page": [
+    "/ovulation-calculator/page": [
       "static/chunks/webpack.js",
       "static/chunks/main-app.js",
-      "static/chunks/app/blog/abortion-after/page.js"
+      "static/chunks/app/ovulation-calculator/page.js"
+    ],
+    "/abortion/faq/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/abortion/faq/page.js"
+    ],
+    "/blog/abortion-fasting/page": [
+      "static/chunks/webpack.js",
+      "static/chunks/main-app.js",
+      "static/chunks/app/blog/abortion-fasting/page.js"
     ],
     "/blog/layout": [
       "static/chunks/webpack.js",
