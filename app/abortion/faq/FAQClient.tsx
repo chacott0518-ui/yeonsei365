@@ -494,10 +494,10 @@ export default function FAQClient() {
                       <h2 style={{ fontSize: '16px', fontWeight: 700, color: '#D6336C' }}>{group.label}</h2>
                       <span style={{ background: '#D6336C', color: '#fff', fontSize: '11px', padding: '2px 8px', borderRadius: '10px' }}>{group.count}</span>
                     </div>
-                    {group.items.slice(0, visible).map((faq, idx) => {
-                      const globalIdx = FAQS.indexOf(faq);
-                      return (
-                        <div key={idx} style={{ border: '1px solid #f0d0dc', borderRadius: '12px', marginBottom: '8px', background: '#fff', overflow: 'hidden' }}>
+                    {group.items.map((faq, idx) => {
+  const globalIdx = FAQS.indexOf(faq);
+  return (
+    <div key={idx} style={{ border: '1px solid #f0d0dc', borderRadius: '12px', marginBottom: '8px', background: '#fff', overflow: 'hidden', display: idx < visible ? 'block' : 'none' }}>
                           <button onClick={() => toggleFAQ(globalIdx)}
                             style={{ width: '100%', padding: '14px 18px', display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '8px', background: 'none', border: 'none', cursor: 'pointer', textAlign: 'left' }}>
                             <span style={{ display: 'flex', gap: '8px', alignItems: 'flex-start' }}>
