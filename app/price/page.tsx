@@ -21,3 +21,6 @@ export const metadata: Metadata = {
     type: 'website',
   },
 };
+export default function PricePage() {
+  return null
+}
