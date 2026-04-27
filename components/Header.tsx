@@ -49,11 +49,10 @@ const SUB_MENUS: Record<string, { label: string; href: string }[]> = {
     { label: '병원 방문 후기', href: '/blog/hospital-review' },
   ],
   'faq': [
-    { label: '임신중절 자주 묻는 질문', href: '/abortion/faq' },
-    { label: '낙태 비용 FAQ', href: '/abortion/faq#cost' },
-    { label: '수술 후 관리 FAQ', href: '/abortion/faq#recovery' },
-    { label: '법적 기준 FAQ', href: '/abortion/faq#legal' },
-  ],
+  { label: '자가진단 퀴즈', href: '/health-magazine#quiz' },
+  { label: '건강 칼럼', href: '/health-magazine/column' },
+  { label: 'FAQ 전체보기', href: '/abortion/faq' },
+],
 }
 
 const Header: React.FC = () => {

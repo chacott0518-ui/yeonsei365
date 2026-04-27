@@ -9,7 +9,7 @@ export const NAV_LINKS = [
   { id: 'abortion-surgery', label: '임신중절수술', href: '/abortion/surgery', highlight: true },
   { id: 'price', label: '낙태 비용 가격', href: '/abortion/cost', highlight: true },
   { id: 'review', label: '수술후기·사례', href: '/abortion/review' },
-  { id: 'faq', label: 'FAQ', href: '/abortion/faq' },
+  { id: 'faq', label: '건강매거진', href: '/health-magazine' },
   { id: 'location', label: '상담예약', highlight: true },
 ]
 
