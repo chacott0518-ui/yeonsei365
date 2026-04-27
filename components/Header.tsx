@@ -49,7 +49,7 @@ const SUB_MENUS: Record<string, { label: string; href: string }[]> = {
     { label: '병원 방문 후기', href: '/blog/hospital-review' },
   ],
   'faq': [
-  { label: '자가진단 퀴즈', href: '/health-magazine#quiz' },
+  { label: '자가진단 퀴즈', href: '/health-magazine/quiz' },
   { label: '건강 칼럼', href: '/health-magazine/column' },
   { label: 'FAQ 전체보기', href: '/abortion/faq' },
 ],

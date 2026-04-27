@@ -65,25 +65,22 @@ export default function HealthMagazineClient() {
 
       {/* 탭 */}
       <div style={{ background: '#fff', borderBottom: `1px solid ${C.pbd}`, position: 'sticky', top: '64px', zIndex: 40 }}>
-        <div style={{ maxWidth: '900px', margin: '0 auto', padding: '0 20px', display: 'flex' }}>
-          {[
-            { label: '자가진단 퀴즈', href: '#quiz' },
-            { label: 'FAQ', href: '#faq' },
-            { label: '건강 칼럼', href: '#column' },
-          ].map(tab => (
-            <a key={tab.href} href={tab.href} style={{
-              padding: '14px 20px', fontSize: '13px', fontWeight: 700,
-              color: C.p, textDecoration: 'none', borderBottom: `2px solid transparent`,
-              display: 'block',
-            }}
-            onMouseEnter={e => (e.currentTarget.style.borderBottomColor = C.p)}
-            onMouseLeave={e => (e.currentTarget.style.borderBottomColor = 'transparent')}
-            >
-              {tab.label}
-            </a>
-          ))}
-        </div>
-      </div>
+  <div style={{ maxWidth: '900px', margin: '0 auto', padding: '0 20px', display: 'flex' }}>
+    {[
+      { label: '자가진단 퀴즈', href: '/health-magazine/quiz' },
+      { label: 'FAQ', href: '/abortion/faq' },
+      { label: '건강 칼럼', href: '/health-magazine/column' },
+    ].map(tab => (
+      <Link key={tab.href} href={tab.href} style={{
+        padding: '14px 20px', fontSize: '13px', fontWeight: 700,
+        color: C.p, textDecoration: 'none', borderBottom: `2px solid transparent`,
+        display: 'block',
+      }}>
+        {tab.label}
+      </Link>
+    ))}
+  </div>
+</div>
 
       {/* 자가진단 퀴즈 섹션 */}
       <section id="quiz" style={{ background: C.pb, padding: '60px 0' }}>
