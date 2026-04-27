@@ -598,12 +598,6 @@ export default function FAQClient() {
         </div>
       </div>
 
-      {/* 맨위로 버튼 */}
-      <button onClick={scrollToTop}
-        style={{ position: 'fixed', bottom: '80px', right: '20px', width: '44px', height: '44px', background: '#D6336C', color: '#fff', border: 'none', borderRadius: '50%', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', zIndex: 40 }}>
-        <ArrowUp size={20} />
-      </button>
-
       <style>{`
         @media (max-width: 768px) {
           .pc-sidebar { display: none !important; }
