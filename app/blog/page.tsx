@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: '임신중절수술 금액·비용 | 낙태비용 가격 안내 | 연세365산부인과',
-  description: '임신중절수술 금액·비용을 주수별로 투명하게 안내합니다. 8주 미만 45만원. 사당역 4번출구 연세365산부인과.',
+  title: '임신중절수술 정보·후기 | 합법화·방법·비용 총정리 | 연세365산부인과',
+  description: '임신중절수술 합법 조건·방법·비용·후기를 전문의가 직접 안내합니다. 흡입술·소파술 방법 비교, 주수별 금액, 수술 후 관리까지. 사당역 4번출구 연세365산부인과.',
   keywords: [
     '임신중절수술금액', '임신중절수술 금액', '낙태금액', '낙태 금액',
     '중절수술금액', '임신중절금액', '낙태비용금액', '임신중절수술금액얼마',
@@ -43,18 +43,18 @@ export const metadata: Metadata = {
     '임신중절수술후임신', '낙태수술보호자', '낙태비용보험',
   ],
   openGraph: {
-    title: '임신중절수술 금액·비용 | 낙태비용 가격 안내 | 연세365산부인과',
-    description: '임신중절수술 금액 주수별 투명 공개. 8주 미만 45만원. 사당역 4번출구.',
-    url: 'https://yeonsei365.com/blog',
-    images: [{ url: 'https://yeonsei365.com/og', width: 1200, height: 630 }],
+    title: '임신중절수술 정보·후기 | 합법화·방법·비용 총정리 | 연세365산부인과',
+    description: '임신중절수술 합법 조건·방법·비용·후기를 전문의가 직접 안내합니다. 사당역 4번출구 연세365산부인과.',
+    url: 'https://www.yeonsei365.com/blog',
+    images: [{ url: 'https://www.yeonsei365.com/og-image.jpg', width: 1200, height: 630 }],
   },
   alternates: {
-    canonical: 'https://yeonsei365.com/blog',
+    canonical: 'https://www.yeonsei365.com/blog',
   },
   twitter: {
     card: 'summary_large_image',
-    title: '임신중절수술 금액·비용 | 낙태비용 가격 안내 | 연세365산부인과',
-    description: '임신중절수술 금액·비용을 주수별로 투명하게 안내합니다. 8주 미만 45만원. 사당역 4번출구 연세365산부인과.',
+    title: '임신중절수술 정보·후기 | 합법화·방법·비용 총정리 | 연세365산부인과',
+    description: '임신중절수술 합법 조건·방법·비용·후기를 전문의가 직접 안내합니다. 흡입술·소파술 비교, 주수별 금액, 수술 후 관리까지. 사당역 4번출구 연세365산부인과.',
   },
 }
 

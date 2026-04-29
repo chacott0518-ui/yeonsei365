@@ -29,6 +29,21 @@ function InfoBox({ children, type = 'pink' }: { children: React.ReactNode; type?
 export default function ColumnDetailClient({ column }: { column: Column }) {
   const [openFaq, setOpenFaq] = useState<number | null>(null)
 
+  const faqSchema = column.faq && column.faq.length > 0
+    ? {
+        '@context': 'https://schema.org',
+        '@type': 'FAQPage',
+        mainEntity: column.faq.map((f: { q: string; a: string }) => ({
+          '@type': 'Question',
+          name: f.q,
+          acceptedAnswer: {
+            '@type': 'Answer',
+            text: f.a,
+          },
+        })),
+      }
+    : null
+
   const renderSection = (sec: Column['sections'][number], i: number) => {
     switch (sec.type) {
       case 'text':
@@ -309,6 +324,15 @@ export default function ColumnDetailClient({ column }: { column: Column }) {
             </a>
           </div>
         </div>
+
+        {/* FAQ Schema — Bing Copilot·ChatGPT AIEO 인용용 */}
+        {faqSchema && (
+          <script
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+          />
+        )}
+
       </div>
     </>
   )
