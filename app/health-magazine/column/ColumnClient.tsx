@@ -105,7 +105,7 @@ export default function ColumnClient() {
         </div>
 
         {/* 모바일: 1컬럼 리스트 */}
-        <div className="lg:hidden" style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
+        <div className="lg:hidden" style={{ display: 'flex', flexDirection: 'column', gap: '16px', padding: '0 16px' }}>
           {COLUMNS.map(col => (
             <Link key={col.slug} href={`/health-magazine/column/${col.slug}`} style={{ textDecoration: 'none' }}>
               <div style={{
