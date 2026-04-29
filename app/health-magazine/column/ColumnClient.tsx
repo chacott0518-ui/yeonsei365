@@ -25,58 +25,119 @@ export default function ColumnClient() {
         </p>
       </div>
 
-      {/* 칼럼 목록 — PC: 3컬럼, 모바일: 1컬럼 */}
+      {/* 칼럼 목록 */}
       <div style={{ maxWidth: '960px', margin: '0 auto', padding: '48px 20px 80px' }}>
 
-        {/* PC */}
-        <div className="hidden lg:grid" style={{ gridTemplateColumns: 'repeat(3,1fr)', gap: '20px' }}>
+        {/* PC: 3컬럼 그리드 — 모든 카드 동일 높이 */}
+        <div className="hidden lg:grid" style={{ gridTemplateColumns: 'repeat(3,1fr)', gap: '24px', alignItems: 'stretch' }}>
           {COLUMNS.map(col => (
-            <Link key={col.slug} href={`/health-magazine/column/${col.slug}`} style={{ textDecoration: 'none', display: 'block' }}>
-              <div style={{ background: '#fff', border: `0.5px solid ${C.pbd}`, borderRadius: '16px', overflow: 'hidden', transition: 'border-color .2s', cursor: 'pointer' }}
-                onMouseEnter={e => (e.currentTarget as HTMLDivElement).style.borderColor = C.p}
-                onMouseLeave={e => (e.currentTarget as HTMLDivElement).style.borderColor = C.pbd}>
-                <div style={{ background: C.pb, height: '140px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '48px' }}>
-                  {col.icon}
+            <Link
+              key={col.slug}
+              href={`/health-magazine/column/${col.slug}`}
+              style={{ textDecoration: 'none', display: 'flex' }}
+            >
+              <div
+                style={{
+                  background: '#fff',
+                  border: `0.5px solid ${C.pbd}`,
+                  borderRadius: '16px',
+                  overflow: 'hidden',
+                  cursor: 'pointer',
+                  width: '100%',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  transition: 'border-color .2s, box-shadow .2s',
+                }}
+                onMouseEnter={e => {
+                  ;(e.currentTarget as HTMLDivElement).style.borderColor = C.p
+                  ;(e.currentTarget as HTMLDivElement).style.boxShadow = '0 4px 20px rgba(214,51,108,0.12)'
+                }}
+                onMouseLeave={e => {
+                  ;(e.currentTarget as HTMLDivElement).style.borderColor = C.pbd
+                  ;(e.currentTarget as HTMLDivElement).style.boxShadow = 'none'
+                }}
+              >
+                {/* 썸네일 */}
+                <div style={{ height: '160px', overflow: 'hidden', flexShrink: 0, background: C.pb }}>
+                  {col.thumbnail ? (
+                    <img
+                      src={col.thumbnail}
+                      alt={col.title}
+                      style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                    />
+                  ) : (
+                    <div style={{ height: '100%', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '48px' }}>
+                      {col.icon}
+                    </div>
+                  )}
                 </div>
-                <div style={{ padding: '20px' }}>
-                  <div style={{ display: 'flex', gap: '8px', alignItems: 'center', marginBottom: '10px' }}>
+                {/* 내용 */}
+                <div style={{ padding: '20px', flex: 1, display: 'flex', flexDirection: 'column' }}>
+                  <div style={{ display: 'flex', gap: '8px', alignItems: 'center', marginBottom: '10px', flexWrap: 'wrap' }}>
                     <span style={{ background: C.pb, color: C.pd, fontSize: '10px', fontWeight: 700, padding: '2px 8px', borderRadius: '10px' }}>{col.category}</span>
                     <span style={{ color: C.tg, fontSize: '11px' }}>{col.date}</span>
                     <span style={{ color: C.tg, fontSize: '11px' }}>· {col.readTime} 읽기</span>
                   </div>
                   <h2 style={{ fontSize: '16px', fontWeight: 700, color: C.tm, marginBottom: '8px', lineHeight: 1.4 }}>{col.title}</h2>
-                  <p style={{ fontSize: '13px', color: C.ts, lineHeight: 1.7, marginBottom: '14px', display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical', overflow: 'hidden' }}>
+                  <p style={{
+                    fontSize: '13px', color: C.ts, lineHeight: 1.7, marginBottom: '16px',
+                    display: '-webkit-box', WebkitLineClamp: 3, WebkitBoxOrient: 'vertical', overflow: 'hidden',
+                    flex: 1,
+                  }}>
                     {col.description}
                   </p>
-                  <span style={{ fontSize: '13px', color: C.p, fontWeight: 700 }}>읽어보기 →</span>
+                  <span style={{ fontSize: '13px', color: C.p, fontWeight: 700, marginTop: 'auto' }}>읽어보기 →</span>
                 </div>
               </div>
             </Link>
           ))}
 
-          {/* 신규 칼럼 준비 중 카드 */}
-          <div style={{ background: C.pb, border: `0.5px dashed ${C.pbd}`, borderRadius: '16px', display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', minHeight: '300px', padding: '24px', textAlign: 'center' }}>
+          {/* 새 칼럼 준비 중 */}
+          <div style={{
+            background: C.pb, border: `0.5px dashed ${C.pbd}`, borderRadius: '16px',
+            display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center',
+            minHeight: '300px', padding: '24px', textAlign: 'center',
+          }}>
             <div style={{ fontSize: '36px', marginBottom: '12px' }}>✍️</div>
             <div style={{ fontSize: '14px', fontWeight: 700, color: C.pd, marginBottom: '6px' }}>새 칼럼 준비 중</div>
             <div style={{ fontSize: '12px', color: C.tg }}>전문의가 작성 중인<br />칼럼이 곧 게시됩니다</div>
           </div>
         </div>
 
-        {/* 모바일 */}
-        <div className="lg:hidden" style={{ flexDirection: 'column', gap: '16px' }}>
+        {/* 모바일: 1컬럼 리스트 */}
+        <div className="lg:hidden" style={{ display: 'flex', flexDirection: 'column', gap: '16px' }}>
           {COLUMNS.map(col => (
             <Link key={col.slug} href={`/health-magazine/column/${col.slug}`} style={{ textDecoration: 'none' }}>
-              <div style={{ background: '#fff', border: `0.5px solid ${C.pbd}`, borderRadius: '14px', overflow: 'hidden', display: 'flex', gap: '0' }}>
-                <div style={{ background: C.pb, width: '90px', flexShrink: 0, display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '32px' }}>
-                  {col.icon}
+              <div style={{
+                background: '#fff', border: `0.5px solid ${C.pbd}`, borderRadius: '14px',
+                overflow: 'hidden', display: 'flex',
+              }}>
+                {/* 썸네일 */}
+                <div style={{ width: '100px', flexShrink: 0, background: C.pb, overflow: 'hidden' }}>
+                  {col.thumbnail ? (
+                    <img
+                      src={col.thumbnail}
+                      alt={col.title}
+                      style={{ width: '100%', height: '100%', objectFit: 'cover', display: 'block' }}
+                    />
+                  ) : (
+                    <div style={{ height: '100%', minHeight: '100px', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '32px' }}>
+                      {col.icon}
+                    </div>
+                  )}
                 </div>
-                <div style={{ padding: '14px 16px', flex: 1, minWidth: 0 }}>
+                {/* 내용 */}
+                <div style={{ padding: '16px 16px 16px 14px', flex: 1, minWidth: 0 }}>
                   <div style={{ display: 'flex', gap: '6px', alignItems: 'center', marginBottom: '6px' }}>
                     <span style={{ background: C.pb, color: C.pd, fontSize: '10px', fontWeight: 700, padding: '1px 7px', borderRadius: '8px' }}>{col.category}</span>
                     <span style={{ color: C.tg, fontSize: '10px' }}>{col.readTime}</span>
                   </div>
-                  <h2 style={{ fontSize: '14px', fontWeight: 700, color: C.tm, marginBottom: '4px', lineHeight: 1.4 }}>{col.title}</h2>
-                  <p style={{ fontSize: '12px', color: C.ts, lineHeight: 1.6, display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden', marginBottom: '6px' }}>
+                  <h2 style={{ fontSize: '14px', fontWeight: 700, color: C.tm, marginBottom: '6px', lineHeight: 1.4 }}>{col.title}</h2>
+                  <p style={{
+                    fontSize: '12px', color: C.ts, lineHeight: 1.65,
+                    display: '-webkit-box', WebkitLineClamp: 2, WebkitBoxOrient: 'vertical', overflow: 'hidden',
+                    marginBottom: '8px',
+                  }}>
                     {col.description}
                   </p>
                   <span style={{ fontSize: '12px', color: C.p, fontWeight: 700 }}>읽기 →</span>
@@ -87,7 +148,7 @@ export default function ColumnClient() {
         </div>
 
         {/* 키워드 */}
-        <div style={{ marginTop: '48px', padding: '20px', background: C.pb, borderRadius: '14px', border: `0.5px solid ${C.pbd}` }}>
+        <div style={{ marginTop: '48px', padding: '20px 24px', background: C.pb, borderRadius: '14px', border: `0.5px solid ${C.pbd}` }}>
           <div style={{ fontSize: '12px', color: C.tg, marginBottom: '10px' }}>관련 검색 키워드</div>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '6px' }}>
             {['자궁근종', '임신중절수술', '생리불순', '난임', '여성검진', '갱년기', '피임', '질염', '자궁내막증', '산부인과칼럼'].map(kw => (
