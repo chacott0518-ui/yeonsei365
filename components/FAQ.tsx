@@ -4,16 +4,6 @@ import { FAQS } from '../constants'
 import { ChevronDown, ChevronUp } from 'lucide-react'
 import Link from 'next/link'
 
-const FAQ_SCHEMA = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: FAQS.map(f => ({
-    '@type': 'Question',
-    name: f.question,
-    acceptedAnswer: { '@type': 'Answer', text: f.answer },
-  })),
-}
-
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
   const [visibleCount, setVisibleCount] = useState(6)
@@ -24,10 +14,6 @@ export default function FAQ() {
 
   return (
     <section id="faq" className="relative py-20 md:py-28 bg-white">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_SCHEMA) }}
-      />
 
       <div className="container mx-auto px-5 md:px-10 max-w-5xl">
         {/* 헤더 */}
