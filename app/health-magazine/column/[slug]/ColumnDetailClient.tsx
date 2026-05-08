@@ -180,7 +180,24 @@ export default function ColumnDetailClient({ column }: { column: Column }) {
             </div>
           </section>
         )
-
+        case 'image':
+          return (
+            <section key={i} style={{ marginBottom: '32px' }}>
+              <div style={{ borderRadius: '16px', overflow: 'hidden', border: `0.5px solid ${C.pbd}` }}>
+                <img
+                  src={sec.src}
+                  alt={sec.alt || ''}
+                  loading="lazy"
+                  style={{ width: '100%', display: 'block', maxHeight: '420px', objectFit: 'cover' }}
+                />
+              </div>
+              {sec.caption && (
+                <p style={{ fontSize: '12px', color: C.tg, textAlign: 'center', marginTop: '8px', lineHeight: 1.5 }}>
+                  {sec.caption}
+                </p>
+              )}
+            </section>
+          )
       default:
         return null
     }
@@ -190,8 +207,10 @@ export default function ColumnDetailClient({ column }: { column: Column }) {
     <>
       {/* 히어로 */}
       <div style={{
-        background: `linear-gradient(135deg, ${C.pp} 0%, ${C.pd} 50%, ${C.p} 100%)`,
-        padding: '100px 20px 48px',
+        background: column.heroImage
+        ? `linear-gradient(rgba(92,14,32,0.72), rgba(92,14,32,0.55)), url(${column.heroImage}) center/cover no-repeat`
+        : `linear-gradient(135deg, ${C.pp} 0%, ${C.pd} 50%, ${C.p} 100%)`,
+      padding: '100px 20px 48px',
       }}>
         <div style={{ maxWidth: '780px', margin: '0 auto' }}>
           <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '16px' }}>
@@ -231,7 +250,7 @@ export default function ColumnDetailClient({ column }: { column: Column }) {
         <div style={{ background: C.pb, border: `0.5px solid ${C.pbd}`, borderRadius: '14px', padding: '20px 24px', marginBottom: '40px' }}>
           <div style={{ fontSize: '11px', fontWeight: 700, color: '#bbb', letterSpacing: '.06em', marginBottom: '12px' }}>목차</div>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
-            {column.sections.filter(s => s.title).map((s, i) => (
+          {column.sections.filter(s => s.type !== 'image' && s.title).map((s, i) => (
               <div key={i} style={{ display: 'flex', gap: '8px', alignItems: 'center', fontSize: '13px', color: C.p, fontWeight: 600 }}>
                 <span style={{ width: '4px', height: '4px', background: C.p, borderRadius: '50%', flexShrink: 0 }} />
                 {s.title}
