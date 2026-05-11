@@ -75,7 +75,7 @@ export async function GET(req: Request) {
         const fileData = await fileRes.json()
         const current = Buffer.from(fileData.content, 'base64').toString('utf-8')
         const updated = current.replace(
-          /(\]\n\nexport function getArticleBySlug)/,
+          /(\]\s*\nexport function getArticleBySlug)/,
           `${newCode}\n]\n\nexport function getArticleBySlug`
         )
         const pushRes = await fetch(
