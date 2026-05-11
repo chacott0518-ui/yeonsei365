@@ -1,5 +1,4 @@
 import Link from 'next/link'
-import Header from '@/components/Header'
 import { CATEGORIES, HEALTH_ARTICLES } from '@/lib/healthHub'
 import type { CategoryKey } from '@/lib/healthHub'
 
@@ -8,7 +7,6 @@ const C = { p: '#D6336C', pd: '#993556', pp: '#5c0e20', pb: '#FFF5F7', pbd: '#f0
 export default function HealthHubLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
-      <Header />
       <div style={{ paddingTop: '60px' }}>
         <div style={{ background: C.pb, borderBottom: `0.5px solid ${C.pbd}`, padding: '10px 20px' }}>
           <div style={{ maxWidth: '1060px', margin: '0 auto', display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>

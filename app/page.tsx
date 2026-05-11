@@ -81,7 +81,6 @@ export default function Home() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(FAQ_SCHEMA) }}
       />
       <div className="relative bg-background text-gray-dark min-h-screen pb-0 font-sans">
-        <Header />
         <main>
           <Hero />
           <div className="relative z-10 bg-white shadow-2xl">

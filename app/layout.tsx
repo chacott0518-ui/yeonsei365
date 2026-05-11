@@ -3,6 +3,7 @@ import '../index.css';
 import PricePopup from '../components/PricePopup';
 import FloatingChip from '../components/FloatingChip';
 import FloatingBar from '../components/FloatingBar';
+import Header from '../components/Header';
 
 export const metadata: Metadata = {
   title: '임신중절수술 금액 및 낙태 비용 가격 | 사당역 연세365산부인과',
@@ -191,6 +192,7 @@ export default function RootLayout({
         />
       </head>
       <body>
+      <Header /> 
         <PricePopup />
         {children}
         <FloatingBar />
