@@ -214,8 +214,21 @@ export const CATEGORIES = {
       ],
       relatedSlugs: ['4weeks-symptoms'],
     },
-  ]
   
+  {
+    slug: 'contraception-failure-pregnancy-abortion-consultation',
+    category: 'contraception' as CategoryKey,
+    title: '피임실패 임신, 임신중절수술 상담 및 시술 안내',
+    description: '피임 실패로 인한 의도치 않은 임신은 즉시 전문의 상담이 필요합니다. 임신중절수술(낙태수술)은 임신 주수, 건강상태 등을 정확히 진단한 후 결정되어야 하며, 수술 방법과 비용은 개인차가 있습니다. . 사당역 연세365산부인과 02-585-3650.',
+    keywords: ["피임실패","사당역산부인과"],
+    lastModified: '2026-05-11',
+    
+    
+    faq: [{"q":"지금 계속 피임을 하면서 2개월 이상 하고 있어요. 근데 피임을 했는데 임신이 되어버렸는데, 이거 어떻게 해야할까요? 낙태수술을 어디서 언제 얼마에 할 수있나요?","a":"피임 실패로 인한 의도치 않은 임신은 즉시 전문의 상담이 필요합니다. 임신중절수술(낙태수술)은 임신 주수, 건강상태 등을 정확히 진단한 후 결정되어야 하며, 수술 방법과 비용은 개인차가 있습니다. 사당역 연세365산부인과에서는 안전하고 전문적인 상담과 시술을 제공하고 있으니, 빠른 시일 내에 방문하여 정확한 진단과 상담을 받으시기 바랍니다. 혼자 고민하지 마시고 전문의와 충분히 상의하세요."}],
+    sections: [{"type": "text" as const,"title":"피임실패 임신, 임신중절수술 상담 및 시술 안내","content":"피임 실패로 인한 의도치 않은 임신은 즉시 전문의 상담이 필요합니다. 임신중절수술(낙태수술)은 임신 주수, 건강상태 등을 정확히 진단한 후 결정되어야 하며, 수술 방법과 비용은 개인차가 있습니다. 사당역 연세365산부인과에서는 안전하고 전문적인 상담과 시술을 제공하고 있으니, 빠른 시일 내에 방문하여 정확한 진단과 상담을 받으시기 바랍니다. 혼자 고민하지 마시고 전문의와 충분히 상의하세요."}],
+  },
+  ]
+
   export function getArticleBySlug(category: string, slug: string): HealthArticle | undefined {
     return HEALTH_ARTICLES.find(a => a.category === category && a.slug === slug)
   }
