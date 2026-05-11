@@ -24,16 +24,12 @@ export default function AskPage() {
       <h2 style={{ fontSize: '22px', fontWeight: 900, color: C.tm, marginBottom: '10px' }}>
         질문이 접수되었습니다
       </h2>
-      <p style={{ fontSize: '14px', color: C.tg, lineHeight: 1.8, marginBottom: '12px' }}>
+      <p style={{ fontSize: '14px', color: C.tg, lineHeight: 1.8, marginBottom: '24px' }}>
         전문의 검토 후 AI 답변이 자동으로 생성됩니다.<br />
-        보통 <strong style={{ color: C.p }}>수분 이내</strong> 아래 페이지에 게시됩니다.
+        보통 <strong style={{ color: C.p }}>수분 이내</strong> 게시됩니다.
       </p>
-      <div style={{ background: C.pb, border: `0.5px solid ${C.pbd}`, borderRadius: '10px', padding: '12px 16px', marginBottom: '24px', fontSize: '13px', color: C.pd }}>
-        ⏳ 잠시 후 아래에서 확인하세요:<br />
-        <strong>yeonsei365.com/health-hub</strong>
-      </div>
       <Link href="/health-hub" style={{ display: 'inline-block', background: C.p, color: '#fff', fontSize: '14px', fontWeight: 700, padding: '12px 28px', borderRadius: '20px', textDecoration: 'none' }}>
-        헬스허브에서 확인하기 →
+        실시간 답변 확인하기 →
       </Link>
     </div>
   )

@@ -72,7 +72,7 @@ export async function GET(req: Request) {
 
         // ✅ 핵심 수정: 함수 콜백 사용 → $ 특수문자 해석 문제 완전 차단
         const updated = current.replace(
-          /\]\s*\nexport function getArticleBySlug/,
+          /\]\s+export function getArticleBySlug/,
           () => `${newEntry}\n]\n\nexport function getArticleBySlug`
         )
 
