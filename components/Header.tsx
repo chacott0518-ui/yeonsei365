@@ -52,7 +52,9 @@ const SUB_MENUS: Record<string, { label: string; href: string }[]> = {
     { label: '자가진단 퀴즈', href: '/health-magazine/quiz' },
     { label: '건강 칼럼', href: '/health-magazine/column' },
     { label: 'FAQ 전체보기', href: '/abortion/faq' },
-    { label: 'AI 건강 Q&A', href: '/health-hub' },
+  ],
+  'health-hub': [
+    { label: 'Q&A 실시간 답변', href: '/health-hub' },
     { label: '질문 남기기', href: '/health-hub/ask' },
   ],
 }

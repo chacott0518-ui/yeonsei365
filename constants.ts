@@ -10,6 +10,7 @@ export const NAV_LINKS = [
   { id: 'price', label: '낙태 비용 가격', href: '/abortion/cost', highlight: true },
   { id: 'review', label: '수술후기·사례', href: '/abortion/review' },
   { id: 'faq', label: '건강매거진', href: '/health-magazine' },
+  { id: 'health-hub', label: 'AI 건강 Q&A', href: '/health-hub' },
   { id: 'location', label: '상담예약', highlight: true },
 ]
 

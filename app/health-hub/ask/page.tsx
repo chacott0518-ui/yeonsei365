@@ -6,7 +6,7 @@ import { CATEGORIES } from '@/lib/healthHub'
 const C = { p: '#D6336C', pd: '#993556', pp: '#5c0e20', pb: '#FFF5F7', pbd: '#f0d0dc', tm: '#1a1a1a', tg: '#888' }
 
 export default function AskPage() {
-  const [form, setForm] = useState({ category: 'pregnancy', question: '', contact: '' })
+  const [form, setForm] = useState({ category: 'pregnancy', question: '' })
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
 
   const handleSubmit = async () => {
@@ -21,9 +21,20 @@ export default function AskPage() {
   if (status === 'success') return (
     <div style={{ textAlign: 'center', padding: '60px 20px' }}>
       <div style={{ fontSize: '56px', marginBottom: '20px' }}>✅</div>
-      <h2 style={{ fontSize: '22px', fontWeight: 900, color: C.tm, marginBottom: '10px' }}>질문이 접수되었습니다</h2>
-      <p style={{ fontSize: '14px', color: C.tg, lineHeight: 1.7, marginBottom: '28px' }}>전문의가 검토 후 Q&A 페이지에 답변을 게시합니다.<br />보통 1~3일 내에 게시됩니다.</p>
-      <Link href="/health-hub" style={{ display: 'inline-block', background: C.p, color: '#fff', fontSize: '14px', fontWeight: 700, padding: '12px 28px', borderRadius: '20px', textDecoration: 'none' }}>Q&A 허브로 돌아가기</Link>
+      <h2 style={{ fontSize: '22px', fontWeight: 900, color: C.tm, marginBottom: '10px' }}>
+        질문이 접수되었습니다
+      </h2>
+      <p style={{ fontSize: '14px', color: C.tg, lineHeight: 1.8, marginBottom: '12px' }}>
+        전문의 검토 후 AI 답변이 자동으로 생성됩니다.<br />
+        보통 <strong style={{ color: C.p }}>수분 이내</strong> 아래 페이지에 게시됩니다.
+      </p>
+      <div style={{ background: C.pb, border: `0.5px solid ${C.pbd}`, borderRadius: '10px', padding: '12px 16px', marginBottom: '24px', fontSize: '13px', color: C.pd }}>
+        ⏳ 잠시 후 아래에서 확인하세요:<br />
+        <strong>yeonsei365.com/health-hub</strong>
+      </div>
+      <Link href="/health-hub" style={{ display: 'inline-block', background: C.p, color: '#fff', fontSize: '14px', fontWeight: 700, padding: '12px 28px', borderRadius: '20px', textDecoration: 'none' }}>
+        헬스허브에서 확인하기 →
+      </Link>
     </div>
   )
 
@@ -43,12 +54,8 @@ export default function AskPage() {
           <textarea value={form.question} onChange={e => setForm(p => ({ ...p, question: e.target.value }))} placeholder="산부인과 관련 궁금한 점을 자유롭게 작성해주세요." rows={6} style={{ width: '100%', padding: '12px 14px', border: `0.5px solid ${C.pbd}`, borderRadius: '10px', fontSize: '14px', resize: 'vertical', fontFamily: 'inherit', color: C.tm, boxSizing: 'border-box' as const }} />
           <div style={{ fontSize: '12px', color: form.question.length < 10 ? '#c0392b' : C.tg, marginTop: '4px', textAlign: 'right' }}>{form.question.length}자</div>
         </div>
-        <div>
-          <label style={{ display: 'block', fontSize: '13px', fontWeight: 700, color: C.tm, marginBottom: '8px' }}>연락처 <span style={{ fontWeight: 400, color: C.tg }}>(선택)</span></label>
-          <input type="text" value={form.contact} onChange={e => setForm(p => ({ ...p, contact: e.target.value }))} placeholder="전화번호 또는 이메일" style={{ width: '100%', padding: '12px 14px', border: `0.5px solid ${C.pbd}`, borderRadius: '10px', fontSize: '14px', color: C.tm, boxSizing: 'border-box' as const }} />
-        </div>
         <div style={{ background: C.pb, border: `0.5px solid ${C.pbd}`, borderRadius: '10px', padding: '14px 16px', fontSize: '13px', color: C.pd, lineHeight: 1.8 }}>
-          📌 개인 정보는 답변 목적 외에 사용되지 않으며, 게시 시 익명으로 처리됩니다.<br />
+          📌 게시 시 익명으로 처리됩니다.<br />
           📌 긴급한 증상은 반드시 전화(02-585-3650) 또는 직접 내원하세요.
         </div>
         <button onClick={handleSubmit} disabled={status === 'loading'} style={{ background: status === 'loading' ? '#ccc' : C.p, color: '#fff', fontSize: '16px', fontWeight: 700, padding: '14px', borderRadius: '12px', border: 'none', cursor: status === 'loading' ? 'not-allowed' : 'pointer' }}>

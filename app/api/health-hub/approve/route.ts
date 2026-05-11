@@ -37,18 +37,13 @@ export async function GET(req: Request) {
   const s = (v: string) => v.replace(/\\/g, '\\\\').replace(/'/g, "\\'").replace(/`/g, '\\`').replace(/\n/g, ' ')
   const sq = (v: string) => JSON.stringify(v)
 
-  const statsCode = stats.length > 0
-    ? `stats: ${JSON.stringify(stats)},`
-    : ''
-
+  const statsCode = stats.length > 0 ? `stats: ${JSON.stringify(stats)},` : ''
   const heroImageCode = heroImage ? `heroImage: ${sq(heroImage)},` : ''
-
   const sectionsCode = JSON.stringify(sections)
     .replace(/("type":\s*"(text|infobox|warnbox|checklist|table|steps)")/g, (m, p1, p2) => `"type": "${p2}" as const`)
-
   const faqCode = JSON.stringify(faq)
 
-  const newCode = `
+  const newEntry = `
   {
     slug: '${slug}',
     category: '${category}' as CategoryKey,
@@ -74,23 +69,32 @@ export async function GET(req: Request) {
       if (fileRes.ok) {
         const fileData = await fileRes.json()
         const current = Buffer.from(fileData.content, 'base64').toString('utf-8')
+
+        // ✅ 핵심 수정: 함수 콜백 사용 → $ 특수문자 해석 문제 완전 차단
         const updated = current.replace(
-          /(\]\s*\nexport function getArticleBySlug)/,
-          `${newCode}\n]\n\nexport function getArticleBySlug`
+          /\]\s*\nexport function getArticleBySlug/,
+          () => `${newEntry}\n]\n\nexport function getArticleBySlug`
         )
-        const pushRes = await fetch(
-          `https://api.github.com/repos/${REPO}/contents/lib/healthHub.ts`,
-          {
-            method: 'PUT',
-            headers: { Authorization: `Bearer ${TOKEN}`, 'Content-Type': 'application/json' },
-            body: JSON.stringify({
-              message: `feat: ${title} Q&A 자동 추가`,
-              content: Buffer.from(updated).toString('base64'),
-              sha: fileData.sha,
-            }),
-          }
-        )
-        githubResult = pushRes.ok ? '✅ GitHub push 완료 → Vercel 자동 빌드 시작' : '❌ GitHub push 실패'
+
+        if (updated === current) {
+          githubResult = '❌ 정규식 매칭 실패 — healthHub.ts 파일 구조 확인 필요'
+        } else {
+          const pushRes = await fetch(
+            `https://api.github.com/repos/${REPO}/contents/lib/healthHub.ts`,
+            {
+              method: 'PUT',
+              headers: { Authorization: `Bearer ${TOKEN}`, 'Content-Type': 'application/json' },
+              body: JSON.stringify({
+                message: `feat: ${title} Q&A 자동 추가`,
+                content: Buffer.from(updated).toString('base64'),
+                sha: fileData.sha,
+              }),
+            }
+          )
+          githubResult = pushRes.ok ? '✅ GitHub push 완료 → Vercel 자동 빌드 시작' : `❌ GitHub push 실패 (${pushRes.status})`
+        }
+      } else {
+        githubResult = `❌ 파일 읽기 실패 (${fileRes.status})`
       }
     }
   } catch (e) { githubResult = `❌ 오류: ${String(e)}` }
