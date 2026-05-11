@@ -73,27 +73,34 @@ const Header: React.FC = () => {
   useEffect(() => {
     let lastScrollY = window.scrollY
     let stopTimer: ReturnType<typeof setTimeout>
-    const handleAction = () => {
+  
+    const handleScroll = () => {
       const currentScrollY = window.scrollY
       const isScrollingDown = currentScrollY > lastScrollY
-      if (isScrollingDown && currentScrollY > 50) {
+      if (isScrollingDown && currentScrollY > 80) {
         setIsVisible(false)
-        clearTimeout(stopTimer)
       } else {
         setIsVisible(true)
       }
-      if (!isScrollingDown || currentScrollY <= 50) {
-        clearTimeout(stopTimer)
-        stopTimer = setTimeout(() => setIsVisible(true), 500)
-      }
+      clearTimeout(stopTimer)
+      stopTimer = setTimeout(() => setIsVisible(true), 300)
       lastScrollY = currentScrollY
       setIsScrolled(currentScrollY > 50)
     }
-    window.addEventListener('scroll', handleAction, { passive: true })
-    window.addEventListener('mousemove', handleAction, { passive: true })
+  
+    const handleShow = () => {
+      clearTimeout(stopTimer)
+      setIsVisible(true)
+    }
+  
+    window.addEventListener('scroll', handleScroll, { passive: true })
+    window.addEventListener('mousemove', handleShow, { passive: true })
+    window.addEventListener('touchstart', handleShow, { passive: true })
+  
     return () => {
-      window.removeEventListener('scroll', handleAction)
-      window.removeEventListener('mousemove', handleAction)
+      window.removeEventListener('scroll', handleScroll)
+      window.removeEventListener('mousemove', handleShow)
+      window.removeEventListener('touchstart', handleShow)
       clearTimeout(stopTimer)
     }
   }, [])
@@ -181,10 +188,8 @@ const Header: React.FC = () => {
         initial={{ y: -100 }}
         animate={{ y: isVisible ? 0 : '-100%' }}
         transition={{ duration: 0.15, ease: 'circOut' }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled
-            ? 'bg-white/95 backdrop-blur-md py-2 shadow-sm border-b border-primary/10'
-            : 'bg-transparent py-3'
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md border-b border-primary/10 ${
+          isScrolled ? 'py-2 shadow-sm' : 'py-3'
         }`}
       >
         <div className="container mx-auto px-10 flex items-center justify-between">

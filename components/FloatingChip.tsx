@@ -21,21 +21,24 @@ export default function FloatingChip() {
         {open && (
           <motion.div initial={{ opacity: 0, y: 16, scale: 0.95 }} animate={{ opacity: 1, y: 0, scale: 1 }} exit={{ opacity: 0, y: 16, scale: 0.95 }} transition={{ duration: 0.2, ease: 'easeOut' }} className="flex flex-col items-end gap-2">
             {CHIPS.map((chip) => (
-              <Link key={chip.href} href={chip.href} onClick={() => setOpen(false)} className="flex items-center gap-3 rounded-2xl px-4 py-3 transition-all hover:scale-[1.02] active:scale-[0.98]" style={{ background: '#d63870', width: 230, boxShadow: '0 4px 18px rgba(214,56,112,0.35)' }}>
-                <span className="flex h-8 w-8 flex-shrink-0 items-center justify-center rounded-full text-base" style={{ background: 'rgba(255,255,255,0.2)' }}>{chip.icon}</span>
-                <div className="flex-1">
-                  <div className="text-sm font-bold text-white leading-tight">{chip.label}</div>
-                  <div className="mt-0.5 text-xs" style={{ color: 'rgba(255,255,255,0.75)' }}>{chip.sub}</div>
+              <Link key={chip.href} href={chip.href} onClick={() => setOpen(false)}
+                style={{ display: 'flex', alignItems: 'center', gap: '12px', borderRadius: '16px', padding: '10px 14px', background: '#d63870', width: '210px', boxShadow: '0 4px 18px rgba(214,56,112,0.35)', textDecoration: 'none' }}>
+                <span style={{ display: 'flex', width: '32px', height: '32px', flexShrink: 0, alignItems: 'center', justifyContent: 'center', borderRadius: '50%', background: 'rgba(255,255,255,0.2)', fontSize: '15px' }}>{chip.icon}</span>
+                <div style={{ flex: 1 }}>
+                  <div style={{ fontSize: '13px', fontWeight: 700, color: '#fff', lineHeight: 1.3 }}>{chip.label}</div>
+                  <div style={{ fontSize: '11px', color: 'rgba(255,255,255,0.75)', marginTop: '2px' }}>{chip.sub}</div>
                 </div>
-                <span className="text-sm flex-shrink-0" style={{ color: 'rgba(255,255,255,0.7)' }}>›</span>
               </Link>
             ))}
           </motion.div>
         )}
       </AnimatePresence>
-      <motion.button whileTap={{ scale: 0.93 }} onClick={() => setOpen((v) => !v)} className="flex items-center gap-2 rounded-full px-5 py-3 font-bold text-white" style={{ background: '#d63870', boxShadow: '0 4px 18px rgba(214,56,112,0.4)' }} aria-label="임신 계산기 열기">
-        <span className="text-base">{open ? '✕' : '📅'}</span>
-        <span className="whitespace-nowrap text-sm">{open ? '닫기' : '임신 계산기'}</span>
+
+      {/* 토글 버튼 — 닫혔을 때 아이콘만, 열렸을 때 닫기 */}
+      <motion.button whileTap={{ scale: 0.93 }} onClick={() => setOpen((v) => !v)}
+        style={{ background: '#d63870', boxShadow: '0 4px 18px rgba(214,56,112,0.4)', border: 'none', cursor: 'pointer', display: 'flex', alignItems: 'center', justifyContent: 'center', borderRadius: '50%', width: '44px', height: '44px' }}
+        aria-label="임신 계산기 열기">
+        <span style={{ fontSize: '20px' }}>{open ? '✕' : '📅'}</span>
       </motion.button>
     </div>
   );

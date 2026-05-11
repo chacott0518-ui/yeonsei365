@@ -16,7 +16,7 @@ export async function GET(req: Request) {
   const { searchParams } = new URL(req.url)
   const category   = searchParams.get('category') || 'gynecology'
   const slug       = searchParams.get('slug') || `q-${Date.now()}`
-  const heroImage  = searchParams.get('heroImage') || ''
+  let heroImage  = searchParams.get('heroImage') || ''
   const lastModified = new Date().toISOString().split('T')[0]
   const articleUrl = `https://www.yeonsei365.com/health-hub/${category}/${slug}`
 
@@ -56,6 +56,19 @@ export async function GET(req: Request) {
     faq: ${faqCode},
     sections: ${sectionsCode},
   },`
+
+  // Unsplash 자동 이미지
+  if (!heroImage && process.env.UNSPLASH_ACCESS_KEY) {
+    try {
+      const keyword = encodeURIComponent(title.split(' ')[0] + ' 여성 의료 산부인과')
+      const uRes = await fetch(
+        `https://api.unsplash.com/search/photos?query=${keyword}&per_page=1&orientation=landscape`,
+        { headers: { Authorization: `Client-ID ${process.env.UNSPLASH_ACCESS_KEY}` } }
+      )
+      const uData = await uRes.json()
+      heroImage = uData.results?.[0]?.urls?.regular || ''
+    } catch (e) { console.warn('[Unsplash]', e) }
+  }
 
   let githubResult = '⚠️ GITHUB_TOKEN 미설정'
   try {

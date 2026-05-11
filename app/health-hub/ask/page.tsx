@@ -41,7 +41,7 @@ export default function AskPage() {
       <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
         <div>
           <label style={{ display: 'block', fontSize: '13px', fontWeight: 700, color: C.tm, marginBottom: '8px' }}>카테고리 *</label>
-          <select value={form.category} onChange={e => setForm(p => ({ ...p, category: e.target.value }))} style={{ width: '100%', padding: '12px 14px', border: `0.5px solid ${C.pbd}`, borderRadius: '10px', fontSize: '14px', background: '#fff', color: C.tm }}>
+          <select value={form.category} onChange={e => setForm(p => ({ ...p, category: e.target.value }))} style={{ width: '100%', padding: '12px 14px', border: `0.5px solid ${C.pbd}`, borderRadius: '10px', fontSize: '14px', background: '#fff', color: C.tm, appearance: 'none', WebkitAppearance: 'none', backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23D6336C' d='M6 8L1 3h10z'/%3E%3C/svg%3E")`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right 14px center', cursor: 'pointer' }}>
             {Object.entries(CATEGORIES).map(([key, cat]) => <option key={key} value={key}>{cat.icon} {cat.label}</option>)}
           </select>
         </div>
