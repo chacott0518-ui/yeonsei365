@@ -89,6 +89,23 @@ export async function GET(req: Request) {
           () => `${newEntry}\n  ]\n\n  export function getArticleBySlug`
         )
 
+        // 중복 slug 방지
+        if (current.includes(`slug: '${slug}'`)) {
+          githubResult = `⚠️ 이미 등록된 슬러그입니다: ${slug} — 배포 건너뜀`
+          console.warn('[중복 slug]', slug)
+          return new Response(
+            `<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8"><title>중복 방지</title>
+            <style>body{font-family:sans-serif;padding:40px 20px;max-width:600px;margin:0 auto;background:#FFF5F7}
+            .card{background:#fff;border-radius:16px;padding:32px;border:0.5px solid #f0d0dc}</style>
+            </head><body><div class="card">
+            <div style="font-size:48px">⚠️</div>
+            <h1 style="font-size:22px;font-weight:900">이미 등록된 질문입니다</h1>
+            <p style="font-size:14px;color:#888">슬러그 <code>${slug}</code> 는 이미 헬스허브에 등록되어 있습니다.<br/>중복 등록을 방지했습니다.</p>
+            <a href="/health-hub" style="display:inline-block;background:#D6336C;color:#fff;font-size:14px;font-weight:700;padding:12px 24px;border-radius:20px;text-decoration:none;margin-top:16px">헬스허브로 이동</a>
+            </div></body></html>`,
+            { headers: { 'Content-Type': 'text/html; charset=utf-8' } }
+          )
+        }
         if (updated === current) {
           githubResult = '❌ 정규식 매칭 실패 — healthHub.ts 파일 구조 확인 필요'
         } else {
