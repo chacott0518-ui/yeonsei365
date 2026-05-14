@@ -1,4 +1,5 @@
 import type { Metadata } from 'next'
+import { clinicSchema } from '@/lib/schemas'
 
 export const metadata: Metadata = {
   title: '임신중절수술 혼자 가도 되나요? 보호자 없이 가능한지 총정리 2026 | 연세365산부인과',
@@ -21,6 +22,54 @@ export const metadata: Metadata = {
     title: '임신중절수술 혼자 가도 되나요? 보호자 없이 가능한지 총정리 2026 | 연세365산부인과',
     description: '임신중절수술 혼자 가도 될까요? 보호자 동반 여부, 혼자 내원 시 주의사항, 당일 귀가 가능 여부까지 사당역 연세365산부인과가 솔직하게 알려드립니다.',
   },
+}
+
+const PAGE_URL = 'https://www.yeonsei365.com/blog/abortion-alone'
+const PAGE_DATE = '2026-04-10'
+
+const articleSchema = {
+  '@context': 'https://schema.org', '@type': 'Article',
+  headline: '임신중절수술 혼자 가도 되나요? 보호자 없이 가능한지 총정리 2026',
+  datePublished: PAGE_DATE, dateModified: PAGE_DATE,
+  image: 'https://www.yeonsei365.com/og-image.jpg',
+  author: { '@type': 'Organization', name: '연세365산부인과', url: 'https://www.yeonsei365.com' },
+  publisher: { '@type': 'MedicalOrganization', name: '연세365산부인과', logo: { '@type': 'ImageObject', url: 'https://i.imgur.com/f7h5DY0.png' } },
+  mainEntityOfPage: { '@type': 'WebPage', '@id': PAGE_URL }, url: PAGE_URL,
+}
+const medicalWebPageSchema = {
+  '@context': 'https://schema.org', '@type': 'MedicalWebPage',
+  name: '임신중절수술 혼자 가도 되나요? 보호자 없이 가능한지 총정리 2026',
+  url: PAGE_URL,
+  specialty: { '@type': 'MedicalSpecialty', name: '산부인과' },
+  medicalAudience: { '@type': 'MedicalAudience', audienceType: '여성 환자' },
+  lastReviewed: PAGE_DATE,
+  reviewedBy: { '@type': 'MedicalOrganization', name: '연세365산부인과', url: 'https://www.yeonsei365.com' },
+  about: { '@type': 'MedicalCondition', name: '임신중절수술 1인 내원' },
+}
+const howToSchema = {
+  '@context': 'https://schema.org', '@type': 'HowTo',
+  name: '임신중절수술 혼자 내원하는 방법',
+  description: '성인이 혼자 임신중절수술을 받는 단계별 안내',
+  step: [
+    { '@type': 'HowToStep', position: 1, name: '예약', text: '전화(02-585-3650) 또는 카카오톡으로 예약합니다.' },
+    { '@type': 'HowToStep', position: 2, name: '신분증 지참', text: '성인은 신분증만 있으면 혼자 내원 가능합니다.' },
+    { '@type': 'HowToStep', position: 3, name: '대중교통 이용', text: '수술 후 운전 불가. 대중교통으로 귀가를 준비합니다.' },
+  ],
+  tool: { '@type': 'HowToTool', name: '연세365산부인과' },
+}
+const speakableSchema = {
+  '@context': 'https://schema.org', '@type': 'WebPage',
+  name: '임신중절수술 혼자 가도 되나요? 보호자 없이 가능한지 총정리 2026',
+  url: PAGE_URL,
+  speakable: { '@type': 'SpeakableSpecification', cssSelector: ['h1', 'h2'] },
+}
+const breadcrumbSchema = {
+  '@context': 'https://schema.org', '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: '홈', item: 'https://www.yeonsei365.com' },
+    { '@type': 'ListItem', position: 2, name: '임신중절수술정보', item: 'https://www.yeonsei365.com/blog' },
+    { '@type': 'ListItem', position: 3, name: '임신중절수술 혼자', item: PAGE_URL },
+  ],
 }
 
 const faqData = [
@@ -78,247 +127,263 @@ const faqData = [
   },
 ]
 
+const faqSchema = {
+  '@context': 'https://schema.org', '@type': 'FAQPage',
+  mainEntity: faqData.map(f => ({
+    '@type': 'Question',
+    name: f.q,
+    acceptedAnswer: { '@type': 'Answer', text: f.a },
+  })),
+}
+
 export default function AbortionAlonePage() {
   return (
-    <div className="min-h-screen bg-white">
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(medicalWebPageSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(clinicSchema) }} />
+      <div className="min-h-screen bg-white">
 
-      {/* 히어로 섹션 */}
-      <div className="relative w-full h-[280px] md:h-[420px] overflow-hidden">
-        <img
-          src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=2080&auto=format&fit=crop"
-          alt="임신중절수술 혼자 가도 되나요 - 연세365산부인과"
-          className="w-full h-full object-cover brightness-[0.55]"
-        />
-        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
-        <div className="absolute inset-0 flex flex-col items-center justify-center px-5 text-center">
-          <span className="inline-block bg-primary text-white text-[10px] md:text-xs font-bold tracking-widest px-4 py-1.5 rounded-full mb-4 uppercase">
-            임신중절클리닉
-          </span>
-          <h1 className="text-xl md:text-4xl font-bold text-white leading-snug md:leading-tight font-serif drop-shadow-lg">
-            임신중절수술<br className="md:hidden" /> 혼자 가도 되나요?<br />
-            <span className="text-pink-200 text-lg md:text-3xl font-medium">
-              보호자 없이 가능한지 총정리
+        {/* 히어로 섹션 */}
+        <div className="relative w-full h-[280px] md:h-[420px] overflow-hidden">
+          <img
+            src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=2080&auto=format&fit=crop"
+            alt="임신중절수술 혼자 가도 되나요 - 연세365산부인과"
+            className="w-full h-full object-cover brightness-[0.55]"
+          />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+          <div className="absolute inset-0 flex flex-col items-center justify-center px-5 text-center">
+            <span className="inline-block bg-primary text-white text-[10px] md:text-xs font-bold tracking-widest px-4 py-1.5 rounded-full mb-4 uppercase">
+              임신중절클리닉
             </span>
-          </h1>
+            <h1 className="text-xl md:text-4xl font-bold text-white leading-snug md:leading-tight font-serif drop-shadow-lg">
+              임신중절수술<br className="md:hidden" /> 혼자 가도 되나요?<br />
+              <span className="text-pink-200 text-lg md:text-3xl font-medium">
+                보호자 없이 가능한지 총정리
+              </span>
+            </h1>
+          </div>
+        </div>
+
+        <div className="max-w-2xl mx-auto px-5 md:px-6 py-10 md:py-16">
+
+          {/* 메타 정보 */}
+          <div className="flex items-center gap-3 mb-8 pb-6 border-b border-gray-100">
+            <div className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
+              <span className="text-primary text-sm font-bold">연</span>
+            </div>
+            <div>
+              <p className="text-sm font-bold text-gray-800">연세365산부인과 의료진</p>
+              <p className="text-xs text-gray-400 mt-0.5">2026년 4월 · 임신중절클리닉</p>
+            </div>
+          </div>
+
+          {/* 도입부 */}
+          <div className="mb-10 space-y-4 leading-[1.95] md:leading-[2.0]">
+            <p className="text-[15px] md:text-base text-gray-700">
+              임신 사실을 알게 된 후 가장 먼저 드는 걱정 중 하나가 바로
+              <strong className="text-gray-900"> "혼자 가도 될까?"</strong> 입니다.
+            </p>
+            <p className="text-[15px] md:text-base text-gray-700">
+              주변에 알리기 어렵거나, 알리고 싶지 않은 상황에서 혼자 결정하고
+              혼자 내원해야 하는 경우가 많습니다. 이 글에서는 임신중절수술을
+              혼자 받을 수 있는지, 보호자 없이 가능한지, 수술 후 혼자 귀가는
+              어떻게 하는지 등 실질적인 정보를 솔직하게 안내해 드립니다.
+            </p>
+          </div>
+
+          {/* 핵심 요약 박스 */}
+          <div className="bg-primary/5 border border-primary/15 rounded-2xl p-5 md:p-7 mb-10">
+            <h2 className="text-base md:text-lg font-bold text-primary mb-4">
+              ✅ 핵심 요약
+            </h2>
+            <ul className="space-y-3">
+              {[
+                '성인 기준, 보호자 없이 혼자 임신중절수술 가능',
+                '미성년자는 법정대리인 동의서 필요 (단, 특수 사유 제외)',
+                '수술 당일 귀가 가능, 단 운전은 절대 금지',
+                '진료 기록 비밀 보장 - 보험, 직장, 가족에게 알려지지 않음',
+                '수술 전 최소 6시간 금식 필수',
+              ].map((item, idx) => (
+                <li key={idx} className="flex items-start gap-2.5 text-[14px] md:text-[15px] text-gray-700 leading-relaxed">
+                  <span className="text-primary font-bold flex-shrink-0 mt-0.5">•</span>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* 이미지 섹션 1 */}
+          <div className="mb-10">
+            <div className="rounded-2xl overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1516549655169-df83a0774514?q=80&w=2070&auto=format&fit=crop"
+                alt="혼자 산부인과 내원하는 여성 - 임신중절수술 혼자 가능"
+                className="w-full h-48 md:h-64 object-cover"
+              />
+            </div>
+            <p className="text-xs text-gray-400 text-center mt-2">
+              성인이라면 보호자 없이 혼자 내원하셔도 수술이 가능합니다
+            </p>
+          </div>
+
+          {/* 본문 섹션 */}
+          <div className="mb-12 space-y-6">
+            <h2 className="text-lg md:text-2xl font-bold text-gray-900 leading-snug">
+              성인은 혼자 가도 됩니다
+            </h2>
+            <p className="text-[15px] md:text-base text-gray-700 leading-[1.95] md:leading-[2.0]">
+              2021년 1월 낙태합법화 이후, 임신 14주 이내의 임신중절수술은
+              임신부 본인의 자기결정권에 따라 합법적으로 시행됩니다.
+              성인 기준으로는 배우자나 부모님의 동의 없이도 본인의 의사만으로
+              수술을 결정하고 진행할 수 있습니다.
+            </p>
+            <p className="text-[15px] md:text-base text-gray-700 leading-[1.95] md:leading-[2.0]">
+              연세365산부인과는 혼자 내원하시는 분들이 많습니다.
+              주변에 알리기 어려운 상황, 바쁜 일상, 혹은 개인적인 이유로
+              혼자 오시는 경우를 충분히 이해하고 있으며, 혼자 오시는 분들을
+              위한 1:1 프라이빗 케어 시스템을 운영하고 있습니다.
+            </p>
+          </div>
+
+          {/* 이미지 섹션 2 */}
+          <div className="mb-12">
+            <div className="rounded-2xl overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?q=80&w=2091&auto=format&fit=crop"
+                alt="산부인과 회복실 - 임신중절수술 후 회복"
+                className="w-full h-48 md:h-64 object-cover"
+              />
+            </div>
+            <p className="text-xs text-gray-400 text-center mt-2">
+              수술 후 전용 회복실에서 충분히 회복한 뒤 귀가하실 수 있습니다
+            </p>
+          </div>
+
+          {/* 혼자 올 때 체크리스트 */}
+          <div className="mb-12">
+            <h2 className="text-lg md:text-2xl font-bold text-gray-900 mb-6">
+              혼자 내원 시 준비 체크리스트
+            </h2>
+            <div className="space-y-3">
+              {[
+                { icon: '🚫', title: '6시간 이상 금식', desc: '물 포함 모든 음식·음료 금지. 수면마취 안전을 위해 필수' },
+                { icon: '🪪', title: '신분증 지참', desc: '본인 확인을 위해 반드시 지참' },
+                { icon: '👗', title: '편안한 복장', desc: '헐렁한 하의 또는 치마 권장. 수술 후 이동 편의' },
+                { icon: '🩸', title: '생리대 준비', desc: '수술 후 소량 출혈 대비' },
+                { icon: '🚕', title: '귀가 교통편 확인', desc: '운전 절대 금지. 택시 또는 대중교통 이용' },
+                { icon: '📅', title: '마지막 생리 시작일 메모', desc: '정확한 임신 주수 확인에 필요' },
+              ].map((item, idx) => (
+                <div key={idx} className="flex items-start gap-3 bg-gray-50 rounded-xl p-4">
+                  <span className="text-xl flex-shrink-0">{item.icon}</span>
+                  <div>
+                    <p className="text-sm font-bold text-gray-800">{item.title}</p>
+                    <p className="text-xs text-gray-500 mt-0.5 leading-relaxed">{item.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* FAQ 섹션 */}
+          <div className="mb-12">
+            <h2 className="text-lg md:text-2xl font-bold text-gray-900 mb-2">
+              자주 묻는 질문
+            </h2>
+            <p className="text-sm text-gray-500 mb-7 leading-relaxed">
+              혼자 내원하시는 분들이 가장 많이 질문하시는 내용을 정리했습니다
+            </p>
+            <div className="space-y-5">
+              {faqData.map((faq, idx) => (
+                <div key={idx} className="bg-white border border-primary/10 rounded-2xl overflow-hidden shadow-sm">
+                  <div className="bg-primary/5 px-5 py-4">
+                    <h3 className="text-[14px] md:text-[15px] font-bold text-primary leading-snug">
+                      Q. {faq.q}
+                    </h3>
+                  </div>
+                  <div className="px-5 py-5">
+                    {faq.a.split('\n\n').map((para, pIdx) => (
+                      <p key={pIdx} className="text-[13px] md:text-[14px] text-gray-700 leading-[1.95] mb-3 last:mb-0">
+                        {para}
+                      </p>
+                    ))}
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* 마무리 이미지 */}
+          <div className="mb-12">
+            <div className="rounded-2xl overflow-hidden">
+              <img
+                src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?q=80&w=1974&auto=format&fit=crop"
+                alt="연세365산부인과 사당역 - 편안한 진료 환경"
+                className="w-full h-48 md:h-64 object-cover"
+              />
+            </div>
+            <p className="text-xs text-gray-400 text-center mt-2">
+              사당역 4번출구 연세365산부인과 — 편안하고 따뜻한 공간에서 진료받으실 수 있습니다
+            </p>
+          </div>
+
+          {/* 마무리 본문 */}
+          <div className="mb-12 space-y-4">
+            <h2 className="text-lg md:text-2xl font-bold text-gray-900">
+              혼자라도 괜찮습니다
+            </h2>
+            <p className="text-[15px] md:text-base text-gray-700 leading-[1.95] md:leading-[2.0]">
+              혼자 결정하고 혼자 내원하는 것은 결코 쉬운 일이 아닙니다.
+              연세365산부인과는 그 용기를 충분히 알고 있습니다.
+              내원하시는 모든 분들의 상황을 존중하며, 편안하고 안전한
+              환경에서 진료를 받으실 수 있도록 최선을 다하겠습니다.
+            </p>
+            <p className="text-[15px] md:text-base text-gray-700 leading-[1.95] md:leading-[2.0]">
+              궁금한 점이 있으시다면 내원 전 카카오톡 또는 전화로
+              먼저 상담을 받아보세요. 모든 상담 내용은 철저히 비밀이
+              보장되며, 부담 없이 질문하실 수 있습니다.
+            </p>
+          </div>
+
+          {/* CTA 버튼 */}
+          <div className="bg-gradient-to-br from-primary/5 to-pink-50 rounded-2xl p-6 md:p-8 border border-primary/10">
+            <h3 className="text-base md:text-lg font-bold text-gray-800 text-center mb-2">
+              사당역 연세365산부인과
+            </h3>
+            <p className="text-xs md:text-sm text-gray-500 text-center mb-6 leading-relaxed">
+              사당역 4번출구 · 연중무휴 · 당일 수술 가능 · 철저한 비밀 보장
+            </p>
+            <div className="flex flex-col gap-3">
+              <a
+                href="http://pf.kakao.com/_TpaBj/chat"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full flex items-center justify-center gap-2 bg-[#FEE500] text-[#3B1B1B] font-bold py-3.5 rounded-xl text-sm"
+              >
+                💬 카카오톡 무료 상담
+              </a>
+              <a
+                href="tel:02-585-3650"
+                className="w-full flex items-center justify-center gap-2 bg-primary text-white font-bold py-3.5 rounded-xl text-sm"
+              >
+                📞 02-585-3650 전화 상담
+              </a>
+            </div>
+          </div>
+
+          {/* 의료법 고지 */}
+          <div className="mt-8 p-4 bg-gray-50 rounded-xl border border-gray-200">
+            <p className="text-[10px] text-gray-400 leading-[1.8]">
+              [의료법 제56조 제1항 준수] 본 콘텐츠는 환자에게 의료 정보를 제공하기 위한 목적으로 작성되었으며, 특정 의료 행위의 효과를 보장하거나 과대 광고하는 것이 아닙니다. 임신중절수술은 개인의 건강 상태에 따라 출혈, 감염, 마취 관련 부작용 등이 발생할 수 있으므로 반드시 전문의와 충분한 상담 후 신중하게 결정하시기 바랍니다.
+            </p>
+          </div>
+
         </div>
       </div>
-
-      <div className="max-w-2xl mx-auto px-5 md:px-6 py-10 md:py-16">
-
-        {/* 메타 정보 */}
-        <div className="flex items-center gap-3 mb-8 pb-6 border-b border-gray-100">
-          <div className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
-            <span className="text-primary text-sm font-bold">연</span>
-          </div>
-          <div>
-            <p className="text-sm font-bold text-gray-800">연세365산부인과 의료진</p>
-            <p className="text-xs text-gray-400 mt-0.5">2026년 4월 · 임신중절클리닉</p>
-          </div>
-        </div>
-
-        {/* 도입부 */}
-        <div className="mb-10 space-y-4 leading-[1.95] md:leading-[2.0]">
-          <p className="text-[15px] md:text-base text-gray-700">
-            임신 사실을 알게 된 후 가장 먼저 드는 걱정 중 하나가 바로
-            <strong className="text-gray-900"> "혼자 가도 될까?"</strong> 입니다.
-          </p>
-          <p className="text-[15px] md:text-base text-gray-700">
-            주변에 알리기 어렵거나, 알리고 싶지 않은 상황에서 혼자 결정하고
-            혼자 내원해야 하는 경우가 많습니다. 이 글에서는 임신중절수술을
-            혼자 받을 수 있는지, 보호자 없이 가능한지, 수술 후 혼자 귀가는
-            어떻게 하는지 등 실질적인 정보를 솔직하게 안내해 드립니다.
-          </p>
-        </div>
-
-        {/* 핵심 요약 박스 */}
-        <div className="bg-primary/5 border border-primary/15 rounded-2xl p-5 md:p-7 mb-10">
-          <h2 className="text-base md:text-lg font-bold text-primary mb-4">
-            ✅ 핵심 요약
-          </h2>
-          <ul className="space-y-3">
-            {[
-              '성인 기준, 보호자 없이 혼자 임신중절수술 가능',
-              '미성년자는 법정대리인 동의서 필요 (단, 특수 사유 제외)',
-              '수술 당일 귀가 가능, 단 운전은 절대 금지',
-              '진료 기록 비밀 보장 - 보험, 직장, 가족에게 알려지지 않음',
-              '수술 전 최소 6시간 금식 필수',
-            ].map((item, idx) => (
-              <li key={idx} className="flex items-start gap-2.5 text-[14px] md:text-[15px] text-gray-700 leading-relaxed">
-                <span className="text-primary font-bold flex-shrink-0 mt-0.5">•</span>
-                {item}
-              </li>
-            ))}
-          </ul>
-        </div>
-
-        {/* 이미지 섹션 1 */}
-        <div className="mb-10">
-          <div className="rounded-2xl overflow-hidden">
-            <img
-              src="https://images.unsplash.com/photo-1516549655169-df83a0774514?q=80&w=2070&auto=format&fit=crop"
-              alt="혼자 산부인과 내원하는 여성 - 임신중절수술 혼자 가능"
-              className="w-full h-48 md:h-64 object-cover"
-            />
-          </div>
-          <p className="text-xs text-gray-400 text-center mt-2">
-            성인이라면 보호자 없이 혼자 내원하셔도 수술이 가능합니다
-          </p>
-        </div>
-
-        {/* 본문 섹션 */}
-        <div className="mb-12 space-y-6">
-          <h2 className="text-lg md:text-2xl font-bold text-gray-900 leading-snug">
-            성인은 혼자 가도 됩니다
-          </h2>
-          <p className="text-[15px] md:text-base text-gray-700 leading-[1.95] md:leading-[2.0]">
-            2021년 1월 낙태합법화 이후, 임신 14주 이내의 임신중절수술은
-            임신부 본인의 자기결정권에 따라 합법적으로 시행됩니다.
-            성인 기준으로는 배우자나 부모님의 동의 없이도 본인의 의사만으로
-            수술을 결정하고 진행할 수 있습니다.
-          </p>
-          <p className="text-[15px] md:text-base text-gray-700 leading-[1.95] md:leading-[2.0]">
-            연세365산부인과는 혼자 내원하시는 분들이 많습니다.
-            주변에 알리기 어려운 상황, 바쁜 일상, 혹은 개인적인 이유로
-            혼자 오시는 경우를 충분히 이해하고 있으며, 혼자 오시는 분들을
-            위한 1:1 프라이빗 케어 시스템을 운영하고 있습니다.
-          </p>
-        </div>
-
-        {/* 이미지 섹션 2 */}
-        <div className="mb-12">
-          <div className="rounded-2xl overflow-hidden">
-            <img
-              src="https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?q=80&w=2091&auto=format&fit=crop"
-              alt="산부인과 회복실 - 임신중절수술 후 회복"
-              className="w-full h-48 md:h-64 object-cover"
-            />
-          </div>
-          <p className="text-xs text-gray-400 text-center mt-2">
-            수술 후 전용 회복실에서 충분히 회복한 뒤 귀가하실 수 있습니다
-          </p>
-        </div>
-
-        {/* 혼자 올 때 체크리스트 */}
-        <div className="mb-12">
-          <h2 className="text-lg md:text-2xl font-bold text-gray-900 mb-6">
-            혼자 내원 시 준비 체크리스트
-          </h2>
-          <div className="space-y-3">
-            {[
-              { icon: '🚫', title: '6시간 이상 금식', desc: '물 포함 모든 음식·음료 금지. 수면마취 안전을 위해 필수' },
-              { icon: '🪪', title: '신분증 지참', desc: '본인 확인을 위해 반드시 지참' },
-              { icon: '👗', title: '편안한 복장', desc: '헐렁한 하의 또는 치마 권장. 수술 후 이동 편의' },
-              { icon: '🩸', title: '생리대 준비', desc: '수술 후 소량 출혈 대비' },
-              { icon: '🚕', title: '귀가 교통편 확인', desc: '운전 절대 금지. 택시 또는 대중교통 이용' },
-              { icon: '📅', title: '마지막 생리 시작일 메모', desc: '정확한 임신 주수 확인에 필요' },
-            ].map((item, idx) => (
-              <div key={idx} className="flex items-start gap-3 bg-gray-50 rounded-xl p-4">
-                <span className="text-xl flex-shrink-0">{item.icon}</span>
-                <div>
-                  <p className="text-sm font-bold text-gray-800">{item.title}</p>
-                  <p className="text-xs text-gray-500 mt-0.5 leading-relaxed">{item.desc}</p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* FAQ 섹션 */}
-        <div className="mb-12">
-          <h2 className="text-lg md:text-2xl font-bold text-gray-900 mb-2">
-            자주 묻는 질문
-          </h2>
-          <p className="text-sm text-gray-500 mb-7 leading-relaxed">
-            혼자 내원하시는 분들이 가장 많이 질문하시는 내용을 정리했습니다
-          </p>
-          <div className="space-y-5">
-            {faqData.map((faq, idx) => (
-              <div key={idx} className="bg-white border border-primary/10 rounded-2xl overflow-hidden shadow-sm">
-                <div className="bg-primary/5 px-5 py-4">
-                  <h3 className="text-[14px] md:text-[15px] font-bold text-primary leading-snug">
-                    Q. {faq.q}
-                  </h3>
-                </div>
-                <div className="px-5 py-5">
-                  {faq.a.split('\n\n').map((para, pIdx) => (
-                    <p key={pIdx} className="text-[13px] md:text-[14px] text-gray-700 leading-[1.95] mb-3 last:mb-0">
-                      {para}
-                    </p>
-                  ))}
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-
-        {/* 마무리 이미지 */}
-        <div className="mb-12">
-          <div className="rounded-2xl overflow-hidden">
-            <img
-              src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?q=80&w=1974&auto=format&fit=crop"
-              alt="연세365산부인과 사당역 - 편안한 진료 환경"
-              className="w-full h-48 md:h-64 object-cover"
-            />
-          </div>
-          <p className="text-xs text-gray-400 text-center mt-2">
-            사당역 4번출구 연세365산부인과 — 편안하고 따뜻한 공간에서 진료받으실 수 있습니다
-          </p>
-        </div>
-
-        {/* 마무리 본문 */}
-        <div className="mb-12 space-y-4">
-          <h2 className="text-lg md:text-2xl font-bold text-gray-900">
-            혼자라도 괜찮습니다
-          </h2>
-          <p className="text-[15px] md:text-base text-gray-700 leading-[1.95] md:leading-[2.0]">
-            혼자 결정하고 혼자 내원하는 것은 결코 쉬운 일이 아닙니다.
-            연세365산부인과는 그 용기를 충분히 알고 있습니다.
-            내원하시는 모든 분들의 상황을 존중하며, 편안하고 안전한
-            환경에서 진료를 받으실 수 있도록 최선을 다하겠습니다.
-          </p>
-          <p className="text-[15px] md:text-base text-gray-700 leading-[1.95] md:leading-[2.0]">
-            궁금한 점이 있으시다면 내원 전 카카오톡 또는 전화로
-            먼저 상담을 받아보세요. 모든 상담 내용은 철저히 비밀이
-            보장되며, 부담 없이 질문하실 수 있습니다.
-          </p>
-        </div>
-
-        {/* CTA 버튼 */}
-        <div className="bg-gradient-to-br from-primary/5 to-pink-50 rounded-2xl p-6 md:p-8 border border-primary/10">
-          <h3 className="text-base md:text-lg font-bold text-gray-800 text-center mb-2">
-            사당역 연세365산부인과
-          </h3>
-          <p className="text-xs md:text-sm text-gray-500 text-center mb-6 leading-relaxed">
-            사당역 4번출구 · 연중무휴 · 당일 수술 가능 · 철저한 비밀 보장
-          </p>
-          <div className="flex flex-col gap-3">
-            
-              <a
-              href="http://pf.kakao.com/_TpaBj/chat"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="w-full flex items-center justify-center gap-2 bg-[#FEE500] text-[#3B1B1B] font-bold py-3.5 rounded-xl text-sm"
-            >
-              💬 카카오톡 무료 상담
-            </a>
-            
-              <a
-              href="tel:02-585-3650"
-              className="w-full flex items-center justify-center gap-2 bg-primary text-white font-bold py-3.5 rounded-xl text-sm"
-            >
-              📞 02-585-3650 전화 상담
-            </a>
-          </div>
-        </div>
-
-        {/* 의료법 고지 */}
-        <div className="mt-8 p-4 bg-gray-50 rounded-xl border border-gray-200">
-          <p className="text-[10px] text-gray-400 leading-[1.8]">
-            [의료법 제56조 제1항 준수] 본 콘텐츠는 환자에게 의료 정보를 제공하기 위한 목적으로 작성되었으며, 특정 의료 행위의 효과를 보장하거나 과대 광고하는 것이 아닙니다. 임신중절수술은 개인의 건강 상태에 따라 출혈, 감염, 마취 관련 부작용 등이 발생할 수 있으므로 반드시 전문의와 충분한 상담 후 신중하게 결정하시기 바랍니다.
-          </p>
-        </div>
-
-      </div>
-    </div>
+    </>
   )
 }
