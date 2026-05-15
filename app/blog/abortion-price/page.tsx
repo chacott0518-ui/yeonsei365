@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { clinicSchema } from '@/lib/schemas'
 
 export const metadata: Metadata = {
   title: '낙태 비용 가격 총정리 2026 | 주수별 가격 완벽 공개 | 연세365산부인과',
@@ -76,6 +77,12 @@ const faqJsonLd = {
     { '@type': 'Question', name: '혼자 내원해도 되나요?', acceptedAnswer: { '@type': 'Answer', text: '성인이라면 혼자 내원하셔도 됩니다. 다만 수술 후 운전은 불가능하므로 대중교통을 이용하시기 바랍니다.' } },
   ],
 }
+const PAGE_URL = 'https://www.yeonsei365.com/blog/abortion-price'
+const PAGE_DATE = '2026-03-16'
+const medicalWebPageSchema = { '@context':'https://schema.org','@type':'MedicalWebPage', name:'낙태 비용 가격 총정리 2026 | 주수별 가격 완벽 공개', url:PAGE_URL, specialty:{'@type':'MedicalSpecialty',name:'산부인과'}, medicalAudience:{'@type':'MedicalAudience',audienceType:'여성 환자'}, lastReviewed:PAGE_DATE, reviewedBy:{'@type':'MedicalOrganization',name:'연세365산부인과',url:'https://www.yeonsei365.com'}, about:{'@type':'MedicalCondition',name:'낙태 비용'} }
+const howToSchema = { '@context':'https://schema.org','@type':'HowTo', name:'낙태 비용 확인 및 예약 방법', description:'낙태 비용 확인부터 예약까지 단계별 안내', step:[ {'@type':'HowToStep',position:1,name:'주수 확인',text:'초음파로 임신 주수를 확인합니다.'}, {'@type':'HowToStep',position:2,name:'비용 안내',text:'8주 미만 45만원부터 주수별 비용을 안내받습니다.'}, {'@type':'HowToStep',position:3,name:'예약 진행',text:'비용 확인 후 당일 예약 및 수술이 가능합니다.'} ], tool:{'@type':'HowToTool',name:'연세365산부인과'} }
+const speakableSchema = { '@context':'https://schema.org','@type':'WebPage', name:'낙태 비용 가격 총정리 2026', url:PAGE_URL, speakable:{'@type':'SpeakableSpecification',cssSelector:['h1','h2']} }
+const breadcrumbSchema = { '@context':'https://schema.org','@type':'BreadcrumbList', itemListElement:[ {'@type':'ListItem',position:1,name:'홈',item:'https://www.yeonsei365.com'}, {'@type':'ListItem',position:2,name:'임신중절수술정보',item:'https://www.yeonsei365.com/blog'}, {'@type':'ListItem',position:3,name:'낙태 비용 가격',item:PAGE_URL} ] }
 
 function PriceHero() {
   return (
@@ -238,6 +245,11 @@ export default function AbortionPricePage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(medicalWebPageSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(clinicSchema) }} />
 
       {/* 헤더 */}
       <header style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50, background: 'rgba(255,255,255,0.95)', backdropFilter: 'blur(8px)', borderBottom: '1px solid #E8D0FF', padding: '14px 20px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
