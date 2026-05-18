@@ -1,4 +1,6 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
+import { clinicSchema } from '@/lib/schemas'
 
 export const metadata: Metadata = {
   title: '사당역 산부인과 솔직 후기 2026 | 연세365산부인과의원 직접 다녀왔어요',
@@ -55,18 +57,23 @@ const articleJsonLd = {
   author: { '@type': 'Organization', name: '연세365산부인과' },
   publisher: { '@type': 'Organization', name: '연세365산부인과' },
 }
+const PAGE_URL = 'https://www.yeonsei365.com/blog/hospital-review'
+const PAGE_DATE = '2026-04-01'
+const medicalWebPageSchema = { '@context':'https://schema.org','@type':'MedicalWebPage', name:'사당역 산부인과 솔직 후기 2026 | 연세365산부인과의원', url:PAGE_URL, specialty:{'@type':'MedicalSpecialty',name:'산부인과'}, medicalAudience:{'@type':'MedicalAudience',audienceType:'여성 환자'}, lastReviewed:PAGE_DATE, reviewedBy:{'@type':'MedicalOrganization',name:'연세365산부인과',url:'https://www.yeonsei365.com'}, about:{'@type':'MedicalCondition',name:'산부인과 방문 후기'} }
+const howToSchema = { '@context':'https://schema.org','@type':'HowTo', name:'연세365산부인과 예약 방법', description:'연세365산부인과 예약 단계별 안내', step:[ {'@type':'HowToStep',position:1,name:'예약',text:'전화(02-585-3650) 또는 카카오톡으로 예약합니다.'}, {'@type':'HowToStep',position:2,name:'내원',text:'사당역 4번출구 도보 2분 거리 연세365산부인과에 내원합니다.'}, {'@type':'HowToStep',position:3,name:'진료',text:'당일 검사 후 진료 진행, 당일 귀가 가능합니다.'} ], tool:{'@type':'HowToTool',name:'연세365산부인과'} }
+const speakableSchema = { '@context':'https://schema.org','@type':'WebPage', name:'사당역 산부인과 솔직 후기 2026 | 연세365산부인과의원', url:PAGE_URL, speakable:{'@type':'SpeakableSpecification',cssSelector:['h1','h2']} }
+const breadcrumbSchema = { '@context':'https://schema.org','@type':'BreadcrumbList', itemListElement:[ {'@type':'ListItem',position:1,name:'홈',item:'https://www.yeonsei365.com'}, {'@type':'ListItem',position:2,name:'임신중절수술정보',item:'https://www.yeonsei365.com/blog'}, {'@type':'ListItem',position:3,name:'병원 후기',item:PAGE_URL} ] }
 
 export default function HospitalReviewPage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
-      />
+              <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
+              <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
+              <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(medicalWebPageSchema) }} />
+              <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }} />
+              <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableSchema) }} />
+              <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+              <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(clinicSchema) }} />
 
       <div style={{
         maxWidth: '780px',
