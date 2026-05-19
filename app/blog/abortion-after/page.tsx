@@ -1,5 +1,46 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { clinicSchema } from '@/lib/schemas'
+
+const PAGE_URL = 'https://www.yeonsei365.com/blog/abortion-after'
+const PAGE_DATE = '2026-04-10'
+
+const medicalWebPageSchema = {
+  '@context': 'https://schema.org', '@type': 'MedicalWebPage',
+  name: '임신중절수술 후 관리 | 회복 방법·주의사항 완벽 안내 2026',
+  url: PAGE_URL,
+  specialty: { '@type': 'MedicalSpecialty', name: '산부인과' },
+  medicalAudience: { '@type': 'MedicalAudience', audienceType: '여성 환자' },
+  lastReviewed: PAGE_DATE,
+  reviewedBy: { '@type': 'MedicalOrganization', name: '연세365산부인과', url: 'https://www.yeonsei365.com' },
+  about: { '@type': 'MedicalCondition', name: '임신중절수술 후 관리' },
+}
+const howToSchema = {
+  '@context': 'https://schema.org', '@type': 'HowTo',
+  name: '임신중절수술 후 관리 방법',
+  description: '임신중절수술 후 안전하게 회복하는 단계별 안내',
+  step: [
+    { '@type': 'HowToStep', position: 1, name: '당일 안정', text: '수술 당일 무리한 활동을 피하고 충분히 안정을 취합니다.' },
+    { '@type': 'HowToStep', position: 2, name: '처방약 복용', text: '처방받은 항생제와 지혈제를 빠짐없이 복용합니다.' },
+    { '@type': 'HowToStep', position: 3, name: '이상 증상 확인', text: '고열, 심한 복통, 과다출혈 시 즉시 내원합니다.' },
+    { '@type': 'HowToStep', position: 4, name: '정기 검진', text: '2주 후 추적 초음파 검사를 받아 회복 상태를 확인합니다.' },
+  ],
+  tool: { '@type': 'HowToTool', name: '연세365산부인과' },
+}
+const speakableSchema = {
+  '@context': 'https://schema.org', '@type': 'WebPage',
+  name: '임신중절수술 후 관리 | 회복 방법·주의사항 완벽 안내 2026',
+  url: PAGE_URL,
+  speakable: { '@type': 'SpeakableSpecification', cssSelector: ['h1', 'h2'] },
+}
+const breadcrumbSchema = {
+  '@context': 'https://schema.org', '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: '홈', item: 'https://www.yeonsei365.com' },
+    { '@type': 'ListItem', position: 2, name: '임신중절수술정보', item: 'https://www.yeonsei365.com/blog' },
+    { '@type': 'ListItem', position: 3, name: '임신중절수술 후 관리', item: PAGE_URL },
+  ],
+}
 
 export const metadata: Metadata = {
   title: '임신중절수술 후 관리 | 회복 방법·주의사항 완벽 안내 2026 | 연세365산부인과',
@@ -87,7 +128,12 @@ export default function AbortionAfterPage() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(medicalWebPageSchema) }} />
+<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }} />
+<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableSchema) }} />
+<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(clinicSchema) }} />
       <header style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50, background: 'rgba(255,255,255,0.97)', backdropFilter: 'blur(8px)', borderBottom: `2px solid ${C.bd}`, padding: '10px 20px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
         <a href="/" style={{ textDecoration: 'none' }}><img src="https://i.imgur.com/f7h5DY0.png" alt="연세365 로고" style={{ height: '32px', width: 'auto' }} /></a>
         <div style={{ display: 'flex', gap: '8px', alignItems: 'center', flexWrap: 'wrap' }}>

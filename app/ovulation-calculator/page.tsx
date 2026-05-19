@@ -1,4 +1,5 @@
-﻿import type { Metadata } from 'next';
+﻿import { clinicSchema } from '@/lib/schemas'
+import type { Metadata } from 'next';
 import OvulationCalculator from './OvulationCalculator';
 
 export const metadata: Metadata = {
@@ -16,23 +17,21 @@ export const metadata: Metadata = {
   },
 };
 
+const PAGE_URL = 'https://www.yeonsei365.com/ovulation-calculator'
+const PAGE_DATE = '2026-04-01'
+const articleSchema = { '@context':'https://schema.org','@type':'Article', headline:'배란일 계산기 | 가임기·배란일 자동 계산 연세365산부인과', datePublished:PAGE_DATE, dateModified:PAGE_DATE, image:'https://www.yeonsei365.com/og-image.jpg', author:{'@type':'Organization',name:'연세365산부인과',url:'https://www.yeonsei365.com'}, publisher:{'@type':'MedicalOrganization',name:'연세365산부인과',logo:{'@type':'ImageObject',url:'https://i.imgur.com/f7h5DY0.png'}}, mainEntityOfPage:{'@type':'WebPage','@id':PAGE_URL}, url:PAGE_URL }
+const faqSchema = { '@context':'https://schema.org','@type':'FAQPage', mainEntity:[ {'@type':'Question',name:'배란일은 어떻게 계산하나요?',acceptedAnswer:{'@type':'Answer',text:'다음 생리 예정일에서 14일을 뺀 날이 배란일입니다. 황체기가 14일로 고정되어 있기 때문입니다. 생리주기가 불규칙하면 배란일도 달라질 수 있습니다.'}}, {'@type':'Question',name:'가임기는 언제인가요?',acceptedAnswer:{'@type':'Answer',text:'배란일 기준 전후 5~7일이 가임기입니다. 정자는 체내에서 최대 5일 생존하므로 배란일 4~5일 전부터 배란일 당일까지가 임신 가능 기간입니다. 통계적으로 배란일 1~2일 전 임신 확률이 가장 높습니다.'}}, {'@type':'Question',name:'배란이 잘 안 되면 어떻게 하나요?',acceptedAnswer:{'@type':'Answer',text:'3개월 이상 임신이 안 되거나 생리주기가 불규칙하다면 사당역 연세365산부인과(02-585-3650)에서 초음파 및 호르몬 검사로 배란 이상 여부를 확인하세요.'}} ] }
+const breadcrumbSchema = { '@context':'https://schema.org','@type':'BreadcrumbList', itemListElement:[ {'@type':'ListItem',position:1,name:'홈',item:'https://www.yeonsei365.com'}, {'@type':'ListItem',position:2,name:'임신주수계산기',item:'https://www.yeonsei365.com/pregnancy-calculator'}, {'@type':'ListItem',position:3,name:'배란일계산기',item:PAGE_URL} ] }
+const speakableSchema = { '@context':'https://schema.org','@type':'WebPage', name:'배란일 계산기 가임기 배란일 자동 계산 연세365산부인과', url:PAGE_URL, speakable:{'@type':'SpeakableSpecification',cssSelector:['h1','h2']} }
 export default function Page() {
   return (
     <main className="min-h-screen" style={{ background: '#f7eef2' }}>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'WebApplication',
-            name: '배란일·가임기 계산기',
-            description: '배란일과 가임기를 자동으로 계산합니다.',
-            url: 'https://www.yeonsei365.com/배란일계산기',
-            applicationCategory: 'HealthApplication',
-            offers: { '@type': 'Offer', price: '0', priceCurrency: 'KRW' },
-          }),
-        }}
-      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context':'https://schema.org','@type':'WebApplication', name:'배란일·가임기 계산기', description:'배란일과 가임기를 자동으로 계산합니다.', url:PAGE_URL, applicationCategory:'HealthApplication', offers:{'@type':'Offer',price:'0',priceCurrency:'KRW'} }) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(clinicSchema) }} />
 
       <section className="w-full px-5 py-10 md:px-8 md:py-14" style={{ background: '#d63870' }}>
         <div className="mx-auto max-w-4xl">

@@ -1,3 +1,4 @@
+import { clinicSchema } from '@/lib/schemas'
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
@@ -35,6 +36,7 @@ export async function generateMetadata({
     },
   }
 }
+const PAGE_DATE = '2026-04-01'
 
 export default function CategoryPage({
   params,
@@ -48,6 +50,10 @@ export default function CategoryPage({
 
   return (
     <>
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context':'https://schema.org','@type':'FAQPage', mainEntity: articles.flatMap(a => a.faq.slice(0,2).map(f => ({'@type':'Question', name:f.q, acceptedAnswer:{'@type':'Answer', text:f.a}}))) }) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context':'https://schema.org','@type':'MedicalWebPage', name:`${cat.label} Q&A | 연세365산부인과`, url:`https://www.yeonsei365.com/health-hub/${params.category}`, specialty:{'@type':'MedicalSpecialty',name:'산부인과'}, medicalAudience:{'@type':'MedicalAudience',audienceType:'여성 환자'}, lastReviewed:PAGE_DATE, reviewedBy:{'@type':'MedicalOrganization',name:'연세365산부인과',url:'https://www.yeonsei365.com'} }) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context':'https://schema.org','@type':'BreadcrumbList', itemListElement:[{'@type':'ListItem',position:1,name:'홈',item:'https://www.yeonsei365.com'},{'@type':'ListItem',position:2,name:'AI 건강 Q&A',item:'https://www.yeonsei365.com/health-hub'},{'@type':'ListItem',position:3,name:`${cat.label}`,item:`https://www.yeonsei365.com/health-hub/${params.category}`}] }) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(clinicSchema) }} />
       {/* 카테고리 헤더 */}
       <div style={{ marginBottom: '28px' }}>
         <span

@@ -1,3 +1,4 @@
+import { clinicSchema } from '@/lib/schemas'
 import type { Metadata } from 'next'
 import ColumnClient from './ColumnClient'
 import { COLUMNS } from '@/lib/columns'
@@ -43,11 +44,20 @@ export const metadata: Metadata = {
     description: '자궁근종, 임신중절수술, 생리불순 등 여성 건강 전문 칼럼.',
   },
 }
+const PAGE_URL = 'https://www.yeonsei365.com/health-magazine/column'
+const PAGE_DATE = '2026-04-01'
+const articleSchema = { '@context':'https://schema.org','@type':'Article', headline:'여성 건강 칼럼 | 자궁근종·임신·산부인과 전문의 칼럼 | 연세365산부인과', datePublished:PAGE_DATE, dateModified:PAGE_DATE, image:'https://www.yeonsei365.com/og-image.jpg', author:{'@type':'Organization',name:'연세365산부인과',url:'https://www.yeonsei365.com'}, publisher:{'@type':'MedicalOrganization',name:'연세365산부인과',logo:{'@type':'ImageObject',url:'https://i.imgur.com/f7h5DY0.png'}}, mainEntityOfPage:{'@type':'WebPage','@id':PAGE_URL}, url:PAGE_URL }
+const breadcrumbSchema = { '@context':'https://schema.org','@type':'BreadcrumbList', itemListElement:[ {'@type':'ListItem',position:1,name:'홈',item:'https://www.yeonsei365.com'}, {'@type':'ListItem',position:2,name:'건강매거진',item:'https://www.yeonsei365.com/health-magazine'}, {'@type':'ListItem',position:3,name:'칼럼',item:PAGE_URL} ] }
+const speakableSchema = { '@context':'https://schema.org','@type':'WebPage', name:'여성 건강 칼럼 자궁근종 임신 산부인과 전문의 칼럼 연세365산부인과', url:PAGE_URL, speakable:{'@type':'SpeakableSpecification',cssSelector:['h1','h2']} }
 
 export default function ColumnPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SCHEMA) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(clinicSchema) }} />
       <ColumnClient />
     </>
   )

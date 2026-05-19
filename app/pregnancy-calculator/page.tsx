@@ -1,4 +1,5 @@
-﻿import type { Metadata } from 'next';
+﻿import { clinicSchema } from '@/lib/schemas'
+import type { Metadata } from 'next';
 import PregnancyCalculator from './PregnancyCalculator';
 
 export const metadata: Metadata = {
@@ -27,24 +28,22 @@ const WEEKS = [
   { week: 24, label: '임신성 당뇨 검사', desc: '임신성 당뇨 검사, 폐 발달 활발. 태아 크기: 옥수수 (30cm)' },
   { week: 28, label: '3분기 진입',       desc: '빈번한 태동, 뇌 발달 급격히 빨라짐. 태아 크기: 가지 (37cm)' },
 ];
+const PAGE_URL = 'https://www.yeonsei365.com/pregnancy-calculator'
+const PAGE_DATE = '2026-04-01'
+const articleSchema = { '@context':'https://schema.org','@type':'Article', headline:'임신주수 계산기 | 출산예정일·태아발달 자동 계산 연세365산부인과', datePublished:PAGE_DATE, dateModified:PAGE_DATE, image:'https://www.yeonsei365.com/og-image.jpg', author:{'@type':'Organization',name:'연세365산부인과',url:'https://www.yeonsei365.com'}, publisher:{'@type':'MedicalOrganization',name:'연세365산부인과',logo:{'@type':'ImageObject',url:'https://i.imgur.com/f7h5DY0.png'}}, mainEntityOfPage:{'@type':'WebPage','@id':PAGE_URL}, url:PAGE_URL }
+const faqSchema = { '@context':'https://schema.org','@type':'FAQPage', mainEntity:[ {'@type':'Question',name:'임신주수는 어떻게 계산하나요?',acceptedAnswer:{'@type':'Answer',text:'마지막 생리 시작일(LMP)을 기준으로 계산합니다. 실제 수정일보다 약 2주 길게 계산되며 이는 전 세계 산부인과 표준 방법입니다.'}}, {'@type':'Question',name:'출산예정일은 어떻게 계산하나요?',acceptedAnswer:{'@type':'Answer',text:'마지막 생리 시작일로부터 280일(40주)을 더해 계산합니다. 네겔레 법칙이라고 하며 실제 출산은 예정일 전후 2주(38~42주) 사이가 정상입니다.'}}, {'@type':'Question',name:'임신주수 계산기가 정확한가요?',acceptedAnswer:{'@type':'Answer',text:'생리주기가 규칙적인 경우 높은 정확도를 보이나, 불규칙한 경우 산부인과 초음파 검사로 정확한 주수를 확인하는 것이 중요합니다. 사당역 연세365산부인과(02-585-3650)에서 정확한 주수 확인이 가능합니다.'}} ] }
+const breadcrumbSchema = { '@context':'https://schema.org','@type':'BreadcrumbList', itemListElement:[ {'@type':'ListItem',position:1,name:'홈',item:'https://www.yeonsei365.com'}, {'@type':'ListItem',position:2,name:'임신주수계산기',item:PAGE_URL} ] }
+const speakableSchema = { '@context':'https://schema.org','@type':'WebPage', name:'임신주수 계산기 출산예정일 태아발달 자동 계산 연세365산부인과', url:PAGE_URL, speakable:{'@type':'SpeakableSpecification',cssSelector:['h1','h2']} }
 
 export default function Page() {
   return (
     <main className="min-h-screen" style={{ background: '#f7eef2' }}>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            '@context': 'https://schema.org',
-            '@type': 'WebApplication',
-            name: '임신주수 계산기',
-            description: '임신주수, 출산예정일, 태아 발달 정보를 자동으로 계산합니다.',
-            url: 'https://www.yeonsei365.com/임신주수계산기',
-            applicationCategory: 'HealthApplication',
-            offers: { '@type': 'Offer', price: '0', priceCurrency: 'KRW' },
-          }),
-        }}
-      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context':'https://schema.org','@type':'WebApplication', name:'임신주수 계산기', description:'임신주수, 출산예정일, 태아 발달 정보를 자동으로 계산합니다.', url:PAGE_URL, applicationCategory:'HealthApplication', offers:{'@type':'Offer',price:'0',priceCurrency:'KRW'} }) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(clinicSchema) }} />
 
       <section className="w-full px-5 py-10 md:px-8 md:py-14" style={{ background: '#d63870' }}>
         <div className="mx-auto max-w-4xl">

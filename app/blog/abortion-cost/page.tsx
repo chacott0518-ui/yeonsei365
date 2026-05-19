@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { clinicSchema } from '@/lib/schemas'
 
 export const metadata: Metadata = {
   title: '임신중절수술 비용 완벽 정리 2026 | 주수별 가격·과정·주의사항 | 연세365산부인과',
@@ -76,6 +77,54 @@ const jsonLd = {
   publisher: { '@type': 'Organization', name: '연세365산부인과' },
   datePublished: '2026-03-01',
   dateModified: '2026-03-01',
+}
+const medicalWebPageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'MedicalWebPage',
+  name: '임신중절수술 비용 완벽 정리 2026',
+  description: '임신중절수술 비용을 주수별로 투명하게 안내합니다. 8주 미만 45만원부터 시작.',
+  url: 'https://www.yeonsei365.com/blog/abortion-cost',
+  specialty: { '@type': 'MedicalSpecialty', name: '산부인과' },
+  medicalAudience: { '@type': 'MedicalAudience', audienceType: '여성 환자' },
+  lastReviewed: '2026-03-01',
+  reviewedBy: { '@type': 'MedicalOrganization', name: '연세365산부인과', url: 'https://www.yeonsei365.com' },
+}
+
+const howToSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: '임신중절수술 당일 진행 과정',
+  description: '연세365산부인과 임신중절수술 당일 절차 안내',
+  step: [
+    { '@type': 'HowToStep', position: 1, name: '초진 및 초음파 검사', text: '내원 후 초음파 검사를 통해 정확한 임신 주수를 확인하고 수술 가능 여부를 판단합니다.' },
+    { '@type': 'HowToStep', position: 2, name: '수술 전 준비', text: '혈액 검사, 혈압 측정 등 기본 검사를 진행합니다. 수술 6시간 전부터 금식이 필요합니다.' },
+    { '@type': 'HowToStep', position: 3, name: '수면마취', text: '정맥마취(수면마취)를 통해 통증 없이 편안한 상태에서 수술이 진행됩니다.' },
+    { '@type': 'HowToStep', position: 4, name: '흡입식 소파술 시행', text: '산부인과 전문의가 직접 흡입식 소파술을 시행합니다. 수술 시간은 10~15분 내외입니다.' },
+    { '@type': 'HowToStep', position: 5, name: '회복실 안정', text: '수술 후 1인 프라이빗 회복실에서 1~2시간 안정을 취합니다.' },
+    { '@type': 'HowToStep', position: 6, name: '상담 후 퇴원', text: '전문의와 사후 주의사항 상담 후 당일 퇴원합니다.' },
+  ],
+  tool: { '@type': 'HowToTool', name: '연세365산부인과' },
+}
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: '홈', item: 'https://www.yeonsei365.com' },
+    { '@type': 'ListItem', position: 2, name: '임신중절수술정보', item: 'https://www.yeonsei365.com/blog' },
+    { '@type': 'ListItem', position: 3, name: '임신중절수술 비용', item: 'https://www.yeonsei365.com/blog/abortion-cost' },
+  ],
+}
+
+const speakableSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  name: '임신중절수술 비용 완벽 정리 2026',
+  url: 'https://www.yeonsei365.com/blog/abortion-cost',
+  speakable: {
+    '@type': 'SpeakableSpecification',
+    cssSelector: ['h1', 'h2', '.speakable-summary'],
+  },
 }
 
 const faqJsonLd = {
@@ -185,6 +234,11 @@ export default function AbortionCostPage() {
       <div style={{ height: '64px' }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(medicalWebPageSchema) }} />
+<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }} />
+<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableSchema) }} />
+<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(clinicSchema) }} />
 
       <div style={{ maxWidth: '780px', margin: '0 auto', padding: '40px 20px 80px', fontFamily: 'Pretendard, sans-serif', color: '#1A0A10', lineHeight: 1.8 }}>
 

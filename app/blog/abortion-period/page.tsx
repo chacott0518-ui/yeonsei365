@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { clinicSchema } from '@/lib/schemas'
 
 export const metadata: Metadata = {
   title: '임신중절수술 기간 | 몇 주까지 가능한가? 합법 기간 완벽 안내 2026 | 연세365산부인과',
@@ -47,6 +48,13 @@ const jsonLd = {
     { '@type': 'Question', name: '임신 주수를 모르는데 어떻게 하나요?', acceptedAnswer: { '@type': 'Answer', text: '내원하여 초음파 검사를 받으시면 정확한 임신 주수를 확인할 수 있습니다. 마지막 생리일을 모르거나 생리 주기가 불규칙한 경우에도 초음파로 정확하게 확인 가능합니다.' } },
   ],
 }
+const PAGE_URL = 'https://www.yeonsei365.com/blog/abortion-period'
+const PAGE_DATE = '2026-04-10'
+const articleSchema = { '@context':'https://schema.org','@type':'Article', headline:'임신중절수술 기간 | 몇 주까지 가능한가? 합법 기간 완벽 안내 2026', datePublished:PAGE_DATE, dateModified:PAGE_DATE, image:'https://www.yeonsei365.com/og-image.jpg', author:{'@type':'Organization',name:'연세365산부인과',url:'https://www.yeonsei365.com'}, publisher:{'@type':'MedicalOrganization',name:'연세365산부인과',logo:{'@type':'ImageObject',url:'https://i.imgur.com/f7h5DY0.png'}}, mainEntityOfPage:{'@type':'WebPage','@id':PAGE_URL}, url:PAGE_URL }
+const medicalWebPageSchema = { '@context':'https://schema.org','@type':'MedicalWebPage', name:'임신중절수술 기간 | 몇 주까지 가능한가? 합법 기간 완벽 안내 2026', url:PAGE_URL, specialty:{'@type':'MedicalSpecialty',name:'산부인과'}, medicalAudience:{'@type':'MedicalAudience',audienceType:'여성 환자'}, lastReviewed:PAGE_DATE, reviewedBy:{'@type':'MedicalOrganization',name:'연세365산부인과',url:'https://www.yeonsei365.com'}, about:{'@type':'MedicalCondition',name:'임신중절수술 가능 기간'} }
+const howToSchema = { '@context':'https://schema.org','@type':'HowTo', name:'임신중절수술 가능 기간 확인 방법', description:'임신 주수 확인부터 수술까지 단계별 안내', step:[ {'@type':'HowToStep',position:1,name:'임신 주수 확인',text:'초음파 검사로 정확한 임신 주수를 확인합니다.'}, {'@type':'HowToStep',position:2,name:'수술 가능 기간 확인',text:'임신 10주 이내가 가장 안전합니다. 빠를수록 좋습니다.'}, {'@type':'HowToStep',position:3,name:'즉시 예약',text:'주수가 증가할수록 비용과 위험도가 높아지므로 빠르게 예약합니다.'} ], tool:{'@type':'HowToTool',name:'연세365산부인과'} }
+const speakableSchema = { '@context':'https://schema.org','@type':'WebPage', name:'임신중절수술 기간 | 몇 주까지 가능한가? 합법 기간 완벽 안내 2026', url:PAGE_URL, speakable:{'@type':'SpeakableSpecification',cssSelector:['h1','h2']} }
+const breadcrumbSchema = { '@context':'https://schema.org','@type':'BreadcrumbList', itemListElement:[ {'@type':'ListItem',position:1,name:'홈',item:'https://www.yeonsei365.com'}, {'@type':'ListItem',position:2,name:'임신중절수술정보',item:'https://www.yeonsei365.com/blog'}, {'@type':'ListItem',position:3,name:'임신중절수술 기간',item:PAGE_URL} ] }
 
 const C = {
   p: '#CC2D5E', pd: '#8C1A4A', pp: '#4A0E2E',
@@ -80,8 +88,14 @@ const bt: React.CSSProperties = { fontSize: '15px', color: C.ts, lineHeight: 1.9
 export default function AbortionPeriodPage() {
   return (
     <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(medicalWebPageSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(clinicSchema) }} />
+      
       <header style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50, background: 'rgba(255,255,255,0.97)', backdropFilter: 'blur(8px)', borderBottom: `2px solid ${C.bd}`, padding: '10px 20px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
         <a href="/" style={{ textDecoration: 'none' }}><img src="https://i.imgur.com/f7h5DY0.png" alt="연세365 로고" style={{ height: '32px', width: 'auto' }} /></a>
         <div style={{ display: 'flex', gap: '8px', alignItems: 'center', flexWrap: 'wrap' }}>

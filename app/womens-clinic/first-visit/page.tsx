@@ -1,3 +1,4 @@
+import { clinicSchema } from '@/lib/schemas'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -144,14 +145,24 @@ const examItems = [
     desc: '자궁경부암의 주요 원인인 인유두종바이러스(HPV) 감염을 예방하는 백신입니다. 가다실9가 기준으로 총 2~3회 접종이 필요하며, 만 12세는 국가 무료 접종 대상입니다. 성인도 접종 가능하며, 이미 감염된 타입 외의 다른 타입에 대한 예방 효과가 있습니다.',
   },
 ]
+const PAGE_URL = 'https://www.yeonsei365.com/womens-clinic/first-visit'
+const PAGE_DATE = '2026-04-01'
+const articleSchema = { '@context':'https://schema.org','@type':'Article', headline:'산부인과 처음 가는 법 완전 가이드 2026 | 예약·준비물·진료순서', datePublished:PAGE_DATE, dateModified:PAGE_DATE, image:'https://www.yeonsei365.com/og-image.jpg', author:{'@type':'Organization',name:'연세365산부인과',url:'https://www.yeonsei365.com'}, publisher:{'@type':'MedicalOrganization',name:'연세365산부인과',logo:{'@type':'ImageObject',url:'https://i.imgur.com/f7h5DY0.png'}}, mainEntityOfPage:{'@type':'WebPage','@id':PAGE_URL}, url:PAGE_URL }
+const medicalWebPageSchema = { '@context':'https://schema.org','@type':'MedicalWebPage', name:'산부인과 처음 가는 법 완전 가이드 2026', url:PAGE_URL, specialty:{'@type':'MedicalSpecialty',name:'산부인과'}, medicalAudience:{'@type':'MedicalAudience',audienceType:'여성 환자'}, lastReviewed:PAGE_DATE, reviewedBy:{'@type':'MedicalOrganization',name:'연세365산부인과',url:'https://www.yeonsei365.com'}, about:{'@type':'MedicalCondition',name:'산부인과 첫 방문'} }
+const howToSchema = { '@context':'https://schema.org','@type':'HowTo', name:'산부인과 처음 방문 방법 8단계', description:'예약부터 진료까지 처음 방문자 완전 가이드', step:[ {'@type':'HowToStep',position:1,name:'예약',text:'전화(02-585-3650) 또는 네이버로 예약. 처음이라면 초진으로 선택.'}, {'@type':'HowToStep',position:2,name:'내원 및 접수',text:'신분증 지참. 접수 시 방문 목적 간단히 말씀.'}, {'@type':'HowToStep',position:3,name:'문진표 작성',text:'마지막 생리 시작일, 주기, 증상 작성.'}, {'@type':'HowToStep',position:4,name:'의사 상담',text:'증상 편하게 말씀. 모든 내용 비밀 보장.'} ], tool:{'@type':'HowToTool',name:'연세365산부인과'} }
+const speakableSchema = { '@context':'https://schema.org','@type':'WebPage', name:'산부인과 처음 가는 법 완전 가이드 2026', url:PAGE_URL, speakable:{'@type':'SpeakableSpecification',cssSelector:['h1','h2']} }
+const breadcrumbSchema = { '@context':'https://schema.org','@type':'BreadcrumbList', itemListElement:[ {'@type':'ListItem',position:1,name:'홈',item:'https://www.yeonsei365.com'}, {'@type':'ListItem',position:2,name:'여성검진클리닉',item:'https://www.yeonsei365.com/womens-clinic'}, {'@type':'ListItem',position:3,name:'처음 방문 안내',item:PAGE_URL} ] }
 
 export default function FirstVisitPage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
-      />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(medicalWebPageSchema) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableSchema) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(clinicSchema) }} />
 
       <div style={{
         maxWidth: '780px',

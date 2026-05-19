@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { clinicSchema } from '@/lib/schemas'
 
 export const metadata: Metadata = {
   title: '임신중절수술 금액·합법기간·방법 안내 | 연세365산부인과',
@@ -43,6 +44,13 @@ const jsonLd = {
     { '@type': 'Question', name: '흡입술과 소파술 중 어떤 방법이 좋은가요?', acceptedAnswer: { '@type': 'Answer', text: '8주 이내라면 흡입술이 안전하고 회복이 빠릅니다. 8~12주는 소파술이 적합하며 전문의가 주수와 상태에 따라 결정합니다.' } },
   ],
 }
+const PAGE_URL = 'https://www.yeonsei365.com/abortion/surgery'
+const PAGE_DATE = '2026-04-01'
+const articleSchema = { '@context':'https://schema.org','@type':'Article', headline:'임신중절수술 금액·합법기간·방법 안내 | 연세365산부인과', datePublished:PAGE_DATE, dateModified:PAGE_DATE, image:'https://www.yeonsei365.com/og-image.jpg', author:{'@type':'Organization',name:'연세365산부인과',url:'https://www.yeonsei365.com'}, publisher:{'@type':'MedicalOrganization',name:'연세365산부인과',logo:{'@type':'ImageObject',url:'https://i.imgur.com/f7h5DY0.png'}}, mainEntityOfPage:{'@type':'WebPage','@id':PAGE_URL}, url:PAGE_URL }
+const medicalWebPageSchema = { '@context':'https://schema.org','@type':'MedicalWebPage', name:'임신중절수술 금액·합법기간·방법 안내 | 연세365산부인과', url:PAGE_URL, specialty:{'@type':'MedicalSpecialty',name:'산부인과'}, medicalAudience:{'@type':'MedicalAudience',audienceType:'여성 환자'}, lastReviewed:PAGE_DATE, reviewedBy:{'@type':'MedicalOrganization',name:'연세365산부인과',url:'https://www.yeonsei365.com'}, about:{'@type':'MedicalCondition',name:'임신중절수술'} }
+const howToSchema = { '@context':'https://schema.org','@type':'HowTo', name:'임신중절수술 예약 방법', description:'연세365산부인과 임신중절수술 예약부터 수술까지', step:[ {'@type':'HowToStep',position:1,name:'상담 예약',text:'전화(02-585-3650) 또는 카카오톡으로 예약합니다.'}, {'@type':'HowToStep',position:2,name:'내원 및 검사',text:'신분증 지참 후 내원. 초음파로 주수 확인 후 비용 안내.'}, {'@type':'HowToStep',position:3,name:'수술 및 귀가',text:'수면마취 후 10~30분 수술. 당일 귀가 가능.'} ], tool:{'@type':'HowToTool',name:'연세365산부인과'} }
+const speakableSchema = { '@context':'https://schema.org','@type':'WebPage', name:'임신중절수술 금액·합법기간·방법 안내', url:PAGE_URL, speakable:{'@type':'SpeakableSpecification',cssSelector:['h1','h2']} }
+const breadcrumbSchema = { '@context':'https://schema.org','@type':'BreadcrumbList', itemListElement:[ {'@type':'ListItem',position:1,name:'홈',item:'https://www.yeonsei365.com'}, {'@type':'ListItem',position:2,name:'임신중절클리닉',item:'https://www.yeonsei365.com/abortion'}, {'@type':'ListItem',position:3,name:'임신중절수술',item:PAGE_URL} ] }
 
 const C = {
   p: '#CC2D5E', pd: '#8C1A4A', pp: '#4A0E2E',
@@ -88,7 +96,13 @@ function LBox({ children }: { children: React.ReactNode }) {
 export default function AbortionSurgeryClinicPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(medicalWebPageSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(clinicSchema) }} />
 
       {/* 서브페이지 헤더 */}
       <header style={{

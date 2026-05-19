@@ -1,3 +1,4 @@
+import { clinicSchema } from '@/lib/schemas'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -114,14 +115,24 @@ const warningSigns = [
   '생리 주기가 3개월 이상 불규칙하거나 생리가 없을 때',
   '아랫배가 점점 딱딱하게 만져지거나 복부 팽만감이 느껴질 때',
 ]
+const PAGE_URL = 'https://www.yeonsei365.com/womens-clinic/menstrual-pain'
+const PAGE_DATE = '2026-04-01'
+const articleSchema = { '@context':'https://schema.org','@type':'Article', headline:'생리통 참으면 안 되는 이유 5가지 2026 | 자궁내막증·근종 신호', datePublished:PAGE_DATE, dateModified:PAGE_DATE, image:'https://www.yeonsei365.com/og-image.jpg', author:{'@type':'Organization',name:'연세365산부인과',url:'https://www.yeonsei365.com'}, publisher:{'@type':'MedicalOrganization',name:'연세365산부인과',logo:{'@type':'ImageObject',url:'https://i.imgur.com/f7h5DY0.png'}}, mainEntityOfPage:{'@type':'WebPage','@id':PAGE_URL}, url:PAGE_URL }
+const medicalWebPageSchema = { '@context':'https://schema.org','@type':'MedicalWebPage', name:'생리통 참으면 안 되는 이유 5가지 자궁내막증 근종 신호', url:PAGE_URL, specialty:{'@type':'MedicalSpecialty',name:'산부인과'}, medicalAudience:{'@type':'MedicalAudience',audienceType:'여성 환자'}, lastReviewed:PAGE_DATE, reviewedBy:{'@type':'MedicalOrganization',name:'연세365산부인과',url:'https://www.yeonsei365.com'}, about:{'@type':'MedicalCondition',name:'생리통 자궁내막증'} }
+const howToSchema = { '@context':'https://schema.org','@type':'HowTo', name:'생리통 산부인과 방문 방법', description:'생리통 심할 때 산부인과 방문 단계별 안내', step:[ {'@type':'HowToStep',position:1,name:'증상 확인',text:'진통제로 조절 안 되는 생리통, 생리 외 통증, 성관계 시 통증 등 확인.'}, {'@type':'HowToStep',position:2,name:'예약',text:'전화(02-585-3650) 또는 카카오톡으로 예약.'}, {'@type':'HowToStep',position:3,name:'초음파 검사',text:'자궁·난소 초음파로 자궁내막증·근종 여부 확인.'} ], tool:{'@type':'HowToTool',name:'연세365산부인과'} }
+const speakableSchema = { '@context':'https://schema.org','@type':'WebPage', name:'생리통 참으면 안 되는 이유 5가지 자궁내막증 근종 신호', url:PAGE_URL, speakable:{'@type':'SpeakableSpecification',cssSelector:['h1','h2']} }
+const breadcrumbSchema = { '@context':'https://schema.org','@type':'BreadcrumbList', itemListElement:[ {'@type':'ListItem',position:1,name:'홈',item:'https://www.yeonsei365.com'}, {'@type':'ListItem',position:2,name:'여성검진클리닉',item:'https://www.yeonsei365.com/womens-clinic'}, {'@type':'ListItem',position:3,name:'생리통 안내',item:PAGE_URL} ] }
 
 export default function MenstrualPainPage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
-      />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(medicalWebPageSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(clinicSchema) }} />
 
       <div style={{
         maxWidth: '780px',

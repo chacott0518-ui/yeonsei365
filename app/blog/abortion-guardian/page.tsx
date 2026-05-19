@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { clinicSchema } from '@/lib/schemas'
 
 export const metadata: Metadata = {
   title: '임신중절수술 보호자 | 혼자 가능한가? 동반 여부 완벽 안내 2026 | 연세365산부인과',
@@ -12,6 +13,54 @@ export const metadata: Metadata = {
     title: '임신중절수술 보호자 | 혼자 가능한가? 동반 여부 완벽 안내 2026 | 연세365산부인과',
     description: '임신중절수술 보호자 동반 여부를 완벽하게 안내합니다. 성인 혼자 가능 여부, 미성년자 보호자 필요 여부, 수술 후 귀가까지. 사당역 4번출구 연세365산부인과.',
   },
+}
+
+const PAGE_URL = 'https://www.yeonsei365.com/blog/abortion-guardian'
+const PAGE_DATE = '2026-04-10'
+
+const articleSchema = {
+  '@context': 'https://schema.org', '@type': 'Article',
+  headline: '임신중절수술 보호자 | 혼자 가능한가? 동반 여부 완벽 안내 2026',
+  datePublished: PAGE_DATE, dateModified: PAGE_DATE,
+  image: 'https://www.yeonsei365.com/og-image.jpg',
+  author: { '@type': 'Organization', name: '연세365산부인과', url: 'https://www.yeonsei365.com' },
+  publisher: { '@type': 'MedicalOrganization', name: '연세365산부인과', logo: { '@type': 'ImageObject', url: 'https://i.imgur.com/f7h5DY0.png' } },
+  mainEntityOfPage: { '@type': 'WebPage', '@id': PAGE_URL }, url: PAGE_URL,
+}
+const medicalWebPageSchema = {
+  '@context': 'https://schema.org', '@type': 'MedicalWebPage',
+  name: '임신중절수술 보호자 | 혼자 가능한가? 동반 여부 완벽 안내 2026',
+  url: PAGE_URL,
+  specialty: { '@type': 'MedicalSpecialty', name: '산부인과' },
+  medicalAudience: { '@type': 'MedicalAudience', audienceType: '여성 환자' },
+  lastReviewed: PAGE_DATE,
+  reviewedBy: { '@type': 'MedicalOrganization', name: '연세365산부인과', url: 'https://www.yeonsei365.com' },
+  about: { '@type': 'MedicalCondition', name: '임신중절수술 보호자 동반' },
+}
+const howToSchema = {
+  '@context': 'https://schema.org', '@type': 'HowTo',
+  name: '임신중절수술 혼자 내원하는 방법',
+  description: '성인이 혼자 내원하여 임신중절수술을 받는 방법',
+  step: [
+    { '@type': 'HowToStep', position: 1, name: '예약', text: '전화(02-585-3650) 또는 카카오톡으로 예약합니다.' },
+    { '@type': 'HowToStep', position: 2, name: '신분증 지참', text: '성인은 신분증만 지참하면 혼자 내원 가능합니다.' },
+    { '@type': 'HowToStep', position: 3, name: '대중교통 이용', text: '수술 후 운전 불가. 사당역 4번출구 도보 2분 거리입니다.' },
+  ],
+  tool: { '@type': 'HowToTool', name: '연세365산부인과' },
+}
+const speakableSchema = {
+  '@context': 'https://schema.org', '@type': 'WebPage',
+  name: '임신중절수술 보호자 | 혼자 가능한가? 동반 여부 완벽 안내 2026',
+  url: PAGE_URL,
+  speakable: { '@type': 'SpeakableSpecification', cssSelector: ['h1', 'h2'] },
+}
+const breadcrumbSchema = {
+  '@context': 'https://schema.org', '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: '홈', item: 'https://www.yeonsei365.com' },
+    { '@type': 'ListItem', position: 2, name: '임신중절수술정보', item: 'https://www.yeonsei365.com/blog' },
+    { '@type': 'ListItem', position: 3, name: '임신중절수술 보호자', item: PAGE_URL },
+  ],
 }
 
 const jsonLd = {
@@ -32,7 +81,13 @@ function Divider() { return <hr style={{ border: 'none', borderTop: `1px solid $
 export default function AbortionGuardianPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(medicalWebPageSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(clinicSchema) }} />
       <header style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50, background: 'rgba(255,255,255,0.97)', backdropFilter: 'blur(8px)', borderBottom: `2px solid ${C.bd}`, padding: '10px 20px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
         <a href="/" style={{ textDecoration: 'none' }}><img src="https://i.imgur.com/f7h5DY0.png" alt="연세365 로고" style={{ height: '32px', width: 'auto' }} /></a>
         <div style={{ display: 'flex', gap: '8px', alignItems: 'center', flexWrap: 'wrap' }}>

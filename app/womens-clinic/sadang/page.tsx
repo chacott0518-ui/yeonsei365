@@ -1,3 +1,4 @@
+import { clinicSchema } from '@/lib/schemas'
 import type { Metadata } from 'next'
 
 export const metadata: Metadata = {
@@ -136,12 +137,25 @@ const unsplashImages = {
     clinic: 'https://images.unsplash.com/photo-1584820927498-cfe5211fd8bf?q=80&w=1453&auto=format&fit=crop',
     waiting: 'https://images.unsplash.com/photo-1538108149393-fbbd81895907?q=80&w=1528&auto=format&fit=crop',
   }
+  const PAGE_URL = 'https://www.yeonsei365.com/womens-clinic/sadang'
+  const PAGE_DATE = '2026-04-01'
+  const articleSchema = { '@context':'https://schema.org','@type':'Article', headline:'사당역 산부인과 연세365산부인과의원 | 위치·진료항목·비용 2026', datePublished:PAGE_DATE, dateModified:PAGE_DATE, image:'https://www.yeonsei365.com/og-image.jpg', author:{'@type':'Organization',name:'연세365산부인과',url:'https://www.yeonsei365.com'}, publisher:{'@type':'MedicalOrganization',name:'연세365산부인과',logo:{'@type':'ImageObject',url:'https://i.imgur.com/f7h5DY0.png'}}, mainEntityOfPage:{'@type':'WebPage','@id':PAGE_URL}, url:PAGE_URL }
+  const medicalWebPageSchema = { '@context':'https://schema.org','@type':'MedicalWebPage', name:'사당역 산부인과 연세365산부인과의원 위치 진료항목 비용', url:PAGE_URL, specialty:{'@type':'MedicalSpecialty',name:'산부인과'}, medicalAudience:{'@type':'MedicalAudience',audienceType:'여성 환자'}, lastReviewed:PAGE_DATE, reviewedBy:{'@type':'MedicalOrganization',name:'연세365산부인과',url:'https://www.yeonsei365.com'}, about:{'@type':'MedicalCondition',name:'산부인과 진료'} }
+  const howToSchema = { '@context':'https://schema.org','@type':'HowTo', name:'사당역 연세365산부인과 예약 방법', description:'사당역 산부인과 예약 단계별 안내', step:[ {'@type':'HowToStep',position:1,name:'예약',text:'전화(02-585-3650) 또는 네이버·카카오톡으로 예약합니다.'}, {'@type':'HowToStep',position:2,name:'내원',text:'사당역 4번출구 도보 이동. 신분증 지참.'}, {'@type':'HowToStep',position:3,name:'진료',text:'초음파·혈액검사 등 필요한 항목 당일 진행. 결과 당일 확인.'} ], tool:{'@type':'HowToTool',name:'연세365산부인과'} }
+  const speakableSchema = { '@context':'https://schema.org','@type':'WebPage', name:'사당역 산부인과 연세365산부인과의원 위치 진료항목 비용', url:PAGE_URL, speakable:{'@type':'SpeakableSpecification',cssSelector:['h1','h2']} }
+  const breadcrumbSchema = { '@context':'https://schema.org','@type':'BreadcrumbList', itemListElement:[ {'@type':'ListItem',position:1,name:'홈',item:'https://www.yeonsei365.com'}, {'@type':'ListItem',position:2,name:'여성검진클리닉',item:'https://www.yeonsei365.com/womens-clinic'}, {'@type':'ListItem',position:3,name:'사당역 산부인과',item:PAGE_URL} ] }
 
 export default function SadangObgynPage() {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(medicalWebPageSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(clinicSchema) }} />
 
       <div style={{
         maxWidth: '780px',

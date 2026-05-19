@@ -1,5 +1,6 @@
 ﻿import type { Metadata } from 'next'
 import Link from 'next/link'
+import { clinicSchema } from '@/lib/schemas'
 
 export const metadata: Metadata = {
   title: '임신중절수술 부작용 | 위험성·합병증 완벽 안내 2026 | 연세365산부인과',
@@ -22,6 +23,13 @@ const jsonLd = {
     { '@type': 'Question', name: '임신중절수술 후 임신이 어려워지나요?', acceptedAnswer: { '@type': 'Answer', text: '전문의가 안전하게 시행한 경우 향후 임신에 영향이 거의 없습니다. 반복 시술은 자궁 내막에 영향을 줄 수 있으므로 피임 상담을 권장합니다.' } },
   ],
 }
+const PAGE_URL = 'https://www.yeonsei365.com/blog/abortion-side'
+const PAGE_DATE = '2026-04-10'
+const articleSchema = { '@context':'https://schema.org','@type':'Article', headline:'임신중절수술 부작용 | 위험성·합병증 완벽 안내 2026', datePublished:PAGE_DATE, dateModified:PAGE_DATE, image:'https://www.yeonsei365.com/og-image.jpg', author:{'@type':'Organization',name:'연세365산부인과',url:'https://www.yeonsei365.com'}, publisher:{'@type':'MedicalOrganization',name:'연세365산부인과',logo:{'@type':'ImageObject',url:'https://i.imgur.com/f7h5DY0.png'}}, mainEntityOfPage:{'@type':'WebPage','@id':PAGE_URL}, url:PAGE_URL }
+const medicalWebPageSchema = { '@context':'https://schema.org','@type':'MedicalWebPage', name:'임신중절수술 부작용 | 위험성·합병증 완벽 안내 2026', url:PAGE_URL, specialty:{'@type':'MedicalSpecialty',name:'산부인과'}, medicalAudience:{'@type':'MedicalAudience',audienceType:'여성 환자'}, lastReviewed:PAGE_DATE, reviewedBy:{'@type':'MedicalOrganization',name:'연세365산부인과',url:'https://www.yeonsei365.com'}, about:{'@type':'MedicalCondition',name:'임신중절수술 부작용'} }
+const howToSchema = { '@context':'https://schema.org','@type':'HowTo', name:'임신중절수술 부작용 예방 방법', description:'임신중절수술 후 부작용 예방 단계별 안내', step:[ {'@type':'HowToStep',position:1,name:'처방약 복용',text:'처방받은 항생제와 지혈제를 빠짐없이 복용합니다.'}, {'@type':'HowToStep',position:2,name:'안정 취하기',text:'수술 후 1주일간 무리한 활동을 피하고 안정을 취합니다.'}, {'@type':'HowToStep',position:3,name:'이상 증상 시 내원',text:'고열, 심한 복통, 과다출혈 시 즉시 내원합니다.'} ], tool:{'@type':'HowToTool',name:'연세365산부인과'} }
+const speakableSchema = { '@context':'https://schema.org','@type':'WebPage', name:'임신중절수술 부작용 | 위험성·합병증 완벽 안내 2026', url:PAGE_URL, speakable:{'@type':'SpeakableSpecification',cssSelector:['h1','h2']} }
+const breadcrumbSchema = { '@context':'https://schema.org','@type':'BreadcrumbList', itemListElement:[ {'@type':'ListItem',position:1,name:'홈',item:'https://www.yeonsei365.com'}, {'@type':'ListItem',position:2,name:'임신중절수술정보',item:'https://www.yeonsei365.com/blog'}, {'@type':'ListItem',position:3,name:'임신중절수술 부작용',item:PAGE_URL} ] }
 
 const C = { p: '#CC2D5E', pd: '#8C1A4A', pp: '#4A0E2E', pb: '#FCE8EF', pt: '#B0456E', bd: '#FFE0E8', tm: '#1A0A10', ts: '#444455', tm2: '#888' }
 const bt: React.CSSProperties = { fontSize: '15px', color: C.ts, lineHeight: 1.95, marginBottom: '14px' }
@@ -34,7 +42,13 @@ function Divider() { return <hr style={{ border: 'none', borderTop: `1px solid $
 export default function AbortionSidePage() {
   return (
     <>
+          <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(medicalWebPageSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(clinicSchema) }} />
       <header style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50, background: 'rgba(255,255,255,0.97)', backdropFilter: 'blur(8px)', borderBottom: `2px solid ${C.bd}`, padding: '10px 20px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
         <a href="/" style={{ textDecoration: 'none' }}><img src="https://i.imgur.com/f7h5DY0.png" alt="연세365 로고" style={{ height: '32px', width: 'auto' }} /></a>
         <div style={{ display: 'flex', gap: '8px', alignItems: 'center', flexWrap: 'wrap' }}>

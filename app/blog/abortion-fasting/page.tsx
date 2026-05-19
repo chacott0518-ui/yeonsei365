@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { clinicSchema } from '@/lib/schemas'
 
 export const metadata: Metadata = {
   title: '임신중절수술 금식 | 수술 전 준비사항 완벽 안내 2026 | 연세365산부인과',
@@ -27,6 +28,58 @@ export const metadata: Metadata = {
   },
 }
 
+const PAGE_URL = 'https://www.yeonsei365.com/blog/abortion-fasting'
+const PAGE_DATE = '2026-04-15'
+
+const medicalWebPageSchema = {
+  '@context': 'https://schema.org', '@type': 'MedicalWebPage',
+  name: '임신중절수술 금식 | 수술 전 준비사항 완벽 안내 2026',
+  url: PAGE_URL,
+  specialty: { '@type': 'MedicalSpecialty', name: '산부인과' },
+  medicalAudience: { '@type': 'MedicalAudience', audienceType: '여성 환자' },
+  lastReviewed: PAGE_DATE,
+  reviewedBy: { '@type': 'MedicalOrganization', name: '연세365산부인과', url: 'https://www.yeonsei365.com' },
+  about: { '@type': 'MedicalCondition', name: '임신중절수술 금식' },
+}
+const howToSchema = {
+  '@context': 'https://schema.org', '@type': 'HowTo',
+  name: '임신중절수술 금식 및 수술 당일 준비 방법',
+  description: '임신중절수술 금식과 당일 준비 단계별 안내',
+  step: [
+    { '@type': 'HowToStep', position: 1, name: '금식 시작', text: '수술 6시간 전부터 물 포함 모든 음식·음료 섭취를 중단합니다.' },
+    { '@type': 'HowToStep', position: 2, name: '준비물 챙기기', text: '신분증, 안경(렌즈 금지), 편안한 복장, 생리대를 준비합니다.' },
+    { '@type': 'HowToStep', position: 3, name: '귀가 수단 준비', text: '수술 후 운전 불가. 대중교통 또는 동행인과 귀가를 준비합니다.' },
+    { '@type': 'HowToStep', position: 4, name: '내원 및 수술', text: '신분증 지참 후 내원. 초음파 검사 후 수술을 진행합니다.' },
+  ],
+  tool: { '@type': 'HowToTool', name: '연세365산부인과' },
+}
+const speakableSchema = {
+  '@context': 'https://schema.org', '@type': 'WebPage',
+  name: '임신중절수술 금식 | 수술 전 준비사항 완벽 안내 2026',
+  url: PAGE_URL,
+  speakable: { '@type': 'SpeakableSpecification', cssSelector: ['h1', 'h2', '.speakable-summary'] },
+}
+const breadcrumbSchema = {
+  '@context': 'https://schema.org', '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: '홈', item: 'https://www.yeonsei365.com' },
+    { '@type': 'ListItem', position: 2, name: '임신중절수술정보', item: 'https://www.yeonsei365.com/blog' },
+    { '@type': 'ListItem', position: 3, name: '임신중절수술 금식', item: PAGE_URL },
+  ],
+}
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: '임신중절수술 금식 | 수술 전 준비사항 완벽 안내 2026',
+  description: '임신중절수술 금식 기준을 완벽하게 안내합니다.',
+  datePublished: PAGE_DATE,
+  dateModified: PAGE_DATE,
+  image: 'https://www.yeonsei365.com/og-image.jpg',
+  author: { '@type': 'Organization', name: '연세365산부인과', url: 'https://www.yeonsei365.com' },
+  publisher: { '@type': 'MedicalOrganization', name: '연세365산부인과', logo: { '@type': 'ImageObject', url: 'https://i.imgur.com/f7h5DY0.png' } },
+  mainEntityOfPage: { '@type': 'WebPage', '@id': PAGE_URL },
+  url: PAGE_URL,
+}
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
@@ -74,7 +127,13 @@ const bt: React.CSSProperties = { fontSize: '15px', color: C.ts, lineHeight: 1.9
 export default function AbortionFastingPage() {
   return (
     <>
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(medicalWebPageSchema) }} />
+<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }} />
+<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableSchema) }} />
+<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(clinicSchema) }} />
       <header style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50, background: 'rgba(255,255,255,0.97)', backdropFilter: 'blur(8px)', borderBottom: `2px solid ${C.bd}`, padding: '10px 20px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
         <a href="/" style={{ textDecoration: 'none' }}><img src="https://i.imgur.com/f7h5DY0.png" alt="연세365 로고" style={{ height: '32px', width: 'auto' }} /></a>
         <div style={{ display: 'flex', gap: '8px', alignItems: 'center', flexWrap: 'wrap' }}>

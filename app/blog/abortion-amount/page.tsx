@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import { clinicSchema } from '@/lib/schemas'
 
 export const metadata: Metadata = {
   title: '임신중절수술 금액과 낙태의 정의 뜻 비용 가격 안내 2026 | 연세365산부인과',
@@ -35,6 +36,45 @@ export const metadata: Metadata = {
   },
 }
 
+const PAGE_URL = 'https://www.yeonsei365.com/blog/abortion-amount'
+const PAGE_DATE = '2026-04-01'
+
+const medicalWebPageSchema = {
+  '@context': 'https://schema.org', '@type': 'MedicalWebPage',
+  name: '임신중절수술 금액과 낙태의 정의 뜻 비용 가격 안내 2026',
+  url: PAGE_URL,
+  specialty: { '@type': 'MedicalSpecialty', name: '산부인과' },
+  medicalAudience: { '@type': 'MedicalAudience', audienceType: '여성 환자' },
+  lastReviewed: PAGE_DATE,
+  reviewedBy: { '@type': 'MedicalOrganization', name: '연세365산부인과', url: 'https://www.yeonsei365.com' },
+  about: { '@type': 'MedicalCondition', name: '임신중절수술 금액' },
+}
+const howToSchema = {
+  '@context': 'https://schema.org', '@type': 'HowTo',
+  name: '임신중절수술 금액 확인 및 예약 방법',
+  description: '임신중절수술 금액 확인부터 예약까지 단계별 안내',
+  step: [
+    { '@type': 'HowToStep', position: 1, name: '임신 확인', text: '임신 테스트기 또는 산부인과 초음파로 임신 여부를 확인합니다.' },
+    { '@type': 'HowToStep', position: 2, name: '주수 확인', text: '산부인과 내원 후 초음파로 정확한 임신 주수를 확인합니다.' },
+    { '@type': 'HowToStep', position: 3, name: '금액 안내', text: '주수에 따른 임신중절수술 금액을 안내받습니다. 8주 미만 45만원.' },
+    { '@type': 'HowToStep', position: 4, name: '수술 당일', text: '6시간 금식 후 내원하여 수술을 진행합니다.' },
+  ],
+  tool: { '@type': 'HowToTool', name: '연세365산부인과' },
+}
+const speakableSchema = {
+  '@context': 'https://schema.org', '@type': 'WebPage',
+  name: '임신중절수술 금액과 낙태의 정의 뜻 비용 가격 안내 2026',
+  url: PAGE_URL,
+  speakable: { '@type': 'SpeakableSpecification', cssSelector: ['h1', 'h2', '.speakable-summary'] },
+}
+const breadcrumbSchema = {
+  '@context': 'https://schema.org', '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: '홈', item: 'https://www.yeonsei365.com' },
+    { '@type': 'ListItem', position: 2, name: '임신중절수술정보', item: 'https://www.yeonsei365.com/blog' },
+    { '@type': 'ListItem', position: 3, name: '임신중절수술 금액', item: PAGE_URL },
+  ],
+}
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Article',
@@ -170,6 +210,11 @@ export default function AbortionAmountPage() {
 
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(medicalWebPageSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(clinicSchema) }} />
 
       <div style={{ maxWidth: '780px', margin: '0 auto', padding: '40px 20px 80px', fontFamily: 'Pretendard, sans-serif', color: '#1A0A10', lineHeight: 1.8 }}>
 

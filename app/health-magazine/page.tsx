@@ -1,3 +1,4 @@
+import { clinicSchema } from '@/lib/schemas'
 import type { Metadata } from 'next'
 import HealthMagazineClient from './HealthMagazineClient'
 
@@ -47,14 +48,24 @@ export const metadata: Metadata = {
     description: '산부인과 증상 자가진단 퀴즈, 임신중절수술 FAQ 70가지, 여성 건강 칼럼. 사당역 연세365산부인과.',
   },
 }
+const PAGE_URL = 'https://www.yeonsei365.com/health-magazine'
+const PAGE_DATE = '2026-04-01'
+const articleSchema = { '@context':'https://schema.org','@type':'Article', headline:'건강매거진 | 산부인과 자가진단·FAQ·건강칼럼 | 연세365산부인과', datePublished:PAGE_DATE, dateModified:PAGE_DATE, image:'https://www.yeonsei365.com/og-image.jpg', author:{'@type':'Organization',name:'연세365산부인과',url:'https://www.yeonsei365.com'}, publisher:{'@type':'MedicalOrganization',name:'연세365산부인과',logo:{'@type':'ImageObject',url:'https://i.imgur.com/f7h5DY0.png'}}, mainEntityOfPage:{'@type':'WebPage','@id':PAGE_URL}, url:PAGE_URL }
+const medicalWebPageSchema = { '@context':'https://schema.org','@type':'MedicalWebPage', name:'건강매거진 산부인과 자가진단 FAQ 건강칼럼 연세365산부인과', url:PAGE_URL, specialty:{'@type':'MedicalSpecialty',name:'산부인과'}, medicalAudience:{'@type':'MedicalAudience',audienceType:'여성 환자'}, lastReviewed:PAGE_DATE, reviewedBy:{'@type':'MedicalOrganization',name:'연세365산부인과',url:'https://www.yeonsei365.com'}, about:{'@type':'MedicalCondition',name:'여성 건강'} }
+const howToSchema = { '@context':'https://schema.org','@type':'HowTo', name:'산부인과 증상 자가진단 방법', description:'연세365산부인과 건강매거진 자가진단 활용법', step:[ {'@type':'HowToStep',position:1,name:'증상 선택',text:'생리불순, 임신, 통증, 검진 등 해당 카테고리 선택.'}, {'@type':'HowToStep',position:2,name:'자가진단 퀴즈',text:'3단계 질문에 답해 증상 확인.'}, {'@type':'HowToStep',position:3,name:'전문의 상담',text:'필요 시 연세365산부인과(02-585-3650) 내원.'} ], tool:{'@type':'HowToTool',name:'연세365산부인과'} }
+const speakableSchema = { '@context':'https://schema.org','@type':'WebPage', name:'건강매거진 산부인과 자가진단 FAQ 건강칼럼 연세365산부인과', url:PAGE_URL, speakable:{'@type':'SpeakableSpecification',cssSelector:['h1','h2']} }
+const breadcrumbSchema = { '@context':'https://schema.org','@type':'BreadcrumbList', itemListElement:[ {'@type':'ListItem',position:1,name:'홈',item:'https://www.yeonsei365.com'}, {'@type':'ListItem',position:2,name:'건강매거진',item:PAGE_URL} ] }
 
 export default function HealthMagazinePage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(SCHEMA) }}
-      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(SCHEMA) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(medicalWebPageSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(clinicSchema) }} />
       <HealthMagazineClient />
     </>
   )
