@@ -1,6 +1,6 @@
 import type { MetadataRoute } from 'next'
-import { posts } from '@/lib/posts'
 import { COLUMNS } from '@/lib/columns'
+import { HEALTH_ARTICLES } from '@/lib/healthHub'
 import { notifyIndexNow } from '@/lib/indexnow'
 
 const BASE_URL = 'https://www.yeonsei365.com'
@@ -10,12 +10,43 @@ const staticPages: MetadataRoute.Sitemap = [
   { url: `${BASE_URL}/abortion`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.95 },
   { url: `${BASE_URL}/abortion/cost`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.95 },
   { url: `${BASE_URL}/abortion/faq`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.9 },
-  { url: `${BASE_URL}/blog`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.85 },
+  { url: `${BASE_URL}/abortion/surgery`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.9 },
+  { url: `${BASE_URL}/abortion/method`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.9 },
+  { url: `${BASE_URL}/abortion/legal`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.9 },
+  { url: `${BASE_URL}/abortion/hospital`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.9 },
+  { url: `${BASE_URL}/abortion/recovery`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.9 },
+  { url: `${BASE_URL}/abortion/review`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.9 },
+  { url: `${BASE_URL}/abortion/info`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.9 },
+  { url: `${BASE_URL}/womens-clinic/first-visit`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.85 },
+  { url: `${BASE_URL}/womens-clinic/menstrual-pain`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.85 },
+  { url: `${BASE_URL}/womens-clinic/sadang`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.85 },
   { url: `${BASE_URL}/health-magazine`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.85 },
   { url: `${BASE_URL}/health-magazine/column`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.85 },
   { url: `${BASE_URL}/health-magazine/quiz`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.75 },
+  { url: `${BASE_URL}/health-hub`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.85 },
+  { url: `${BASE_URL}/health-hub/pregnancy`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
+  { url: `${BASE_URL}/health-hub/contraception`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
+  { url: `${BASE_URL}/health-hub/gynecology`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
+  { url: `${BASE_URL}/health-hub/surgery`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
+  { url: `${BASE_URL}/health-hub/womens`, lastModified: new Date(), changeFrequency: 'weekly', priority: 0.8 },
   { url: `${BASE_URL}/pregnancy-calculator`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
   { url: `${BASE_URL}/ovulation-calculator`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+  { url: `${BASE_URL}/blog/abortion-price`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+  { url: `${BASE_URL}/blog/abortion-cost`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+  { url: `${BASE_URL}/blog/abortion-amount`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+  { url: `${BASE_URL}/blog/abortion-info`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+  { url: `${BASE_URL}/blog/abortion-surgery`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+  { url: `${BASE_URL}/blog/abortion-legal`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+  { url: `${BASE_URL}/blog/abortion-period`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+  { url: `${BASE_URL}/blog/abortion-after`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+  { url: `${BASE_URL}/blog/abortion-fasting`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+  { url: `${BASE_URL}/blog/abortion-side`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+  { url: `${BASE_URL}/blog/abortion-menstruation`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+  { url: `${BASE_URL}/blog/abortion-process`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+  { url: `${BASE_URL}/blog/abortion-insurance`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+  { url: `${BASE_URL}/blog/abortion-guardian`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+  { url: `${BASE_URL}/blog/abortion-alone`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
+  { url: `${BASE_URL}/blog/hospital-review`, lastModified: new Date(), changeFrequency: 'monthly', priority: 0.8 },
 ]
 
 const columnPages: MetadataRoute.Sitemap = COLUMNS.map(col => ({
@@ -25,17 +56,14 @@ const columnPages: MetadataRoute.Sitemap = COLUMNS.map(col => ({
   priority: 0.8,
 }))
 
-const postPages: MetadataRoute.Sitemap = posts.map(post => ({
-  url: `${BASE_URL}${post.slug}`,
-  lastModified: new Date(post.date),
+const healthHubPages: MetadataRoute.Sitemap = HEALTH_ARTICLES.map(a => ({
+  url: `${BASE_URL}/health-hub/${a.category}/${a.slug}`,
+  lastModified: new Date(a.lastModified),
   changeFrequency: 'monthly' as const,
-  priority: 0.8,
+  priority: 0.75,
 }))
 
-const allPages = [...staticPages, ...columnPages, ...postPages]
-
-// 빌드 시 Bing IndexNow 자동 호출
-// git push → Vercel 배포 → IndexNow 자동 신호 → Bing 즉시 크롤링
+const allPages = [...staticPages, ...columnPages, ...healthHubPages]
 const allUrls = allPages.map(p => p.url)
 notifyIndexNow(allUrls).catch(() => {})
 
