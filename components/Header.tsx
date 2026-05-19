@@ -195,7 +195,7 @@ const Header: React.FC = () => {
         <div className="container mx-auto px-10 flex items-center justify-between">
           <div
             className="cursor-pointer z-50 flex-shrink-0"
-            onClick={() => { setActiveSection(''); window.scrollTo({ top: 0, behavior: 'smooth' }) }}
+            onClick={() => { setActiveSection(''); if (pathname === '/') { window.scrollTo({ top: 0, behavior: 'smooth' }) } else { window.location.href = '/' } }}
           >
             <img
               src="https://i.imgur.com/f7h5DY0.png"
