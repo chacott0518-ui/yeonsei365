@@ -1,9 +1,15 @@
 'use client'
+import { clinicSchema } from '@/lib/schemas'
 import { useState } from 'react'
 import Link from 'next/link'
 import { CATEGORIES, HEALTH_ARTICLES } from '@/lib/healthHub'
 
 const C = { p: '#D6336C', pd: '#993556', pp: '#5c0e20', pb: '#FFF5F7', pbd: '#f0d0dc', tm: '#1a1a1a', ts: '#444', tg: '#888' }
+const PAGE_URL = 'https://www.yeonsei365.com/health-hub'
+const PAGE_DATE = '2026-04-01'
+const faqSchema = { '@context':'https://schema.org','@type':'FAQPage', mainEntity:[ {'@type':'Question',name:'산부인과 건강 Q&A는 어디서 확인하나요?',acceptedAnswer:{'@type':'Answer',text:'사당역 연세365산부인과 AI 건강허브에서 임신·피임·산부인과 질환·수술·여성건강 관련 전문의 Q&A를 확인하실 수 있습니다.'}}, {'@type':'Question',name:'직접 질문을 남길 수 있나요?',acceptedAnswer:{'@type':'Answer',text:'네, 질문을 남기시면 전문의가 검토 후 Q&A 페이지에 답변을 게시합니다. 연세365산부인과(02-585-3650)로 직접 문의도 가능합니다.'}} ] }
+const breadcrumbSchema = { '@context':'https://schema.org','@type':'BreadcrumbList', itemListElement:[ {'@type':'ListItem',position:1,name:'홈',item:'https://www.yeonsei365.com'}, {'@type':'ListItem',position:2,name:'AI 건강 Q&A',item:PAGE_URL} ] }
+const speakableSchema = { '@context':'https://schema.org','@type':'WebPage', name:'산부인과 건강 정보 허브 AI 건강 Q&A 연세365산부인과', url:PAGE_URL, speakable:{'@type':'SpeakableSpecification',cssSelector:['h1','h2']} }
 const PER_PAGE = 5
 
 export default function HealthHubPage() {
@@ -14,6 +20,10 @@ export default function HealthHubPage() {
 
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(clinicSchema) }} />
       <div id="hh-hero" style={{ background: `linear-gradient(135deg, ${C.pp}, #993556, ${C.p})`, borderRadius: '20px', padding: '40px 28px', marginBottom: '32px' }}>
         <div style={{ fontSize: '11px', fontWeight: 700, color: 'rgba(255,255,255,.7)', letterSpacing: '.08em', marginBottom: '10px' }}>연세365산부인과 · AI 건강 Q&A</div>
         <h1 style={{ color: '#fff', fontSize: 'clamp(20px, 3vw, 26px)', fontWeight: 900, lineHeight: 1.35, marginBottom: '10px' }}>산부인과 건강 정보 허브</h1>
