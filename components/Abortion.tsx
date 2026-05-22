@@ -170,31 +170,6 @@ const Abortion: React.FC = () => {
   const sectionRef = useRef<HTMLElement>(null);
   const isScrollingToRef = useRef(false);
 
-  // JSON-LD FAQPage Schema injection
-  useEffect(() => {
-    const faqSchema = {
-      "@context": "https://schema.org",
-      "@type": "FAQPage",
-      "mainEntity": faqs.map(faq => ({
-        "@type": "Question",
-        "name": faq.q.replace('Q. ', ''),
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": faq.a
-        }
-      }))
-    };
-    const script = document.createElement('script');
-    script.type = 'application/ld+json';
-    script.id = 'faq-jsonld';
-    script.textContent = JSON.stringify(faqSchema);
-    document.head.appendChild(script);
-    return () => {
-      const existing = document.getElementById('faq-jsonld');
-      if (existing) existing.remove();
-    };
-  }, []);
-
   // Desktop scroll spy — tracks which sub-section is in view
   useEffect(() => {
     const handleScroll = () => {
