@@ -36,7 +36,7 @@ export async function generateMetadata({
     },
   }
 }
-const PAGE_DATE = '2026-04-01'
+const PAGE_DATE = '2026-05-22'
 
 export default function CategoryPage({
   params,
@@ -54,6 +54,32 @@ export default function CategoryPage({
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context':'https://schema.org','@type':'MedicalWebPage', name:`${cat.label} Q&A | 연세365산부인과`, url:`https://www.yeonsei365.com/health-hub/${params.category}`, specialty:{'@type':'MedicalSpecialty',name:'산부인과'}, medicalAudience:{'@type':'MedicalAudience',audienceType:'여성 환자'}, lastReviewed:PAGE_DATE, reviewedBy:{'@type':'MedicalOrganization',name:'연세365산부인과',url:'https://www.yeonsei365.com'} }) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context':'https://schema.org','@type':'BreadcrumbList', itemListElement:[{'@type':'ListItem',position:1,name:'홈',item:'https://www.yeonsei365.com'},{'@type':'ListItem',position:2,name:'AI 건강 Q&A',item:'https://www.yeonsei365.com/health-hub'},{'@type':'ListItem',position:3,name:`${cat.label}`,item:`https://www.yeonsei365.com/health-hub/${params.category}`}] }) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(clinicSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+  '@context': 'https://schema.org', '@type': 'Article',
+  headline: `${cat.label} Q&A 모음 | 연세365산부인과`,
+  datePublished: PAGE_DATE, dateModified: PAGE_DATE,
+  image: `${BASE}/og-image.jpg`,
+  author: { '@type': 'Organization', name: '연세365산부인과', url: BASE },
+  publisher: { '@type': 'MedicalOrganization', name: '연세365산부인과', logo: { '@type': 'ImageObject', url: 'https://i.imgur.com/f7h5DY0.png' } },
+  mainEntityOfPage: { '@type': 'WebPage', '@id': `${BASE}/health-hub/${params.category}` },
+}) }} />
+<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+  '@context': 'https://schema.org', '@type': 'HowTo',
+  name: '임신중절수술 예약 방법',
+  description: '연세365산부인과 임신중절수술 예약부터 수술까지',
+  step: [
+    { '@type': 'HowToStep', position: 1, name: '상담 예약', text: '전화(02-585-3650) 또는 카카오톡으로 예약합니다.' },
+    { '@type': 'HowToStep', position: 2, name: '내원 및 검사', text: '신분증 지참 후 내원. 초음파로 주수 확인 후 비용 안내.' },
+    { '@type': 'HowToStep', position: 3, name: '수술 및 귀가', text: '수면마취 후 10~30분 수술. 당일 귀가 가능.' },
+  ],
+  tool: { '@type': 'HowToTool', name: '연세365산부인과' },
+}) }} />
+<script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+  '@context': 'https://schema.org', '@type': 'WebPage',
+  name: `${cat.label} Q&A | 연세365산부인과`,
+  url: `${BASE}/health-hub/${params.category}`,
+  speakable: { '@type': 'SpeakableSpecification', cssSelector: ['h1', 'h2'] },
+}) }} />
       {/* 카테고리 헤더 */}
       <div style={{ marginBottom: '28px' }}>
         <span
