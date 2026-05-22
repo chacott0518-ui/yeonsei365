@@ -85,6 +85,19 @@ const PAGE_DATE = '2026-04-01'
 const articleSchema = { '@context':'https://schema.org','@type':'Article', headline:'산부인과 증상 자가진단 퀴즈 | 3단계 맞춤 진단 | 연세365산부인과', datePublished:PAGE_DATE, dateModified:PAGE_DATE, image:'https://www.yeonsei365.com/og-image.jpg', author:{'@type':'Organization',name:'연세365산부인과',url:'https://www.yeonsei365.com'}, publisher:{'@type':'MedicalOrganization',name:'연세365산부인과',logo:{'@type':'ImageObject',url:'https://i.imgur.com/f7h5DY0.png'}}, mainEntityOfPage:{'@type':'WebPage','@id':PAGE_URL}, url:PAGE_URL }
 const breadcrumbSchema = { '@context':'https://schema.org','@type':'BreadcrumbList', itemListElement:[ {'@type':'ListItem',position:1,name:'홈',item:'https://www.yeonsei365.com'}, {'@type':'ListItem',position:2,name:'건강매거진',item:'https://www.yeonsei365.com/health-magazine'}, {'@type':'ListItem',position:3,name:'자가진단 퀴즈',item:PAGE_URL} ] }
 const speakableSchema = { '@context':'https://schema.org','@type':'WebPage', name:'산부인과 증상 자가진단 퀴즈 3단계 맞춤 진단 연세365산부인과', url:PAGE_URL, speakable:{'@type':'SpeakableSpecification',cssSelector:['h1','h2']} }
+const howToSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: '임신중절수술 진행 과정',
+  description: '연세365산부인과 임신중절수술 단계별 안내',
+  step: [
+    { '@type': 'HowToStep', position: 1, name: '상담 예약', text: '전화(02-585-3650) 또는 카카오톡으로 상담 예약합니다.' },
+    { '@type': 'HowToStep', position: 2, name: '초음파 검사', text: '내원 후 초음파로 임신 주수와 상태를 확인합니다.' },
+    { '@type': 'HowToStep', position: 3, name: '수술 진행', text: '전문의 1:1 상담 후 당일 수술을 진행합니다.' },
+    { '@type': 'HowToStep', position: 4, name: '회복 및 귀가', text: '수술 후 회복실에서 안정을 취한 뒤 당일 귀가합니다.' },
+  ],
+  tool: { '@type': 'HowToTool', name: '연세365산부인과' },
+}
 
 export default function QuizPage() {
   return (
@@ -95,6 +108,7 @@ export default function QuizPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(clinicSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }} />
       <QuizClient />
     </>
   )
