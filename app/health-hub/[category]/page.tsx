@@ -26,6 +26,7 @@ export async function generateMetadata({
   return {
     title: `${cat.label} Q&A 모음 | 연세365산부인과 건강허브`,
     description: `사당역 연세365산부인과 전문의가 직접 답변한 ${cat.label} 관련 Q&A 모음입니다. 임신, 피임, 산부인과 질환에 대한 정확한 정보를 확인하세요. 02-585-3650.`,
+    keywords: [cat.label, '산부인과Q&A', '임신중절수술', '사당역산부인과', '연세365산부인과', `${cat.label}질문`, `${cat.label}답변`],
     alternates: { canonical: `${BASE}/health-hub/${params.category}` },
     openGraph: {
       title: `${cat.label} Q&A | 연세365산부인과`,
