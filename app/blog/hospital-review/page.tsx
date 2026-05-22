@@ -54,6 +54,7 @@ const articleJsonLd = {
   '@type': 'Article',
   headline: '사당역 산부인과 솔직 후기 2026 | 연세365산부인과의원 직접 다녀왔어요',
   description: '사당역 연세365산부인과의원 처음 방문 후기. 대기시간, 진료 분위기, 비용까지 꾸밈없이 적었습니다.',
+  dateModified: '2026-05-22',
   author: { '@type': 'Organization', name: '연세365산부인과' },
   publisher: { '@type': 'Organization', name: '연세365산부인과' },
 }

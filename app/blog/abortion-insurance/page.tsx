@@ -20,6 +20,7 @@ const articleJsonLd = {
   '@type': 'Article',
   headline: '임신중절수술 보험 | 실손보험 적용 여부 완벽 안내 2026',
   description: '임신중절수술 보험 적용 여부를 완벽하게 안내합니다.',
+  dateModified: '2026-05-22',
   author: { '@type': 'Organization', name: '연세365산부인과' },
   publisher: { '@type': 'Organization', name: '연세365산부인과' },
 }

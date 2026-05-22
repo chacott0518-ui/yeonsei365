@@ -30,6 +30,7 @@ export const metadata: Metadata = {
 
 const PAGE_URL = 'https://www.yeonsei365.com/blog/abortion-fasting'
 const PAGE_DATE = '2026-04-15'
+const PAGE_MODIFIED = '2026-05-22'
 
 const medicalWebPageSchema = {
   '@context': 'https://schema.org', '@type': 'MedicalWebPage',
@@ -73,7 +74,7 @@ const articleSchema = {
   headline: '임신중절수술 금식 | 수술 전 준비사항 완벽 안내 2026',
   description: '임신중절수술 금식 기준을 완벽하게 안내합니다.',
   datePublished: PAGE_DATE,
-  dateModified: PAGE_DATE,
+  dateModified: PAGE_MODIFIED,
   image: 'https://www.yeonsei365.com/og-image.jpg',
   author: { '@type': 'Organization', name: '연세365산부인과', url: 'https://www.yeonsei365.com' },
   publisher: { '@type': 'MedicalOrganization', name: '연세365산부인과', logo: { '@type': 'ImageObject', url: 'https://i.imgur.com/f7h5DY0.png' } },

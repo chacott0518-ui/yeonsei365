@@ -75,6 +75,7 @@ const articleJsonLd = {
   '@type': 'Article',
   headline: '임신중절수술 후 관리 | 회복 방법·주의사항 완벽 안내 2026',
   description: '임신중절수술 후 관리 방법을 단계별로 안내합니다.',
+  dateModified: '2026-05-22',
   author: { '@type': 'Organization', name: '연세365산부인과' },
   publisher: { '@type': 'Organization', name: '연세365산부인과' },
 }

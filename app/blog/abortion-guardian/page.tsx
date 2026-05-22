@@ -17,11 +17,12 @@ export const metadata: Metadata = {
 
 const PAGE_URL = 'https://www.yeonsei365.com/blog/abortion-guardian'
 const PAGE_DATE = '2026-04-10'
+const PAGE_MODIFIED = '2026-05-22'
 
 const articleSchema = {
   '@context': 'https://schema.org', '@type': 'Article',
   headline: '임신중절수술 보호자 | 혼자 가능한가? 동반 여부 완벽 안내 2026',
-  datePublished: PAGE_DATE, dateModified: PAGE_DATE,
+  datePublished: PAGE_DATE, dateModified: PAGE_MODIFIED,
   image: 'https://www.yeonsei365.com/og-image.jpg',
   author: { '@type': 'Organization', name: '연세365산부인과', url: 'https://www.yeonsei365.com' },
   publisher: { '@type': 'MedicalOrganization', name: '연세365산부인과', logo: { '@type': 'ImageObject', url: 'https://i.imgur.com/f7h5DY0.png' } },

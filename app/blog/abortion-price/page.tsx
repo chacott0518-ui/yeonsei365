@@ -63,7 +63,7 @@ const jsonLd = {
   author: { '@type': 'Organization', name: '연세365산부인과' },
   publisher: { '@type': 'Organization', name: '연세365산부인과' },
   datePublished: '2026-03-16',
-  dateModified: '2026-03-16',
+  dateModified: '2026-05-22',
 }
 
 const faqJsonLd = {

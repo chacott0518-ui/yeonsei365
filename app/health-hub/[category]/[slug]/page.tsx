@@ -169,6 +169,32 @@ export default function ArticlePage({ params }: { params: { category: string; sl
       geo: { '@type': 'GeoCoordinates', latitude: 37.4875, longitude: 126.9822 },
       openingHours: ['Mo-Fr 09:00-18:00', 'Sa 09:00-13:00'],
     },
+    {
+      '@context': 'https://schema.org', '@type': 'HowTo',
+      name: '임신중절수술 예약 방법',
+      description: '연세365산부인과 임신중절수술 예약부터 수술까지',
+      step: [
+        { '@type': 'HowToStep', position: 1, name: '상담 예약', text: '전화(02-585-3650) 또는 카카오톡으로 예약합니다.' },
+        { '@type': 'HowToStep', position: 2, name: '내원 및 검사', text: '신분증 지참 후 내원. 초음파로 주수 확인 후 비용 안내.' },
+        { '@type': 'HowToStep', position: 3, name: '수술 및 귀가', text: '수면마취 후 10~30분 수술. 당일 귀가 가능.' },
+      ],
+      tool: { '@type': 'HowToTool', name: '연세365산부인과' },
+    },
+    {
+      '@context': 'https://schema.org', '@type': 'WebPage',
+      name: article.title,
+      url,
+      speakable: { '@type': 'SpeakableSpecification', cssSelector: ['h1', 'h2'] },
+    },
+    {
+      '@context': 'https://schema.org', '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: '홈', item: BASE },
+        { '@type': 'ListItem', position: 2, name: 'AI 건강 Q&A', item: `${BASE}/health-hub` },
+        { '@type': 'ListItem', position: 3, name: cat.label, item: `${BASE}/health-hub/${article.category}` },
+        { '@type': 'ListItem', position: 4, name: article.title, item: url },
+      ],
+    },
   ]
 
   return (

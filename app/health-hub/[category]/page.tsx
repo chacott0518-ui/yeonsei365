@@ -34,6 +34,7 @@ export async function generateMetadata({
       locale: 'ko_KR',
       type: 'website',
     },
+    twitter: { card: 'summary_large_image', title: `${cat.label} Q&A | 연세365산부인과`, description: `${cat.label} 관련 전문의 Q&A. 사당역 연세365산부인과 02-585-3650.` },
   }
 }
 const PAGE_DATE = '2026-05-22'

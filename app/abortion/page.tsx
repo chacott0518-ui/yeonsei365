@@ -4,6 +4,7 @@ import { clinicSchema } from '@/lib/schemas';
 
 const PAGE_URL = 'https://www.yeonsei365.com/abortion'
 const PAGE_DATE = '2026-05-21'
+const PAGE_MODIFIED = '2026-05-22'
 
 export const metadata: Metadata = {
   title: '임신중절수술·임신중절클리닉 | 임신중절수술 금액·비용·가격·후기·병원·방법·합법·혼자·당일 | 낙태비용가격·낙태수술·낙태합법화·낙태금액·낙태가격 | 임신초기중절수술·약물중절·인공임신중절 | 연세365산부인과',
@@ -69,7 +70,7 @@ const articleSchema = {
   '@type': 'Article',
   headline: '임신중절수술·임신중절클리닉 | 임신중절수술 금액·비용·가격·후기·병원 | 낙태비용가격 | 연세365산부인과',
   datePublished: PAGE_DATE,
-  dateModified: PAGE_DATE,
+  dateModified: PAGE_MODIFIED,
   image: 'https://www.yeonsei365.com/og-image.jpg',
   author: { '@type': 'Organization', name: '연세365산부인과', url: 'https://www.yeonsei365.com' },
   publisher: {

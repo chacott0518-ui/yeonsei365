@@ -1,64 +1,40 @@
-'use client'
-import { useState } from 'react'
-import Link from 'next/link'
-import { CATEGORIES } from '@/lib/healthHub'
+import type { Metadata } from 'next'
+import { clinicSchema } from '@/lib/schemas'
+import AskClient from './AskClient'
 
-const C = { p: '#D6336C', pd: '#993556', pp: '#5c0e20', pb: '#FFF5F7', pbd: '#f0d0dc', tm: '#1a1a1a', tg: '#888' }
+export const metadata: Metadata = {
+  title: '산부인과 질문 남기기 | AI 건강 Q&A | 연세365산부인과',
+  description: '산부인과 궁금한 점을 남기면 전문의 검토 후 AI 답변이 게시됩니다. 사당역 4번출구 연세365산부인과 02-585-3650.',
+  keywords: ['산부인과질문','산부인과상담','임신중절수술질문','사당역산부인과','연세365산부인과'],
+  alternates: { canonical: 'https://www.yeonsei365.com/health-hub/ask' },
+  openGraph: {
+    title: '산부인과 질문 남기기 | 연세365산부인과',
+    description: '산부인과 궁금한 점을 남기면 전문의 검토 후 AI 답변이 게시됩니다.',
+    url: 'https://www.yeonsei365.com/health-hub/ask',
+    images: [{ url: 'https://www.yeonsei365.com/og-image.jpg', width: 1200, height: 630 }],
+    locale: 'ko_KR', type: 'website',
+  },
+  twitter: { card: 'summary_large_image', title: '산부인과 질문 남기기 | 연세365산부인과', description: '전문의 검토 후 AI 답변 게시' },
+}
 
-export default function AskPage() {
-  const [form, setForm] = useState({ category: 'pregnancy', question: '' })
-  const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle')
+const articleSchema = { '@context':'https://schema.org','@type':'Article', headline:'산부인과 질문 남기기 | AI 건강 Q&A | 연세365산부인과', datePublished:'2026-04-01', dateModified:'2026-05-22', image:'https://www.yeonsei365.com/og-image.jpg', author:{'@type':'Organization',name:'연세365산부인과',url:'https://www.yeonsei365.com'}, publisher:{'@type':'MedicalOrganization',name:'연세365산부인과',logo:{'@type':'ImageObject',url:'https://i.imgur.com/f7h5DY0.png'}}, mainEntityOfPage:{'@type':'WebPage','@id':'https://www.yeonsei365.com/health-hub/ask'}, url:'https://www.yeonsei365.com/health-hub/ask' }
+const faqSchema = { '@context':'https://schema.org','@type':'FAQPage', mainEntity:[ {'@type':'Question',name:'산부인과 질문을 어떻게 남기나요?',acceptedAnswer:{'@type':'Answer',text:'카테고리 선택 후 질문을 10자 이상 입력하고 제출하면 전문의 검토 후 Q&A 페이지에 답변이 게시됩니다. 연세365산부인과(02-585-3650)로 직접 문의도 가능합니다.'}}, {'@type':'Question',name:'질문 답변은 얼마나 걸리나요?',acceptedAnswer:{'@type':'Answer',text:'전문의 검토 후 AI 답변이 자동 생성되며 보통 수분 이내 게시됩니다.'}} ] }
+const medicalWebPageSchema = { '@context':'https://schema.org','@type':'MedicalWebPage', name:'산부인과 질문 남기기 | AI 건강 Q&A', url:'https://www.yeonsei365.com/health-hub/ask', specialty:{'@type':'MedicalSpecialty',name:'산부인과'}, medicalAudience:{'@type':'MedicalAudience',audienceType:'여성 환자'}, lastReviewed:'2026-05-22', reviewedBy:{'@type':'MedicalOrganization',name:'연세365산부인과',url:'https://www.yeonsei365.com'}, about:{'@type':'MedicalCondition',name:'여성건강'} }
+const howToSchema = { '@context':'https://schema.org','@type':'HowTo', name:'산부인과 질문 남기는 방법', description:'연세365산부인과 AI 건강허브 질문 제출 방법', step:[ {'@type':'HowToStep',position:1,name:'카테고리 선택',text:'임신·피임·수술 등 카테고리를 선택합니다.'}, {'@type':'HowToStep',position:2,name:'질문 입력',text:'궁금한 내용을 10자 이상 입력합니다.'}, {'@type':'HowToStep',position:3,name:'제출',text:'질문 제출 버튼을 누르면 전문의 검토 후 답변이 게시됩니다.'} ], tool:{'@type':'HowToTool',name:'연세365산부인과'} }
+const speakableSchema = { '@context':'https://schema.org','@type':'WebPage', name:'산부인과 질문 남기기 AI 건강 Q&A 연세365산부인과', url:'https://www.yeonsei365.com/health-hub/ask', speakable:{'@type':'SpeakableSpecification',cssSelector:['h1','h2']} }
+const breadcrumbSchema = { '@context':'https://schema.org','@type':'BreadcrumbList', itemListElement:[ {'@type':'ListItem',position:1,name:'홈',item:'https://www.yeonsei365.com'}, {'@type':'ListItem',position:2,name:'AI 건강 Q&A',item:'https://www.yeonsei365.com/health-hub'}, {'@type':'ListItem',position:3,name:'질문 남기기',item:'https://www.yeonsei365.com/health-hub/ask'} ] }
 
-  const handleSubmit = async () => {
-    if (form.question.trim().length < 10) { alert('질문을 10자 이상 입력해주세요.'); return }
-    setStatus('loading')
-    try {
-      const res = await fetch('/api/health-hub/submit', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(form) })
-      setStatus(res.ok ? 'success' : 'error')
-    } catch { setStatus('error') }
-  }
-
-  if (status === 'success') return (
-    <div style={{ textAlign: 'center', padding: '60px 20px' }}>
-      <div style={{ fontSize: '56px', marginBottom: '20px' }}>✅</div>
-      <h2 style={{ fontSize: '22px', fontWeight: 900, color: C.tm, marginBottom: '10px' }}>
-        질문이 접수되었습니다
-      </h2>
-      <p style={{ fontSize: '14px', color: C.tg, lineHeight: 1.8, marginBottom: '24px' }}>
-        전문의 검토 후 AI 답변이 자동으로 생성됩니다.<br />
-        보통 <strong style={{ color: C.p }}>수분 이내</strong> 게시됩니다.
-      </p>
-      <Link href="/health-hub" style={{ display: 'inline-block', background: C.p, color: '#fff', fontSize: '14px', fontWeight: 700, padding: '12px 28px', borderRadius: '20px', textDecoration: 'none' }}>
-        실시간 답변 확인하기 →
-      </Link>
-    </div>
-  )
-
+export default function Page() {
   return (
     <>
-      <h1 style={{ fontSize: '24px', fontWeight: 900, color: C.tm, marginBottom: '8px' }}>질문 남기기</h1>
-      <p style={{ fontSize: '14px', color: C.tg, marginBottom: '32px', lineHeight: 1.7 }}>산부인과 관련 질문을 남겨주시면 전문의가 검토 후 Q&A 페이지에 답변을 게시합니다.<br /><strong style={{ color: C.pd }}>긴급한 증상은 전화(02-585-3650)로 문의하세요.</strong></p>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
-        <div>
-          <label style={{ display: 'block', fontSize: '13px', fontWeight: 700, color: C.tm, marginBottom: '8px' }}>카테고리 *</label>
-          <select value={form.category} onChange={e => setForm(p => ({ ...p, category: e.target.value }))} style={{ width: '100%', padding: '12px 14px', border: `0.5px solid ${C.pbd}`, borderRadius: '10px', fontSize: '14px', background: '#fff', color: C.tm, appearance: 'none', WebkitAppearance: 'none', backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23D6336C' d='M6 8L1 3h10z'/%3E%3C/svg%3E")`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right 14px center', cursor: 'pointer' }}>
-            {Object.entries(CATEGORIES).map(([key, cat]) => <option key={key} value={key}>{cat.icon} {cat.label}</option>)}
-          </select>
-        </div>
-        <div>
-          <label style={{ display: 'block', fontSize: '13px', fontWeight: 700, color: C.tm, marginBottom: '8px' }}>질문 내용 * <span style={{ fontWeight: 400, color: C.tg }}>(최소 10자)</span></label>
-          <textarea value={form.question} onChange={e => setForm(p => ({ ...p, question: e.target.value }))} placeholder="산부인과 관련 궁금한 점을 자유롭게 작성해주세요." rows={6} style={{ width: '100%', padding: '12px 14px', border: `0.5px solid ${C.pbd}`, borderRadius: '10px', fontSize: '14px', resize: 'vertical', fontFamily: 'inherit', color: C.tm, boxSizing: 'border-box' as const }} />
-          <div style={{ fontSize: '12px', color: form.question.length < 10 ? '#c0392b' : C.tg, marginTop: '4px', textAlign: 'right' }}>{form.question.length}자</div>
-        </div>
-        <div style={{ background: C.pb, border: `0.5px solid ${C.pbd}`, borderRadius: '10px', padding: '14px 16px', fontSize: '13px', color: C.pd, lineHeight: 1.8 }}>
-          📌 게시 시 익명으로 처리됩니다.<br />
-          📌 긴급한 증상은 반드시 전화(02-585-3650) 또는 직접 내원하세요.
-        </div>
-        <button onClick={handleSubmit} disabled={status === 'loading'} style={{ background: status === 'loading' ? '#ccc' : C.p, color: '#fff', fontSize: '16px', fontWeight: 700, padding: '14px', borderRadius: '12px', border: 'none', cursor: status === 'loading' ? 'not-allowed' : 'pointer' }}>
-          {status === 'loading' ? '제출 중...' : '질문 제출하기'}
-        </button>
-        {status === 'error' && <div style={{ color: '#c0392b', fontSize: '14px', textAlign: 'center', padding: '12px', background: '#fff5f5', borderRadius: '10px' }}>오류가 발생했습니다. 전화(02-585-3650)로 문의해주세요.</div>}
-      </div>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(medicalWebPageSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(clinicSchema) }} />
+      <AskClient />
     </>
   )
 }
