@@ -1,8 +1,7 @@
 import { NavItem, Doctor, ClinicItem, PriceItem, ReviewItem, FAQItem, EquipmentItem } from './types';
 
 export const NAV_LINKS = [
-  { id: 'about', label: '병원소개' },
-  { id: 'doctors', label: '의료진' },
+  { id: 'about', label: '병원소개', href: '/about' },
   { id: 'clinics', label: '여성검진클리닉' },
   { id: 'abortion-clinic', label: '임신중절클리닉', href: '/abortion' },
   { id: 'pregnancy-calc', label: '임신주수계산기', href: '/pregnancy-calculator', highlight: false },

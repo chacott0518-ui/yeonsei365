@@ -23,6 +23,15 @@ const Footer: React.FC = () => {
               <p className="md:hidden">대표 : 이진우</p>
               <p className="md:hidden">사업자번호 : 719-20-00835</p>
               <p>고객센터 : 02-547-2876</p>
+              {/* 협력병원 */}
+<div className="mt-4 pt-4 border-t border-primary/10">
+  <p className="text-[10px] md:text-xs text-gray-500 mb-2">연세365 산부인과 협력병원</p>
+  <div className="flex flex-wrap gap-2">
+    {['서울아산병원', '강남세브란스병원', '세브란스병원'].map((h) => (
+      <span key={h} className="text-[9px] md:text-xs text-gray-500 bg-white/60 px-2 py-1 rounded-full border border-gray-200">{h}</span>
+    ))}
+  </div>
+</div>
             </div>
           </div>
 
@@ -58,9 +67,9 @@ const Footer: React.FC = () => {
             <span className="hidden md:inline">&copy; 2026 YONSEI 365 OBGYN. ALL RIGHTS RESERVED.</span>
           </p>
           <div className="flex gap-2 md:gap-6 text-[9px] md:text-xs whitespace-nowrap">
-            <a href="#" className="hover:text-[#D14D72]">이용약관</a>
-            <a href="#" className="hover:text-[#D14D72] font-bold">개인정보처리방침</a>
-            <a href="#" className="hover:text-[#D14D72]">비급여진료비</a>
+            <a href="/legal/terms" className="hover:text-[#D14D72]">이용약관</a>
+            <a href="/legal/privacy" className="hover:text-[#D14D72] font-bold">개인정보처리방침</a>
+            <a href="/legal/non-covered" className="hover:text-[#D14D72]">비급여진료비</a>
           </div>
         </div>
       </div>

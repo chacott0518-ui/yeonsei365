@@ -39,6 +39,12 @@ const SUB_MENUS: Record<string, { label: string; href: string }[]> = {
     { label: '임신초기중절수술 안내', href: '/blog/abortion-surgery' },
     { label: '낙태합법화 뜻·시기', href: '/blog/abortion-legal' },
   ],
+  'about': [
+    { label: '의료진 소개', href: '/about' },
+    { label: '병원 둘러보기', href: '/about/tour' },
+    { label: '진료시간 안내', href: '/about/hours' },
+    { label: '찾아오시는길', href: '/about/location' },
+  ],
   'clinics': [
     { label: '사당역 산부인과 연세365', href: '/womens-clinic/sadang' },
     { label: '산부인과 처음 방문 안내', href: '/womens-clinic/first-visit' },
