@@ -898,6 +898,19 @@ export const CATEGORIES = {
     faq: [{"q":"회사 건강검진에 낙태수술 기록이 나오나요?","a":"연세365산부인과(02-585-3650)에 문의하시면 전문의가 직접 답변해 드립니다."}],
     sections: [{"type": "text" as const,"title":"회사 건강검진에 낙태수술 기록이 나오나요?","content":"연세365산부인과(02-585-3650)에 문의하시면 전문의가 직접 답변해 드립니다. 사당역 4번출구에서 도보 1분 거리에 위치해 있으며, 당일 예약 및 당일 진료가 가능합니다."}],
   },
+  
+  {
+    slug: 'q-1780028774072',
+    category: 'womens' as CategoryKey,
+    title: '산부인과 내원 사실이 가족에게 알려질 수 있나요?',
+    description: '연세365산부인과(02-585-3650)에 문의하시면 전문의가 직접 답변해 드립니다.. 사당역 연세365산부인과 02-585-3650.',
+    keywords: ["산부인과","산부인과","사당역산부인과"],
+    lastModified: '2026-05-29',
+    heroImage: "https://images.unsplash.com/photo-1584432810601-6c7f27d2362b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5NDU5MjJ8MHwxfHNlYXJjaHwxfHwlRUMlODIlQjAlRUIlQjYlODAlRUMlOUQlQjglRUElQjMlQkMlMjAlRUMlOTclQUMlRUMlODQlQjElMjAlRUMlOUQlOTglRUIlQTMlOEMlMjAlRUMlODIlQjAlRUIlQjYlODAlRUMlOUQlQjglRUElQjMlQkN8ZW58MHwwfHx8MTc4MDAzMTk3NHww&ixlib=rb-4.1.0&q=80&w=1080",
+    
+    faq: [{"q":"산부인과 내원 사실이 가족에게 알려질 수 있나요?","a":"연세365산부인과(02-585-3650)에 문의하시면 전문의가 직접 답변해 드립니다."}],
+    sections: [{"type": "text" as const,"title":"산부인과 내원 사실이 가족에게 알려질 수 있나요?","content":"연세365산부인과(02-585-3650)에 문의하시면 전문의가 직접 답변해 드립니다. 사당역 4번출구에서 도보 1분 거리에 위치해 있으며, 당일 예약 및 당일 진료가 가능합니다."}],
+  },
   ]
 
   export function getArticleBySlug(category: string, slug: string): HealthArticle | undefined {
