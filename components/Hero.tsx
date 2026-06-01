@@ -1,5 +1,6 @@
 'use client'
 import React from 'react';
+import Image from 'next/image';
 import { motion, useScroll, useTransform } from 'framer-motion';
 
 const Hero: React.FC = () => {
@@ -16,16 +17,16 @@ const Hero: React.FC = () => {
       <div className="fixed inset-0 w-full h-full z-0 pointer-events-none bg-background">
         
         {/* Full Image Background */}
-        <motion.div 
-           className="absolute inset-0 bg-cover max-md:bg-[position:54%_center] md:bg-center"
-           style={{ 
-             backgroundImage: 'url(https://i.imgur.com/ad3Idtb.png)',
-             filter: 'brightness(0.9)'
-           }}
-           initial={{ opacity: 1, scale: 1.1 }}
-           animate={{ opacity: 1, scale: 1 }}
-           transition={{ duration: 2.0, ease: "easeOut" }}
-        />
+        <div className="absolute inset-0" style={{ filter: 'brightness(0.9)' }}>
+  <Image
+    src="https://i.imgur.com/ad3Idtb.png"
+    alt="연세365산부인과 배경"
+    fill
+    priority
+    sizes="100vw"
+    style={{ objectFit: 'cover', objectPosition: '54% center' }}
+  />
+</div>
         
         {/* Gradient Overlay for Text Readability */}
         <div className="absolute inset-0 bg-primary/30 mix-blend-overlay" />

@@ -206,6 +206,8 @@ const Header: React.FC = () => {
             <img
               src="https://i.imgur.com/f7h5DY0.png"
               alt="연세365 로고"
+              width={120}
+              height={40}
               className={`w-auto object-contain transition-all duration-300 ${isScrolled ? 'h-8' : 'h-9 md:h-10'}`}
             />
           </div>
