@@ -19,7 +19,7 @@ const Hero: React.FC = () => {
         {/* Full Image Background */}
         <div className="absolute inset-0" style={{ filter: 'brightness(0.9)' }}>
   <Image
-    src="https://i.imgur.com/ad3Idtb.png"
+    src="/hero.jpg"
     alt="연세365산부인과 배경"
     fill
     priority
