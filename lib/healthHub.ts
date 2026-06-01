@@ -27,7 +27,18 @@ export const CATEGORIES = {
     lastModified: string
     heroImage?: string
     stats?: { num: string; label: string }[]
-    faq: { q: string; a: string }[]
+    faq: {
+      q: string
+      a: string
+      aiSummary?: string
+      tags?: string[]
+      related?: string[]
+      intent?: string
+      category?: string
+      urgency?: 'low' | 'medium' | 'high'
+      searchType?: 'short' | 'conversational' | 'longtail' | 'local' | 'ai-search'
+      updatedAt?: string
+    }[]
     sections: ArticleSection[]
     relatedSlugs?: string[]
   }
@@ -1002,3 +1013,6 @@ export const CATEGORIES = {
   export function getAllArticlePaths() {
     return HEALTH_ARTICLES.map(a => ({ category: a.category, slug: a.slug }))
   }
+// standaloneFaqs re-export
+export { STANDALONE_FAQS, getFaqBySlug, getFaqsByCategory, getFaqsByIntent, getFaqsByUrgency, faqsToSchemaFormat } from './standaloneFaqs'
+export type { StandaloneFaq, FaqIntent, FaqCategory, FaqSearchType } from './standaloneFaqs'
