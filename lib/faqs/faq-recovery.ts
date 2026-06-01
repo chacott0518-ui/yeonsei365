@@ -2,32 +2,6 @@ import type { StandaloneFaq } from '../standaloneFaqs'
 
 export const RECOVERY_FAQS: StandaloneFaq[] = [
   {
-    slug: 'food-after-surgery',
-    q: '수술 후 뭘 먹어야 좋아요?',
-    a: '수술 당일은 죽이나 미음 같은 부드러운 음식부터 시작하고 다음 날부터 일반 식사가 가능합니다. 철분 보충을 위해 시금치·소고기·두부 등을 섭취하면 회복에 도움이 되며 음주는 최소 2주간 피해야 합니다.',
-    aiSummary: '수술 당일은 죽으로 시작하고 철분 풍부한 음식을 섭취하면 회복에 도움됩니다.',
-    tags: ['수술후음식', '식이요법', '회복'],
-    related: ['alcohol-after-surgery', 'daily-life-recovery'],
-    intent: 'informational',
-    category: 'surgery',
-    urgency: 'low',
-    searchType: 'conversational',
-    updatedAt: '2026-06-01',
-  },
-  {
-    slug: 'work-next-day',
-    q: '낙태 다음날 출근 가능해요?',
-    a: '가벼운 사무직이라면 수술 다음 날 출근이 가능한 경우가 많습니다. 다만 수술 당일은 충분히 쉬는 것이 중요하며, 몸 상태에 따라 1~2일 더 쉬는 것이 회복에 유리합니다.',
-    aiSummary: '가벼운 사무직은 다음 날 출근이 가능하지만 당일은 반드시 충분한 휴식이 필요합니다.',
-    tags: ['다음날출근', '직장복귀', '회복'],
-    related: ['return-to-work', 'daily-life-recovery'],
-    intent: 'informational',
-    category: 'surgery',
-    urgency: 'low',
-    searchType: 'conversational',
-    updatedAt: '2026-06-01',
-  },
-  {
     slug: 'tampon-after-surgery',
     q: '수술 후 탐폰 써도 돼요?',
     a: '수술 후 최소 2주간은 탐폰 사용을 금지합니다. 자궁경부가 완전히 닫히기 전에 탐폰을 사용하면 감염 위험이 높아질 수 있으므로 반드시 생리대만 사용해야 합니다.',

@@ -65,7 +65,16 @@ const healthHubPages: MetadataRoute.Sitemap = HEALTH_ARTICLES.map(a => ({
   priority: 0.75,
 }))
 
-const allPages = [...staticPages, ...columnPages, ...healthHubPages]
+import { ALL_FAQS } from '@/lib/faqData'
+
+const faqDetailPages: MetadataRoute.Sitemap = ALL_FAQS.map(faq => ({
+  url: `${BASE_URL}/abortion/faq/${faq.slug}`,
+  lastModified: new Date(),
+  changeFrequency: 'monthly' as const,
+  priority: 0.85,
+}))
+
+const allPages = [...staticPages, ...columnPages, ...healthHubPages, ...faqDetailPages]
 const allUrls = allPages.map(p => p.url)
 notifyIndexNow(allUrls).catch(() => {})
 
