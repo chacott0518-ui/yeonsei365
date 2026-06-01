@@ -1,11 +1,27 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  compress: true,
   images: {
     remotePatterns: [
       { protocol: 'https', hostname: 'images.unsplash.com' },
       { protocol: 'https', hostname: 'i.pinimg.com' },
       { protocol: 'https', hostname: 'i.imgur.com' },
     ],
+    formats: ['image/avif', 'image/webp'],
+    minimumCacheTTL: 2592000,
+  },
+  compiler: {
+    removeConsole: process.env.NODE_ENV === 'production',
+  },
+  async headers() {
+    return [
+      {
+        source: '/_next/static/(.*)',
+        headers: [
+          { key: 'Cache-Control', value: 'public, max-age=31536000, immutable' },
+        ],
+      },
+    ]
   },
   async redirects() {
     return [
@@ -15,14 +31,7 @@ const nextConfig = {
         destination: 'https://www.yeonsei365.com/:path*',
         permanent: true,
       },
-    ];
+    ]
   },
-  async rewrites() {
-    return [
-      { source: '/임신주수계산기', destination: '/pregnancy-calculator' },
-      { source: '/배란일계산기', destination: '/ovulation-calculator' },
-    ];
-  },
-};
-
-module.exports = nextConfig;
+}
+module.exports = nextConfig
