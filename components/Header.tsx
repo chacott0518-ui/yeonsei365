@@ -1,5 +1,6 @@
 'use client'
 import React, { useState, useEffect, useRef } from 'react'
+import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
 import { NAV_LINKS } from '../constants'
 import { X, Menu, ChevronDown } from 'lucide-react'
@@ -203,7 +204,7 @@ const Header: React.FC = () => {
             className="cursor-pointer z-50 flex-shrink-0"
             onClick={() => { setActiveSection(''); if (pathname === '/') { window.scrollTo({ top: 0, behavior: 'smooth' }) } else { window.location.href = '/' } }}
           >
-            <img
+            <Image
               src="https://i.imgur.com/f7h5DY0.png"
               alt="연세365 로고"
               width={120}

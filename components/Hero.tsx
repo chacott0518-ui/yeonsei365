@@ -6,8 +6,8 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 const Hero: React.FC = () => {
   const { scrollY } = useScroll();
   
-  const y = useTransform(scrollY, [0, 1000], [0, 300]);
-  const opacity = useTransform(scrollY, [0, 500], [1, 0]);
+  const y = useTransform(scrollY, [0, 500], [0, 100]);
+  const opacity = useTransform(scrollY, [0, 300], [1, 0]);
 
   const slices: number[] = [];
 
