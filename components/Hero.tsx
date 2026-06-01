@@ -9,7 +9,7 @@ const Hero: React.FC = () => {
   const y = useTransform(scrollY, [0, 1000], [0, 300]);
   const opacity = useTransform(scrollY, [0, 500], [1, 0]);
 
-  const slices = Array.from({ length: 8 }, (_, i) => i);
+  const slices: number[] = [];
 
   return (
     <>
@@ -31,24 +31,6 @@ const Hero: React.FC = () => {
         {/* Gradient Overlay for Text Readability */}
         <div className="absolute inset-0 bg-primary/30 mix-blend-overlay" />
         <div className="absolute inset-0 bg-gradient-to-t from-primary/40 to-transparent" />
-
-        {/* Slice Transition Effect */}
-        <div className="absolute inset-0 flex w-full h-full z-10 pointer-events-none">
-          {slices.map((i) => (
-            <motion.div
-              key={i}
-              className="relative h-full bg-surface"
-              style={{ width: '12.5%' }}
-              initial={{ height: '100%' }}
-              animate={{ height: '0%' }}
-              transition={{ 
-                duration: 1.0, 
-                ease: [0.22, 1, 0.36, 1], 
-                delay: 0.2 + (i * 0.05) 
-              }}
-            />
-          ))}
-        </div>
 
         {/* Hero Text Content */}
         <motion.div 

@@ -1,17 +1,18 @@
 import type { Metadata } from 'next'
-import Header from '../components/Header'
-import Hero from '../components/Hero'
-import About from '../components/About'
-import Doctors from '../components/Doctors'
-import Center from '../components/Center'
-import Abortion from '../components/Abortion'
-import Review from '../components/Review'
-import FAQ from '../components/FAQ'
-import Consultation from '../components/Booking'
-import Footer from '../components/Footer'
-import ConsultModal from '../components/ConsultModal'
 import { clinicSchema } from '@/lib/schemas'
-import FloatingBar from '../components/FloatingBar'
+import Hero from '../components/Hero'
+import dynamic from 'next/dynamic'
+
+const About = dynamic(() => import('../components/About'))
+const Doctors = dynamic(() => import('../components/Doctors'))
+const Center = dynamic(() => import('../components/Center'))
+const Abortion = dynamic(() => import('../components/Abortion'))
+const Review = dynamic(() => import('../components/Review'))
+const FAQ = dynamic(() => import('../components/FAQ'))
+const Consultation = dynamic(() => import('../components/Booking'))
+const Footer = dynamic(() => import('../components/Footer'))
+const ConsultModal = dynamic(() => import('../components/ConsultModal'))
+const FloatingBar = dynamic(() => import('../components/FloatingBar'))
 
 const FAQ_SCHEMA = {
   '@context': 'https://schema.org',
