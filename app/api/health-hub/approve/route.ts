@@ -25,7 +25,6 @@ export async function GET(req: Request) {
   const lastModified = new Date().toISOString().split('T')[0]
   const articleUrl   = `https://www.yeonsei365.com/health-hub/${category}/${slug}`
 
-  // ── 1. AI 답변 생성 (승인 시점) ──────────────────────────────
   let articleData: any = null
 
   try {
@@ -39,22 +38,24 @@ export async function GET(req: Request) {
       body: JSON.stringify({
         model: 'claude-sonnet-4-20250514',
         max_tokens: 4000,
-        system: `질문이 불완전하거나 비속어, 지역명만 있거나 의도가 불명확해도 산부인과 관련 질문으로 최대한 해석해서 완전한 의료 정보로 재구성하세요. 예: "과천에서 낙태 어디서 해" → "과천 근처 임신중절수술 안전하게 받을 수 있는 곳은?"
+        system: `질문이 불완전하거나 비속어가 포함되어 있어도 산부인과 관련 질문으로 해석하여 완전한 의료 정보로 재구성하세요.
 
-당신은 사당역 연세365산부인과의 산부인과 전문의입니다.
-하이닥, 닥터나우 스타일의 구조화된 의료 정보를 아래 JSON 형식으로만 답변하세요.
+당신은 산부인과 전문의입니다. 하이닥, 닥터나우 수준의 구조화된 의료 정보를 JSON 형식으로만 출력하세요.
 
-규칙:
-- heroAnswer: 핵심 정보 3~4문장 (150~200자, 검색 스니펫용, 첫 문장에 핵심 직접 포함)
-- sections 전체 합산 반드시 1500자 이상 2000자 이하
-- text 섹션은 각각 300자 이상
-- 병원명 또는 02-585-3650 자연스럽게 1~2회 포함
-- 의학 용어는 반드시 괄호로 설명 추가
-- FAQ는 실제 환자들이 자주 묻는 질문 5개, 각 답변 150자 이상
-- sections는 반드시 5개 이상: text, infobox, checklist, text, warnbox 순서로 구성
+핵심 규칙:
+- 병원명(연세365산부인과)과 전화번호(02-585-3650)는 전체 답변에서 합쳐서 최대 1회만 사용. 자연스럽지 않으면 아예 생략
+- 병원 홍보 문구 절대 금지. "내원하세요", "문의하세요" 반복 금지
+- 실제 의학 정보 위주로 작성. 환자가 실질적으로 도움받을 수 있는 내용
+- heroAnswer: 질문에 대한 직접 답변 2~3문장 (150자 이상, 핵심 수치·정보 포함)
+- sections 전체 합산 1500자 이상
+- text 섹션 각각 300자 이상, 실질적 의료 정보로 채울 것
+- FAQ 5개, 각 답변 150자 이상, 실제 환자 궁금증 기반
+- sections 구성: text → infobox → checklist → text → warnbox (5개 이상)
+- 의학 용어는 괄호로 설명 추가
+- 첫 문장은 반드시 질문에 대한 직접 답변으로 시작
 
-반드시 아래 JSON만 출력 (마크다운 코드블록, 백틱 절대 금지, 앞뒤 텍스트 절대 금지):
-{"title":"SEO 최적화 제목 50자 이내","slug":"english-lowercase-hyphen-slug","heroAnswer":"핵심 답변 150~200자","keywords":["키워드1","키워드2","키워드3","사당역산부인과"],"sections":[{"type":"text","title":"소제목","content":"본문 300자 이상"},{"type":"infobox","content":"핵심 요약 정보 100자 이상"},{"type":"checklist","title":"체크리스트 제목","items":["항목1 (설명 포함)","항목2 (설명 포함)","항목3 (설명 포함)","항목4 (설명 포함)","항목5 (설명 포함)"]},{"type":"text","title":"두번째 소제목","content":"본문 300자 이상"},{"type":"warnbox","content":"주의사항 또는 즉시 내원 필요 증상 100자 이상"}],"faq":[{"q":"자주 묻는 질문1","a":"답변1 150자 이상"},{"q":"자주 묻는 질문2","a":"답변2 150자 이상"},{"q":"자주 묻는 질문3","a":"답변3 150자 이상"},{"q":"자주 묻는 질문4","a":"답변4 150자 이상"},{"q":"자주 묻는 질문5","a":"답변5 150자 이상"}]}`,
+반드시 아래 JSON만 출력 (마크다운 백틱 절대 금지, 앞뒤 텍스트 절대 금지):
+{"title":"SEO 최적화 제목 50자 이내","slug":"english-lowercase-hyphen-slug","heroAnswer":"질문에 대한 직접 답변 150자 이상","keywords":["키워드1","키워드2","키워드3"],"sections":[{"type":"text","title":"소제목","content":"실질적 의료 정보 300자 이상"},{"type":"infobox","content":"핵심 요약 100자 이상"},{"type":"checklist","title":"체크리스트 제목","items":["항목1","항목2","항목3","항목4","항목5"]},{"type":"text","title":"두번째 소제목","content":"실질적 의료 정보 300자 이상"},{"type":"warnbox","content":"즉시 내원 필요 증상 또는 주의사항 100자 이상"}],"faq":[{"q":"질문1","a":"답변1 150자 이상"},{"q":"질문2","a":"답변2 150자 이상"},{"q":"질문3","a":"답변3 150자 이상"},{"q":"질문4","a":"답변4 150자 이상"},{"q":"질문5","a":"답변5 150자 이상"}]}`,
         messages: [{ role: 'user', content: `카테고리: ${category}\n질문: ${question}` }],
       }),
     })
@@ -62,7 +63,6 @@ export async function GET(req: Request) {
     if (aiRes.ok) {
       const data = await aiRes.json()
       const rawText = data.content?.[0]?.text || ''
-      console.log('[AI 원본]', rawText.slice(0, 300))
       const cleaned = rawText
         .replace(/^```json\s*/i, '')
         .replace(/^```\s*/i, '')
@@ -71,12 +71,7 @@ export async function GET(req: Request) {
       const parsed = JSON.parse(cleaned)
       if (parsed.title && parsed.sections && parsed.faq) {
         articleData = parsed
-        console.log('[AI 성공] 섹션수:', parsed.sections.length, '제목:', parsed.title)
-      } else {
-        console.warn('[AI 파싱 실패] 필드 누락')
       }
-    } else {
-      console.error('[AI HTTP 오류]', aiRes.status)
     }
   } catch (e) {
     console.error('[AI 예외]', e)
@@ -87,25 +82,25 @@ export async function GET(req: Request) {
     articleData = {
       title: question.slice(0, 50),
       slug,
-      heroAnswer: '연세365산부인과(02-585-3650)에 문의하시면 전문의가 직접 답변해 드립니다.',
-      keywords: [question.split(' ')[0], '산부인과', '사당역산부인과'],
+      heroAnswer: '정확한 답변을 위해 산부인과 전문의 진료를 권장합니다.',
+      keywords: [question.split(' ')[0], '산부인과'],
       sections: [{
         type: 'text',
         title: question.slice(0, 50),
-        content: '연세365산부인과(02-585-3650)에 문의하시면 전문의가 직접 답변해 드립니다. 사당역 4번출구에서 도보 1분 거리에 위치해 있으며, 당일 예약 및 당일 진료가 가능합니다.',
+        content: '해당 증상이나 상황에 대해 정확한 진단과 치료를 위해서는 산부인과 전문의의 직접 진료가 필요합니다. 사당역 4번출구 도보 1분 거리에서 당일 진료가 가능합니다.',
       }],
-      faq: [{ q: question, a: '연세365산부인과(02-585-3650)에 문의하시면 전문의가 직접 답변해 드립니다.' }],
+      faq: [{ q: question, a: '정확한 답변을 위해 산부인과 전문의 진료를 권장합니다.' }],
     }
   }
 
-  const title  = articleData.title || question.slice(0, 50)
-  const answer = articleData.heroAnswer || ''
-  const keywords = articleData.keywords || [question.split(' ')[0], '사당역산부인과']
+  const title    = articleData.title || question.slice(0, 50)
+  const answer   = articleData.heroAnswer || ''
+  const keywords = articleData.keywords || [question.split(' ')[0], '산부인과']
   const stats    = articleData.stats || []
   const sections = articleData.sections || []
   const faq      = articleData.faq || []
 
-  // ── 2. Unsplash 자동 이미지 ───────────────────────────────────
+  // Unsplash 이미지
   let heroImage = ''
   if (process.env.UNSPLASH_ACCESS_KEY) {
     try {
@@ -119,7 +114,6 @@ export async function GET(req: Request) {
     } catch (e) { console.warn('[Unsplash]', e) }
   }
 
-  // ── 3. healthHub.ts 코드 생성 ────────────────────────────────
   const s = (v: string) => v.replace(/\\/g, '\\\\').replace(/'/g, "\\'").replace(/`/g, '\\`').replace(/\n/g, ' ')
   const sq = (v: string) => JSON.stringify(v)
 
@@ -134,7 +128,7 @@ export async function GET(req: Request) {
     slug: '${slug}',
     category: '${category}' as CategoryKey,
     title: '${s(title)}',
-    description: '${s(answer.slice(0, 110))}. 사당역 연세365산부인과 02-585-3650.',
+    description: '${s(answer.slice(0, 110))}.',
     keywords: ${JSON.stringify(keywords)},
     lastModified: '${lastModified}',
     ${heroImageCode}
@@ -143,7 +137,6 @@ export async function GET(req: Request) {
     sections: ${sectionsCode},
   },`
 
-  // ── 4. GitHub push ────────────────────────────────────────────
   let githubResult = '⚠️ GITHUB_TOKEN 미설정'
   try {
     const TOKEN = process.env.GITHUB_TOKEN
@@ -157,7 +150,6 @@ export async function GET(req: Request) {
         const fileData = await fileRes.json()
         const current = Buffer.from(fileData.content, 'base64').toString('utf-8')
 
-        // 중복 slug 방지
         if (current.includes(`slug: '${slug}'`)) {
           return new Response(
             `<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8"><title>중복 방지</title>
@@ -166,7 +158,7 @@ export async function GET(req: Request) {
             </head><body><div class="card">
             <div style="font-size:48px">⚠️</div>
             <h1 style="font-size:22px;font-weight:900">이미 등록된 질문입니다</h1>
-            <p style="font-size:14px;color:#888">슬러그 <code>${slug}</code> 는 이미 헬스허브에 등록되어 있습니다.<br/>중복 등록을 방지했습니다.</p>
+            <p style="font-size:14px;color:#888">슬러그 <code>${slug}</code> 는 이미 등록되어 있습니다.</p>
             <a href="/health-hub" style="display:inline-block;background:#D6336C;color:#fff;font-size:14px;font-weight:700;padding:12px 24px;border-radius:20px;text-decoration:none;margin-top:16px">헬스허브로 이동</a>
             </div></body></html>`,
             { headers: { 'Content-Type': 'text/html; charset=utf-8' } }

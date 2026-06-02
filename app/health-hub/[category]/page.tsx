@@ -48,7 +48,8 @@ export default function CategoryPage({
   const cat = CATEGORIES[params.category as CategoryKey]
   if (!cat) notFound()
 
-  const articles = getArticlesByCategory(params.category as CategoryKey)
+    const articles = getArticlesByCategory(params.category as CategoryKey)
+    .sort((a, b) => new Date(b.lastModified).getTime() - new Date(a.lastModified).getTime())
 
   return (
     <>
