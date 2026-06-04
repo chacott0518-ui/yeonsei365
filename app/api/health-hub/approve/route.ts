@@ -22,7 +22,7 @@ export async function GET(req: Request) {
   const category     = searchParams.get('category') || 'gynecology'
   const slug         = searchParams.get('slug') || `q-${Date.now()}`
   const question     = searchParams.get('question') || ''
-  const lastModified = new Date().toISOString().split('T')[0]
+  const lastModified = new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul', year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' }).replace(/\. /g, '-').replace('.', '')
   const articleUrl   = `https://www.yeonsei365.com/health-hub/${category}/${slug}`
 
   let articleData: any = null
@@ -70,6 +70,7 @@ export async function GET(req: Request) {
         .trim()
       const parsed = JSON.parse(cleaned)
       if (parsed.title && parsed.sections && parsed.faq) {
+        parsed.slug = slug  // slug만 고정, 제목·내용은 AI가 정제한 것 사용
         articleData = parsed
       }
     }
