@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { clinicSchema } from '@/lib/schemas'
+import ViewCounter from '@/components/ViewCounter'
 
 export const metadata: Metadata = {
   title: '임신중절수술 금액·합법기간·방법 안내 | 연세365산부인과',
@@ -159,7 +160,7 @@ export default function AbortionSurgeryClinicPage() {
                 임신중절수술<br />금액·합법기간·방법 안내
               </h1>
               <p style={{ color: 'rgba(255,255,255,0.88)', fontSize: 'clamp(12px, 3vw, 14px)', lineHeight: 1.8, margin: '0 0 16px' }}>
-                임신중절수술 금액, 합법 가능 기간과 조건, 흡입술·소파술 방법, 수술 절차, 수술 후 관리까지 연세365산부인과가 투명하게 안내합니다.
+                임신중절수술 금액, 합법 가능 기간과 조건, 흡입술·소파술 방법, 수술 절차, 수술 후 관리까지 연세365산부인과가 투명하게 안내합니다. · <ViewCounter slug="blog-abortion-surgery" />
               </p>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '7px' }}>
                 {['당일예약 가능', '여의사 상담', '1인실 운영', '카드·현금 동일', '비밀보장'].map(b => (

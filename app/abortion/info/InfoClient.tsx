@@ -1,6 +1,7 @@
 'use client'
 import Link from 'next/link'
 import { useState } from 'react'
+import ViewCounter from '@/components/ViewCounter'
 
 const C = {
   p: '#D6336C', pd: '#993556', pp: '#5c0e20',
@@ -62,7 +63,7 @@ export default function InfoClient() {
             </h1>
             <p style={{ color: 'rgba(255,255,255,.9)', fontSize: '14px', lineHeight: 1.95, marginBottom: '22px', letterSpacing: '-.01em' }}>
               임신중절수술 전 궁금한 것들을 모두 안내드립니다.<br />
-              보호자 동반 여부, 수술 정보, 보험 적용, 준비물, 비밀보장까지 확인하세요.
+              보호자 동반 여부, 수술 정보, 보험 적용, 준비물, 비밀보장까지 확인하세요. · <ViewCounter slug="abortion-info" />
             </p>
             <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '22px' }}>
               {['성인 혼자 가능', '비밀 100% 보장', '비급여 항목', '준비물 안내'].map(t => (

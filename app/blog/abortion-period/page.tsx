@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { clinicSchema } from '@/lib/schemas'
+import ViewCounter from '@/components/ViewCounter'
 
 export const metadata: Metadata = {
   title: '임신중절수술 기간 | 몇 주까지 가능한가? 합법 기간 완벽 안내 2026 | 연세365산부인과',
@@ -122,7 +123,7 @@ export default function AbortionPeriodPage() {
           <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '20px', flexWrap: 'wrap' }}>
             <div style={{ flex: 1, minWidth: '180px' }}>
               <h1 style={{ color: '#fff', fontSize: 'clamp(20px,4vw,26px)', fontWeight: 900, lineHeight: 1.45, margin: '0 0 12px' }}>임신중절수술 기간<br />몇 주까지 가능한가?</h1>
-              <p style={{ color: 'rgba(255,255,255,0.88)', fontSize: 'clamp(12px,3vw,14px)', lineHeight: 1.8, margin: '0 0 16px' }}>임신중절수술 가능 기간, 주수별 시술 방법 차이, 합법 기준, 빠른 결정이 중요한 이유까지 전문의가 투명하게 안내합니다.</p>
+              <p style={{ color: 'rgba(255,255,255,0.88)', fontSize: 'clamp(12px,3vw,14px)', lineHeight: 1.8, margin: '0 0 16px' }}>임신중절수술 가능 기간, 주수별 시술 방법 차이, 합법 기준, 빠른 결정이 중요한 이유까지 전문의가 투명하게 안내합니다. · <ViewCounter slug="blog-abortion-period" /></p>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '7px' }}>
                 {['당일예약 가능', '당일시술 가능', '1인 회복실', '비밀보장'].map(b => (
                   <span key={b} style={{ background: 'rgba(255,255,255,0.15)', border: '1px solid rgba(255,255,255,0.3)', color: '#fff', fontSize: '11px', padding: '4px 12px', borderRadius: '20px' }}>{b}</span>

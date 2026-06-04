@@ -1,6 +1,7 @@
 'use client'
 import Link from 'next/link'
 import { useState } from 'react'
+import ViewCounter from '@/components/ViewCounter'
 
 const C = {
   p: '#D6336C', pd: '#993556', pp: '#5c0e20',
@@ -63,7 +64,7 @@ export default function HospitalClient() {
             <p style={{ color: 'rgba(255,255,255,.9)', fontSize: '14px', lineHeight: 1.95, marginBottom: '22px', letterSpacing: '-.01em' }}>
               믿을 수 있는 임신중절수술 병원을 찾고 계신가요?<br />
               사당역 4번출구 연세365산부인과에서 전문의가 직접 집도합니다.<br />
-              당일예약·당일수술·비밀보장 시스템으로 안전하게 시술받으세요.
+              당일예약·당일수술·비밀보장 시스템으로 안전하게 시술받으세요. · <ViewCounter slug="abortion-hospital" />
             </p>
             <div style={{ display: 'flex', gap: '10px' }}>
               <a href="http://pf.kakao.com/_TpaBj/chat" target="_blank" rel="noopener noreferrer" style={{ background: '#FEE500', color: '#3B1B1B', fontSize: '13px', fontWeight: 700, padding: '12px 24px', borderRadius: '24px', textDecoration: 'none' }}>💬 카카오톡 상담</a>

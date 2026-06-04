@@ -1,5 +1,6 @@
 import { clinicSchema } from '@/lib/schemas'
 import type { Metadata } from 'next'
+import ViewCounter from '@/components/ViewCounter'
 
 export const metadata: Metadata = {
   title: '사당역 산부인과 연세365산부인과의원 | 위치·진료항목·비용 완전정리 2026',
@@ -188,7 +189,7 @@ export default function SadangObgynPage() {
           <span style={{ color: '#E8305A' }}>연세365산부인과의원</span>
         </h1>
         <p style={{ fontSize: 'clamp(11px,2.5vw,13px)', color: '#999', marginBottom: '28px' }}>
-          사당역 4번출구 · 산부인과 전문의 직접 진료 · 2026년 업데이트
+          사당역 4번출구 · 산부인과 전문의 직접 진료 · 2026년 업데이트 · <ViewCounter slug="womens-clinic-sadang" />
         </p>
 
         {/* 히어로 이미지 */}

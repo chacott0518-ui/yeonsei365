@@ -1,6 +1,7 @@
 ﻿import { clinicSchema } from '@/lib/schemas'
 import type { Metadata } from 'next';
 import PregnancyCalculator from './PregnancyCalculator';
+import ViewCounter from '@/components/ViewCounter'
 
 export const metadata: Metadata = {
   title: '임신주수 계산기 | 출산예정일·태아발달 자동 계산 — 연세365산부인과',
@@ -61,7 +62,7 @@ export default function Page() {
           </h1>
           <p className="mt-3 text-sm leading-relaxed" style={{ color: 'rgba(255,255,255,0.85)' }}>
             마지막 생리 시작일(LMP)을 입력하면 현재 임신주수, 출산예정일, 임신 진행률, 태아 발달 정보,
-            이 주수의 주요 증상, 산전 검사 타임라인까지 한 번에 확인할 수 있습니다.
+            이 주수의 주요 증상, 산전 검사 타임라인까지 한 번에 확인할 수 있습니다. · <ViewCounter slug="pregnancy-calculator" />
           </p>
         </div>
       </section>

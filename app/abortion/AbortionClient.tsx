@@ -1,6 +1,7 @@
 'use client'
 import Link from 'next/link'
 import { useState } from 'react'
+import ViewCounter from '@/components/ViewCounter'
 
 const C = {
   p: '#D6336C', pd: '#993556', pp: '#5c0e20',
@@ -100,7 +101,7 @@ export default function AbortionClient() {
             <p style={{ color: 'rgba(255,255,255,.9)', fontSize: '14px', lineHeight: 1.95, marginBottom: '22px', letterSpacing: '-.01em' }}>
               산부인과 전문의가 직접 집도하는 임신중절수술.<br />
               임신 주수에 맞는 최적의 방법으로 안전하게 진행하며<br />
-              수술 전·중·후 모든 과정에서 비밀이 보장됩니다.
+              수술 전·중·후 모든 과정에서 비밀이 보장됩니다. · <ViewCounter slug="abortion" />
             </p>
             <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '24px' }}>
               {['당일예약 가능', '1인 회복실 운영', '여의사 상담 가능', '카드·현금 동일가'].map(t => (

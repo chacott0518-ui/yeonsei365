@@ -1,6 +1,7 @@
 'use client'
 import Link from 'next/link'
 import { useState } from 'react'
+import ViewCounter from '@/components/ViewCounter'
 
 const C = {
   p: '#D6336C', pd: '#993556', pp: '#5c0e20',
@@ -70,7 +71,7 @@ export default function CostClient() {
             <p style={{ color: 'rgba(255,255,255,.9)', fontSize: '14px', lineHeight: 1.95, marginBottom: '22px', letterSpacing: '-.01em' }}>
               임신중절수술 비용은 임신 주수와 수술 방법에 따라 달라집니다.<br />
               연세365산부인과는 모든 낙태 비용 가격을 사전에 투명하게 공개하며<br />
-              수술비·마취비·영양제·부가세 포함 최종 금액을 안내합니다.
+              수술비·마취비·영양제·부가세 포함 최종 금액을 안내합니다. · <ViewCounter slug="abortion-cost" />
             </p>
             <div style={{ display: 'flex', gap: '10px' }}>
               <a href="http://pf.kakao.com/_TpaBj/chat" target="_blank" rel="noopener noreferrer" style={{ background: '#FEE500', color: '#3B1B1B', fontSize: '13px', fontWeight: 700, padding: '12px 24px', borderRadius: '24px', textDecoration: 'none' }}>💬 카카오톡 상담</a>

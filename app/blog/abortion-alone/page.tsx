@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { clinicSchema } from '@/lib/schemas'
+import ViewCounter from '@/components/ViewCounter'
 
 export const metadata: Metadata = {
   title: '임신중절수술 혼자 가도 되나요? 보호자 없이 가능한지 총정리 2026 | 연세365산부인과',
@@ -179,7 +180,7 @@ export default function AbortionAlonePage() {
             </div>
             <div>
               <p className="text-sm font-bold text-gray-800">연세365산부인과 의료진</p>
-              <p className="text-xs text-gray-400 mt-0.5">2026년 4월 · 임신중절클리닉</p>
+              <p className="text-xs text-gray-400 mt-0.5">2026년 4월 · 임신중절클리닉 · <ViewCounter slug="blog-abortion-alone" /></p>
             </div>
           </div>
 

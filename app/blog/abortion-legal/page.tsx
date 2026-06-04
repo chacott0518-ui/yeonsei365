@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { clinicSchema } from '@/lib/schemas'
+import ViewCounter from '@/components/ViewCounter'
 
 export const metadata: Metadata = {
   title: '낙태수술 합법화 뜻 시기와 비용 | 임신초기중절수술 병원 | 연세365산부인과',
@@ -315,7 +316,7 @@ export default function AbortionLegalPage() {
           <span style={{ color: '#00897B' }}>임신초기중절수술 병원 완벽 가이드</span>
         </h1>
         <div style={{ fontSize: '12px', color: '#999', marginBottom: '28px' }}>
-          연세365산부인과 · 2026년 3월 업데이트
+          연세365산부인과 · 2026년 3월 업데이트 · <ViewCounter slug="blog-abortion-legal" />
         </div>
 
         {/* 대표 이미지 */}

@@ -1,6 +1,7 @@
 'use client'
 import Link from 'next/link'
 import { useState } from 'react'
+import ViewCounter from '@/components/ViewCounter'
 
 const C = {
   p: '#D6336C', pd: '#993556', pp: '#5c0e20',
@@ -61,7 +62,7 @@ export default function RecoveryClient() {
             </h1>
             <p style={{ color: 'rgba(255,255,255,.9)', fontSize: '14px', lineHeight: 1.95, marginBottom: '22px', letterSpacing: '-.01em' }}>
               빠른 회복을 위한 단계별 관리 가이드를 안내합니다.<br />
-              수술 당일부터 4주까지 시기별 주의사항을 확인하세요.
+              수술 당일부터 4주까지 시기별 주의사항을 확인하세요. · <ViewCounter slug="abortion-recovery" />
             </p>
             <div style={{ display: 'flex', gap: '10px' }}>
               <a href="http://pf.kakao.com/_TpaBj/chat" target="_blank" rel="noopener noreferrer" style={{ background: '#FEE500', color: '#3B1B1B', fontSize: '13px', fontWeight: 700, padding: '12px 24px', borderRadius: '24px', textDecoration: 'none' }}>💬 카카오톡 상담</a>

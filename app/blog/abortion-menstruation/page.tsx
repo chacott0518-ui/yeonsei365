@@ -1,6 +1,7 @@
 ﻿import type { Metadata } from 'next'
 import Link from 'next/link'
 import { clinicSchema } from '@/lib/schemas'
+import ViewCounter from '@/components/ViewCounter'
 
 export const metadata: Metadata = {
   title: '임신중절수술 후 생리 | 재개 시기·주기 변화 완벽 안내 2026 | 연세365산부인과',
@@ -66,7 +67,7 @@ export default function AbortionMenstruationPage() {
           <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '20px', flexWrap: 'wrap' }}>
             <div style={{ flex: 1, minWidth: '180px' }}>
               <h1 style={{ color: '#fff', fontSize: 'clamp(20px,4vw,26px)', fontWeight: 900, lineHeight: 1.45, margin: '0 0 12px' }}>임신중절수술 후 생리<br />재개 시기·주기 변화 완벽 안내</h1>
-              <p style={{ color: 'rgba(255,255,255,0.88)', fontSize: 'clamp(12px,3vw,14px)', lineHeight: 1.8, margin: 0 }}>수술 후 첫 생리 시기, 생리량·주기 변화, 정상 범위, 이상 증상까지 전문의가 안내합니다.</p>
+              <p style={{ color: 'rgba(255,255,255,0.88)', fontSize: 'clamp(12px,3vw,14px)', lineHeight: 1.8, margin: 0 }}>수술 후 첫 생리 시기, 생리량·주기 변화, 정상 범위, 이상 증상까지 전문의가 안내합니다. · <ViewCounter slug="blog-abortion-menstruation" /></p>
             </div>
             <div style={{ background: 'rgba(255,255,255,0.12)', border: '1px solid rgba(255,255,255,0.25)', borderRadius: '16px', padding: '18px 22px', textAlign: 'center', flexShrink: 0 }}>
               <div style={{ color: 'rgba(255,255,255,0.8)', fontSize: '11px', marginBottom: '4px' }}>첫 생리 재개</div>

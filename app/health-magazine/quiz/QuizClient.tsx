@@ -1,6 +1,7 @@
 'use client'
 import { useState } from 'react'
 import Link from 'next/link'
+import ViewCounter from '@/components/ViewCounter'
 
 const C = {
   p: '#D6336C', pd: '#993556', pp: '#5c0e20',
@@ -990,7 +991,7 @@ export default function QuizClient() {
           </h1>
           <p style={{ color: 'rgba(255,255,255,.85)', fontSize: '14px', lineHeight: 1.8 }}>
             전문의 기준의 맞춤 가이드를 바로 확인할 수 있습니다<br />
-            사당역 연세365산부인과 · 02-585-3650
+            사당역 연세365산부인과 · 02-585-3650 · <ViewCounter slug="health-magazine-quiz" />
           </p>
         </div>
       </div>

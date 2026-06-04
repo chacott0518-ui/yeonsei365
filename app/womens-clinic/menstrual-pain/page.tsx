@@ -1,5 +1,6 @@
 import { clinicSchema } from '@/lib/schemas'
 import type { Metadata } from 'next'
+import ViewCounter from '@/components/ViewCounter'
 
 export const metadata: Metadata = {
   title: '생리통 참으면 안 되는 이유 5가지 2026 | 자궁내막증·근종 신호 | 연세365산부인과',
@@ -165,7 +166,7 @@ export default function MenstrualPainPage() {
           <span style={{ color: '#E8305A' }}>자궁내막증 · 근종 · 난임 신호일 수 있어요</span>
         </h1>
         <p style={{ fontSize: 'clamp(11px,2.5vw,13px)', color: '#999', marginBottom: '28px' }}>
-          연세365산부인과 · 2026년 최신 업데이트
+          연세365산부인과 · 2026년 최신 업데이트 · <ViewCounter slug="womens-clinic-menstrual-pain" />
         </p>
 
         {/* 대표 이미지 자리 */}

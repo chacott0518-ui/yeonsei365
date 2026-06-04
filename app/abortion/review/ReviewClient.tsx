@@ -1,5 +1,6 @@
 'use client'
 import Link from 'next/link'
+import ViewCounter from '@/components/ViewCounter'
 
 const C = {
   p: '#D6336C', pd: '#993556', pp: '#5c0e20',
@@ -57,7 +58,7 @@ export default function ReviewClient() {
             </h1>
             <p style={{ color: 'rgba(255,255,255,.9)', fontSize: '14px', lineHeight: 1.95, marginBottom: '22px', letterSpacing: '-.01em' }}>
               낙태수술 후기, 임신초기중절수술 후기 등 실제 방문하신 분들의<br />
-              솔직한 경험을 안내합니다.
+              솔직한 경험을 안내합니다. · <ViewCounter slug="abortion-review" />
             </p>
             <div style={{ display: 'flex', gap: '10px' }}>
               <a href="http://pf.kakao.com/_TpaBj/chat" target="_blank" rel="noopener noreferrer" style={{ background: '#FEE500', color: '#3B1B1B', fontSize: '13px', fontWeight: 700, padding: '12px 24px', borderRadius: '24px', textDecoration: 'none' }}>💬 카카오톡 상담</a>

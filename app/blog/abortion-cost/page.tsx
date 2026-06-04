@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { clinicSchema } from '@/lib/schemas'
+import ViewCounter from '@/components/ViewCounter'
 
 export const metadata: Metadata = {
   title: '임신중절수술 비용 완벽 정리 2026 | 주수별 가격·과정·주의사항 | 연세365산부인과',
@@ -257,7 +258,7 @@ export default function AbortionCostPage() {
           <span style={{ color: '#E8305A' }}>주수별 가격 · 과정 · 주의사항</span>
         </h1>
         <div style={{ fontSize: '13px', color: '#999', marginBottom: '32px' }}>
-          연세365산부인과 · 2026년 3월 업데이트
+          연세365산부인과 · 2026년 3월 업데이트 · <ViewCounter slug="blog-abortion-cost" />
         </div>
 
         {/* 대표 이미지 */}

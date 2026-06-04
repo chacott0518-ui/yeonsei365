@@ -1,5 +1,6 @@
 import { clinicSchema } from '@/lib/schemas'
 import type { Metadata } from 'next'
+import ViewCounter from '@/components/ViewCounter'
 
 export const metadata: Metadata = {
   title: '산부인과 처음 가는 법 완전 가이드 2026 | 예약·준비물·진료순서 | 연세365산부인과',
@@ -195,7 +196,7 @@ export default function FirstVisitPage() {
           <span style={{ color: '#E8305A' }}>예약 · 준비물 · 진료순서 · 비용 총정리</span>
         </h1>
         <p style={{ fontSize: 'clamp(11px,2.5vw,13px)', color: '#999', marginBottom: '28px' }}>
-          연세365산부인과 · 2026년 최신 업데이트
+          연세365산부인과 · 2026년 최신 업데이트 · <ViewCounter slug="womens-clinic-first-visit" />
         </p>
 
         {/* 대표 이미지 자리 */}

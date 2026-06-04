@@ -1,6 +1,7 @@
 'use client';
 import { useState } from 'react';
 import { ChevronDown, ChevronUp, ArrowUp } from 'lucide-react';
+import ViewCounter from '@/components/ViewCounter'
 
 const CATEGORIES = [
   { id: 'all', label: '전체', count: 217 },
@@ -292,7 +293,7 @@ export default function FAQClient() {
         <div style={{ textAlign: 'center', marginBottom: '40px' }}>
           <span style={{ background: '#fff0f4', color: '#D6336C', fontSize: '12px', fontWeight: 700, padding: '4px 14px', borderRadius: '20px', display: 'inline-block', marginBottom: '12px' }}>FAQ</span>
           <h1 style={{ fontSize: '28px', fontWeight: 900, color: '#1a1a1a', marginBottom: '10px' }}>임신중절수술 자주 묻는 질문</h1>
-          <p style={{ fontSize: '15px', color: '#666' }}>낙태 비용 가격부터 수술 방법, 후관리까지 170가지 궁금증을 해결해 드립니다</p>
+          <p style={{ fontSize: '15px', color: '#666' }}>낙태 비용 가격부터 수술 방법, 후관리까지 170가지 궁금증을 해결해 드립니다 · <ViewCounter slug="abortion-faq" /></p>
         </div>
 
         <div style={{ display: 'flex', gap: '28px' }}>

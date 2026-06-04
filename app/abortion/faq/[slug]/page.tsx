@@ -3,6 +3,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { ALL_FAQS, getFaqBySlug, FAQ_CATEGORIES } from '@/lib/faqData'
 import { clinicSchema } from '@/lib/schemas'
+import ViewCounter from '@/components/ViewCounter'
 
 type Props = { params: { slug: string } }
 
@@ -165,7 +166,7 @@ export default function FaqSlugPage({ params }: Props) {
           {faq.question}
         </h1>
         <div style={{ fontSize: '13px', color: '#999', marginBottom: '32px' }}>
-          연세365산부인과 · 2026-06-01 업데이트
+          연세365산부인과 · 2026-06-01 업데이트 · <ViewCounter slug={`abortion-faq-${params.slug}`} />
         </div>
 
         {/* aiSummary infobox */}

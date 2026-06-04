@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { clinicSchema } from '@/lib/schemas'
+import ViewCounter from '@/components/ViewCounter'
 
 export const metadata: Metadata = {
   title: '임신중절수술 금액과 낙태의 정의 뜻 비용 가격 안내 2026 | 연세365산부인과',
@@ -233,7 +234,7 @@ export default function AbortionAmountPage() {
           <span style={{ color: '#C2185B' }}>비용·가격 안내 2026</span>
         </h1>
         <div style={{ fontSize: '13px', color: '#999', marginBottom: '20px' }}>
-          연세365산부인과 · 2026년 4월 업데이트
+          연세365산부인과 · 2026년 4월 업데이트 · <ViewCounter slug="blog-abortion-amount" />
         </div>
 
         {/* 도입부 — 첫 200자에 "금액" 2회 이상 */}

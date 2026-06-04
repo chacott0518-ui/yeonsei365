@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
 import { clinicSchema } from '@/lib/schemas'
+import ViewCounter from '@/components/ViewCounter'
 
 export const metadata: Metadata = {
   title: '사당역 산부인과 솔직 후기 2026 | 연세365산부인과의원 직접 다녀왔어요',
@@ -106,7 +107,7 @@ export default function HospitalReviewPage() {
           연세365 직접 다녀온 솔직 후기
         </h1>
         <p style={{ fontSize: 'clamp(11px,2.5vw,13px)', color: '#999', marginBottom: '28px' }}>
-          2026년 4월 · 사당역 여성검진 방문 후기
+          2026년 4월 · 사당역 여성검진 방문 후기 · <ViewCounter slug="blog-hospital-review" />
         </p>
 
         {/* 대표 이미지 자리 */}

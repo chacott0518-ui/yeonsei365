@@ -1,6 +1,7 @@
 'use client'
 import Link from 'next/link'
 import { useState } from 'react'
+import ViewCounter from '@/components/ViewCounter'
 
 const C = {
   p: '#D6336C', pd: '#993556', pp: '#5c0e20',
@@ -62,7 +63,7 @@ export default function SurgeryClient() {
             </h1>
             <p style={{ color: 'rgba(255,255,255,.9)', fontSize: '14px', lineHeight: 1.95, marginBottom: '22px', letterSpacing: '-.01em' }}>
               임신중절수술 절차가 어떻게 진행되는지 단계별로 안내합니다.<br />
-              수술 전 준비부터 마취, 시술, 회복까지 모든 과정을 투명하게 공개합니다.
+              수술 전 준비부터 마취, 시술, 회복까지 모든 과정을 투명하게 공개합니다. · <ViewCounter slug="abortion-surgery" />
             </p>
             <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '22px' }}>
               {['산부인과 전문의 직접 집도', '수면마취 전문의 협진', '1인 회복실 운영', '당일귀가 가능'].map(t => (

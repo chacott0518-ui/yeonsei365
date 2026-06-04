@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
+import ViewCounter from '@/components/ViewCounter'
 
 export const metadata: Metadata = {
   title: '임신중절수술 정보·후기 | 합법화·방법·비용 총정리 | 연세365산부인과',
@@ -259,7 +260,7 @@ export default function BlogPage() {
 
       <div style={{ maxWidth: '780px', margin: '0 auto', padding: '40px 20px 80px', fontFamily: 'Pretendard, sans-serif' }}>
         <h1 style={{ fontSize: '28px', fontWeight: 900, color: '#1A0A10', marginBottom: '8px' }}>임신중절수술정보</h1>
-        <p style={{ color: '#AA5566', marginBottom: '32px', fontSize: '15px' }}>임신중절수술 비용·합법적 조건 전문의 직접 안내</p>
+        <p style={{ color: '#AA5566', marginBottom: '32px', fontSize: '15px' }}>임신중절수술 비용·합법적 조건 전문의 직접 안내 · <ViewCounter slug="blog" /></p>
         {posts.map(({ slug, title, desc, date, tag }) => {
           const tagStyle = tagColors[tag] ?? { bg: '#FFF0F4', color: '#E8305A' }
           return (

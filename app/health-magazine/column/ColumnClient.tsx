@@ -1,6 +1,7 @@
 'use client'
 import Link from 'next/link'
 import { COLUMNS } from '@/lib/columns'
+import ViewCounter from '@/components/ViewCounter'
 
 const C = {
   p: '#D6336C', pd: '#993556', pp: '#5c0e20',
@@ -21,7 +22,7 @@ export default function ColumnClient() {
         <h1 style={{ color: '#fff', fontSize: '32px', fontWeight: 900, marginBottom: '10px', letterSpacing: '-.02em' }}>여성 건강 칼럼</h1>
         <p style={{ color: 'rgba(255,255,255,.8)', fontSize: '14px', lineHeight: 1.7 }}>
           연세365산부인과 전문의가 직접 작성한 여성 건강 정보<br />
-          사당역 4번출구 · 02-585-3650
+          사당역 4번출구 · 02-585-3650 · <ViewCounter slug="health-magazine-column" />
         </p>
       </div>
 

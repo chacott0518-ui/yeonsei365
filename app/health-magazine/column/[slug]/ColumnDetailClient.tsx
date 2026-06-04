@@ -3,6 +3,7 @@ import { useState } from 'react'
 import Link from 'next/link'
 import { ChevronDown, ChevronUp } from 'lucide-react'
 import type { Column } from '@/lib/columns'
+import ViewCounter from '@/components/ViewCounter'
 
 const C = {
   p: '#D6336C', pd: '#993556', pp: '#5c0e20',
@@ -213,7 +214,7 @@ export default function ColumnDetailClient({ column }: { column: Column }) {
             {column.title}
           </h1>
           <p style={{ color: 'rgba(255,255,255,.85)', fontSize: '15px', lineHeight: 1.8, marginBottom: '20px' }}>
-            {column.subtitle}
+            {column.subtitle} · <ViewCounter slug={`health-magazine-column-${column.slug}`} />
           </p>
           <div style={{ display: 'flex', gap: '10px', flexWrap: 'wrap' }}>
             <a href="http://pf.kakao.com/_TpaBj/chat" target="_blank" rel="noopener noreferrer"

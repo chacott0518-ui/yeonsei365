@@ -2,6 +2,7 @@
 import { useState } from 'react'
 import Link from 'next/link'
 import { ChevronDown, ChevronUp } from 'lucide-react'
+import ViewCounter from '@/components/ViewCounter'
 
 const C = {
   p: '#D6336C', pd: '#993556', pp: '#5c0e20',
@@ -58,7 +59,7 @@ export default function HealthMagazineClient() {
           </h1>
           <p style={{ color: 'rgba(255,255,255,.85)', fontSize: '15px', lineHeight: 1.8 }}>
             증상 자가진단부터 FAQ, 건강 칼럼까지<br />
-            연세365산부인과가 직접 답변합니다
+            연세365산부인과가 직접 답변합니다 · <ViewCounter slug="health-magazine" />
           </p>
         </div>
       </div>
