@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation'
 import Link from 'next/link'
 import { getArticleBySlug, getAllArticlePaths, CATEGORIES, HEALTH_ARTICLES } from '@/lib/healthHub'
 import type { HealthArticle } from '@/lib/healthHub'
+import ViewCounter from '@/components/ViewCounter'
 
 const BASE = 'https://www.yeonsei365.com'
 const C = {
@@ -260,7 +261,7 @@ export default function ArticlePage({ params }: { params: { category: string; sl
           {article.title}
         </h1>
         <p style={{ fontSize: '12px', color: C.tg, marginBottom: 0 }}>
-          {article.lastModified} · 연세365산부인과 의료진 감수
+        {article.lastModified} · 연세365산부인과 의료진 감수 · <ViewCounter slug={`health-hub-${params.category}-${params.slug}`} />
         </p>
       </div>
 
