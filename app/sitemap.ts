@@ -60,7 +60,7 @@ const columnPages: MetadataRoute.Sitemap = COLUMNS.map(col => ({
 
 const healthHubPages: MetadataRoute.Sitemap = HEALTH_ARTICLES.map(a => ({
   url: `${BASE_URL}/health-hub/${a.category}/${a.slug}`,
-  lastModified: new Date(a.lastModified),
+  lastModified: a.lastModified && !isNaN(new Date(a.lastModified).getTime()) ? new Date(a.lastModified) : new Date(),
   changeFrequency: 'monthly' as const,
   priority: 0.75,
 }))
