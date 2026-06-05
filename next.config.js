@@ -31,6 +31,15 @@ const nextConfig = {
         destination: 'https://www.yeonsei365.com/:path*',
         permanent: true,
       },
+      { source: '/01_intro/:path*', destination: '/', permanent: true },
+      { source: '/02_vaginoplasty/:path*', destination: '/', permanent: true },
+      { source: '/03_abortion/:path*', destination: '/abortion', permanent: true },
+      { source: '/04_pregnancy/:path*', destination: '/abortion', permanent: true },
+      { source: '/05_birth/:path*', destination: '/', permanent: true },
+      { source: '/06_contraception/:path*', destination: '/abortion/method', permanent: true },
+      { source: '/07_menopause/:path*', destination: '/', permanent: true },
+      { source: '/08_customer/:path*', destination: '/', permanent: true },
+      { source: '/09_community/:path*', destination: '/', permanent: true },
     ]
   },
 }
