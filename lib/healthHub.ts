@@ -1119,19 +1119,6 @@ export const CATEGORIES = {
   },
   
   {
-    slug: 'q-1780916829139',
-    category: 'surgery' as CategoryKey,
-    title: '청소년 임신초기일 경우 임신중절수술 또는 낙태수술이 가능한가요? 보호자도 필요하겠지요? 비',
-    description: '정확한 답변을 위해 산부인과 전문의 진료를 권장합니다..',
-    keywords: ["청소년","산부인과"],
-    lastModified: '2026-06-08-PM 08:16',
-    heroImage: "https://images.unsplash.com/photo-1584432810601-6c7f27d2362b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5NDU5MjJ8MHwxfHNlYXJjaHwxfHwlRUMlQjIlQUQlRUMlODYlOEMlRUIlODUlODQlMjAlRUMlOTclQUMlRUMlODQlQjElMjAlRUMlOUQlOTglRUIlQTMlOEMlMjAlRUMlODIlQjAlRUIlQjYlODAlRUMlOUQlQjglRUElQjMlQkN8ZW58MHwwfHx8MTc4MDkxNjg4MXww&ixlib=rb-4.1.0&q=80&w=1080",
-    
-    faq: [{"q":"청소년 임신초기일 경우 임신중절수술 또는 낙태수술이 가능한가요? 보호자도 필요하겠지요? 비용은 어떻게 될까요?","a":"정확한 답변을 위해 산부인과 전문의 진료를 권장합니다."}],
-    sections: [{"type": "text" as const,"title":"청소년 임신초기일 경우 임신중절수술 또는 낙태수술이 가능한가요? 보호자도 필요하겠지요? 비","content":"해당 증상이나 상황에 대해 정확한 진단과 치료를 위해서는 산부인과 전문의의 직접 진료가 필요합니다. 사당역 4번출구 도보 1분 거리에서 당일 진료가 가능합니다."}],
-  },
-  
-  {
     slug: 'q-1780922068454',
     category: 'womens' as CategoryKey,
     title: '60대 여성 복통 지속 시 원인 파악과 추가 검사 가이드',
