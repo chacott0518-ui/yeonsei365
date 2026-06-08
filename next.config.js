@@ -25,44 +25,38 @@ const nextConfig = {
   },
   async redirects() {
     return [
-      // ipgyn 도메인 3개 → yeonsei365.com 301 리다이렉트
-      {
-        source: '/:path*',
-        has: [{ type: 'host', value: 'ipgyn.com' }],
-        destination: 'https://www.yeonsei365.com',
-        permanent: true,
-      },
-      {
-        source: '/:path*',
-        has: [{ type: 'host', value: 'www.ipgyn.com' }],
-        destination: 'https://www.yeonsei365.com',
-        permanent: true,
-      },
-      {
-        source: '/:path*',
-        has: [{ type: 'host', value: 'ipgyn.co.kr' }],
-        destination: 'https://www.yeonsei365.com',
-        permanent: true,
-      },
-      {
-        source: '/:path*',
-        has: [{ type: 'host', value: 'www.ipgyn.co.kr' }],
-        destination: 'https://www.yeonsei365.com',
-        permanent: true,
-      },
-      {
-        source: '/:path*',
-        has: [{ type: 'host', value: 'ipgyn.net' }],
-        destination: 'https://www.yeonsei365.com',
-        permanent: true,
-      },
-      {
-        source: '/:path*',
-        has: [{ type: 'host', value: 'www.ipgyn.net' }],
-        destination: 'https://www.yeonsei365.com',
-        permanent: true,
-      },
-      // 기존 리다이렉트
+      // ── ipgyn 3개 도메인 공통 적용 함수 ──
+      // ipgyn.com 세부 매핑
+      { source: '/08_customer/customer1', has: [{ type: 'host', value: 'www.ipgyn.com' }], destination: 'https://www.yeonsei365.com/abortion/review', permanent: true },
+      { source: '/05_customer/customer1', has: [{ type: 'host', value: 'www.ipgyn.com' }], destination: 'https://www.yeonsei365.com/abortion/review', permanent: true },
+      { source: '/03_abortion/:path*',    has: [{ type: 'host', value: 'www.ipgyn.com' }], destination: 'https://www.yeonsei365.com/abortion', permanent: true },
+      { source: '/03_abortion',           has: [{ type: 'host', value: 'www.ipgyn.com' }], destination: 'https://www.yeonsei365.com/abortion', permanent: true },
+      { source: '/06_contraception/:path*', has: [{ type: 'host', value: 'www.ipgyn.com' }], destination: 'https://www.yeonsei365.com/abortion/method', permanent: true },
+      { source: '/06_contraception',      has: [{ type: 'host', value: 'www.ipgyn.com' }], destination: 'https://www.yeonsei365.com/abortion/method', permanent: true },
+      { source: '/:path*',               has: [{ type: 'host', value: 'www.ipgyn.com' }], destination: 'https://www.yeonsei365.com', permanent: true },
+      { source: '/:path*',               has: [{ type: 'host', value: 'ipgyn.com' }],     destination: 'https://www.yeonsei365.com', permanent: true },
+
+      // ipgyn.co.kr 세부 매핑
+      { source: '/08_customer/customer1', has: [{ type: 'host', value: 'www.ipgyn.co.kr' }], destination: 'https://www.yeonsei365.com/abortion/review', permanent: true },
+      { source: '/05_customer/customer1', has: [{ type: 'host', value: 'www.ipgyn.co.kr' }], destination: 'https://www.yeonsei365.com/abortion/review', permanent: true },
+      { source: '/03_abortion/:path*',    has: [{ type: 'host', value: 'www.ipgyn.co.kr' }], destination: 'https://www.yeonsei365.com/abortion', permanent: true },
+      { source: '/03_abortion',           has: [{ type: 'host', value: 'www.ipgyn.co.kr' }], destination: 'https://www.yeonsei365.com/abortion', permanent: true },
+      { source: '/06_contraception/:path*', has: [{ type: 'host', value: 'www.ipgyn.co.kr' }], destination: 'https://www.yeonsei365.com/abortion/method', permanent: true },
+      { source: '/06_contraception',      has: [{ type: 'host', value: 'www.ipgyn.co.kr' }], destination: 'https://www.yeonsei365.com/abortion/method', permanent: true },
+      { source: '/:path*',               has: [{ type: 'host', value: 'www.ipgyn.co.kr' }], destination: 'https://www.yeonsei365.com', permanent: true },
+      { source: '/:path*',               has: [{ type: 'host', value: 'ipgyn.co.kr' }],     destination: 'https://www.yeonsei365.com', permanent: true },
+
+      // ipgyn.net 세부 매핑
+      { source: '/08_customer/customer1', has: [{ type: 'host', value: 'www.ipgyn.net' }], destination: 'https://www.yeonsei365.com/abortion/review', permanent: true },
+      { source: '/05_customer/customer1', has: [{ type: 'host', value: 'www.ipgyn.net' }], destination: 'https://www.yeonsei365.com/abortion/review', permanent: true },
+      { source: '/03_abortion/:path*',    has: [{ type: 'host', value: 'www.ipgyn.net' }], destination: 'https://www.yeonsei365.com/abortion', permanent: true },
+      { source: '/03_abortion',           has: [{ type: 'host', value: 'www.ipgyn.net' }], destination: 'https://www.yeonsei365.com/abortion', permanent: true },
+      { source: '/06_contraception/:path*', has: [{ type: 'host', value: 'www.ipgyn.net' }], destination: 'https://www.yeonsei365.com/abortion/method', permanent: true },
+      { source: '/06_contraception',      has: [{ type: 'host', value: 'www.ipgyn.net' }], destination: 'https://www.yeonsei365.com/abortion/method', permanent: true },
+      { source: '/:path*',               has: [{ type: 'host', value: 'www.ipgyn.net' }], destination: 'https://www.yeonsei365.com', permanent: true },
+      { source: '/:path*',               has: [{ type: 'host', value: 'ipgyn.net' }],     destination: 'https://www.yeonsei365.com', permanent: true },
+
+      // ── 기존 yeonsei365 내부 리다이렉트 ──
       {
         source: '/:path*',
         has: [{ type: 'host', value: 'yeonsei365.vercel.app' }],
