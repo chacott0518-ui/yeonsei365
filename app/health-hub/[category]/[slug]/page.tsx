@@ -135,6 +135,11 @@ export default function ArticlePage({ params }: { params: { category: string; sl
   // 관련 Q&A — 같은 카테고리에서 현재 글 제외 최대 3개
   const related = HEALTH_ARTICLES
     .filter(a => a.category === article.category && a.slug !== article.slug)
+    .sort((a, b) => {
+      const da = a.lastModified.replace(/[^0-9]/g, '')
+      const db = b.lastModified.replace(/[^0-9]/g, '')
+      return db.localeCompare(da)
+    })
     .slice(0, 3)
 
   const schemas = [

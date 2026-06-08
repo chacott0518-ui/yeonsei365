@@ -49,7 +49,11 @@ export default function CategoryPage({
   if (!cat) notFound()
 
     const articles = getArticlesByCategory(params.category as CategoryKey)
-    .sort((a, b) => new Date(b.lastModified).getTime() - new Date(a.lastModified).getTime())
+    .sort((a, b) => {
+      const da = a.lastModified.replace(/[^0-9]/g, '')
+      const db = b.lastModified.replace(/[^0-9]/g, '')
+      return db.localeCompare(da)
+    })
 
   return (
     <>

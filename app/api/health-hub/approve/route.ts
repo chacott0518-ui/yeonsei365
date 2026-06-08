@@ -22,8 +22,12 @@ export async function GET(req: Request) {
   const category     = searchParams.get('category') || 'gynecology'
   const slug         = searchParams.get('slug') || `q-${Date.now()}`
   const question     = searchParams.get('question') || ''
-  const lastModified = new Date().toLocaleString('ko-KR', { timeZone: 'Asia/Seoul', year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit' }).replace(/\. /g, '-').replace('.', '')
-  const articleUrl   = `https://www.yeonsei365.com/health-hub/${category}/${slug}`
+  const lastModified = new Date().toLocaleString('ko-KR', {
+    timeZone: 'Asia/Seoul',
+    year: 'numeric', month: '2-digit', day: '2-digit',
+    hour: '2-digit', minute: '2-digit',
+  }).replace(/\. /g, '-').replace('.', '')
+  const articleUrl = `https://www.yeonsei365.com/health-hub/${category}/${slug}`
 
   let articleData: any = null
 
@@ -38,24 +42,49 @@ export async function GET(req: Request) {
       body: JSON.stringify({
         model: 'claude-sonnet-4-20250514',
         max_tokens: 4000,
-        system: `질문이 불완전하거나 비속어가 포함되어 있어도 산부인과 관련 질문으로 해석하여 완전한 의료 정보로 재구성하세요.
+        system: `당신은 산부인과 의료 정보 전문 콘텐츠 에디터입니다.
+환자의 질문이 불완전하거나 비속어가 포함되어도, 관련 의료 주제로 재구성하여 아래 JSON만 출력하세요.
+마크다운 백틱, 앞뒤 텍스트, 주석 절대 금지. 오직 JSON만 출력.
 
-당신은 산부인과 전문의입니다. 하이닥, 닥터나우 수준의 구조화된 의료 정보를 JSON 형식으로만 출력하세요.
+━━━ 제목(title) 규칙 ━━━
+- 물음표, 느낌표, 구어체("인데", "해요", "그런데", "인가요") 금지
+- 반드시 명사형으로 마무리: "~여부", "~방법", "~안내", "~주의사항", "~가이드"
+- 핵심 키워드를 앞에 배치, 30~45자 이내
+- 예) "낙태수술 15주차인데 가능한가요?" → "임신 15주차 임신중절수술 가능 여부와 보호자 동반 안내"
+- 예) "사후피임약 얼마예요?" → "사후피임약 비용과 복용 방법 완전 가이드"
 
-핵심 규칙:
-- 병원명(연세365산부인과)과 전화번호(02-585-3650)는 전체 답변에서 합쳐서 최대 1회만 사용. 자연스럽지 않으면 아예 생략
-- 병원 홍보 문구 절대 금지. "내원하세요", "문의하세요" 반복 금지
-- 실제 의학 정보 위주로 작성. 환자가 실질적으로 도움받을 수 있는 내용
-- heroAnswer: 질문에 대한 직접 답변 2~3문장 (150자 이상, 핵심 수치·정보 포함)
-- sections 전체 합산 1500자 이상
-- text 섹션 각각 300자 이상, 실질적 의료 정보로 채울 것
-- FAQ 5개, 각 답변 150자 이상, 실제 환자 궁금증 기반
-- sections 구성: text → infobox → checklist → text → warnbox (5개 이상)
-- 의학 용어는 괄호로 설명 추가
-- 첫 문장은 반드시 질문에 대한 직접 답변으로 시작
+━━━ aiSummary 규칙 ━━━
+- 질문에 대한 핵심 답변을 1~2문장으로 요약, 60자 이내
+- "~입니다.", "~합니다." 형태로 끝내기
+- 네이버 AI 브리핑·ChatGPT·Perplexity 인용 최적화용
+- 병원명·전화번호 절대 금지
 
-반드시 아래 JSON만 출력 (마크다운 백틱 절대 금지, 앞뒤 텍스트 절대 금지):
-{"title":"SEO 최적화 제목 50자 이내","slug":"english-lowercase-hyphen-slug","heroAnswer":"질문에 대한 직접 답변 150자 이상","keywords":["키워드1","키워드2","키워드3"],"sections":[{"type":"text","title":"소제목","content":"실질적 의료 정보 300자 이상"},{"type":"infobox","content":"핵심 요약 100자 이상"},{"type":"checklist","title":"체크리스트 제목","items":["항목1","항목2","항목3","항목4","항목5"]},{"type":"text","title":"두번째 소제목","content":"실질적 의료 정보 300자 이상"},{"type":"warnbox","content":"즉시 내원 필요 증상 또는 주의사항 100자 이상"}],"faq":[{"q":"질문1","a":"답변1 150자 이상"},{"q":"질문2","a":"답변2 150자 이상"},{"q":"질문3","a":"답변3 150자 이상"},{"q":"질문4","a":"답변4 150자 이상"},{"q":"질문5","a":"답변5 150자 이상"}]}`,
+━━━ description 규칙 ━━━
+- 80~120자 메타 설명
+- 핵심 키워드 + 구체적 수치 + 결론 포함
+- 병원명·전화번호 절대 금지
+
+━━━ heroAnswer 규칙 ━━━
+- 첫 문장에 질문에 대한 직접 답변 (수치·법적 기준 등 구체적)
+- 150자 이상
+- 병원명·전화번호 절대 금지
+
+━━━ sections 규칙 ━━━
+- 전체 합산 1500자 이상
+- 모든 text 섹션의 title은 반드시 질문형: "~인가요?", "~어떻게 되나요?", "~필요한가요?"
+- text 각 섹션 content 300자 이상, 실질적 의료 정보
+- infobox: 반드시 "핵심: [사실A] | [사실B] | [사실C] | [사실D]" 형태, 파이프로 구분, 항목당 15자 이내
+- warnbox: 즉시 내원 필요 증상 또는 주의사항 구체적으로
+- sections 내 병원명·전화번호 절대 금지
+
+━━━ faq 규칙 ━━━
+- 최소 5개, 각 답변 150자 이상
+- q 필드: 실제 환자 검색어 말투 ("~가능해요?", "~얼마예요?", "~혼자 가도 돼요?")
+- a 필드: 의학적 정보 중심, 병원명·전화번호 절대 금지
+- 다양한 측면 커버: 가능여부/비용/보호자/회복/주의사항 등
+
+━━━ 출력 JSON 형식 ━━━
+{"title":"명사형 SEO 제목 30~45자","aiSummary":"핵심 요약 60자 이내 직접 답변","description":"80~120자 메타 설명","heroAnswer":"직접 답변 150자 이상","keywords":["키워드1","키워드2","키워드3","키워드4","키워드5"],"sections":[{"type":"text","title":"질문형 소제목?","content":"의료 정보 300자 이상"},{"type":"infobox","content":"핵심: 사실A | 사실B | 사실C | 사실D"},{"type":"checklist","title":"체크리스트 제목","items":["항목1","항목2","항목3","항목4","항목5"]},{"type":"text","title":"두 번째 질문형 소제목?","content":"의료 정보 300자 이상"},{"type":"warnbox","content":"주의사항 또는 즉시 내원 필요 증상"}],"faq":[{"q":"환자 말투 질문1?","a":"의학 정보 답변 150자 이상"},{"q":"환자 말투 질문2?","a":"의학 정보 답변 150자 이상"},{"q":"환자 말투 질문3?","a":"의학 정보 답변 150자 이상"},{"q":"환자 말투 질문4?","a":"의학 정보 답변 150자 이상"},{"q":"환자 말투 질문5?","a":"의학 정보 답변 150자 이상"}]}`,
         messages: [{ role: 'user', content: `카테고리: ${category}\n질문: ${question}` }],
       }),
     })
@@ -70,7 +99,7 @@ export async function GET(req: Request) {
         .trim()
       const parsed = JSON.parse(cleaned)
       if (parsed.title && parsed.sections && parsed.faq) {
-        parsed.slug = slug  // slug만 고정, 제목·내용은 AI가 정제한 것 사용
+        parsed.slug = slug
         articleData = parsed
       }
     }
@@ -78,34 +107,39 @@ export async function GET(req: Request) {
     console.error('[AI 예외]', e)
   }
 
-  // AI 실패시 폴백
+  // AI 실패 시 폴백
   if (!articleData) {
     articleData = {
-      title: question.slice(0, 50),
+      title: question.slice(0, 45).replace(/[?!]/g, '').trim() + ' 안내',
       slug,
-      heroAnswer: '정확한 답변을 위해 산부인과 전문의 진료를 권장합니다.',
+      aiSummary: '정확한 진단을 위해 산부인과 전문의 상담이 필요합니다.',
+      description: '산부인과 관련 질문에 대한 전문의 답변입니다. 정확한 진단과 치료는 직접 진료를 통해 받으시기 바랍니다.',
+      heroAnswer: '해당 증상이나 상황에 대한 정확한 진단과 치료를 위해서는 산부인과 전문의의 직접 진료가 필요합니다.',
       keywords: [question.split(' ')[0], '산부인과'],
       sections: [{
         type: 'text',
-        title: question.slice(0, 50),
-        content: '해당 증상이나 상황에 대해 정확한 진단과 치료를 위해서는 산부인과 전문의의 직접 진료가 필요합니다. 사당역 4번출구 도보 1분 거리에서 당일 진료가 가능합니다.',
+        title: '어떻게 진료를 받아야 하나요?',
+        content: '해당 증상이나 상황에 대해 정확한 진단과 치료를 위해서는 산부인과 전문의의 직접 진료가 필요합니다.',
       }],
-      faq: [{ q: question, a: '정확한 답변을 위해 산부인과 전문의 진료를 권장합니다.' }],
+      faq: [{
+        q: question,
+        a: '정확한 답변을 위해 산부인과 전문의의 직접 진료를 권장합니다.',
+      }],
     }
   }
 
-  const title    = articleData.title || question.slice(0, 50)
-  const answer   = articleData.heroAnswer || ''
-  const keywords = articleData.keywords || [question.split(' ')[0], '산부인과']
-  const stats    = articleData.stats || []
-  const sections = articleData.sections || []
-  const faq      = articleData.faq || []
+  const title       = articleData.title || question.slice(0, 45)
+  const description = articleData.description || articleData.heroAnswer?.slice(0, 110) || ''
+  const heroAnswer  = articleData.heroAnswer || ''
+  const keywords    = articleData.keywords || [question.split(' ')[0], '산부인과']
+  const sections    = articleData.sections || []
+  const faq         = articleData.faq || []
 
   // Unsplash 이미지
   let heroImage = ''
   if (process.env.UNSPLASH_ACCESS_KEY) {
     try {
-      const keyword = encodeURIComponent(title.split(' ')[0] + ' 여성 의료 산부인과')
+      const keyword = encodeURIComponent('여성 의료 산부인과')
       const uRes = await fetch(
         `https://api.unsplash.com/search/photos?query=${keyword}&per_page=1&orientation=landscape`,
         { headers: { Authorization: `Client-ID ${process.env.UNSPLASH_ACCESS_KEY}` } }
@@ -115,13 +149,18 @@ export async function GET(req: Request) {
     } catch (e) { console.warn('[Unsplash]', e) }
   }
 
-  const s = (v: string) => v.replace(/\\/g, '\\\\').replace(/'/g, "\\'").replace(/`/g, '\\`').replace(/\n/g, ' ')
-  const sq = (v: string) => JSON.stringify(v)
+  const s = (v: string) => v
+    .replace(/\\/g, '\\\\')
+    .replace(/'/g, "\\'")
+    .replace(/`/g, '\\`')
+    .replace(/\n/g, ' ')
 
-  const heroImageCode = heroImage ? `heroImage: ${sq(heroImage)},` : ''
-  const statsCode     = stats.length > 0 ? `stats: ${JSON.stringify(stats)},` : ''
-  const sectionsCode  = JSON.stringify(sections)
-    .replace(/("type":\s*"(text|infobox|warnbox|checklist|table|steps)")/g, (m, p1, p2) => `"type": "${p2}" as const`)
+  const heroImageCode = heroImage ? `heroImage: ${JSON.stringify(heroImage)},` : ''
+
+  const sectionsCode = JSON.stringify(sections)
+    .replace(/"type":\s*"(text|infobox|warnbox|checklist|table|steps)"/g,
+      (_, t) => `"type": "${t}" as const`)
+
   const faqCode = JSON.stringify(faq)
 
   const newEntry = `
@@ -129,11 +168,10 @@ export async function GET(req: Request) {
     slug: '${slug}',
     category: '${category}' as CategoryKey,
     title: '${s(title)}',
-    description: '${s(answer.slice(0, 110))}.',
+    description: '${s(description)}',
     keywords: ${JSON.stringify(keywords)},
     lastModified: '${lastModified}',
     ${heroImageCode}
-    ${statsCode}
     faq: ${faqCode},
     sections: ${sectionsCode},
   },`
@@ -159,7 +197,7 @@ export async function GET(req: Request) {
             </head><body><div class="card">
             <div style="font-size:48px">⚠️</div>
             <h1 style="font-size:22px;font-weight:900">이미 등록된 질문입니다</h1>
-            <p style="font-size:14px;color:#888">슬러그 <code>${slug}</code> 는 이미 등록되어 있습니다.</p>
+            <p style="font-size:14px;color:#888">슬러그 <code>${slug}</code>는 이미 등록되어 있습니다.</p>
             <a href="/health-hub" style="display:inline-block;background:#D6336C;color:#fff;font-size:14px;font-weight:700;padding:12px 24px;border-radius:20px;text-decoration:none;margin-top:16px">헬스허브로 이동</a>
             </div></body></html>`,
             { headers: { 'Content-Type': 'text/html; charset=utf-8' } }
