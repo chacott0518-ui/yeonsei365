@@ -39,8 +39,8 @@ export const COLUMNS: Column[] = [
     subtitle: '8주 미만 45만원부터 — 주수별 금액, 가능 기간, 합법 요건까지 한눈에',
     description: '임신초기중절수술 비용이 얼마인지, 몇 주까지 가능한지, 합법인지 궁금하신가요? 8주 미만 45만원~, 14주 이내 본인 동의만으로 가능. 당일 예약·수술. 사당역 연세365산부인과 02-585-3650.',
     icon: '🏥',
-    thumbnail: 'https://images.unsplash.com/photo-1666214280557-f1b5022eb634?w=600&q=80',
-    heroImage: 'https://images.unsplash.com/photo-1631217868264-e5b90bb7e133?w=1400&q=85',
+    thumbnail: 'https://images.unsplash.com/photo-1580281658626-ee379f3cce93?w=600&q=80',
+    heroImage: 'https://images.unsplash.com/photo-1695059963363-01b3b528433c?w=1400&q=85',
     keywords: [
       '임신초기중절수술비용',
       '임신초기낙태비용',
