@@ -49,6 +49,7 @@ export default function FloatingChip() {
       <div
         className="floating-week-calc-panel"
         style={{
+          position: 'fixed',
           transform: isOpen ? 'translateX(0)' : 'translateX(120%)',
           opacity: isOpen ? 1 : 0,
           pointerEvents: isOpen ? 'auto' : 'none',
@@ -141,6 +142,7 @@ export default function FloatingChip() {
         aria-label="주수 계산기 열기"
         aria-hidden={isOpen}
         tabIndex={isOpen ? -1 : 0}
+        style={{ position: 'fixed' }}
       >
         📅주수
       </button>

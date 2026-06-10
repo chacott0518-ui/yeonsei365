@@ -1,25 +1,33 @@
 'use client'
 
+import type { CSSProperties } from 'react'
+
 interface Props {
   page: number
   totalPages: number
   onPageChange: (page: number) => void
 }
 
-const btnBase: React.CSSProperties = {
+const btnBase: CSSProperties = {
+  display: 'inline-flex',
+  alignItems: 'center',
+  justifyContent: 'center',
   width: '32px',
   height: '32px',
+  minWidth: '32px',
+  maxWidth: '32px',
+  minHeight: '32px',
+  maxHeight: '32px',
+  flexShrink: 0,
   borderRadius: '50%',
   border: '1px solid #FFE0E8',
   fontSize: '13px',
   fontWeight: 700,
   cursor: 'pointer',
-  display: 'inline-flex',
-  alignItems: 'center',
-  justifyContent: 'center',
-  transition: 'background 0.15s ease',
   padding: 0,
   lineHeight: 1,
+  boxSizing: 'border-box',
+  transition: 'background 0.15s ease',
 }
 
 export default function HealthHubPagination({ page, totalPages, onPageChange }: Props) {
@@ -31,7 +39,18 @@ export default function HealthHubPagination({ page, totalPages, onPageChange }: 
   }
 
   return (
-    <div style={{ display: 'flex', justifyContent: 'center', alignItems: 'center', gap: '8px', marginBottom: '32px' }}>
+    <div
+      style={{
+        display: 'flex',
+        flexDirection: 'row',
+        flexWrap: 'wrap',
+        alignItems: 'center',
+        justifyContent: 'center',
+        gap: '6px',
+        marginBottom: '32px',
+        width: '100%',
+      }}
+    >
       <button
         type="button"
         aria-label="이전 페이지"

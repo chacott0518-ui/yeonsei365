@@ -16,12 +16,12 @@ body {
 }
 
 .abortion-page-wrap {
-  padding-top: 60px;
+  padding-top: 68px;
 }
 
 @media (min-width: 769px) {
   .abortion-page-wrap {
-    padding-top: 64px;
+    padding-top: 72px;
   }
 }
 
@@ -52,7 +52,7 @@ body {
 /* FloatingChip — 주수 계산기 */
 .floating-week-calc-panel {
   position: fixed;
-  z-index: 45;
+  z-index: 51;
   right: 24px;
   bottom: 32px;
   width: 260px;
@@ -65,9 +65,9 @@ body {
 
 .floating-week-calc-tab {
   position: fixed;
-  z-index: 44;
+  z-index: 52;
   top: 50%;
-  right: -48px;
+  right: -28px;
   transform: translateY(-50%);
   writing-mode: vertical-rl;
   text-orientation: mixed;
@@ -83,10 +83,12 @@ body {
   box-shadow: -2px 0 12px rgba(209, 54, 111, 0.3);
   transition: right 0.3s ease;
   font-family: inherit;
+  min-width: 36px;
 }
 
 .floating-week-calc-tab:hover,
-.floating-week-calc-tab:focus {
+.floating-week-calc-tab:focus,
+.floating-week-calc-tab:active {
   right: 0;
   outline: none;
 }
@@ -94,6 +96,7 @@ body {
 .floating-week-calc-tab-hidden {
   pointer-events: none;
   opacity: 0;
+  visibility: hidden;
 }
 
 @media (max-width: 768px) {
