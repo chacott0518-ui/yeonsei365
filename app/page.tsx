@@ -3,16 +3,18 @@ import { clinicSchema } from '@/lib/schemas'
 import Hero from '../components/Hero'
 import dynamic from 'next/dynamic'
 
-const About = dynamic(() => import('../components/About'))
-const Doctors = dynamic(() => import('../components/Doctors'))
-const Center = dynamic(() => import('../components/Center'))
-const Abortion = dynamic(() => import('../components/Abortion'))
-const Review = dynamic(() => import('../components/Review'))
-const FAQ = dynamic(() => import('../components/FAQ'))
-const Consultation = dynamic(() => import('../components/Booking'))
-const Footer = dynamic(() => import('../components/Footer'))
-const ConsultModal = dynamic(() => import('../components/ConsultModal'))
-const FloatingBar = dynamic(() => import('../components/FloatingBar'))
+const emptyFallback = () => <div aria-hidden="true" />
+
+const About = dynamic(() => import('../components/About'), { ssr: false, loading: emptyFallback })
+const Doctors = dynamic(() => import('../components/Doctors'), { ssr: false, loading: emptyFallback })
+const Center = dynamic(() => import('../components/Center'), { ssr: false, loading: emptyFallback })
+const Abortion = dynamic(() => import('../components/Abortion'), { ssr: false, loading: emptyFallback })
+const Review = dynamic(() => import('../components/Review'), { ssr: false, loading: emptyFallback })
+const FAQ = dynamic(() => import('../components/FAQ'), { ssr: false, loading: emptyFallback })
+const Consultation = dynamic(() => import('../components/Booking'), { ssr: false, loading: emptyFallback })
+const Footer = dynamic(() => import('../components/Footer'), { ssr: false, loading: emptyFallback })
+const ConsultModal = dynamic(() => import('../components/ConsultModal'), { ssr: false, loading: emptyFallback })
+const FloatingBar = dynamic(() => import('../components/FloatingBar'), { ssr: false, loading: emptyFallback })
 
 const FAQ_SCHEMA = {
   '@context': 'https://schema.org',

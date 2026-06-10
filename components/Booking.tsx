@@ -1,5 +1,6 @@
 'use client'
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Phone, MapPin, MessageCircle, Send } from 'lucide-react';
 
@@ -94,10 +95,13 @@ const Booking: React.FC = () => {
                 <div className="space-y-4">
                   {/* 지도 + 오버레이 버튼 */}
                   <div className="relative rounded-2xl overflow-hidden shadow-md">
-                    <img
+                    <Image
                       src="https://i.imgur.com/E5YzhoJ.png"
                       alt="연세365산부인과 지도"
+                      width={800}
+                      height={600}
                       className="w-full aspect-[4/3] object-cover"
+                      loading="lazy"
                     />
                     <a
                       href="https://map.naver.com/p/entry/place/36298054?lng=126.9814415&lat=37.4743873&placePath=/home"
@@ -225,10 +229,13 @@ const Booking: React.FC = () => {
 
               {/* 지도 이미지 */}
               <div className="bg-white rounded-2xl shadow-lg overflow-hidden flex-1 min-h-[300px] lg:min-h-0">
-                <img
+                <Image
                   src="https://i.imgur.com/E5YzhoJ.png"
                   alt="연세365산부인과 지도"
+                  width={800}
+                  height={600}
                   className="w-full h-full object-cover"
+                  loading="lazy"
                 />
               </div>
 

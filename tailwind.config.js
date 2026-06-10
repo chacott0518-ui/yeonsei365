@@ -23,8 +23,8 @@ module.exports = {
         },
       },
       fontFamily: {
-        serif: ['Playfair Display', 'serif'],
-        sans: ['Pretendard', 'Inter', 'sans-serif'],
+        serif: ['var(--font-playfair)', 'serif'],
+        sans: ['var(--font-pretendard)', 'var(--font-inter)', 'sans-serif'],
       },
       letterSpacing: {
         tightest: '-0.05em',

@@ -1,5 +1,6 @@
 'use client'
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { CLINICS } from '../constants';
 import { ChevronRight, ChevronDown } from 'lucide-react';
@@ -72,10 +73,13 @@ const Center: React.FC = () => {
                  className="h-full bg-white rounded-3xl overflow-hidden shadow-xl border border-primary/10 flex flex-row"
                >
                  <div className="w-1/2 relative" style={{ aspectRatio: '16/9' }}>
-                    <img 
-                      src={CLINICS[activeTab].image} 
-                      alt={CLINICS[activeTab].title} 
-                      className="absolute inset-0 w-full h-full object-cover"
+                    <Image
+                      src={CLINICS[activeTab].image}
+                      alt={CLINICS[activeTab].title}
+                      fill
+                      className="object-cover"
+                      sizes="50vw"
+                      loading="lazy"
                     />
                     <div className="absolute inset-0 bg-primary/20 mix-blend-multiply" />
                  </div>
@@ -114,11 +118,14 @@ const Center: React.FC = () => {
                 className="w-full flex items-center gap-3 p-3 pr-4 text-left focus:outline-none active:bg-surface transition-colors"
               >
                 {/* 썸네일 이미지 */}
-                <div className="w-16 h-16 rounded-xl overflow-hidden flex-shrink-0">
-                  <img 
-                    src={clinic.image} 
+                <div className="w-16 h-16 rounded-xl overflow-hidden flex-shrink-0 relative">
+                  <Image
+                    src={clinic.image}
                     alt={clinic.title}
-                    className="w-full h-full object-cover"
+                    fill
+                    className="object-cover"
+                    sizes="64px"
+                    loading="lazy"
                   />
                 </div>
                 {/* 텍스트 */}
@@ -146,10 +153,13 @@ const Center: React.FC = () => {
                   >
                     {/* 이미지 영역 */}
                     <div className="relative aspect-[4/3] mx-3">
-                      <img 
-                        src={clinic.image} 
+                      <Image
+                        src={clinic.image}
                         alt={clinic.title}
-                        className="w-full h-full object-cover rounded-xl"
+                        fill
+                        className="object-cover rounded-xl"
+                        sizes="100vw"
+                        loading="lazy"
                       />
                       <div className="absolute inset-0 bg-primary/10 mix-blend-multiply rounded-xl" />
                     </div>

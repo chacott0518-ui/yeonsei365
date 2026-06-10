@@ -137,7 +137,7 @@ export default function OvulationCalculator(){
         <div className="rounded-2xl overflow-hidden" style={{background:'#fff',border:'1px solid #f0dce4'}}>
           {FAQS.map((f,i)=>(
             <div key={i} style={{borderBottom:i<FAQS.length-1?'1px solid #f0dce4':'none'}}>
-              <button onClick={()=>setFaqOpen(faqOpen===i?null:i)} className="w-full flex items-center justify-between gap-3 px-5 py-4 text-left" style={{background:'transparent',border:'none',cursor:'pointer',fontFamily:'inherit'}}>
+              <button onClick={()=>setFaqOpen(faqOpen===i?null:i)} aria-expanded={faqOpen===i} className="w-full flex items-center justify-between gap-3 px-5 py-4 text-left" style={{background:'transparent',border:'none',cursor:'pointer',fontFamily:'inherit'}}>
                 <span className="text-sm font-bold" style={{color:'#2a1520'}}>Q{i+1}. {f.q}</span>
                 <span className="flex-shrink-0 text-sm" style={{color:'#c0a0b0',transform:faqOpen===i?'rotate(180deg)':'none',display:'inline-block',transition:'transform 0.2s'}}>▼</span>
               </button>

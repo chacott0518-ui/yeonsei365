@@ -66,22 +66,24 @@ export default function HealthMagazineClient() {
 
       {/* 탭 */}
       <div style={{ background: '#fff', borderBottom: `1px solid ${C.pbd}`, position: 'sticky', top: '64px', zIndex: 40 }}>
-  <div style={{ maxWidth: '900px', margin: '0 auto', padding: '0 20px', display: 'flex' }}>
-    {[
-      { label: '자가진단 퀴즈', href: '/health-magazine/quiz' },
-      { label: 'FAQ', href: '/abortion/faq' },
-      { label: '건강 칼럼', href: '/health-magazine/column' },
-    ].map(tab => (
-      <Link key={tab.href} href={tab.href} style={{
-        padding: '14px 20px', fontSize: '13px', fontWeight: 700,
-        color: C.p, textDecoration: 'none', borderBottom: `2px solid transparent`,
-        display: 'block',
-      }}>
-        {tab.label}
-      </Link>
-    ))}
-  </div>
-</div>
+        <div className="scrollbar-hide" style={{ maxWidth: '900px', margin: '0 auto', padding: '0 20px', overflowX: 'auto', WebkitOverflowScrolling: 'touch' }}>
+          <div style={{ display: 'flex', whiteSpace: 'nowrap' }}>
+            {[
+              { label: '자가진단 퀴즈', href: '/health-magazine/quiz' },
+              { label: 'FAQ', href: '/abortion/faq' },
+              { label: '건강 칼럼', href: '/health-magazine/column' },
+            ].map(tab => (
+              <Link key={tab.href} href={tab.href} style={{
+                padding: '14px 20px', fontSize: '13px', fontWeight: 700,
+                color: C.p, textDecoration: 'none', borderBottom: `2px solid transparent`,
+                display: 'block', flexShrink: 0,
+              }}>
+                {tab.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+      </div>
 
       {/* 자가진단 퀴즈 섹션 */}
       <section id="quiz" style={{ background: C.pb, padding: '60px 0' }}>
@@ -130,6 +132,7 @@ export default function HealthMagazineClient() {
             {FAQ_ITEMS.map((item, i) => (
               <div key={i} style={{ border: `0.5px solid ${C.pbd}`, borderRadius: '12px', overflow: 'hidden', background: '#fff' }}>
                 <button onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                  aria-expanded={openFaq === i}
                   style={{ width: '100%', padding: '14px 16px', display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '8px', background: 'none', border: 'none', cursor: 'pointer', textAlign: 'left' }}>
                   <div style={{ display: 'flex', gap: '8px', alignItems: 'flex-start' }}>
                     <span style={{ color: C.p, fontWeight: 700, fontSize: '13px', flexShrink: 0 }}>Q.</span>
@@ -151,6 +154,7 @@ export default function HealthMagazineClient() {
             {FAQ_ITEMS.map((item, i) => (
               <div key={i} style={{ border: `0.5px solid ${C.pbd}`, borderRadius: '12px', overflow: 'hidden', background: '#fff', marginBottom: '8px' }}>
                 <button onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                  aria-expanded={openFaq === i}
                   style={{ width: '100%', padding: '14px 16px', display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '8px', background: 'none', border: 'none', cursor: 'pointer', textAlign: 'left' }}>
                   <div style={{ display: 'flex', gap: '8px', alignItems: 'flex-start' }}>
                     <span style={{ color: C.p, fontWeight: 700, fontSize: '13px', flexShrink: 0 }}>Q.</span>

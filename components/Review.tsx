@@ -1,5 +1,6 @@
 'use client'
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Quote, ChevronDown, ChevronUp } from 'lucide-react';
 
@@ -90,10 +91,13 @@ const Review: React.FC = () => {
                     onClick={() => setIsExpanded(true)}
                     className="relative w-full h-[280px] rounded-2xl overflow-hidden shadow-xl cursor-pointer group"
                 >
-                    <img 
+                    <Image
                         src="https://i.pinimg.com/736x/c6/14/45/c61445700aca583f2657e1714379cf7d.jpg"
-                        alt="Reviews Cover" 
+                        alt="Reviews Cover"
+                        width={800}
+                        height={280}
                         className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                        loading="lazy"
                     />
                     <div className="absolute inset-0 bg-primary/80 mix-blend-multiply" />
                     <div className="absolute inset-0 flex flex-col items-center justify-center text-center p-6">

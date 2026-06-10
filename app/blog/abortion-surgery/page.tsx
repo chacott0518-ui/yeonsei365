@@ -113,7 +113,7 @@ export default function AbortionSurgeryClinicPage() {
         borderBottom: `2px solid ${C.bd}`, padding: '10px 20px',
         display: 'flex', alignItems: 'center', justifyContent: 'space-between',
       }}>
-        <a href="/" style={{ textDecoration: 'none', flexShrink: 0 }}>
+        <a href="/" aria-label="홈으로" style={{ textDecoration: 'none', flexShrink: 0 }}>
           <img src="https://i.imgur.com/f7h5DY0.png" alt="연세365 로고" style={{ height: '32px', width: 'auto' }} />
         </a>
         <div style={{ display: 'flex', gap: '6px', alignItems: 'center', flexWrap: 'wrap', justifyContent: 'flex-end' }}>

@@ -24,7 +24,10 @@ function MobileAccordion({ title, icon, children }: { title: string; icon: strin
   const [open, setOpen] = useState(false)
   return (
     <div style={{ borderBottom: `0.5px solid ${C.pbd}` }}>
-      <button onClick={() => setOpen(!open)} style={{ width: '100%', padding: '14px 16px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: C.pb, border: 'none', cursor: 'pointer' }}>
+      <button
+        aria-expanded={open}
+        onClick={() => setOpen(!open)}
+        style={{ width: '100%', padding: '14px 16px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: C.pb, border: 'none', cursor: 'pointer' }}>
         <span style={{ fontSize: '13px', fontWeight: 700, color: C.p }}>{icon} {title}</span>
         <span style={{ color: C.p, fontSize: '12px', transform: open ? 'rotate(180deg)' : 'rotate(0)', transition: 'transform .2s', display: 'inline-block' }}>▼</span>
       </button>

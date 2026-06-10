@@ -51,6 +51,7 @@ function MobileAccordion({ title, icon, children }: { title: string; icon: strin
   return (
     <div style={{ borderBottom: `0.5px solid ${C.pbd}` }}>
       <button
+        aria-expanded={open}
         onClick={() => setOpen(!open)}
         style={{ width: '100%', padding: '14px 16px', display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: C.pb, border: 'none', cursor: 'pointer' }}
       >

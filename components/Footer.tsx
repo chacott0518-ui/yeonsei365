@@ -1,5 +1,6 @@
 'use client'
 import React from 'react';
+import Image from 'next/image';
 
 const Footer: React.FC = () => {
   return (
@@ -11,10 +12,13 @@ const Footer: React.FC = () => {
           
           {/* 좌측: 로고 및 정보 */}
           <div className="flex flex-col gap-2 md:gap-6">
-            <img 
-              src="https://i.imgur.com/f7h5DY0.png" 
-              alt="연세365 로고" 
-              className="h-10 md:h-20 w-auto object-contain self-start" 
+            <Image
+              src="https://i.imgur.com/f7h5DY0.png"
+              alt="연세365 로고"
+              width={160}
+              height={80}
+              className="h-10 md:h-20 w-auto object-contain self-start"
+              loading="lazy"
             />
             <div className="text-[10px] md:text-xs text-gray-600 leading-relaxed space-y-0.5 md:space-y-1 text-left">
               <p className="font-bold text-sm text-gray-800 mb-2 hidden md:block">연세365산부인과의원</p>
@@ -49,6 +53,7 @@ const Footer: React.FC = () => {
               href="http://pf.kakao.com/_TpaBj/chat" 
               target="_blank" 
               rel="noopener noreferrer"
+              aria-label="카카오톡 상담"
               className="w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center shadow-sm bg-white text-[#D14D72] hover:opacity-80 transition-all"
             >
               <svg viewBox="0 0 24 24" className="w-5 h-5 md:w-6 md:h-6" fill="currentColor">

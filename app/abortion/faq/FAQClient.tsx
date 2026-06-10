@@ -342,6 +342,7 @@ export default function FAQClient() {
                       return (
                         <div key={idx} style={{ border: '1px solid #f0d0dc', borderRadius: '12px', marginBottom: '8px', background: '#fff', overflow: 'hidden', display: idx < visible ? 'block' : 'none' }}>
                           <button onClick={() => toggleFAQ(globalIdx)}
+                            aria-expanded={openIndex === globalIdx}
                             style={{ width: '100%', padding: '14px 18px', display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '8px', background: 'none', border: 'none', cursor: 'pointer', textAlign: 'left' }}>
                             <span style={{ display: 'flex', gap: '8px', alignItems: 'flex-start' }}>
                               <span style={{ color: '#D6336C', fontWeight: 700, flexShrink: 0, fontSize: '14px' }}>Q.</span>
@@ -397,6 +398,7 @@ export default function FAQClient() {
                 {filtered.map((faq, idx) => (
                   <div key={idx} style={{ border: '1px solid #f0d0dc', borderRadius: '12px', marginBottom: '8px', background: '#fff', overflow: 'hidden' }}>
                     <button onClick={() => toggleFAQ(idx)}
+                      aria-expanded={openIndex === idx}
                       style={{ width: '100%', padding: '14px 18px', display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '8px', background: 'none', border: 'none', cursor: 'pointer', textAlign: 'left' }}>
                       <span style={{ display: 'flex', gap: '8px', alignItems: 'flex-start' }}>
                         <span style={{ color: '#D6336C', fontWeight: 700, flexShrink: 0, fontSize: '14px' }}>Q.</span>

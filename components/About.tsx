@@ -1,5 +1,6 @@
 'use client'
 import React, { useRef, useState, useCallback } from 'react';
+import Image from 'next/image';
 import { motion } from 'framer-motion';
 
 const STORY_CARDS = [
@@ -181,14 +182,21 @@ const About: React.FC = () => {
               {/* Image Side - Desktop Only */}
               <div className="relative hidden md:block">
                  <div className="aspect-[4/3] rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
-                    <motion.img 
-                      src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=2053&auto=format&fit=crop"
-                      alt="Hospital Interior"
-                      className="w-full h-full object-cover"
+                    <motion.div 
+                      className="relative w-full h-full"
                       initial={{ scale: 1.1 }}
                       whileInView={{ scale: 1 }}
                       transition={{ duration: 1.5 }}
-                    />
+                    >
+                      <Image
+                        src="https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?q=80&w=2053&auto=format&fit=crop"
+                        alt="Hospital Interior"
+                        width={820}
+                        height={615}
+                        className="w-full h-full object-cover"
+                        loading="lazy"
+                      />
+                    </motion.div>
                  </div>
                  {/* Accent Box */}
                  <div className="absolute -bottom-10 -left-10 w-64 h-64 bg-primary/5 rounded-full z-[-1]" />

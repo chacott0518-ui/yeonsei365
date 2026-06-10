@@ -272,7 +272,7 @@ export default function AbortionLegalPage() {
 
       {/* 헤더 */}
       <header style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50, background: 'rgba(255,255,255,0.95)', backdropFilter: 'blur(8px)', borderBottom: '1px solid #E0E0E0', padding: '14px 20px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-        <a href="/" style={{ textDecoration: 'none' }}>
+        <a href="/" aria-label="홈으로" style={{ textDecoration: 'none' }}>
           <img src="https://i.imgur.com/f7h5DY0.png" alt="연세365 로고" style={{ height: '36px', width: 'auto' }} />
         </a>
         <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>

@@ -21,9 +21,9 @@ export default function AskPage() {
   if (status === 'success') return (
     <div style={{ textAlign: 'center', padding: '60px 20px' }}>
       <div style={{ fontSize: '56px', marginBottom: '20px' }}>✅</div>
-      <h2 style={{ fontSize: '22px', fontWeight: 900, color: C.tm, marginBottom: '10px' }}>
+      <h1 style={{ fontSize: '22px', fontWeight: 900, color: C.tm, marginBottom: '10px' }}>
         질문이 접수되었습니다
-      </h2>
+      </h1>
       <p style={{ fontSize: '14px', color: C.tg, lineHeight: 1.8, marginBottom: '24px' }}>
         전문의 검토 후 AI 답변이 자동으로 생성됩니다.<br />
         보통 <strong style={{ color: C.p }}>수분 이내</strong> 게시됩니다.

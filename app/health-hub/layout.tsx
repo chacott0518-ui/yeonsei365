@@ -1,5 +1,6 @@
 import Link from 'next/link'
 import { CATEGORIES, HEALTH_ARTICLES } from '@/lib/healthHub'
+import HealthHubCategoryTabs from '@/components/HealthHubCategoryTabs'
 import type { CategoryKey } from '@/lib/healthHub'
 
 const C = { p: '#D6336C', pd: '#993556', pp: '#5c0e20', pb: '#FFF5F7', pbd: '#f0d0dc', tm: '#1a1a1a', tg: '#888' }
@@ -9,12 +10,8 @@ export default function HealthHubLayout({ children }: { children: React.ReactNod
     <>
       <div style={{ paddingTop: '60px' }}>
         <div style={{ background: C.pb, borderBottom: `0.5px solid ${C.pbd}`, padding: '10px 20px' }}>
-          <div style={{ maxWidth: '1060px', margin: '0 auto', display: 'flex', alignItems: 'center', gap: '8px', flexWrap: 'wrap' }}>
-            <Link href="/health-hub" style={{ fontSize: '13px', fontWeight: 700, color: C.p, textDecoration: 'none' }}>AI 건강 Q&A</Link>
-            <span style={{ color: C.pbd }}>|</span>
-            {Object.entries(CATEGORIES).map(([key, cat]) => (
-              <Link key={key} href={`/health-hub/${key}`} style={{ fontSize: '12px', color: C.tg, textDecoration: 'none' }}>{cat.label}</Link>
-            ))}
+          <div style={{ maxWidth: '1060px', margin: '0 auto' }}>
+            <HealthHubCategoryTabs />
           </div>
         </div>
         <div style={{ maxWidth: '1060px', margin: '0 auto', padding: '32px 20px 100px' }}>
@@ -22,6 +19,10 @@ export default function HealthHubLayout({ children }: { children: React.ReactNod
             <aside id="hh-sidebar" style={{ position: 'sticky', top: '80px' }}>
               <div style={{ background: '#fff', border: `0.5px solid ${C.pbd}`, borderRadius: '14px', padding: '16px 0', marginBottom: '14px' }}>
                 <div style={{ fontSize: '10px', fontWeight: 700, color: '#bbb', letterSpacing: '.06em', padding: '0 16px 10px' }}>카테고리</div>
+                <Link href="/health-hub" style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', padding: '9px 16px', fontSize: '13px', color: C.tm, fontWeight: 700, textDecoration: 'none', borderBottom: `0.5px solid ${C.pbd}` }}>
+  <span>전체</span>
+  <span style={{ fontSize: '11px', color: C.tg, background: C.pb, padding: '1px 6px', borderRadius: '8px' }}>{HEALTH_ARTICLES.length}</span>
+</Link>
                 {Object.entries(CATEGORIES).map(([key, cat]) => {
                   const count = HEALTH_ARTICLES.filter(a => a.category === key).length
                   return (

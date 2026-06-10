@@ -133,7 +133,7 @@ export default function FaqSlugPage({ params }: Props) {
 
       {/* 헤더 */}
       <header style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50, background: 'rgba(255,255,255,0.95)', backdropFilter: 'blur(8px)', borderBottom: '1px solid #FFE0E8', padding: '14px 20px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-        <Link href="/"><img src="https://i.imgur.com/f7h5DY0.png" alt="연세365 로고" style={{ height: '36px' }} /></Link>
+        <Link href="/" aria-label="홈으로"><img src="https://i.imgur.com/f7h5DY0.png" alt="연세365 로고" style={{ height: '36px' }} /></Link>
         <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
           <Link href="/abortion/faq" style={{ fontSize: '13px', color: '#994466', textDecoration: 'none', fontWeight: 600 }}>FAQ 전체보기</Link>
           <a href="http://pf.kakao.com/_TpaBj/chat" target="_blank" rel="noopener noreferrer" style={{ background: '#FEE500', color: '#3B1B1B', padding: '8px 14px', borderRadius: '20px', fontSize: '12px', fontWeight: 700, textDecoration: 'none' }}>💬 카톡상담</a>

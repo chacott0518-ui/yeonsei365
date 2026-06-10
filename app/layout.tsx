@@ -1,9 +1,33 @@
 import type { Metadata } from 'next';
+import { Playfair_Display, Inter } from 'next/font/google';
+import localFont from 'next/font/local';
 import '../index.css';
 import PricePopup from '../components/PricePopup';
 import FloatingChip from '../components/FloatingChip';
 import FloatingBar from '../components/FloatingBar';
 import Header from '../components/Header';
+
+const playfair = Playfair_Display({
+  subsets: ['latin'],
+  weight: ['400', '600', '700'],
+  style: ['normal', 'italic'],
+  display: 'swap',
+  variable: '--font-playfair',
+});
+
+const inter = Inter({
+  subsets: ['latin'],
+  weight: ['300', '400', '500'],
+  display: 'swap',
+  variable: '--font-inter',
+});
+
+const pretendard = localFont({
+  src: '../public/fonts/PretendardVariable.woff2',
+  display: 'swap',
+  variable: '--font-pretendard',
+  weight: '45 920',
+});
 
 export const metadata: Metadata = {
   title: '임신중절수술 금액 및 낙태 비용 가격 | 사당역 연세365산부인과',
@@ -41,24 +65,8 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="ko">
+    <html lang="ko" className={`${playfair.variable} ${inter.variable} ${pretendard.variable}`}>
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link
-          rel="preconnect"
-          href="https://fonts.gstatic.com"
-          crossOrigin="anonymous"
-        />
-        <link
-          href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@300;400;500&display=swap"
-          rel="stylesheet"
-        />
-        <link
-          rel="stylesheet"
-          as="style"
-          crossOrigin="anonymous"
-          href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.8/dist/web/static/pretendard.css"
-        />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{

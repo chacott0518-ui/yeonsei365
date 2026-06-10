@@ -195,7 +195,7 @@ export default function AbortionAmountPage() {
         borderBottom: '1px solid #FFE0E8', padding: '14px 20px',
         display: 'flex', alignItems: 'center', justifyContent: 'space-between',
       }}>
-        <a href="/" style={{ textDecoration: 'none' }}>
+        <a href="/" aria-label="홈으로" style={{ textDecoration: 'none' }}>
           <img src="https://i.imgur.com/f7h5DY0.png" alt="연세365 로고" style={{ height: '36px', width: 'auto' }} />
         </a>
         <div style={{ display: 'flex', gap: '16px', alignItems: 'center' }}>

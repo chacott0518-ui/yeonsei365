@@ -1,5 +1,6 @@
 'use client'
 import React, { useState, useEffect, useRef, useCallback } from 'react';
+import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { MessageCircle } from 'lucide-react';
 
@@ -374,8 +375,8 @@ const Abortion: React.FC = () => {
                     <div className="space-y-3">
                       {diagnosisMethods.map((m) => (
                         <div key={m.id} className="bg-white rounded-xl overflow-hidden shadow border border-primary/10 flex">
-                          <div className="w-24 flex-shrink-0">
-                            <img src={m.image} alt={m.alt} className="w-full h-full object-cover" />
+                          <div className="w-24 flex-shrink-0 relative h-24">
+                            <Image src={m.image} alt={m.alt} fill className="object-cover" sizes="96px" loading="lazy" />
                           </div>
                           <div className="p-3 flex-1 min-w-0">
                             <h4 className="font-bold text-sm text-gray-800 mb-1">{m.title}</h4>
@@ -429,8 +430,8 @@ const Abortion: React.FC = () => {
                     <div className="space-y-3">
                       {afterCare.map((care) => (
                         <div key={care.id} className="flex items-start gap-3 bg-white rounded-xl p-3 shadow-sm border border-primary/5">
-                          <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0 border-2 border-primary/20">
-                            <img src={care.image} alt={care.alt} className="w-full h-full object-cover" />
+                          <div className="w-12 h-12 rounded-full overflow-hidden flex-shrink-0 border-2 border-primary/20 relative">
+                            <Image src={care.image} alt={care.alt} fill className="object-cover" sizes="48px" loading="lazy" />
                           </div>
                           <p className="text-sm text-gray-700 leading-relaxed pt-1 flex-1">{care.title}</p>
                         </div>
@@ -762,7 +763,7 @@ const Abortion: React.FC = () => {
                   className="bg-white rounded-2xl overflow-hidden shadow-lg border border-primary/10 hover:shadow-xl transition-shadow"
                 >
                   <div className="relative h-48 bg-gray-200">
-                    <img src={method.image} alt={method.alt} className="w-full h-full object-cover" />
+                    <Image src={method.image} alt={method.alt} fill className="object-cover" sizes="(max-width:768px) 100vw, 33vw" loading="lazy" />
                     <div className="absolute inset-0 bg-primary/20" />
                   </div>
                   <div className="p-6 text-center">
@@ -838,8 +839,8 @@ const Abortion: React.FC = () => {
                   transition={{ delay: idx * 0.1 }}
                   className="flex flex-col items-center text-center"
                 >
-                  <div className="w-40 h-40 rounded-full overflow-hidden mb-4 border-4 border-primary/20 shadow-lg">
-                    <img src={care.image} alt={care.alt} className="w-full h-full object-cover" />
+                  <div className="w-40 h-40 rounded-full overflow-hidden mb-4 border-4 border-primary/20 shadow-lg relative">
+                    <Image src={care.image} alt={care.alt} fill className="object-cover" sizes="160px" loading="lazy" />
                   </div>
                   <p className="text-sm text-gray-700 leading-relaxed px-2">{care.title}</p>
                 </motion.div>

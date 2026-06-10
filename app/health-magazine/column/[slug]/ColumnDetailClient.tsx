@@ -265,6 +265,7 @@ export default function ColumnDetailClient({ column }: { column: Column }) {
               {column.faq.map((f, i) => (
                 <div key={i} style={{ border: `0.5px solid ${openFaq === i ? C.p : C.pbd}`, borderRadius: '12px', overflow: 'hidden', background: openFaq === i ? C.pb : '#fff' }}>
                   <button onClick={() => setOpenFaq(openFaq === i ? null : i)}
+                    aria-expanded={openFaq === i}
                     style={{ width: '100%', padding: '14px 18px', display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '10px', background: 'none', border: 'none', cursor: 'pointer', textAlign: 'left' }}>
                     <div style={{ display: 'flex', gap: '8px', alignItems: 'flex-start' }}>
                       <span style={{ color: C.p, fontWeight: 700, fontSize: '14px', flexShrink: 0 }}>Q.</span>
