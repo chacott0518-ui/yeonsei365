@@ -16,12 +16,12 @@ body {
 }
 
 .abortion-page-wrap {
-  padding-top: 68px;
+  padding-top: 65px;
 }
 
-@media (min-width: 769px) {
+@media (max-width: 768px) {
   .abortion-page-wrap {
-    padding-top: 72px;
+    padding-top: 61px;
   }
 }
 
