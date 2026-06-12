@@ -2,9 +2,10 @@ import type { Metadata } from 'next';
 import { Playfair_Display, Inter } from 'next/font/google';
 import localFont from 'next/font/local';
 import '../index.css';
+import dynamic from 'next/dynamic'
 import PricePopup from '../components/PricePopup';
-import FloatingChip from '../components/FloatingChip';
 import FloatingBar from '../components/FloatingBar';
+const FloatingChip = dynamic(() => import('../components/FloatingChip'), { ssr: false })
 import Header from '../components/Header';
 
 const playfair = Playfair_Display({

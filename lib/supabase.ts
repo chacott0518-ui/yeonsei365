@@ -1,11 +1,14 @@
 import { createClient } from '@supabase/supabase-js'
 
-const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL!
-const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL || ''
+const supabaseAnonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY || ''
 
-export const supabase = createClient(supabaseUrl, supabaseAnonKey)
+export const supabase = supabaseUrl
+  ? createClient(supabaseUrl, supabaseAnonKey)
+  : null as any
 
 export async function incrementPageView(slug: string) {
+  if (!supabaseUrl) return
   try {
     await supabase.rpc('increment_page_view', { p_slug: slug })
   } catch (e) {
@@ -14,6 +17,7 @@ export async function incrementPageView(slug: string) {
 }
 
 export async function getPageView(slug: string): Promise<number> {
+  if (!supabaseUrl) return 0
   try {
     const { data } = await supabase
       .from('page_views')
