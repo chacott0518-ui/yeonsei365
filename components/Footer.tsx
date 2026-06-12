@@ -21,7 +21,9 @@ const Footer: React.FC = () => {
               loading="lazy"
             />
             <div className="text-[10px] md:text-xs text-gray-600 leading-relaxed space-y-0.5 md:space-y-1 text-left">
-              <p className="font-bold text-sm text-gray-800 mb-2 hidden md:block">연세365산부인과의원</p>
+            <p className="font-bold text-sm text-gray-800 mb-2">
+  연세365산부인과 <span className="text-xs text-gray-500 font-normal">(구 연세미산부인과)</span>
+</p>
               <p>서울시 관악구 과천대로 939, 3층</p>
               <p className="hidden md:block">대표 : 이진우 | 사업자등록번호 : 719-20-00835</p>
               <p className="md:hidden">대표 : 이진우</p>
