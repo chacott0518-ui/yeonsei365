@@ -204,14 +204,13 @@ export async function GET(req: Request) {
           )
         }
 
-        const updated = current.replace(
-          /\]\s+export function getArticleBySlug/,
-          () => `${newEntry}\n  ]\n\n  export function getArticleBySlug`
-        )
+        const markerIdx = current.indexOf('export function getArticleBySlug')
+const insertIdx = current.lastIndexOf(']', markerIdx)
+const updated = current.slice(0, insertIdx) + newEntry + '\n  ' + current.slice(insertIdx)
 
-        if (updated === current) {
-          githubResult = '❌ 정규식 매칭 실패 — healthHub.ts 파일 구조 확인 필요'
-        } else {
+if (markerIdx === -1 || insertIdx === -1) {
+  githubResult = '❌ 정규식 매칭 실패 — healthHub.ts 파일 구조 확인 필요'
+} else {
           const pushRes = await fetch(
             `https://api.github.com/repos/${REPO}/contents/lib/healthHub.ts`,
             {
