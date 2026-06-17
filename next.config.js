@@ -91,8 +91,6 @@ const nextConfig = {
       { source: '/09_community', destination: '/', permanent: true },
       { source: '/member/:path*', destination: '/', permanent: true },
       { source: '/member', destination: '/', permanent: true },
-      { source: '/임신주수계산기', destination: '/pregnancy-calculator', permanent: true },
-      { source: '/배란일계산기', destination: '/ovulation-calculator', permanent: true },
     ]
   },
 }
