@@ -49,48 +49,44 @@ body {
   animation-delay: 1.2s;
 }
 
-/* FloatingChip — 주수 계산기 */
-.floating-week-calc-panel {
-  position: fixed;
-  z-index: 51;
-  right: 24px;
-  bottom: 32px;
-  width: 260px;
-  background: #D1366F;
-  border-radius: 16px;
-  padding: 14px;
-  box-shadow: 0 8px 28px rgba(209, 54, 111, 0.35);
-  transition: transform 0.3s ease, opacity 0.3s ease;
-}
-
+/* FloatingChip — 주수/배란일 계산기 */
 .floating-week-calc-tab {
   position: fixed;
   z-index: 52;
-  top: 50%;
-  right: -28px;
-  transform: translateY(-50%);
+  right: 0;
   writing-mode: vertical-rl;
   text-orientation: mixed;
   background: #D1366F;
   color: #fff;
   border: none;
   border-radius: 12px 0 0 12px;
-  padding: 14px 8px;
-  font-size: 12px;
+  padding: 16px 10px;
+  font-size: 13px;
   font-weight: 800;
   letter-spacing: 0.05em;
   cursor: pointer;
   box-shadow: -2px 0 12px rgba(209, 54, 111, 0.3);
-  transition: right 0.3s ease;
   font-family: inherit;
-  min-width: 36px;
+  min-width: 44px;
+  touch-action: manipulation;
+  line-height: 1.4;
+}
+
+.floating-week-calc-tab:not(.floating-ov-tab) {
+  top: calc(50% - 4px);
+  transform: translateY(-100%);
+}
+
+.floating-ov-tab {
+  top: calc(50% + 4px);
+  transform: translateY(0%);
 }
 
 .floating-week-calc-tab:hover,
 .floating-week-calc-tab:focus,
 .floating-week-calc-tab:active {
-  right: 0;
   outline: none;
+  background: #b02255;
 }
 
 .floating-week-calc-tab-hidden {
@@ -100,9 +96,9 @@ body {
 }
 
 @media (max-width: 768px) {
-  .floating-week-calc-panel {
-    right: 12px;
-    bottom: 64px;
-    width: 200px;
+  .floating-week-calc-tab {
+    padding: 16px 10px;
+    font-size: 12px;
+    min-width: 44px;
   }
 }

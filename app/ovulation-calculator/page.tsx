@@ -6,11 +6,11 @@ export const metadata: Metadata = {
   title: '배란일 계산기 | 가임기·배란일 자동 계산 — 연세365산부인과',
   description: '생리 시작일과 주기를 입력하면 배란일, 가임기 구간, 임신 최적일, 다음 생리 예정일을 달력으로 자동 계산합니다. 연세365산부인과 무료 배란일 계산기.',
   keywords: ['배란일계산기','배란일 계산','가임기 계산기','임신 가능한 날','생리주기 계산'],
-  alternates: { canonical: 'https://www.yeonsei365.com/배란일계산기' },
+  alternates: { canonical: 'https://www.yeonsei365.com/ovulation-calculator' },
   openGraph: {
     title: '배란일·가임기 계산기 — 연세365산부인과',
     description: '생리 시작일·주기 입력으로 배란일·가임기·임신 최적일 즉시 확인',
-    url: 'https://www.yeonsei365.com/배란일계산기',
+    url: 'https://www.yeonsei365.com/ovulation-calculator',
     siteName: '연세365산부인과',
     locale: 'ko_KR',
     type: 'website',

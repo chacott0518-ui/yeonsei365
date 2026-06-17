@@ -77,8 +77,13 @@ export default function RootLayout({
                 {
                   "@type": ["MedicalOrganization", "LocalBusiness"],
                   "@id": "https://www.yeonsei365.com/#organization",
-                  "name": "연세365산부인과",
-                  "alternateName": ["연세365", "사당역산부인과", "연세365산부인과의원"],
+                  "name": "연세365산부인과의원",
+                  "alternateName": [
+                    "연세365산부인과",
+                    "연세365산부인과 (구 연세미산부인과)",
+                    "연세미산부인과",
+                    "사당역 연세365산부인과의원"
+                  ],
                   "url": "https://www.yeonsei365.com",
                   "logo": "https://i.imgur.com/f7h5DY0.png",
                   "image": "https://www.yeonsei365.com/og-image.jpg",
@@ -89,7 +94,7 @@ export default function RootLayout({
                   "paymentAccepted": "현금, 신용카드",
                   "address": {
                     "@type": "PostalAddress",
-                    "streetAddress": "과천대로 939 3층",
+                    "streetAddress": "과천대로 939 3층 306호, 307호, 308호",
                     "addressLocality": "관악구",
                     "addressRegion": "서울특별시",
                     "postalCode": "08807",
@@ -147,7 +152,8 @@ export default function RootLayout({
                   },
                   "sameAs": [
                     "http://pf.kakao.com/_TpaBj",
-                    "https://map.naver.com/v5/search/연세365산부인과"
+                    "https://map.naver.com/v5/search/연세365산부인과",
+                    "https://blog.naver.com/angelljk42"
                   ],
                   "areaServed": [
                     "서울 동작구", "서울 관악구", "서울 서초구",
@@ -158,7 +164,7 @@ export default function RootLayout({
                   "@type": "WebSite",
                   "@id": "https://www.yeonsei365.com/#website",
                   "url": "https://www.yeonsei365.com",
-                  "name": "연세365산부인과",
+                  "name": "연세365산부인과의원",
                   "description": "임신중절수술 금액 및 낙태 비용 가격 안내 | 사당역 연세365산부인과",
                   "publisher": {
                     "@id": "https://www.yeonsei365.com/#organization"

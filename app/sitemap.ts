@@ -1,7 +1,6 @@
 import type { MetadataRoute } from 'next'
 import { COLUMNS } from '@/lib/columns'
 import { HEALTH_ARTICLES } from '@/lib/healthHub'
-import { notifyIndexNow } from '@/lib/indexnow'
 
 const BASE_URL = 'https://www.yeonsei365.com'
 
@@ -75,8 +74,6 @@ const faqDetailPages: MetadataRoute.Sitemap = ALL_FAQS.map(faq => ({
 }))
 
 const allPages = [...staticPages, ...columnPages, ...healthHubPages, ...faqDetailPages]
-const allUrls = allPages.map(p => p.url)
-notifyIndexNow(allUrls).catch(() => {})
 
 export default function sitemap(): MetadataRoute.Sitemap {
   return allPages

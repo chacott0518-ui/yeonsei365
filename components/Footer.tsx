@@ -22,16 +22,17 @@ const Footer: React.FC = () => {
             />
             <div className="text-[10px] md:text-xs text-gray-600 leading-relaxed space-y-0.5 md:space-y-1 text-left">
             <p className="font-bold text-sm text-gray-800 mb-2">
-  연세365산부인과 <span className="text-xs text-gray-500 font-normal">(구 연세미산부인과)</span>
+  연세365산부인과의원 <span className="text-xs text-gray-500 font-normal">(구 연세미산부인과)</span>
 </p>
-              <p>서울시 관악구 과천대로 939, 3층</p>
+              <p>서울 관악구 과천대로 939 3층 306, 307, 308호</p>
               <p className="hidden md:block">대표 : 이진우 | 사업자등록번호 : 719-20-00835</p>
               <p className="md:hidden">대표 : 이진우</p>
               <p className="md:hidden">사업자번호 : 719-20-00835</p>
+              <p>대표전화 : 02-585-3650</p>
               <p>고객센터 : 02-547-2876</p>
               {/* 협력병원 */}
 <div className="mt-4 pt-4 border-t border-primary/10">
-  <p className="text-[10px] md:text-xs text-gray-500 mb-2">연세365 산부인과 협력병원</p>
+  <p className="text-[10px] md:text-xs text-gray-500 mb-2">연세365산부인과의원 협력병원</p>
   <div className="flex flex-wrap gap-2">
     {['서울아산병원', '강남세브란스병원', '세브란스병원'].map((h) => (
       <span key={h} className="text-[9px] md:text-xs text-gray-500 bg-white/60 px-2 py-1 rounded-full border border-gray-200">{h}</span>

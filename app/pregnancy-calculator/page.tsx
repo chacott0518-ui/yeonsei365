@@ -7,11 +7,11 @@ export const metadata: Metadata = {
   title: '임신주수 계산기 | 출산예정일·태아발달 자동 계산 — 연세365산부인과',
   description: '마지막 생리 시작일 입력 시 현재 임신주수, 출산예정일, 태아 발달 정보, 산전 검사 일정까지 한 번에 확인. 연세365산부인과 무료 임신주수 계산기.',
   keywords: ['임신주수계산기','임신주수 계산','출산예정일 계산','임신 초기 증상','임신주수별 태아발달'],
-  alternates: { canonical: 'https://www.yeonsei365.com/임신주수계산기' },
+  alternates: { canonical: 'https://www.yeonsei365.com/pregnancy-calculator' },
   openGraph: {
     title: '임신주수 계산기 — 연세365산부인과',
     description: '마지막 생리일 입력으로 임신주수·출산예정일·태아발달 즉시 확인',
-    url: 'https://www.yeonsei365.com/임신주수계산기',
+    url: 'https://www.yeonsei365.com/pregnancy-calculator',
     siteName: '연세365산부인과',
     locale: 'ko_KR',
     type: 'website',
