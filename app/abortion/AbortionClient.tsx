@@ -426,9 +426,9 @@ export default function AbortionClient() {
               <span key={t} style={{ background: 'rgba(255,255,255,.18)', color: '#fff', fontSize: '10px', fontWeight: 700, padding: '2px 10px', borderRadius: '20px' }}>{t}</span>
             ))}
           </div>
-          <h1 style={{ color: '#fff', fontSize: '28px', fontWeight: 900, lineHeight: 1.2, marginBottom: '12px', letterSpacing: '-.02em' }}>
+          <h2 style={{ color: '#fff', fontSize: '28px', fontWeight: 900, lineHeight: 1.2, marginBottom: '12px', letterSpacing: '-.02em' }}>
             임신중절수술<br /><span style={{ fontSize: '18px', fontWeight: 700, opacity: .88 }}>안전하고 정확하게</span>
-          </h1>
+          </h2>
           <p style={{ color: 'rgba(255,255,255,.88)', fontSize: '13px', lineHeight: 1.85, marginBottom: '20px' }}>
             산부인과 전문의 직접 집도. 수술 전·중·후 비밀 보장.
           </p>

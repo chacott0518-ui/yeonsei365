@@ -66,7 +66,8 @@ export default function SurgeryClient() {
             </h1>
             <p style={{ color: 'rgba(255,255,255,.9)', fontSize: '14px', lineHeight: 1.95, marginBottom: '22px', letterSpacing: '-.01em' }}>
               임신중절수술 절차가 어떻게 진행되는지 단계별로 안내합니다.<br />
-              수술 전 준비부터 마취, 시술, 회복까지 모든 과정을 투명하게 공개합니다. · <ViewCounter slug="abortion-surgery" />
+              수술 전 준비부터 마취, 시술, 회복까지 모든 과정을 투명하게 공개합니다.
+ · <ViewCounter slug="abortion-surgery" />
             </p>
             <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '22px' }}>
               {['산부인과 전문의 직접 집도', '수면마취 전문의 협진', '1인 회복실 운영', '당일귀가 가능'].map(t => (
@@ -414,9 +415,9 @@ export default function SurgeryClient() {
               <span key={t} style={{ background: 'rgba(255,255,255,.18)', color: '#fff', fontSize: '10px', fontWeight: 700, padding: '2px 10px', borderRadius: '20px' }}>{t}</span>
             ))}
           </div>
-          <h1 style={{ color: '#fff', fontSize: '26px', fontWeight: 900, lineHeight: 1.2, marginBottom: '12px', letterSpacing: '-.02em' }}>
+          <h2 style={{ color: '#fff', fontSize: '26px', fontWeight: 900, lineHeight: 1.2, marginBottom: '12px', letterSpacing: '-.02em' }}>
             임신중절수술 절차·안전성<br /><span style={{ fontSize: '17px', fontWeight: 700, opacity: .88 }}>수술 당일 전 과정 단계별 안내</span>
-          </h1>
+          </h2>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '6px', marginTop: '14px' }}>
             {[['2~3시간', '총 소요'], ['10~15분', '실제 수술'], ['수면마취', '무통 진행'], ['당일귀가', '1인 회복실']].map(([v, l]) => (
               <div key={v} style={{ background: 'rgba(255,255,255,.12)', borderRadius: '8px', padding: '8px', textAlign: 'center' }}>

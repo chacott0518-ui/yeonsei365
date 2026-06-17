@@ -352,9 +352,9 @@ export default function CostClient() {
               <span key={t} style={{ background: 'rgba(255,255,255,.18)', color: '#fff', fontSize: '10px', fontWeight: 700, padding: '2px 10px', borderRadius: '20px' }}>{t}</span>
             ))}
           </div>
-          <h1 style={{ color: '#fff', fontSize: '26px', fontWeight: 900, lineHeight: 1.2, marginBottom: '12px', letterSpacing: '-.02em' }}>
+          <h2 style={{ color: '#fff', fontSize: '26px', fontWeight: 900, lineHeight: 1.2, marginBottom: '12px', letterSpacing: '-.02em' }}>
             임신중절수술 금액·비용<br /><span style={{ fontSize: '17px', fontWeight: 700, opacity: .88 }}>낙태 비용 가격 주수별 투명 공개</span>
-          </h1>
+          </h2>
           <p style={{ color: 'rgba(255,255,255,.85)', fontSize: '12px', lineHeight: 1.8, marginBottom: '16px' }}>
             수술비·마취비·영양제·부가세 모두 포함. 카드·현금 동일가. 추가 비용 없음.
           </p>

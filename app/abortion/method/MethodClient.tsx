@@ -65,7 +65,8 @@ export default function MethodClient() {
             </h1>
             <p style={{ color: 'rgba(255,255,255,.9)', fontSize: '14px', lineHeight: 1.95, marginBottom: '22px', letterSpacing: '-.01em' }}>
               임신 주수와 자궁 상태에 따라 가장 적합한 수술 방법을 선택합니다.<br />
-              흡입술, 소파술, 약물중절의 차이와 주수별 권장 방법을 안내합니다. · <ViewCounter slug="abortion-method" />
+              흡입술, 소파술, 약물중절의 차이와 주수별 권장 방법을 안내합니다.
+ · <ViewCounter slug="abortion-method" />
             </p>
             <div style={{ display: 'flex', gap: '10px' }}>
               <a href="http://pf.kakao.com/_TpaBj/chat" target="_blank" rel="noopener noreferrer" style={{ background: '#FEE500', color: '#3B1B1B', fontSize: '13px', fontWeight: 700, padding: '12px 24px', borderRadius: '24px', textDecoration: 'none' }}>💬 카카오톡 상담</a>
@@ -218,9 +219,9 @@ export default function MethodClient() {
 
       <div className="lg:hidden">
         <div style={{ backgroundImage: `linear-gradient(rgba(0,0,0,0.60), rgba(0,0,0,0.60)), url(/images/hero-abortion-method.webp)`, backgroundSize: 'cover', backgroundPosition: 'center', padding: '32px 20px' }}>
-          <h1 style={{ color: '#fff', fontSize: '26px', fontWeight: 900, lineHeight: 1.2, marginBottom: '12px', letterSpacing: '-.02em' }}>
+          <h2 style={{ color: '#fff', fontSize: '26px', fontWeight: 900, lineHeight: 1.2, marginBottom: '12px', letterSpacing: '-.02em' }}>
             임신중절수술 방법·종류<br /><span style={{ fontSize: '17px', fontWeight: 700, opacity: .88 }}>흡입술·소파술·약물중절 비교</span>
-          </h1>
+          </h2>
           <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
             {['흡입술', '소파술', '약물중절', '주수별 선택'].map(t => (
               <span key={t} style={{ background: 'rgba(255,255,255,.18)', color: '#fff', fontSize: '10px', fontWeight: 700, padding: '2px 10px', borderRadius: '20px' }}>{t}</span>

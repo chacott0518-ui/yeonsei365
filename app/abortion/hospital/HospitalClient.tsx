@@ -67,7 +67,8 @@ export default function HospitalClient() {
             <p style={{ color: 'rgba(255,255,255,.9)', fontSize: '14px', lineHeight: 1.95, marginBottom: '22px', letterSpacing: '-.01em' }}>
               믿을 수 있는 임신중절수술 병원을 찾고 계신가요?<br />
               사당역 4번출구 연세365산부인과에서 전문의가 직접 집도합니다.<br />
-              당일예약·당일수술·비밀보장 시스템으로 안전하게 시술받으세요. · <ViewCounter slug="abortion-hospital" />
+              당일예약·당일수술·비밀보장 시스템으로 안전하게 시술받으세요.
+ · <ViewCounter slug="abortion-hospital" />
             </p>
             <div style={{ display: 'flex', gap: '10px' }}>
               <a href="http://pf.kakao.com/_TpaBj/chat" target="_blank" rel="noopener noreferrer" style={{ background: '#FEE500', color: '#3B1B1B', fontSize: '13px', fontWeight: 700, padding: '12px 24px', borderRadius: '24px', textDecoration: 'none' }}>💬 카카오톡 상담</a>
@@ -330,9 +331,9 @@ export default function HospitalClient() {
               <span key={t} style={{ background: 'rgba(255,255,255,.18)', color: '#fff', fontSize: '10px', fontWeight: 700, padding: '2px 10px', borderRadius: '20px' }}>{t}</span>
             ))}
           </div>
-          <h1 style={{ color: '#fff', fontSize: '26px', fontWeight: 900, lineHeight: 1.2, marginBottom: '12px', letterSpacing: '-.02em' }}>
+          <h2 style={{ color: '#fff', fontSize: '26px', fontWeight: 900, lineHeight: 1.2, marginBottom: '12px', letterSpacing: '-.02em' }}>
             임신중절수술 병원<br /><span style={{ fontSize: '17px', fontWeight: 700, opacity: .88 }}>서울 사당역 연세365산부인과</span>
-          </h1>
+          </h2>
           <p style={{ color: 'rgba(255,255,255,.85)', fontSize: '12px', lineHeight: 1.8, marginBottom: '16px' }}>
             산부인과 전문의 직접 집도. 당일예약·당일수술. 비밀 100% 보장.
           </p>

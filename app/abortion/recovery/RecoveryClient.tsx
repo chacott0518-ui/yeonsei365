@@ -65,7 +65,8 @@ export default function RecoveryClient() {
             </h1>
             <p style={{ color: 'rgba(255,255,255,.9)', fontSize: '14px', lineHeight: 1.95, marginBottom: '22px', letterSpacing: '-.01em' }}>
               빠른 회복을 위한 단계별 관리 가이드를 안내합니다.<br />
-              수술 당일부터 4주까지 시기별 주의사항을 확인하세요. · <ViewCounter slug="abortion-recovery" />
+              수술 당일부터 4주까지 시기별 주의사항을 확인하세요.
+ · <ViewCounter slug="abortion-recovery" />
             </p>
             <div style={{ display: 'flex', gap: '10px' }}>
               <a href="http://pf.kakao.com/_TpaBj/chat" target="_blank" rel="noopener noreferrer" style={{ background: '#FEE500', color: '#3B1B1B', fontSize: '13px', fontWeight: 700, padding: '12px 24px', borderRadius: '24px', textDecoration: 'none' }}>💬 카카오톡 상담</a>
@@ -218,9 +219,9 @@ export default function RecoveryClient() {
 
       <div className="lg:hidden">
         <div style={{ backgroundImage: `linear-gradient(rgba(0,0,0,0.60), rgba(0,0,0,0.60)), url(/images/hero-abortion-recovery.webp)`, backgroundSize: 'cover', backgroundPosition: 'center', padding: '32px 20px' }}>
-          <h1 style={{ color: '#fff', fontSize: '26px', fontWeight: 900, lineHeight: 1.2, marginBottom: '12px', letterSpacing: '-.02em' }}>
+          <h2 style={{ color: '#fff', fontSize: '26px', fontWeight: 900, lineHeight: 1.2, marginBottom: '12px', letterSpacing: '-.02em' }}>
             임신중절수술 후 관리<br /><span style={{ fontSize: '17px', fontWeight: 700, opacity: .88 }}>회복기간·주의사항 안내</span>
-          </h1>
+          </h2>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '6px', marginTop: '16px' }}>
             {[['1~2일', '일상복귀'], ['4~6주', '생리재개'], ['2주', '금지사항'], ['1주내', '사후검진']].map(([v, l]) => (
               <div key={v} style={{ background: 'rgba(255,255,255,.12)', borderRadius: '8px', padding: '8px', textAlign: 'center' }}>

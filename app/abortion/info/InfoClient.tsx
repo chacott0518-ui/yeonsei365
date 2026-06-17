@@ -66,7 +66,8 @@ export default function InfoClient() {
             </h1>
             <p style={{ color: 'rgba(255,255,255,.9)', fontSize: '14px', lineHeight: 1.95, marginBottom: '22px', letterSpacing: '-.01em' }}>
               임신중절수술 전 궁금한 것들을 모두 안내드립니다.<br />
-              보호자 동반 여부, 수술 정보, 보험 적용, 준비물, 비밀보장까지 확인하세요. · <ViewCounter slug="abortion-info" />
+              보호자 동반 여부, 수술 정보, 보험 적용, 준비물, 비밀보장까지 확인하세요.
+ · <ViewCounter slug="abortion-info" />
             </p>
             <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '22px' }}>
               {['성인 혼자 가능', '비밀 100% 보장', '비급여 항목', '준비물 안내'].map(t => (
@@ -373,9 +374,9 @@ export default function InfoClient() {
               <span key={t} style={{ background: 'rgba(255,255,255,.18)', color: '#fff', fontSize: '10px', fontWeight: 700, padding: '2px 10px', borderRadius: '20px' }}>{t}</span>
             ))}
           </div>
-          <h1 style={{ color: '#fff', fontSize: '26px', fontWeight: 900, lineHeight: 1.2, marginBottom: '12px', letterSpacing: '-.02em' }}>
+          <h2 style={{ color: '#fff', fontSize: '26px', fontWeight: 900, lineHeight: 1.2, marginBottom: '12px', letterSpacing: '-.02em' }}>
             임신중절수술 수술 정보·보호자<br /><span style={{ fontSize: '17px', fontWeight: 700, opacity: .88 }}>혼자 가능 여부·준비물·보험 안내</span>
-          </h1>
+          </h2>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '6px', marginTop: '14px' }}>
             {[['혼자 가능', '성인 기준'], ['비밀보장', '100%'], ['비급여', '보험 불가']].map(([v, l]) => (
               <div key={v} style={{ background: 'rgba(255,255,255,.12)', borderRadius: '8px', padding: '8px', textAlign: 'center' }}>

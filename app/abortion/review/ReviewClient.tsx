@@ -58,7 +58,8 @@ export default function ReviewClient() {
             </h1>
             <p style={{ color: 'rgba(255,255,255,.9)', fontSize: '14px', lineHeight: 1.95, marginBottom: '22px', letterSpacing: '-.01em' }}>
               낙태수술 후기, 임신초기중절수술 후기 등 실제 방문하신 분들의<br />
-              솔직한 경험을 안내합니다. · <ViewCounter slug="abortion-review" />
+              솔직한 경험을 안내합니다.
+ · <ViewCounter slug="abortion-review" />
             </p>
             <div style={{ display: 'flex', gap: '10px' }}>
               <a href="http://pf.kakao.com/_TpaBj/chat" target="_blank" rel="noopener noreferrer" style={{ background: '#FEE500', color: '#3B1B1B', fontSize: '13px', fontWeight: 700, padding: '12px 24px', borderRadius: '24px', textDecoration: 'none' }}>💬 카카오톡 상담</a>
@@ -157,9 +158,9 @@ export default function ReviewClient() {
 
       <div className="lg:hidden">
         <div style={{ backgroundImage: `linear-gradient(rgba(0,0,0,0.60), rgba(0,0,0,0.60)), url(/images/hero-abortion-main.webp)`, backgroundSize: 'cover', backgroundPosition: 'center', padding: '32px 20px' }}>
-          <h1 style={{ color: '#fff', fontSize: '26px', fontWeight: 900, lineHeight: 1.2, marginBottom: '12px', letterSpacing: '-.02em' }}>
+          <h2 style={{ color: '#fff', fontSize: '26px', fontWeight: 900, lineHeight: 1.2, marginBottom: '12px', letterSpacing: '-.02em' }}>
             임신중절수술 후기·사례<br /><span style={{ fontSize: '17px', fontWeight: 700, opacity: .88 }}>실제 방문자 후기</span>
-          </h1>
+          </h2>
           <div style={{ color: '#FFD700', fontSize: '20px', marginTop: '10px' }}>★★★★★ 평균 5.0</div>
         </div>
 

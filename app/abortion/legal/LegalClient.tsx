@@ -66,7 +66,8 @@ export default function LegalClient() {
             </h1>
             <p style={{ color: 'rgba(255,255,255,.9)', fontSize: '14px', lineHeight: 1.95, marginBottom: '22px', letterSpacing: '-.01em' }}>
               2021년 낙태죄 폐지 이후 달라진 법적 기준을 안내합니다.<br />
-              임신중절수술 합법 시기와 요건을 정확히 확인하세요. · <ViewCounter slug="abortion-legal" />
+              임신중절수술 합법 시기와 요건을 정확히 확인하세요.
+ · <ViewCounter slug="abortion-legal" />
             </p>
             <div style={{ display: 'flex', gap: '10px' }}>
               <a href="http://pf.kakao.com/_TpaBj/chat" target="_blank" rel="noopener noreferrer" style={{ background: '#FEE500', color: '#3B1B1B', fontSize: '13px', fontWeight: 700, padding: '12px 24px', borderRadius: '24px', textDecoration: 'none' }}>💬 카카오톡 상담</a>
@@ -192,9 +193,9 @@ export default function LegalClient() {
 
       <div className="lg:hidden">
         <div style={{ backgroundImage: `linear-gradient(rgba(0,0,0,0.60), rgba(0,0,0,0.60)), url(/images/hero-abortion-legal.webp)`, backgroundSize: 'cover', backgroundPosition: 'center', padding: '32px 20px' }}>
-          <h1 style={{ color: '#fff', fontSize: '26px', fontWeight: 900, lineHeight: 1.2, marginBottom: '12px', letterSpacing: '-.02em' }}>
+          <h2 style={{ color: '#fff', fontSize: '26px', fontWeight: 900, lineHeight: 1.2, marginBottom: '12px', letterSpacing: '-.02em' }}>
             낙태 합법화 안내<br /><span style={{ fontSize: '17px', fontWeight: 700, opacity: .88 }}>임신중절수술 합법 시기·기준</span>
-          </h1>
+          </h2>
           <div style={{ background: 'rgba(255,255,255,.12)', borderRadius: '10px', padding: '12px 16px', marginTop: '14px' }}>
             <div style={{ color: 'rgba(255,255,255,.75)', fontSize: '11px' }}>낙태죄 폐지 시행일</div>
             <div style={{ color: '#FFD700', fontSize: '22px', fontWeight: 900 }}>2021.01.01 ~</div>
