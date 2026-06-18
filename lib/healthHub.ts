@@ -1165,6 +1165,18 @@ export const CATEGORIES = {
     faq: [{"q":"낙태수술 후 출혈과 생리를 구분하는 방법이 있을까요?","a":"정확한 답변을 위해 산부인과 전문의의 직접 진료를 권장합니다."}],
     sections: [{"type": "text" as const,"title":"어떻게 진료를 받아야 하나요?","content":"해당 증상이나 상황에 대해 정확한 진단과 치료를 위해서는 산부인과 전문의의 직접 진료가 필요합니다."}],
   },
+  
+  {
+    slug: 'q-1781824341316',
+    category: 'surgery' as CategoryKey,
+    title: 'MTX라고 약물중절 유도한다는게 있다고 봤는데 그걸 하면 부작용이나 출근하는데 안 안내',
+    description: '산부인과 관련 질문에 대한 전문의 답변입니다. 정확한 진단과 치료는 직접 진료를 통해 받으시기 바랍니다.',
+    keywords: ["MTX라고","산부인과"],
+    lastModified: '2026-06-19-AM 08:12',
+    heroImage: "https://images.unsplash.com/photo-1584432810601-6c7f27d2362b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5NDU5MjJ8MHwxfHNlYXJjaHwxfHwlRUMlOTclQUMlRUMlODQlQjElMjAlRUMlOUQlOTglRUIlQTMlOEMlMjAlRUMlODIlQjAlRUIlQjYlODAlRUMlOUQlQjglRUElQjMlQkN8ZW58MHwwfHx8MTc4MTgyNDM1Nnww&ixlib=rb-4.1.0&q=80&w=1080",
+    faq: [{"q":"MTX라고 약물중절 유도한다는게 있다고 봤는데 그걸 하면 부작용이나 출근하는데 안좋은점 있나요? 지금4~5주입니다. ","a":"정확한 답변을 위해 산부인과 전문의의 직접 진료를 권장합니다."}],
+    sections: [{"type": "text" as const,"title":"어떻게 진료를 받아야 하나요?","content":"해당 증상이나 상황에 대해 정확한 진단과 치료를 위해서는 산부인과 전문의의 직접 진료가 필요합니다."}],
+  },
   ]
 
   export function getArticleBySlug(category: string, slug: string): HealthArticle | undefined {
