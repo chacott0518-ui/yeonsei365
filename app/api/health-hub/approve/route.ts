@@ -58,7 +58,7 @@ export async function GET(req: Request) {
         'anthropic-version': '2023-06-01',
       },
       body: JSON.stringify({
-        model: 'claude-sonnet-4-20250514',
+        model: 'claude-sonnet-4-6',
         max_tokens: 8000,
         system: `당신은 산부인과 의료 정보 전문 콘텐츠 에디터입니다.
 환자의 질문이 불완전하거나 비속어가 포함되어도, 관련 의료 주제로 재구성하여 아래 JSON만 출력하세요.
