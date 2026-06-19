@@ -1165,6 +1165,18 @@ export const CATEGORIES = {
     faq: [{"q":"테스트","a":"정확한 답변을 위해 산부인과 전문의의 직접 진료를 권장합니다."}],
     sections: [{"type": "text" as const,"title":"어떻게 진료를 받아야 하나요?","content":"해당 증상이나 상황에 대해 정확한 진단과 치료를 위해서는 산부인과 전문의의 직접 진료가 필요합니다."}],
   },
+  
+  {
+    slug: 'q-1781845731162',
+    category: 'test' as CategoryKey,
+    title: '테스트 안내',
+    description: '산부인과 관련 질문에 대한 전문의 답변입니다. 정확한 진단과 치료는 직접 진료를 통해 받으시기 바랍니다.',
+    keywords: ["테스트","산부인과"],
+    lastModified: '2026-06-19-PM 02:08',
+    heroImage: "https://images.unsplash.com/photo-1584432810601-6c7f27d2362b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w5NDU5MjJ8MHwxfHNlYXJjaHwxfHwlRUMlOTclQUMlRUMlODQlQjElMjAlRUMlOUQlOTglRUIlQTMlOEMlMjAlRUMlODIlQjAlRUIlQjYlODAlRUMlOUQlQjglRUElQjMlQkN8ZW58MHwwfHx8MTc4MTg0NTczMXww&ixlib=rb-4.1.0&q=80&w=1080",
+    faq: [{"q":"테스트","a":"정확한 답변을 위해 산부인과 전문의의 직접 진료를 권장합니다."}],
+    sections: [{"type": "text" as const,"title":"어떻게 진료를 받아야 하나요?","content":"해당 증상이나 상황에 대해 정확한 진단과 치료를 위해서는 산부인과 전문의의 직접 진료가 필요합니다."}],
+  },
   ]
 
   export function getArticleBySlug(category: string, slug: string): HealthArticle | undefined {
