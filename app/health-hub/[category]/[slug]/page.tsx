@@ -251,9 +251,7 @@ export default function ArticlePage({ params }: { params: { category: string; sl
             className="article-hero-img"
             style={{ width: '100%', height: '280px', objectFit: 'cover', display: 'block' }}
           />
-          <div style={{ position: 'absolute', bottom: '10px', right: '12px', fontSize: '10px', color: 'rgba(255,255,255,.8)', background: 'rgba(0,0,0,.35)', padding: '3px 8px', borderRadius: '6px' }}>
-            Photo: Unsplash
-          </div>
+
         </div>
       )}
 
