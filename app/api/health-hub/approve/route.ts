@@ -170,18 +170,15 @@ export async function GET(req: Request) {
   const sections    = articleData.sections || []
   const faq         = articleData.faq || []
 
-  let heroImage = ''
-  if (process.env.UNSPLASH_ACCESS_KEY) {
-    try {
-      const keyword = encodeURIComponent('여성 의료 산부인과')
-      const uRes = await fetch(
-        `https://api.unsplash.com/search/photos?query=${keyword}&per_page=1&orientation=landscape`,
-        { headers: { Authorization: `Client-ID ${process.env.UNSPLASH_ACCESS_KEY}` } }
-      )
-      const uData = await uRes.json()
-      heroImage = uData.results?.[0]?.urls?.regular || ''
-    } catch (e) { console.warn('[Unsplash]', e) }
-  }
+  // 카테고리별 고정 히어로 이미지
+const CATEGORY_IMAGES: Record<string, string> = {
+  pregnancy: 'https://www.yeonsei365.com/images/hero-pregnancy-pc.svg',
+  contraception: 'https://www.yeonsei365.com/images/hero-contraception-pc.svg',
+  gynecology: 'https://www.yeonsei365.com/images/hero-gynecology-pc.svg',
+  surgery: 'https://www.yeonsei365.com/images/hero-surgery-pc.svg',
+  womens: 'https://www.yeonsei365.com/images/hero-womens-pc.svg',
+}
+let heroImage = CATEGORY_IMAGES[category] || CATEGORY_IMAGES.gynecology
 
   const s = (v: string) => v
     .replace(/\\/g, '\\\\')
