@@ -1,5 +1,12 @@
 import { NextResponse } from 'next/server'
 
+// ⚠️ 신규 추가: 사이트에 실제로 존재하는 카테고리 목록
+// lib/healthHub.ts의 CATEGORIES와 반드시 동일하게 유지해야 합니다.
+// 여기 없는 카테고리가 들어오면 빌드 자체가 깨지므로(undefined.label 에러),
+// 잘못된 값이 들어오면 자동으로 기본 카테고리로 바꿔치기합니다.
+const VALID_CATEGORIES = ['pregnancy', 'contraception', 'gynecology', 'surgery', 'womens']
+const DEFAULT_CATEGORY = 'gynecology'
+
 async function notifyIndexNow(urls: string[]) {
   const key = process.env.INDEXNOW_KEY
   if (!key) return
@@ -19,7 +26,17 @@ async function notifyIndexNow(urls: string[]) {
 
 export async function GET(req: Request) {
   const { searchParams } = new URL(req.url)
-  const category     = searchParams.get('category') || 'gynecology'
+
+  // ⚠️ 변경점 0 (신규): category 유효성 검증
+  // 기존 코드는 category를 검증 없이 그대로 받아서 healthHub.ts에 저장했습니다.
+  // 'test' 같은 정의되지 않은 값이 들어오면, 그 글의 상세페이지를 빌드할 때
+  // CATEGORIES['test']가 undefined라서 "Cannot read properties of undefined (reading 'label')"
+  // 에러가 나고, 이게 빌드 전체를 실패시킵니다 (정적 페이지 397개 생성 중 멈춤).
+  // 그래서 유효하지 않은 category가 들어오면 자동으로 기본값으로 바꿔서 저장합니다.
+  const rawCategory  = searchParams.get('category') || DEFAULT_CATEGORY
+  const category     = VALID_CATEGORIES.includes(rawCategory) ? rawCategory : DEFAULT_CATEGORY
+  const categoryWasInvalid = rawCategory !== category
+
   const slug         = searchParams.get('slug') || `q-${Date.now()}`
   const question     = searchParams.get('question') || ''
   const lastModified = new Date().toLocaleString('ko-KR', {
@@ -30,6 +47,7 @@ export async function GET(req: Request) {
   const articleUrl = `https://www.yeonsei365.com/health-hub/${category}/${slug}`
 
   let articleData: any = null
+  let aiFailReason = ''
 
   try {
     const aiRes = await fetch('https://api.anthropic.com/v1/messages', {
@@ -41,7 +59,7 @@ export async function GET(req: Request) {
       },
       body: JSON.stringify({
         model: 'claude-sonnet-4-20250514',
-        max_tokens: 4000,
+        max_tokens: 8000,
         system: `당신은 산부인과 의료 정보 전문 콘텐츠 에디터입니다.
 환자의 질문이 불완전하거나 비속어가 포함되어도, 관련 의료 주제로 재구성하여 아래 JSON만 출력하세요.
 마크다운 백틱, 앞뒤 텍스트, 주석 절대 금지. 오직 JSON만 출력.
@@ -89,26 +107,43 @@ export async function GET(req: Request) {
       }),
     })
 
-    if (aiRes.ok) {
+    if (!aiRes.ok) {
+      const errBody = await aiRes.text().catch(() => '')
+      aiFailReason = `Claude API 응답 실패 (HTTP ${aiRes.status}) ${errBody.slice(0, 150)}`
+    } else {
       const data = await aiRes.json()
       const rawText = data.content?.[0]?.text || ''
-      const cleaned = rawText
-        .replace(/^```json\s*/i, '')
-        .replace(/^```\s*/i, '')
-        .replace(/\s*```$/i, '')
-        .trim()
-      const parsed = JSON.parse(cleaned)
-      if (parsed.title && parsed.sections && parsed.faq) {
-        parsed.slug = slug
-        articleData = parsed
+
+      if (!rawText) {
+        aiFailReason = 'Claude 응답에 텍스트 내용이 없음 (content 배열이 비어있음)'
+      } else {
+        const cleaned = rawText
+          .replace(/^```json\s*/i, '')
+          .replace(/^```\s*/i, '')
+          .replace(/\s*```$/i, '')
+          .trim()
+
+        try {
+          const parsed = JSON.parse(cleaned)
+          if (parsed.title && parsed.sections && parsed.faq) {
+            parsed.slug = slug
+            articleData = parsed
+          } else {
+            aiFailReason = 'JSON 파싱은 성공했으나 title/sections/faq 중 일부 필드 누락'
+          }
+        } catch (parseErr) {
+          aiFailReason = `JSON 파싱 실패: ${String(parseErr).slice(0, 150)} / 원본 응답 앞부분: ${cleaned.slice(0, 200)}`
+        }
       }
     }
   } catch (e) {
+    aiFailReason = `네트워크/예외 오류: ${String(e).slice(0, 150)}`
     console.error('[AI 예외]', e)
   }
 
-  // AI 실패 시 폴백
   if (!articleData) {
+    if (!aiFailReason) aiFailReason = '알 수 없는 이유로 AI 콘텐츠 생성 실패'
+
     articleData = {
       title: question.slice(0, 45).replace(/[?!]/g, '').trim() + ' 안내',
       slug,
@@ -135,7 +170,6 @@ export async function GET(req: Request) {
   const sections    = articleData.sections || []
   const faq         = articleData.faq || []
 
-  // Unsplash 이미지
   let heroImage = ''
   if (process.env.UNSPLASH_ACCESS_KEY) {
     try {
@@ -205,12 +239,12 @@ export async function GET(req: Request) {
         }
 
         const markerIdx = current.indexOf('export function getArticleBySlug')
-const insertIdx = current.lastIndexOf(']', markerIdx)
-const updated = current.slice(0, insertIdx) + newEntry + '\n  ' + current.slice(insertIdx)
+        const insertIdx = current.lastIndexOf(']', markerIdx)
+        const updated = current.slice(0, insertIdx) + newEntry + '\n  ' + current.slice(insertIdx)
 
-if (markerIdx === -1 || insertIdx === -1) {
-  githubResult = '❌ 정규식 매칭 실패 — healthHub.ts 파일 구조 확인 필요'
-} else {
+        if (markerIdx === -1 || insertIdx === -1) {
+          githubResult = '❌ 정규식 매칭 실패 — healthHub.ts 파일 구조 확인 필요'
+        } else {
           const pushRes = await fetch(
             `https://api.github.com/repos/${REPO}/contents/lib/healthHub.ts`,
             {
@@ -235,6 +269,22 @@ if (markerIdx === -1 || insertIdx === -1) {
 
   await notifyIndexNow([articleUrl])
 
+  const aiWarningBlock = aiFailReason
+    ? `<div style="background:#FFF0F0;border:1px solid #ffb3b3;border-radius:10px;padding:16px;margin-bottom:16px">
+         <p style="color:#D6336C;font-weight:900;font-size:15px;margin:0 0 6px">⚠️ AI 생성 실패 — 기본 문구로 등록되었습니다</p>
+         <p style="color:#a33;font-size:12px;margin:0;line-height:1.6">${aiFailReason}</p>
+         <p style="color:#a33;font-size:12px;margin:6px 0 0;font-weight:700">→ 이 글은 품질이 낮으니 삭제 후 다시 시도해 주세요.</p>
+       </div>`
+    : ''
+
+  // ⚠️ 변경점 5 (신규): 잘못된 category가 들어와서 자동 교정된 경우 — 노란 경고 박스
+  const categoryWarningBlock = categoryWasInvalid
+    ? `<div style="background:#FFFBEB;border:1px solid #fde68a;border-radius:10px;padding:16px;margin-bottom:16px">
+         <p style="color:#92400e;font-weight:900;font-size:15px;margin:0 0 6px">⚠️ 잘못된 카테고리 값 감지 — 자동 수정됨</p>
+         <p style="color:#92400e;font-size:12px;margin:0;line-height:1.6">전달받은 카테고리 "${rawCategory}"는 존재하지 않아 "${DEFAULT_CATEGORY}"로 자동 변경했습니다.<br/>(이렇게 안 하면 사이트 전체 빌드가 실패합니다)</p>
+       </div>`
+    : ''
+
   return new Response(
     `<!DOCTYPE html><html lang="ko"><head><meta charset="utf-8"><title>승인 완료</title>
     <style>body{font-family:sans-serif;padding:40px 20px;max-width:600px;margin:0 auto;background:#FFF5F7}
@@ -244,6 +294,8 @@ if (markerIdx === -1 || insertIdx === -1) {
     .url{background:#FFF5F7;border:0.5px solid #f0d0dc;border-radius:8px;padding:10px 14px;font-size:13px;color:#993556;word-break:break-all;margin:16px 0}
     .btn{display:inline-block;background:#D6336C;color:#fff;font-size:14px;font-weight:700;padding:12px 24px;border-radius:20px;text-decoration:none;margin-top:16px}</style>
     </head><body><div class="card">
+    ${categoryWarningBlock}
+    ${aiWarningBlock}
     <div style="font-size:48px">✅</div>
     <h1>승인 완료</h1>
     <div class="url">${articleUrl}</div>
