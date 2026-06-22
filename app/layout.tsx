@@ -168,38 +168,7 @@ export default function RootLayout({
                   "description": "임신중절수술 금액 및 낙태 비용 가격 안내 | 사당역 연세365산부인과",
                   "publisher": {
                     "@id": "https://www.yeonsei365.com/#organization"
-                  },
-                  "potentialAction": {
-                    "@type": "SearchAction",
-                    "target": {
-                      "@type": "EntryPoint",
-                      "urlTemplate": "https://www.yeonsei365.com/?s={search_term_string}"
-                    },
-                    "query-input": "required name=search_term_string"
                   }
-                },
-                {
-                  "@type": "BreadcrumbList",
-                  "itemListElement": [
-                    {
-                      "@type": "ListItem",
-                      "position": 1,
-                      "name": "홈",
-                      "item": "https://www.yeonsei365.com"
-                    },
-                    {
-                      "@type": "ListItem",
-                      "position": 2,
-                      "name": "임신중절클리닉",
-                      "item": "https://www.yeonsei365.com/abortion"
-                    },
-                    {
-                      "@type": "ListItem",
-                      "position": 3,
-                      "name": "낙태 비용 가격",
-                      "item": "https://www.yeonsei365.com/abortion/cost"
-                    }
-                  ]
                 }
               ]
             })

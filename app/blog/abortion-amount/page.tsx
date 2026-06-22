@@ -23,11 +23,16 @@ export const metadata: Metadata = {
   openGraph: {
     title: '임신중절수술 금액과 낙태의 정의 뜻 비용 가격 안내 2026 | 연세365산부인과',
     description: '임신중절수술 금액 주수별 정리. 8주 미만 45만원. 낙태 정의·뜻·합법조건 안내. 사당역 4번출구.',
-    url: 'https://yeonsei365.com/blog/abortion-amount',
-    images: [{ url: 'https://yeonsei365.com/og', width: 1200, height: 630 }],
+    url: 'https://www.yeonsei365.com/blog/abortion-amount',
+    images: [{
+      url: 'https://www.yeonsei365.com/og-image.jpg',
+      width: 1200,
+      height: 630,
+      alt: '임신중절수술 금액 안내 연세365산부인과',
+    }],
   },
   alternates: {
-    canonical: 'https://yeonsei365.com/blog/abortion-amount',
+    canonical: 'https://www.yeonsei365.com/blog/abortion-amount',
   },
   twitter: {
     card: 'summary_large_image',
