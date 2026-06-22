@@ -4,7 +4,7 @@ import { Phone, MapPin, MessageCircle } from 'lucide-react'
 
 export default function FloatingBar() {
   return (
-    <div className="fixed bottom-0 left-0 right-0 h-14 bg-primary border-t border-white/20 z-50 md:hidden flex items-center shadow-[0_-4px_10px_rgba(214,51,108,0.2)]">
+    <div className="fixed bottom-0 left-0 right-0 h-14 bg-primary border-t border-white/20 z-[10000] md:hidden flex items-center shadow-[0_-4px_10px_rgba(214,51,108,0.2)]">
       <a href="tel:02-585-3650" className="flex items-center justify-center gap-1.5 flex-1 h-full active:bg-white/10 transition-colors">
         <Phone size={16} className="text-white" />
         <span className="text-xs font-bold text-white">전화문의</span>

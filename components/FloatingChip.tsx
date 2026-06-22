@@ -70,7 +70,7 @@ export default function FloatingChip() {
 
   const panelStyle: React.CSSProperties = {
     position: 'fixed',
-    top: '50%',
+    top: 'calc(50% - 28px)',
     right: isOpen ? '0px' : '-320px',
     transform: 'translateY(-50%)',
     zIndex: 9999,
@@ -153,7 +153,7 @@ export default function FloatingChip() {
           position: 'fixed',
           right: 0,
           top: '50%',
-          transform: 'translateY(-50%)',
+transform: 'translateY(-50%) translateY(-28px)',
           zIndex: 9998,
           display: 'flex',
           flexDirection: 'column',
