@@ -108,7 +108,7 @@ export default function FloatingChip() {
           <div>
             <label style={{ display:'block', fontSize:'11px', fontWeight:700, color:'rgba(255,255,255,0.85)', marginBottom:'6px' }}>마지막 생리 시작일</label>
             <input type="date" value={lmp} max={new Date().toISOString().split('T')[0]} onChange={e => setLmp(e.target.value)}
-              style={{ width:'100%', boxSizing:'border-box', borderRadius:'10px', border:'none', padding:'10px 12px', fontSize:'14px', marginBottom:'10px', fontFamily:'inherit' }} />
+              style={{ width:'100%', boxSizing:'border-box', borderRadius:'10px', border:'none', padding:'10px 12px', fontSize:'14px', marginBottom:'10px', fontFamily:'inherit', WebkitAppearance:'none' }} />
             <button type="button" onClick={() => setWeekResult(calcWeek(lmp))}
               style={{ width:'100%', background:'#fff', color:'#d63870', border:'none', borderRadius:'10px', padding:'11px', fontSize:'14px', fontWeight:800, cursor:'pointer', fontFamily:'inherit' }}>
               계산하기
