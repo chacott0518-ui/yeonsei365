@@ -153,7 +153,7 @@ export default function FloatingChip() {
           position: 'fixed',
           right: 0,
           top: '50%',
-transform: 'translateY(-50%) translateY(-28px)',
+          transform: 'translateY(-50%) translateY(-56px)',
           zIndex: 9998,
           display: 'flex',
           flexDirection: 'column',
