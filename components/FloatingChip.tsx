@@ -70,16 +70,17 @@ export default function FloatingChip() {
 
   const panelStyle: React.CSSProperties = {
     position: 'fixed',
-    top: 'calc(50% - 28px)',
-    right: isOpen ? '0px' : '-320px',
+    top: 'calc(50% - 56px)',
+    right: isOpen ? '8px' : '-100vw',
     transform: 'translateY(-50%)',
     zIndex: 9999,
-    width: '90vw',
-maxWidth: '300px',
+    width: 'calc(100vw - 16px)',
+    maxWidth: '320px',
+    boxSizing: 'border-box',
     background: 'linear-gradient(135deg, #d63870 0%, #b02255 100%)',
-    borderRadius: '16px 0 0 16px',
+    borderRadius: '16px',
     padding: '20px',
-    boxShadow: '-4px 0 24px rgba(0,0,0,0.3)',
+    boxShadow: '0 4px 24px rgba(0,0,0,0.3)',
     transition: 'right 0.3s ease',
   }
 
@@ -165,7 +166,7 @@ maxWidth: '300px',
             style={{
               background: '#D1366F', color: '#fff',
               border: 'none',
-              borderRadius: '10px 0 0 10px',
+              borderRadius: '10px',
               padding: '12px 8px',
               fontSize: '11px', fontWeight: 800,
               cursor: 'pointer', fontFamily: 'inherit',
