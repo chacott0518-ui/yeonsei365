@@ -132,7 +132,6 @@ export default function ArticlePage({ params }: { params: { category: string; sl
   const url = `${BASE}/health-hub/${params.category}/${params.slug}`
   const cat = CATEGORIES[article.category]
 
-  // 관련 Q&A — 같은 카테고리에서 현재 글 제외 최대 3개
   const related = HEALTH_ARTICLES
     .filter(a => a.category === article.category && a.slug !== article.slug)
     .sort((a, b) => {
@@ -188,8 +187,7 @@ export default function ArticlePage({ params }: { params: { category: string; sl
     },
     {
       '@context': 'https://schema.org', '@type': 'WebPage',
-      name: article.title,
-      url,
+      name: article.title, url,
       speakable: { '@type': 'SpeakableSpecification', cssSelector: ['h1', 'h2'] },
     },
     {
@@ -209,7 +207,6 @@ export default function ArticlePage({ params }: { params: { category: string; sl
         <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }} />
       ))}
 
-      {/* ── FAQ 모바일 접힘 강제 적용 CSS ── */}
       <style>{`
         details { display: block; }
         details[open] > summary::after { transform: rotate(180deg); }
@@ -224,7 +221,7 @@ export default function ArticlePage({ params }: { params: { category: string; sl
         summary { user-select: none; }
         @media (max-width: 768px) {
           details { }
-          .article-hero-img { height: 200px !important; object-position: center top; }
+          .article-hero-wrap { display: none !important; }
           .article-stats { grid-template-columns: repeat(2, 1fr) !important; }
           .article-checklist { grid-template-columns: 1fr !important; }
           .article-cta-btns { flex-direction: column !important; }
@@ -242,16 +239,14 @@ export default function ArticlePage({ params }: { params: { category: string; sl
         <span style={{ color: C.tm }}>{article.title.slice(0, 20)}...</span>
       </div>
 
-      {/* ── 히어로 이미지 ── */}
+      {/* ── 히어로 이미지 — PC만 표시, 모바일은 CSS로 숨김 ── */}
       {article.heroImage && (
-        <div style={{ borderRadius: '16px', overflow: 'hidden', marginBottom: '24px', position: 'relative' }}>
+        <div className="article-hero-wrap" style={{ borderRadius: '16px', overflow: 'hidden', marginBottom: '24px' }}>
           <img
             src={article.heroImage}
             alt={article.title}
-            className="article-hero-img"
             style={{ width: '100%', height: '280px', objectFit: 'cover', display: 'block' }}
           />
-
         </div>
       )}
 
@@ -264,7 +259,7 @@ export default function ArticlePage({ params }: { params: { category: string; sl
           {article.title}
         </h1>
         <p style={{ fontSize: '12px', color: C.tg, marginBottom: 0 }}>
-        {article.lastModified} · 연세365산부인과 의료진 감수 · <ViewCounter slug={`health-hub-${params.category}-${params.slug}`} />
+          {article.lastModified} · 연세365산부인과 의료진 감수 · <ViewCounter slug={`health-hub-${params.category}-${params.slug}`} />
         </p>
       </div>
 
@@ -302,7 +297,7 @@ export default function ArticlePage({ params }: { params: { category: string; sl
       {/* ── 본문 섹션 ── */}
       {article.sections.map((sec, i) => renderSection(sec, i))}
 
-      {/* ── FAQ — 접힘/펼침 (SEO 최적화) ── */}
+      {/* ── FAQ ── */}
       <section style={{ marginBottom: '36px' }}>
         <h2 style={{ fontSize: 'clamp(16px,2.5vw,20px)', fontWeight: 700, color: C.tm, marginBottom: '14px', display: 'flex', alignItems: 'center', gap: '10px' }}>
           <span style={{ width: '4px', height: '20px', background: C.p, borderRadius: '2px', display: 'inline-block', flexShrink: 0 }} />
@@ -338,7 +333,7 @@ export default function ArticlePage({ params }: { params: { category: string; sl
         </div>
       </div>
 
-      {/* ── 관련 Q&A (닥터나우 스타일) ── */}
+      {/* ── 관련 Q&A ── */}
       {related.length > 0 && (
         <section style={{ marginBottom: '32px' }}>
           <h2 style={{ fontSize: '16px', fontWeight: 700, color: C.tm, marginBottom: '12px', display: 'flex', alignItems: 'center', gap: '10px' }}>
