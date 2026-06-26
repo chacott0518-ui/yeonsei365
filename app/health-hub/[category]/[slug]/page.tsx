@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { getArticleBySlug, getAllArticlePaths, CATEGORIES, HEALTH_ARTICLES } from '@/lib/healthHub'
 import type { HealthArticle } from '@/lib/healthHub'
 import ViewCounter from '@/components/ViewCounter'
+import { AI_CONTENT_POLICY } from '@/config/aiContentPolicy'
 
 const BASE = 'https://www.yeonsei365.com'
 const C = {
@@ -259,16 +260,8 @@ export default function ArticlePage({ params }: { params: { category: string; sl
           {article.title}
         </h1>
         <p style={{ fontSize: '12px', color: C.tg, marginBottom: 0 }}>
-          {article.lastModified} · 연세365산부인과 의료진 감수 · <ViewCounter slug={`health-hub-${params.category}-${params.slug}`} />
+          {article.lastModified} · 내부 검토 · <ViewCounter slug={`health-hub-${params.category}-${params.slug}`} />
         </p>
-      </div>
-
-      {/* ── AI 안내 박스 ── */}
-      <div style={{ background: C.blueBg, border: `0.5px solid #85B7EB`, borderRadius: '12px', padding: '12px 16px', marginBottom: '16px', display: 'flex', gap: '10px', alignItems: 'flex-start' }}>
-        <span style={{ fontSize: '16px', flexShrink: 0 }}>ℹ️</span>
-        <div style={{ fontSize: '12px', color: '#0C447C', lineHeight: 1.7, wordBreak: 'keep-all' }}>
-          <strong>AI 생성 콘텐츠 안내:</strong> 이 답변은 AI가 생성한 일반적인 의료 정보입니다. 개인 상황에 따라 다를 수 있으며, 정확한 진단과 치료는 반드시 전문의와 상담하세요. 의학적 결정의 근거로 사용하지 마세요.
-        </div>
       </div>
 
       {/* ── 통계 수치 ── */}
@@ -287,7 +280,7 @@ export default function ArticlePage({ params }: { params: { category: string; sl
       <div style={{ background: C.greenBg, border: `1px solid #5DCAA5`, borderRadius: '14px', padding: '18px 20px', marginBottom: '32px' }}>
         <div style={{ display: 'flex', alignItems: 'center', gap: '6px', marginBottom: '10px' }}>
           <span style={{ width: '8px', height: '8px', background: C.green, borderRadius: '50%', display: 'inline-block' }} />
-          <span style={{ fontSize: '11px', fontWeight: 700, color: C.green }}>연세365 의료진 핵심 답변</span>
+          <span style={{ fontSize: '11px', fontWeight: 700, color: C.green }}>핵심 답변</span>
         </div>
         <p style={{ fontSize: '15px', color: '#1a3a2a', lineHeight: 1.9, margin: 0, fontWeight: 500, wordBreak: 'keep-all' }}>
           {article.faq[0]?.a}
@@ -319,8 +312,30 @@ export default function ArticlePage({ params }: { params: { category: string; sl
       </section>
 
       {/* ── 의료법 경고 ── */}
-      <div style={{ background: C.amberBg, border: `0.5px solid #EF9F27`, borderRadius: '12px', padding: '14px 16px', marginBottom: '24px', fontSize: '13px', color: '#633806', lineHeight: 1.8, wordBreak: 'keep-all' }}>
-        ⚠️ <strong>의료 안내 주의사항:</strong> 본 콘텐츠는 일반적인 건강 정보 제공을 목적으로 하며, 의료법상 진단·처방·치료를 대체하지 않습니다. 증상이나 치료에 대한 정확한 판단은 반드시 자격을 갖춘 의료진과 직접 상담하시기 바랍니다. 응급 상황 시 119에 연락하세요.
+      <div style={{ background: C.amberBg, border: `0.5px solid #EF9F27`, borderRadius: '12px', padding: '14px 16px', marginBottom: '16px', fontSize: '13px', color: '#633806', lineHeight: 1.8, wordBreak: 'keep-all' }}>
+        ⚠️ <strong>의료 안내 주의사항:</strong> {AI_CONTENT_POLICY.fixedNotices.checkList.items[0]}
+        {' '}증상이나 치료에 대한 정확한 판단은 반드시 자격을 갖춘 의료진과 직접 상담하시기 바랍니다. 응급 상황 시 119에 연락하세요.
+      </div>
+
+      {/* ── AI 생성 콘텐츠 안내 (의료 안내 주의사항 바로 뒤) ── */}
+      <div style={{ background: C.blueBg, border: `0.5px solid #85B7EB`, borderRadius: '12px', padding: '14px 16px', marginBottom: '12px', display: 'flex', gap: '10px', alignItems: 'flex-start' }}>
+        <span style={{ fontSize: '16px', flexShrink: 0 }}>ℹ️</span>
+        <div style={{ fontSize: '12px', color: '#0C447C', lineHeight: 1.75, wordBreak: 'keep-all' }}>
+          <strong>{AI_CONTENT_POLICY.fixedNotices.aiContentNotice.title}:</strong>{' '}
+          {AI_CONTENT_POLICY.fixedNotices.aiContentNotice.body}
+        </div>
+      </div>
+
+      {/* ── 꼭 확인해 주세요 ── */}
+      <div style={{ background: '#F8F9FA', border: `0.5px solid #dee2e6`, borderRadius: '12px', padding: '14px 16px', marginBottom: '24px' }}>
+        <div style={{ fontSize: '12px', fontWeight: 700, color: C.tm, marginBottom: '8px' }}>
+          📌 {AI_CONTENT_POLICY.fixedNotices.checkList.title}
+        </div>
+        <ul style={{ margin: 0, paddingLeft: '16px', display: 'flex', flexDirection: 'column', gap: '4px' }}>
+          {AI_CONTENT_POLICY.fixedNotices.checkList.items.map((item, i) => (
+            <li key={i} style={{ fontSize: '12px', color: '#555', lineHeight: 1.75, wordBreak: 'keep-all' }}>{item}</li>
+          ))}
+        </ul>
       </div>
 
       {/* ── 관련 검색어 ── */}

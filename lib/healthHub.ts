@@ -26,6 +26,7 @@ export const CATEGORIES = {
     keywords: string[]
     lastModified: string
     heroImage?: string
+    heroMobileImage?: string
     stats?: { num: string; label: string }[]
     faq: {
       q: string
@@ -41,8 +42,13 @@ export const CATEGORIES = {
     }[]
     sections: ArticleSection[]
     relatedSlugs?: string[]
+    originalTitle?: string
+    suggestedTitle?: string
+    titleSelection?: 'original' | 'suggested' | 'legacy'
+    policyVersion?: string
+    approvedAt?: string
   }
-  
+
   export const HEALTH_ARTICLES: HealthArticle[] = [
     {
       slug: '4weeks-symptoms',
