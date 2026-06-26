@@ -159,7 +159,7 @@ async function generateTitleSuggestions(
   const policy = AI_CONTENT_POLICY
   const pricingText = policy.abortionPricing.table.map((p) => `${p.weeks} ${p.label}`).join(', ')
   const fallback = {
-    originalTitle: question.replace(/[?!]/g, '').trim().slice(0, 60) || '산부인과 질문',
+    originalTitle: question.trim().slice(0, 60) || '산부인과 질문',
     suggestedTitle: (question.replace(/[?!]/g, '').trim().slice(0, 40) || '산부인과') + ' 안내',
   }
 
@@ -197,8 +197,8 @@ JSON 형식: {"originalTitle":"...","suggestedTitle":"..."}`,
     const cleaned = raw.replace(/^```[a-z]*\s*/i, '').replace(/\s*```$/i, '').trim()
     const parsed = JSON.parse(cleaned)
     return {
-      originalTitle: (String(parsed.originalTitle || '')).slice(0, 60) || fallback.originalTitle,
-      suggestedTitle: (String(parsed.suggestedTitle || '')).slice(0, 50) || fallback.suggestedTitle,
+      originalTitle: question.trim().slice(0, 60) || fallback.originalTitle,
+      suggestedTitle: (String(parsed.suggestedTitle || '').slice(0, 50)) || fallback.suggestedTitle,
     }
   } catch {
     return fallback
