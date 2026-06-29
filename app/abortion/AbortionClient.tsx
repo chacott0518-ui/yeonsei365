@@ -68,9 +68,50 @@ const RELATED = [
   { href: '/abortion/method', label: '흡입술·소파술 방법 종류' },
   { href: '/abortion/recovery', label: '수술 후 관리 완벽 안내' },
   { href: '/abortion/legal', label: '낙태 합법화·법적 기준' },
-  { href: '/abortion/faq', label: 'FAQ 70가지 전체 보기' },
+  { href: '/abortion/faq', label: '전체 217개 FAQ 보기' },
   { href: '/abortion/hospital', label: '임신중절수술 병원 안내' },
 ]
+
+const FEATURED_FAQS = [
+  {
+    q: '임신중절수술 비용은 얼마인가요?',
+    a: '연세365산부인과의원은 8주 미만 45만원, 8주 60만원, 9주 70만원, 10주 80만원을 기준으로 안내합니다. 정확한 비용은 초음파로 임신 주수를 확인한 뒤 결정되며, 검사나 추가 처치가 필요한 경우 최종 비용은 진료 후 달라질 수 있습니다. 비용과 포함 항목에 대해 방문 전에 전화나 카카오톡으로 문의하시면 안내해 드립니다.',
+  },
+  {
+    q: '상담한 날 바로 수술할 수 있나요?',
+    a: '당일 수술 진행 여부는 금식 상태, 초음파와 필요한 검사 결과, 예약 상황과 의료진 판단에 따라 달라집니다. 방문 당일 충분한 금식이 완료되어 있고 검사 결과에 이상이 없으면 당일 진행이 가능한 경우가 있습니다. 원활한 진행을 위해 방문 전에 예약 상황과 금식 방법을 미리 확인하시기 바랍니다. 당일 수술이 어려운 경우에는 다음 일정을 함께 안내해 드립니다.',
+  },
+  {
+    q: '수술 방법은 어떻게 결정하나요?',
+    a: '수술 방법은 임신 주수, 초음파 검사 결과, 자궁 상태, 과거 병력과 현재 건강 상태를 종합하여 의료진이 안내합니다. 연세365산부인과의원에서는 주로 흡입술과 소파술을 시행하며, 개인 상태에 따라 적합한 방법이 다를 수 있습니다. 방법에 대한 자세한 안내는 초음파 확인과 상담 이후에 이루어집니다.',
+  },
+  {
+    q: '약물중절도 시행하나요?',
+    a: '연세365산부인과의원은 약물중절을 시행하지 않으며 수술적 방법에 대해서만 상담합니다. 수술적 방법은 임신 주수와 상태를 확인한 뒤 흡입술 또는 소파술로 진행하며, 약물 복용으로 인한 불완전 유산이나 후유증 위험을 피하기 위해 이 원칙을 유지합니다. 수술 방법에 대해 궁금한 점은 방문 전 전화나 카카오톡으로 문의하실 수 있습니다.',
+  },
+  {
+    q: '수술 전에는 무엇을 준비해야 하나요?',
+    a: '수술 전 준비사항은 예약 상황과 개인 상태에 따라 다를 수 있으므로 상담 시 안내받은 내용을 따르는 것이 중요합니다. 수면마취를 위한 금식이 필요하며, 금식 시간은 예약 시 안내받으시기 바랍니다. 신분증 지참과 동의서 작성이 필요하고, 수면마취 후 자가 운전은 어려우므로 귀가 방법을 미리 준비해 두시기 바랍니다. 복용 중인 약이나 기저질환이 있다면 방문 전에 반드시 알려주세요.',
+  },
+  {
+    q: '수술 후 회복 기간은 얼마나 걸리나요?',
+    a: '수술 후 출혈과 통증의 정도, 일상 복귀 시점은 개인의 건강 상태와 임신 주수에 따라 다를 수 있습니다. 가벼운 사무 업무는 2~3일 이후부터 가능한 경우가 많지만, 신체 상태에 따라 차이가 있습니다. 처방약과 주의사항을 따르고, 38도 이상 고열, 심한 복통, 과다출혈 등 이상 증상이 있으면 즉시 내원하거나 의료기관에 문의해야 합니다. 수술 후 1주일 이내 사후 검진을 권장합니다.',
+  },
+]
+
+function FeaturedFAQItem({ question, answer }: { question: string; answer: string }) {
+  return (
+    <details style={{ border: `0.5px solid ${C.pbd}`, borderRadius: '12px', overflow: 'hidden' }}>
+      <summary style={{ padding: '16px 20px', cursor: 'pointer', fontSize: '14px', fontWeight: 700, color: C.tm, listStyle: 'none', display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: C.pb }}>
+        <span>{question}</span>
+        <span style={{ color: C.p, fontSize: '18px', flexShrink: 0, marginLeft: '12px' }}>＋</span>
+      </summary>
+      <div style={{ padding: '16px 20px', fontSize: '13px', color: C.ts, lineHeight: 1.9, background: '#fff' }}>
+        {answer}
+      </div>
+    </details>
+  )
+}
 
 export default function AbortionClient() {
   return (
@@ -97,15 +138,14 @@ export default function AbortionClient() {
             </div>
             <h1 style={{ color: '#fff', fontSize: '40px', fontWeight: 900, lineHeight: 1.2, letterSpacing: '-.03em', marginBottom: '16px' }}>
               임신중절수술<br />
-              <span style={{ fontSize: '26px', fontWeight: 700, opacity: .88 }}>안전하고 정확하게</span>
+              <span style={{ fontSize: '26px', fontWeight: 700, opacity: .88 }}>주수 확인부터 수술 방법·비용·회복까지</span>
             </h1>
             <p style={{ color: 'rgba(255,255,255,.9)', fontSize: '14px', lineHeight: 1.95, marginBottom: '22px', letterSpacing: '-.01em' }}>
-              산부인과 전문의가 직접 집도하는 임신중절수술.<br />
-              임신 주수에 맞는 최적의 방법으로 안전하게 진행하며<br />
-              수술 전·중·후 모든 과정에서 비밀이 보장됩니다. · <ViewCounter slug="abortion" />
+              초음파로 임신 주수와 상태를 확인한 뒤 산부인과 전문의가 상담과 수술 방법을 안내합니다.<br />
+              수술 전 준비부터 당일 절차와 회복 관리까지 필요한 내용을 확인할 수 있습니다. · <ViewCounter slug="abortion" />
             </p>
             <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '24px' }}>
-              {['당일예약 가능', '1인 회복실 운영', '여의사 상담 가능', '카드·현금 동일가'].map(t => (
+              {['당일예약 가능', '1인 회복실 운영', '산부인과 전문의 상담', '카드·현금 동일가'].map(t => (
                 <span key={t} style={{ background: 'rgba(255,255,255,.15)', color: '#fff', fontSize: '12px', fontWeight: 700, padding: '7px 16px', borderRadius: '20px', border: '0.5px solid rgba(255,255,255,.3)' }}>{t}</span>
               ))}
             </div>
@@ -121,7 +161,7 @@ export default function AbortionClient() {
               <div style={{ color: 'rgba(255,255,255,.9)', fontSize: '13px', marginTop: '4px' }}>만원 (영양제 포함)</div>
             </div>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px' }}>
-              {[['15분', '수술시간'], ['당일', '귀가가능'], ['100%', '비밀보장'], ['0원', '추가비용']].map(([v, l]) => (
+              {[['15분', '수술시간'], ['당일', '귀가가능'], ['의료법', '비밀보장'], ['1인실', '회복실']].map(([v, l]) => (
                 <div key={l} style={{ background: 'rgba(255,255,255,.12)', border: '0.5px solid rgba(255,255,255,.2)', borderRadius: '10px', padding: '10px', textAlign: 'center' }}>
                   <div style={{ color: '#FFD700', fontSize: '18px', fontWeight: 900 }}>{v}</div>
                   <div style={{ color: 'rgba(255,255,255,.7)', fontSize: '10px', marginTop: '3px' }}>{l}</div>
@@ -142,8 +182,8 @@ export default function AbortionClient() {
           {/* 목차 */}
           <div style={{ background: C.pb, border: `0.5px solid ${C.pbd}`, borderRadius: '14px', padding: '20px 28px', marginBottom: '44px' }}>
             <div style={{ fontSize: '11px', fontWeight: 700, color: '#bbb', marginBottom: '14px', letterSpacing: '.06em' }}>목차</div>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '10px 24px' }}>
-              {['임신중절수술이란', '주수별 금액·비용', '합법 기준 안내', '흡입술 vs 소파술', '수술 절차 5단계', '수술 후 관리'].map((t, i) => (
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr 1fr', gap: '10px 24px' }}>
+              {['먼저 확인할 내용', '임신중절수술이란', '주수별 금액·비용', '합법 기준 안내', '흡입술 vs 소파술', '수술 당일 절차', '수술 후 관리'].map((t, i) => (
                 <div key={t} style={{ fontSize: '13px', color: C.p, fontWeight: 600, display: 'flex', alignItems: 'center', gap: '7px' }}>
                   <span style={{ width: '18px', height: '18px', background: C.p, color: '#fff', borderRadius: '50%', fontSize: '9px', fontWeight: 700, display: 'inline-flex', alignItems: 'center', justifyContent: 'center', flexShrink: 0 }}>{i + 1}</span>
                   {t}
@@ -152,9 +192,43 @@ export default function AbortionClient() {
             </div>
           </div>
 
+          {/* 먼저 확인할 내용 */}
+          <section style={{ marginBottom: '0' }}>
+            <SectionTag>01 먼저 확인할 내용</SectionTag>
+            <h2 style={{ fontSize: '24px', fontWeight: 900, color: C.tm, marginBottom: '8px', letterSpacing: '-.02em', lineHeight: 1.4 }}>
+              임신중절수술 전, 먼저 확인해야 할 사항은 무엇인가요?
+            </h2>
+            <p className="speakable-summary" style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '16px' }}>
+              임신중절수술 전에는 초음파로 자궁 내 임신 여부와 정확한 임신 주수를 확인해야 합니다. 이후 현재 건강 상태, 과거 병력, 복용 중인 약과 검사 결과를 바탕으로 수술 가능 여부와 적절한 방법을 의료진이 안내합니다. 연세365산부인과의원은 약물중절을 시행하지 않으며 수술적 방법에 대해서만 상담합니다.
+            </p>
+            <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '20px' }}>
+              비용은 8주 미만 45만원, 8주 60만원, 9주 70만원, 10주 80만원을 기준으로 안내합니다. 정확한 비용과 당일 진행 가능 여부는 초음파 검사 결과, 금식 상태, 예약 상황과 추가 처치 필요 여부에 따라 달라질 수 있습니다.
+            </p>
+            <div style={{ background: C.pb, border: `0.5px solid ${C.pbd}`, borderRadius: '12px', padding: '14px 18px', marginBottom: '20px', fontSize: '12px', fontWeight: 700, color: C.pd }}>
+              핵심: 초음파로 임신 주수·위치 확인 | 수술적 방법만 상담 | 8주 미만 45만원부터 | 당일 진행은 검사 후 결정 | 2026.06
+            </div>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5,1fr)', gap: '10px', marginBottom: '14px' }}>
+              {[
+                { title: '주수 확인', desc: '초음파로 자궁 내 임신 여부와 정확한 임신 주수를 확인합니다.' },
+                { title: '수술 방법', desc: '검사 결과와 건강 상태를 바탕으로 의료진이 적절한 수술 방법을 안내합니다.' },
+                { title: '주수별 비용', desc: '8주 미만 45만원, 8주 60만원, 9주 70만원, 10주 80만원입니다.' },
+                { title: '당일 진행', desc: '금식 상태, 검사 결과와 예약 상황을 확인한 뒤 가능 여부를 안내합니다.' },
+                { title: '본원 진료 정책', desc: '연세365산부인과의원은 약물중절을 시행하지 않고 수술적 방법만 상담합니다.' },
+              ].map(({ title, desc }) => (
+                <div key={title} style={{ background: '#fff', border: `0.5px solid ${C.pbd}`, borderRadius: '12px', padding: '16px', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                  <div style={{ fontSize: '12px', fontWeight: 900, color: C.p }}>{title}</div>
+                  <div style={{ fontSize: '12px', color: C.ts, lineHeight: 1.7 }}>{desc}</div>
+                </div>
+              ))}
+            </div>
+            <p style={{ fontSize: '12px', color: C.tg, lineHeight: 1.7, marginBottom: '0' }}>※ 수술 가능 여부, 방법과 회복 과정은 개인의 건강 상태와 검사 결과에 따라 달라질 수 있습니다.</p>
+          </section>
+
+          <Divider />
+
           {/* 섹션 1 */}
           <section style={{ marginBottom: '0' }}>
-            <SectionTag>01 임신중절수술이란</SectionTag>
+            <SectionTag>02 임신중절수술이란</SectionTag>
             <h2 style={{ fontSize: '24px', fontWeight: 900, color: C.tm, marginBottom: '8px', letterSpacing: '-.02em', lineHeight: 1.4 }}>
               임신중절수술이란 무엇인가요?
             </h2>
@@ -162,10 +236,13 @@ export default function AbortionClient() {
             <div style={{ display: 'grid', gridTemplateColumns: '3fr 2fr', gap: '32px', alignItems: 'start' }}>
               <div>
                 <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '16px' }}>
+                  임신중절수술은 자궁 내 임신을 의료적으로 종료하는 수술로, 초음파와 진료를 통해 임신 주수와 건강 상태를 확인한 뒤 진행 여부와 방법을 결정합니다.
+                </p>
+                <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '16px' }}>
                   <strong style={{ color: C.p }}>임신중절수술(인공임신중절수술)</strong>은 자궁 내 임신 조직을 의학적으로 안전하게 제거하는 시술입니다. 일반적으로 '낙태수술' 또는 '중절수술'이라고도 불립니다. 2021년 1월 낙태죄 처벌 조항이 효력을 상실한 이후, 임신 14주 이내에는 본인 동의만으로 합법적으로 시술받으실 수 있습니다.
                 </p>
                 <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '16px' }}>
-                  연세365산부인과에서는 산부인과 전문의가 직접 집도하며, 임신 주수와 자궁 상태에 따라 <strong style={{ color: C.p }}>흡입술(진공흡입법)</strong> 또는 <strong style={{ color: C.p }}>소파술(자궁소파술)</strong> 중 가장 안전한 방법을 선택합니다. 수면마취 하에 진행되어 통증과 공포 없이 10~15분 내외로 완료됩니다.
+                  연세365산부인과에서는 산부인과 전문의가 직접 집도하며, 임신 주수와 자궁 상태를 확인하여 <strong style={{ color: C.p }}>흡입술(진공흡입법)</strong> 또는 <strong style={{ color: C.p }}>소파술(자궁소파술)</strong> 중 적합한 방법을 안내합니다. 수면마취 하에 진행되며, 일반적으로 10~15분 내외 소요됩니다.
                 </p>
                 <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '16px' }}>
                   <strong>임신중절수술 금액</strong>과 낙태 비용 가격은 임신 주수가 짧을수록 낮으며 회복도 빠릅니다. <strong>임신초기낙태</strong> 또는 <strong>임신초기중절수술</strong>은 보통 임신 8주 이내를 의미하며, 이 시기에 시술받는 것이 신체적 부담을 최소화할 수 있습니다.
@@ -184,7 +261,7 @@ export default function AbortionClient() {
                   />
                   <div style={{ position: 'absolute', inset: 0, background: 'rgba(0,0,0,0.50)', display: 'flex', alignItems: 'flex-end', padding: '16px' }}>
                     <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px', width: '100%' }}>
-                      {[['15분', '수술시간'], ['당일', '귀가가능'], ['100%', '비밀보장'], ['0원', '추가비용']].map(([v, l]) => (
+                      {[['15분', '수술시간'], ['당일', '귀가가능'], ['의료법', '비밀보장'], ['1인실', '회복실']].map(([v, l]) => (
                         <div key={l} style={{ background: 'rgba(255,255,255,.15)', borderRadius: '8px', padding: '8px', textAlign: 'center' }}>
                           <div style={{ color: '#FFD700', fontSize: '16px', fontWeight: 900, lineHeight: 1 }}>{v}</div>
                           <div style={{ color: 'rgba(255,255,255,.8)', fontSize: '9px', marginTop: '3px' }}>{l}</div>
@@ -196,8 +273,8 @@ export default function AbortionClient() {
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px' }}>
                   <StatCard value="15분" label="수술 시간" />
                   <StatCard value="당일" label="귀가 가능" />
-                  <StatCard value="100%" label="비밀 보장" />
-                  <StatCard value="0원" label="추가 비용" />
+                  <StatCard value="의료법" label="비밀 보장" />
+                  <StatCard value="1인실" label="회복실" />
                 </div>
               </div>
             </div>
@@ -207,10 +284,10 @@ export default function AbortionClient() {
 
           {/* 섹션 2: 비용 */}
           <section>
-            <SectionTag>02 임신중절수술 금액·비용·가격</SectionTag>
+            <SectionTag>03 임신중절수술 금액·비용·가격</SectionTag>
             <h2 style={{ fontSize: '24px', fontWeight: 900, color: C.tm, marginBottom: '8px', letterSpacing: '-.02em' }}>낙태 비용 가격 — 주수별 투명 공개</h2>
             <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '16px' }}>
-              임신중절수술 비용은 임신 주수와 수술 방법에 따라 결정됩니다. 연세365산부인과는 모든 낙태 비용 가격을 사전에 투명하게 공개하며, 수술비·마취비·영양제·부가세가 포함된 최종 금액을 안내합니다. 카드·현금 동일가이며 추가 비용은 절대 발생하지 않습니다.
+              연세365산부인과의원의 비용은 8주 미만 45만원, 8주 60만원, 9주 70만원, 10주 80만원이며 정확한 금액은 초음파로 주수를 확인한 뒤 안내합니다. 임신중절수술 비용은 임신 주수와 수술 방법에 따라 결정되며, 모든 낙태 비용 가격을 사전에 투명하게 공개합니다. 수술비·마취비·영양제·부가세가 포함된 금액이며 카드·현금 동일가입니다.
             </p>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: '12px', marginBottom: '16px' }}>
               {[
@@ -233,14 +310,14 @@ export default function AbortionClient() {
                 </div>
               ))}
             </div>
-            <InfoBox type="amber">⚠ 임신중절수술 금액은 초음파로 정확한 주수 확인 후 결정됩니다. 11주 이상은 별도 상담 필요. 카드·현금 동일가 / 추가 비용 없음</InfoBox>
+            <InfoBox type="amber">⚠ 안내된 주수별 수술 비용을 기준으로 상담하며, 검사나 추가 처치가 필요한 경우 최종 비용은 진료 후 달라질 수 있습니다. 11주 이상은 별도 상담 필요. 카드·현금 동일가</InfoBox>
           </section>
 
           <Divider />
 
           {/* 섹션 3: 합법 기준 + 벤다이어그램 */}
           <section>
-            <SectionTag>03 임신중절수술 합법 기준</SectionTag>
+            <SectionTag>04 임신중절수술 합법 기준</SectionTag>
             <h2 style={{ fontSize: '24px', fontWeight: 900, color: C.tm, marginBottom: '18px', letterSpacing: '-.02em' }}>낙태 합법화 — 현재 법적 기준</h2>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '28px', alignItems: 'start' }}>
               <div>
@@ -249,7 +326,7 @@ export default function AbortionClient() {
                 </p>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                   {[
-                    { label: '14주 이내 — 자유 시술 가능', sub: '본인 동의서만으로 가능. 가장 안전하고 합리적인 시기입니다.', color: C.p, icon: '✓' },
+                    { label: '14주 이내 — 본인 동의로 가능', sub: '본인 동의서만으로 진행 가능한 기간입니다. 주수가 짧을수록 수술이 간단하고 회복에 유리합니다.', color: C.p, icon: '✓' },
                     { label: '14~24주 — 조건부 가능', sub: '사유 확인 필요. 전문의 상담이 필수입니다.', color: '#E29000', icon: '!' },
                     { label: '24주 이후 — 극히 제한', sub: '모체 생명 위협 등 예외적인 경우만 해당됩니다.', color: '#aaa', icon: '×' },
                   ].map(({ label, sub, color, icon }) => (
@@ -289,7 +366,7 @@ export default function AbortionClient() {
 
           {/* 섹션 4: 흡입술 vs 소파술 */}
           <section>
-            <SectionTag>04 수술 방법 비교</SectionTag>
+            <SectionTag>05 수술 방법 비교</SectionTag>
             <h2 style={{ fontSize: '24px', fontWeight: 900, color: C.tm, marginBottom: '8px', letterSpacing: '-.02em' }}>흡입술 vs 소파술 — 완전 비교</h2>
             <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, marginBottom: '20px', letterSpacing: '-.01em' }}>
               임신 주수와 자궁 상태에 따라 전문의가 가장 적합한 방법을 결정합니다. 두 방법 모두 수면마취 하에 진행되며, 시술 후 당일 귀가가 가능합니다.
@@ -324,7 +401,7 @@ export default function AbortionClient() {
 
           {/* 섹션 5: 절차 */}
           <section>
-            <SectionTag>05 수술 당일 절차</SectionTag>
+            <SectionTag>06 수술 당일 절차</SectionTag>
             <h2 style={{ fontSize: '24px', fontWeight: 900, color: C.tm, marginBottom: '20px', letterSpacing: '-.02em' }}>임신중절수술 당일 진행 순서</h2>
             <div style={{ position: 'relative' }}>
               <div style={{ position: 'absolute', top: '20px', left: '20px', right: '20px', height: '2px', background: `linear-gradient(90deg, ${C.p}, ${C.pp})`, zIndex: 0 }} />
@@ -333,7 +410,7 @@ export default function AbortionClient() {
                   { n: '1', t: '내원·접수', s: '신분증·동의서', color: C.p },
                   { n: '2', t: '초음파·혈액검사', s: '주수 확인 15~20분', color: '#C02860' },
                   { n: '3', t: '전문의 상담', s: '방법·비용 확인', color: '#A01E4E' },
-                  { n: '4', t: '수면마취·수술', s: '10~15분 무통', color: '#831638' },
+                  { n: '4', t: '수면마취·수술', s: '10~15분 내외', color: '#831638' },
                   { n: '5', t: '회복실·귀가', s: '1인실 1~2시간', color: C.pp },
                 ].map(({ n, t, s, color }) => (
                   <div key={n} style={{ textAlign: 'center' }}>
@@ -353,7 +430,7 @@ export default function AbortionClient() {
 
           {/* 섹션 6: 수술 후 관리 */}
           <section style={{ marginBottom: '44px' }}>
-            <SectionTag>06 수술 후 관리</SectionTag>
+            <SectionTag>07 수술 후 관리</SectionTag>
             <h2 style={{ fontSize: '24px', fontWeight: 900, color: C.tm, marginBottom: '8px', letterSpacing: '-.02em' }}>임신중절수술 후 회복 가이드</h2>
             <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, marginBottom: '20px', letterSpacing: '-.01em' }}>
               수술 후 빠른 회복을 위해 아래 사항을 지켜주세요. 수술 후 1주일 이내에 사후 검진을 받으시는 것을 권장합니다.
@@ -386,6 +463,40 @@ export default function AbortionClient() {
             <InfoBox type="amber">⚠ 38도 이상 고열, 과다출혈, 심한 복통이 지속되면 즉시 내원하세요.</InfoBox>
           </section>
 
+          {/* FAQ 섹션 */}
+          <section style={{ marginBottom: '44px' }}>
+            <SectionTag>자주 묻는 질문</SectionTag>
+            <h2 style={{ fontSize: '24px', fontWeight: 900, color: C.tm, marginBottom: '8px', letterSpacing: '-.02em' }}>
+              임신중절수술에 관해 자주 묻는 질문
+            </h2>
+            <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, marginBottom: '20px', letterSpacing: '-.01em' }}>
+              상담 전에 많이 확인하는 비용, 당일 진행, 수술 방법, 준비사항과 회복 관련 내용을 정리했습니다.
+            </p>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginBottom: '16px' }}>
+              {FEATURED_FAQS.map(({ q, a }) => (
+                <FeaturedFAQItem key={q} question={q} answer={a} />
+              ))}
+            </div>
+            <Link href="/abortion/faq" style={{ display: 'block', textAlign: 'center', background: C.pb, border: `0.5px solid ${C.pbd}`, borderRadius: '12px', padding: '14px', textDecoration: 'none', fontSize: '13px', fontWeight: 700, color: C.p }}>
+              전체 217개 FAQ 보기 →
+            </Link>
+          </section>
+
+          {/* 의료정보 안내 */}
+          <section style={{ marginBottom: '44px', background: C.pb, border: `0.5px solid ${C.pbd}`, borderRadius: '14px', padding: '24px 28px' }}>
+            <SectionTag>의료정보 안내</SectionTag>
+            <h2 style={{ fontSize: '18px', fontWeight: 900, color: C.tm, marginBottom: '14px', letterSpacing: '-.02em' }}>
+              의료정보는 어떤 기준으로 작성되었나요?
+            </h2>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', fontSize: '13px', color: C.ts, lineHeight: 1.85 }}>
+              <div><strong style={{ color: C.tm }}>정보 제공:</strong> 연세365산부인과의원</div>
+              <div><strong style={{ color: C.tm }}>최초 작성일:</strong> 2026년 5월 21일</div>
+              <div><strong style={{ color: C.tm }}>최종 수정일:</strong> 2026년 6월 29일</div>
+              <div><strong style={{ color: C.tm }}>공식 출처:</strong> 모자보건법, 대한산부인과학회 임상 지침</div>
+              <div style={{ marginTop: '8px', fontSize: '12px', color: C.tg }}>본 정보는 일반적인 의료 안내이며 개인별 진료를 대신하지 않습니다. 정확한 진단과 치료는 의료기관을 방문하여 상담받으시기 바랍니다.</div>
+            </div>
+          </section>
+
           {/* 관련 페이지 */}
           <div style={{ marginBottom: '40px' }}>
             <div style={{ fontSize: '13px', fontWeight: 700, color: C.tm, marginBottom: '12px' }}>임신중절클리닉 더 자세히 보기</div>
@@ -400,7 +511,7 @@ export default function AbortionClient() {
 
           {/* CTA */}
           <div style={{ background: `linear-gradient(135deg, ${C.pp}, ${C.p})`, borderRadius: '20px', padding: '36px', textAlign: 'center' }}>
-            <div style={{ fontSize: '22px', fontWeight: 900, color: '#fff', marginBottom: '6px' }}>연세365산부인과</div>
+            <div style={{ fontSize: '22px', fontWeight: 900, color: '#fff', marginBottom: '6px' }}>연세365산부인과의원</div>
             <div style={{ fontSize: '13px', color: 'rgba(255,255,255,.85)', marginBottom: '6px' }}>서울 관악구 과천대로 939 3층 · 사당역 4번출구</div>
             <div style={{ fontSize: '12px', color: 'rgba(255,255,255,.7)', marginBottom: '22px' }}>당일예약·당일수술 가능 · 비밀보장 · 전문의 직접 집도</div>
             <div style={{ display: 'flex', gap: '10px', justifyContent: 'center' }}>
@@ -427,10 +538,10 @@ export default function AbortionClient() {
             ))}
           </div>
           <h2 style={{ color: '#fff', fontSize: '28px', fontWeight: 900, lineHeight: 1.2, marginBottom: '12px', letterSpacing: '-.02em' }}>
-            임신중절수술<br /><span style={{ fontSize: '18px', fontWeight: 700, opacity: .88 }}>안전하고 정확하게</span>
+            임신중절수술<br /><span style={{ fontSize: '18px', fontWeight: 700, opacity: .88 }}>주수 확인부터 수술 방법·비용·회복까지</span>
           </h2>
           <p style={{ color: 'rgba(255,255,255,.88)', fontSize: '13px', lineHeight: 1.85, marginBottom: '20px' }}>
-            산부인과 전문의 직접 집도. 수술 전·중·후 비밀 보장.
+            초음파로 임신 주수 확인 후 산부인과 전문의가 수술 방법을 안내합니다.
           </p>
           <div style={{ background: 'rgba(255,255,255,.1)', border: '0.5px solid rgba(255,255,255,.2)', borderRadius: '14px', padding: '16px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
             <div>
@@ -439,7 +550,7 @@ export default function AbortionClient() {
               <div style={{ color: 'rgba(255,255,255,.85)', fontSize: '12px' }}>만원 (영양제 포함)</div>
             </div>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '6px' }}>
-              {[['15분', '수술시간'], ['당일', '귀가'], ['100%', '비밀'], ['0원', '추가비용']].map(([v, l]) => (
+              {[['15분', '수술시간'], ['당일', '귀가'], ['의료법', '비밀보장'], ['1인실', '회복실']].map(([v, l]) => (
                 <div key={l} style={{ background: 'rgba(255,255,255,.12)', borderRadius: '8px', padding: '8px', textAlign: 'center' }}>
                   <div style={{ color: '#FFD700', fontSize: '14px', fontWeight: 900 }}>{v}</div>
                   <div style={{ color: 'rgba(255,255,255,.7)', fontSize: '9px', marginTop: '2px' }}>{l}</div>
@@ -448,6 +559,37 @@ export default function AbortionClient() {
             </div>
           </div>
         </div>
+
+        {/* 모바일 먼저 확인할 내용 */}
+        <section style={{ padding: '20px 16px 4px', borderBottom: `0.5px solid ${C.pbd}` }}>
+          <SectionTag>01 먼저 확인할 내용</SectionTag>
+          <h2 style={{ fontSize: '18px', fontWeight: 900, color: C.tm, marginBottom: '10px', letterSpacing: '-.02em', lineHeight: 1.4 }}>
+            임신중절수술 전, 먼저 확인해야 할 사항은 무엇인가요?
+          </h2>
+          <p className="speakable-summary" style={{ fontSize: '13px', color: C.ts, lineHeight: 1.9, marginBottom: '12px' }}>
+            임신중절수술 전에는 초음파로 자궁 내 임신 여부와 정확한 임신 주수를 확인해야 합니다. 이후 건강 상태, 과거 병력, 복용 중인 약과 검사 결과를 바탕으로 의료진이 수술 가능 여부와 방법을 안내합니다. 연세365산부인과의원은 약물중절을 시행하지 않으며 수술적 방법에 대해서만 상담합니다.
+          </p>
+          <p style={{ fontSize: '13px', color: C.ts, lineHeight: 1.9, marginBottom: '14px' }}>
+            비용은 8주 미만 45만원, 8주 60만원, 9주 70만원, 10주 80만원이며, 당일 진행 가능 여부는 금식 상태와 검사 결과에 따라 달라집니다.
+          </p>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px', marginBottom: '10px' }}>
+            {[
+              { title: '주수 확인', desc: '초음파로 자궁 내 임신 여부와 정확한 주수 확인' },
+              { title: '수술 방법', desc: '검사 결과·건강 상태를 바탕으로 의료진 안내' },
+              { title: '주수별 비용', desc: '8주 미만 45만원 ~ 10주 80만원' },
+              { title: '당일 진행', desc: '금식·검사 결과·예약 확인 후 가능 여부 안내' },
+            ].map(({ title, desc }) => (
+              <div key={title} style={{ background: C.pb, border: `0.5px solid ${C.pbd}`, borderRadius: '10px', padding: '12px' }}>
+                <div style={{ fontSize: '11px', fontWeight: 900, color: C.p, marginBottom: '4px' }}>{title}</div>
+                <div style={{ fontSize: '11px', color: C.ts, lineHeight: 1.6 }}>{desc}</div>
+              </div>
+            ))}
+          </div>
+          <div style={{ background: C.pb, border: `0.5px solid ${C.pbd}`, borderRadius: '10px', padding: '12px', marginBottom: '10px', fontSize: '12px', fontWeight: 700, color: C.pd }}>
+            본원 정책: 연세365산부인과의원은 약물중절을 시행하지 않고 수술적 방법만 상담합니다.
+          </div>
+          <p style={{ fontSize: '11px', color: C.tg, marginBottom: '16px' }}>※ 수술 가능 여부와 회복 과정은 개인의 건강 상태에 따라 달라질 수 있습니다.</p>
+        </section>
 
         {/* 모바일 본문 아코디언 */}
         <MobileAccordion title="임신중절수술이란" icon="🔍">
@@ -513,6 +655,31 @@ export default function AbortionClient() {
           <InfoBox type="amber">고열·과다출혈·심한 복통 지속 시 즉시 내원하세요.</InfoBox>
         </MobileAccordion>
 
+        {/* 모바일 FAQ 섹션 */}
+        <div style={{ padding: '16px', borderTop: `0.5px solid ${C.pbd}` }}>
+          <div style={{ fontSize: '11px', fontWeight: 700, color: '#bbb', marginBottom: '6px', letterSpacing: '.05em' }}>자주 묻는 질문</div>
+          <div style={{ fontSize: '15px', fontWeight: 900, color: C.tm, marginBottom: '12px' }}>임신중절수술에 관해 자주 묻는 질문</div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', marginBottom: '14px' }}>
+            {FEATURED_FAQS.map(({ q, a }) => (
+              <FeaturedFAQItem key={q} question={q} answer={a} />
+            ))}
+          </div>
+          <Link href="/abortion/faq" style={{ display: 'block', textAlign: 'center', background: C.pb, border: `0.5px solid ${C.pbd}`, borderRadius: '10px', padding: '11px', textDecoration: 'none', fontSize: '12px', fontWeight: 700, color: C.p }}>
+            전체 217개 FAQ 보기 →
+          </Link>
+        </div>
+
+        {/* 모바일 의료정보 안내 */}
+        <div style={{ padding: '14px 16px', background: C.pb, borderTop: `0.5px solid ${C.pbd}` }}>
+          <div style={{ fontSize: '11px', fontWeight: 700, color: '#bbb', marginBottom: '8px', letterSpacing: '.04em' }}>의료정보 안내</div>
+          <div style={{ fontSize: '11px', color: C.tg, lineHeight: 1.8 }}>
+            <div>정보 제공: 연세365산부인과의원</div>
+            <div>최종 수정일: 2026년 6월 29일</div>
+            <div>출처: 모자보건법, 대한산부인과학회 임상 지침</div>
+            <div style={{ marginTop: '6px' }}>본 정보는 일반 의료 안내이며 개인별 진료를 대신하지 않습니다.</div>
+          </div>
+        </div>
+
         {/* 모바일 관련 링크 */}
         <div style={{ padding: '16px', background: C.pb, borderTop: `0.5px solid ${C.pbd}` }}>
           <div style={{ fontSize: '12px', fontWeight: 700, color: C.tm, marginBottom: '10px' }}>더 자세히 보기</div>
@@ -524,7 +691,7 @@ export default function AbortionClient() {
             ))}
           </div>
           <Link href="/abortion/faq" style={{ display: 'block', textAlign: 'center', background: '#fff', border: `0.5px solid ${C.pbd}`, borderRadius: '10px', padding: '11px', textDecoration: 'none', fontSize: '12px', fontWeight: 700, color: C.p }}>
-            전체 70가지 FAQ 보기 →
+            전체 217개 FAQ 보기 →
           </Link>
         </div>
 

@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 import { useState } from 'react'
 import Link from 'next/link'
 import { ChevronDown, ChevronUp } from 'lucide-react'
@@ -50,7 +50,7 @@ export default function HealthMagazineClient() {
       }}>
         <div style={{ textAlign: 'center' }}>
           <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', justifyContent: 'center', marginBottom: '16px' }}>
-            {['자가진단 퀴즈', 'FAQ 70가지', '건강 칼럼'].map(t => (
+            {['자가진단 퀴즈', 'FAQ 217개', '건강 칼럼'].map(t => (
               <span key={t} style={{ background: 'rgba(255,255,255,.18)', color: '#fff', fontSize: '11px', fontWeight: 700, padding: '4px 12px', borderRadius: '20px', border: '0.5px solid rgba(255,255,255,.3)' }}>{t}</span>
             ))}
           </div>
@@ -174,7 +174,7 @@ export default function HealthMagazineClient() {
           <div style={{ textAlign: 'center' }}>
             <Link href="/abortion/faq"
               style={{ display: 'inline-flex', alignItems: 'center', gap: '6px', background: `linear-gradient(135deg, ${C.pp}, ${C.p})`, color: '#fff', fontSize: '14px', fontWeight: 700, padding: '13px 28px', borderRadius: '24px', textDecoration: 'none' }}>
-              전체 70가지 FAQ 보기 →
+              전체 217개 FAQ 보기 →
             </Link>
           </div>
         </div>

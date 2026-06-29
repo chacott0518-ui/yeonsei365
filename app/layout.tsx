@@ -133,14 +133,8 @@ export default function RootLayout({
                     {
                       "@type": "MedicalProcedure",
                       "name": "임신중절수술",
-                      "description": "임신 주수에 따른 안전한 임신중절수술. 8주 미만 45만원~. 당일수술 가능. 비밀보장.",
+                      "description": "임신 주수에 따른 수술적 임신중절. 8주 미만 45만원~. 흡입술·소파술. 비밀보장.",
                       "procedureType": "https://schema.org/SurgicalProcedure"
-                    },
-                    {
-                      "@type": "MedicalProcedure",
-                      "name": "약물 임신중절",
-                      "description": "임신 7주 이내 약물을 이용한 인공임신중절. 전문의 처방 및 관리.",
-                      "procedureType": "https://schema.org/TherapeuticProcedure"
                     }
                   ],
                   "employee": {

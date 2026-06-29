@@ -1,4 +1,4 @@
-'use client'
+﻿'use client'
 import { useState } from 'react'
 import Link from 'next/link'
 import ViewCounter from '@/components/ViewCounter'
@@ -1115,7 +1115,7 @@ export default function QuizClient() {
               <div style={{ marginTop: '32px', display: 'grid', gridTemplateColumns: 'repeat(2, 1fr)', gap: '10px' }}>
                 {[
                   { href: '/health-magazine', label: '건강매거진 홈', icon: '🏠' },
-                  { href: '/abortion/faq', label: 'FAQ 70가지', icon: '❓' },
+                  { href: '/abortion/faq', label: 'FAQ 217개', icon: '❓' },
                   { href: '/abortion/cost', label: '수술 비용 안내', icon: '💰' },
                   { href: '/health-magazine/column', label: '건강 칼럼', icon: '📋' },
                 ].map(l => (

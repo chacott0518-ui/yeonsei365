@@ -4,7 +4,7 @@ import { clinicSchema } from '@/lib/schemas';
 
 const PAGE_URL = 'https://www.yeonsei365.com/abortion'
 const PAGE_DATE = '2026-05-21'
-const PAGE_MODIFIED = '2026-05-22'
+const PAGE_MODIFIED = '2026-06-29'
 
 export const metadata: Metadata = {
   title: '임신중절수술·임신중절클리닉 | 임신중절수술 금액·비용·가격·후기·병원·방법·합법·혼자·당일 | 낙태비용가격·낙태수술·낙태합법화·낙태금액·낙태가격 | 임신초기중절수술·약물중절·인공임신중절 | 연세365산부인과',
@@ -68,14 +68,15 @@ export const metadata: Metadata = {
 const articleSchema = {
   '@context': 'https://schema.org',
   '@type': 'Article',
-  headline: '임신중절수술·임신중절클리닉 | 임신중절수술 금액·비용·가격·후기·병원 | 낙태비용가격 | 연세365산부인과',
+  headline: '임신중절수술·임신중절클리닉 | 임신중절수술 금액·비용·가격·후기·병원 | 낙태비용가격 | 연세365산부인과의원',
   datePublished: PAGE_DATE,
   dateModified: PAGE_MODIFIED,
   image: 'https://www.yeonsei365.com/og-image.jpg',
-  author: { '@type': 'Organization', name: '연세365산부인과', url: 'https://www.yeonsei365.com' },
+  author: { '@type': 'Organization', '@id': 'https://www.yeonsei365.com/#organization', name: '연세365산부인과의원', url: 'https://www.yeonsei365.com' },
   publisher: {
     '@type': 'MedicalOrganization',
-    name: '연세365산부인과',
+    '@id': 'https://www.yeonsei365.com/#organization',
+    name: '연세365산부인과의원',
     logo: { '@type': 'ImageObject', url: 'https://i.imgur.com/f7h5DY0.png' },
   },
   mainEntityOfPage: { '@type': 'WebPage', '@id': PAGE_URL },
@@ -88,38 +89,33 @@ const faqSchema = {
   mainEntity: [
     {
       '@type': 'Question',
-      name: '임신중절수술 금액이 얼마인가요?',
-      acceptedAnswer: { '@type': 'Answer', text: '임신중절수술 금액은 8주 미만 45만원, 8주 60만원, 9주 70만원, 10주 80만원입니다. 수술비·마취비·영양제·부가세 포함 최종 금액이며 카드·현금 동일가, 추가 비용 없습니다. 사당역 연세365산부인과(02-585-3650)에서 정확한 금액을 안내드립니다.' },
+      name: '임신중절수술 비용은 얼마인가요?',
+      acceptedAnswer: { '@type': 'Answer', text: '연세365산부인과의원은 8주 미만 45만원, 8주 60만원, 9주 70만원, 10주 80만원으로 안내합니다. 정확한 비용은 초음파로 임신 주수를 확인한 뒤 결정됩니다.' },
     },
     {
       '@type': 'Question',
-      name: '임신중절수술이란 무엇인가요?',
-      acceptedAnswer: { '@type': 'Answer', text: '임신중절수술(인공임신중절수술)은 자궁 내 임신 조직을 의학적으로 안전하게 제거하는 시술입니다. 2021년 낙태죄 폐지 이후 임신 14주 이내는 본인 동의만으로 합법적으로 시술받을 수 있습니다. 사당역 연세365산부인과(02-585-3650)에서 안전하게 시술받으세요.' },
+      name: '상담한 날 바로 수술할 수 있나요?',
+      acceptedAnswer: { '@type': 'Answer', text: '당일 진행 가능 여부는 금식 상태, 초음파와 필요한 검사 결과, 예약 상황 및 의료진 판단에 따라 달라질 수 있으므로 방문 전에 확인이 필요합니다.' },
     },
     {
       '@type': 'Question',
-      name: '임신중절수술 당일 예약·당일 수술이 가능한가요?',
-      acceptedAnswer: { '@type': 'Answer', text: '6시간 이상 금식 상태이고 초음파·혈액 검사 결과 이상이 없다면 당일 상담 후 바로 수술이 가능합니다. 전화(02-585-3650) 또는 카카오톡으로 먼저 확인하세요. 사당역 4번출구 도보 1분 연세365산부인과입니다.' },
+      name: '수술 방법은 어떻게 결정하나요?',
+      acceptedAnswer: { '@type': 'Answer', text: '임신 주수와 초음파 검사 결과, 자궁 상태, 과거 병력과 현재 건강 상태를 확인한 뒤 의료진이 적절한 방법을 안내합니다.' },
     },
     {
       '@type': 'Question',
-      name: '임신중절수술 혼자 가도 되나요?',
-      acceptedAnswer: { '@type': 'Answer', text: '성인(만 19세 이상)은 보호자 없이 혼자 수술 가능합니다. 수면마취 후 자가 운전은 불가하므로 귀가 시 대중교통 이용이 필수입니다. 사당역 4번출구 도보 1분 연세365산부인과(02-585-3650)로 문의하세요.' },
+      name: '약물중절도 시행하나요?',
+      acceptedAnswer: { '@type': 'Answer', text: '연세365산부인과의원은 약물중절을 시행하지 않으며 수술적 방법에 대해서만 상담합니다.' },
     },
     {
       '@type': 'Question',
-      name: '임신중절수술 합법 기간은 언제까지인가요?',
-      acceptedAnswer: { '@type': 'Answer', text: '2021년 낙태죄 폐지 이후 임신 14주 이내는 본인 동의만으로 합법적으로 수술 가능합니다. 14~24주는 모자보건법 사유 해당 시 조건부 가능합니다. 정확한 상담은 연세365산부인과(02-585-3650)로 문의하세요.' },
+      name: '수술 전에는 무엇을 준비해야 하나요?',
+      acceptedAnswer: { '@type': 'Answer', text: '금식 시간과 필요한 준비사항은 예약 시간과 개인 상태에 따라 달라질 수 있으므로 상담 시 안내받은 내용을 따라야 합니다.' },
     },
     {
       '@type': 'Question',
-      name: '임신중절수술 후 관리는 어떻게 하나요?',
-      acceptedAnswer: { '@type': 'Answer', text: '임신중절수술 후에는 최소 2~3일간 충분한 휴식이 필요합니다. 수술 후 2주 이내 금주·금욕·과격한 운동을 삼가야 하며, 처방된 약을 규칙적으로 복용해야 합니다. 이상 증상 시 즉시 연세365산부인과(02-585-3650)로 연락하세요.' },
-    },
-    {
-      '@type': 'Question',
-      name: '낙태비용 가격이 병원마다 다른가요?',
-      acceptedAnswer: { '@type': 'Answer', text: '낙태비용 가격은 임신 주수, 수술 방법, 병원에 따라 다릅니다. 연세365산부인과는 8주 미만 45만원부터 주수별 투명하게 공개하며 추가 비용이 없습니다. 사당역 4번출구 연세365산부인과(02-585-3650)에서 정확한 금액을 확인하세요.' },
+      name: '수술 후 회복 기간은 얼마나 걸리나요?',
+      acceptedAnswer: { '@type': 'Answer', text: '출혈과 통증, 일상 복귀 시점은 개인마다 다를 수 있습니다. 처방과 주의사항을 따르고 고열, 심한 복통, 과다출혈 등 이상 증상이 있으면 의료기관에 문의해야 합니다.' },
     },
   ],
 }
@@ -127,12 +123,12 @@ const faqSchema = {
 const medicalWebPageSchema = {
   '@context': 'https://schema.org',
   '@type': 'MedicalWebPage',
-  name: '임신중절수술·임신중절클리닉 | 낙태비용가격 | 연세365산부인과',
+  name: '임신중절수술·임신중절클리닉 | 낙태비용가격 | 연세365산부인과의원',
   url: PAGE_URL,
   specialty: { '@type': 'MedicalSpecialty', name: '산부인과' },
   medicalAudience: { '@type': 'MedicalAudience', audienceType: '여성 환자' },
-  lastReviewed: PAGE_DATE,
-  reviewedBy: { '@type': 'MedicalOrganization', name: '연세365산부인과', url: 'https://www.yeonsei365.com' },
+  lastReviewed: PAGE_MODIFIED,
+  provider: { '@id': 'https://www.yeonsei365.com/#organization' },
   about: { '@type': 'MedicalCondition', name: '임신중절수술' },
 }
 
@@ -140,20 +136,21 @@ const howToSchema = {
   '@context': 'https://schema.org',
   '@type': 'HowTo',
   name: '임신중절수술 예약 및 진행 방법',
-  description: '연세365산부인과 임신중절수술 전 과정',
+  description: '연세365산부인과의원 임신중절수술 당일 절차',
   step: [
-    { '@type': 'HowToStep', position: 1, name: '상담 예약', text: '전화(02-585-3650) 또는 카카오톡으로 금식 방법·예약 시간 확인.' },
-    { '@type': 'HowToStep', position: 2, name: '내원 및 검사', text: '사당역 4번출구 도보 1분. 신분증 지참. 초음파·혈액검사 후 비용 안내.' },
-    { '@type': 'HowToStep', position: 3, name: '수술', text: '수면마취 후 10~15분 무통 수술 진행.' },
-    { '@type': 'HowToStep', position: 4, name: '회복 및 귀가', text: '1인 회복실 1~2시간 안정 후 처방약 안내. 당일 귀가.' },
+    { '@type': 'HowToStep', position: 1, name: '내원·접수', text: '신분증을 지참하여 내원하고 동의서를 작성합니다.' },
+    { '@type': 'HowToStep', position: 2, name: '초음파·혈액검사', text: '초음파로 임신 주수와 자궁 내 임신 위치를 확인하고 혈액 검사를 시행합니다.' },
+    { '@type': 'HowToStep', position: 3, name: '전문의 상담', text: '검사 결과와 건강 상태를 바탕으로 수술 방법과 비용을 안내받습니다.' },
+    { '@type': 'HowToStep', position: 4, name: '수면마취·수술', text: '수면마취 후 수술적 방법으로 수술을 진행합니다.' },
+    { '@type': 'HowToStep', position: 5, name: '회복실·귀가', text: '1인 회복실에서 안정을 취한 후 처방약 안내와 함께 당일 귀가합니다.' },
   ],
-  tool: { '@type': 'HowToTool', name: '연세365산부인과' },
+  tool: { '@type': 'HowToTool', name: '연세365산부인과의원' },
 }
 
 const speakableSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebPage',
-  name: '임신중절수술·임신중절클리닉 낙태비용가격 연세365산부인과',
+  name: '임신중절수술·임신중절클리닉 낙태비용가격 연세365산부인과의원',
   url: PAGE_URL,
   speakable: { '@type': 'SpeakableSpecification', cssSelector: ['h1', 'h2', '.speakable-summary'] },
 }

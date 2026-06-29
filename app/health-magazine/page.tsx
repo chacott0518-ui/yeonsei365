@@ -26,7 +26,7 @@ const SCHEMA = {
 
 export const metadata: Metadata = {
   title: '건강매거진 | 산부인과 자가진단·FAQ·건강칼럼 | 연세365산부인과',
-  description: '산부인과 증상 자가진단 퀴즈, 임신중절수술 FAQ 70가지, 여성 건강 칼럼까지 한곳에서 확인하세요. 사당역 4번출구 연세365산부인과 건강매거진.',
+  description: '산부인과 증상 자가진단 퀴즈, 임신중절수술 FAQ 217개, 여성 건강 칼럼까지 한곳에서 확인하세요. 사당역 4번출구 연세365산부인과 건강매거진.',
   keywords: [
     '산부인과 자가진단', '여성 건강 매거진', '임신중절수술 FAQ',
     '산부인과 FAQ', '여성 건강 칼럼', '사당역 산부인과',
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://www.yeonsei365.com/health-magazine' },
   openGraph: {
     title: '건강매거진 | 산부인과 자가진단·FAQ·건강칼럼 | 연세365산부인과',
-    description: '산부인과 증상 자가진단 퀴즈, 임신중절수술 FAQ 70가지, 여성 건강 칼럼. 사당역 연세365산부인과.',
+    description: '산부인과 증상 자가진단 퀴즈, 임신중절수술 FAQ 217개, 여성 건강 칼럼. 사당역 연세365산부인과.',
     url: 'https://www.yeonsei365.com/health-magazine',
     images: [{ url: 'https://www.yeonsei365.com/og-image.jpg', width: 1200, height: 630, alt: '연세365산부인과 건강매거진' }],
     locale: 'ko_KR',
@@ -45,7 +45,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: '건강매거진 | 산부인과 자가진단·FAQ·건강칼럼 | 연세365산부인과',
-    description: '산부인과 증상 자가진단 퀴즈, 임신중절수술 FAQ 70가지, 여성 건강 칼럼. 사당역 연세365산부인과.',
+    description: '산부인과 증상 자가진단 퀴즈, 임신중절수술 FAQ 217개, 여성 건강 칼럼. 사당역 연세365산부인과.',
   },
 }
 const PAGE_URL = 'https://www.yeonsei365.com/health-magazine'

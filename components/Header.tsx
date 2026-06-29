@@ -9,14 +9,14 @@ import { usePathname } from 'next/navigation'
 const SUB_MENUS: Record<string, { label: string; href: string }[]> = {
   'abortion-clinic': [
     { label: '임신중절수술', href: '/abortion' },
-    { label: '수술 방법·종류', href: '/abortion/method' },
-    { label: '수술 절차·안전성', href: '/abortion/surgery' },
-    { label: '주수별 비용 안내', href: '/abortion/cost' },
-    { label: '수술 정보·보호자', href: '/abortion/info' },
-    { label: '합법화 안내', href: '/abortion/legal' },
-    { label: '수술 후 관리', href: '/abortion/recovery' },
-    { label: '수술 후기', href: '/abortion/review' },
-    { label: '임신중절 병원', href: '/abortion/hospital' },
+    { label: '임신중절수술 방법·종류', href: '/abortion/method' },
+    { label: '임신중절수술 절차·안전성', href: '/abortion/surgery' },
+    { label: '임신중절수술 주수별 비용', href: '/abortion/cost' },
+    { label: '임신중절수술 준비·보호자 안내', href: '/abortion/info' },
+    { label: '임신중절수술 합법·법률 안내', href: '/abortion/legal' },
+    { label: '임신중절수술 후 관리', href: '/abortion/recovery' },
+    { label: '임신중절수술 후기 안내', href: '/abortion/review' },
+    { label: '임신중절수술 병원 안내', href: '/abortion/hospital' },
   ],
   'pregnancy-calc': [
     { label: '임신주수 계산기', href: '/pregnancy-calculator' },

@@ -40,9 +40,50 @@ const RELATED = [
   { href: '/abortion/cost', label: '금액·비용 안내' },
   { href: '/abortion/method', label: '수술 방법 종류' },
   { href: '/abortion/surgery', label: '수술 절차' },
-  { href: '/abortion/faq', label: 'FAQ 70가지' },
+  { href: '/abortion/faq', label: '전체 217개 FAQ' },
   { href: '/abortion/legal', label: '합법화 안내' },
 ]
+
+const FEATURED_FAQS = [
+  {
+    q: '임신중절수술 후에는 어떻게 관리해야 하나요?',
+    a: '수술 당일에는 회복실에서 1~2시간 안정을 취한 뒤 귀가합니다. 가벼운 식사는 당일부터 가능하지만 격렬한 운동, 음주, 성관계는 2주 이상 피하셔야 합니다. 수술 후 1주 이내에 사후 검진을 받는 것을 권장합니다.',
+  },
+  {
+    q: '수술 후 출혈은 언제까지 지속되나요?',
+    a: '수술 후 소량의 출혈이 수일에서 수 주 정도 지속될 수 있으며, 개인 상태에 따라 차이가 있습니다. 월경 수준을 초과하는 과다출혈이나 혈전 덩어리가 반복적으로 발생하면 즉시 내원하시기 바랍니다. 이상 증상 여부는 의료진이 판단합니다.',
+  },
+  {
+    q: '수술 후 생리는 언제 다시 시작되나요?',
+    a: '수술 후 첫 생리는 일반적으로 4~6주 이내에 재개됩니다. 다만 개인의 호르몬 상태, 수술 주수, 건강 상태에 따라 시기가 달라질 수 있습니다. 8주 이상 생리가 없다면 산부인과 진료를 받으시기 바랍니다.',
+  },
+  {
+    q: '수술 후 언제부터 일상생활이 가능한가요?',
+    a: '가벼운 일상 활동과 사무직 업무는 수술 다음 날부터 가능한 경우가 많습니다. 격렬한 신체 활동이나 현장 근무는 의료진 안내에 따라 재개 시기를 결정하시기 바랍니다. 개인 회복 속도에 따라 차이가 있으므로 무리하지 않는 것이 중요합니다.',
+  },
+  {
+    q: '수술 후 샤워와 목욕은 언제 가능한가요?',
+    a: '샤워는 수술 다음 날부터 가능합니다. 욕조 목욕이나 수영장 이용은 감염 위험으로 인해 2주 이상 피하셔야 합니다. 정확한 가능 시기는 상태에 따라 다를 수 있으므로 사후 검진 시 의료진에게 확인하세요.',
+  },
+  {
+    q: '수술 후 즉시 병원에 연락해야 하는 증상은 무엇인가요?',
+    a: '38도 이상 고열, 월경 수준 이상의 과다출혈, 지속되는 심한 복통, 악취 분비물, 어지럼증이나 실신 증세가 나타나면 즉시 의료기관에 연락하거나 내원하세요. 이러한 증상은 감염이나 불완전 수술의 신호일 수 있으며 지체 없는 처치가 필요합니다.',
+  },
+]
+
+function FeaturedFAQItem({ question, answer }: { question: string; answer: string }) {
+  const [open, setOpen] = useState(false)
+  return (
+    <details open={open} onToggle={(e) => setOpen((e.target as HTMLDetailsElement).open)}
+      style={{ border: `0.5px solid ${C.pbd}`, borderRadius: '12px', padding: '14px 18px', background: '#fff' }}>
+      <summary style={{ fontSize: '14px', fontWeight: 700, color: C.tm, cursor: 'pointer', listStyle: 'none', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <span>Q. {question}</span>
+        <span style={{ color: C.p, fontSize: '12px', marginLeft: '8px' }}>{open ? '▲' : '▼'}</span>
+      </summary>
+      <p style={{ fontSize: '13px', color: C.ts, lineHeight: 1.85, marginTop: '10px', marginBottom: 0 }}>{answer}</p>
+    </details>
+  )
+}
 
 export default function RecoveryClient() {
   return (
@@ -60,8 +101,8 @@ export default function RecoveryClient() {
               ))}
             </div>
             <h1 style={{ color: '#fff', fontSize: '38px', fontWeight: 900, lineHeight: 1.25, letterSpacing: '-.03em', marginBottom: '16px' }}>
-              임신중절수술 후 관리<br />
-              <span style={{ fontSize: '24px', fontWeight: 700, opacity: .88 }}>회복기간·주의사항·생리 재개 완벽 안내</span>
+              임신중절수술 후
+              회복기간과 관리 방법<span style={{ display: 'block', fontSize: '20px', fontWeight: 700, opacity: .88, marginTop: '8px' }}>수술 직후부터 4주까지 단계별 회복 안내</span>
             </h1>
             <p style={{ color: 'rgba(255,255,255,.9)', fontSize: '14px', lineHeight: 1.95, marginBottom: '22px', letterSpacing: '-.01em' }}>
               빠른 회복을 위한 단계별 관리 가이드를 안내합니다.<br />
@@ -91,8 +132,25 @@ export default function RecoveryClient() {
           </div>
 
           <section>
-            <SectionTag>01 단계별 회복 타임라인</SectionTag>
-            <h2 style={{ fontSize: '24px', fontWeight: 900, color: C.tm, marginBottom: '8px', letterSpacing: '-.02em' }}>임신중절수술 후 회복 단계별 완벽 안내</h2>
+            <SectionTag>01 먼저 확인할 내용</SectionTag>
+            <h2 style={{ fontSize: '24px', fontWeight: 900, color: C.tm, marginBottom: '8px', letterSpacing: '-.02em' }}>임신중절수술 후에는 어떻게 관리해야 하나요?</h2>
+            <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '14px' }}>
+              수술 당일 1~2시간 회복실 안정 후 귀가하며, 가벼운 일상 활동은 수술 다음 날부터 가능한 경우가 많습니다. 성관계·격렬한 운동·음주·탕목욕은 최소 2주간 피해야 합니다. 수술 후 1주 이내에 사후 검진을 받는 것을 권장합니다.
+            </p>
+            <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '14px' }}>
+              소량의 출혈은 수술 후 며칠에서 수 주간 지속될 수 있으며, 이는 개인 상태에 따라 다릅니다. 첫 생리는 보통 수술 후 4~6주 이내에 재개되는 경우가 많습니다. 38도 이상 고열, 생리량을 초과하는 과다출혈, 심한 복통, 악취 분비물이 발생하면 즉시 의료기관에 연락해야 합니다.
+            </p>
+            <div style={{ background: C.pb, border: `0.5px solid ${C.pbd}`, borderRadius: '12px', padding: '16px 20px', marginBottom: '20px' }}>
+              <div style={{ fontSize: '12px', fontWeight: 700, color: C.pd, marginBottom: '10px' }}>핵심 | 최종 수정일 2026.06</div>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px' }}>
+                {[['일상복귀', '수술 다음 날부터'], ['금지사항', '성관계·운동·음주 2주'], ['생리 재개', '4~6주 이내'], ['사후 검진', '1주 이내 권장']].map(([k, v]) => (
+                  <div key={k} style={{ background: '#fff', border: `0.5px solid ${C.pbd}`, borderRadius: '8px', padding: '10px 14px' }}>
+                    <div style={{ fontSize: '11px', fontWeight: 700, color: C.p, marginBottom: '3px' }}>{k}</div>
+                    <div style={{ fontSize: '12px', color: C.ts }}>{v}</div>
+                  </div>
+                ))}
+              </div>
+            </div>
             <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '14px' }}>
               임신중절수술 후 회복 기간은 개인차가 있지만 일반적으로 수술 다음 날부터 가벼운 일상생활이 가능합니다. 낙태 수술 후 관리를 잘 하면 빠른 회복이 가능합니다. 연세365산부인과는 수술 당일부터 4주까지 단계별 주의사항과 가능한 활동 범위를 상세히 안내합니다.
             </p>
@@ -197,6 +255,118 @@ export default function RecoveryClient() {
 
           <Divider />
 
+
+
+          <Divider />
+
+          {/* 신규 섹션: 출혈과 통증 관찰 방법 */}
+          <section>
+            <SectionTag>04 수술 후 출혈과 통증 관찰 방법</SectionTag>
+            <h2 style={{ fontSize: '24px', fontWeight: 900, color: C.tm, marginBottom: '8px', letterSpacing: '-.02em' }}>수술 후 출혈과 통증을 어떻게 관찰해야 하나요?</h2>
+            <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '14px' }}>
+              수술 후 소량의 출혈은 자궁 내막이 회복되는 과정에서 수일~수 주간 나타날 수 있으며, 이는 일반적인 회복 과정의 일부입니다. 출혈 양이 생리량을 크게 초과하거나 혈전 덩어리가 반복적으로 배출된다면 즉시 의료기관에 연락해야 합니다. 처방받은 지혈제·항생제는 증상 유무와 관계없이 처방 기간 동안 복용해야 감염을 예방할 수 있습니다.
+            </p>
+            <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '14px' }}>
+              수술 후 통증은 생리통과 유사한 형태로 나타날 수 있으며, 처방된 진통제로 조절합니다. 진통제로 조절되지 않는 심한 복통이 지속된다면 이상 신호일 수 있습니다. 통증의 정도는 임신 주수, 수술 방법, 개인 통증 역치에 따라 다르게 경험됩니다.
+            </p>
+            <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '16px' }}>
+              38도 이상 고열이 발생하면 감염 가능성을 배제하기 위해 즉시 내원해야 합니다. 고열은 수술 후 감염의 주요 신호 중 하나이며, 지체 없이 처치를 받는 것이 중요합니다. 이 페이지의 정보는 일반적인 안내이며, 개인 증상에 대한 의료적 판단을 대신하지 않습니다.
+            </p>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: '12px', marginBottom: '16px' }}>
+              {[
+                { icon: '🩸', title: '출혈 관찰 기준', status: '즉시 내원', desc: '생리량을 초과하는 과다출혈, 혈전 덩어리 반복 배출. 소량 출혈은 수일~수 주간 지속 가능.' },
+                { icon: '⚡', title: '통증 관찰 기준', status: '즉시 연락', desc: '진통제로 조절되지 않는 심한 복통 지속. 생리통 유사한 불편감은 회복 중 나타날 수 있음.' },
+                { icon: '🌡️', title: '체온 관찰 기준', status: '즉시 내원', desc: '38도 이상 고열이 발생하면 즉시 내원. 발열은 감염의 주요 신호.' },
+              ].map(({ icon, title, status, desc }) => (
+                <div key={title} style={{ border: `0.5px solid ${C.pbd}`, borderRadius: '12px', padding: '18px', background: '#fff', borderLeft: `3px solid ${C.p}` }}>
+                  <div style={{ fontSize: '24px', marginBottom: '8px' }}>{icon}</div>
+                  <div style={{ fontSize: '13px', fontWeight: 700, color: C.tm, marginBottom: '4px' }}>{title}</div>
+                  <div style={{ background: C.p, color: '#fff', fontSize: '10px', fontWeight: 700, padding: '2px 8px', borderRadius: '8px', display: 'inline-block', marginBottom: '8px' }}>{status}</div>
+                  <div style={{ fontSize: '12px', color: C.ts, lineHeight: 1.7 }}>{desc}</div>
+                </div>
+              ))}
+            </div>
+            <InfoBox type="amber">⚠ 38도 이상 고열 · 과다출혈 · 심한 복통 · 악취 분비물이 발생하면 즉시 의료기관에 연락하거나 내원하세요. 이 정보는 진단을 대신하지 않습니다.</InfoBox>
+          </section>
+
+          <Divider />
+
+          {/* 신규 섹션: 생리·관계·운동·샤워 재개 확인 */}
+          <section>
+            <SectionTag>05 생리·관계·운동·샤워 재개 확인사항</SectionTag>
+            <h2 style={{ fontSize: '24px', fontWeight: 900, color: C.tm, marginBottom: '8px', letterSpacing: '-.02em' }}>생리·성관계·운동·샤워를 다시 시작할 때 무엇을 확인해야 하나요?</h2>
+            <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '14px' }}>
+              샤워는 수술 다음 날부터 가능합니다. 욕조 목욕·사우나·수영장은 감염 위험으로 2주 이상 피해야 합니다. 성관계는 자궁 내막 회복을 위해 최소 2주~1개월간 피하는 것이 권장되며, 재개 시기는 수술 방법과 회복 상태에 따라 달라질 수 있습니다.
+            </p>
+            <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '14px' }}>
+              가벼운 산책이나 사무직 업무는 수술 다음 날부터 가능한 경우가 많지만, 격렬한 운동과 무거운 물건 드는 작업은 2주간 피해야 합니다. 운동 재개 시기는 개인 회복 상태와 의료진 안내에 따르는 것이 안전합니다. 첫 생리는 수술 후 4~6주 이내에 재개되는 경우가 많으며, 8주 이상 생리가 없다면 내원하여 확인해야 합니다.
+            </p>
+            <div style={{ border: `0.5px solid ${C.pbd}`, borderRadius: '14px', overflow: 'hidden', marginBottom: '16px' }}>
+              <div style={{ background: '#F8E8EF', padding: '12px 18px', display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '8px' }}>
+                <div style={{ fontSize: '12px', fontWeight: 700, color: C.pd }}>활동</div>
+                <div style={{ fontSize: '12px', fontWeight: 700, color: C.pd }}>재개 가능 시기</div>
+                <div style={{ fontSize: '12px', fontWeight: 700, color: C.pd }}>확인사항</div>
+              </div>
+              {[
+                ['샤워', '수술 다음 날부터', '욕조 목욕·사우나는 2주 후'],
+                ['가벼운 산책', '수술 다음 날부터', '무리하지 않는 범위에서'],
+                ['사무직 업무', '2~3일 후', '몸 상태에 따라 조절'],
+                ['격렬한 운동', '2주 후 이상', '의료진 안내에 따라 결정'],
+                ['성관계', '2주~1개월 후', '회복 상태 확인 후 재개'],
+                ['음주', '회복 후', '충분히 회복될 때까지 피하기'],
+                ['첫 생리', '4~6주 이내', '8주 이상 없으면 내원 필요'],
+              ].map(([act, when, note], i) => (
+                <div key={act} style={{ padding: '11px 18px', display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '8px', background: i % 2 === 0 ? C.pb : '#fff', borderTop: `0.5px solid ${C.pbd}` }}>
+                  <div style={{ fontSize: '13px', fontWeight: 700, color: C.p }}>{act}</div>
+                  <div style={{ fontSize: '13px', color: C.green, fontWeight: 600 }}>{when}</div>
+                  <div style={{ fontSize: '12px', color: C.ts }}>{note}</div>
+                </div>
+              ))}
+            </div>
+            <InfoBox>임신중절수술 후 피임 계획은 사후 검진 시 의료진과 상담하세요. 수술 후에도 배란이 빠르게 재개될 수 있습니다.</InfoBox>
+            <div style={{ marginTop: '16px' }}>
+              <div style={{ fontSize: '13px', fontWeight: 700, color: C.tm, marginBottom: '10px' }}>관련 내용 더 보기</div>
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+                <Link href="/abortion/surgery" style={{ color: C.p, textDecoration: 'none', fontSize: '13px' }}>→ 임신중절수술 당일 절차와 회복 과정</Link>
+                <Link href="/abortion/info" style={{ color: C.p, textDecoration: 'none', fontSize: '13px' }}>→ 임신중절수술 준비사항 안내</Link>
+                <Link href="/abortion/faq" style={{ color: C.p, textDecoration: 'none', fontSize: '13px' }}>→ 전체 217개 FAQ 보기</Link>
+              </div>
+            </div>
+          </section>
+
+          <Divider />
+
+          <section style={{ marginBottom: '44px' }}>
+            <SectionTag>자주 묻는 질문</SectionTag>
+            <h2 style={{ fontSize: '24px', fontWeight: 900, color: C.tm, marginBottom: '8px', letterSpacing: '-.02em' }}>
+              임신중절수술 후 관리에 관해 자주 묻는 질문
+            </h2>
+            <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, marginBottom: '20px', letterSpacing: '-.01em' }}>
+              수술 후 출혈, 생리 재개 시기, 일상 복귀, 샤워, 이상 증상에 대한 내용을 정리했습니다.
+            </p>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginBottom: '16px' }}>
+              {FEATURED_FAQS.map(({ q, a }) => (
+                <FeaturedFAQItem key={q} question={q} answer={a} />
+              ))}
+            </div>
+            <Link href="/abortion/faq" style={{ display: 'block', textAlign: 'center', background: C.pb, border: `0.5px solid ${C.pbd}`, borderRadius: '12px', padding: '14px', textDecoration: 'none', fontSize: '13px', fontWeight: 700, color: C.p }}>
+              전체 217개 FAQ 보기 →
+            </Link>
+          </section>
+
+          <section style={{ marginBottom: '44px', background: C.pb, border: `0.5px solid ${C.pbd}`, borderRadius: '14px', padding: '24px 28px' }}>
+            <SectionTag>의료정보 안내</SectionTag>
+            <h2 style={{ fontSize: '18px', fontWeight: 900, color: C.tm, marginBottom: '14px', letterSpacing: '-.02em' }}>
+              회복 정보는 어떤 기준으로 작성되었나요?
+            </h2>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', fontSize: '13px', color: C.ts, lineHeight: 1.85 }}>
+              <div><strong style={{ color: C.tm }}>정보 제공:</strong> 연세365산부인과의원</div>
+              <div><strong style={{ color: C.tm }}>최종 수정일:</strong> 2026년 6월 29일</div>
+              <div><strong style={{ color: C.tm }}>공식 출처:</strong> 대한산부인과학회 임상 지침, 보건복지부</div>
+              <div style={{ marginTop: '8px', fontSize: '12px', color: C.tg }}>본 정보는 일반적인 의료 안내이며 개인별 진료를 대신하지 않습니다. 이상 증상 발생 시 반드시 의료기관을 방문하시기 바랍니다.</div>
+            </div>
+          </section>
+
           <div style={{ marginBottom: '40px' }}>
             <div style={{ fontSize: '13px', fontWeight: 700, color: C.tm, marginBottom: '12px' }}>관련 페이지 더 보기</div>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: '8px' }}>
@@ -207,7 +377,7 @@ export default function RecoveryClient() {
           </div>
 
           <div style={{ background: `linear-gradient(135deg, ${C.pp}, ${C.p})`, borderRadius: '20px', padding: '36px', textAlign: 'center' }}>
-            <div style={{ fontSize: '22px', fontWeight: 900, color: '#fff', marginBottom: '6px' }}>연세365산부인과</div>
+            <div style={{ fontSize: '22px', fontWeight: 900, color: '#fff', marginBottom: '6px' }}>연세365산부인과의원</div>
             <div style={{ fontSize: '13px', color: 'rgba(255,255,255,.85)', marginBottom: '22px' }}>사당역 4번출구 · 야간진료 운영 · 사후 검진 가능</div>
             <div style={{ display: 'flex', gap: '10px', justifyContent: 'center' }}>
               <a href="http://pf.kakao.com/_TpaBj/chat" target="_blank" rel="noopener noreferrer" style={{ background: '#FEE500', color: '#3B1B1B', fontSize: '14px', fontWeight: 700, padding: '13px 28px', borderRadius: '24px', textDecoration: 'none' }}>💬 카카오톡 상담</a>
@@ -220,13 +390,29 @@ export default function RecoveryClient() {
       <div className="lg:hidden">
         <div style={{ backgroundImage: `linear-gradient(rgba(0,0,0,0.60), rgba(0,0,0,0.60)), url(/images/hero-abortion-recovery.webp)`, backgroundSize: 'cover', backgroundPosition: 'center', padding: '32px 20px' }}>
           <h2 style={{ color: '#fff', fontSize: '26px', fontWeight: 900, lineHeight: 1.2, marginBottom: '12px', letterSpacing: '-.02em' }}>
-            임신중절수술 후 관리<br /><span style={{ fontSize: '17px', fontWeight: 700, opacity: .88 }}>회복기간·주의사항 안내</span>
+            임신중절수술 후<br />회복기간과 관리 방법<span style={{ display: 'block', fontSize: '15px', fontWeight: 700, opacity: .88, marginTop: '6px' }}>수술 직후부터 4주까지 단계별 안내</span>
           </h2>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '6px', marginTop: '16px' }}>
             {[['1~2일', '일상복귀'], ['4~6주', '생리재개'], ['2주', '금지사항'], ['1주내', '사후검진']].map(([v, l]) => (
               <div key={v} style={{ background: 'rgba(255,255,255,.12)', borderRadius: '8px', padding: '8px', textAlign: 'center' }}>
                 <div style={{ color: '#FFD700', fontSize: '16px', fontWeight: 900 }}>{v}</div>
                 <div style={{ color: 'rgba(255,255,255,.7)', fontSize: '10px' }}>{l}</div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+
+        <div style={{ padding: '18px 16px', background: '#fff', borderBottom: `0.5px solid ${C.pbd}` }}>
+          <div style={{ fontSize: '13px', fontWeight: 900, color: C.tm, marginBottom: '8px' }}>임신중절수술 후에는 어떻게 관리해야 하나요?</div>
+          <p style={{ fontSize: '12px', color: C.ts, lineHeight: 1.85, marginBottom: '10px' }}>
+            수술 다음 날부터 가벼운 일상활동이 가능합니다. 성관계·격렬한 운동·음주·탕목욕은 2주간 피하고, 1주 이내 사후 검진을 받으세요. 38도 이상 고열, 과다출혈, 심한 복통이 발생하면 즉시 내원해야 합니다.
+          </p>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '6px' }}>
+            {[['일상복귀', '다음 날부터'], ['금지사항', '성관계·운동 2주'], ['생리 재개', '4~6주 이내'], ['사후 검진', '1주 이내']].map(([k, v]) => (
+              <div key={k} style={{ background: C.pb, border: `0.5px solid ${C.pbd}`, borderRadius: '8px', padding: '8px 10px' }}>
+                <div style={{ fontSize: '11px', fontWeight: 700, color: C.p, marginBottom: '2px' }}>{k}</div>
+                <div style={{ fontSize: '10px', color: C.ts }}>{v}</div>
               </div>
             ))}
           </div>
@@ -265,6 +451,24 @@ export default function RecoveryClient() {
         <MobileAccordion title="즉시 내원 증상" icon="🚨">
           <InfoBox type="amber">38도 이상 고열 · 과다출혈 · 심한 복통 · 악취 분비물 · 8주 이상 생리 없음 → 즉시 내원하세요.</InfoBox>
         </MobileAccordion>
+
+        <div style={{ padding: '16px 16px 0' }}>
+          <div style={{ fontSize: '14px', fontWeight: 900, color: C.tm, marginBottom: '14px' }}>수술 후 관리 자주 묻는 질문</div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginBottom: '12px' }}>
+            {FEATURED_FAQS.map(({ q, a }) => (
+              <FeaturedFAQItem key={q} question={q} answer={a} />
+            ))}
+          </div>
+          <Link href="/abortion/faq" style={{ display: 'block', textAlign: 'center', background: C.pb, border: `0.5px solid ${C.pbd}`, borderRadius: '10px', padding: '12px', textDecoration: 'none', fontSize: '12px', fontWeight: 700, color: C.p, marginBottom: '16px' }}>
+            전체 217개 FAQ 보기 →
+          </Link>
+          <div style={{ background: C.pb, border: `0.5px solid ${C.pbd}`, borderRadius: '12px', padding: '16px', marginBottom: '16px', fontSize: '12px', color: C.ts, lineHeight: 1.85 }}>
+            <div style={{ fontSize: '12px', fontWeight: 700, color: C.tm, marginBottom: '8px' }}>의료정보 안내</div>
+            <div>정보 제공: 연세365산부인과의원 · 최종 수정일: 2026년 6월 29일</div>
+            <div>공식 출처: 대한산부인과학회 임상 지침</div>
+            <div style={{ marginTop: '6px', fontSize: '11px', color: C.tg }}>본 정보는 일반적인 의료 안내이며 개인별 진료를 대신하지 않습니다.</div>
+          </div>
+        </div>
 
         <div style={{ padding: '16px', background: C.pb, borderTop: `0.5px solid ${C.pbd}` }}>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '6px' }}>

@@ -47,14 +47,55 @@ const RELATED = [
   { href: '/abortion/method', label: '수술 방법 종류' },
   { href: '/abortion/surgery', label: '수술 절차 안내' },
   { href: '/abortion/recovery', label: '수술 후 관리' },
-  { href: '/abortion/faq', label: 'FAQ 70가지' },
+  { href: '/abortion/faq', label: '전체 217개 FAQ' },
   { href: '/abortion/hospital', label: '병원 안내' },
 ]
+
+const FEATURED_FAQS = [
+  {
+    q: '임신중절수술 비용은 임신 주수에 따라 어떻게 달라지나요?',
+    a: '연세365산부인과의원의 임신중절수술 비용은 8주 미만 45만원, 8주 60만원, 9주 70만원, 10주 80만원입니다. 주수가 높아질수록 수술 방법이 복잡해지고 소요 시간이 길어지므로 비용도 높아집니다. 정확한 주수는 초음파 검사로 확인하며, 11주 이상은 별도 상담이 필요합니다.',
+  },
+  {
+    q: '안내된 주수별 비용에 포함된 항목은 무엇인가요?',
+    a: '안내된 주수별 비용은 수술비 기준이며, 초음파 검사·처방약·마취비 등의 포함 여부는 진료 상담 시 확인하시기 바랍니다. 검사나 추가 처치가 필요한 경우 최종 비용은 진료 후 달라질 수 있습니다. 정확한 비용과 포함 항목은 예약 상담 시 사전에 안내받으시기 바랍니다.',
+  },
+  {
+    q: '카드 또는 현금 모두 결제가 가능한가요?',
+    a: '카드와 현금 모두 동일한 금액으로 결제 가능하며, 현금영수증 발급도 가능합니다. 당일 수술 진행 여부는 초음파 검사 결과, 금식 상태, 예약 상황에 따라 결정되므로 방문 전 사전 문의를 권장합니다.',
+  },
+  {
+    q: '임신중절수술에 건강보험이나 실손보험이 적용되나요?',
+    a: '임신중절수술은 건강보험 비급여 항목으로 건강보험 및 실손보험 적용이 대부분 불가합니다. 모자보건법상 특수 사유(강간, 근친 임신, 유전적 질환, 모체 건강 위협)에 해당하는 경우 일부 급여 적용이 가능할 수 있으므로 가입 보험사에 직접 문의하시기 바랍니다.',
+  },
+  {
+    q: '방문 당일에 정확한 비용을 알 수 있나요?',
+    a: '네, 가능합니다. 초음파로 확인된 정확한 주수에 따라 수술 방법과 비용이 결정됩니다. 예를 들어 방문 시 7주로 생각했지만 실제로 8주 이상으로 확인되면 해당 주수에 맞는 비용이 적용됩니다. 비용 확인을 위해 초음파 검사를 먼저 진행합니다.',
+  },
+  {
+    q: '11주 이상이면 비용이 어떻게 되나요?',
+    a: '11주 이상은 수술 난이도와 방법이 달라지므로 별도 상담이 필요합니다. 연세365산부인과의원에서 진료 상담을 통해 수술 가능 여부와 비용을 확인하시기 바랍니다. 주수가 높을수록 의료진 판단에 따라 결정되며, 방문 전 전화 문의를 권장합니다.',
+  },
+]
+
+function FeaturedFAQItem({ question, answer }: { question: string; answer: string }) {
+  const [open, setOpen] = useState(false)
+  return (
+    <details open={open} onToggle={(e) => setOpen((e.target as HTMLDetailsElement).open)}
+      style={{ border: `0.5px solid ${C.pbd}`, borderRadius: '12px', padding: '14px 18px', background: '#fff' }}>
+      <summary style={{ fontSize: '14px', fontWeight: 700, color: C.tm, cursor: 'pointer', listStyle: 'none', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+        <span>Q. {question}</span>
+        <span style={{ color: C.p, fontSize: '12px', marginLeft: '8px' }}>{open ? '▲' : '▼'}</span>
+      </summary>
+      <p style={{ fontSize: '13px', color: C.ts, lineHeight: 1.85, marginTop: '10px', marginBottom: 0 }}>{answer}</p>
+    </details>
+  )
+}
 
 export default function CostClient() {
   return (
     <>
-      {/* ── PC ── */}
+      {/* PC 영역 */}
       <div className="hidden lg:block">
         <div style={{
           backgroundImage: `linear-gradient(rgba(0,0,0,0.60), rgba(0,0,0,0.60)), url(/images/hero-abortion-cost.webp)`,
@@ -63,18 +104,18 @@ export default function CostClient() {
         }}>
           <div style={{ flex: 1, minWidth: 0 }}>
             <div style={{ display: 'flex', gap: '7px', flexWrap: 'wrap', marginBottom: '18px' }}>
-              {['임신중절수술 금액', '낙태 비용 가격', '주수별 투명 공개', '추가 비용 없음'].map(t => (
+              {['임신중절수술 비용', '주수별 금액', '수술 비용 안내', '비급여 항목'].map(t => (
                 <span key={t} style={{ background: 'rgba(255,255,255,.18)', color: '#fff', fontSize: '11px', fontWeight: 700, padding: '3px 12px', borderRadius: '20px', border: '0.5px solid rgba(255,255,255,.3)' }}>{t}</span>
               ))}
             </div>
             <h1 style={{ color: '#fff', fontSize: '38px', fontWeight: 900, lineHeight: 1.25, letterSpacing: '-.03em', marginBottom: '16px' }}>
-              임신중절수술 금액·비용·가격<br />
-              <span style={{ fontSize: '24px', fontWeight: 700, opacity: .88 }}>낙태 비용 가격 주수별 투명 공개</span>
+              임신중절수술 주수별 비용은 어떻게 달라질까요?<br />
+              <span style={{ fontSize: '24px', fontWeight: 700, opacity: .88 }}>주수별 금액 안내 | 연세365산부인과의원</span>
             </h1>
             <p style={{ color: 'rgba(255,255,255,.9)', fontSize: '14px', lineHeight: 1.95, marginBottom: '22px', letterSpacing: '-.01em' }}>
-              임신중절수술 비용은 임신 주수와 수술 방법에 따라 달라집니다.<br />
-              연세365산부인과는 모든 낙태 비용 가격을 사전에 투명하게 공개하며<br />
-              수술비·마취비·영양제·부가세 포함 최종 금액을 안내합니다. · <ViewCounter slug="abortion-cost" />
+              임신중절수술 비용은 임신 주수에 따라 달라집니다.<br />
+              연세365산부인과의원은 주수별 비용을 기준에 따라 안내합니다.<br />
+              정확한 비용은 초음파 검사 후 상담을 통해 확인 가능합니다.  <ViewCounter slug="abortion-cost" />
             </p>
             <div style={{ display: 'flex', gap: '10px' }}>
               <a href="http://pf.kakao.com/_TpaBj/chat" target="_blank" rel="noopener noreferrer" style={{ background: '#FEE500', color: '#3B1B1B', fontSize: '13px', fontWeight: 700, padding: '12px 24px', borderRadius: '24px', textDecoration: 'none' }}>💬 카카오톡 상담</a>
@@ -85,10 +126,10 @@ export default function CostClient() {
             <div style={{ background: 'rgba(255,255,255,.12)', border: '0.5px solid rgba(255,255,255,.25)', borderRadius: '16px', padding: '20px 28px', textAlign: 'center' }}>
               <div style={{ color: 'rgba(255,255,255,.75)', fontSize: '11px', marginBottom: '4px' }}>8주 미만 기준</div>
               <div style={{ color: '#FFD700', fontSize: '60px', fontWeight: 900, lineHeight: 1 }}>45</div>
-              <div style={{ color: 'rgba(255,255,255,.9)', fontSize: '13px', marginTop: '4px' }}>만원 (영양제 포함)</div>
+              <div style={{ color: 'rgba(255,255,255,.9)', fontSize: '13px', marginTop: '4px' }}>만원 (상담 후 확정)</div>
             </div>
             <div style={{ background: 'rgba(255,255,255,.12)', border: '0.5px solid rgba(255,255,255,.2)', borderRadius: '12px', padding: '12px 20px', textAlign: 'center' }}>
-              <div style={{ color: '#FFD700', fontSize: '13px', fontWeight: 700 }}>카드·현금 동일가 · 추가 비용 없음</div>
+              <div style={{ color: '#FFD700', fontSize: '13px', fontWeight: 700 }}>카드·현금 동일가 · 상담 후 비용 확정</div>
             </div>
           </div>
         </div>
@@ -97,22 +138,48 @@ export default function CostClient() {
           <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '12px', color: C.tg, padding: '20px 0 32px' }}>
             <Link href="/" style={{ color: C.tg, textDecoration: 'none' }}>홈</Link><span>›</span>
             <Link href="/abortion" style={{ color: C.tg, textDecoration: 'none' }}>임신중절클리닉</Link><span>›</span>
-            <span style={{ color: C.p, fontWeight: 700 }}>비용·금액</span>
+            <span style={{ color: C.p, fontWeight: 700 }}>주수별 비용</span>
           </div>
 
-          {/* 섹션 1 */}
           <section>
-            <SectionTag>01 임신중절수술 금액 주수별 공개</SectionTag>
-            <h2 style={{ fontSize: '24px', fontWeight: 900, color: C.tm, marginBottom: '8px', letterSpacing: '-.02em' }}>낙태 비용 가격 — 주수별 완전 투명 공개</h2>
+            <SectionTag>01 먼저 확인할 내용</SectionTag>
+            <h2 style={{ fontSize: '24px', fontWeight: 900, color: C.tm, marginBottom: '8px', letterSpacing: '-.02em' }}>임신중절수술 비용은 임신 주수에 따라 어떻게 달라지나요?</h2>
             <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '14px' }}>
-              임신중절수술 금액과 낙태 비용 가격은 임신 주수와 수술 방법에 따라 결정됩니다. 연세365산부인과는 임신중절수술 비용을 사전에 투명하게 공개하며, 상담 시 안내된 금액 외 추가 비용은 절대 발생하지 않습니다. 수술비·마취비·영양제·부가세가 모두 포함된 최종 금액이므로 안심하고 내원하셔도 됩니다.
+              임신중절수술 비용은 임신 주수에 따라 달라집니다. 연세365산부인과의원의 공식 비용은 8주 미만 45만원, 8주 60만원, 9주 70만원, 10주 80만원입니다. 주수가 높아질수록 수술 방법이 복잡해지고 시간이 길어지므로 비용이 증가합니다.
             </p>
             <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '14px' }}>
-              많은 분들이 임신중절수술 가격을 미리 알고 싶어 하십니다. 낙태 비용이 병원마다 다른 이유는 임신 주수, 수술 방법, 마취 방식, 사후 관리 포함 여부 등이 다르기 때문입니다. 연세365산부인과는 이러한 혼란을 없애기 위해 모든 중절수술 가격을 홈페이지에 명확히 공개합니다. 상담 후 갑자기 비용이 달라지는 일은 절대 없습니다.
+              정확한 임신 주수는 내원 후 초음파 검사로 확인합니다. 마지막 생리일로 계산한 주수와 초음파 검사 결과가 다를 수 있으며, 초음파 결과를 기준으로 비용을 안내합니다. 개인 상태에 따라 추가 처치가 필요한 경우 최종 비용은 달라질 수 있으므로, 초음파 검사 후 정확한 비용을 확인하시기 바랍니다.
             </p>
-            <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '20px' }}>
-              임신중절비용을 결정하는 가장 중요한 요소는 임신 주수입니다. 8주 미만의 임신초기낙태는 45만원으로 흡입술을 통해 짧은 시간에 완료됩니다. 임신 주수가 늘어날수록 수술 난이도가 높아지고 마취 시간도 길어지기 때문에 낙태 비용도 단계적으로 증가합니다. 따라서 결정하셨다면 가능한 한 빠른 시일 내에 내원하시는 것이 비용 면에서도 안전 면에서도 유리합니다.
-            </p>
+            <div style={{ background: C.pb, border: `0.5px solid ${C.pbd}`, borderRadius: '12px', padding: '16px 20px', marginBottom: '20px' }}>
+              <div style={{ fontSize: '12px', fontWeight: 700, color: C.pd, marginBottom: '10px' }}>핵심: 주수별 비용 기준 | 최종 수정일 2026.06</div>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px' }}>
+                {[['8주 미만', '45만원'], ['8주', '60만원'], ['9주', '70만원'], ['10주', '80만원']].map(([w, p]) => (
+                  <div key={w} style={{ fontSize: '13px', color: C.pd, display: 'flex', justifyContent: 'space-between', padding: '4px 8px', background: 'rgba(255,255,255,0.7)', borderRadius: '6px' }}>
+                    <span style={{ fontWeight: 600 }}>{w}</span><span style={{ fontWeight: 700 }}>{p}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </section>
+
+          <Divider />
+
+
+          <section>
+            <SectionTag>01 임신중절수술 비용 주수별 안내</SectionTag>
+            <h2 style={{ fontSize: '24px', fontWeight: 900, color: C.tm, marginBottom: '8px', letterSpacing: '-.02em' }}>임신중절수술 비용은 임신 주수에 따라 어떻게 달라지나요?</h2>
+            <div className="speakable-summary">
+              <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '14px' }}>
+                임신중절수술 비용은 임신 주수와 수술 방법에 따라 다릅니다. 연세365산부인과의원의 주수별 기준 비용은 8주 미만 45만원, 8주 60만원, 9주 70만원, 10주 80만원입니다. 수술 전 초음파 검사로 정확한 주수를 확인한 후 적합한 수술 방법과 비용을 안내합니다.
+              </p>
+              <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '14px' }}>
+                안내된 주수별 비용은 수술비 기준이며, 초음파·처방약·마취 등 포함 여부는 진료 상담 시 확인하시기 바랍니다. 검사 결과에 따라 최종 비용은 달라질 수 있습니다. 11주 이상은 별도 상담 필요합니다.
+              </p>
+            </div>
+
+            <div style={{ background: C.amberBg, border: `0.5px solid ${C.amber}`, borderRadius: '12px', padding: '16px 20px', marginBottom: '20px', fontSize: '13px', color: C.amberDark, lineHeight: 1.85 }}>
+              <strong>기준:</strong> 8주 미만 45만원 | 8주 60만원 | 9주 70만원 | 10주 80만원 | 카드·현금 동일가 | 2026.06
+            </div>
 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: '12px', marginBottom: '20px' }}>
               {PRICES.map(({ w, p, bar, method, time, color }) => (
@@ -136,17 +203,17 @@ export default function CostClient() {
               <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '13px', minWidth: '500px' }}>
                 <thead>
                   <tr style={{ background: '#F8E8EF' }}>
-                    {['임신 주수', '수술 방법', '금액 (최종)', '포함 항목', '소요 시간', '귀가'].map(h => (
+                    {['임신 주수', '수술 방법', '금액 (만원)', '수면마취', '소요 시간', '당일'].map(h => (
                       <th key={h} style={{ padding: '12px 14px', color: C.pd, fontWeight: 700, textAlign: 'left', borderBottom: `0.5px solid ${C.pbd}` }}>{h}</th>
                     ))}
                   </tr>
                 </thead>
                 <tbody>
                   {[
-                    ['8주 미만', '흡입술', '45만원', '수술·마취·영양제·부가세', '당일 1~2시간', '당일 귀가'],
-                    ['8주', '흡입/소파술', '60만원', '수술·마취·영양제·부가세', '당일 2~3시간', '당일 귀가'],
-                    ['9주', '소파술', '70만원', '수술·마취·영양제·부가세', '당일 2~3시간', '당일 귀가'],
-                    ['10주', '소파술', '80만원', '수술·마취·영양제·부가세', '당일 3시간', '당일 귀가'],
+                    ['8주 미만', '흡입술', '45만원', '진행', '1~2시간', '검사 후 확인'],
+                    ['8주', '흡입/소파술', '60만원', '진행', '2~3시간', '검사 후 확인'],
+                    ['9주', '소파술', '70만원', '진행', '2~3시간', '검사 후 확인'],
+                    ['10주', '소파술', '80만원', '진행', '3시간', '검사 후 확인'],
                   ].map((row, i) => (
                     <tr key={i} style={{ background: i % 2 === 0 ? C.pb : '#fff', borderBottom: `0.5px solid ${C.pbd}` }}>
                       <td style={{ padding: '11px 14px', fontWeight: 700, color: C.p }}>{row[0]}</td>
@@ -160,165 +227,137 @@ export default function CostClient() {
                 </tbody>
               </table>
             </div>
-            <InfoBox type="amber">⚠ 임신중절수술 금액은 초음파로 정확한 주수 확인 후 결정됩니다. 11주 이상은 별도 상담이 필요하며 비용이 상이할 수 있습니다. 정확한 낙태 비용은 내원 상담 후 안내드립니다.</InfoBox>
+            <InfoBox type="amber">안내된 주수별 비용은 수술비 기준이며, 검사나 추가 처치가 필요한 경우 최종 비용은 진료 후 달라질 수 있습니다. 11주 이상은 별도 상담 필요.</InfoBox>
           </section>
 
           <Divider />
 
-          {/* 섹션 2 */}
           <section>
-            <SectionTag>02 임신중절수술 비용 결정 요소</SectionTag>
-            <h2 style={{ fontSize: '24px', fontWeight: 900, color: C.tm, marginBottom: '8px', letterSpacing: '-.02em' }}>낙태 비용이 달라지는 이유</h2>
-            <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '14px' }}>
-              임신중절수술 금액은 단순히 병원마다 임의로 다르게 책정되는 것이 아니라, 명확한 의학적 근거에 따라 결정됩니다. 임신 주수가 높아질수록 자궁의 크기가 커지고 시술 복잡도, 마취 시간, 의료 장비 투입량이 증가하기 때문에 낙태 비용 가격에 차이가 발생하는 것은 자연스러운 의료적 현상입니다.
-            </p>
-            <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '14px' }}>
-              8주 미만 임신초기중절수술은 흡입술로 10~15분 내에 완료되므로 낙태 비용이 45만원으로 가장 낮습니다. 반면 10주에 가까울수록 소파술이 필요하고 수술 시간이 길어지며 마취 유지 시간도 늘어나기 때문에 임신중절수술 비용이 80만원까지 올라갑니다. 이처럼 임신 주수는 낙태 비용 가격을 결정하는 가장 핵심적인 요소입니다.
-            </p>
+            <SectionTag>02 비용 포함 항목 확인</SectionTag>
+            <h2 style={{ fontSize: '24px', fontWeight: 900, color: C.tm, marginBottom: '8px', letterSpacing: '-.02em' }}>비용에 무엇이 포함되어 있나요?</h2>
             <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '20px' }}>
-              연세365산부인과의 임신중절수술 비용에는 수술비, 수면마취비, 회복 영양제, 1인 회복실 이용료, 부가세가 모두 포함되어 있습니다. 일부 병원에서는 마취비, 영양제, 입원비 등을 별도로 청구하는 경우가 있어 실제 낙태 비용이 처음 안내받은 것보다 훨씬 높아지는 경우가 있습니다. 연세365산부인과는 이러한 불투명한 비용 청구를 일체 하지 않으며, 처음 안내드린 임신중절수술 금액이 최종 금액입니다.
+              정확한 포함 항목은 진료 상담 시 안내받으시기 바랍니다. 초음파 검사, 처방약, 수액, 추가 처치 등의 포함 여부는 개인 상태와 수술 방법에 따라 달라질 수 있습니다.
             </p>
-
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: '16px', marginBottom: '20px' }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: '12px', marginBottom: '16px' }}>
               {[
-                { icon: '📅', title: '임신 주수', desc: '낙태 비용 가격을 결정하는 가장 중요한 요소입니다. 8주 미만 45만원에서 10주 80만원까지 단계적으로 증가합니다. 주수가 짧을수록 수술이 간단하고 임신중절수술 금액도 낮습니다.' },
-                { icon: '🔬', title: '수술 방법', desc: '8주 이내는 흡입술, 8주 이상은 소파술을 적용합니다. 흡입술은 부드러운 관으로 임신 조직을 배출해 시간이 짧고 낙태 비용도 낮습니다. 소파술은 더 복잡한 처치가 필요해 중절수술 가격이 높아집니다.' },
-                { icon: '💉', title: '마취 방법', desc: '연세365산부인과는 모든 수술에 수면마취를 적용합니다. 수면마취는 마취 전문 인력과 모니터링 장비가 필요하여 임신중절비용에 포함됩니다. 국소마취보다 안전하고 통증이 없어 환자 만족도가 높습니다.' },
+                 { icon: '💳', title: '결제 방법', desc: '카드·현금 동일가. 현금영수증 발급 가능.' },
+                 { icon: '🔬', title: '초음파 검사', desc: '수술 전 주수 확인을 위한 초음파 검사 실시.' },
+                 { icon: '📋', title: '포함 항목', desc: '수술비 기준 안내. 세부 항목은 상담 시 확인.' },
               ].map(({ icon, title, desc }) => (
-                <div key={title} style={{ border: `0.5px solid ${C.pbd}`, borderRadius: '14px', padding: '20px', background: '#fff' }}>
-                  <div style={{ fontSize: '28px', marginBottom: '10px' }}>{icon}</div>
-                  <div style={{ fontSize: '15px', fontWeight: 700, color: C.tm, marginBottom: '8px' }}>{title}</div>
-                  <div style={{ fontSize: '13px', color: C.ts, lineHeight: 1.85 }}>{desc}</div>
+                <div key={title} style={{ border: `0.5px solid ${C.pbd}`, borderRadius: '12px', padding: '18px', background: '#fff', textAlign: 'center' }}>
+                  <div style={{ fontSize: '28px', marginBottom: '8px' }}>{icon}</div>
+                  <div style={{ fontSize: '14px', fontWeight: 700, color: C.p, marginBottom: '6px' }}>{title}</div>
+                  <div style={{ fontSize: '12px', color: C.ts, lineHeight: 1.6 }}>{desc}</div>
                 </div>
               ))}
             </div>
-
-            <div style={{ background: C.pb, border: `0.5px solid ${C.pbd}`, borderRadius: '14px', padding: '24px', marginBottom: '16px' }}>
-              <div style={{ fontSize: '13px', fontWeight: 700, color: C.pd, marginBottom: '16px', textAlign: 'center' }}>주수별 임신중절수술 비용 비교 그래프</div>
-              <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
-                {PRICES.map(({ w, p, bar, method, color }) => (
-                  <div key={w} style={{ display: 'flex', alignItems: 'center', gap: '12px' }}>
-                    <div style={{ width: '70px', fontSize: '12px', fontWeight: 700, color, flexShrink: 0 }}>{w}</div>
-                    <div style={{ flex: 1, height: '30px', background: '#fff', borderRadius: '4px', overflow: 'hidden', border: `0.5px solid ${C.pbd}` }}>
-                      <div style={{ height: '100%', width: `${bar}%`, background: color, borderRadius: '4px', display: 'flex', alignItems: 'center', paddingLeft: '10px' }}>
-                        <span style={{ color: '#fff', fontSize: '12px', fontWeight: 900 }}>{p}만원</span>
-                      </div>
-                    </div>
-                    <div style={{ width: '60px', fontSize: '11px', color: C.tg, flexShrink: 0 }}>{method}</div>
-                  </div>
-                ))}
-              </div>
-            </div>
-            <InfoBox>임신 주수가 짧을수록 낙태 비용이 낮고 수술 안전성이 높습니다. 임신 8주 이내 내원을 강력히 권장합니다.</InfoBox>
+            <InfoBox type="amber">정확한 비용과 포함 항목은 초음파 검사와 상담 후 안내합니다. 예약 전 전화 또는 카카오톡으로 문의하시기 바랍니다.</InfoBox>
           </section>
 
           <Divider />
 
-          {/* 섹션 3 */}
+          <Divider />
+
           <section>
-            <SectionTag>03 임신중절수술 비용 포함 항목</SectionTag>
-            <h2 style={{ fontSize: '24px', fontWeight: 900, color: C.tm, marginBottom: '8px', letterSpacing: '-.02em' }}>낙태 비용 가격에 포함된 모든 것</h2>
+            <SectionTag>초음파로 임신 주수를 확인한 뒤 비용을 안내하는 이유</SectionTag>
+            <h2 style={{ fontSize: '24px', fontWeight: 900, color: C.tm, marginBottom: '8px', letterSpacing: '-.02em' }}>초음파로 임신 주수를 먼저 확인한 뒤 비용을 안내하는 이유는 무엇인가요?</h2>
             <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '14px' }}>
-              연세365산부인과의 임신중절수술 금액은 처음 안내된 금액이 최종 금액입니다. 일부 병원에서는 낙태 비용을 낮게 안내한 후 수술 당일 마취비, 회복비, 영양제 비용을 추가로 청구하는 경우가 있어 환자들이 당혹스러운 경험을 하기도 합니다. 연세365산부인과는 이러한 불합리한 비용 청구를 절대 하지 않습니다.
+              임신 주수는 마지막 생리일만으로 정확히 계산하기 어렵습니다. 생리 주기가 불규칙하거나 착상 시기가 다르면 실제 주수가 예상과 다를 수 있습니다. 초음파로 태낭 크기와 위치를 직접 확인해야 정확한 주수를 알 수 있습니다.
+            </p>
+            <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '14px' }}>
+              비용은 초음파로 확인한 주수를 기준으로 결정됩니다. 예를 들어, 생리일로 계산하면 7주로 예상했지만 초음파에서 8주 이상으로 확인되면 비용이 달라질 수 있습니다. 이 때문에 전화 상담 시에는 예상 주수를 기준으로 대략적인 비용 범위를 안내하고, 정확한 비용은 내원 후 초음파 검사 결과로 확정합니다.
             </p>
             <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '20px' }}>
-              임신중절수술 비용에 포함된 항목은 수술비(흡입술 또는 소파술), 수면마취비, 회복 영양제, 1인 회복실 이용료, 부가세(VAT), 기본 사후 처방약입니다. 결제 방식은 카드·현금 동일가이며 무이자 할부도 가능합니다. 상담 시 안내받은 낙태 비용 가격 그대로 결제하시면 됩니다.
+              또한 초음파 검사에서 자궁외 임신, 자궁 기형, 불완전 착상이 확인되면 일반적인 시술과 다른 처치가 필요해져 비용이 달라질 수 있습니다. 이처럼 초음파 검사는 안전한 수술을 위한 필수 과정이자, 정확한 비용을 안내하기 위한 근거입니다.
             </p>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '20px' }}>
-              <div style={{ border: `0.5px solid ${C.greenBorder}`, borderRadius: '14px', padding: '20px', background: C.greenBg }}>
-                <div style={{ fontSize: '14px', fontWeight: 700, color: C.green, marginBottom: '14px' }}>✅ 임신중절수술 비용에 포함된 항목</div>
-                {[
-                  ['수술비', '흡입술 또는 소파술 시술 비용'],
-                  ['수면마취비', '마취 전문의 협진 및 마취제 비용'],
-                  ['회복 영양제', '수술 후 빠른 회복을 위한 영양 수액'],
-                  ['1인 회복실', '독립된 프라이빗 회복실 이용료'],
-                  ['부가세 (VAT)', '세금 포함 최종 금액'],
-                  ['기본 처방약', '수술 후 필요한 항생제·진통제'],
-                ].map(([k, v]) => (
-                  <div key={k} style={{ padding: '8px 0', borderBottom: `0.5px solid ${C.greenBorder}`, fontSize: '12px' }}>
-                    <div style={{ fontWeight: 700, color: C.green, marginBottom: '2px' }}>✓ {k}</div>
-                    <div style={{ color: C.ts, paddingLeft: '14px' }}>{v}</div>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '16px' }}>
+              <div style={{ border: `0.5px solid ${C.pbd}`, borderRadius: '14px', padding: '20px', background: C.pb }}>
+                <div style={{ fontSize: '14px', fontWeight: 700, color: C.tm, marginBottom: '12px' }}>초음파 검사로 확인하는 것</div>
+                {['정확한 임신 주수', '태낭 위치 (자궁 내 착상 여부)', '태낭 크기와 상태', '자궁외 임신 여부', '자궁 상태 (근종·기형 등)'].map(t => (
+                  <div key={t} style={{ display: 'flex', gap: '6px', padding: '6px 0', borderBottom: `0.5px solid ${C.pbd}`, fontSize: '13px', color: C.pd }}>
+                    <span>✓</span>{t}
                   </div>
                 ))}
               </div>
               <div style={{ border: `0.5px solid ${C.pbd}`, borderRadius: '14px', padding: '20px', background: '#fff' }}>
-                <div style={{ fontSize: '14px', fontWeight: 700, color: C.p, marginBottom: '14px' }}>💳 결제 안내</div>
-                {[
-                  ['카드 결제', '모든 카드 가능 (체크카드 포함)'],
-                  ['현금 결제', '카드와 동일가 적용'],
-                  ['할부 결제', '무이자 할부 가능'],
-                  ['현금영수증', '요청 시 즉시 발행'],
-                  ['추가 비용', '절대 없음 (100% 보장)'],
-                  ['영수증', '전액 발행 가능'],
-                ].map(([k, v]) => (
-                  <div key={k} style={{ display: 'flex', justifyContent: 'space-between', padding: '8px 0', borderBottom: `0.5px solid ${C.pbd}`, fontSize: '13px' }}>
-                    <span style={{ color: C.tg, fontWeight: 600 }}>{k}</span>
-                    <span style={{ color: C.tm, fontWeight: 700 }}>{v}</span>
+                <div style={{ fontSize: '14px', fontWeight: 700, color: C.tm, marginBottom: '12px' }}>비용에 영향을 주는 요소</div>
+                {['초음파 확인 주수', '수술 방법 (흡입술·소파술)', '자궁 상태 이상 여부', '추가 처치 필요 여부', '개인 건강 조건'].map(t => (
+                  <div key={t} style={{ display: 'flex', gap: '6px', padding: '6px 0', borderBottom: `0.5px solid ${C.pbd}`, fontSize: '13px', color: C.ts }}>
+                    <span style={{ color: C.amber }}>!</span>{t}
                   </div>
                 ))}
               </div>
             </div>
-            <InfoBox>초음파 검사비·혈액검사비는 임신중절수술 비용에 포함되지 않으며 별도 발생할 수 있습니다. 상담 시 사전에 모든 비용을 투명하게 안내드립니다.</InfoBox>
+            <InfoBox type="amber">정확한 비용과 포함 항목은 초음파 검사, 개인 상태와 추가 처치 필요 여부를 확인한 뒤 안내합니다.</InfoBox>
           </section>
 
           <Divider />
 
-          {/* 섹션 4 */}
           <section>
-            <SectionTag>04 낙태 비용 보험 적용 여부</SectionTag>
-            <h2 style={{ fontSize: '24px', fontWeight: 900, color: C.tm, marginBottom: '8px', letterSpacing: '-.02em' }}>임신중절수술 보험 적용이 되나요?</h2>
+            <SectionTag>상담 전에 비용과 포함 항목을 확인하는 방법</SectionTag>
+            <h2 style={{ fontSize: '24px', fontWeight: 900, color: C.tm, marginBottom: '8px', letterSpacing: '-.02em' }}>상담 전에 비용과 포함 항목을 어떻게 확인할 수 있나요?</h2>
             <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '14px' }}>
-              임신중절수술은 건강보험 비급여 항목으로 분류되어 건강보험 적용이 되지 않습니다. 이는 임신중절수술이 질병의 치료 목적이 아닌 선택적 의료 시술로 분류되기 때문입니다. 따라서 낙태 비용 가격 전액은 본인 부담으로 지불하셔야 합니다.
+              내원 전 전화나 카카오톡으로 예상 주수와 준비사항을 문의하면 대략적인 비용 범위를 먼저 확인할 수 있습니다. 다만 정확한 주수와 최종 비용은 초음파 검사 결과에 따라 결정되므로, 상담 시 안내받은 금액은 예상 범위로 이해하시기 바랍니다.
             </p>
             <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '14px' }}>
-              실손의료보험도 대부분 임신·출산·피임 관련 항목을 보상 제외로 규정하고 있어 임신중절수술 비용에 대한 실손 적용이 어렵습니다. 다만 가입하신 보험 상품의 세부 약관에 따라 다를 수 있으므로, 정확한 보험 적용 여부는 가입하신 보험사에 직접 문의하시는 것이 가장 정확합니다.
+              연세365산부인과의원의 공식 비용에는 수술비, 수면마취비, 영양제, 부가세가 포함되어 있습니다. 비용에 포함된 항목과 포함되지 않은 항목이 무엇인지 상담 시 직접 확인하시는 것을 권장합니다. 예상하지 못한 추가 비용이 발생하지 않도록 사전에 충분히 질문해 주시기 바랍니다.
             </p>
             <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '20px' }}>
-              모자보건법 제14조에서 정한 특수 사유(강간, 근친 임신, 유전적 질환, 모체 건강 위협 등)에 해당하는 경우에는 일부 급여 적용이 가능할 수 있습니다. 이 경우 필요한 서류 발급을 성실히 협조해 드리니 내원 시 말씀해 주시기 바랍니다.
+              비용 확인 외에도 상담 전에 마지막 생리일, 현재 복용 중인 약물, 과거 수술 이력 등을 미리 정리해 두시면 상담이 더 빠르고 정확하게 진행됩니다. 모든 상담 내용은 비밀이 보장됩니다.
             </p>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: '12px' }}>
-              {[
-                { title: '건강보험', status: '적용 불가', desc: '비급여 항목으로 건강보험 적용이 되지 않습니다. 낙태 비용 전액은 본인 부담입니다.', color: '#E29000', bg: C.amberBg },
-                { title: '실손보험', status: '대부분 불가', desc: '임신·출산 관련 보상 제외 항목이 대부분입니다. 가입 보험사에 직접 문의하세요.', color: '#E29000', bg: C.amberBg },
-                { title: '특수 사유', status: '일부 가능', desc: '모자보건법상 사유 해당 시 일부 급여 가능합니다. 상담 시 서류 협조 드립니다.', color: C.green, bg: C.greenBg },
-              ].map(({ title, status, desc, color, bg }) => (
-                <div key={title} style={{ border: `0.5px solid ${C.pbd}`, borderRadius: '12px', padding: '20px', background: bg }}>
-                  <div style={{ fontSize: '14px', fontWeight: 700, color: C.tm, marginBottom: '6px' }}>{title}</div>
-                  <div style={{ fontSize: '18px', fontWeight: 900, color, marginBottom: '10px' }}>{status}</div>
-                  <div style={{ fontSize: '12px', color: C.ts, lineHeight: 1.8 }}>{desc}</div>
-                </div>
-              ))}
+            <div style={{ background: C.pb, border: `0.5px solid ${C.pbd}`, borderRadius: '14px', padding: '20px 24px', marginBottom: '16px' }}>
+              <div style={{ fontSize: '14px', fontWeight: 700, color: C.tm, marginBottom: '14px' }}>📋 상담 전 준비 체크리스트</div>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px 20px' }}>
+                {[
+                  '마지막 생리 시작일 확인',
+                  '예상 임신 주수 계산',
+                  '복용 중인 약물·영양제 목록',
+                  '과거 자궁 수술 이력',
+                  '알레르기 이력 (약물·마취제)',
+                  '귀가 방법 사전 계획',
+                ].map(t => (
+                  <div key={t} style={{ display: 'flex', gap: '8px', fontSize: '13px', color: C.ts, alignItems: 'flex-start' }}>
+                    <span style={{ color: C.p, fontWeight: 700, flexShrink: 0 }}>✓</span>{t}
+                  </div>
+                ))}
+              </div>
             </div>
+            <InfoBox>비용 문의는 전화(02-585-3650) 또는 카카오톡으로 가능합니다. 정확한 주수와 최종 비용은 내원 후 초음파 검사 결과로 안내드립니다.</InfoBox>
           </section>
 
           <Divider />
 
-          {/* 섹션 5 */}
-          <section>
-            <SectionTag>05 병원 선택 시 주의사항</SectionTag>
-            <h2 style={{ fontSize: '24px', fontWeight: 900, color: C.tm, marginBottom: '8px', letterSpacing: '-.02em' }}>좋은 임신중절수술 병원 선택 기준</h2>
-            <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '14px' }}>
-              임신중절수술 병원을 선택할 때 낙태 비용만을 기준으로 삼는 것은 위험합니다. 지나치게 낮은 낙태 비용 가격을 제시하는 병원 중에는 비전문의가 시술하거나, 마취 전문의 없이 수면마취를 진행하거나, 비위생적인 환경에서 시술하는 경우가 있습니다. 임신중절수술은 안전이 최우선이므로 반드시 산부인과 전문의가 직접 집도하는 병원을 선택해야 합니다.
+
+          <section style={{ marginBottom: '44px' }}>
+            <SectionTag>자주 묻는 질문</SectionTag>
+            <h2 style={{ fontSize: '24px', fontWeight: 900, color: C.tm, marginBottom: '8px', letterSpacing: '-.02em' }}>
+              임신중절수술 비용에 관해 자주 묻는 질문
+            </h2>
+            <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, marginBottom: '20px', letterSpacing: '-.01em' }}>
+              주수별 비용, 포함 항목, 보험 적용, 결제 방법에 대한 내용을 정리했습니다.
             </p>
-            <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '20px' }}>
-              연세365산부인과는 산부인과 전문의가 모든 임신중절수술을 직접 집도하며, 수면마취는 마취 전문의와 협진 하에 진행합니다. 1인 회복실에서 충분한 안정을 취한 후 귀가하실 수 있으며, 수술 후에도 연락 가능한 의료진이 대기하고 있어 응급 상황에 신속히 대응합니다. 낙태 비용 가격과 함께 안전성, 전문성, 비밀보장 여부를 꼼꼼히 확인하시기 바랍니다.
-            </p>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: '10px' }}>
-              {[
-                { icon: '👨‍⚕️', label: '산부인과 전문의 직접 집도' },
-                { icon: '💉', label: '마취 전문의 협진 수면마취' },
-                { icon: '🔒', label: '1인 회복실 비밀보장' },
-                { icon: '📋', label: '투명한 낙태 비용 공개' },
-              ].map(({ icon, label }) => (
-                <div key={label} style={{ background: C.pb, border: `0.5px solid ${C.pbd}`, borderRadius: '12px', padding: '16px', textAlign: 'center' }}>
-                  <div style={{ fontSize: '24px', marginBottom: '8px' }}>{icon}</div>
-                  <div style={{ fontSize: '12px', fontWeight: 700, color: C.pd, lineHeight: 1.5 }}>{label}</div>
-                </div>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginBottom: '16px' }}>
+              {FEATURED_FAQS.map(({ q, a }) => (
+                <FeaturedFAQItem key={q} question={q} answer={a} />
               ))}
             </div>
+            <Link href="/abortion/faq" style={{ display: 'block', textAlign: 'center', background: C.pb, border: `0.5px solid ${C.pbd}`, borderRadius: '12px', padding: '14px', textDecoration: 'none', fontSize: '13px', fontWeight: 700, color: C.p }}>
+              전체 217개 FAQ 보기 →
+            </Link>
           </section>
 
-          <Divider />
+          <section style={{ marginBottom: '44px', background: C.pb, border: `0.5px solid ${C.pbd}`, borderRadius: '14px', padding: '24px 28px' }}>
+            <SectionTag>의료정보 안내</SectionTag>
+            <h2 style={{ fontSize: '18px', fontWeight: 900, color: C.tm, marginBottom: '14px', letterSpacing: '-.02em' }}>
+              비용 정보는 어떤 기준으로 작성되었나요?
+            </h2>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', fontSize: '13px', color: C.ts, lineHeight: 1.85 }}>
+              <div><strong style={{ color: C.tm }}>정보 제공:</strong> 연세365산부인과의원</div>
+              <div><strong style={{ color: C.tm }}>최종 수정일:</strong> 2026년 6월 29일</div>
+              <div><strong style={{ color: C.tm }}>공식 출처:</strong> 연세365산부인과의원 운영 안내</div>
+              <div style={{ marginTop: '8px', fontSize: '12px', color: C.tg }}>안내된 비용은 기준 가격이며, 검사 결과와 추가 처치에 따라 최종 비용이 달라질 수 있습니다. 정확한 비용은 진료 상담 후 확인하시기 바랍니다.</div>
+            </div>
+          </section>
 
           <div style={{ marginBottom: '40px' }}>
             <div style={{ fontSize: '13px', fontWeight: 700, color: C.tm, marginBottom: '12px' }}>관련 페이지 더 보기</div>
@@ -330,9 +369,9 @@ export default function CostClient() {
           </div>
 
           <div style={{ background: `linear-gradient(135deg, ${C.pp}, ${C.p})`, borderRadius: '20px', padding: '36px', textAlign: 'center' }}>
-            <div style={{ fontSize: '22px', fontWeight: 900, color: '#fff', marginBottom: '6px' }}>연세365산부인과</div>
-            <div style={{ fontSize: '13px', color: 'rgba(255,255,255,.85)', marginBottom: '6px' }}>서울 관악구 과천대로 939 3층 · 사당역 4번출구</div>
-            <div style={{ fontSize: '12px', color: 'rgba(255,255,255,.7)', marginBottom: '22px' }}>임신중절수술 금액 투명 공개 · 추가 비용 없음 · 카드·현금 동일가</div>
+            <div style={{ fontSize: '22px', fontWeight: 900, color: '#fff', marginBottom: '6px' }}>연세365산부인과의원</div>
+            <div style={{ fontSize: '13px', color: 'rgba(255,255,255,.85)', marginBottom: '6px' }}>서울 서초구 강남대로 939 3층 · 지하철 4호선 이수역</div>
+            <div style={{ fontSize: '12px', color: 'rgba(255,255,255,.7)', marginBottom: '22px' }}>임신중절수술 비용 안내 · 카드·현금 동일가 · 상담 문의 가능</div>
             <div style={{ display: 'flex', gap: '10px', justifyContent: 'center' }}>
               <a href="http://pf.kakao.com/_TpaBj/chat" target="_blank" rel="noopener noreferrer" style={{ background: '#FEE500', color: '#3B1B1B', fontSize: '14px', fontWeight: 700, padding: '13px 28px', borderRadius: '24px', textDecoration: 'none' }}>💬 카카오톡 상담</a>
               <a href="tel:02-585-3650" style={{ background: 'rgba(255,255,255,.15)', color: '#fff', fontSize: '14px', border: '0.5px solid rgba(255,255,255,.4)', padding: '13px 28px', borderRadius: '24px', textDecoration: 'none' }}>📞 02-585-3650</a>
@@ -341,92 +380,127 @@ export default function CostClient() {
         </div>
       </div>
 
-      {/* ── 모바일 ── */}
+      {/* 모바일 영역 */}
       <div className="lg:hidden">
         <div style={{
           backgroundImage: `linear-gradient(rgba(0,0,0,0.60), rgba(0,0,0,0.60)), url(/images/hero-abortion-cost.webp)`,
           backgroundSize: 'cover', backgroundPosition: 'center', padding: '32px 20px',
         }}>
           <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap', marginBottom: '14px' }}>
-            {['임신중절수술 금액', '낙태 비용 가격', '투명 공개'].map(t => (
+            {['주수별 비용', '8주 미만 45만원', '상담 후 확인'].map(t => (
               <span key={t} style={{ background: 'rgba(255,255,255,.18)', color: '#fff', fontSize: '10px', fontWeight: 700, padding: '2px 10px', borderRadius: '20px' }}>{t}</span>
             ))}
           </div>
-          <h2 style={{ color: '#fff', fontSize: '26px', fontWeight: 900, lineHeight: 1.2, marginBottom: '12px', letterSpacing: '-.02em' }}>
-            임신중절수술 금액·비용<br /><span style={{ fontSize: '17px', fontWeight: 700, opacity: .88 }}>낙태 비용 가격 주수별 투명 공개</span>
-          </h2>
-          <p style={{ color: 'rgba(255,255,255,.85)', fontSize: '12px', lineHeight: 1.8, marginBottom: '16px' }}>
-            수술비·마취비·영양제·부가세 모두 포함. 카드·현금 동일가. 추가 비용 없음.
-          </p>
-          <div style={{ background: 'rgba(255,255,255,.1)', border: '0.5px solid rgba(255,255,255,.2)', borderRadius: '14px', padding: '16px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-            <div>
-              <div style={{ color: 'rgba(255,255,255,.7)', fontSize: '11px' }}>8주 미만 기준</div>
-              <div style={{ color: '#FFD700', fontSize: '44px', fontWeight: 900, lineHeight: 1 }}>45</div>
-              <div style={{ color: 'rgba(255,255,255,.85)', fontSize: '12px' }}>만원 (영양제 포함)</div>
-            </div>
-            <div style={{ background: 'rgba(255,255,255,.12)', borderRadius: '10px', padding: '12px 16px', textAlign: 'center' }}>
-              <div style={{ color: '#FFD700', fontSize: '12px', fontWeight: 700, lineHeight: 1.7 }}>카드·현금<br />동일가<br />추가비용 없음</div>
-            </div>
+          <h1 style={{ color: '#fff', fontSize: '22px', fontWeight: 900, lineHeight: 1.2, marginBottom: '10px', letterSpacing: '-.02em' }}>
+            임신중절수술 주수별 비용은<br />어떻게 달라질까요?
+          </h1>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '6px', marginTop: '14px' }}>
+            {[['8주 미만', '45만원'], ['8주', '60만원'], ['9주', '70만원'], ['10주', '80만원']].map(([v, l]) => (
+              <div key={v} style={{ background: 'rgba(255,255,255,.12)', borderRadius: '8px', padding: '8px', textAlign: 'center' }}>
+                <div style={{ color: '#FFD700', fontSize: '13px', fontWeight: 900 }}>{v}</div>
+                <div style={{ color: 'rgba(255,255,255,.7)', fontSize: '10px', marginTop: '2px' }}>{l}</div>
+              </div>
+            ))}
           </div>
         </div>
 
-        <MobileAccordion title="주수별 임신중절수술 금액" icon="💰">
-          <p style={{ fontSize: '12px', color: C.ts, lineHeight: 1.85, marginBottom: '12px' }}>
-            임신중절수술 금액은 임신 주수에 따라 결정됩니다. 8주 미만 임신초기낙태는 45만원, 8주 60만원, 9주 70만원, 10주 80만원입니다. 모든 낙태 비용 가격은 수술비·마취비·영양제·부가세를 포함한 최종 금액이며 추가 비용은 절대 발생하지 않습니다.
+
+        <div style={{ padding: '18px 16px', background: '#fff', borderBottom: `0.5px solid ${C.pbd}` }}>
+          <div style={{ fontSize: '13px', fontWeight: 900, color: C.tm, marginBottom: '8px' }}>임신중절수술 비용은 임신 주수에 따라 어떻게 달라지나요?</div>
+          <p style={{ fontSize: '12px', color: C.ts, lineHeight: 1.85, marginBottom: '10px' }}>
+            8주 미만 45만원, 8주 60만원, 9주 70만원, 10주 80만원입니다. 정확한 주수와 비용은 초음파 검사 후 확인합니다. 개인 상태에 따라 최종 비용이 달라질 수 있습니다.
           </p>
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px', marginBottom: '10px' }}>
-            {PRICES.map(({ w, p, color }) => (
-              <div key={w} style={{ background: C.pb, border: `0.5px solid ${C.pbd}`, borderRadius: '10px', padding: '12px', textAlign: 'center' }}>
-                <div style={{ fontSize: '11px', color: C.tg, marginBottom: '4px' }}>{w}</div>
-                <div style={{ fontSize: '28px', fontWeight: 900, color, lineHeight: 1 }}>{p}</div>
-                <div style={{ fontSize: '11px', color: C.ts, marginTop: '2px' }}>만원</div>
+          <div style={{ background: C.pb, border: `0.5px solid ${C.pbd}`, borderRadius: '10px', padding: '12px 14px' }}>
+            <div style={{ fontSize: '11px', fontWeight: 700, color: C.pd, marginBottom: '6px' }}>핵심 | 최종 수정일 2026.06</div>
+            {[['8주 미만', '45만원'], ['8주', '60만원'], ['9주', '70만원'], ['10주', '80만원']].map(([w, p]) => (
+              <div key={w} style={{ fontSize: '11px', color: C.pd, padding: '3px 0', borderBottom: `0.5px solid ${C.pbd}`, display: 'flex', justifyContent: 'space-between' }}>
+                <span>{w}</span><span style={{ fontWeight: 700 }}>{p}</span>
               </div>
             ))}
           </div>
-          <InfoBox type="amber">카드·현금 동일가. 11주 이상은 별도 상담 필요. 주수가 짧을수록 낙태 비용도 낮고 안전합니다.</InfoBox>
-        </MobileAccordion>
+        </div>
 
-        <MobileAccordion title="낙태 비용이 달라지는 이유" icon="📊">
+        <MobileAccordion title="주수별 비용 안내" icon="💰">
           <p style={{ fontSize: '12px', color: C.ts, lineHeight: 1.85, marginBottom: '10px' }}>
-            임신중절수술 금액은 임신 주수, 수술 방법(흡입술·소파술), 마취 방식에 따라 결정됩니다. 주수가 높아질수록 수술 복잡도가 증가하고 마취 시간이 길어져 낙태 비용 가격도 높아집니다. 연세365산부인과는 이러한 의학적 근거에 따라 투명하게 임신중절수술 비용을 공개합니다.
+            임신중절수술 비용은 임신 주수에 따라 결정됩니다. 8주 미만 45만원, 8주 60만원, 9주 70만원, 10주 80만원이 기준입니다. 정확한 주수는 초음파 검사로 확인합니다.
           </p>
-          <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
-            {[
-              { label: '임신 주수', desc: '주수가 높을수록 임신중절수술 금액 증가' },
-              { label: '수술 방법', desc: '흡입술보다 소파술이 중절수술 가격 높음' },
-              { label: '마취 방법', desc: '수면마취 비용 포함 — 안전을 위해 필수' },
-            ].map(({ label, desc }) => (
-              <div key={label} style={{ background: C.pb, borderRadius: '8px', padding: '10px 12px', border: `0.5px solid ${C.pbd}` }}>
-                <div style={{ fontSize: '12px', fontWeight: 700, color: C.p, marginBottom: '3px' }}>{label}</div>
-                <div style={{ fontSize: '11px', color: C.ts }}>{desc}</div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
+            {PRICES.map(({ w, p, method, color }) => (
+              <div key={w} style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', padding: '10px 14px', border: `0.5px solid ${C.pbd}`, borderRadius: '8px', background: '#fff' }}>
+                <div>
+                  <span style={{ fontSize: '13px', fontWeight: 700, color: C.tm }}>{w}</span>
+                  <span style={{ fontSize: '11px', color: C.tg, marginLeft: '8px' }}>{method}</span>
+                </div>
+                <span style={{ fontSize: '16px', fontWeight: 900, color }}>{p}만원</span>
               </div>
             ))}
           </div>
+          <InfoBox type="amber">11주 이상은 별도 상담 필요. 정확한 비용은 초음파 검사 후 확인합니다.</InfoBox>
         </MobileAccordion>
 
-        <MobileAccordion title="비용 포함 항목" icon="✅">
+        <MobileAccordion title="비용 포함 항목 안내" icon="📋">
           <p style={{ fontSize: '12px', color: C.ts, lineHeight: 1.85, marginBottom: '10px' }}>
-            연세365산부인과 임신중절수술 비용에는 수술비, 수면마취비, 영양제, 1인 회복실, 부가세, 처방약이 모두 포함됩니다. 추가로 청구되는 비용은 절대 없으며, 처음 안내받은 낙태 비용 가격이 최종 금액입니다.
+          안내된 비용은 수술비 기준이며, 초음파 검사·처방약·추가 처치 등의 포함 여부는 진료 상담 시 확인하시기 바랍니다. 카드·현금 동일가, 현금영수증 발급 가능합니다.
           </p>
-          {['수술비 (흡입술 또는 소파술)', '수면마취비 (마취 전문의 협진)', '회복 영양제 수액', '1인 회복실 이용료', '부가세 (VAT) 포함', '기본 처방약 (항생제·진통제)'].map(t => (
-            <div key={t} style={{ display: 'flex', gap: '8px', padding: '7px 0', borderBottom: `0.5px solid ${C.pbd}`, fontSize: '12px', color: C.ts }}>
-              <span style={{ color: C.green, fontWeight: 700 }}>✓</span>{t}
-            </div>
-          ))}
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px' }}>
+            {[['결제 방법', '카드·현금 동일'], ['현금영수증', '발급 가능'], ['초음파 검사', '수술 전 필수'], ['포함 항목', '상담 시 확인']].map(([t, s]) => (
+              <div key={t} style={{ background: C.pb, borderRadius: '8px', padding: '10px', border: `0.5px solid ${C.pbd}`, textAlign: 'center' }}>
+                <div style={{ fontSize: '11px', fontWeight: 600, color: C.tm, marginBottom: '3px' }}>{t}</div>
+                <div style={{ fontSize: '12px', fontWeight: 700, color: C.p }}>{s}</div>
+              </div>
+            ))}
+          </div>
         </MobileAccordion>
 
         <MobileAccordion title="보험 적용 여부" icon="🏥">
           <p style={{ fontSize: '12px', color: C.ts, lineHeight: 1.85, marginBottom: '10px' }}>
-            임신중절수술은 건강보험 비급여 항목으로 건강보험 및 실손보험 적용이 대부분 불가합니다. 모자보건법상 특수 사유(강간, 근친 임신, 유전적 질환, 모체 건강 위협)에 해당하는 경우 일부 급여 적용이 가능할 수 있으므로 가입 보험사에 직접 문의하세요.
+            임신중절수술은 건강보험 비급여 항목으로 건강보험 및 실손보험 적용이 대부분 불가합니다. 모자보건법상 특수 사유(강간, 근친 임신, 유전적 질환, 모체 건강 위협)에 해당하는 경우 일부 급여 적용이 가능할 수 있으므로 가입 보험사에 직접 문의하시기 바랍니다.
           </p>
-          <InfoBox type="amber">보험 서류 발급 요청 시 성실히 협조해 드립니다. 현금영수증 발급도 가능합니다.</InfoBox>
+          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '8px' }}>
+            {[['건강보험', '적용 불가', C.amber], ['실손보험', '대부분 불가', C.amber], ['특수 사유', '일부 가능', C.green]].map(([t, s, c]) => (
+              <div key={t} style={{ background: C.pb, borderRadius: '8px', padding: '10px', textAlign: 'center', border: `0.5px solid ${C.pbd}` }}>
+                <div style={{ fontSize: '11px', fontWeight: 600, color: C.tm, marginBottom: '3px' }}>{t}</div>
+                <div style={{ fontSize: '12px', fontWeight: 700, color: c as string }}>{s}</div>
+              </div>
+            ))}
+          </div>
         </MobileAccordion>
 
-        <MobileAccordion title="좋은 낙태 병원 선택 기준" icon="🏥">
+        <MobileAccordion title="초음파로 주수 확인 후 비용 안내 이유" icon="🔍">
           <p style={{ fontSize: '12px', color: C.ts, lineHeight: 1.85, marginBottom: '10px' }}>
-            지나치게 낮은 낙태 비용만 보고 병원을 선택하면 안전하지 않을 수 있습니다. 반드시 산부인과 전문의가 직접 집도하는지, 수면마취 전문의가 상주하는지, 1인 회복실을 운영하는지 확인하세요. 임신중절수술 금액과 함께 안전성과 비밀보장을 꼭 확인해야 합니다.
+            마지막 생리일로 계산한 주수와 초음파 검사 결과가 다를 수 있어 내원 후 초음파로 확인합니다. 자궁외 임신이나 이상 상태가 확인되면 추가 처치가 필요해져 비용이 달라질 수 있습니다. 전화 상담 시 예상 비용을, 내원 후 초음파 결과로 정확한 비용을 안내드립니다.
           </p>
+          <InfoBox type="amber">정확한 비용과 포함 항목은 초음파 검사, 개인 상태 확인 후 안내합니다.</InfoBox>
         </MobileAccordion>
+
+        <MobileAccordion title="상담 전 비용·포함 항목 확인 방법" icon="💰">
+          <p style={{ fontSize: '12px', color: C.ts, lineHeight: 1.85, marginBottom: '10px' }}>
+            전화(02-585-3650) 또는 카카오톡으로 예상 주수를 알려주시면 대략적인 비용 범위를 먼저 확인할 수 있습니다. 비용에는 수술비, 수면마취비, 영양제, 부가세가 포함됩니다. 정확한 최종 비용은 내원 후 초음파 결과로 확정됩니다.
+          </p>
+          {[['포함 항목', '수술비·마취비·영양제·부가세'], ['확인 방법', '전화·카카오톡 사전 문의'], ['정확한 비용', '초음파 검사 후 확정']].map(([k, v]) => (
+            <div key={k} style={{ display: 'flex', justifyContent: 'space-between', padding: '6px 0', borderBottom: `0.5px solid ${C.pbd}`, fontSize: '12px' }}>
+              <span style={{ fontWeight: 700, color: C.p }}>{k}</span>
+              <span style={{ color: C.ts, fontSize: '11px' }}>{v}</span>
+            </div>
+          ))}
+        </MobileAccordion>
+
+                <div style={{ padding: '16px 16px 0' }}>
+          <div style={{ fontSize: '14px', fontWeight: 900, color: C.tm, marginBottom: '14px' }}>비용 관련 자주 묻는 질문</div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', marginBottom: '12px' }}>
+            {FEATURED_FAQS.map(({ q, a }) => (
+              <FeaturedFAQItem key={q} question={q} answer={a} />
+            ))}
+          </div>
+          <Link href="/abortion/faq" style={{ display: 'block', textAlign: 'center', background: C.pb, border: `0.5px solid ${C.pbd}`, borderRadius: '10px', padding: '12px', textDecoration: 'none', fontSize: '12px', fontWeight: 700, color: C.p, marginBottom: '16px' }}>
+            전체 217개 FAQ 보기 →
+          </Link>
+          <div style={{ background: C.pb, border: `0.5px solid ${C.pbd}`, borderRadius: '12px', padding: '16px', marginBottom: '16px', fontSize: '12px', color: C.ts, lineHeight: 1.85 }}>
+            <div style={{ fontSize: '12px', fontWeight: 700, color: C.tm, marginBottom: '8px' }}>의료정보 안내</div>
+            <div>정보 제공: 연세365산부인과의원 · 최종 수정일: 2026년 6월 29일</div>
+            <div style={{ marginTop: '6px', fontSize: '11px', color: C.tg }}>안내된 비용은 기준 가격이며 변경될 수 있습니다.</div>
+          </div>
+        </div>
 
         <div style={{ padding: '16px', background: C.pb, borderTop: `0.5px solid ${C.pbd}` }}>
           <div style={{ fontSize: '12px', fontWeight: 700, color: C.tm, marginBottom: '10px' }}>관련 페이지</div>

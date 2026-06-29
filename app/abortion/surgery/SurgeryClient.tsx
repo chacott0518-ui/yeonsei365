@@ -40,9 +40,50 @@ const RELATED = [
   { href: '/abortion/cost', label: '금액·비용 안내' },
   { href: '/abortion/method', label: '수술 방법 종류' },
   { href: '/abortion/recovery', label: '수술 후 관리' },
-  { href: '/abortion/faq', label: 'FAQ 70가지' },
+  { href: '/abortion/faq', label: '전체 217개 FAQ' },
   { href: '/abortion/hospital', label: '병원 안내' },
 ]
+
+const FEATURED_FAQS = [
+  {
+    q: '임신중절수술 당일 절차는 어떻게 진행되나요?',
+    a: '일반적으로 내원·접수와 동의서 작성, 초음파·필요 검사(15~20분), 전문의 상담과 방법·비용 확인, 수면마취 후 수술(10~15분 내외), 1인 회복실 안정 후 귀가 순서로 진행됩니다. 전체 소요 시간은 검사·상담·수술·회복 포함 약 2~3시간입니다. 개인 상태와 주수에 따라 소요 시간이 다를 수 있습니다.',
+  },
+  {
+    q: '수술 당일 금식은 얼마나 해야 하나요?',
+    a: '수면마취를 위해 수술 6시간 전부터 완전 금식(물 포함)이 필요합니다. 금식 미준수 시 수술이 당일 연기될 수 있으므로 주의해야 합니다. 정확한 금식 시간과 주의사항은 예약 시 안내받으시기 바랍니다.',
+  },
+  {
+    q: '수면마취는 어떻게 진행되나요?',
+    a: '수면마취는 정맥을 통해 마취제를 투여해 의식 없는 상태에서 수술이 진행됩니다. 수술 중 혈압·심박수·혈중 산소 포화도를 지속적으로 모니터링합니다. 수술 후 마취에서 깨어나는 과정에서 어지러움이 있을 수 있으며, 수면마취 후에는 자가 운전이 어렵습니다.',
+  },
+  {
+    q: '수술 시간은 얼마나 걸리나요?',
+    a: '실제 수술 시간은 수술 방법과 임신 주수에 따라 다르며, 흡입술은 10~15분, 소파술은 20~30분 내외가 일반적입니다. 검사·상담·회복 시간을 포함한 전체 병원 체류 시간은 약 2~3시간입니다. 개인 상태에 따라 소요 시간이 달라질 수 있습니다.',
+  },
+  {
+    q: '수술 후 당일 귀가가 가능한가요?',
+    a: '수면마취와 수술 후 1인 회복실에서 충분히 안정을 취한 뒤 당일 귀가가 가능한 경우가 많습니다. 수면마취 특성상 자가 운전은 어려우므로 귀가 방법을 미리 준비해 두시기 바랍니다. 귀가 가능 여부는 회복 상태에 따라 의료진이 판단합니다.',
+  },
+  {
+    q: '수술 후 이상 증상이 생기면 어떻게 해야 하나요?',
+    a: '수술 후 38도 이상 고열, 과다출혈, 심한 복통이 지속되면 즉시 내원하거나 의료기관에 문의해야 합니다. 처방약과 안내받은 주의사항을 따르고, 2주간 격렬한 운동·음주·성관계·탕목욕은 삼가야 합니다. 퇴원 후 1주일 이내 사후 검진을 받는 것을 권장합니다.',
+  },
+]
+
+function FeaturedFAQItem({ question, answer }: { question: string; answer: string }) {
+  return (
+    <details style={{ border: `0.5px solid ${C.pbd}`, borderRadius: '12px', overflow: 'hidden' }}>
+      <summary style={{ padding: '16px 20px', cursor: 'pointer', fontSize: '14px', fontWeight: 700, color: C.tm, listStyle: 'none', display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: C.pb }}>
+        <span>{question}</span>
+        <span style={{ color: C.p, fontSize: '18px', flexShrink: 0, marginLeft: '12px' }}>＋</span>
+      </summary>
+      <div style={{ padding: '16px 20px', fontSize: '13px', color: C.ts, lineHeight: 1.9, background: '#fff' }}>
+        {answer}
+      </div>
+    </details>
+  )
+}
 
 export default function SurgeryClient() {
   return (
@@ -61,8 +102,8 @@ export default function SurgeryClient() {
               ))}
             </div>
             <h1 style={{ color: '#fff', fontSize: '38px', fontWeight: 900, lineHeight: 1.25, letterSpacing: '-.03em', marginBottom: '16px' }}>
-              임신중절수술 절차·안전성<br />
-              <span style={{ fontSize: '24px', fontWeight: 700, opacity: .88 }}>수술 당일 전 과정 단계별 완벽 안내</span>
+              임신중절수술 당일 절차와<br />안전 확인 과정
+              <span style={{ display: 'block', fontSize: '20px', fontWeight: 700, opacity: .88, marginTop: '8px' }}>수술 전 검사부터 회복실 귀가까지 단계별 안내</span>
             </h1>
             <p style={{ color: 'rgba(255,255,255,.9)', fontSize: '14px', lineHeight: 1.95, marginBottom: '22px', letterSpacing: '-.01em' }}>
               임신중절수술 절차가 어떻게 진행되는지 단계별로 안내합니다.<br />
@@ -118,10 +159,24 @@ export default function SurgeryClient() {
 
           {/* 섹션 1: 수술 절차 */}
           <section>
-            <SectionTag>01 임신중절수술 당일 절차 5단계</SectionTag>
-            <h2 style={{ fontSize: '24px', fontWeight: 900, color: C.tm, marginBottom: '8px', letterSpacing: '-.02em' }}>수술 당일 진행 순서 — 단계별 완벽 안내</h2>
+            <SectionTag>01 먼저 확인할 내용</SectionTag>
+            <h2 style={{ fontSize: '24px', fontWeight: 900, color: C.tm, marginBottom: '8px', letterSpacing: '-.02em' }}>임신중절수술 당일에는 어떤 순서로 진행되나요?</h2>
             <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '14px' }}>
-              임신중절수술 절차가 어떻게 진행되는지 미리 알면 막연한 불안감을 크게 줄일 수 있습니다. 연세365산부인과는 수술 당일 모든 절차를 투명하게 안내하며, 단계마다 충분한 설명을 제공합니다. 전체 소요 시간은 검사·상담·수술·회복을 포함하여 약 2~3시간입니다.
+              수술 당일 전체 절차는 내원·접수 → 초음파·혈액검사 → 전문의 상담 → 수면마취·수술 → 회복실 안정 후 귀가 순서로 진행됩니다. 전체 소요 시간은 검사·상담·수술·회복을 포함하여 약 2~3시간입니다. 실제 수술 시간은 흡입술 기준 10~15분이며, 수면마취로 통증 없이 진행됩니다.
+            </p>
+            <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '14px' }}>
+              수술 당일 반드시 기억할 것은 수술 6시간 전부터 완전 금식(물 포함)과 신분증 지참입니다. 수면마취 후에는 자가 운전이 불가능하므로 귀가 방법을 미리 준비해야 합니다. 네일아트가 있다면 수술 전날 제거해야 마취 중 산소 포화도 모니터링이 가능합니다.
+            </p>
+            <div style={{ background: C.pb, border: `0.5px solid ${C.pbd}`, borderRadius: '12px', padding: '16px 20px', marginBottom: '20px' }}>
+              <div style={{ fontSize: '12px', fontWeight: 700, color: C.pd, marginBottom: '10px' }}>핵심: 수술 당일 확인 사항 | 최종 수정일 2026.06</div>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px' }}>
+                {['6시간 전부터 완전 금식 (물 포함)', '신분증 필수 지참', '수면마취 후 자가 운전 불가', '네일아트 사전 제거'].map(t => (
+                  <div key={t} style={{ fontSize: '12px', color: C.pd, display: 'flex', gap: '6px' }}><span>✓</span>{t}</div>
+                ))}
+              </div>
+            </div>
+            <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '14px' }}>
+              임신중절수술 절차가 어떻게 진행되는지 미리 알면 막연한 불안감을 크게 줄일 수 있습니다. 연세365산부인과의원은 수술 당일 모든 절차를 투명하게 안내하며, 단계마다 충분한 설명을 제공합니다.
             </p>
             <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '20px' }}>
               수술 당일 반드시 기억해야 할 것은 <strong style={{ color: C.p }}>6시간 이상 완전 금식(물 포함)</strong>입니다. 수면마취를 안전하게 진행하기 위해 반드시 필요한 조건입니다. 금식 미준수 시 마취 도중 위 내용물이 폐로 유입되는 흡인 사고가 발생할 수 있어 수술이 당일 연기됩니다. 또한 신분증을 반드시 지참해야 하며, 수면마취 후에는 자가 운전이 불가합니다.
@@ -200,10 +255,10 @@ export default function SurgeryClient() {
 
           <Divider />
 
-          {/* 섹션 2: 수술 전 준비사항 */}
+          {/* 섹션 2: 수술 전 검사 */}
           <section>
-            <SectionTag>02 수술 전 준비사항 완벽 체크리스트</SectionTag>
-            <h2 style={{ fontSize: '24px', fontWeight: 900, color: C.tm, marginBottom: '8px', letterSpacing: '-.02em' }}>수술 당일 이것만 확인하세요</h2>
+            <SectionTag>02 수술 전 검사에서 확인하는 항목</SectionTag>
+            <h2 style={{ fontSize: '24px', fontWeight: 900, color: C.tm, marginBottom: '8px', letterSpacing: '-.02em' }}>수술 전 검사에서는 무엇을 확인하나요?</h2>
             <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '14px' }}>
               임신중절수술 전 준비사항을 미리 확인하면 수술 당일 더욱 원활하게 진행됩니다. 특히 금식은 수면마취 안전의 핵심이므로 반드시 지켜야 합니다. 수술 당일 아침부터 아무것도 드시지 않는 것이 가장 안전합니다.
             </p>
@@ -352,10 +407,10 @@ export default function SurgeryClient() {
 
           <Divider />
 
-          {/* 섹션 5: 수술 후 바로 알아야 할 것 */}
+          {/* 섹션 5: 수술 후 귀가 전 회복 상태 */}
           <section>
-            <SectionTag>05 수술 직후 — 회복실 안내</SectionTag>
-            <h2 style={{ fontSize: '24px', fontWeight: 900, color: C.tm, marginBottom: '8px', letterSpacing: '-.02em' }}>수술 후 회복실에서 무엇이 일어나나요?</h2>
+            <SectionTag>05 수술 후 귀가 전 확인해야 하는 회복 상태</SectionTag>
+            <h2 style={{ fontSize: '24px', fontWeight: 900, color: C.tm, marginBottom: '8px', letterSpacing: '-.02em' }}>수술 후 귀가 전 어떤 회복 상태를 확인하나요?</h2>
             <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '14px' }}>
               수술이 완료되면 즉시 1인 회복실로 이동합니다. 마취에서 완전히 깨어날 때까지 의료진이 옆에서 케어하며, 혈압과 맥박을 주기적으로 체크합니다. 수술 후 처음 깨어나면 약간의 어지러움, 구역감, 졸음 등이 있을 수 있으나 이는 마취 후 자연스러운 반응으로 시간이 지나면서 사라집니다.
             </p>
@@ -386,6 +441,37 @@ export default function SurgeryClient() {
 
           <Divider />
 
+          <section style={{ marginBottom: '44px' }}>
+            <SectionTag>자주 묻는 질문</SectionTag>
+            <h2 style={{ fontSize: '24px', fontWeight: 900, color: C.tm, marginBottom: '8px', letterSpacing: '-.02em' }}>
+              임신중절수술 절차·안전성에 관해 자주 묻는 질문
+            </h2>
+            <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, marginBottom: '20px', letterSpacing: '-.01em' }}>
+              수술 당일 절차, 금식 시간, 수면마취 방법, 수술 시간, 귀가와 이상 증상 관련 내용을 정리했습니다.
+            </p>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginBottom: '16px' }}>
+              {FEATURED_FAQS.map(({ q, a }) => (
+                <FeaturedFAQItem key={q} question={q} answer={a} />
+              ))}
+            </div>
+            <Link href="/abortion/faq" style={{ display: 'block', textAlign: 'center', background: C.pb, border: `0.5px solid ${C.pbd}`, borderRadius: '12px', padding: '14px', textDecoration: 'none', fontSize: '13px', fontWeight: 700, color: C.p }}>
+              전체 217개 FAQ 보기 →
+            </Link>
+          </section>
+
+          <section style={{ marginBottom: '44px', background: C.pb, border: `0.5px solid ${C.pbd}`, borderRadius: '14px', padding: '24px 28px' }}>
+            <SectionTag>의료정보 안내</SectionTag>
+            <h2 style={{ fontSize: '18px', fontWeight: 900, color: C.tm, marginBottom: '14px', letterSpacing: '-.02em' }}>
+              의료정보는 어떤 기준으로 작성되었나요?
+            </h2>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', fontSize: '13px', color: C.ts, lineHeight: 1.85 }}>
+              <div><strong style={{ color: C.tm }}>정보 제공:</strong> 연세365산부인과의원</div>
+              <div><strong style={{ color: C.tm }}>최종 수정일:</strong> 2026년 6월 29일</div>
+              <div><strong style={{ color: C.tm }}>공식 출처:</strong> 모자보건법, 대한산부인과학회 임상 지침</div>
+              <div style={{ marginTop: '8px', fontSize: '12px', color: C.tg }}>본 정보는 일반적인 의료 안내이며 개인별 진료를 대신하지 않습니다. 정확한 진단과 치료는 의료기관을 방문하여 상담받으시기 바랍니다.</div>
+            </div>
+          </section>
+
           <div style={{ marginBottom: '40px' }}>
             <div style={{ fontSize: '13px', fontWeight: 700, color: C.tm, marginBottom: '12px' }}>관련 페이지 더 보기</div>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: '8px' }}>
@@ -396,7 +482,7 @@ export default function SurgeryClient() {
           </div>
 
           <div style={{ background: `linear-gradient(135deg, ${C.pp}, ${C.p})`, borderRadius: '20px', padding: '36px', textAlign: 'center' }}>
-            <div style={{ fontSize: '22px', fontWeight: 900, color: '#fff', marginBottom: '6px' }}>연세365산부인과</div>
+            <div style={{ fontSize: '22px', fontWeight: 900, color: '#fff', marginBottom: '6px' }}>연세365산부인과의원</div>
             <div style={{ fontSize: '13px', color: 'rgba(255,255,255,.85)', marginBottom: '6px' }}>서울 관악구 과천대로 939 3층 · 사당역 4번출구</div>
             <div style={{ fontSize: '12px', color: 'rgba(255,255,255,.7)', marginBottom: '22px' }}>당일예약·당일수술 · 전문의 직접 집도 · 비밀보장</div>
             <div style={{ display: 'flex', gap: '10px', justifyContent: 'center' }}>
@@ -415,15 +501,29 @@ export default function SurgeryClient() {
               <span key={t} style={{ background: 'rgba(255,255,255,.18)', color: '#fff', fontSize: '10px', fontWeight: 700, padding: '2px 10px', borderRadius: '20px' }}>{t}</span>
             ))}
           </div>
-          <h2 style={{ color: '#fff', fontSize: '26px', fontWeight: 900, lineHeight: 1.2, marginBottom: '12px', letterSpacing: '-.02em' }}>
-            임신중절수술 절차·안전성<br /><span style={{ fontSize: '17px', fontWeight: 700, opacity: .88 }}>수술 당일 전 과정 단계별 안내</span>
-          </h2>
+          <h1 style={{ color: '#fff', fontSize: '24px', fontWeight: 900, lineHeight: 1.2, marginBottom: '12px', letterSpacing: '-.02em' }}>
+            임신중절수술 당일 절차와<br />안전 확인 과정
+            <span style={{ display: 'block', fontSize: '15px', fontWeight: 700, opacity: .88, marginTop: '6px' }}>수술 전 검사부터 회복실 귀가까지</span>
+          </h1>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '6px', marginTop: '14px' }}>
             {[['2~3시간', '총 소요'], ['10~15분', '실제 수술'], ['수면마취', '무통 진행'], ['당일귀가', '1인 회복실']].map(([v, l]) => (
               <div key={v} style={{ background: 'rgba(255,255,255,.12)', borderRadius: '8px', padding: '8px', textAlign: 'center' }}>
                 <div style={{ color: '#FFD700', fontSize: '14px', fontWeight: 900 }}>{v}</div>
                 <div style={{ color: 'rgba(255,255,255,.7)', fontSize: '10px', marginTop: '2px' }}>{l}</div>
               </div>
+            ))}
+          </div>
+        </div>
+
+        <div style={{ padding: '18px 16px', background: '#fff', borderBottom: `0.5px solid ${C.pbd}` }}>
+          <div style={{ fontSize: '13px', fontWeight: 900, color: C.tm, marginBottom: '8px' }}>임신중절수술 당일에는 어떤 순서로 진행되나요?</div>
+          <p style={{ fontSize: '12px', color: C.ts, lineHeight: 1.85, marginBottom: '10px' }}>
+            내원·접수 → 초음파·혈액검사 → 전문의 상담 → 수면마취·수술 → 회복실 후 귀가 순서로 진행됩니다. 전체 소요 시간은 약 2~3시간이며, 수술 6시간 전부터 완전 금식이 필수입니다.
+          </p>
+          <div style={{ background: C.pb, border: `0.5px solid ${C.pbd}`, borderRadius: '10px', padding: '12px 14px' }}>
+            <div style={{ fontSize: '11px', fontWeight: 700, color: C.pd, marginBottom: '6px' }}>핵심 | 최종 수정일 2026.06</div>
+            {['6시간 전 완전 금식 (물 포함)', '신분증 필수', '수술 10~15분 · 전체 2~3시간', '마취 후 자가 운전 불가'].map(t => (
+              <div key={t} style={{ fontSize: '11px', color: C.pd, padding: '3px 0', borderBottom: `0.5px solid ${C.pbd}` }}>✓ {t}</div>
             ))}
           </div>
         </div>
@@ -473,6 +573,29 @@ export default function SurgeryClient() {
           </p>
           <InfoBox type="green">전문의 직접 집도 · 마취 전문의 협진 · 응급 장비 완비 · 멸균 수술 환경</InfoBox>
         </MobileAccordion>
+
+        <div style={{ padding: '16px', borderTop: `0.5px solid ${C.pbd}` }}>
+          <div style={{ fontSize: '11px', fontWeight: 700, color: '#bbb', marginBottom: '6px', letterSpacing: '.05em' }}>자주 묻는 질문</div>
+          <div style={{ fontSize: '15px', fontWeight: 900, color: C.tm, marginBottom: '12px' }}>임신중절수술 절차 자주 묻는 질문</div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', marginBottom: '14px' }}>
+            {FEATURED_FAQS.map(({ q, a }) => (
+              <FeaturedFAQItem key={q} question={q} answer={a} />
+            ))}
+          </div>
+          <Link href="/abortion/faq" style={{ display: 'block', textAlign: 'center', background: C.pb, border: `0.5px solid ${C.pbd}`, borderRadius: '10px', padding: '11px', textDecoration: 'none', fontSize: '12px', fontWeight: 700, color: C.p }}>
+            전체 217개 FAQ 보기 →
+          </Link>
+        </div>
+
+        <div style={{ padding: '14px 16px', background: C.pb, borderTop: `0.5px solid ${C.pbd}` }}>
+          <div style={{ fontSize: '11px', fontWeight: 700, color: '#bbb', marginBottom: '8px', letterSpacing: '.04em' }}>의료정보 안내</div>
+          <div style={{ fontSize: '11px', color: C.tg, lineHeight: 1.8 }}>
+            <div>정보 제공: 연세365산부인과의원</div>
+            <div>최종 수정일: 2026년 6월 29일</div>
+            <div>출처: 모자보건법, 대한산부인과학회 임상 지침</div>
+            <div style={{ marginTop: '6px' }}>본 정보는 일반 의료 안내이며 개인별 진료를 대신하지 않습니다.</div>
+          </div>
+        </div>
 
         <div style={{ padding: '16px', background: C.pb, borderTop: `0.5px solid ${C.pbd}` }}>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '6px' }}>

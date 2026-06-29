@@ -563,7 +563,7 @@ export default function AbortionSurgeryClinicPage() {
           <div style={{ fontSize: 'clamp(18px, 4vw, 22px)', fontWeight: 900, marginBottom: '8px' }}>연세365산부인과</div>
           <div style={{ fontSize: '14px', opacity: 0.9, marginBottom: '6px' }}>사당역 4번출구 도보 2분</div>
           <div style={{ fontSize: '14px', opacity: 0.85, marginBottom: '24px', lineHeight: 1.8 }}>
-            당일예약 · 당일시술 · 여의사 상담 가능 · 1인 회복실 운영<br />
+            당일예약 · 당일시술 · 산부인과 전문의 상담 · 1인 회복실 운영<br />
             모든 상담 내용은 철저히 비밀이 보장됩니다
           </div>
           <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>

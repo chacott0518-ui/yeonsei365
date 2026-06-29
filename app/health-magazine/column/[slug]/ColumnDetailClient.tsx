@@ -302,7 +302,7 @@ export default function ColumnDetailClient({ column }: { column: Column }) {
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: '8px' }}>
             {[
               { href: '/health-magazine/column', label: '← 칼럼 목록' },
-              { href: '/abortion/faq', label: 'FAQ 70가지' },
+              { href: '/abortion/faq', label: 'FAQ 217개' },
               { href: '/abortion/cost', label: '수술 금액 안내' },
               { href: '/abortion', label: '임신중절클리닉' },
             ].map(l => (

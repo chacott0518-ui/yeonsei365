@@ -7,14 +7,14 @@ const CATEGORIES = [
   { id: 'all', label: '전체', count: 217 },
   { id: 'cost', label: '비용·금액', count: 25 },
   { id: 'method', label: '수술 방법·절차', count: 22 },
-  { id: 'period', label: '주수·기간', count: 23 },
+  { id: 'period', label: '주수·기간', count: 21 },
   { id: 'prep', label: '수술 전 준비', count: 13 },
-  { id: 'recovery', label: '수술 후 관리', count: 26 },
+  { id: 'recovery', label: '수술 후 관리', count: 27 },
   { id: 'legal', label: '법적·보험', count: 21 },
-  { id: 'hospital', label: '병원·예약', count: 18 },
+  { id: 'hospital', label: '병원·예약', count: 20 },
   { id: 'weekly', label: '주수별 비용', count: 21 },
   { id: 'drug', label: '약물중절', count: 20 },
-  { id: 'situation', label: '상황별 Q&A', count: 25 },
+  { id: 'situation', label: '상황별 Q&A', count: 27 },
 ];
 
 const FAQS = [
@@ -293,7 +293,7 @@ export default function FAQClient() {
         <div style={{ textAlign: 'center', marginBottom: '40px' }}>
           <span style={{ background: '#fff0f4', color: '#D6336C', fontSize: '12px', fontWeight: 700, padding: '4px 14px', borderRadius: '20px', display: 'inline-block', marginBottom: '12px' }}>FAQ</span>
           <h1 style={{ fontSize: '28px', fontWeight: 900, color: '#1a1a1a', marginBottom: '10px' }}>임신중절수술 자주 묻는 질문</h1>
-          <p style={{ fontSize: '15px', color: '#666' }}>낙태 비용 가격부터 수술 방법, 후관리까지 170가지 궁금증을 해결해 드립니다 · <ViewCounter slug="abortion-faq" /></p>
+          <p style={{ fontSize: '15px', color: '#666' }}>낙태 비용 가격부터 수술 방법, 후관리까지 전체 217개 궁금증을 해결해 드립니다 · <ViewCounter slug="abortion-faq" /></p>
         </div>
 
         <div style={{ display: 'flex', gap: '28px' }}>

@@ -40,9 +40,50 @@ const RELATED = [
   { href: '/abortion/cost', label: '금액·비용 안내' },
   { href: '/abortion/surgery', label: '수술 절차 안내' },
   { href: '/abortion/recovery', label: '수술 후 관리' },
-  { href: '/abortion/faq', label: 'FAQ 70가지' },
+  { href: '/abortion/faq', label: '전체 217개 FAQ' },
   { href: '/abortion/legal', label: '합법화 안내' },
 ]
+
+const FEATURED_FAQS = [
+  {
+    q: '임신중절수술 방법은 어떤 기준으로 결정하나요?',
+    a: '수술 방법은 임신 주수, 초음파 검사 결과, 자궁 상태, 과거 병력과 현재 건강 상태를 종합하여 의료진이 안내합니다. 연세365산부인과의원에서는 흡입술과 소파술을 시행하며, 약물중절은 시행하지 않습니다. 방법에 대한 자세한 안내는 초음파 확인과 상담 이후에 이루어집니다.',
+  },
+  {
+    q: '흡입술과 소파술의 차이는 무엇인가요?',
+    a: '흡입술은 음압으로 임신 조직을 제거하며 8주 이내에 주로 적용되고, 시술 시간은 10~15분 내외입니다. 소파술은 기구로 자궁 내 조직을 제거하며 8~12주 사이에 주로 적용되고, 시술 시간은 20~30분 내외입니다. 두 방법 모두 수면마취 하에 진행되며, 시술 후 당일 귀가가 가능한 경우가 많습니다.',
+  },
+  {
+    q: '약물중절도 선택할 수 있나요?',
+    a: '연세365산부인과의원은 약물중절을 시행하지 않으며 수술적 방법에 대해서만 상담합니다. 약물중절은 불완전 유산이나 후유증 위험이 있을 수 있어 의료진 관리가 중요합니다. 수술 방법에 대해 궁금한 점은 방문 전 전화나 카카오톡으로 문의하실 수 있습니다.',
+  },
+  {
+    q: '어떤 방법이 회복이 빠른가요?',
+    a: '흡입술은 일반적으로 자궁 손상이 적고 시술 시간이 짧아 회복이 빠른 편입니다. 소파술은 흡입술보다 회복 기간이 약간 더 필요할 수 있습니다. 회복 속도는 임신 주수, 개인 건강 상태에 따라 달라지므로 처방약과 주의사항을 따르는 것이 중요합니다.',
+  },
+  {
+    q: '수술 방법이 향후 임신에 영향을 주나요?',
+    a: '의료진이 안전하게 시행한 수술은 향후 임신에 직접적인 영향을 주지 않는 경우가 많습니다. 다만 반복 수술은 자궁 내막에 누적적 영향이 있을 수 있으므로 피임 상담을 함께 받는 것을 권장합니다. 수술 후 피임 상담도 내원 시 문의해 주시면 안내해 드립니다.',
+  },
+  {
+    q: '주수별로 적용되는 수술 방법이 다른가요?',
+    a: '임신 주수에 따라 권장 수술 방법이 달라집니다. 8주 이내는 흡입술이, 8~12주는 소파술이 일반적으로 적용됩니다. 11주 이상이나 특수 상황에서는 전문의 심층 상담과 추가 검사가 필요하며, 정확한 방법은 초음파 검사 후 의료진이 안내합니다.',
+  },
+]
+
+function FeaturedFAQItem({ question, answer }: { question: string; answer: string }) {
+  return (
+    <details style={{ border: `0.5px solid ${C.pbd}`, borderRadius: '12px', overflow: 'hidden' }}>
+      <summary style={{ padding: '16px 20px', cursor: 'pointer', fontSize: '14px', fontWeight: 700, color: C.tm, listStyle: 'none', display: 'flex', alignItems: 'center', justifyContent: 'space-between', background: C.pb }}>
+        <span>{question}</span>
+        <span style={{ color: C.p, fontSize: '18px', flexShrink: 0, marginLeft: '12px' }}>＋</span>
+      </summary>
+      <div style={{ padding: '16px 20px', fontSize: '13px', color: C.ts, lineHeight: 1.9, background: '#fff' }}>
+        {answer}
+      </div>
+    </details>
+  )
+}
 
 export default function MethodClient() {
   return (
@@ -60,8 +101,8 @@ export default function MethodClient() {
               ))}
             </div>
             <h1 style={{ color: '#fff', fontSize: '38px', fontWeight: 900, lineHeight: 1.25, letterSpacing: '-.03em', marginBottom: '16px' }}>
-              임신중절수술 방법·종류<br />
-              <span style={{ fontSize: '24px', fontWeight: 700, opacity: .88 }}>흡입술·소파술·약물중절 완전 비교</span>
+              임신중절수술 방법과 종류는<br />어떻게 결정될까요?
+              <span style={{ display: 'block', fontSize: '20px', fontWeight: 700, opacity: .88, marginTop: '8px' }}>흡입술·소파술·주수별 선택 기준 완전 안내</span>
             </h1>
             <p style={{ color: 'rgba(255,255,255,.9)', fontSize: '14px', lineHeight: 1.95, marginBottom: '22px', letterSpacing: '-.01em' }}>
               임신 주수와 자궁 상태에 따라 가장 적합한 수술 방법을 선택합니다.<br />
@@ -91,10 +132,24 @@ export default function MethodClient() {
           </div>
 
           <section>
-            <SectionTag>01 임신중절수술 방법 종류</SectionTag>
-            <h2 style={{ fontSize: '24px', fontWeight: 900, color: C.tm, marginBottom: '8px', letterSpacing: '-.02em' }}>흡입술 vs 소파술 — 완전 비교</h2>
+            <SectionTag>01 먼저 확인할 내용</SectionTag>
+            <h2 style={{ fontSize: '24px', fontWeight: 900, color: C.tm, marginBottom: '8px', letterSpacing: '-.02em' }}>임신중절수술 방법은 어떤 기준으로 선택하나요?</h2>
             <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '14px' }}>
-              임신중절수술 방법은 크게 <strong style={{ color: C.p }}>흡입술(진공흡입법)</strong>, <strong style={{ color: C.p }}>소파술(자궁소파술)</strong>, <strong style={{ color: C.p }}>약물중절</strong> 세 가지로 나뉩니다. 연세365산부인과에서는 초음파 정밀 진단 후 임신 주수와 자궁 상태에 맞는 최적의 방법을 전문의가 직접 결정합니다.
+              임신중절수술 방법은 임신 주수, 초음파 검사에서 확인한 자궁 상태, 개인 건강 조건을 종합하여 전문의가 결정합니다. 연세365산부인과의원은 수술 전 정밀 초음파 검사를 진행하고, 흡입술과 소파술 중 적합한 방법을 안내합니다. 약물중절은 연세365산부인과의원에서 시행하지 않습니다.
+            </p>
+            <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '14px' }}>
+              임신 8주 이내에는 흡입술이 권장되며, 8주 이상에서는 소파술이 일반적으로 적용됩니다. 정확한 임신 주수는 마지막 월경일과 초음파 검사 결과를 함께 확인해야 합니다. 초음파 전에는 수술 방법과 비용을 확정하기 어려우므로, 내원 후 검사 결과를 바탕으로 안내드립니다.
+            </p>
+            <div style={{ background: C.pb, border: `0.5px solid ${C.pbd}`, borderRadius: '12px', padding: '16px 20px', marginBottom: '20px' }}>
+              <div style={{ fontSize: '12px', fontWeight: 700, color: C.pd, marginBottom: '10px' }}>핵심: 수술 방법 결정 요소 | 최종 수정일 2026.06</div>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px' }}>
+                {['임신 주수 (초음파 확인)', '자궁 상태 및 착상 위치', '개인 건강 상태·과거 병력', '복용 중인 약물 여부'].map(t => (
+                  <div key={t} style={{ fontSize: '12px', color: C.pd, display: 'flex', gap: '6px' }}><span>✓</span>{t}</div>
+                ))}
+              </div>
+            </div>
+            <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '14px' }}>
+              임신중절수술 방법은 크게 <strong style={{ color: C.p }}>흡입술(진공흡입법)</strong>과 <strong style={{ color: C.p }}>소파술(자궁소파술)</strong>로 나뉩니다. 연세365산부인과의원에서는 초음파 정밀 진단 후 임신 주수와 자궁 상태에 맞는 방법을 전문의가 직접 결정합니다.
             </p>
             <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '14px' }}>
               임신초기중절수술 방법 중 <strong>흡입술</strong>은 8주 이내에 가장 권장되는 방법으로, 부드러운 관으로 임신 조직을 배출하여 자궁 내막 손상이 최소화됩니다. 수술 시간이 10~15분으로 짧고 출혈량이 적으며 회복이 빠릅니다.
@@ -197,6 +252,110 @@ export default function MethodClient() {
 
           <Divider />
 
+          <section>
+            <SectionTag>04 임신 주수와 검사 결과에 따라 방법이 달라지는 이유</SectionTag>
+            <h2 style={{ fontSize: '24px', fontWeight: 900, color: C.tm, marginBottom: '8px', letterSpacing: '-.02em' }}>임신 주수와 검사 결과에 따라 수술 방법이 달라지는 이유는 무엇인가요?</h2>
+            <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '14px' }}>
+              임신 주수가 짧을수록 태낭과 임신 조직의 크기가 작아 흡입술로 안전하게 제거할 수 있습니다. 반면 주수가 높아지면 태낭과 임신 조직의 크기가 커지고 자궁벽도 변화하므로, 소파술 등 다른 접근이 필요해집니다. 이 때문에 초음파 검사 결과가 수술 방법 결정의 핵심 근거가 됩니다.
+            </p>
+            <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '14px' }}>
+              초음파 검사에서는 태낭의 위치(자궁 내 정상 착상 여부), 크기, 임신 주수를 함께 확인합니다. 자궁외 임신이나 불완전 착상이 확인되면 일반적인 임신중절수술과 다른 처치가 필요하므로, 수술 전 초음파 확인이 필수입니다. 마지막 생리일과 초음파 결과 모두를 기준으로 주수를 판단하며, 두 결과가 다를 때는 초음파 수치를 우선합니다.
+            </p>
+            <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '20px' }}>
+              개인의 자궁 크기, 자궁 기울기(전굴·후굴), 과거 제왕절개 흉터 유무에 따라서도 수술 접근 방식이 달라질 수 있습니다. 이 때문에 같은 주수라도 수술 방법과 소요 시간이 개인마다 다를 수 있으며, 정확한 안내는 초음파 검사 후에 이루어집니다.
+            </p>
+            <div style={{ border: `0.5px solid ${C.pbd}`, borderRadius: '14px', overflow: 'hidden', marginBottom: '16px' }}>
+              <div style={{ background: '#F8E8EF', padding: '12px 18px', display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '8px' }}>
+                <div style={{ fontSize: '12px', fontWeight: 700, color: C.pd }}>확인 항목</div>
+                <div style={{ fontSize: '12px', fontWeight: 700, color: C.pd }}>흡입술 (8주 이내)</div>
+                <div style={{ fontSize: '12px', fontWeight: 700, color: C.pd }}>소파술 (8주 이상)</div>
+              </div>
+              {[
+                ['태낭 크기', '작아 음압으로 제거 가능', '커서 기구 사용 필요'],
+                ['자궁벽 두께', '두꺼워 손상 위험 낮음', '얇아져 주의 필요'],
+                ['수술 시간', '10~15분', '20~30분'],
+                ['출혈량', '적음', '보통~다소 많음'],
+                ['회복 기간', '1~2일', '2~3일'],
+              ].map(([item, a, b], i) => (
+                <div key={item} style={{ padding: '10px 18px', display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '8px', background: i % 2 === 0 ? C.pb : '#fff', borderTop: `0.5px solid ${C.pbd}` }}>
+                  <div style={{ fontSize: '13px', fontWeight: 700, color: C.tm }}>{item}</div>
+                  <div style={{ fontSize: '12px', color: C.ts }}>{a}</div>
+                  <div style={{ fontSize: '12px', color: C.ts }}>{b}</div>
+                </div>
+              ))}
+            </div>
+            <InfoBox type="amber">⚠ 초음파 검사 전에는 주수를 확정할 수 없어 수술 방법과 비용을 사전에 단정하기 어렵습니다. 내원 후 검사 결과를 기준으로 안내드립니다.</InfoBox>
+          </section>
+
+          <Divider />
+
+          <section>
+            <SectionTag>05 수술 방법 결정 전 의료진에게 알려야 할 건강 정보</SectionTag>
+            <h2 style={{ fontSize: '24px', fontWeight: 900, color: C.tm, marginBottom: '8px', letterSpacing: '-.02em' }}>수술 방법을 결정하기 전 의료진에게 알려야 할 건강 정보는 무엇인가요?</h2>
+            <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '14px' }}>
+              안전한 수술을 위해 의료진은 개인 건강 정보를 사전에 파악해야 합니다. 현재 복용 중인 약물이나 영양제, 알레르기 이력, 과거 수술 경험 등은 수술 방법과 마취 방식에 영향을 줄 수 있습니다. 상담 시 이 정보를 솔직하게 알려주시면 더 안전하게 수술을 준비할 수 있습니다.
+            </p>
+            <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '14px' }}>
+              특히 아스피린, 와파린 등 혈액 응고에 영향을 주는 약물은 수술 출혈에 영향을 줄 수 있어 사전 중단이 필요할 수 있습니다. 고혈압, 당뇨, 천식, 갑상선 질환 등 만성 질환이 있거나 이전에 전신 마취를 받은 경험이 있다면 반드시 알려주세요. 이 정보들은 수술 안전성 평가에 사용되며 외부에 공개되지 않습니다.
+            </p>
+            <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '20px' }}>
+              과거에 임신중절수술을 받은 경험이 있다면 이것도 알려주시는 것이 좋습니다. 반복 수술의 경우 자궁 내막 상태와 유착 여부를 초음파로 추가 확인할 수 있습니다. 모든 정보는 더 안전한 수술을 위한 것이며, 의료법에 따라 철저히 보호됩니다.
+            </p>
+            <div style={{ background: C.pb, border: `0.5px solid ${C.pbd}`, borderRadius: '14px', padding: '20px 24px', marginBottom: '16px' }}>
+              <div style={{ fontSize: '14px', fontWeight: 700, color: C.tm, marginBottom: '14px' }}>📋 상담 전 확인 체크리스트</div>
+              <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px 20px' }}>
+                {[
+                  '현재 복용 중인 모든 처방약',
+                  '영양제·한약·건강기능식품',
+                  '알레르기 이력 (약물·음식·마취제)',
+                  '과거 전신마취 경험과 부작용',
+                  '만성 질환 유무 (고혈압·당뇨 등)',
+                  '과거 자궁·산부인과 수술 경험',
+                  '이전 임신중절수술 횟수',
+                  '최근 음주·흡연 여부',
+                ].map(t => (
+                  <div key={t} style={{ display: 'flex', gap: '8px', fontSize: '13px', color: C.ts, alignItems: 'flex-start' }}>
+                    <span style={{ color: C.p, fontWeight: 700, flexShrink: 0 }}>✓</span>{t}
+                  </div>
+                ))}
+              </div>
+            </div>
+            <InfoBox>건강 정보를 미리 알려주시면 수술 안전성을 높이고 불필요한 검사나 대기 시간을 줄일 수 있습니다. 모든 내용은 의료법에 따라 외부에 공개되지 않습니다.</InfoBox>
+          </section>
+
+          <Divider />
+
+          <section style={{ marginBottom: '44px' }}>
+            <SectionTag>자주 묻는 질문</SectionTag>
+            <h2 style={{ fontSize: '24px', fontWeight: 900, color: C.tm, marginBottom: '8px', letterSpacing: '-.02em' }}>
+              임신중절수술 방법·종류에 관해 자주 묻는 질문
+            </h2>
+            <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, marginBottom: '20px', letterSpacing: '-.01em' }}>
+              흡입술과 소파술의 차이, 방법 결정 기준, 약물중절 시행 여부와 회복 관련 내용을 정리했습니다.
+            </p>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', marginBottom: '16px' }}>
+              {FEATURED_FAQS.map(({ q, a }) => (
+                <FeaturedFAQItem key={q} question={q} answer={a} />
+              ))}
+            </div>
+            <Link href="/abortion/faq" style={{ display: 'block', textAlign: 'center', background: C.pb, border: `0.5px solid ${C.pbd}`, borderRadius: '12px', padding: '14px', textDecoration: 'none', fontSize: '13px', fontWeight: 700, color: C.p }}>
+              전체 217개 FAQ 보기 →
+            </Link>
+          </section>
+
+          <section style={{ marginBottom: '44px', background: C.pb, border: `0.5px solid ${C.pbd}`, borderRadius: '14px', padding: '24px 28px' }}>
+            <SectionTag>의료정보 안내</SectionTag>
+            <h2 style={{ fontSize: '18px', fontWeight: 900, color: C.tm, marginBottom: '14px', letterSpacing: '-.02em' }}>
+              의료정보는 어떤 기준으로 작성되었나요?
+            </h2>
+            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', fontSize: '13px', color: C.ts, lineHeight: 1.85 }}>
+              <div><strong style={{ color: C.tm }}>정보 제공:</strong> 연세365산부인과의원</div>
+              <div><strong style={{ color: C.tm }}>최종 수정일:</strong> 2026년 6월 29일</div>
+              <div><strong style={{ color: C.tm }}>공식 출처:</strong> 모자보건법, 대한산부인과학회 임상 지침</div>
+              <div style={{ marginTop: '8px', fontSize: '12px', color: C.tg }}>본 정보는 일반적인 의료 안내이며 개인별 진료를 대신하지 않습니다. 정확한 진단과 치료는 의료기관을 방문하여 상담받으시기 바랍니다.</div>
+            </div>
+          </section>
+
           <div style={{ marginBottom: '40px' }}>
             <div style={{ fontSize: '13px', fontWeight: 700, color: C.tm, marginBottom: '12px' }}>관련 페이지 더 보기</div>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: '8px' }}>
@@ -207,7 +366,7 @@ export default function MethodClient() {
           </div>
 
           <div style={{ background: `linear-gradient(135deg, ${C.pp}, ${C.p})`, borderRadius: '20px', padding: '36px', textAlign: 'center' }}>
-            <div style={{ fontSize: '22px', fontWeight: 900, color: '#fff', marginBottom: '6px' }}>연세365산부인과</div>
+            <div style={{ fontSize: '22px', fontWeight: 900, color: '#fff', marginBottom: '6px' }}>연세365산부인과의원</div>
             <div style={{ fontSize: '13px', color: 'rgba(255,255,255,.85)', marginBottom: '22px' }}>사당역 4번출구 · 전문의 직접 집도 · 비밀보장</div>
             <div style={{ display: 'flex', gap: '10px', justifyContent: 'center' }}>
               <a href="http://pf.kakao.com/_TpaBj/chat" target="_blank" rel="noopener noreferrer" style={{ background: '#FEE500', color: '#3B1B1B', fontSize: '14px', fontWeight: 700, padding: '13px 28px', borderRadius: '24px', textDecoration: 'none' }}>💬 카카오톡 상담</a>
@@ -219,12 +378,28 @@ export default function MethodClient() {
 
       <div className="lg:hidden">
         <div style={{ backgroundImage: `linear-gradient(rgba(0,0,0,0.60), rgba(0,0,0,0.60)), url(/images/hero-abortion-method.webp)`, backgroundSize: 'cover', backgroundPosition: 'center', padding: '32px 20px' }}>
-          <h2 style={{ color: '#fff', fontSize: '26px', fontWeight: 900, lineHeight: 1.2, marginBottom: '12px', letterSpacing: '-.02em' }}>
-            임신중절수술 방법·종류<br /><span style={{ fontSize: '17px', fontWeight: 700, opacity: .88 }}>흡입술·소파술·약물중절 비교</span>
-          </h2>
+          <h1 style={{ color: '#fff', fontSize: '24px', fontWeight: 900, lineHeight: 1.2, marginBottom: '10px', letterSpacing: '-.02em' }}>
+            임신중절수술 방법과 종류는<br />어떻게 결정될까요?
+          </h1>
+          <p style={{ color: 'rgba(255,255,255,.85)', fontSize: '12px', lineHeight: 1.7, marginBottom: '12px' }}>
+            흡입술·소파술 차이와 주수별 선택 기준 안내
+          </p>
           <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap' }}>
-            {['흡입술', '소파술', '약물중절', '주수별 선택'].map(t => (
+            {['흡입술', '소파술', '주수별 선택', '방법 결정 기준'].map(t => (
               <span key={t} style={{ background: 'rgba(255,255,255,.18)', color: '#fff', fontSize: '10px', fontWeight: 700, padding: '2px 10px', borderRadius: '20px' }}>{t}</span>
+            ))}
+          </div>
+        </div>
+
+        <div style={{ padding: '18px 16px', background: '#fff', borderBottom: `0.5px solid ${C.pbd}` }}>
+          <div style={{ fontSize: '13px', fontWeight: 900, color: C.tm, marginBottom: '8px' }}>임신중절수술 방법은 어떤 기준으로 선택하나요?</div>
+          <p style={{ fontSize: '12px', color: C.ts, lineHeight: 1.85, marginBottom: '10px' }}>
+            임신중절수술 방법은 임신 주수, 초음파 검사 결과, 자궁 상태를 종합하여 전문의가 결정합니다. 8주 이내는 흡입술, 8주 이상은 소파술이 일반적으로 적용됩니다. 연세365산부인과의원은 약물중절을 시행하지 않습니다.
+          </p>
+          <div style={{ background: C.pb, border: `0.5px solid ${C.pbd}`, borderRadius: '10px', padding: '12px 14px' }}>
+            <div style={{ fontSize: '11px', fontWeight: 700, color: C.pd, marginBottom: '6px' }}>핵심 | 최종 수정일 2026.06</div>
+            {['흡입술: 8주 이내 권장', '소파술: 8주 이상 적용', '수술 방법은 초음파 검사 후 결정', '약물중절: 본원 미시행'].map(t => (
+              <div key={t} style={{ fontSize: '11px', color: C.pd, padding: '3px 0', borderBottom: `0.5px solid ${C.pbd}` }}>✓ {t}</div>
             ))}
           </div>
         </div>
@@ -270,6 +445,52 @@ export default function MethodClient() {
           </p>
           <InfoBox type="green">수술 후 피임 상담도 함께 제공합니다. 내원 시 문의해 주세요.</InfoBox>
         </MobileAccordion>
+
+        <MobileAccordion title="주수·검사로 방법이 달라지는 이유" icon="🔍">
+          <p style={{ fontSize: '12px', color: C.ts, lineHeight: 1.85, marginBottom: '10px' }}>
+            임신 주수가 짧을수록 태낭이 작아 흡입술로 안전하게 제거할 수 있습니다. 주수가 높아지면 태낭이 커지고 자궁벽이 변화하므로 소파술이 필요해집니다. 초음파로 착상 위치와 태낭 크기를 확인한 후 수술 방법이 결정됩니다.
+          </p>
+          {[['흡입술', '8주 이내 · 태낭 소형'], ['소파술', '8주 이상 · 태낭 커짐'], ['초음파 확인', '방법 결정 근거'], ['주수 차이', '방법·비용 달라짐']].map(([k, v]) => (
+            <div key={k} style={{ display: 'flex', justifyContent: 'space-between', padding: '6px 0', borderBottom: `0.5px solid ${C.pbd}`, fontSize: '12px' }}>
+              <span style={{ fontWeight: 700, color: C.p }}>{k}</span>
+              <span style={{ color: C.ts }}>{v}</span>
+            </div>
+          ))}
+        </MobileAccordion>
+
+        <MobileAccordion title="의료진에게 알려야 할 건강 정보" icon="📋">
+          <p style={{ fontSize: '12px', color: C.ts, lineHeight: 1.85, marginBottom: '10px' }}>
+            안전한 수술을 위해 복용 중인 약물, 알레르기, 과거 수술 경험, 만성 질환 유무를 상담 전에 알려주세요. 혈액 응고에 영향을 주는 약물은 사전 중단이 필요할 수 있습니다. 모든 정보는 의료법에 따라 보호됩니다.
+          </p>
+          <div style={{ background: C.pb, borderRadius: '10px', padding: '12px', border: `0.5px solid ${C.pbd}` }}>
+            {['복용 중인 처방약·영양제', '알레르기 이력 (약물·마취제)', '만성 질환 유무', '과거 전신마취 경험', '이전 임신중절 횟수'].map(t => (
+              <div key={t} style={{ fontSize: '11px', color: C.pd, padding: '4px 0', borderBottom: `0.5px solid ${C.pbd}` }}>✓ {t}</div>
+            ))}
+          </div>
+        </MobileAccordion>
+
+        <div style={{ padding: '16px', borderTop: `0.5px solid ${C.pbd}` }}>
+          <div style={{ fontSize: '11px', fontWeight: 700, color: '#bbb', marginBottom: '6px', letterSpacing: '.05em' }}>자주 묻는 질문</div>
+          <div style={{ fontSize: '15px', fontWeight: 900, color: C.tm, marginBottom: '12px' }}>임신중절수술 방법·종류 자주 묻는 질문</div>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '6px', marginBottom: '14px' }}>
+            {FEATURED_FAQS.map(({ q, a }) => (
+              <FeaturedFAQItem key={q} question={q} answer={a} />
+            ))}
+          </div>
+          <Link href="/abortion/faq" style={{ display: 'block', textAlign: 'center', background: C.pb, border: `0.5px solid ${C.pbd}`, borderRadius: '10px', padding: '11px', textDecoration: 'none', fontSize: '12px', fontWeight: 700, color: C.p }}>
+            전체 217개 FAQ 보기 →
+          </Link>
+        </div>
+
+        <div style={{ padding: '14px 16px', background: C.pb, borderTop: `0.5px solid ${C.pbd}` }}>
+          <div style={{ fontSize: '11px', fontWeight: 700, color: '#bbb', marginBottom: '8px', letterSpacing: '.04em' }}>의료정보 안내</div>
+          <div style={{ fontSize: '11px', color: C.tg, lineHeight: 1.8 }}>
+            <div>정보 제공: 연세365산부인과의원</div>
+            <div>최종 수정일: 2026년 6월 29일</div>
+            <div>출처: 모자보건법, 대한산부인과학회 임상 지침</div>
+            <div style={{ marginTop: '6px' }}>본 정보는 일반 의료 안내이며 개인별 진료를 대신하지 않습니다.</div>
+          </div>
+        </div>
 
         <div style={{ padding: '16px', background: C.pb, borderTop: `0.5px solid ${C.pbd}` }}>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '6px' }}>
