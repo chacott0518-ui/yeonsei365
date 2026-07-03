@@ -186,7 +186,7 @@ export default function HealthMagazineClient() {
           <div style={{ textAlign: 'center', marginBottom: '36px' }}>
             <span style={{ display: 'inline-block', background: C.p, color: '#fff', fontSize: '11px', fontWeight: 700, padding: '4px 14px', borderRadius: '20px', marginBottom: '12px' }}>건강 칼럼</span>
             <h2 style={{ fontSize: '26px', fontWeight: 900, color: C.tm, marginBottom: '8px' }}>여성 건강 칼럼</h2>
-            <p style={{ fontSize: '14px', color: C.ts }}>연세365산부인과 전문의가 직접 작성한 건강 정보</p>
+            <p style={{ fontSize: '14px', color: C.ts }}>일반 건강정보를 확인하세요</p>
           </div>
 
           {/* PC 3컬럼 */}
@@ -227,7 +227,7 @@ export default function HealthMagazineClient() {
       <section style={{ background: `linear-gradient(135deg, ${C.pp}, ${C.p})`, padding: '48px 20px', textAlign: 'center' }}>
         <div style={{ maxWidth: '600px', margin: '0 auto' }}>
           <div style={{ fontSize: '22px', fontWeight: 900, color: '#fff', marginBottom: '6px' }}>연세365산부인과</div>
-          <div style={{ fontSize: '13px', color: 'rgba(255,255,255,.85)', marginBottom: '6px' }}>서울 관악구 과천대로 939 3층 · 사당역 4번출구</div>
+          <div style={{ fontSize: '13px', color: 'rgba(255,255,255,.85)', marginBottom: '6px' }}>서울특별시 관악구 과천대로 939, 3층 · 사당역 4번 출구 도보 3분</div>
           <div style={{ fontSize: '12px', color: 'rgba(255,255,255,.7)', marginBottom: '24px' }}>당일예약 · 당일수술 · 비밀보장 · 전문의 직접 집도</div>
           <div style={{ display: 'flex', gap: '10px', justifyContent: 'center', flexWrap: 'wrap' }}>
             <a href="http://pf.kakao.com/_TpaBj/chat" target="_blank" rel="noopener noreferrer"

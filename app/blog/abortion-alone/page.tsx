@@ -4,7 +4,7 @@ import ViewCounter from '@/components/ViewCounter'
 
 export const metadata: Metadata = {
   title: '임신중절수술 혼자 가도 되나요? 보호자 없이 가능한지 총정리 2026 | 연세365산부인과',
-  description: '임신중절수술 혼자 가도 될까요? 보호자 동반 여부, 혼자 내원 시 주의사항, 당일 귀가 가능 여부까지 사당역 연세365산부인과가 솔직하게 알려드립니다.',
+  description: '임신중절수술 혼자 가도 될까요? 보호자 동반 여부, 혼자 내원 시 주의사항, 당일 귀가 가능 여부까지 사당역 연세365산부인과의원의가 솔직하게 알려드립니다.',
   keywords: [
     '임신중절수술혼자', '임신중절수술보호자없이', '낙태혼자가능',
     '임신중절혼자', '낙태수술혼자', '임신중절수술보호자',
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: '임신중절수술 혼자 가도 되나요? 보호자 없이 가능한지 총정리 2026 | 연세365산부인과',
-    description: '임신중절수술 혼자 가도 될까요? 보호자 동반 여부, 혼자 내원 시 주의사항, 당일 귀가 가능 여부까지 사당역 연세365산부인과가 솔직하게 알려드립니다.',
+    description: '임신중절수술 혼자 가도 될까요? 보호자 동반 여부, 혼자 내원 시 주의사항, 당일 귀가 가능 여부까지 사당역 연세365산부인과의원의가 솔직하게 알려드립니다.',
   },
 }
 
@@ -34,8 +34,8 @@ const articleSchema = {
   headline: '임신중절수술 혼자 가도 되나요? 보호자 없이 가능한지 총정리 2026',
   datePublished: PAGE_DATE, dateModified: PAGE_MODIFIED,
   image: 'https://www.yeonsei365.com/og-image.jpg',
-  author: { '@type': 'Organization', name: '연세365산부인과', url: 'https://www.yeonsei365.com' },
-  publisher: { '@type': 'MedicalOrganization', name: '연세365산부인과', logo: { '@type': 'ImageObject', url: 'https://i.imgur.com/f7h5DY0.png' } },
+  author: { '@type': 'Organization', name: '연세365산부인과의원', url: 'https://www.yeonsei365.com' },
+  publisher: { '@type': 'MedicalOrganization', name: '연세365산부인과의원', logo: { '@type': 'ImageObject', url: 'https://i.imgur.com/f7h5DY0.png' } },
   mainEntityOfPage: { '@type': 'WebPage', '@id': PAGE_URL }, url: PAGE_URL,
 }
 const medicalWebPageSchema = {
@@ -45,7 +45,7 @@ const medicalWebPageSchema = {
   specialty: { '@type': 'MedicalSpecialty', name: '산부인과' },
   medicalAudience: { '@type': 'MedicalAudience', audienceType: '여성 환자' },
   lastReviewed: PAGE_DATE,
-  reviewedBy: { '@type': 'MedicalOrganization', name: '연세365산부인과', url: 'https://www.yeonsei365.com' },
+  reviewedBy: { '@type': 'MedicalOrganization', name: '연세365산부인과의원', url: 'https://www.yeonsei365.com' },
   about: { '@type': 'MedicalCondition', name: '임신중절수술 1인 내원' },
 }
 const howToSchema = {
@@ -57,7 +57,7 @@ const howToSchema = {
     { '@type': 'HowToStep', position: 2, name: '신분증 지참', text: '성인은 신분증만 있으면 혼자 내원 가능합니다.' },
     { '@type': 'HowToStep', position: 3, name: '대중교통 이용', text: '수술 후 운전 불가. 대중교통으로 귀가를 준비합니다.' },
   ],
-  tool: { '@type': 'HowToTool', name: '연세365산부인과' },
+  tool: { '@type': 'HowToTool', name: '연세365산부인과의원' },
 }
 const speakableSchema = {
   '@context': 'https://schema.org', '@type': 'WebPage',
@@ -83,7 +83,7 @@ const faqData = [
 
 다만 수술 후 수면마취에서 회복하는 과정에서 일시적으로 어지럼증이나 몽롱함이 남을 수 있기 때문에, 가능하다면 퇴원 시 보호자가 동반해 주시는 것이 가장 안전합니다.
 
-혼자 내원하시는 분들을 위해 연세365산부인과는 수술 후 전용 회복실에서 충분한 시간 동안 1:1 케어를 제공하며, 활력 징후가 완전히 안정된 것을 확인한 후 귀가를 안내해 드립니다. 대중교통 이용이 가능한 상태까지 회복되신 후 귀가하실 수 있으므로, 보호자 없이 오시는 분들도 안심하고 내원해 주셔도 됩니다.`,
+혼자 내원하시는 분들을 위해 연세365산부인과의원은 수술 후 전용 회복실에서 충분한 시간 동안 1:1 케어를 제공하며, 활력 징후가 완전히 안정된 것을 확인한 후 귀가를 안내해 드립니다. 대중교통 이용이 가능한 상태까지 회복되신 후 귀가하실 수 있으므로, 보호자 없이 오시는 분들도 안심하고 내원해 주셔도 됩니다.`,
   },
   {
     q: '미성년자도 혼자 올 수 있나요?',
@@ -93,11 +93,11 @@ const faqData = [
 
 첫째, 성폭력 피해로 인한 임신인 경우 모자보건법 제14조 3항에 따라 피해자 본인의 동의만으로 수술이 가능합니다. 둘째, 부모님께 알리기 어려운 특수한 사정이 있는 경우 사전에 전화 또는 카카오톡 상담을 통해 상황을 먼저 말씀해 주시면 가능한 방법을 함께 찾아드립니다.
 
-연세365산부인과는 미성년자 환자분들의 심리적 부담을 충분히 이해하고 있습니다. 모든 상담과 진료 내용은 철저히 비밀이 보장되므로, 먼저 부담 없이 상담을 받아보시길 권장드립니다.`,
+연세365산부인과의원은 미성년자 환자분들의 심리적 부담을 충분히 이해하고 있습니다. 모든 상담과 진료 내용은 철저히 비밀이 보장되므로, 먼저 부담 없이 상담을 받아보시길 권장드립니다.`,
   },
   {
     q: '수술 후 혼자 귀가할 수 있나요? 당일 퇴원이 가능한가요?',
-    a: `대부분의 경우 수술 당일 귀가가 가능합니다. 연세365산부인과는 당일 수술·당일 퇴원 원스톱 시스템을 운영하고 있습니다.
+    a: `대부분의 경우 수술 당일 귀가가 가능합니다. 연세365산부인과의원은 당일 수술·당일 퇴원 원스톱 시스템을 운영하고 있습니다.
 
 수술 후 전용 회복실에서 약 30분~1시간 정도 영양수액 처치를 받으며 회복하게 됩니다. 담당 의료진이 활력 징후(혈압, 맥박, 산소포화도)를 확인하고 어지럼증이나 출혈 등 이상 증상이 없는 것을 확인한 후 귀가를 안내드립니다.
 
@@ -119,7 +119,7 @@ const faqData = [
   },
   {
     q: '주변에 알리지 않고 비밀로 수술받을 수 있나요?',
-    a: `네, 완전히 비밀이 보장됩니다. 연세365산부인과는 환자분의 프라이버시 보호를 가장 중요하게 생각합니다.
+    a: `네, 완전히 비밀이 보장됩니다. 연세365산부인과의원은 환자분의 프라이버시 보호를 가장 중요하게 생각합니다.
 
 의료법에 따라 모든 진료 기록과 상담 내용은 본인의 동의 없이는 가족, 배우자, 직장, 보험사 등 어떠한 제3자에게도 절대 공개되지 않습니다. 건강보험 적용이 되지 않는 비급여 항목이기 때문에 실손보험 청구나 직장 건강검진 기록에도 남지 않습니다.
 
@@ -179,7 +179,7 @@ export default function AbortionAlonePage() {
               <span className="text-primary text-sm font-bold">연</span>
             </div>
             <div>
-              <p className="text-sm font-bold text-gray-800">연세365산부인과 의료진</p>
+              <p className="text-sm font-bold text-gray-800">연세365산부인과의원 의료진</p>
               <p className="text-xs text-gray-400 mt-0.5">2026년 4월 · 임신중절클리닉 · <ViewCounter slug="blog-abortion-alone" /></p>
             </div>
           </div>
@@ -245,7 +245,7 @@ export default function AbortionAlonePage() {
               수술을 결정하고 진행할 수 있습니다.
             </p>
             <p className="text-[15px] md:text-base text-gray-700 leading-[1.95] md:leading-[2.0]">
-              연세365산부인과는 혼자 내원하시는 분들이 많습니다.
+              연세365산부인과의원은 혼자 내원하시는 분들이 많습니다.
               주변에 알리기 어려운 상황, 바쁜 일상, 혹은 개인적인 이유로
               혼자 오시는 경우를 충분히 이해하고 있으며, 혼자 오시는 분들을
               위한 1:1 프라이빗 케어 시스템을 운영하고 있습니다.
@@ -324,12 +324,12 @@ export default function AbortionAlonePage() {
             <div className="rounded-2xl overflow-hidden">
               <img
                 src="https://images.unsplash.com/photo-1582750433449-648ed127bb54?q=80&w=1974&auto=format&fit=crop"
-                alt="연세365산부인과 사당역 - 편안한 진료 환경"
+                alt="연세365산부인과의원 사당역 - 편안한 진료 환경"
                 className="w-full h-48 md:h-64 object-cover"
               />
             </div>
             <p className="text-xs text-gray-400 text-center mt-2">
-              사당역 4번출구 연세365산부인과 — 편안하고 따뜻한 공간에서 진료받으실 수 있습니다
+              사당역 4번 출구 연세365산부인과의원 — 편안하고 따뜻한 공간에서 진료받으실 수 있습니다
             </p>
           </div>
 
@@ -340,7 +340,7 @@ export default function AbortionAlonePage() {
             </h2>
             <p className="text-[15px] md:text-base text-gray-700 leading-[1.95] md:leading-[2.0]">
               혼자 결정하고 혼자 내원하는 것은 결코 쉬운 일이 아닙니다.
-              연세365산부인과는 그 용기를 충분히 알고 있습니다.
+              연세365산부인과의원은 그 용기를 충분히 알고 있습니다.
               내원하시는 모든 분들의 상황을 존중하며, 편안하고 안전한
               환경에서 진료를 받으실 수 있도록 최선을 다하겠습니다.
             </p>
@@ -354,10 +354,10 @@ export default function AbortionAlonePage() {
           {/* CTA 버튼 */}
           <div className="bg-gradient-to-br from-primary/5 to-pink-50 rounded-2xl p-6 md:p-8 border border-primary/10">
             <h3 className="text-base md:text-lg font-bold text-gray-800 text-center mb-2">
-              사당역 연세365산부인과
+              사당역 연세365산부인과의원의
             </h3>
             <p className="text-xs md:text-sm text-gray-500 text-center mb-6 leading-relaxed">
-              사당역 4번출구 · 연중무휴 · 당일 수술 가능 · 철저한 비밀 보장
+              사당역 4번 출구 · 연중무휴 · 당일 수술 가능 · 철저한 비밀 보장
             </p>
             <div className="flex flex-col gap-3">
               <a

@@ -84,7 +84,7 @@ const Booking: React.FC = () => {
                   <div className="mt-5 pt-5 border-t border-primary/10 text-center">
                     <p className="text-xs text-gray-500 flex items-center justify-center gap-1">
                       <MapPin size={12} className="text-primary flex-shrink-0" />
-                      서울시 관악구 과천대로 939, 3층
+                      서울특별시 관악구 과천대로 939, 3층
                     </p>
                   </div>
                 </div>
@@ -97,7 +97,7 @@ const Booking: React.FC = () => {
                   <div className="relative rounded-2xl overflow-hidden shadow-md">
                     <Image
                       src="https://i.imgur.com/E5YzhoJ.png"
-                      alt="연세365산부인과 지도"
+                      alt="연세365산부인과의원 지도"
                       width={800}
                       height={600}
                       className="w-full aspect-[4/3] object-cover"
@@ -120,7 +120,7 @@ const Booking: React.FC = () => {
                   <div className="bg-white rounded-2xl shadow-md p-5 border border-primary/10 text-center">
                     <p className="text-sm text-gray-700 flex items-center justify-center gap-2 font-medium">
                       <MapPin size={14} className="text-primary flex-shrink-0" />
-                      서울시 관악구 과천대로 939, 3층
+                      서울특별시 관악구 과천대로 939, 3층
                     </p>
                   </div>
                 </div>
@@ -208,13 +208,13 @@ const Booking: React.FC = () => {
               {/* 정보 박스 */}
               <div className="bg-white rounded-2xl shadow-lg p-6 flex flex-col sm:flex-row items-start sm:items-center gap-4">
                 <div className="flex-shrink-0 bg-primary text-white px-5 py-3 rounded-lg text-center leading-tight">
-                  <p className="font-bold text-sm">연세365산부인과</p>
+                  <p className="font-bold text-sm">연세365산부인과의원</p>
                   <p className="font-bold text-xs mt-0.5">Information</p>
                 </div>
                 <div className="text-gray-700 text-sm leading-relaxed space-y-1">
                   <p className="flex items-start gap-2">
                     <MapPin size={15} className="text-primary mt-0.5 flex-shrink-0" />
-                    <span>서울시 관악구 과천대로 939, 3층</span>
+                    <span>서울특별시 관악구 과천대로 939, 3층</span>
                   </p>
                   <p className="flex items-start gap-2">
                     <Phone size={15} className="text-primary mt-0.5 flex-shrink-0" />
@@ -231,7 +231,7 @@ const Booking: React.FC = () => {
               <div className="bg-white rounded-2xl shadow-lg overflow-hidden flex-1 min-h-[300px] lg:min-h-0">
                 <Image
                   src="https://i.imgur.com/E5YzhoJ.png"
-                  alt="연세365산부인과 지도"
+                  alt="연세365산부인과의원 지도"
                   width={800}
                   height={600}
                   className="w-full h-full object-cover"

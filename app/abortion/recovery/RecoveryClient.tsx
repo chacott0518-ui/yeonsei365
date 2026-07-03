@@ -152,7 +152,7 @@ export default function RecoveryClient() {
               </div>
             </div>
             <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '14px' }}>
-              임신중절수술 후 회복 기간은 개인차가 있지만 일반적으로 수술 다음 날부터 가벼운 일상생활이 가능합니다. 낙태 수술 후 관리를 잘 하면 빠른 회복이 가능합니다. 연세365산부인과는 수술 당일부터 4주까지 단계별 주의사항과 가능한 활동 범위를 상세히 안내합니다.
+              임신중절수술 후 회복 기간은 개인차가 있지만 일반적으로 수술 다음 날부터 가벼운 일상생활이 가능합니다. 낙태 수술 후 관리를 잘 하면 빠른 회복이 가능합니다. 연세365산부인과의원은 수술 당일부터 4주까지 단계별 주의사항과 가능한 활동 범위를 상세히 안내합니다.
             </p>
             <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '20px' }}>
               임신중절수술 후 생리는 보통 4~6주 안에 재개됩니다. 첫 생리는 평소보다 양이 많거나 통증이 강할 수 있으며, 이는 자궁 내막이 새롭게 형성되는 자연스러운 과정입니다. 8주가 지나도 생리가 없다면 내원하여 검진을 받으시기 바랍니다.
@@ -233,7 +233,7 @@ export default function RecoveryClient() {
             <SectionTag>03 즉시 내원해야 하는 증상</SectionTag>
             <h2 style={{ fontSize: '24px', fontWeight: 900, color: C.tm, marginBottom: '8px', letterSpacing: '-.02em' }}>이런 증상이 있으면 즉시 오세요</h2>
             <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '20px' }}>
-              대부분 정상적으로 회복되지만, 아래 증상이 발생하면 즉시 내원하여 전문의 진료를 받으셔야 합니다. 연세365산부인과는 야간진료를 운영하여 퇴근 후에도 방문이 가능합니다.
+              대부분 정상적으로 회복되지만, 아래 증상이 발생하면 즉시 내원하여 전문의 진료를 받으셔야 합니다. 연세365산부인과의원은 연중무휴로 진료합니다(월~금 10:00~17:30, 토 09:00~16:30, 일·공휴일 10:00~14:00).
             </p>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: '12px' }}>
               {[
@@ -378,7 +378,7 @@ export default function RecoveryClient() {
 
           <div style={{ background: `linear-gradient(135deg, ${C.pp}, ${C.p})`, borderRadius: '20px', padding: '36px', textAlign: 'center' }}>
             <div style={{ fontSize: '22px', fontWeight: 900, color: '#fff', marginBottom: '6px' }}>연세365산부인과의원</div>
-            <div style={{ fontSize: '13px', color: 'rgba(255,255,255,.85)', marginBottom: '22px' }}>사당역 4번출구 · 야간진료 운영 · 사후 검진 가능</div>
+            <div style={{ fontSize: '13px', color: 'rgba(255,255,255,.85)', marginBottom: '22px' }}>사당역 4번 출구 도보 3분 · 사후 검진 가능</div>
             <div style={{ display: 'flex', gap: '10px', justifyContent: 'center' }}>
               <a href="http://pf.kakao.com/_TpaBj/chat" target="_blank" rel="noopener noreferrer" style={{ background: '#FEE500', color: '#3B1B1B', fontSize: '14px', fontWeight: 700, padding: '13px 28px', borderRadius: '24px', textDecoration: 'none' }}>💬 카카오톡 상담</a>
               <a href="tel:02-585-3650" style={{ background: 'rgba(255,255,255,.15)', color: '#fff', fontSize: '14px', border: '0.5px solid rgba(255,255,255,.4)', padding: '13px 28px', borderRadius: '24px', textDecoration: 'none' }}>📞 02-585-3650</a>

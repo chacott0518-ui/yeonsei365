@@ -22,7 +22,7 @@ function InfoBox({ children, type = 'pink' }: { children: React.ReactNode; type?
 
 const REVIEWS = [
   { name: '20대 직장인', tag: '임신초기낙태', stars: 5, content: '혼자 왔는데 전혀 눈치 주지 않으시고 따뜻하게 상담해 주셨어요. 수술도 빠르게 끝나고 회복실에서 1시간 정도 쉬고 혼자 귀가했습니다. 낙태 비용도 처음 안내받은 그대로라 믿음이 갔어요. 사당역에서 가까워서 교통도 편했고 비밀도 완벽하게 지켜졌습니다.' },
-  { name: '30대 직장인', tag: '임신중절수술 후기', stars: 5, content: '사당역에서 가까워서 퇴근 후 방문했어요. 야간진료가 있어서 너무 편했습니다. 선생님께서 판단하지 않으시고 전문적으로 상담해 주셔서 마음이 편했어요. 임신중절수술 비용도 상담 시 안내받은 내용과 동일하게 진행됐습니다.' },
+  { name: '30대 직장인', tag: '임신중절수술 후기', stars: 5, content: '사당역에서 가까워서 방문했어요. 연중무휴 진료라 일정 맞추기 편했습니다. 선생님께서 판단하지 않으시고 전문적으로 상담해 주셔서 마음이 편했어요. 임신중절수술 비용도 상담 시 안내받은 내용과 동일하게 진행됐습니다.' },
   { name: '20대 학생', tag: '임신중절수술', stars: 5, content: '처음이라 너무 두려웠는데 원장님이 처음부터 끝까지 설명해 주셔서 안심이 됐어요. 수면마취라 수술 중 아무것도 몰랐고 깨어나니 끝나 있었어요. 낙태 비용 가격도 투명하게 공개되어 있어서 좋았습니다. 임신중절수술 병원 고민하신다면 여기 강추합니다.' },
   { name: '30대 기혼자', tag: '낙태수술 후기', stars: 5, content: '결혼 후 임신이 되었는데 여러 사정으로 중절수술을 결정했습니다. 상담부터 수술까지 어떤 판단이나 눈치도 없이 의료적으로 도와주셔서 감사했어요. 1인 회복실에서 충분히 쉰 후 귀가했는데 그 점이 특히 좋았습니다.' },
   { name: '20대 미혼모', tag: '임신초기중절수술', stars: 5, content: '혼자서 결정하고 혼자 방문했어요. 처음에 너무 무서웠는데 간호사 선생님부터 원장님까지 너무 친절하게 대해주셔서 마음이 놓였습니다. 수술 후 관리도 꼼꼼하게 알려주셔서 빠르게 회복할 수 있었어요.' },
@@ -145,10 +145,10 @@ export default function ReviewClient() {
               </div>
             </div>
             <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '14px' }}>
-              임신중절수술 후기는 병원을 선택할 때 참고 자료가 됩니다. 연세365산부인과를 방문하신 분들의 공통적인 후기는 <strong style={{ color: C.p }}>따뜻한 상담, 빠른 수술, 비밀보장 철저, 추가 비용 없음</strong>입니다.
+              임신중절수술 후기는 병원을 선택할 때 참고 자료가 됩니다. 연세365산부인과의원을 방문하신 분들의 공통적인 후기는 <strong style={{ color: C.p }}>따뜻한 상담, 빠른 수술, 비밀보장 철저, 추가 비용 없음</strong>입니다.
             </p>
             <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '20px' }}>
-              낙태수술 후기를 보실 때는 병원의 전문성, 비밀보장 여부, 낙태 비용 가격의 투명성을 함께 확인하시는 것이 좋습니다. 연세365산부인과는 임신중절수술 금액을 사전에 투명하게 공개하며, 상담 시 안내된 금액 외 추가 비용은 절대 없습니다.
+              낙태수술 후기를 보실 때는 병원의 전문성, 비밀보장 여부, 낙태 비용 가격의 투명성을 함께 확인하시는 것이 좋습니다. 연세365산부인과의원은 임신중절수술 금액을 사전에 투명하게 공개하며, 상담 시 안내된 금액 외 추가 비용은 절대 없습니다.
             </p>
 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: '16px', marginBottom: '24px' }}>
@@ -236,7 +236,7 @@ export default function ReviewClient() {
               임신중절수술 방법, 수술 가능 주수, 수술 후 예상 회복 과정은 초음파 검사로 확인된 정확한 주수, 개인 건강 상태, 자궁 구조에 따라 달라집니다. 후기에서 "8주에 수술했다"는 내용을 읽더라도, 실제 마지막 생리일로 계산한 주수와 초음파 주수가 다를 수 있어 본인의 상황과 다를 수 있습니다. 수술 방법과 예상 회복 과정에 대한 정확한 정보는 초음파 검사 후 의료진 상담을 통해 얻을 수 있습니다.
             </p>
             <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '14px' }}>
-              온라인 후기는 익명으로 작성되므로 내용의 정확성이나 최신성을 확인하기 어렵습니다. 상담 시 궁금한 점을 직접 질문하면 본인 상황에 맞는 구체적인 안내를 받을 수 있습니다. 연세365산부인과에서는 전화(02-585-3650)나 카카오톡으로 사전 상담이 가능하며, 모든 상담은 비밀이 보장됩니다.
+              온라인 후기는 익명으로 작성되므로 내용의 정확성이나 최신성을 확인하기 어렵습니다. 상담 시 궁금한 점을 직접 질문하면 본인 상황에 맞는 구체적인 안내를 받을 수 있습니다. 연세365산부인과의원에서는 전화(02-585-3650)나 카카오톡으로 사전 상담이 가능하며, 모든 상담은 비밀이 보장됩니다.
             </p>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '20px' }}>
               <div style={{ border: `0.5px solid ${C.pbd}`, borderRadius: '14px', padding: '20px', background: C.pb }}>
@@ -312,7 +312,7 @@ export default function ReviewClient() {
 
           <div style={{ background: `linear-gradient(135deg, ${C.pp}, ${C.p})`, borderRadius: '20px', padding: '36px', textAlign: 'center' }}>
             <div style={{ fontSize: '22px', fontWeight: 900, color: '#fff', marginBottom: '6px' }}>연세365산부인과의원</div>
-            <div style={{ fontSize: '13px', color: 'rgba(255,255,255,.85)', marginBottom: '22px' }}>사당역 4번출구 · 비밀보장 · 당일예약 가능</div>
+            <div style={{ fontSize: '13px', color: 'rgba(255,255,255,.85)', marginBottom: '22px' }}>사당역 4번 출구 도보 3분 · 비밀보장 · 당일예약 가능</div>
             <div style={{ display: 'flex', gap: '10px', justifyContent: 'center' }}>
               <a href="http://pf.kakao.com/_TpaBj/chat" target="_blank" rel="noopener noreferrer" style={{ background: '#FEE500', color: '#3B1B1B', fontSize: '14px', fontWeight: 700, padding: '13px 28px', borderRadius: '24px', textDecoration: 'none' }}>💬 카카오톡 상담</a>
               <a href="tel:02-585-3650" style={{ background: 'rgba(255,255,255,.15)', color: '#fff', fontSize: '14px', border: '0.5px solid rgba(255,255,255,.4)', padding: '13px 28px', borderRadius: '24px', textDecoration: 'none' }}>📞 02-585-3650</a>

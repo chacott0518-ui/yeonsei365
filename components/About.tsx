@@ -6,7 +6,7 @@ import { motion } from 'framer-motion';
 const STORY_CARDS = [
   {
     title: '편안하고 따뜻한 공간',
-    body: '연세365산부인과는\n여성의 건강을 지켜드리는 것을\n최우선으로 생각합니다.',
+    body: '연세365산부인과의원은\n여성의 건강을 지켜드리는 것을\n최우선으로 생각합니다.',
     stat: '10,000+',
     statLabel: '수술 경험',
   },
@@ -158,7 +158,7 @@ const About: React.FC = () => {
                    className="space-y-6 text-gray-600 leading-relaxed text-base md:text-lg"
                 >
                   <p>
-                    연세365산부인과는 <strong className="text-primary font-bold">'편안하고 따뜻한 공간'</strong>에서 여성의<br/>
+                    연세365산부인과의원은 <strong className="text-primary font-bold">'편안하고 따뜻한 공간'</strong>에서 여성의<br/>
                     건강을 지켜드리는 것을 최우선으로 생각합니다.
                   </p>
                   <p>

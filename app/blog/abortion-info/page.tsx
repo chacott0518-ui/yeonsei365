@@ -5,7 +5,7 @@ import ViewCounter from '@/components/ViewCounter'
 
 export const metadata: Metadata = {
   title: '인공임신중절수술 비용·시기·가격 완벽 안내 2026 | 연세365산부인과',
-  description: '인공임신중절수술 비용, 시기, 가격을 주수별로 투명하게 안내합니다. 8주 미만 45만원. 합법적 조건 4가지, 수술 과정까지 전문의 직접 안내. 사당역 4번출구 연세365산부인과.',
+  description: '인공임신중절수술 비용, 시기, 가격을 주수별로 투명하게 안내합니다. 8주 미만 45만원. 합법적 조건 4가지, 수술 과정까지 전문의 직접 안내. 사당역 4번 출구 연세365산부인과의원.',
   keywords: [
     '인공임신중절', '인공임신중절수술', '인공임신중절비용', '인공임신중절금액',
     '인공임신중절가격', '인공임신중절수술비용', '인공임신중절수술금액',
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: '인공임신중절수술 비용·시기·가격 완벽 안내 2026 | 연세365산부인과',
-    description: '인공임신중절수술 비용 주수별 공개. 8주 미만 45만원. 사당역 4번출구.',
+    description: '인공임신중절수술 비용 주수별 공개. 8주 미만 45만원. 사당역 4번 출구.',
     url: 'https://www.yeonsei365.com/blog/abortion-info',
     images: [{ url: 'https://www.yeonsei365.com/og', width: 1200, height: 630 }],
   },
@@ -35,7 +35,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: '인공임신중절수술 비용·시기·가격 완벽 안내 2026 | 연세365산부인과',
-    description: '인공임신중절수술 비용, 시기, 가격을 주수별로 투명하게 안내합니다. 8주 미만 45만원. 합법적 조건 4가지, 수술 과정까지 전문의 직접 안내. 사당역 4번출구 연세365산부인과.',
+    description: '인공임신중절수술 비용, 시기, 가격을 주수별로 투명하게 안내합니다. 8주 미만 45만원. 합법적 조건 4가지, 수술 과정까지 전문의 직접 안내. 사당역 4번 출구 연세365산부인과의원.',
   },
 }
 
@@ -44,8 +44,8 @@ const jsonLd = {
   '@type': 'Article',
   headline: '인공임신중절수술 비용·시기·가격 완벽 안내 2026',
   description: '인공임신중절수술 비용, 시기, 가격 및 합법적 조건 안내',
-  author: { '@type': 'Organization', name: '연세365산부인과' },
-  publisher: { '@type': 'Organization', name: '연세365산부인과' },
+  author: { '@type': 'Organization', name: '연세365산부인과의원' },
+  publisher: { '@type': 'Organization', name: '연세365산부인과의원' },
   datePublished: '2026-03-30',
   dateModified: '2026-05-22',
 }
@@ -54,7 +54,7 @@ const faqJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
   mainEntity: [
-    { '@type': 'Question', name: '인공임신중절수술 비용이 얼마인가요?', acceptedAnswer: { '@type': 'Answer', text: '연세365산부인과 기준 8주 미만 45만원, 8주 60만원, 9주 70만원, 10주 80만원입니다. 영양제와 1인 회복실이 포함된 가격입니다.' } },
+    { '@type': 'Question', name: '인공임신중절수술 비용이 얼마인가요?', acceptedAnswer: { '@type': 'Answer', text: '연세365산부인과의원 기준 8주 미만 45만원, 8주 60만원, 9주 70만원, 10주 80만원입니다. 영양제와 1인 회복실이 포함된 가격입니다.' } },
     { '@type': 'Question', name: '인공임신중절수술은 언제까지 가능한가요?', acceptedAnswer: { '@type': 'Answer', text: '임신 14주 이내가 권장되며, 주수가 늘어날수록 난이도가 높아집니다. 가능한 한 빠른 결정을 권장합니다.' } },
     { '@type': 'Question', name: '인공임신중절수술이 합법인가요?', acceptedAnswer: { '@type': 'Answer', text: '2021년 1월 1일부터 낙태죄 처벌 조항이 효력을 상실했습니다. 현재 임신 14주 이내는 사실상 처벌 공백 상태이며, 모자보건법 제14조에 따라 일정 조건 하에 합법적으로 시술 가능합니다.' } },
     { '@type': 'Question', name: '당일 수술이 가능한가요?', acceptedAnswer: { '@type': 'Answer', text: '네, 예약 당일 초음파 확인 후 수술 진행이 가능합니다. 수술 후 당일 퇴원도 가능합니다.' } },
@@ -64,8 +64,8 @@ const faqJsonLd = {
 
 const PAGE_URL = 'https://www.yeonsei365.com/blog/abortion-info'
 const PAGE_DATE = '2026-03-30'
-const medicalWebPageSchema = { '@context':'https://schema.org','@type':'MedicalWebPage', name:'인공임신중절수술 비용·시기·가격 완벽 안내 2026', url:PAGE_URL, specialty:{'@type':'MedicalSpecialty',name:'산부인과'}, medicalAudience:{'@type':'MedicalAudience',audienceType:'여성 환자'}, lastReviewed:PAGE_DATE, reviewedBy:{'@type':'MedicalOrganization',name:'연세365산부인과',url:'https://www.yeonsei365.com'}, about:{'@type':'MedicalCondition',name:'인공임신중절수술'} }
-const howToSchema = { '@context':'https://schema.org','@type':'HowTo', name:'인공임신중절수술 예약 방법', description:'인공임신중절수술 예약부터 수술까지', step:[ {'@type':'HowToStep',position:1,name:'임신 확인',text:'초음파로 임신 여부와 주수를 확인합니다.'}, {'@type':'HowToStep',position:2,name:'비용 안내',text:'주수에 따른 비용을 안내받습니다. 8주 미만 45만원.'}, {'@type':'HowToStep',position:3,name:'수술 당일',text:'6시간 금식 후 내원하여 수술을 진행합니다.'} ], tool:{'@type':'HowToTool',name:'연세365산부인과'} }
+const medicalWebPageSchema = { '@context':'https://schema.org','@type':'MedicalWebPage', name:'인공임신중절수술 비용·시기·가격 완벽 안내 2026', url:PAGE_URL, specialty:{'@type':'MedicalSpecialty',name:'산부인과'}, medicalAudience:{'@type':'MedicalAudience',audienceType:'여성 환자'}, lastReviewed:PAGE_DATE, reviewedBy:{'@type':'MedicalOrganization',name:'연세365산부인과의원',url:'https://www.yeonsei365.com'}, about:{'@type':'MedicalCondition',name:'인공임신중절수술'} }
+const howToSchema = { '@context':'https://schema.org','@type':'HowTo', name:'인공임신중절수술 예약 방법', description:'인공임신중절수술 예약부터 수술까지', step:[ {'@type':'HowToStep',position:1,name:'임신 확인',text:'초음파로 임신 여부와 주수를 확인합니다.'}, {'@type':'HowToStep',position:2,name:'비용 안내',text:'주수에 따른 비용을 안내받습니다. 8주 미만 45만원.'}, {'@type':'HowToStep',position:3,name:'수술 당일',text:'6시간 금식 후 내원하여 수술을 진행합니다.'} ], tool:{'@type':'HowToTool',name:'연세365산부인과의원'} }
 const speakableSchema = { '@context':'https://schema.org','@type':'WebPage', name:'인공임신중절수술 비용·시기·가격 완벽 안내 2026', url:PAGE_URL, speakable:{'@type':'SpeakableSpecification',cssSelector:['h1','h2']} }
 const breadcrumbSchema = { '@context':'https://schema.org','@type':'BreadcrumbList', itemListElement:[ {'@type':'ListItem',position:1,name:'홈',item:'https://www.yeonsei365.com'}, {'@type':'ListItem',position:2,name:'임신중절수술정보',item:'https://www.yeonsei365.com/blog'}, {'@type':'ListItem',position:3,name:'인공임신중절수술',item:PAGE_URL} ] }
 
@@ -116,7 +116,7 @@ function PriceTable() {
         </div>
       </div>
       <div style={{ padding: '10px 20px 16px', display: 'flex', justifyContent: 'space-between', borderTop: '1px solid #FFE8C0' }}>
-        <span style={{ fontSize: '11px', color: '#CC8833' }}>📍 사당역 4번출구</span>
+        <span style={{ fontSize: '11px', color: '#CC8833' }}>📍 사당역 4번 출구</span>
         <span style={{ fontSize: '11px', color: '#CC8833' }}>📞 02-585-3650</span>
       </div>
     </div>
@@ -178,7 +178,7 @@ function ReasonCard() {
     { icon: '🔒', title: '완벽한 비밀 보장', desc: '1:1 개인 상담실 운영. 의료법에 따라 개인정보 철저 보호.' },
     { icon: '💰', title: '투명한 비용 공개', desc: '처음 안내한 가격이 최종 가격. 숨겨진 추가 비용 없음.' },
     { icon: '🏥', title: '당일 수술·당일 퇴원', desc: '예약 당일 초음파 확인 후 수술 진행. 불필요한 입원 없음.' },
-    { icon: '📍', title: '사당역 4번출구 도보 2분', desc: '관악구·동작구·서초구·강남·과천 어디서든 접근 편리.' },
+    { icon: '📍', title: '사당역 4번 출구 도보 3분', desc: '관악구·동작구·서초구·강남·과천 어디서든 접근 편리.' },
   ]
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
@@ -245,7 +245,7 @@ export default function AbortionInfoPage() {
           <span style={{ color: '#FF6600' }}>2026 완벽 안내</span>
         </h1>
         <div style={{ fontSize: '12px', color: '#999', marginBottom: '28px' }}>
-          연세365산부인과 · 2026년 3월 업데이트 · <ViewCounter slug="blog-abortion-info" />
+          연세365산부인과의원 · 2026년 3월 업데이트 · <ViewCounter slug="blog-abortion-info" />
         </div>
 
         {/* 대표 이미지 */}
@@ -267,7 +267,7 @@ export default function AbortionInfoPage() {
             '5. 수술 방법 — 흡입식 소파술',
             '6. 수술 당일 과정',
             '7. 수술 후 주의사항',
-            '8. 연세365산부인과 선택 이유',
+            '8. 연세365산부인과의원 선택 이유',
             '9. 자주 묻는 질문',
           ].map((item) => (
             <p key={item} style={{ margin: '5px 0', fontSize: '13px', color: '#884422' }}>· {item}</p>
@@ -285,7 +285,7 @@ export default function AbortionInfoPage() {
           인공임신중절수술은 의학적으로 <strong>임신 초기일수록 안전하고 회복이 빠릅니다.</strong> 임신 주수가 늘어날수록 수술 난이도가 높아지고 회복 기간도 길어지므로, 결정하셨다면 가능한 한 빠르게 전문의와 상담하시는 것을 권장합니다.
         </p>
         <p style={{ marginBottom: '14px' }}>
-          연세365산부인과는 산부인과 전문의가 직접 인공임신중절수술을 시행하며, 안전하고 위생적인 환경에서 수술을 진행합니다. 모든 상담과 진료는 1:1 비밀이 보장됩니다.
+          연세365산부인과의원은 산부인과 전문의가 직접 인공임신중절수술을 시행하며, 안전하고 위생적인 환경에서 수술을 진행합니다. 모든 상담과 진료는 1:1 비밀이 보장됩니다.
         </p>
         <div style={{ background: 'linear-gradient(135deg, #FF8C00, #FF5500)', borderRadius: '14px', padding: '18px 20px', marginBottom: '32px' }}>
           <p style={{ fontSize: '13px', color: 'rgba(255,255,255,0.95)', margin: 0, lineHeight: 1.9 }}>
@@ -345,7 +345,7 @@ export default function AbortionInfoPage() {
           4. 주수별 비용·가격 공개
         </h2>
         <p style={{ marginBottom: '20px' }}>
-          인공임신중절수술 비용은 임신 주수에 따라 달라집니다. 연세365산부인과는 수술비, 영양제, 1인 회복실이 모두 포함된 투명한 가격을 안내드립니다.
+          인공임신중절수술 비용은 임신 주수에 따라 달라집니다. 연세365산부인과의원은 수술비, 영양제, 1인 회복실이 모두 포함된 투명한 가격을 안내드립니다.
         </p>
         <div style={{ marginBottom: '20px' }}>
           <PriceTable />
@@ -367,7 +367,7 @@ export default function AbortionInfoPage() {
           5. 수술 방법 — 흡입식 소파술
         </h2>
         <p style={{ marginBottom: '16px' }}>
-          연세365산부인과에서 시행하는 인공임신중절수술은 <strong>흡입식 소파술</strong> 방식입니다. 자궁경부를 통해 흡입 기구를 삽입하여 임신 조직을 제거하는 방식으로 출혈이 적고 회복이 빠릅니다.
+          연세365산부인과의원에서 시행하는 인공임신중절수술은 <strong>흡입식 소파술</strong> 방식입니다. 자궁경부를 통해 흡입 기구를 삽입하여 임신 조직을 제거하는 방식으로 출혈이 적고 회복이 빠릅니다.
         </p>
         {[
           { title: '흡입식 소파술 (MVA)', desc: '임신 초기에 가장 많이 사용되는 방법으로 자궁경부를 통해 흡입 기구를 삽입하여 임신 조직을 제거합니다. 수술 시간은 10~15분 내외이며 출혈이 적고 회복이 빠릅니다.' },
@@ -431,14 +431,14 @@ export default function AbortionInfoPage() {
 
         {/* 섹션 8 */}
         <h2 style={{ fontSize: '20px', fontWeight: 900, color: '#1A0A10', borderLeft: '4px solid #FF6600', paddingLeft: '12px', marginBottom: '14px', lineHeight: 1.4 }}>
-          8. 연세365산부인과 선택 이유
+          8. 연세365산부인과의원 선택 이유
         </h2>
         <p style={{ marginBottom: '16px' }}>
           인공임신중절수술을 결정하셨다면 안전하고 합법적인 환경에서 시술받는 것이 가장 중요합니다.
         </p>
         <ReasonCard />
         <p style={{ marginBottom: '32px', marginTop: '16px', fontSize: '14px', color: '#664422' }}>
-          연세365산부인과는 서울 관악구 과천대로 939 3층에 위치합니다. 사당역 4번 출구에서 도보 2분 거리이며 진료 시간은 평일 오전 9시부터 오후 6시까지입니다.
+          연세365산부인과의원은 서울특별시 관악구 과천대로 939, 3층에 위치합니다. 사당역 4번 출구에서 도보 3분 거리이며 진료 시간은 월~금 10:00~17:30, 토요일 09:00~16:30, 일·공휴일 10:00~14:00(연중무휴)입니다.
         </p>
 
         {/* 섹션 9 */}
@@ -465,7 +465,7 @@ export default function AbortionInfoPage() {
         <div style={{ marginTop: '48px', background: 'linear-gradient(135deg, #FF8C00 0%, #FF4500 100%)', borderRadius: '20px', padding: '32px 24px', textAlign: 'center' }}>
           <p style={{ color: 'rgba(255,255,255,0.9)', fontSize: '13px', fontWeight: 600, letterSpacing: '0.1em', marginBottom: '10px' }}>YEONSEI 365 산부인과</p>
           <p style={{ color: '#fff', fontSize: '22px', fontWeight: 900, marginBottom: '8px', lineHeight: 1.3 }}>지금 바로 무료 상담 받으세요</p>
-          <p style={{ color: 'rgba(255,255,255,0.85)', fontSize: '14px', marginBottom: '24px' }}>1:1 비밀 보장 · 당일 수술 가능 · 사당역 4번출구</p>
+          <p style={{ color: 'rgba(255,255,255,0.85)', fontSize: '14px', marginBottom: '24px' }}>1:1 비밀 보장 · 당일 수술 가능 · 사당역 4번 출구</p>
           <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
             <a href="http://pf.kakao.com/_TpaBj/chat" target="_blank" rel="noopener noreferrer"
               style={{ background: '#FEE500', color: '#3B1B1B', padding: '14px 24px', borderRadius: '50px', fontWeight: 700, fontSize: '15px', textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: '8px' }}>

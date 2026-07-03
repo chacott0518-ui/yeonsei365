@@ -25,7 +25,7 @@ export default function FAQ() {
             임신중절수술 자주 묻는 질문
           </h2>
           <p className="text-[14px] md:text-[16px] text-gray-500">
-            낙태 비용 가격·합법 기간·수술 방법·후관리까지 — 연세365산부인과가 직접 답변합니다
+            낙태 비용 가격·합법 기간·수술 방법·후관리까지 — 연세365산부인과의원이 직접 답변합니다
           </p>
           <div className="flex flex-wrap gap-2 justify-center mt-4">
             {['임신중절수술금액', '낙태비용가격', '낙태합법기간', '흡입술소파술', '임신중절수술후관리'].map(kw => (

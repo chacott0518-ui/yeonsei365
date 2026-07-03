@@ -13,7 +13,7 @@ const medicalWebPageSchema = {
   specialty: { '@type': 'MedicalSpecialty', name: '산부인과' },
   medicalAudience: { '@type': 'MedicalAudience', audienceType: '여성 환자' },
   lastReviewed: PAGE_DATE,
-  reviewedBy: { '@type': 'MedicalOrganization', name: '연세365산부인과', url: 'https://www.yeonsei365.com' },
+  reviewedBy: { '@type': 'MedicalOrganization', name: '연세365산부인과의원', url: 'https://www.yeonsei365.com' },
   about: { '@type': 'MedicalCondition', name: '임신중절수술 후 관리' },
 }
 const howToSchema = {
@@ -26,7 +26,7 @@ const howToSchema = {
     { '@type': 'HowToStep', position: 3, name: '이상 증상 확인', text: '고열, 심한 복통, 과다출혈 시 즉시 내원합니다.' },
     { '@type': 'HowToStep', position: 4, name: '정기 검진', text: '2주 후 추적 초음파 검사를 받아 회복 상태를 확인합니다.' },
   ],
-  tool: { '@type': 'HowToTool', name: '연세365산부인과' },
+  tool: { '@type': 'HowToTool', name: '연세365산부인과의원' },
 }
 const speakableSchema = {
   '@context': 'https://schema.org', '@type': 'WebPage',
@@ -45,7 +45,7 @@ const breadcrumbSchema = {
 
 export const metadata: Metadata = {
   title: '임신중절수술 후 관리 | 회복 방법·주의사항 완벽 안내 2026 | 연세365산부인과',
-  description: '임신중절수술 후 관리 방법을 단계별로 안내합니다. 수술 당일·1주일·2~4주 단계별 주의사항, 즉시 내원 증상, 음식·운동·성관계 재개 시기까지. 사당역 4번출구 연세365산부인과.',
+  description: '임신중절수술 후 관리 방법을 단계별로 안내합니다. 수술 당일·1주일·2~4주 단계별 주의사항, 즉시 내원 증상, 음식·운동·성관계 재개 시기까지. 사당역 4번 출구 연세365산부인과의원.',
   keywords: [
     '임신중절수술후관리', '임신중절수술 후 관리', '낙태수술후관리', '임신중절후관리',
     '중절수술후관리', '임신중절수술회복', '낙태후회복', '임신중절회복',
@@ -59,7 +59,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: '임신중절수술 후 관리 | 회복 방법 완벽 안내 2026 | 연세365산부인과',
-    description: '임신중절수술 후 관리 단계별 완벽 안내. 사당역 4번출구.',
+    description: '임신중절수술 후 관리 단계별 완벽 안내. 사당역 4번 출구.',
     url: 'https://www.yeonsei365.com/blog/abortion-after',
     images: [{ url: 'https://www.yeonsei365.com/og-image.jpg', width: 1200, height: 630, alt: '임신중절수술 후 관리 연세365산부인과' }],
   },
@@ -67,7 +67,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: '임신중절수술 후 관리 | 회복 방법·주의사항 완벽 안내 2026 | 연세365산부인과',
-    description: '임신중절수술 후 관리 방법을 단계별로 안내합니다. 수술 당일·1주일·2~4주 단계별 주의사항, 즉시 내원 증상, 음식·운동·성관계 재개 시기까지. 사당역 4번출구 연세365산부인과.',
+    description: '임신중절수술 후 관리 방법을 단계별로 안내합니다. 수술 당일·1주일·2~4주 단계별 주의사항, 즉시 내원 증상, 음식·운동·성관계 재개 시기까지. 사당역 4번 출구 연세365산부인과의원.',
   },
 }
 
@@ -77,8 +77,8 @@ const articleJsonLd = {
   headline: '임신중절수술 후 관리 | 회복 방법·주의사항 완벽 안내 2026',
   description: '임신중절수술 후 관리 방법을 단계별로 안내합니다.',
   dateModified: '2026-05-22',
-  author: { '@type': 'Organization', name: '연세365산부인과' },
-  publisher: { '@type': 'Organization', name: '연세365산부인과' },
+  author: { '@type': 'Organization', name: '연세365산부인과의원' },
+  publisher: { '@type': 'Organization', name: '연세365산부인과의원' },
 }
 
 const jsonLd = {
@@ -149,7 +149,7 @@ export default function AbortionAfterPage() {
 
       <div style={{ maxWidth: '780px', margin: '0 auto', padding: '0 20px 100px', fontFamily: '"Pretendard", -apple-system, sans-serif' }}>
         <div style={{ margin: '28px 0 0' }}>
-          <img src="/og-image.jpg" alt="임신중절수술 후 관리 회복 방법 주의사항 연세365산부인과 낙태후관리" width="780" height="410" style={{ width: '100%', borderRadius: '18px', display: 'block' }} />
+          <img src="/og-image.jpg" alt="임신중절수술 후 관리 회복 방법 주의사항 연세365산부인과의원 낙태후관리" width="780" height="410" style={{ width: '100%', borderRadius: '18px', display: 'block' }} />
         </div>
 
         <div style={{ background: `linear-gradient(160deg, ${C.pp} 0%, ${C.pd} 40%, ${C.p} 100%)`, borderRadius: '20px', padding: 'clamp(24px,5vw,40px) clamp(20px,5vw,36px)', margin: '20px 0 28px' }}>
@@ -197,7 +197,7 @@ export default function AbortionAfterPage() {
           <SH n="1" title="수술 직후 회복실에서" />
           <p style={bt}>임신중절수술이 완료되면 1인 프라이빗 회복실로 이동하여 안정을 취합니다. 수면마취에서 깨어나는 데 보통 20~30분이 소요되며, 마취에서 완전히 깨어난 후 전문의 또는 간호사가 회복 상태를 확인합니다. 혈압, 출혈량, 복통 여부를 점검하고 이상이 없으면 처방약과 귀가 후 주의사항을 안내받고 퇴원합니다.</p>
           <p style={bt}>회복실에서는 1~2시간 동안 안정을 취합니다. 마취에서 깨어난 직후에는 어지러움이나 구역질이 느껴질 수 있으나 이는 정상적인 반응입니다. 충분히 안정을 취한 후 의료진의 확인을 받고 귀가하시기 바랍니다. 수면마취로 인해 당일 운전은 절대 불가합니다.</p>
-          <p style={bt}>연세365산부인과는 1인 프라이빗 회복실을 운영하여 다른 환자와 분리된 공간에서 안정을 취하실 수 있습니다. 회복 과정에서 프라이버시가 완벽하게 보호됩니다.</p>
+          <p style={bt}>연세365산부인과의원은 1인 프라이빗 회복실을 운영하여 다른 환자와 분리된 공간에서 안정을 취하실 수 있습니다. 회복 과정에서 프라이버시가 완벽하게 보호됩니다.</p>
           <IBox>수면마취 후 완전히 의식이 회복되어도 판단력이 저하된 상태가 수 시간 지속될 수 있습니다. 당일은 반드시 대중교통 또는 동행인과 함께 귀가하시기 바랍니다. 당일 중요한 의사결정이나 업무는 피하세요.</IBox>
         </section>
 
@@ -302,7 +302,7 @@ export default function AbortionAfterPage() {
             · 구역·구토·발열이 <strong>동시에</strong> 나타나는 경우<br />
             · 출혈이 완전히 멈춘 후 <strong>갑자기 다시 시작</strong>되는 경우
           </DangerBox>
-          <p style={bt}>위 증상은 드물게 발생하지만 조기에 발견하고 치료하면 대부분 완전히 회복됩니다. 이상 증상이 있을 때 연락을 망설이지 마시고 병원에 즉시 문의하시기 바랍니다. 연세365산부인과는 수술 후 이상 증상 발생 시 신속하게 대응하는 시스템을 갖추고 있습니다.</p>
+          <p style={bt}>위 증상은 드물게 발생하지만 조기에 발견하고 치료하면 대부분 완전히 회복됩니다. 이상 증상이 있을 때 연락을 망설이지 마시고 병원에 즉시 문의하시기 바랍니다. 연세365산부인과의원은 수술 후 이상 증상 발생 시 신속하게 대응하는 시스템을 갖추고 있습니다.</p>
         </section>
 
         <Divider />
@@ -367,7 +367,7 @@ export default function AbortionAfterPage() {
               </div>
             ))}
           </div>
-          <WBox>⚠ 위 증상과 다르거나 이상이 느껴진다면 망설이지 말고 연락하세요. 빠른 대처가 합병증을 예방합니다. 연세365산부인과 02-585-3650으로 언제든지 문의 가능합니다.</WBox>
+          <WBox>⚠ 위 증상과 다르거나 이상이 느껴진다면 망설이지 말고 연락하세요. 빠른 대처가 합병증을 예방합니다. 연세365산부인과의원 02-585-3650으로 언제든지 문의 가능합니다.</WBox>
         </section>
 
         <Divider />
@@ -406,8 +406,8 @@ export default function AbortionAfterPage() {
         </div>
 
         <div style={{ background: `linear-gradient(135deg, ${C.pp}, ${C.p})`, borderRadius: '20px', padding: 'clamp(24px,5vw,36px)', textAlign: 'center', color: '#fff' }}>
-          <div style={{ fontSize: 'clamp(18px,4vw,22px)', fontWeight: 900, marginBottom: '8px' }}>연세365산부인과</div>
-          <div style={{ fontSize: '14px', opacity: 0.9, marginBottom: '6px' }}>사당역 4번출구 도보 2분</div>
+          <div style={{ fontSize: 'clamp(18px,4vw,22px)', fontWeight: 900, marginBottom: '8px' }}>연세365산부인과의원</div>
+          <div style={{ fontSize: '14px', opacity: 0.9, marginBottom: '6px' }}>사당역 4번 출구 도보 3분</div>
           <div style={{ fontSize: '14px', opacity: 0.85, marginBottom: '24px', lineHeight: 1.8 }}>당일예약·당일시술·1인 회복실 운영<br />모든 상담은 철저히 비밀이 보장됩니다</div>
           <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
             <a href="http://pf.kakao.com/_TpaBj/chat" target="_blank" rel="noopener noreferrer" style={{ background: '#FEE500', color: '#3B1B1B', fontSize: '15px', fontWeight: 700, padding: '14px 28px', borderRadius: '24px', textDecoration: 'none' }}>💬 카카오톡 상담</a>

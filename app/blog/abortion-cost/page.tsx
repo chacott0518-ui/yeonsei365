@@ -6,7 +6,7 @@ import ViewCounter from '@/components/ViewCounter'
 export const metadata: Metadata = {
   title: '임신중절수술 비용 완벽 정리 2026 | 주수별 가격·과정·주의사항 | 연세365산부인과',
   description:
-    '임신중절수술 비용을 주수별로 투명하게 안내합니다. 8주 미만 45만원부터 시작. 흡입식 소파술 과정, 수술 후 주의사항, 합법적 조건까지 전문의가 직접 설명합니다. 사당역 4번출구 연세365산부인과.',
+    '임신중절수술 비용을 주수별로 투명하게 안내합니다. 8주 미만 45만원부터 시작. 흡입식 소파술 과정, 수술 후 주의사항, 합법적 조건까지 일반 건강정보로 안내합니다. 사당역 4번 출구 연세365산부인과의원.',
     keywords: [
       // 합법화
       '낙태합법화', '낙태합법', '낙태법', '낙태합법시기', '낙태수술합법',
@@ -54,7 +54,7 @@ export const metadata: Metadata = {
     ],
   openGraph: {
     title: '임신중절수술 비용 완벽 정리 2026 | 연세365산부인과',
-    description: '주수별 임신중절수술 비용 투명 공개. 8주 미만 45만원. 사당역 4번출구.',
+    description: '주수별 임신중절수술 비용 투명 공개. 8주 미만 45만원. 사당역 4번 출구.',
     url: 'https://www.yeonsei365.com/blog/abortion-cost',
     images: [{ url: 'https://www.yeonsei365.com/og', width: 1200, height: 630 }],
   },
@@ -65,7 +65,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: '임신중절수술 비용 완벽 정리 2026 | 주수별 가격·과정·주의사항 | 연세365산부인과',
     description:
-      '임신중절수술 비용을 주수별로 투명하게 안내합니다. 8주 미만 45만원부터 시작. 흡입식 소파술 과정, 수술 후 주의사항, 합법적 조건까지 전문의가 직접 설명합니다. 사당역 4번출구 연세365산부인과.',
+      '임신중절수술 비용을 주수별로 투명하게 안내합니다. 8주 미만 45만원부터 시작. 흡입식 소파술 과정, 수술 후 주의사항, 합법적 조건까지 일반 건강정보로 안내합니다. 사당역 4번 출구 연세365산부인과의원.',
   },
 }
 
@@ -74,8 +74,8 @@ const jsonLd = {
   '@type': 'Article',
   headline: '임신중절수술 비용 완벽 정리 2026',
   description: '주수별 임신중절수술 비용 및 과정 안내',
-  author: { '@type': 'Organization', name: '연세365산부인과' },
-  publisher: { '@type': 'Organization', name: '연세365산부인과' },
+  author: { '@type': 'Organization', name: '연세365산부인과의원' },
+  publisher: { '@type': 'Organization', name: '연세365산부인과의원' },
   datePublished: '2026-03-01',
   dateModified: '2026-05-22',
 }
@@ -88,14 +88,14 @@ const medicalWebPageSchema = {
   specialty: { '@type': 'MedicalSpecialty', name: '산부인과' },
   medicalAudience: { '@type': 'MedicalAudience', audienceType: '여성 환자' },
   lastReviewed: '2026-03-01',
-  reviewedBy: { '@type': 'MedicalOrganization', name: '연세365산부인과', url: 'https://www.yeonsei365.com' },
+  reviewedBy: { '@type': 'MedicalOrganization', name: '연세365산부인과의원', url: 'https://www.yeonsei365.com' },
 }
 
 const howToSchema = {
   '@context': 'https://schema.org',
   '@type': 'HowTo',
   name: '임신중절수술 당일 진행 과정',
-  description: '연세365산부인과 임신중절수술 당일 절차 안내',
+  description: '연세365산부인과의원 임신중절수술 당일 절차 안내',
   step: [
     { '@type': 'HowToStep', position: 1, name: '초진 및 초음파 검사', text: '내원 후 초음파 검사를 통해 정확한 임신 주수를 확인하고 수술 가능 여부를 판단합니다.' },
     { '@type': 'HowToStep', position: 2, name: '수술 전 준비', text: '혈액 검사, 혈압 측정 등 기본 검사를 진행합니다. 수술 6시간 전부터 금식이 필요합니다.' },
@@ -104,7 +104,7 @@ const howToSchema = {
     { '@type': 'HowToStep', position: 5, name: '회복실 안정', text: '수술 후 1인 프라이빗 회복실에서 1~2시간 안정을 취합니다.' },
     { '@type': 'HowToStep', position: 6, name: '상담 후 퇴원', text: '전문의와 사후 주의사항 상담 후 당일 퇴원합니다.' },
   ],
-  tool: { '@type': 'HowToTool', name: '연세365산부인과' },
+  tool: { '@type': 'HowToTool', name: '연세365산부인과의원' },
 }
 
 const breadcrumbSchema = {
@@ -132,7 +132,7 @@ const faqJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
   mainEntity: [
-    { '@type': 'Question', name: '임신중절수술 비용이 얼마인가요?', acceptedAnswer: { '@type': 'Answer', text: '연세365산부인과의 임신중절수술 비용은 8주 미만 45만원, 8주 60만원, 9주 70만원, 10주 80만원입니다. 영양제와 1인 회복실이 포함된 가격입니다.' } },
+    { '@type': 'Question', name: '임신중절수술 비용이 얼마인가요?', acceptedAnswer: { '@type': 'Answer', text: '연세365산부인과의원의 임신중절수술 비용은 8주 미만 45만원, 8주 60만원, 9주 70만원, 10주 80만원입니다. 영양제와 1인 회복실이 포함된 가격입니다.' } },
     { '@type': 'Question', name: '임신중절수술은 합법인가요?', acceptedAnswer: { '@type': 'Answer', text: '2021년 헌법재판소 결정 이후 임신 14주 이내 임신중절은 허용되며, 모자보건법에 따라 일정 조건 하에 합법적으로 시행 가능합니다.' } },
     { '@type': 'Question', name: '수술 당일 퇴원이 가능한가요?', acceptedAnswer: { '@type': 'Answer', text: '네, 당일 수술 후 회복실에서 충분히 안정을 취한 후 당일 퇴원이 가능합니다.' } },
     { '@type': 'Question', name: '수술 전 금식이 필요한가요?', acceptedAnswer: { '@type': 'Answer', text: '수면마취를 위해 수술 6시간 전부터 금식이 필요합니다.' } },
@@ -203,7 +203,7 @@ function PriceTableImage() {
         </div>
       </div>
       <div style={{ padding: '10px 20px 16px', display: 'flex', justifyContent: 'space-between', borderTop: '1px solid #FFF0F4' }}>
-        <span style={{ fontSize: '11px', color: '#BB7788' }}>📍 사당역 4번출구</span>
+        <span style={{ fontSize: '11px', color: '#BB7788' }}>📍 사당역 4번 출구</span>
         <span style={{ fontSize: '11px', color: '#BB7788' }}>📞 02-585-3650</span>
       </div>
     </div>
@@ -258,7 +258,7 @@ export default function AbortionCostPage() {
           <span style={{ color: '#E8305A' }}>주수별 가격 · 과정 · 주의사항</span>
         </h1>
         <div style={{ fontSize: '13px', color: '#999', marginBottom: '32px' }}>
-          연세365산부인과 · 2026년 3월 업데이트 · <ViewCounter slug="blog-abortion-cost" />
+          연세365산부인과의원 · 2026년 3월 업데이트 · <ViewCounter slug="blog-abortion-cost" />
         </div>
 
         {/* 대표 이미지 */}
@@ -276,7 +276,7 @@ export default function AbortionCostPage() {
             '4. 흡입식 소파술 과정',
             '5. 약물중절 vs 수술중절 비교',
             '6. 수술 후 회복 및 주의사항',
-            '7. 연세365산부인과 선택 이유',
+            '7. 연세365산부인과의원 선택 이유',
             '8. 자주 묻는 질문 FAQ',
           ].map((item) => (
             <p key={item} style={{ margin: '6px 0', fontSize: '14px', color: '#554455' }}>· {item}</p>
@@ -305,7 +305,7 @@ export default function AbortionCostPage() {
           ))}
         </div>
         <p style={{ marginBottom: '32px', fontSize: '16px' }}>
-          2021년 이후 실질적으로 임신 초기(14주 이내)의 임신중절은 처벌 공백 상태에 놓여 있으며, 많은 산부인과에서 안전하게 시술을 제공하고 있습니다. 연세365산부인과는 산부인과 전문의가 직접 시행하며 안전하고 위생적인 환경에서 수술을 진행합니다.
+          2021년 이후 실질적으로 임신 초기(14주 이내)의 임신중절은 처벌 공백 상태에 놓여 있으며, 많은 산부인과에서 안전하게 시술을 제공하고 있습니다. 연세365산부인과의원은 산부인과 전문의가 직접 시행하며 안전하고 위생적인 환경에서 수술을 진행합니다.
         </p>
 
         {/* 섹션 2 */}
@@ -313,7 +313,7 @@ export default function AbortionCostPage() {
           2. 주수별 비용 안내
         </h2>
         <p style={{ marginBottom: '20px', fontSize: '16px' }}>
-          임신중절수술 비용은 임신 주수에 따라 달라집니다. 주수가 늘어날수록 태아의 크기가 커지고 수술 난이도와 시간이 증가하기 때문입니다. 연세365산부인과는 <strong>투명한 가격 정책</strong>으로 모든 비용을 사전에 안내합니다.
+          임신중절수술 비용은 임신 주수에 따라 달라집니다. 주수가 늘어날수록 태아의 크기가 커지고 수술 난이도와 시간이 증가하기 때문입니다. 연세365산부인과의원은 <strong>투명한 가격 정책</strong>으로 모든 비용을 사전에 안내합니다.
         </p>
         <div style={{ marginBottom: '32px' }}>
           <PriceTableImage />
@@ -335,7 +335,7 @@ export default function AbortionCostPage() {
           3. 비용에 포함된 항목
         </h2>
         <p style={{ marginBottom: '16px', fontSize: '16px' }}>
-          연세365산부인과의 임신중절수술 비용에는 다음 항목이 모두 포함되어 있습니다. 추가 비용 없이 안심하고 수술을 받으실 수 있습니다.
+          연세365산부인과의원의 임신중절수술 비용에는 다음 항목이 모두 포함되어 있습니다. 추가 비용 없이 안심하고 수술을 받으실 수 있습니다.
         </p>
         {[
           { title: '수술비', desc: '산부인과 전문의 직접 시행, 흡입식 소파술 수술비 전액 포함' },
@@ -358,7 +358,7 @@ export default function AbortionCostPage() {
           4. 흡입식 소파술 과정
         </h2>
         <p style={{ marginBottom: '20px', fontSize: '16px' }}>
-          연세365산부인과에서 시행하는 임신중절수술은 <strong>흡입식 소파술(MVA, Manual Vacuum Aspiration)</strong> 방식입니다. 이 방법은 자궁경부를 통해 흡입 기구를 삽입하여 임신 조직을 제거하는 방식으로, 출혈이 적고 회복이 빠른 것이 특징입니다.
+          연세365산부인과의원에서 시행하는 임신중절수술은 <strong>흡입식 소파술(MVA, Manual Vacuum Aspiration)</strong> 방식입니다. 이 방법은 자궁경부를 통해 흡입 기구를 삽입하여 임신 조직을 제거하는 방식으로, 출혈이 적고 회복이 빠른 것이 특징입니다.
         </p>
         {[
           { step: '01', title: '초진 및 초음파 검사', desc: '내원 후 초음파 검사를 통해 정확한 임신 주수를 확인하고 수술 가능 여부를 판단합니다.' },
@@ -446,14 +446,14 @@ export default function AbortionCostPage() {
 
         {/* 섹션 7 */}
         <h2 style={{ fontSize: '24px', fontWeight: 900, color: '#1A0A10', borderLeft: '4px solid #E8305A', paddingLeft: '14px', marginBottom: '16px' }}>
-          7. 연세365산부인과 선택 이유
+          7. 연세365산부인과의원 선택 이유
         </h2>
         {[
           { icon: '👩‍⚕️', title: '산부인과 전문의 직접 시행', desc: '연세대학교 의과대학 졸업, 신촌세브란스병원 전공의 출신 전문의가 직접 수술을 시행합니다.' },
           { icon: '🔒', title: '1:1 완벽한 비밀 보장', desc: '모든 상담과 진료는 철저한 비밀이 보장됩니다. 의료법에 따라 개인정보는 절대 외부에 유출되지 않습니다.' },
           { icon: '💰', title: '투명한 가격 정책', desc: '사전에 모든 비용을 안내하며 추가 비용이 발생하지 않습니다. 현금과 카드 동일가로 운영됩니다.' },
           { icon: '🏥', title: '당일 수술 및 퇴원', desc: '예약 후 당일 수술이 가능하며, 수술 후 당일 퇴원이 가능합니다. 불필요한 입원 없이 일상으로 빠르게 복귀할 수 있습니다.' },
-          { icon: '📍', title: '편리한 접근성', desc: '지하철 4호선/2호선 사당역 4번 출구에서 도보 2분 거리에 위치합니다. 관악구, 동작구, 서초구, 과천 등 다양한 지역에서 접근이 편리합니다.' },
+          { icon: '📍', title: '편리한 접근성', desc: '지하철 4호선/2호선 사당역 4번 출구에서 도보 3분 거리에 위치합니다. 관악구, 동작구, 서초구, 과천 등 다양한 지역에서 접근이 편리합니다.' },
         ].map(({ icon, title, desc }) => (
           <div key={title} style={{ display: 'flex', gap: '16px', marginBottom: '14px', padding: '16px', background: '#FFFAFB', borderRadius: '12px', border: '1px solid #FFE0E8' }}>
             <span style={{ fontSize: '24px', flexShrink: 0 }}>{icon}</span>
@@ -464,7 +464,7 @@ export default function AbortionCostPage() {
           </div>
         ))}
         <p style={{ marginBottom: '32px', marginTop: '16px', fontSize: '16px' }}>
-          연세365산부인과는 관악구 과천대로 939 3층에 위치하며, 사당역 4번 출구에서 도보로 이동 가능합니다. 진료 시간은 평일 오전 9시부터 오후 6시까지이며, 전화(02-585-3650) 또는 카카오톡으로 상담 예약이 가능합니다.
+          연세365산부인과의원은 서울특별시 관악구 과천대로 939, 3층에 위치하며, 사당역 4번 출구에서 도보로 이동 가능합니다. 진료 시간은 월~금 10:00~17:30, 토요일 09:00~16:30, 일·공휴일 10:00~14:00(연중무휴)이며, 전화(02-585-3650) 또는 카카오톡으로 상담 예약이 가능합니다.
         </p>
 
         {/* 섹션 8 - FAQ */}
@@ -472,7 +472,7 @@ export default function AbortionCostPage() {
           8. 자주 묻는 질문 FAQ
         </h2>
         {[
-          { q: '임신중절수술 비용이 정확히 얼마인가요?', a: '연세365산부인과의 임신중절수술 비용은 임신 주수에 따라 다릅니다. 8주 미만 45만원, 8주 60만원, 9주 70만원, 10주 80만원이며, 영양제와 1인 회복실이 포함된 가격입니다. 선택사항으로 자궁유착방지제(+5만원)가 있습니다.' },
+          { q: '임신중절수술 비용이 정확히 얼마인가요?', a: '연세365산부인과의원의 임신중절수술 비용은 임신 주수에 따라 다릅니다. 8주 미만 45만원, 8주 60만원, 9주 70만원, 10주 80만원이며, 영양제와 1인 회복실이 포함된 가격입니다. 선택사항으로 자궁유착방지제(+5만원)가 있습니다.' },
           { q: '혼자 내원해도 되나요?', a: '네, 혼자 내원하셔도 수술을 받으실 수 있습니다. 다만 수면마취 후에는 운전이 불가능하므로 대중교통을 이용하시거나 동행인과 함께 오시는 것을 권장합니다.' },
           { q: '수술 전 준비사항이 있나요?', a: '수술 6시간 전부터 금식이 필요합니다. 내원 전 편안한 복장을 착용하시고, 렌즈 대신 안경을 착용하시는 것이 좋습니다.' },
           { q: '수술 후 다음날 출근이 가능한가요?', a: '개인차가 있지만 대부분의 경우 수술 다음날 일상 복귀가 가능합니다. 단, 무거운 물건을 들거나 심한 육체 노동은 1주일 정도 피하시는 것이 좋습니다.' },
@@ -497,7 +497,7 @@ export default function AbortionCostPage() {
             지금 바로 무료 상담 받으세요
           </p>
           <p style={{ color: 'rgba(255,255,255,0.85)', fontSize: '14px', marginBottom: '24px' }}>
-            1:1 비밀 보장 · 당일 수술 가능 · 사당역 4번출구
+            1:1 비밀 보장 · 당일 수술 가능 · 사당역 4번 출구
           </p>
           <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
             <a href="http://pf.kakao.com/_TpaBj/chat" target="_blank" rel="noopener noreferrer"

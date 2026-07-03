@@ -3,10 +3,10 @@ import Link from 'next/link'
 import { clinicSchema } from '@/lib/schemas'
 
 export const metadata: Metadata = {
-  title: '병원 둘러보기 | 연세365산부인과',
-  description: '사당역 연세365산부인과 내부 시설을 미리 확인하세요. 1:1 상담실, 1인 회복실, 독립 동선. 02-585-3650.',
+  title: '병원 둘러보기 | 연세365산부인과의원',
+  description: '사당역 연세365산부인과의원 내부 시설을 미리 확인하세요. 1:1 상담실, 1인 회복실, 독립 동선. 02-585-3650.',
   alternates: { canonical: 'https://www.yeonsei365.com/about/tour' },
-  openGraph: { title: '병원 둘러보기 | 연세365산부인과', url: 'https://www.yeonsei365.com/about/tour', images: [{ url: 'https://www.yeonsei365.com/og-image.jpg', width: 1200, height: 630 }] },
+  openGraph: { title: '병원 둘러보기 | 연세365산부인과의원', url: 'https://www.yeonsei365.com/about/tour', images: [{ url: 'https://www.yeonsei365.com/og-image.jpg', width: 1200, height: 630 }] },
 }
 
 const breadcrumbSchema = { '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: [ { '@type': 'ListItem', position: 1, name: '홈', item: 'https://www.yeonsei365.com' }, { '@type': 'ListItem', position: 2, name: '병원소개', item: 'https://www.yeonsei365.com/about' }, { '@type': 'ListItem', position: 3, name: '병원 둘러보기', item: 'https://www.yeonsei365.com/about/tour' } ] }
@@ -36,7 +36,7 @@ export default function TourPage() {
           병원 둘러보기<br />
           <span style={{ color: '#E8305A' }}>내부 시설 미리 보기</span>
         </h1>
-        <p style={{ fontSize: '13px', color: '#999', marginBottom: '28px' }}>연세365산부인과 · 사당역 4번출구 도보 3분</p>
+        <p style={{ fontSize: '13px', color: '#999', marginBottom: '28px' }}>연세365산부인과의원 · 사당역 4번 출구 도보 3분</p>
 
         <div style={{ display: 'flex', gap: '6px', flexWrap: 'nowrap', marginBottom: '32px', overflow: 'hidden' }}>
           {subMenus.map(({ label, href, active }) => (
@@ -54,7 +54,7 @@ export default function TourPage() {
         </div>
 
         <h2 style={{ fontSize: 'clamp(18px,4vw,22px)', fontWeight: 800, borderLeft: '4px solid #E8305A', paddingLeft: '14px', marginBottom: '16px' }}>
-          연세365산부인과 시설은 어떻게 되나요?
+          연세365산부인과의원 시설은 어떻게 되나요?
         </h2>
         <div style={{ marginBottom: '44px' }}>
           {[
@@ -75,7 +75,7 @@ export default function TourPage() {
 
         <div style={{ background: 'linear-gradient(135deg, #FF8FAB 0%, #E8305A 100%)', borderRadius: '20px', padding: 'clamp(20px,5vw,32px)', textAlign: 'center' }}>
           <p style={{ color: '#fff', fontSize: '20px', fontWeight: 900, marginBottom: '6px' }}>직접 방문해서 확인하세요</p>
-          <p style={{ color: 'rgba(255,255,255,0.85)', fontSize: '14px', marginBottom: '22px' }}>사당역 4번출구 도보 3분 · 예약 없이 당일 내원 가능</p>
+          <p style={{ color: 'rgba(255,255,255,0.85)', fontSize: '14px', marginBottom: '22px' }}>사당역 4번 출구 도보 3분 · 예약 없이 당일 내원 가능</p>
           <div style={{ display: 'flex', gap: '10px', justifyContent: 'center', flexWrap: 'wrap' }}>
             <a href="http://pf.kakao.com/_TpaBj/chat" target="_blank" rel="noopener noreferrer" style={{ background: '#FEE500', color: '#3B1B1B', padding: '13px 26px', borderRadius: '50px', fontWeight: 700, fontSize: '14px', textDecoration: 'none' }}>💬 카카오톡 상담</a>
             <a href="tel:02-585-3650" style={{ background: 'rgba(255,255,255,0.2)', color: '#fff', padding: '10px 18px', borderRadius: '50px', fontWeight: 700, fontSize: '13px', textDecoration: 'none', minWidth: '140px', textAlign: 'center', border: '2px solid rgba(255,255,255,0.5)' }}>📞 02-585-3650</a>

@@ -31,9 +31,9 @@ const pretendard = localFont({
 });
 
 export const metadata: Metadata = {
-  title: '임신중절수술 금액 및 낙태 비용 가격 | 사당역 연세365산부인과',
+  title: '임신중절수술 금액 및 낙태 비용 가격 | 사당역 연세365산부인과의원',
   description:
-    '임신중절수술 금액 및 비용, 낙태 비용 가격을 주수별로 투명하게 안내합니다. 인공임신중절수술 뜻·방법·절차를 산부인과 전문의가 직접 설명합니다. 8주 미만 45만원~. 당일예약·당일수술 가능. 비밀보장. 사당역 4번출구 연세365산부인과.',
+    '임신중절수술 금액 및 비용, 낙태 비용 가격을 주수별로 투명하게 안내합니다. 인공임신중절수술 뜻·방법·절차를 산부인과 전문의가 직접 설명합니다. 8주 미만 45만원~. 당일예약·당일수술 가능. 비밀보장. 사당역 4번 출구 연세365산부인과의원.',
   verification: {
     google: 'rqZ9BSKyrTCirBIR_X38TXF1br3haW9ggHjlX5ETZ6Y',
     other: {
@@ -41,15 +41,15 @@ export const metadata: Metadata = {
     },
   },
   openGraph: {
-    title: '임신중절수술 금액 및 낙태 비용 가격 | 사당역 연세365산부인과',
-    description: '낙태 비용 가격 주수별 투명 공개. 8주 미만 45만원. 사당역 4번출구 연세365산부인과.',
+    title: '임신중절수술 금액 및 낙태 비용 가격 | 사당역 연세365산부인과의원',
+    description: '낙태 비용 가격 주수별 투명 공개. 8주 미만 45만원. 사당역 4번 출구 연세365산부인과의원.',
     url: 'https://www.yeonsei365.com',
     images: [
       {
         url: 'https://www.yeonsei365.com/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: '임신중절수술 금액 및 낙태 비용 가격 안내 | 8주 미만 45만원 투명 공개 | 연세365산부인과',
+        alt: '임신중절수술 금액 및 낙태 비용 가격 안내 | 8주 미만 45만원 투명 공개 | 연세365산부인과의원',
       },
     ],
     locale: 'ko_KR',
@@ -87,14 +87,14 @@ export default function RootLayout({
                   "url": "https://www.yeonsei365.com",
                   "logo": "https://i.imgur.com/f7h5DY0.png",
                   "image": "https://www.yeonsei365.com/og-image.jpg",
-                  "description": "사당역 4번출구 연세365산부인과. 임신중절수술 금액 및 낙태 비용 가격 주수별 투명 안내. 인공임신중절수술 전문. 산부인과 전문의 직접 시행. 당일예약·당일수술 가능. 비밀보장.",
+                  "description": "사당역 4번 출구 연세365산부인과의원. 임신중절수술 금액 및 낙태 비용 가격 주수별 투명 안내. 인공임신중절수술 전문. 산부인과 전문의 직접 시행. 당일예약·당일수술 가능. 비밀보장.",
                   "telephone": "02-585-3650",
                   "priceRange": "₩₩",
                   "currenciesAccepted": "KRW",
                   "paymentAccepted": "현금, 신용카드",
                   "address": {
                     "@type": "PostalAddress",
-                    "streetAddress": "과천대로 939 3층 306호, 307호, 308호",
+                    "streetAddress": "과천대로 939, 3층",
                     "addressLocality": "관악구",
                     "addressRegion": "서울특별시",
                     "postalCode": "08807",
@@ -165,7 +165,7 @@ export default function RootLayout({
                   "@id": "https://www.yeonsei365.com/#website",
                   "url": "https://www.yeonsei365.com",
                   "name": "연세365산부인과의원",
-                  "description": "임신중절수술 금액 및 낙태 비용 가격 안내 | 사당역 연세365산부인과",
+                  "description": "임신중절수술 금액 및 낙태 비용 가격 안내 | 사당역 연세365산부인과의원",
                   "publisher": {
                     "@id": "https://www.yeonsei365.com/#organization"
                   }

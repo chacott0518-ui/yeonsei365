@@ -5,7 +5,7 @@ import ViewCounter from '@/components/ViewCounter'
 
 export const metadata: Metadata = {
   title: '사당역 산부인과 솔직 후기 2026 | 연세365산부인과의원 직접 다녀왔어요',
-  description: '사당역 연세365산부인과의원 처음 방문 후기. 대기시간, 진료 분위기, 비용까지 꾸밈없이 적었습니다.',
+  description: '사당역 연세365산부인과의원의 처음 방문 후기. 대기시간, 진료 분위기, 비용까지 꾸밈없이 적었습니다.',
   keywords: ['사당역산부인과', '사당역산부인과후기', '연세365산부인과후기', '동작구산부인과'],
   alternates: { canonical: 'https://www.yeonsei365.com/blog/hospital-review' },
   openGraph: {
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: '사당역 산부인과 솔직 후기 2026 | 연세365산부인과의원 직접 다녀왔어요',
-    description: '사당역 연세365산부인과의원 처음 방문 후기. 대기시간, 진료 분위기, 비용까지 꾸밈없이 적었습니다.',
+    description: '사당역 연세365산부인과의원의 처음 방문 후기. 대기시간, 진료 분위기, 비용까지 꾸밈없이 적었습니다.',
   },
 }
 
@@ -27,7 +27,7 @@ const faqData = [
     a: '예약 없이도 방문 가능하지만 대기 시간이 길어질 수 있습니다. 전화 또는 네이버로 사전 예약을 권장합니다.',
   },
   {
-    q: '연세365산부인과 사당역에서 얼마나 걸리나요?',
+    q: '연세365산부인과의원 사당역에서 얼마나 걸리나요?',
     a: '사당역 4번 출구에서 도보로 이동 가능한 거리에 위치합니다.',
   },
   {
@@ -54,15 +54,15 @@ const articleJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Article',
   headline: '사당역 산부인과 솔직 후기 2026 | 연세365산부인과의원 직접 다녀왔어요',
-  description: '사당역 연세365산부인과의원 처음 방문 후기. 대기시간, 진료 분위기, 비용까지 꾸밈없이 적었습니다.',
+  description: '사당역 연세365산부인과의원의 처음 방문 후기. 대기시간, 진료 분위기, 비용까지 꾸밈없이 적었습니다.',
   dateModified: '2026-05-22',
-  author: { '@type': 'Organization', name: '연세365산부인과' },
-  publisher: { '@type': 'Organization', name: '연세365산부인과' },
+  author: { '@type': 'Organization', name: '연세365산부인과의원' },
+  publisher: { '@type': 'Organization', name: '연세365산부인과의원' },
 }
 const PAGE_URL = 'https://www.yeonsei365.com/blog/hospital-review'
 const PAGE_DATE = '2026-04-01'
-const medicalWebPageSchema = { '@context':'https://schema.org','@type':'MedicalWebPage', name:'사당역 산부인과 솔직 후기 2026 | 연세365산부인과의원', url:PAGE_URL, specialty:{'@type':'MedicalSpecialty',name:'산부인과'}, medicalAudience:{'@type':'MedicalAudience',audienceType:'여성 환자'}, lastReviewed:PAGE_DATE, reviewedBy:{'@type':'MedicalOrganization',name:'연세365산부인과',url:'https://www.yeonsei365.com'}, about:{'@type':'MedicalCondition',name:'산부인과 방문 후기'} }
-const howToSchema = { '@context':'https://schema.org','@type':'HowTo', name:'연세365산부인과 예약 방법', description:'연세365산부인과 예약 단계별 안내', step:[ {'@type':'HowToStep',position:1,name:'예약',text:'전화(02-585-3650) 또는 카카오톡으로 예약합니다.'}, {'@type':'HowToStep',position:2,name:'내원',text:'사당역 4번출구 도보 2분 거리 연세365산부인과에 내원합니다.'}, {'@type':'HowToStep',position:3,name:'진료',text:'당일 검사 후 진료 진행, 당일 귀가 가능합니다.'} ], tool:{'@type':'HowToTool',name:'연세365산부인과'} }
+const medicalWebPageSchema = { '@context':'https://schema.org','@type':'MedicalWebPage', name:'사당역 산부인과 솔직 후기 2026 | 연세365산부인과의원', url:PAGE_URL, specialty:{'@type':'MedicalSpecialty',name:'산부인과'}, medicalAudience:{'@type':'MedicalAudience',audienceType:'여성 환자'}, lastReviewed:PAGE_DATE, reviewedBy:{'@type':'MedicalOrganization',name:'연세365산부인과의원',url:'https://www.yeonsei365.com'}, about:{'@type':'MedicalCondition',name:'산부인과 방문 후기'} }
+const howToSchema = { '@context':'https://schema.org','@type':'HowTo', name:'연세365산부인과의원 예약 방법', description:'연세365산부인과의원 예약 단계별 안내', step:[ {'@type':'HowToStep',position:1,name:'예약',text:'전화(02-585-3650) 또는 카카오톡으로 예약합니다.'}, {'@type':'HowToStep',position:2,name:'내원',text:'사당역 4번 출구 도보 3분 거리 연세365산부인과의원에 내원합니다.'}, {'@type':'HowToStep',position:3,name:'진료',text:'당일 검사 후 진료 진행, 당일 귀가 가능합니다.'} ], tool:{'@type':'HowToTool',name:'연세365산부인과의원'} }
 const speakableSchema = { '@context':'https://schema.org','@type':'WebPage', name:'사당역 산부인과 솔직 후기 2026 | 연세365산부인과의원', url:PAGE_URL, speakable:{'@type':'SpeakableSpecification',cssSelector:['h1','h2']} }
 const breadcrumbSchema = { '@context':'https://schema.org','@type':'BreadcrumbList', itemListElement:[ {'@type':'ListItem',position:1,name:'홈',item:'https://www.yeonsei365.com'}, {'@type':'ListItem',position:2,name:'임신중절수술정보',item:'https://www.yeonsei365.com/blog'}, {'@type':'ListItem',position:3,name:'병원 후기',item:PAGE_URL} ] }
 
@@ -123,7 +123,7 @@ export default function HospitalReviewPage() {
           border: '1px solid #FFE0E8',
         }}>
           <p style={{ color: '#E8305A', fontWeight: 700, fontSize: '14px' }}>
-            📍 연세365산부인과의원 · 사당역 4번출구
+            📍 연세365산부인과의원 · 사당역 4번 출구
           </p>
         </div>
 
@@ -316,10 +316,10 @@ export default function HospitalReviewPage() {
           textAlign: 'center',
         }}>
           <p style={{ color: '#fff', fontSize: 'clamp(16px,4vw,20px)', fontWeight: 900, marginBottom: '6px', wordBreak: 'keep-all' }}>
-            사당역 연세365산부인과의원
+            사당역 연세365산부인과의원의
           </p>
           <p style={{ color: 'rgba(255,255,255,0.85)', fontSize: 'clamp(11px,2.5vw,13px)', marginBottom: '20px' }}>
-            📍 사당역 4번출구 · 1:1 비밀보장
+            📍 사당역 4번 출구 · 1:1 비밀보장
           </p>
           <div style={{ display: 'flex', gap: '10px', justifyContent: 'center', flexWrap: 'wrap' }}>
             

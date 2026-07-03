@@ -179,10 +179,10 @@ export default function InfoClient() {
               임신중절수술을 결심하셨지만 혼자 가도 되는지, 보호자가 꼭 필요한지 걱정하시는 분들이 많습니다. 결론부터 말씀드리면 <strong style={{ color: C.p }}>성인(만 19세 이상)은 보호자 없이 혼자 내원하여 수술이 가능합니다.</strong> 임신중절수술은 본인의 의사 결정권이 최우선으로 존중되는 의료 시술이기 때문입니다.
             </p>
             <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '14px' }}>
-              사당역 4번출구에서 도보 1분 이내에 위치한 연세365산부인과는 혼자 대중교통으로 방문하시기에 매우 편리합니다. 지하철 2호선·4호선 환승역인 사당역에서 접근이 쉬워 서울 어디서든 편하게 오실 수 있습니다. 수면마취 후에는 자가 운전이 불가하므로 귀가 시에는 반드시 대중교통을 이용하시거나 보호자와 함께 오시기를 권장합니다.
+              사당역 4번 출구에서 도보 3분 이내에 위치한 연세365산부인과의원은 혼자 대중교통으로 방문하시기에 매우 편리합니다. 지하철 2호선·4호선 환승역인 사당역에서 접근이 쉬워 서울 어디서든 편하게 오실 수 있습니다. 수면마취 후에는 자가 운전이 불가하므로 귀가 시에는 반드시 대중교통을 이용하시거나 보호자와 함께 오시기를 권장합니다.
             </p>
             <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '14px' }}>
-              많은 분들이 직장 동료나 가족에게 알리지 않고 혼자 내원하십니다. 연세365산부인과는 1인 상담실과 독립된 동선을 운영하여 다른 환자와 마주칠 일이 없습니다. 접수부터 수술, 회복, 귀가까지 모든 과정에서 프라이버시가 완벽하게 보호됩니다.
+              많은 분들이 직장 동료나 가족에게 알리지 않고 혼자 내원하십니다. 연세365산부인과의원은 1인 상담실과 독립된 동선을 운영하여 다른 환자와 마주칠 일이 없습니다. 접수부터 수술, 회복, 귀가까지 모든 과정에서 프라이버시가 완벽하게 보호됩니다.
             </p>
             <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '20px' }}>
               미성년자(만 18세 이하)의 경우 원칙적으로 법정대리인(부모 또는 후견인)의 동의서가 필요합니다. 그러나 부모에게 알리기 어려운 특수한 상황이나 강간, 가정폭력 등의 사유가 있는 경우에는 개별 상담을 통해 최선의 방안을 모색합니다. 먼저 전화나 카카오톡으로 상황을 말씀해 주시면 안내드리겠습니다.
@@ -223,7 +223,7 @@ export default function InfoClient() {
                 ))}
               </div>
             </div>
-            <InfoBox>사당역 4번출구 도보 1분 거리로 혼자 대중교통 방문이 매우 편리합니다. 수면마취 후 자가 운전은 절대 불가하오니 대중교통을 이용해 주세요.</InfoBox>
+            <InfoBox>사당역 4번 출구 도보 3분 거리로 혼자 대중교통 방문이 매우 편리합니다. 수면마취 후 자가 운전은 절대 불가하오니 대중교통을 이용해 주세요.</InfoBox>
           </section>
 
           <Divider />
@@ -295,7 +295,7 @@ export default function InfoClient() {
               임신중절수술은 건강보험 비급여 항목으로 분류되어 있어 국민건강보험이 적용되지 않습니다. 이는 임신중절수술이 질병의 치료 목적이 아닌 선택적 의료 시술로 분류되기 때문입니다. 따라서 낙태 비용 가격 전액은 본인 부담으로 지불하셔야 합니다.
             </p>
             <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '14px' }}>
-              실손의료보험도 대부분 임신·출산·피임 관련 항목을 보상 제외로 규정하고 있어 임신중절수술 비용에 대한 실손 적용이 어렵습니다. 가입하신 보험 상품의 약관은 회사마다 다를 수 있으므로 정확한 보험 적용 여부는 가입하신 보험사에 직접 문의하시는 것이 가장 정확합니다. 연세365산부인과는 보험 청구에 필요한 서류 발급을 성실히 협조해 드립니다.
+              실손의료보험도 대부분 임신·출산·피임 관련 항목을 보상 제외로 규정하고 있어 임신중절수술 비용에 대한 실손 적용이 어렵습니다. 가입하신 보험 상품의 약관은 회사마다 다를 수 있으므로 정확한 보험 적용 여부는 가입하신 보험사에 직접 문의하시는 것이 가장 정확합니다. 연세365산부인과의원은 보험 청구에 필요한 서류 발급을 성실히 협조해 드립니다.
             </p>
             <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '20px' }}>
               모자보건법 제14조에서 정한 특수 사유(강간, 근친 임신, 유전적 질환, 모체 건강 위협 등)에 해당하는 경우에는 일부 급여 적용이 가능할 수 있습니다. 이 경우 해당 사유를 증명하는 서류와 함께 보험사에 청구하시면 됩니다. 필요한 진단서, 소견서 등 서류 발급을 성실히 협조해 드리니 내원 시 말씀해 주시기 바랍니다.
@@ -345,13 +345,13 @@ export default function InfoClient() {
             <SectionTag>04 비밀 보장 시스템</SectionTag>
             <h2 style={{ fontSize: '24px', fontWeight: 900, color: C.tm, marginBottom: '8px', letterSpacing: '-.02em' }}>100% 비밀이 보장됩니다</h2>
             <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '14px' }}>
-              임신중절수술을 결심하셨을 때 가장 걱정되는 것 중 하나가 비밀 유지입니다. 가족이나 직장 동료에게 알려질까 걱정하시는 분들이 매우 많습니다. 연세365산부인과는 환자의 프라이버시 보호를 최우선으로 합니다.
+              임신중절수술을 결심하셨을 때 가장 걱정되는 것 중 하나가 비밀 유지입니다. 가족이나 직장 동료에게 알려질까 걱정하시는 분들이 매우 많습니다. 연세365산부인과의원은 환자의 프라이버시 보호를 최우선으로 합니다.
             </p>
             <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '14px' }}>
               모든 상담과 진료 기록은 의료법 제19조에 따라 철저히 보호되며, 본인 동의 없이는 가족을 포함한 누구에게도 공개되지 않습니다. 독립된 1인 상담실에서 비공개 상담이 진행되며, 다른 환자와 마주칠 일이 없도록 동선을 분리하여 운영합니다.
             </p>
             <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '20px' }}>
-              전산 시스템의 개인 정보는 고도의 보안 시스템으로 관리되며, 외부에 절대 유출되지 않습니다. 수술 후 회복 역시 1인 회복실에서 완전한 프라이버시가 보장됩니다. 연세365산부인과를 방문하신 분들의 후기에서 가장 많이 언급되는 키워드가 바로 '비밀보장 철저'입니다.
+              전산 시스템의 개인 정보는 고도의 보안 시스템으로 관리되며, 외부에 절대 유출되지 않습니다. 수술 후 회복 역시 1인 회복실에서 완전한 프라이버시가 보장됩니다. 연세365산부인과의원을 방문하신 분들의 후기에서 가장 많이 언급되는 키워드가 바로 '비밀보장 철저'입니다.
             </p>
 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: '14px', marginBottom: '20px' }}>
@@ -544,7 +544,7 @@ export default function InfoClient() {
 
           <div style={{ background: `linear-gradient(135deg, ${C.pp}, ${C.p})`, borderRadius: '20px', padding: '36px', textAlign: 'center' }}>
             <div style={{ fontSize: '22px', fontWeight: 900, color: '#fff', marginBottom: '6px' }}>연세365산부인과의원</div>
-            <div style={{ fontSize: '13px', color: 'rgba(255,255,255,.85)', marginBottom: '6px' }}>서울 관악구 과천대로 939 3층 · 사당역 4번출구</div>
+            <div style={{ fontSize: '13px', color: 'rgba(255,255,255,.85)', marginBottom: '6px' }}>서울특별시 관악구 과천대로 939, 3층 · 사당역 4번 출구 도보 3분</div>
             <div style={{ fontSize: '12px', color: 'rgba(255,255,255,.7)', marginBottom: '22px' }}>비밀보장 · 혼자 방문 가능 · 당일예약 가능</div>
             <div style={{ display: 'flex', gap: '10px', justifyContent: 'center' }}>
               <a href="http://pf.kakao.com/_TpaBj/chat" target="_blank" rel="noopener noreferrer" style={{ background: '#FEE500', color: '#3B1B1B', fontSize: '14px', fontWeight: 700, padding: '13px 28px', borderRadius: '24px', textDecoration: 'none' }}>💬 카카오톡 상담</a>

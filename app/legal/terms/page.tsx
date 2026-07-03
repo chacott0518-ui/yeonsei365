@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: '이용약관 | 연세365산부인과',
-  description: '연세365산부인과 홈페이지 이용약관입니다.',
+  description: '연세365산부인과의원 홈페이지 이용약관입니다.',
   alternates: { canonical: 'https://www.yeonsei365.com/legal/terms' },
 }
 
@@ -20,19 +20,19 @@ export default function TermsPage() {
         이용약관
       </h1>
       <p style={{ fontSize: '13px', color: '#999', marginBottom: '16px' }}>
-        연세365산부인과 · 시행일자: 2026년 1월 1일
+        연세365산부인과의원 · 시행일자: 2026년 1월 1일
       </p>
 
       <div style={{ background: '#FFF5F7', borderRadius: '12px', padding: '16px 20px', marginBottom: '32px', border: '1px solid #FFE0E8' }}>
         <p style={{ fontSize: '13px', color: '#554455', lineHeight: 1.85 }}>
-          본 약관은 연세365산부인과(이하 "병원")가 운영하는 <strong>www.yeonsei365.com</strong>에서 제공하는 인터넷 관련 서비스 이용조건 및 절차에 관한 사항을 규정합니다.
+          본 약관은 연세365산부인과의원(이하 "병원")가 운영하는 <strong>www.yeonsei365.com</strong>에서 제공하는 인터넷 관련 서비스 이용조건 및 절차에 관한 사항을 규정합니다.
         </p>
       </div>
 
       {[
         {
           title: '제1조 (목적)',
-          content: '본 약관은 이용자가 연세365산부인과에서 제공하는 온라인 서비스를 이용함에 있어 병원과 이용자의 권리·의무 및 책임사항을 규정함을 목적으로 합니다.',
+          content: '본 약관은 이용자가 연세365산부인과의원에서 제공하는 온라인 서비스를 이용함에 있어 병원과 이용자의 권리·의무 및 책임사항을 규정함을 목적으로 합니다.',
         },
         {
           title: '제2조 (회원의 정의)',
@@ -103,7 +103,7 @@ export default function TermsPage() {
       ))}
 
       <div style={{ background: '#FFF5F7', borderRadius: '10px', padding: '14px 18px', fontSize: '12px', color: '#AA5566' }}>
-        시행일자: 2026년 1월 1일 · 연세365산부인과의원 · 서울 관악구 과천대로 939 3층
+        시행일자: 2026년 1월 1일 · 연세365산부인과의원 · 서울특별시 관악구 과천대로 939, 3층
       </div>
 
     </div>

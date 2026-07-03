@@ -25,7 +25,7 @@ export default function AskPage() {
         질문이 접수되었습니다
       </h2>
       <p style={{ fontSize: '14px', color: C.tg, lineHeight: 1.8, marginBottom: '24px' }}>
-        전문의 검토 후 AI 답변이 자동으로 생성됩니다.<br />
+        AI가 일반 건강정보 답변을 생성합니다.<br />
         보통 <strong style={{ color: C.p }}>수분 이내</strong> 게시됩니다.
       </p>
       <Link href="/health-hub" style={{ display: 'inline-block', background: C.p, color: '#fff', fontSize: '14px', fontWeight: 700, padding: '12px 28px', borderRadius: '20px', textDecoration: 'none' }}>
@@ -37,7 +37,7 @@ export default function AskPage() {
   return (
     <>
       <h1 style={{ fontSize: '24px', fontWeight: 900, color: C.tm, marginBottom: '8px' }}>질문 남기기</h1>
-      <p style={{ fontSize: '14px', color: C.tg, marginBottom: '32px', lineHeight: 1.7 }}>산부인과 관련 질문을 남겨주시면 전문의가 검토 후 Q&A 페이지에 답변을 게시합니다.<br /><strong style={{ color: C.pd }}>긴급한 증상은 전화(02-585-3650)로 문의하세요.</strong></p>
+      <p style={{ fontSize: '14px', color: C.tg, marginBottom: '32px', lineHeight: 1.7 }}>산부인과 관련 질문을 남겨주시면 AI가 일반 건강정보 답변을 Q&A 페이지에 게시합니다.<br /><strong style={{ color: C.pd }}>긴급한 증상은 전화(02-585-3650)로 문의하세요.</strong></p>
       <div style={{ display: 'flex', flexDirection: 'column', gap: '20px' }}>
         <div>
           <label style={{ display: 'block', fontSize: '13px', fontWeight: 700, color: C.tm, marginBottom: '8px' }}>카테고리 *</label>

@@ -5,7 +5,7 @@ import ViewCounter from '@/components/ViewCounter'
 
 export const metadata: Metadata = {
   title: '낙태수술 합법화 뜻 시기와 비용 | 임신초기중절수술 병원 | 연세365산부인과',
-  description: '낙태수술 합법화 뜻과 시기, 합법적 조건 4가지, 임신초기중절수술 비용까지 완벽 정리. 8주 미만 45만원. 사당역 4번출구 연세365산부인과 전문의 직접 시행.',
+  description: '낙태수술 합법화 뜻과 시기, 합법적 조건 4가지, 임신초기중절수술 비용까지 완벽 정리. 8주 미만 45만원. 사당역 4번 출구 연세365산부인과의원 일반 건강정보 안내.',
   keywords: [
     // 합법화
     '낙태합법화', '낙태합법', '낙태법', '낙태합법시기', '낙태수술합법',
@@ -63,7 +63,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: '낙태수술 합법화 뜻 시기와 비용 | 임신초기중절수술 병원 | 연세365산부인과',
-    description: '낙태수술 합법화 뜻과 시기, 합법적 조건 4가지, 임신초기중절수술 비용까지 완벽 정리. 8주 미만 45만원. 사당역 4번출구 연세365산부인과 전문의 직접 시행.',
+    description: '낙태수술 합법화 뜻과 시기, 합법적 조건 4가지, 임신초기중절수술 비용까지 완벽 정리. 8주 미만 45만원. 사당역 4번 출구 연세365산부인과의원 일반 건강정보 안내.',
   },
 }
 
@@ -72,8 +72,8 @@ const jsonLd = {
   '@type': 'Article',
   headline: '낙태수술 합법화 뜻 시기와 비용 | 임신초기중절수술 병원',
   description: '낙태수술 합법화 뜻과 시기, 합법적 조건, 임신초기중절수술 비용 안내',
-  author: { '@type': 'Organization', name: '연세365산부인과' },
-  publisher: { '@type': 'Organization', name: '연세365산부인과' },
+  author: { '@type': 'Organization', name: '연세365산부인과의원' },
+  publisher: { '@type': 'Organization', name: '연세365산부인과의원' },
   datePublished: '2026-03-17',
   dateModified: '2026-05-22',
 }
@@ -84,15 +84,15 @@ const faqJsonLd = {
   mainEntity: [
     { '@type': 'Question', name: '낙태수술 합법화는 언제부터인가요?', acceptedAnswer: { '@type': 'Answer', text: '2021년 1월 1일부터 낙태죄 처벌 조항이 효력을 상실했습니다. 헌법재판소의 2019년 헌법불합치 결정에 따른 것으로, 현재 임신 14주 이내 임신중절은 사실상 처벌 공백 상태입니다.' } },
     { '@type': 'Question', name: '합법적으로 낙태수술을 받을 수 있는 조건은?', acceptedAnswer: { '@type': 'Answer', text: '모자보건법 제14조에 따라 ①유전학적·우생학적 질환 ②강간 또는 준강간에 의한 임신 ③혈족·인척 간 임신 ④모체 건강상의 이유 4가지 조건에 해당하면 합법적으로 시술 가능합니다.' } },
-    { '@type': 'Question', name: '임신초기중절수술 비용은 얼마인가요?', acceptedAnswer: { '@type': 'Answer', text: '연세365산부인과 기준 8주 미만 45만원, 8주 60만원, 9주 70만원, 10주 80만원입니다. 영양제와 1인 회복실이 포함된 가격입니다.' } },
+    { '@type': 'Question', name: '임신초기중절수술 비용은 얼마인가요?', acceptedAnswer: { '@type': 'Answer', text: '연세365산부인과의원 기준 8주 미만 45만원, 8주 60만원, 9주 70만원, 10주 80만원입니다. 영양제와 1인 회복실이 포함된 가격입니다.' } },
     { '@type': 'Question', name: '임신초기중절수술 당일 퇴원이 가능한가요?', acceptedAnswer: { '@type': 'Answer', text: '네, 수술 후 회복실에서 안정을 취한 후 당일 퇴원이 가능합니다.' } },
     { '@type': 'Question', name: '혼자 내원해도 되나요?', acceptedAnswer: { '@type': 'Answer', text: '성인이라면 혼자 내원하셔도 됩니다. 다만 수술 후 운전은 불가능하므로 대중교통을 이용하시기 바랍니다.' } },
   ],
 }
 const PAGE_URL = 'https://www.yeonsei365.com/blog/abortion-legal'
 const PAGE_DATE = '2026-03-17'
-const medicalWebPageSchema = { '@context':'https://schema.org','@type':'MedicalWebPage', name:'낙태수술 합법화 뜻 시기와 비용 | 임신초기중절수술 병원 완벽 가이드', url:PAGE_URL, specialty:{'@type':'MedicalSpecialty',name:'산부인과'}, medicalAudience:{'@type':'MedicalAudience',audienceType:'여성 환자'}, lastReviewed:PAGE_DATE, reviewedBy:{'@type':'MedicalOrganization',name:'연세365산부인과',url:'https://www.yeonsei365.com'}, about:{'@type':'MedicalCondition',name:'낙태합법화'} }
-const howToSchema = { '@context':'https://schema.org','@type':'HowTo', name:'합법적 임신중절수술 받는 방법', description:'합법 조건 확인부터 수술까지 단계별 안내', step:[ {'@type':'HowToStep',position:1,name:'합법 조건 확인',text:'임신 14주 이내 또는 모자보건법 제14조 해당 여부를 확인합니다.'}, {'@type':'HowToStep',position:2,name:'산부인과 상담',text:'전문의와 1:1 비밀 상담을 통해 수술 가능 여부를 확인합니다.'}, {'@type':'HowToStep',position:3,name:'수술 진행',text:'합법 조건 확인 후 당일 수술이 가능합니다.'} ], tool:{'@type':'HowToTool',name:'연세365산부인과'} }
+const medicalWebPageSchema = { '@context':'https://schema.org','@type':'MedicalWebPage', name:'낙태수술 합법화 뜻 시기와 비용 | 임신초기중절수술 병원 완벽 가이드', url:PAGE_URL, specialty:{'@type':'MedicalSpecialty',name:'산부인과'}, medicalAudience:{'@type':'MedicalAudience',audienceType:'여성 환자'}, lastReviewed:PAGE_DATE, reviewedBy:{'@type':'MedicalOrganization',name:'연세365산부인과의원',url:'https://www.yeonsei365.com'}, about:{'@type':'MedicalCondition',name:'낙태합법화'} }
+const howToSchema = { '@context':'https://schema.org','@type':'HowTo', name:'합법적 임신중절수술 받는 방법', description:'합법 조건 확인부터 수술까지 단계별 안내', step:[ {'@type':'HowToStep',position:1,name:'합법 조건 확인',text:'임신 14주 이내 또는 모자보건법 제14조 해당 여부를 확인합니다.'}, {'@type':'HowToStep',position:2,name:'산부인과 상담',text:'전문의와 1:1 비밀 상담을 통해 수술 가능 여부를 확인합니다.'}, {'@type':'HowToStep',position:3,name:'수술 진행',text:'합법 조건 확인 후 당일 수술이 가능합니다.'} ], tool:{'@type':'HowToTool',name:'연세365산부인과의원'} }
 const speakableSchema = { '@context':'https://schema.org','@type':'WebPage', name:'낙태수술 합법화 뜻 시기와 비용', url:PAGE_URL, speakable:{'@type':'SpeakableSpecification',cssSelector:['h1','h2']} }
 const breadcrumbSchema = { '@context':'https://schema.org','@type':'BreadcrumbList', itemListElement:[ {'@type':'ListItem',position:1,name:'홈',item:'https://www.yeonsei365.com'}, {'@type':'ListItem',position:2,name:'임신중절수술정보',item:'https://www.yeonsei365.com/blog'}, {'@type':'ListItem',position:3,name:'낙태합법화',item:PAGE_URL} ] }
 function HeroImage() {
@@ -190,7 +190,7 @@ function PriceTable() {
         </div>
       </div>
       <div style={{ padding: '10px 20px 16px', display: 'flex', justifyContent: 'space-between', borderTop: '1px solid #E0F7FA' }}>
-        <span style={{ fontSize: '11px', color: '#80CBC4' }}>📍 사당역 4번출구</span>
+        <span style={{ fontSize: '11px', color: '#80CBC4' }}>📍 사당역 4번 출구</span>
         <span style={{ fontSize: '11px', color: '#80CBC4' }}>📞 02-585-3650</span>
       </div>
     </div>
@@ -237,7 +237,7 @@ function CriteriaCard() {
     { icon: '🔒', title: '완벽한 비밀 보장', desc: '1:1 개인 상담실 운영. 의료법에 따라 개인정보 철저 보호.' },
     { icon: '💰', title: '투명한 비용 공개', desc: '처음 안내한 가격이 최종 가격. 숨겨진 추가 비용 없음.' },
     { icon: '🏥', title: '당일 수술·당일 퇴원', desc: '예약 당일 초음파 확인 후 수술 진행. 불필요한 입원 없음.' },
-    { icon: '📍', title: '사당역 4번출구 도보 2분', desc: '관악구·동작구·서초구·강남·과천 어디서든 접근 편리.' },
+    { icon: '📍', title: '사당역 4번 출구 도보 3분', desc: '관악구·동작구·서초구·강남·과천 어디서든 접근 편리.' },
   ]
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
@@ -316,7 +316,7 @@ export default function AbortionLegalPage() {
           <span style={{ color: '#00897B' }}>임신초기중절수술 병원 완벽 가이드</span>
         </h1>
         <div style={{ fontSize: '12px', color: '#999', marginBottom: '28px' }}>
-          연세365산부인과 · 2026년 3월 업데이트 · <ViewCounter slug="blog-abortion-legal" />
+          연세365산부인과의원 · 2026년 3월 업데이트 · <ViewCounter slug="blog-abortion-legal" />
         </div>
 
         {/* 대표 이미지 */}
@@ -338,7 +338,7 @@ export default function AbortionLegalPage() {
             '5. 흡입식 소파술 과정',
             '6. 임신초기중절수술 병원 선택 기준',
             '7. 수술 후 주의사항',
-            '8. 연세365산부인과 선택 이유',
+            '8. 연세365산부인과의원 선택 이유',
             '9. 자주 묻는 질문',
           ].map((item) => (
             <p key={item} style={{ margin: '5px 0', fontSize: '13px', color: '#004D40' }}>· {item}</p>
@@ -417,7 +417,7 @@ export default function AbortionLegalPage() {
           4. 임신초기중절수술 비용 공개
         </h2>
         <p style={{ marginBottom: '20px' }}>
-          임신초기중절수술 비용은 임신 주수에 따라 달라집니다. 연세365산부인과는 수술비, 영양제, 1인 회복실이 모두 포함된 투명한 가격을 안내드립니다. 주수가 늘어날수록 수술 난이도가 높아지므로 <strong>가능한 한 빠른 결정</strong>을 권장합니다.
+          임신초기중절수술 비용은 임신 주수에 따라 달라집니다. 연세365산부인과의원은 수술비, 영양제, 1인 회복실이 모두 포함된 투명한 가격을 안내드립니다. 주수가 늘어날수록 수술 난이도가 높아지므로 <strong>가능한 한 빠른 결정</strong>을 권장합니다.
         </p>
         <div style={{ marginBottom: '20px' }}>
           <PriceTable />
@@ -439,7 +439,7 @@ export default function AbortionLegalPage() {
           5. 흡입식 소파술 과정
         </h2>
         <p style={{ marginBottom: '16px' }}>
-          연세365산부인과에서 시행하는 임신초기중절수술은 흡입식 소파술 방식입니다. 자궁경부를 통해 흡입 기구를 삽입하여 임신 조직을 제거하는 방식으로 출혈이 적고 회복이 빠릅니다. 전체 내원 시간은 약 2~3시간 내외입니다.
+          연세365산부인과의원에서 시행하는 임신초기중절수술은 흡입식 소파술 방식입니다. 자궁경부를 통해 흡입 기구를 삽입하여 임신 조직을 제거하는 방식으로 출혈이 적고 회복이 빠릅니다. 전체 내원 시간은 약 2~3시간 내외입니다.
         </p>
         <ProcessCard />
         <p style={{ marginBottom: '14px', marginTop: '16px' }}>
@@ -509,14 +509,14 @@ export default function AbortionLegalPage() {
 
         {/* 섹션 8 */}
         <h2 style={{ fontSize: '20px', fontWeight: 900, color: '#1A1A2E', borderLeft: '4px solid #00897B', paddingLeft: '12px', marginBottom: '14px', lineHeight: 1.4 }}>
-          8. 연세365산부인과 선택 이유
+          8. 연세365산부인과의원 선택 이유
         </h2>
         <p style={{ marginBottom: '16px' }}>
-          임신초기중절수술을 결정하셨다면 안전하고 합법적인 환경에서 시술받는 것이 가장 중요합니다. 연세365산부인과를 선택하셔야 하는 이유를 솔직하게 말씀드립니다.
+          임신초기중절수술을 결정하셨다면 안전하고 합법적인 환경에서 시술받는 것이 가장 중요합니다. 연세365산부인과의원을 선택하셔야 하는 이유를 솔직하게 말씀드립니다.
         </p>
         <CriteriaCard />
         <p style={{ marginBottom: '32px', marginTop: '16px', fontSize: '14px', color: '#546E7A' }}>
-          연세365산부인과는 서울 관악구 과천대로 939 3층에 위치합니다. 사당역 4번 출구에서 도보 2분 거리이며 진료 시간은 평일 오전 9시부터 오후 6시까지입니다. 전화 또는 카카오톡으로 편하게 상담 예약하실 수 있습니다.
+          연세365산부인과의원은 서울특별시 관악구 과천대로 939, 3층에 위치합니다. 사당역 4번 출구에서 도보 3분 거리이며 진료 시간은 월~금 10:00~17:30, 토요일 09:00~16:30, 일·공휴일 10:00~14:00(연중무휴)입니다. 전화 또는 카카오톡으로 편하게 상담 예약하실 수 있습니다.
         </p>
 
         {/* 섹션 9 */}
@@ -525,7 +525,7 @@ export default function AbortionLegalPage() {
         </h2>
         {[
           { q: '낙태수술 합법화는 언제부터인가요?', a: '2021년 1월 1일부터 낙태죄 처벌 조항이 효력을 상실했습니다. 헌법재판소의 2019년 헌법불합치 결정에 따른 것으로, 현재 임신 14주 이내는 사실상 처벌 공백 상태입니다.' },
-          { q: '임신초기중절수술 비용이 얼마인가요?', a: '연세365산부인과 기준 8주 미만 45만원, 8주 60만원, 9주 70만원, 10주 80만원입니다. 영양제와 1인 회복실이 포함된 가격이며 추가 비용이 없습니다.' },
+          { q: '임신초기중절수술 비용이 얼마인가요?', a: '연세365산부인과의원 기준 8주 미만 45만원, 8주 60만원, 9주 70만원, 10주 80만원입니다. 영양제와 1인 회복실이 포함된 가격이며 추가 비용이 없습니다.' },
           { q: '혼자 내원해도 되나요?', a: '성인이라면 혼자 내원하셔도 됩니다. 단 수술 후 운전은 불가능하므로 대중교통을 이용하시거나 귀가 시 동행인이 있으면 더 안전합니다.' },
           { q: '수술 당일 퇴원이 가능한가요?', a: '네, 수술 후 회복실에서 1~2시간 안정을 취한 후 당일 퇴원이 가능합니다.' },
           { q: '미성년자도 수술이 가능한가요?', a: '미성년자는 법정대리인의 동의가 필요합니다. 보호자와 함께 내원하셔야 합니다.' },
@@ -548,7 +548,7 @@ export default function AbortionLegalPage() {
             지금 바로 무료 상담 받으세요
           </p>
           <p style={{ color: 'rgba(255,255,255,0.75)', fontSize: '14px', marginBottom: '24px' }}>
-            1:1 비밀 보장 · 당일 수술 가능 · 사당역 4번출구
+            1:1 비밀 보장 · 당일 수술 가능 · 사당역 4번 출구
           </p>
           <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
             <a href="http://pf.kakao.com/_TpaBj/chat" target="_blank" rel="noopener noreferrer"

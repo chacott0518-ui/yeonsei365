@@ -35,7 +35,7 @@ export default function HealthHubLayout({ children }: { children: React.ReactNod
               </div>
               <div style={{ background: `linear-gradient(135deg, ${C.pp}, ${C.p})`, borderRadius: '14px', padding: '18px 16px', textAlign: 'center' }}>
                 <div style={{ fontSize: '12px', fontWeight: 700, color: '#fff', marginBottom: '6px' }}>궁금한 점이 있으신가요?</div>
-                <div style={{ fontSize: '11px', color: 'rgba(255,255,255,.8)', marginBottom: '14px', lineHeight: 1.5 }}>질문을 남기면 전문의가<br />직접 답변해드립니다</div>
+                <div style={{ fontSize: '11px', color: 'rgba(255,255,255,.8)', marginBottom: '14px', lineHeight: 1.5 }}>질문을 남기면 AI가<br />일반 건강정보 답변을 생성합니다</div>
                 <Link href="/health-hub/ask" style={{ display: 'block', background: '#FEE500', color: '#3B1B1B', fontSize: '12px', fontWeight: 700, padding: '9px', borderRadius: '10px', textDecoration: 'none', marginBottom: '8px' }}>질문 남기기</Link>
                 <a href="tel:02-585-3650" style={{ display: 'block', background: 'rgba(255,255,255,.15)', color: '#fff', fontSize: '12px', fontWeight: 600, padding: '9px', borderRadius: '10px', textDecoration: 'none', border: '0.5px solid rgba(255,255,255,.3)' }}>📞 02-585-3650</a>
               </div>

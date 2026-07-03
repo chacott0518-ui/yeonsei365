@@ -5,7 +5,7 @@ import ViewCounter from '@/components/ViewCounter'
 
 export const metadata: Metadata = {
   title: '낙태 비용 가격 총정리 2026 | 주수별 가격 완벽 공개 | 연세365산부인과',
-  description: '낙태 비용 가격을 주수별로 투명하게 공개합니다. 8주 미만 45만원부터 시작. 숨겨진 추가 비용 없이 영양제·회복실 포함. 사당역 4번출구 연세365산부인과.',
+  description: '낙태 비용 가격을 주수별로 투명하게 공개합니다. 8주 미만 45만원부터 시작. 숨겨진 추가 비용 없이 영양제·회복실 포함. 사당역 4번 출구 연세365산부인과의원.',
   keywords: [
     '낙태비용가격', '낙태가격', '낙태금액', '낙태비용', '낙태비용얼마',
     '낙태비용금액', '낙태비용계산', '낙태비용병원', '낙태비용시기',
@@ -42,7 +42,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: '낙태 비용 가격 총정리 2026 | 연세365산부인과',
-    description: '낙태 비용 가격 주수별 투명 공개. 8주 미만 45만원. 사당역 4번출구.',
+    description: '낙태 비용 가격 주수별 투명 공개. 8주 미만 45만원. 사당역 4번 출구.',
     url: 'https://www.yeonsei365.com/blog/abortion-price',
     images: [{ url: 'https://www.yeonsei365.com/og', width: 1200, height: 630 }],
   },
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: '낙태 비용 가격 총정리 2026 | 주수별 가격 완벽 공개 | 연세365산부인과',
-    description: '낙태 비용 가격을 주수별로 투명하게 공개합니다. 8주 미만 45만원부터 시작. 숨겨진 추가 비용 없이 영양제·회복실 포함. 사당역 4번출구 연세365산부인과.',
+    description: '낙태 비용 가격을 주수별로 투명하게 공개합니다. 8주 미만 45만원부터 시작. 숨겨진 추가 비용 없이 영양제·회복실 포함. 사당역 4번 출구 연세365산부인과의원.',
   },
 }
 
@@ -61,8 +61,8 @@ const jsonLd = {
   '@type': 'Article',
   headline: '낙태 비용 가격 총정리 2026',
   description: '주수별 낙태 비용 가격 및 합법적 조건 안내',
-  author: { '@type': 'Organization', name: '연세365산부인과' },
-  publisher: { '@type': 'Organization', name: '연세365산부인과' },
+  author: { '@type': 'Organization', name: '연세365산부인과의원' },
+  publisher: { '@type': 'Organization', name: '연세365산부인과의원' },
   datePublished: '2026-03-16',
   dateModified: '2026-05-22',
 }
@@ -71,7 +71,7 @@ const faqJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
   mainEntity: [
-    { '@type': 'Question', name: '낙태 비용이 얼마인가요?', acceptedAnswer: { '@type': 'Answer', text: '연세365산부인과 낙태 비용은 8주 미만 45만원, 8주 60만원, 9주 70만원, 10주 80만원입니다. 영양제와 1인 회복실이 포함된 가격입니다.' } },
+    { '@type': 'Question', name: '낙태 비용이 얼마인가요?', acceptedAnswer: { '@type': 'Answer', text: '연세365산부인과의원 낙태 비용은 8주 미만 45만원, 8주 60만원, 9주 70만원, 10주 80만원입니다. 영양제와 1인 회복실이 포함된 가격입니다.' } },
     { '@type': 'Question', name: '낙태 수술이 합법인가요?', acceptedAnswer: { '@type': 'Answer', text: '모자보건법 제14조에 따라 일정 조건 하에 합법적으로 임신중절수술을 받을 수 있습니다. 2021년 헌법재판소 결정 이후 임신 14주 이내 임신중절은 처벌 공백 상태입니다.' } },
     { '@type': 'Question', name: '낙태 비용에 추가 비용이 있나요?', acceptedAnswer: { '@type': 'Answer', text: '처음 안내한 가격 외 추가 비용이 없습니다. 수술비, 영양제, 1인 회복실이 모두 포함되어 있습니다.' } },
     { '@type': 'Question', name: '낙태 수술 당일 퇴원이 가능한가요?', acceptedAnswer: { '@type': 'Answer', text: '네, 수술 후 1~2시간 회복실에서 안정을 취한 후 당일 퇴원이 가능합니다.' } },
@@ -80,8 +80,8 @@ const faqJsonLd = {
 }
 const PAGE_URL = 'https://www.yeonsei365.com/blog/abortion-price'
 const PAGE_DATE = '2026-03-16'
-const medicalWebPageSchema = { '@context':'https://schema.org','@type':'MedicalWebPage', name:'낙태 비용 가격 총정리 2026 | 주수별 가격 완벽 공개', url:PAGE_URL, specialty:{'@type':'MedicalSpecialty',name:'산부인과'}, medicalAudience:{'@type':'MedicalAudience',audienceType:'여성 환자'}, lastReviewed:PAGE_DATE, reviewedBy:{'@type':'MedicalOrganization',name:'연세365산부인과',url:'https://www.yeonsei365.com'}, about:{'@type':'MedicalCondition',name:'낙태 비용'} }
-const howToSchema = { '@context':'https://schema.org','@type':'HowTo', name:'낙태 비용 확인 및 예약 방법', description:'낙태 비용 확인부터 예약까지 단계별 안내', step:[ {'@type':'HowToStep',position:1,name:'주수 확인',text:'초음파로 임신 주수를 확인합니다.'}, {'@type':'HowToStep',position:2,name:'비용 안내',text:'8주 미만 45만원부터 주수별 비용을 안내받습니다.'}, {'@type':'HowToStep',position:3,name:'예약 진행',text:'비용 확인 후 당일 예약 및 수술이 가능합니다.'} ], tool:{'@type':'HowToTool',name:'연세365산부인과'} }
+const medicalWebPageSchema = { '@context':'https://schema.org','@type':'MedicalWebPage', name:'낙태 비용 가격 총정리 2026 | 주수별 가격 완벽 공개', url:PAGE_URL, specialty:{'@type':'MedicalSpecialty',name:'산부인과'}, medicalAudience:{'@type':'MedicalAudience',audienceType:'여성 환자'}, lastReviewed:PAGE_DATE, reviewedBy:{'@type':'MedicalOrganization',name:'연세365산부인과의원',url:'https://www.yeonsei365.com'}, about:{'@type':'MedicalCondition',name:'낙태 비용'} }
+const howToSchema = { '@context':'https://schema.org','@type':'HowTo', name:'낙태 비용 확인 및 예약 방법', description:'낙태 비용 확인부터 예약까지 단계별 안내', step:[ {'@type':'HowToStep',position:1,name:'주수 확인',text:'초음파로 임신 주수를 확인합니다.'}, {'@type':'HowToStep',position:2,name:'비용 안내',text:'8주 미만 45만원부터 주수별 비용을 안내받습니다.'}, {'@type':'HowToStep',position:3,name:'예약 진행',text:'비용 확인 후 당일 예약 및 수술이 가능합니다.'} ], tool:{'@type':'HowToTool',name:'연세365산부인과의원'} }
 const speakableSchema = { '@context':'https://schema.org','@type':'WebPage', name:'낙태 비용 가격 총정리 2026', url:PAGE_URL, speakable:{'@type':'SpeakableSpecification',cssSelector:['h1','h2']} }
 const breadcrumbSchema = { '@context':'https://schema.org','@type':'BreadcrumbList', itemListElement:[ {'@type':'ListItem',position:1,name:'홈',item:'https://www.yeonsei365.com'}, {'@type':'ListItem',position:2,name:'임신중절수술정보',item:'https://www.yeonsei365.com/blog'}, {'@type':'ListItem',position:3,name:'낙태 비용 가격',item:PAGE_URL} ] }
 
@@ -132,7 +132,7 @@ function PriceTable() {
         </div>
       </div>
       <div style={{ padding: '10px 20px 16px', display: 'flex', justifyContent: 'space-between', borderTop: '1px solid #F0E8FF' }}>
-        <span style={{ fontSize: '11px', color: '#9980CC' }}>📍 사당역 4번출구</span>
+        <span style={{ fontSize: '11px', color: '#9980CC' }}>📍 사당역 4번 출구</span>
         <span style={{ fontSize: '11px', color: '#9980CC' }}>📞 02-585-3650</span>
       </div>
     </div>
@@ -224,7 +224,7 @@ function ReasonCard() {
     { icon: '🔒', title: '1:1 비밀 보장', desc: '모든 상담과 진료는 철저한 비밀이 보장됩니다.' },
     { icon: '💰', title: '투명한 낙태 비용', desc: '처음 안내한 가격 외 추가 비용이 없습니다.' },
     { icon: '🏥', title: '당일 수술 가능', desc: '예약 당일 수술 후 당일 퇴원이 가능합니다.' },
-    { icon: '📍', title: '사당역 4번출구', desc: '관악구·동작구·서초구·강남·과천에서 편리하게 오실 수 있습니다.' },
+    { icon: '📍', title: '사당역 4번 출구', desc: '관악구·동작구·서초구·강남·과천에서 편리하게 오실 수 있습니다.' },
   ]
   return (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', margin: '0 0 8px' }}>
@@ -296,7 +296,7 @@ export default function AbortionPricePage() {
           <span style={{ color: '#7B35E8' }}>주수별 가격 · 합법 조건 · 포함 항목</span>
         </h1>
         <div style={{ fontSize: '12px', color: '#999', marginBottom: '28px' }}>
-          연세365산부인과 · 2026년 3월 업데이트 · <ViewCounter slug="blog-abortion-price" />
+          연세365산부인과의원 · 2026년 3월 업데이트 · <ViewCounter slug="blog-abortion-price" />
         </div>
 
         {/* 대표 이미지 */}
@@ -318,7 +318,7 @@ export default function AbortionPricePage() {
             '5. 흡입식 소파술 vs 약물중절 비교',
             '6. 수술 당일 과정',
             '7. 수술 후 주의사항',
-            '8. 연세365산부인과 선택 이유',
+            '8. 연세365산부인과의원 선택 이유',
             '9. 자주 묻는 질문',
           ].map((item) => (
             <p key={item} style={{ margin: '5px 0', fontSize: '13px', color: '#554466' }}>· {item}</p>
@@ -333,14 +333,14 @@ export default function AbortionPricePage() {
           인터넷에서 낙태 비용을 검색하면 병원마다 가격이 천차만별이라 어디를 믿어야 할지 막막하신 분들이 많습니다. 어떤 병원은 30만원이라고 하고 어떤 병원은 100만원이 넘기도 합니다.
         </p>
         <p style={{ marginBottom: '14px' }}>
-          낙태 비용 가격이 병원마다 다른 가장 큰 이유는 <strong>포함 항목이 다르기 때문</strong>입니다. 수술비만 표기하고 영양제, 회복실 비용을 별도로 청구하는 병원이 있는 반면 연세365산부인과는 이 모든 항목을 포함한 가격을 처음부터 안내합니다.
+          낙태 비용 가격이 병원마다 다른 가장 큰 이유는 <strong>포함 항목이 다르기 때문</strong>입니다. 수술비만 표기하고 영양제, 회복실 비용을 별도로 청구하는 병원이 있는 반면 연세365산부인과의원은 이 모든 항목을 포함한 가격을 처음부터 안내합니다.
         </p>
         <p style={{ marginBottom: '14px' }}>
           또한 임신 주수에 따라 수술 난이도가 달라지므로 가격도 차이가 납니다. 임신 초기일수록 수술이 간단하고 회복이 빠르며 비용도 저렴합니다. 낙태 비용을 비교할 때는 단순히 숫자만 볼 것이 아니라 <strong>어떤 항목이 포함되어 있는지 반드시 확인</strong>하셔야 합니다.
         </p>
         <div style={{ background: '#F5F0FF', borderRadius: '12px', padding: '16px 18px', marginBottom: '32px', border: '1px solid #E0D0FF' }}>
           <p style={{ fontSize: '13px', color: '#6635AA', margin: 0, lineHeight: 1.8 }}>
-            💜 <strong>연세365산부인과 낙태 비용 원칙</strong><br />
+            💜 <strong>연세365산부인과의원 낙태 비용 원칙</strong><br />
             · 처음 안내한 가격 = 최종 가격<br />
             · 수술비 + 영양제 + 1인 회복실 포함<br />
             · 현금/카드 동일가 · 부가세 포함
@@ -359,7 +359,7 @@ export default function AbortionPricePage() {
         </p>
         <LegalCard />
         <p style={{ marginBottom: '14px', marginTop: '16px' }}>
-          연세365산부인과는 관련 법규를 준수하며 산부인과 전문의가 직접 시술합니다. 안전한 수술 환경과 최신 의료 장비를 갖추고 있으며 수술 전후 충분한 상담과 관리를 제공합니다.
+          연세365산부인과의원은 관련 법규를 준수하며 산부인과 전문의가 직접 시술합니다. 안전한 수술 환경과 최신 의료 장비를 갖추고 있으며 수술 전후 충분한 상담과 관리를 제공합니다.
         </p>
         <div style={{ background: '#F0F8FF', borderRadius: '12px', padding: '16px 18px', marginBottom: '32px', border: '1px solid #C8E0FF' }}>
           <p style={{ fontSize: '13px', color: '#224488', margin: 0, lineHeight: 1.8 }}>
@@ -375,7 +375,7 @@ export default function AbortionPricePage() {
           3. 주수별 낙태 비용 가격 공개
         </h2>
         <p style={{ marginBottom: '20px' }}>
-          연세365산부인과의 낙태 비용 가격은 임신 주수를 기준으로 아래와 같이 책정됩니다. 주수가 늘어날수록 수술 난이도가 높아지므로 <strong>가능한 한 빠르게 결정</strong>하시는 것이 몸에도 비용 면에서도 유리합니다.
+          연세365산부인과의원의 낙태 비용 가격은 임신 주수를 기준으로 아래와 같이 책정됩니다. 주수가 늘어날수록 수술 난이도가 높아지므로 <strong>가능한 한 빠르게 결정</strong>하시는 것이 몸에도 비용 면에서도 유리합니다.
         </p>
         <div style={{ marginBottom: '20px' }}>
           <PriceTable />
@@ -397,7 +397,7 @@ export default function AbortionPricePage() {
           4. 낙태 비용에 포함된 항목 상세
         </h2>
         <p style={{ marginBottom: '16px' }}>
-          연세365산부인과의 낙태 비용에는 아래 모든 항목이 포함되어 있습니다. 수술 후 추가 청구 없이 안심하고 진료받으실 수 있습니다.
+          연세365산부인과의원의 낙태 비용에는 아래 모든 항목이 포함되어 있습니다. 수술 후 추가 청구 없이 안심하고 진료받으실 수 있습니다.
         </p>
         {[
           { title: '수술비', desc: '산부인과 전문의가 직접 시행하는 흡입식 소파술 수술비 전액이 포함되어 있습니다. 원장이 처음부터 끝까지 직접 집도합니다.' },
@@ -482,14 +482,14 @@ export default function AbortionPricePage() {
 
         {/* 섹션 8 */}
         <h2 style={{ fontSize: '20px', fontWeight: 900, color: '#1A0A10', borderLeft: '4px solid #7B35E8', paddingLeft: '12px', marginBottom: '14px', lineHeight: 1.4 }}>
-          8. 연세365산부인과 선택 이유
+          8. 연세365산부인과의원 선택 이유
         </h2>
         <p style={{ marginBottom: '16px' }}>
           낙태 수술을 결정했다면 어느 병원을 선택하느냐가 매우 중요합니다. 합법적이고 안전한 환경에서 수술받으시기 바랍니다.
         </p>
         <ReasonCard />
         <p style={{ marginBottom: '32px', marginTop: '16px', fontSize: '14px' }}>
-          연세365산부인과는 서울 관악구 과천대로 939 3층에 위치하며 사당역 4번 출구에서 도보 2분 거리입니다. 진료 시간은 평일 오전 9시부터 오후 6시까지이며 전화 또는 카카오톡으로 상담 예약이 가능합니다.
+          연세365산부인과의원은 서울특별시 관악구 과천대로 939, 3층에 위치하며 사당역 4번 출구에서 도보 3분 거리입니다. 진료 시간은 월~금 10:00~17:30, 토요일 09:00~16:30, 일·공휴일 10:00~14:00(연중무휴)이며 전화 또는 카카오톡으로 상담 예약이 가능합니다.
         </p>
 
         {/* 섹션 9 - FAQ */}
@@ -518,7 +518,7 @@ export default function AbortionPricePage() {
             지금 바로 무료 상담 받으세요
           </p>
           <p style={{ color: 'rgba(255,255,255,0.85)', fontSize: '14px', marginBottom: '24px' }}>
-            1:1 비밀 보장 · 당일 수술 가능 · 사당역 4번출구
+            1:1 비밀 보장 · 당일 수술 가능 · 사당역 4번 출구
           </p>
           <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
             <a href="http://pf.kakao.com/_TpaBj/chat" target="_blank" rel="noopener noreferrer"

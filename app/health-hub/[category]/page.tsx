@@ -24,18 +24,18 @@ export async function generateMetadata({
   const cat = CATEGORIES[params.category as CategoryKey]
   if (!cat) return {}
   return {
-    title: `${cat.label} Q&A 모음 | 연세365산부인과 건강허브`,
-    description: `사당역 연세365산부인과 전문의가 직접 답변한 ${cat.label} 관련 Q&A 모음입니다. 임신, 피임, 산부인과 질환에 대한 정확한 정보를 확인하세요. 02-585-3650.`,
-    keywords: [cat.label, '산부인과Q&A', '임신중절수술', '사당역산부인과', '연세365산부인과', `${cat.label}질문`, `${cat.label}답변`],
+    title: `${cat.label} Q&A 모음 | 연세365산부인과의원 건강허브`,
+    description: `사당역 연세365산부인과의원 ${cat.label} 관련 일반 건강정보 Q&A 모음입니다. 02-585-3650.`,
+    keywords: [cat.label, '산부인과Q&A', '임신중절수술', '사당역산부인과', '연세365산부인과의원', `${cat.label}질문`, `${cat.label}답변`],
     alternates: { canonical: `${BASE}/health-hub/${params.category}` },
     openGraph: {
-      title: `${cat.label} Q&A | 연세365산부인과`,
-      description: `${cat.label} 관련 전문의 Q&A 모음`,
+      title: `${cat.label} Q&A | 연세365산부인과의원`,
+      description: `${cat.label} 관련 일반 건강정보 Q&A 모음`,
       url: `${BASE}/health-hub/${params.category}`,
       locale: 'ko_KR',
       type: 'website',
     },
-    twitter: { card: 'summary_large_image', title: `${cat.label} Q&A | 연세365산부인과`, description: `${cat.label} 관련 전문의 Q&A. 사당역 연세365산부인과 02-585-3650.` },
+    twitter: { card: 'summary_large_image', title: `${cat.label} Q&A | 연세365산부인과의원`, description: `${cat.label} 관련 일반 건강정보 Q&A. 사당역 연세365산부인과의원 02-585-3650.` },
   }
 }
 const PAGE_DATE = '2026-05-22'
@@ -58,32 +58,32 @@ export default function CategoryPage({
   return (
     <>
     <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context':'https://schema.org','@type':'FAQPage', mainEntity: articles.flatMap(a => a.faq.slice(0,2).map(f => ({'@type':'Question', name:f.q, acceptedAnswer:{'@type':'Answer', text:f.a}}))) }) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context':'https://schema.org','@type':'MedicalWebPage', name:`${cat.label} Q&A | 연세365산부인과`, url:`https://www.yeonsei365.com/health-hub/${params.category}`, specialty:{'@type':'MedicalSpecialty',name:'산부인과'}, medicalAudience:{'@type':'MedicalAudience',audienceType:'여성 환자'}, lastReviewed:PAGE_DATE, reviewedBy:{'@type':'MedicalOrganization',name:'연세365산부인과',url:'https://www.yeonsei365.com'} }) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context':'https://schema.org','@type':'MedicalWebPage', name:`${cat.label} Q&A | 연세365산부인과의원`, url:`https://www.yeonsei365.com/health-hub/${params.category}`, specialty:{'@type':'MedicalSpecialty',name:'산부인과'}, medicalAudience:{'@type':'MedicalAudience',audienceType:'여성 환자'}, lastReviewed:PAGE_DATE, reviewedBy:{'@type':'MedicalOrganization',name:'연세365산부인과의원',url:'https://www.yeonsei365.com'} }) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context':'https://schema.org','@type':'BreadcrumbList', itemListElement:[{'@type':'ListItem',position:1,name:'홈',item:'https://www.yeonsei365.com'},{'@type':'ListItem',position:2,name:'AI 건강 Q&A',item:'https://www.yeonsei365.com/health-hub'},{'@type':'ListItem',position:3,name:`${cat.label}`,item:`https://www.yeonsei365.com/health-hub/${params.category}`}] }) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(clinicSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
   '@context': 'https://schema.org', '@type': 'Article',
-  headline: `${cat.label} Q&A 모음 | 연세365산부인과`,
+  headline: `${cat.label} Q&A 모음 | 연세365산부인과의원`,
   datePublished: PAGE_DATE, dateModified: PAGE_DATE,
   image: `${BASE}/og-image.jpg`,
-  author: { '@type': 'Organization', name: '연세365산부인과', url: BASE },
-  publisher: { '@type': 'MedicalOrganization', name: '연세365산부인과', logo: { '@type': 'ImageObject', url: 'https://i.imgur.com/f7h5DY0.png' } },
+  author: { '@type': 'Organization', name: '연세365산부인과의원', url: BASE },
+  publisher: { '@type': 'MedicalOrganization', name: '연세365산부인과의원', logo: { '@type': 'ImageObject', url: 'https://i.imgur.com/f7h5DY0.png' } },
   mainEntityOfPage: { '@type': 'WebPage', '@id': `${BASE}/health-hub/${params.category}` },
 }) }} />
 <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
   '@context': 'https://schema.org', '@type': 'HowTo',
   name: '임신중절수술 예약 방법',
-  description: '연세365산부인과 임신중절수술 예약부터 수술까지',
+  description: '연세365산부인과의원 임신중절수술 예약부터 수술까지',
   step: [
     { '@type': 'HowToStep', position: 1, name: '상담 예약', text: '전화(02-585-3650) 또는 카카오톡으로 예약합니다.' },
     { '@type': 'HowToStep', position: 2, name: '내원 및 검사', text: '신분증 지참 후 내원. 초음파로 주수 확인 후 비용 안내.' },
     { '@type': 'HowToStep', position: 3, name: '수술 및 귀가', text: '수면마취 후 10~30분 수술. 당일 귀가 가능.' },
   ],
-  tool: { '@type': 'HowToTool', name: '연세365산부인과' },
+  tool: { '@type': 'HowToTool', name: '연세365산부인과의원' },
 }) }} />
 <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
   '@context': 'https://schema.org', '@type': 'WebPage',
-  name: `${cat.label} Q&A | 연세365산부인과`,
+  name: `${cat.label} Q&A | 연세365산부인과의원`,
   url: `${BASE}/health-hub/${params.category}`,
   speakable: { '@type': 'SpeakableSpecification', cssSelector: ['h1', 'h2'] },
 }) }} />
@@ -116,7 +116,7 @@ export default function CategoryPage({
           {cat.label} Q&A
         </h1>
         <p style={{ fontSize: '14px', color: C.tg }}>
-          총 {articles.length}개 Q&A · 연세365산부인과 의료진 감수
+          총 {articles.length}개 Q&A · 일반 건강정보
         </p>
       </div>
 
@@ -153,7 +153,7 @@ export default function CategoryPage({
               wordBreak: 'keep-all',
             }}
           >
-            질문을 남기면 전문의가 직접 답변합니다
+            질문을 남기면 AI가 일반 건강정보 답변을 생성합니다
           </div>
         </div>
         <Link
@@ -205,8 +205,8 @@ export default function CategoryPage({
               wordBreak: 'keep-all',
             }}
           >
-            질문을 남겨주시면 전문의가 검토 후<br />
-            Q&A 페이지에 답변을 게시합니다.
+            질문을 남겨주시면 AI가<br />
+            Q&A 페이지에 일반 건강정보 답변을 게시합니다.
           </div>
           <Link
             href="/health-hub/ask"
@@ -305,7 +305,7 @@ export default function CategoryPage({
                     borderRadius: '8px',
                   }}
                 >
-                  의료진 감수
+                  일반 건강정보
                 </span>
                 <span
                   style={{
@@ -352,7 +352,7 @@ export default function CategoryPage({
             wordBreak: 'keep-all',
           }}
         >
-          사당역 4번출구 · 연세365산부인과
+          사당역 4번 출구 · 연세365산부인과의원
         </div>
         <div
           style={{

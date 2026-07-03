@@ -73,12 +73,12 @@ export default function FaqSlugPage({ params }: Props) {
     image: 'https://www.yeonsei365.com/og-image.jpg',
     author: {
       '@type': 'Organization',
-      name: '연세365산부인과',
+      name: '연세365산부인과의원',
       url: 'https://www.yeonsei365.com',
     },
     publisher: {
       '@type': 'MedicalOrganization',
-      name: '연세365산부인과',
+      name: '연세365산부인과의원',
       logo: { '@type': 'ImageObject', url: 'https://i.imgur.com/f7h5DY0.png' },
     },
     mainEntityOfPage: { '@type': 'WebPage', '@id': PAGE_URL },
@@ -95,7 +95,7 @@ export default function FaqSlugPage({ params }: Props) {
     lastReviewed: '2026-06-01',
     reviewedBy: {
       '@type': 'MedicalOrganization',
-      name: '연세365산부인과',
+      name: '연세365산부인과의원',
       url: 'https://www.yeonsei365.com',
     },
   }
@@ -166,7 +166,7 @@ export default function FaqSlugPage({ params }: Props) {
           {faq.question}
         </h1>
         <div style={{ fontSize: '13px', color: '#999', marginBottom: '32px' }}>
-          연세365산부인과 · 2026-06-01 업데이트 · <ViewCounter slug={`abortion-faq-${params.slug}`} />
+          연세365산부인과의원 · 2026-06-01 업데이트 · <ViewCounter slug={`abortion-faq-${params.slug}`} />
         </div>
 
         {/* aiSummary infobox */}
@@ -219,7 +219,7 @@ export default function FaqSlugPage({ params }: Props) {
         <div style={{ background: 'linear-gradient(135deg, #FF8FAB 0%, #E8305A 100%)', borderRadius: '20px', padding: '32px', textAlign: 'center' }}>
           <p style={{ color: '#fff', fontSize: '20px', fontWeight: 900, marginBottom: '6px' }}>지금 바로 무료 상담 받으세요</p>
           <p style={{ color: 'rgba(255,255,255,0.85)', fontSize: '13px', marginBottom: '20px' }}>
-            비밀 보장 · 당일 수술 가능 · 사당역 4번출구 도보 1분
+            비밀 보장 · 당일 수술 가능 · 사당역 4번 출구 도보 3분
           </p>
           <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
             <a href="http://pf.kakao.com/_TpaBj/chat" target="_blank" rel="noopener noreferrer" style={{ background: '#FEE500', color: '#3B1B1B', padding: '13px 26px', borderRadius: '50px', fontWeight: 700, fontSize: '14px', textDecoration: 'none' }}>

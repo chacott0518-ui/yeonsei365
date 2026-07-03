@@ -6,7 +6,7 @@ import ViewCounter from '@/components/ViewCounter'
 export const metadata: Metadata = {
   title: '임신중절수술 금액과 낙태의 정의 뜻 비용 가격 안내 2026 | 연세365산부인과',
   description:
-    '임신중절수술 금액 8주 미만 45만원부터 주수별 정리. 낙태 정의·뜻·합법 조건·비용 포함 항목까지 전문의가 직접 안내. 사당역 4번출구 연세365산부인과.',
+    '임신중절수술 금액 8주 미만 45만원부터 주수별 정리. 낙태 정의·뜻·합법 조건·비용 포함 항목까지 일반 건강정보 안내. 사당역 4번 출구 연세365산부인과의원.',
   keywords: [
     '임신중절수술금액', '임신중절수술 금액', '낙태금액', '낙태 금액',
     '중절수술금액', '임신중절금액', '낙태비용금액',
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: '임신중절수술 금액과 낙태의 정의 뜻 비용 가격 안내 2026 | 연세365산부인과',
-    description: '임신중절수술 금액 주수별 정리. 8주 미만 45만원. 낙태 정의·뜻·합법조건 안내. 사당역 4번출구.',
+    description: '임신중절수술 금액 주수별 정리. 8주 미만 45만원. 낙태 정의·뜻·합법조건 안내. 사당역 4번 출구.',
     url: 'https://www.yeonsei365.com/blog/abortion-amount',
     images: [{
       url: 'https://www.yeonsei365.com/og-image.jpg',
@@ -38,7 +38,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: '임신중절수술 금액과 낙태의 정의 뜻 비용 가격 안내 2026 | 연세365산부인과',
     description:
-      '임신중절수술 금액 8주 미만 45만원부터 주수별 정리. 낙태 정의·뜻·합법 조건·비용 포함 항목까지 전문의가 직접 안내. 사당역 4번출구 연세365산부인과.',
+      '임신중절수술 금액 8주 미만 45만원부터 주수별 정리. 낙태 정의·뜻·합법 조건·비용 포함 항목까지 일반 건강정보 안내. 사당역 4번 출구 연세365산부인과의원.',
   },
 }
 
@@ -52,7 +52,7 @@ const medicalWebPageSchema = {
   specialty: { '@type': 'MedicalSpecialty', name: '산부인과' },
   medicalAudience: { '@type': 'MedicalAudience', audienceType: '여성 환자' },
   lastReviewed: PAGE_DATE,
-  reviewedBy: { '@type': 'MedicalOrganization', name: '연세365산부인과', url: 'https://www.yeonsei365.com' },
+  reviewedBy: { '@type': 'MedicalOrganization', name: '연세365산부인과의원', url: 'https://www.yeonsei365.com' },
   about: { '@type': 'MedicalCondition', name: '임신중절수술 금액' },
 }
 const howToSchema = {
@@ -65,7 +65,7 @@ const howToSchema = {
     { '@type': 'HowToStep', position: 3, name: '금액 안내', text: '주수에 따른 임신중절수술 금액을 안내받습니다. 8주 미만 45만원.' },
     { '@type': 'HowToStep', position: 4, name: '수술 당일', text: '6시간 금식 후 내원하여 수술을 진행합니다.' },
   ],
-  tool: { '@type': 'HowToTool', name: '연세365산부인과' },
+  tool: { '@type': 'HowToTool', name: '연세365산부인과의원' },
 }
 const speakableSchema = {
   '@context': 'https://schema.org', '@type': 'WebPage',
@@ -86,8 +86,8 @@ const jsonLd = {
   '@type': 'Article',
   headline: '임신중절수술 금액과 낙태의 정의 뜻 비용 가격 안내 2026',
   description: '임신중절수술 금액 주수별 정리 및 낙태 정의·뜻·합법 조건 안내',
-  author: { '@type': 'Organization', name: '연세365산부인과' },
-  publisher: { '@type': 'Organization', name: '연세365산부인과' },
+  author: { '@type': 'Organization', name: '연세365산부인과의원' },
+  publisher: { '@type': 'Organization', name: '연세365산부인과의원' },
   datePublished: '2026-04-01',
   dateModified: '2026-05-22',
 }
@@ -109,7 +109,7 @@ const faqJsonLd = {
     {
       '@type': 'Question',
       name: '임신중절수술 금액에 포함된 항목은 무엇인가요?',
-      acceptedAnswer: { '@type': 'Answer', text: '연세365산부인과의 임신중절수술 금액에는 수술비, 마취비, 영양수액이 모두 포함됩니다. 현금과 카드 금액이 동일하며 숨겨진 추가 비용은 없습니다. 선택 항목으로 유착방지제 5만원이 있습니다.' }
+      acceptedAnswer: { '@type': 'Answer', text: '연세365산부인과의원의 임신중절수술 금액에는 수술비, 마취비, 영양수액이 모두 포함됩니다. 현금과 카드 금액이 동일하며 숨겨진 추가 비용은 없습니다. 선택 항목으로 유착방지제 5만원이 있습니다.' }
     },
     {
       '@type': 'Question',
@@ -183,7 +183,7 @@ function PriceTable() {
         </div>
       </div>
       <div style={{ padding: '10px 20px 16px', display: 'flex', justifyContent: 'space-between', borderTop: '1px solid #FFF0F4' }}>
-        <span style={{ fontSize: '11px', color: '#BB7788' }}>📍 사당역 4번출구</span>
+        <span style={{ fontSize: '11px', color: '#BB7788' }}>📍 사당역 4번 출구</span>
         <span style={{ fontSize: '11px', color: '#BB7788' }}>📞 02-585-3650</span>
       </div>
     </div>
@@ -239,12 +239,12 @@ export default function AbortionAmountPage() {
           <span style={{ color: '#C2185B' }}>비용·가격 안내 2026</span>
         </h1>
         <div style={{ fontSize: '13px', color: '#999', marginBottom: '20px' }}>
-          연세365산부인과 · 2026년 4월 업데이트 · <ViewCounter slug="blog-abortion-amount" />
+          연세365산부인과의원 · 2026년 4월 업데이트 · <ViewCounter slug="blog-abortion-amount" />
         </div>
 
         {/* 도입부 — 첫 200자에 "금액" 2회 이상 */}
         <p style={{ fontSize: '16px', marginBottom: '32px', background: '#FFF5F7', borderRadius: '12px', padding: '20px', border: '1px solid #FFE0E8' }}>
-          <strong>임신중절수술 금액</strong>은 임신 주수에 따라 45만원~80만원입니다. 정확한 <strong>임신중절수술 금액</strong>은 초음파 검사로 주수 확인 후 안내드리며, 연세365산부인과는 현금·카드 동일 금액, 추가 비용 없는 투명한 가격 정책을 시행합니다.
+          <strong>임신중절수술 금액</strong>은 임신 주수에 따라 45만원~80만원입니다. 정확한 <strong>임신중절수술 금액</strong>은 초음파 검사로 주수 확인 후 안내드리며, 연세365산부인과의원은 현금·카드 동일 금액, 추가 비용 없는 투명한 가격 정책을 시행합니다.
         </p>
 
         {/* 대표 이미지 */}
@@ -298,7 +298,7 @@ export default function AbortionAmountPage() {
           2. 임신중절수술 금액 주수별 정리
         </h2>
         <p style={{ marginBottom: '16px', fontSize: '16px' }}>
-          <strong>임신중절수술 금액</strong>은 임신 주수에 따라 달라집니다. 연세365산부인과의 주수별 <strong>임신중절수술 금액</strong>은 아래와 같습니다.
+          <strong>임신중절수술 금액</strong>은 임신 주수에 따라 달라집니다. 연세365산부인과의원의 주수별 <strong>임신중절수술 금액</strong>은 아래와 같습니다.
         </p>
         <div style={{ marginBottom: '24px' }}>
           <PriceTable />
@@ -320,7 +320,7 @@ export default function AbortionAmountPage() {
           3. 임신중절수술 금액에 포함된 항목
         </h2>
         <p style={{ marginBottom: '16px', fontSize: '16px' }}>
-          연세365산부인과의 <strong>임신중절수술 금액</strong>에는 아래 항목이 모두 포함되어 있어 추가 비용 없이 안심하고 수술받으실 수 있습니다.
+          연세365산부인과의원의 <strong>임신중절수술 금액</strong>에는 아래 항목이 모두 포함되어 있어 추가 비용 없이 안심하고 수술받으실 수 있습니다.
         </p>
         {[
           { title: '수술비', desc: '산부인과 전문의 직접 시행 수술비 전액 포함' },
@@ -418,7 +418,7 @@ export default function AbortionAmountPage() {
         {[
           { q: '임신중절수술 금액이 얼마인가요?', a: '임신중절수술 금액은 8주 미만 45만원, 8주 60만원, 9주 70만원, 10주 80만원입니다. 임신중절수술 금액에는 수술비·마취비·영양수액이 포함되며 현금과 카드 금액이 동일합니다. 선택 항목으로 유착방지제 5만원이 있습니다.' },
           { q: '낙태란 무엇인가요? 낙태의 정의와 뜻은?', a: '낙태(인공임신중절)란 태아가 모체 밖에서 생존할 수 없는 시기에 인위적으로 임신을 종료하는 의료 행위입니다. 2021년 낙태합법화 이후 임신 14주 이내는 본인 결정으로 가능합니다.' },
-          { q: '임신중절수술 금액 외 추가 비용이 있나요?', a: '연세365산부인과는 상담 시 안내한 임신중절수술 금액 외 추가 비용이 일절 없습니다. 현금과 카드 금액이 동일합니다.' },
+          { q: '임신중절수술 금액 외 추가 비용이 있나요?', a: '연세365산부인과의원은 상담 시 안내한 임신중절수술 금액 외 추가 비용이 일절 없습니다. 현금과 카드 금액이 동일합니다.' },
           { q: '임신중절수술 금액은 왜 주수마다 다른가요?', a: '주수가 늘수록 태아 크기가 커지고 수술 난이도와 마취 시간이 늘어나 임신중절수술 금액이 높아집니다. 주수가 적을수록 금액이 낮고 회복도 빠릅니다.' },
           { q: '합법적 낙태 조건은 무엇인가요?', a: '모자보건법 제14조에 따라 유전성 질환, 전염성 질환, 강간·준강간에 의한 임신, 근친 간 임신 4가지 조건과 임신 14주 이내 본인 결정으로 가능합니다.' },
           { q: '당일 수술이 가능한가요?', a: '네, 당일 예약·검사·수술이 가능합니다. 단, 수술 6시간 전 금식이 필요합니다.' },
@@ -440,7 +440,7 @@ export default function AbortionAmountPage() {
             임신중절수술 금액 · 지금 바로 상담받으세요
           </p>
           <p style={{ color: 'rgba(255,255,255,0.85)', fontSize: '14px', marginBottom: '24px' }}>
-            1:1 비밀 보장 · 당일 수술 가능 · 사당역 4번출구
+            1:1 비밀 보장 · 당일 수술 가능 · 사당역 4번 출구
           </p>
           <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
             <a href="http://pf.kakao.com/_TpaBj/chat" target="_blank" rel="noopener noreferrer"

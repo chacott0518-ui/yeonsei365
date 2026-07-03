@@ -21,7 +21,7 @@ export default function ColumnClient() {
         <span style={{ display: 'inline-block', background: C.p, color: '#fff', fontSize: '11px', fontWeight: 700, padding: '4px 14px', borderRadius: '20px', marginBottom: '14px' }}>건강 칼럼</span>
         <h1 style={{ color: '#fff', fontSize: '32px', fontWeight: 900, marginBottom: '10px', letterSpacing: '-.02em' }}>여성 건강 칼럼</h1>
         <p style={{ color: 'rgba(255,255,255,.8)', fontSize: '14px', lineHeight: 1.7 }}>
-          연세365산부인과 전문의가 직접 작성한 여성 건강 정보<br />
+          연세365산부인과의원에서 제공하는 여성 건강 정보<br />
           사당역 4번출구 · 02-585-3650 · <ViewCounter slug="health-magazine-column" />
         </p>
       </div>
@@ -101,7 +101,7 @@ export default function ColumnClient() {
           }}>
             <div style={{ fontSize: '36px', marginBottom: '12px' }}>✍️</div>
             <div style={{ fontSize: '14px', fontWeight: 700, color: C.pd, marginBottom: '6px' }}>새 칼럼 준비 중</div>
-            <div style={{ fontSize: '12px', color: C.tg }}>전문의가 작성 중인<br />칼럼이 곧 게시됩니다</div>
+            <div style={{ fontSize: '12px', color: C.tg }}>일반 건강정보 칼럼이<br />곧 게시됩니다</div>
           </div>
         </div>
 

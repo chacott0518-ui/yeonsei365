@@ -20,7 +20,7 @@ export const CLINIC_ALTERNATE_NAMES = [
 
 export const CLINIC_ADDRESS = {
   '@type': 'PostalAddress' as const,
-  streetAddress: '과천대로 939 3층 306호, 307호, 308호',
+  streetAddress: '과천대로 939, 3층',
   addressLocality: '관악구',
   addressRegion: '서울특별시',
   postalCode: '08790',
@@ -36,7 +36,7 @@ export const clinicSchema = {
   url: BASE_URL,
   telephone: CLINIC_PHONE,
   image: 'https://i.imgur.com/f7h5DY0.png',
-  description: '사당역 4번출구 도보 3분. 연중무휴·일요일 수술 가능. 임신중절수술·여성클리닉 전문. 비밀보장.',
+  description: '사당역 4번 출구 도보 3분. 연중무휴·일요일 수술 가능. 임신중절수술·여성클리닉 전문. 비밀보장.',
   address: CLINIC_ADDRESS,
   geo: { '@type': 'GeoCoordinates', latitude: 37.4875, longitude: 126.9822 },
   openingHoursSpecification: [

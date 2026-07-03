@@ -16,9 +16,9 @@ export default function HealthHubPage() {
   return (
     <>
       <div id="hh-hero" style={{ background: `linear-gradient(135deg, ${C.pp}, #993556, ${C.p})`, borderRadius: '20px', padding: '40px 28px', marginBottom: '32px' }}>
-        <div style={{ fontSize: '11px', fontWeight: 700, color: 'rgba(255,255,255,.7)', letterSpacing: '.08em', marginBottom: '10px' }}>연세365산부인과 · AI 건강 Q&A</div>
+        <div style={{ fontSize: '11px', fontWeight: 700, color: 'rgba(255,255,255,.7)', letterSpacing: '.08em', marginBottom: '10px' }}>연세365산부인과의원 · AI 건강 Q&A</div>
         <h1 style={{ color: '#fff', fontSize: 'clamp(20px, 3vw, 26px)', fontWeight: 900, lineHeight: 1.35, marginBottom: '10px' }}>산부인과 건강 정보 허브</h1>
-        <p style={{ color: 'rgba(255,255,255,.85)', fontSize: '14px', lineHeight: 1.7, marginBottom: '20px' }}>임신·피임·산부인과 질환·수술·여성건강<br />전문의가 직접 답변한 Q&A를 확인하세요</p>
+        <p style={{ color: 'rgba(255,255,255,.85)', fontSize: '14px', lineHeight: 1.7, marginBottom: '20px' }}>임신·피임·산부인과 질환·수술·여성건강<br />일반 건강정보 Q&A를 확인하세요</p>
         <Link href="/health-hub/ask" style={{ display: 'inline-block', background: '#FEE500', color: '#3B1B1B', fontSize: '14px', fontWeight: 700, padding: '11px 24px', borderRadius: '24px', textDecoration: 'none' }}>내 질문 남기기 →</Link>
       </div>
 
@@ -37,11 +37,11 @@ export default function HealthHubPage() {
       </div>
 
       <div id="hh-ask-mob" style={{ display: 'none', marginBottom: '20px' }}>
-        <Link href="/health-hub/ask" style={{ display: 'block', background: C.p, color: '#fff', fontSize: '15px', fontWeight: 700, padding: '14px', borderRadius: '12px', textDecoration: 'none', textAlign: 'center' }}>✏️ 전문의에게 질문 남기기 →</Link>
+        <Link href="/health-hub/ask" style={{ display: 'block', background: C.p, color: '#fff', fontSize: '15px', fontWeight: 700, padding: '14px', borderRadius: '12px', textDecoration: 'none', textAlign: 'center' }}>✏️ 질문 남기기 →</Link>
       </div>
 
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '12px' }}>
-        <div style={{ fontSize: '15px', fontWeight: 700, color: C.tm }}>전문의 실시간 Q&A</div>
+        <div style={{ fontSize: '15px', fontWeight: 700, color: C.tm }}>AI 건강 Q&A</div>
         <span style={{ fontSize: '11px', color: C.tg }}>총 {total}개</span>
       </div>
 

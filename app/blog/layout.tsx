@@ -7,7 +7,7 @@ export const metadata: Metadata = {
         url: 'https://www.yeonsei365.com/og-image.jpg',
         width: 1200,
         height: 630,
-        alt: '연세365산부인과 임신중절수술 비용 안내',
+        alt: '연세365산부인과의원 임신중절수술 비용 안내',
       },
     ],
   },

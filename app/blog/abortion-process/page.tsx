@@ -5,14 +5,14 @@ import ViewCounter from '@/components/ViewCounter'
 
 export const metadata: Metadata = {
   title: '임신중절수술 절차 | 수술 과정 단계별 완벽 안내 2026 | 연세365산부인과',
-  description: '임신중절수술 절차를 단계별로 완벽하게 안내합니다. 내원부터 퇴원까지 전 과정, 소요 시간, 준비사항까지. 사당역 4번출구 연세365산부인과.',
+  description: '임신중절수술 절차를 단계별로 완벽하게 안내합니다. 내원부터 퇴원까지 전 과정, 소요 시간, 준비사항까지. 사당역 4번 출구 연세365산부인과의원.',
   keywords: ['임신중절수술절차','임신중절수술 절차','낙태수술절차','임신중절과정','낙태수술과정','임신중절수술과정','낙태절차','임신중절수술순서','낙태수술순서','임신중절수술방법','흡입술과정','소파술과정','임신중절수술소요시간','사당역산부인과','임신중절수술비용','낙태비용'],
-  openGraph: { title: '임신중절수술 절차 | 단계별 완벽 안내 | 연세365산부인과', description: '임신중절수술 절차 단계별 완벽 안내. 사당역 4번출구.', url: 'https://www.yeonsei365.com/blog/abortion-process', images: [{ url: 'https://www.yeonsei365.com/og-image.jpg', width: 1200, height: 630 }] },
+  openGraph: { title: '임신중절수술 절차 | 단계별 완벽 안내 | 연세365산부인과', description: '임신중절수술 절차 단계별 완벽 안내. 사당역 4번 출구.', url: 'https://www.yeonsei365.com/blog/abortion-process', images: [{ url: 'https://www.yeonsei365.com/og-image.jpg', width: 1200, height: 630 }] },
   alternates: { canonical: 'https://www.yeonsei365.com/blog/abortion-process' },
   twitter: {
     card: 'summary_large_image',
     title: '임신중절수술 절차 | 수술 과정 단계별 완벽 안내 2026 | 연세365산부인과',
-    description: '임신중절수술 절차를 단계별로 완벽하게 안내합니다. 내원부터 퇴원까지 전 과정, 소요 시간, 준비사항까지. 사당역 4번출구 연세365산부인과.',
+    description: '임신중절수술 절차를 단계별로 완벽하게 안내합니다. 내원부터 퇴원까지 전 과정, 소요 시간, 준비사항까지. 사당역 4번 출구 연세365산부인과의원.',
   },
 }
 
@@ -26,9 +26,9 @@ const jsonLd = {
 const PAGE_URL = 'https://www.yeonsei365.com/blog/abortion-process'
 const PAGE_DATE = '2026-04-10'
 const PAGE_MODIFIED = '2026-05-22'
-const articleSchema = { '@context':'https://schema.org','@type':'Article', headline:'임신중절수술 절차 | 수술 과정 단계별 완벽 안내 2026', datePublished:PAGE_DATE, dateModified:PAGE_MODIFIED, image:'https://www.yeonsei365.com/og-image.jpg', author:{'@type':'Organization',name:'연세365산부인과',url:'https://www.yeonsei365.com'}, publisher:{'@type':'MedicalOrganization',name:'연세365산부인과',logo:{'@type':'ImageObject',url:'https://i.imgur.com/f7h5DY0.png'}}, mainEntityOfPage:{'@type':'WebPage','@id':PAGE_URL}, url:PAGE_URL }
-const medicalWebPageSchema = { '@context':'https://schema.org','@type':'MedicalWebPage', name:'임신중절수술 절차 | 수술 과정 단계별 완벽 안내 2026', url:PAGE_URL, specialty:{'@type':'MedicalSpecialty',name:'산부인과'}, medicalAudience:{'@type':'MedicalAudience',audienceType:'여성 환자'}, lastReviewed:PAGE_DATE, reviewedBy:{'@type':'MedicalOrganization',name:'연세365산부인과',url:'https://www.yeonsei365.com'}, about:{'@type':'MedicalCondition',name:'임신중절수술 절차'} }
-const howToSchema = { '@context':'https://schema.org','@type':'HowTo', name:'임신중절수술 절차', description:'임신중절수술 내원부터 퇴원까지 단계별 안내', step:[ {'@type':'HowToStep',position:1,name:'내원 및 접수',text:'신분증 지참 후 내원하여 동의서를 작성합니다.'}, {'@type':'HowToStep',position:2,name:'초음파·혈액 검사',text:'초음파로 임신 주수를 확인하고 혈액 검사를 진행합니다.'}, {'@type':'HowToStep',position:3,name:'수술 및 회복',text:'수면마취 후 10~30분 수술, 1~2시간 회복 후 당일 퇴원합니다.'} ], tool:{'@type':'HowToTool',name:'연세365산부인과'} }
+const articleSchema = { '@context':'https://schema.org','@type':'Article', headline:'임신중절수술 절차 | 수술 과정 단계별 완벽 안내 2026', datePublished:PAGE_DATE, dateModified:PAGE_MODIFIED, image:'https://www.yeonsei365.com/og-image.jpg', author:{'@type':'Organization',name:'연세365산부인과의원',url:'https://www.yeonsei365.com'}, publisher:{'@type':'MedicalOrganization',name:'연세365산부인과의원',logo:{'@type':'ImageObject',url:'https://i.imgur.com/f7h5DY0.png'}}, mainEntityOfPage:{'@type':'WebPage','@id':PAGE_URL}, url:PAGE_URL }
+const medicalWebPageSchema = { '@context':'https://schema.org','@type':'MedicalWebPage', name:'임신중절수술 절차 | 수술 과정 단계별 완벽 안내 2026', url:PAGE_URL, specialty:{'@type':'MedicalSpecialty',name:'산부인과'}, medicalAudience:{'@type':'MedicalAudience',audienceType:'여성 환자'}, lastReviewed:PAGE_DATE, reviewedBy:{'@type':'MedicalOrganization',name:'연세365산부인과의원',url:'https://www.yeonsei365.com'}, about:{'@type':'MedicalCondition',name:'임신중절수술 절차'} }
+const howToSchema = { '@context':'https://schema.org','@type':'HowTo', name:'임신중절수술 절차', description:'임신중절수술 내원부터 퇴원까지 단계별 안내', step:[ {'@type':'HowToStep',position:1,name:'내원 및 접수',text:'신분증 지참 후 내원하여 동의서를 작성합니다.'}, {'@type':'HowToStep',position:2,name:'초음파·혈액 검사',text:'초음파로 임신 주수를 확인하고 혈액 검사를 진행합니다.'}, {'@type':'HowToStep',position:3,name:'수술 및 회복',text:'수면마취 후 10~30분 수술, 1~2시간 회복 후 당일 퇴원합니다.'} ], tool:{'@type':'HowToTool',name:'연세365산부인과의원'} }
 const speakableSchema = { '@context':'https://schema.org','@type':'WebPage', name:'임신중절수술 절차 | 수술 과정 단계별 완벽 안내 2026', url:PAGE_URL, speakable:{'@type':'SpeakableSpecification',cssSelector:['h1','h2']} }
 const breadcrumbSchema = { '@context':'https://schema.org','@type':'BreadcrumbList', itemListElement:[ {'@type':'ListItem',position:1,name:'홈',item:'https://www.yeonsei365.com'}, {'@type':'ListItem',position:2,name:'임신중절수술정보',item:'https://www.yeonsei365.com/blog'}, {'@type':'ListItem',position:3,name:'임신중절수술 절차',item:PAGE_URL} ] }
 const C = { p: '#CC2D5E', pd: '#8C1A4A', pp: '#4A0E2E', pb: '#FCE8EF', pt: '#B0456E', bd: '#FFE0E8', tm: '#1A0A10', ts: '#444455', tm2: '#888' }
@@ -131,8 +131,8 @@ export default function AbortionProcessPage() {
           </div>
         </div>
         <div style={{ background: `linear-gradient(135deg, ${C.pp}, ${C.p})`, borderRadius: '20px', padding: 'clamp(24px,5vw,36px)', textAlign: 'center', color: '#fff' }}>
-          <div style={{ fontSize: 'clamp(18px,4vw,22px)', fontWeight: 900, marginBottom: '8px' }}>연세365산부인과</div>
-          <div style={{ fontSize: '14px', opacity: 0.85, marginBottom: '24px', lineHeight: 1.8 }}>사당역 4번출구 도보 2분 · 당일예약·당일시술<br />모든 상담은 철저히 비밀이 보장됩니다</div>
+          <div style={{ fontSize: 'clamp(18px,4vw,22px)', fontWeight: 900, marginBottom: '8px' }}>연세365산부인과의원</div>
+          <div style={{ fontSize: '14px', opacity: 0.85, marginBottom: '24px', lineHeight: 1.8 }}>사당역 4번 출구 도보 3분 · 당일예약·당일시술<br />모든 상담은 철저히 비밀이 보장됩니다</div>
           <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
             <a href="http://pf.kakao.com/_TpaBj/chat" target="_blank" rel="noopener noreferrer" style={{ background: '#FEE500', color: '#3B1B1B', fontSize: '15px', fontWeight: 700, padding: '14px 28px', borderRadius: '24px', textDecoration: 'none' }}>💬 카카오톡 상담</a>
             <a href="tel:02-585-3650" style={{ background: 'transparent', color: '#fff', fontSize: '15px', border: '1px solid rgba(255,255,255,0.5)', padding: '14px 28px', borderRadius: '24px', textDecoration: 'none' }}>📞 02-585-3650</a>

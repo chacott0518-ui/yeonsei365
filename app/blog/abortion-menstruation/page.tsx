@@ -5,14 +5,14 @@ import ViewCounter from '@/components/ViewCounter'
 
 export const metadata: Metadata = {
   title: '임신중절수술 후 생리 | 재개 시기·주기 변화 완벽 안내 2026 | 연세365산부인과',
-  description: '임신중절수술 후 생리 재개 시기, 생리량·주기 변화, 정상 범위, 이상 증상까지 완벽하게 안내합니다. 사당역 4번출구 연세365산부인과.',
+  description: '임신중절수술 후 생리 재개 시기, 생리량·주기 변화, 정상 범위, 이상 증상까지 완벽하게 안내합니다. 사당역 4번 출구 연세365산부인과의원.',
   keywords: ['임신중절수술후생리','임신중절수술 후 생리','낙태후생리','낙태수술후생리','중절수술후생리','임신중절후생리재개','낙태후생리주기','임신중절수술생리언제','낙태후첫생리','임신중절수술생리불순','낙태후생리불순','사당역산부인과','임신중절수술비용','낙태비용'],
-  openGraph: { title: '임신중절수술 후 생리 | 재개 시기 안내 | 연세365산부인과', description: '임신중절수술 후 생리 재개 시기·주기 변화 완벽 안내. 사당역 4번출구.', url: 'https://www.yeonsei365.com/blog/abortion-menstruation', images: [{ url: 'https://www.yeonsei365.com/og-image.jpg', width: 1200, height: 630 }] },
+  openGraph: { title: '임신중절수술 후 생리 | 재개 시기 안내 | 연세365산부인과', description: '임신중절수술 후 생리 재개 시기·주기 변화 완벽 안내. 사당역 4번 출구.', url: 'https://www.yeonsei365.com/blog/abortion-menstruation', images: [{ url: 'https://www.yeonsei365.com/og-image.jpg', width: 1200, height: 630 }] },
   alternates: { canonical: 'https://www.yeonsei365.com/blog/abortion-menstruation' },
   twitter: {
     card: 'summary_large_image',
     title: '임신중절수술 후 생리 | 재개 시기·주기 변화 완벽 안내 2026 | 연세365산부인과',
-    description: '임신중절수술 후 생리 재개 시기, 생리량·주기 변화, 정상 범위, 이상 증상까지 완벽하게 안내합니다. 사당역 4번출구 연세365산부인과.',
+    description: '임신중절수술 후 생리 재개 시기, 생리량·주기 변화, 정상 범위, 이상 증상까지 완벽하게 안내합니다. 사당역 4번 출구 연세365산부인과의원.',
   },
 }
 
@@ -27,9 +27,9 @@ const jsonLd = {
 const PAGE_URL = 'https://www.yeonsei365.com/blog/abortion-menstruation'
 const PAGE_DATE = '2026-04-10'
 const PAGE_MODIFIED = '2026-05-22'
-const articleSchema = { '@context':'https://schema.org','@type':'Article', headline:'임신중절수술 후 생리 | 재개 시기·주기 변화 완벽 안내 2026', datePublished:PAGE_DATE, dateModified:PAGE_MODIFIED, image:'https://www.yeonsei365.com/og-image.jpg', author:{'@type':'Organization',name:'연세365산부인과',url:'https://www.yeonsei365.com'}, publisher:{'@type':'MedicalOrganization',name:'연세365산부인과',logo:{'@type':'ImageObject',url:'https://i.imgur.com/f7h5DY0.png'}}, mainEntityOfPage:{'@type':'WebPage','@id':PAGE_URL}, url:PAGE_URL }
-const medicalWebPageSchema = { '@context':'https://schema.org','@type':'MedicalWebPage', name:'임신중절수술 후 생리 | 재개 시기·주기 변화 완벽 안내 2026', url:PAGE_URL, specialty:{'@type':'MedicalSpecialty',name:'산부인과'}, medicalAudience:{'@type':'MedicalAudience',audienceType:'여성 환자'}, lastReviewed:PAGE_DATE, reviewedBy:{'@type':'MedicalOrganization',name:'연세365산부인과',url:'https://www.yeonsei365.com'}, about:{'@type':'MedicalCondition',name:'임신중절수술 후 생리'} }
-const howToSchema = { '@context':'https://schema.org','@type':'HowTo', name:'임신중절수술 후 생리 회복 관리 방법', description:'임신중절수술 후 생리 회복 단계별 안내', step:[ {'@type':'HowToStep',position:1,name:'수술 후 안정',text:'수술 후 4~6주 내 첫 생리가 시작됩니다.'}, {'@type':'HowToStep',position:2,name:'이상 증상 확인',text:'생리가 2개월 이상 없거나 과다출혈 시 즉시 내원합니다.'}, {'@type':'HowToStep',position:3,name:'피임 시작',text:'다음 생리 전까지 반드시 피임합니다.'} ], tool:{'@type':'HowToTool',name:'연세365산부인과'} }
+const articleSchema = { '@context':'https://schema.org','@type':'Article', headline:'임신중절수술 후 생리 | 재개 시기·주기 변화 완벽 안내 2026', datePublished:PAGE_DATE, dateModified:PAGE_MODIFIED, image:'https://www.yeonsei365.com/og-image.jpg', author:{'@type':'Organization',name:'연세365산부인과의원',url:'https://www.yeonsei365.com'}, publisher:{'@type':'MedicalOrganization',name:'연세365산부인과의원',logo:{'@type':'ImageObject',url:'https://i.imgur.com/f7h5DY0.png'}}, mainEntityOfPage:{'@type':'WebPage','@id':PAGE_URL}, url:PAGE_URL }
+const medicalWebPageSchema = { '@context':'https://schema.org','@type':'MedicalWebPage', name:'임신중절수술 후 생리 | 재개 시기·주기 변화 완벽 안내 2026', url:PAGE_URL, specialty:{'@type':'MedicalSpecialty',name:'산부인과'}, medicalAudience:{'@type':'MedicalAudience',audienceType:'여성 환자'}, lastReviewed:PAGE_DATE, reviewedBy:{'@type':'MedicalOrganization',name:'연세365산부인과의원',url:'https://www.yeonsei365.com'}, about:{'@type':'MedicalCondition',name:'임신중절수술 후 생리'} }
+const howToSchema = { '@context':'https://schema.org','@type':'HowTo', name:'임신중절수술 후 생리 회복 관리 방법', description:'임신중절수술 후 생리 회복 단계별 안내', step:[ {'@type':'HowToStep',position:1,name:'수술 후 안정',text:'수술 후 4~6주 내 첫 생리가 시작됩니다.'}, {'@type':'HowToStep',position:2,name:'이상 증상 확인',text:'생리가 2개월 이상 없거나 과다출혈 시 즉시 내원합니다.'}, {'@type':'HowToStep',position:3,name:'피임 시작',text:'다음 생리 전까지 반드시 피임합니다.'} ], tool:{'@type':'HowToTool',name:'연세365산부인과의원'} }
 const speakableSchema = { '@context':'https://schema.org','@type':'WebPage', name:'임신중절수술 후 생리 | 재개 시기·주기 변화 완벽 안내 2026', url:PAGE_URL, speakable:{'@type':'SpeakableSpecification',cssSelector:['h1','h2']} }
 const breadcrumbSchema = { '@context':'https://schema.org','@type':'BreadcrumbList', itemListElement:[ {'@type':'ListItem',position:1,name:'홈',item:'https://www.yeonsei365.com'}, {'@type':'ListItem',position:2,name:'임신중절수술정보',item:'https://www.yeonsei365.com/blog'}, {'@type':'ListItem',position:3,name:'임신중절수술 후 생리',item:PAGE_URL} ] }
 const C = { p: '#CC2D5E', pd: '#8C1A4A', pp: '#4A0E2E', pb: '#FCE8EF', pt: '#B0456E', bd: '#FFE0E8', tm: '#1A0A10', ts: '#444455', tm2: '#888' }
@@ -124,7 +124,7 @@ export default function AbortionMenstruationPage() {
         <section style={{ marginBottom: '36px' }}>
           <SH n="3" title="생리 전 피임이 반드시 필요한 이유" />
           <p style={bt}>임신중절수술 후 첫 생리가 시작되기 전에도 배란이 일어날 수 있습니다. 수술 후 호르몬 수치가 회복되면서 배란이 예상보다 일찍 시작될 수 있으며, 이 경우 첫 생리 전에 임신이 가능합니다.</p>
-          <p style={bt}>수술 후 원치 않는 재임신을 방지하기 위해 반드시 피임을 하시기 바랍니다. 피임 방법에 대해서는 전문의와 상담하여 본인에게 맞는 방법을 선택하세요. 연세365산부인과에서는 수술 후 피임 상담도 함께 제공하고 있습니다.</p>
+          <p style={bt}>수술 후 원치 않는 재임신을 방지하기 위해 반드시 피임을 하시기 바랍니다. 피임 방법에 대해서는 전문의와 상담하여 본인에게 맞는 방법을 선택하세요. 연세365산부인과의원에서는 수술 후 피임 상담도 함께 제공하고 있습니다.</p>
           <WBox>⚠ 수술 후 첫 생리 전에도 임신이 가능합니다. 성관계를 재개하기 전 반드시 피임을 시작하세요.</WBox>
         </section>
         <Divider />
@@ -150,8 +150,8 @@ export default function AbortionMenstruationPage() {
           </div>
         </div>
         <div style={{ background: `linear-gradient(135deg, ${C.pp}, ${C.p})`, borderRadius: '20px', padding: 'clamp(24px,5vw,36px)', textAlign: 'center', color: '#fff' }}>
-          <div style={{ fontSize: 'clamp(18px,4vw,22px)', fontWeight: 900, marginBottom: '8px' }}>연세365산부인과</div>
-          <div style={{ fontSize: '14px', opacity: 0.85, marginBottom: '24px', lineHeight: 1.8 }}>사당역 4번출구 도보 2분 · 당일예약·당일시술<br />모든 상담은 철저히 비밀이 보장됩니다</div>
+          <div style={{ fontSize: 'clamp(18px,4vw,22px)', fontWeight: 900, marginBottom: '8px' }}>연세365산부인과의원</div>
+          <div style={{ fontSize: '14px', opacity: 0.85, marginBottom: '24px', lineHeight: 1.8 }}>사당역 4번 출구 도보 3분 · 당일예약·당일시술<br />모든 상담은 철저히 비밀이 보장됩니다</div>
           <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
             <a href="http://pf.kakao.com/_TpaBj/chat" target="_blank" rel="noopener noreferrer" style={{ background: '#FEE500', color: '#3B1B1B', fontSize: '15px', fontWeight: 700, padding: '14px 28px', borderRadius: '24px', textDecoration: 'none' }}>💬 카카오톡 상담</a>
             <a href="tel:02-585-3650" style={{ background: 'transparent', color: '#fff', fontSize: '15px', border: '1px solid rgba(255,255,255,0.5)', padding: '14px 28px', borderRadius: '24px', textDecoration: 'none' }}>📞 02-585-3650</a>

@@ -23,12 +23,12 @@ export async function generateMetadata({ params }: { params: { category: string;
   if (!a) return {}
   const url = `${BASE}/health-hub/${params.category}/${params.slug}`
   return {
-    title: `${a.title} | 연세365산부인과`,
+    title: `${a.title} | 연세365산부인과의원`,
     description: a.description,
     keywords: a.keywords,
     alternates: { canonical: url },
     openGraph: {
-      title: `${a.title} | 연세365산부인과`,
+      title: `${a.title} | 연세365산부인과의원`,
       description: a.description,
       url,
       images: [{ url: a.heroImage || `${BASE}/og-image.jpg`, width: 1200, height: 630 }],
@@ -148,8 +148,8 @@ export default function ArticlePage({ params }: { params: { category: string; sl
       headline: article.title, description: article.description,
       datePublished: article.lastModified, dateModified: article.lastModified,
       image: article.heroImage || `${BASE}/og-image.jpg`,
-      author: { '@type': 'Organization', name: '연세365산부인과', url: BASE },
-      publisher: { '@type': 'MedicalOrganization', name: '연세365산부인과', logo: { '@type': 'ImageObject', url: `${BASE}/logo.png` } },
+      author: { '@type': 'Organization', name: '연세365산부인과의원', url: BASE },
+      publisher: { '@type': 'MedicalOrganization', name: '연세365산부인과의원', logo: { '@type': 'ImageObject', url: `${BASE}/logo.png` } },
       mainEntityOfPage: { '@type': 'WebPage', '@id': url },
       keywords: article.keywords.join(', '),
     },
@@ -166,25 +166,25 @@ export default function ArticlePage({ params }: { params: { category: string; sl
       specialty: { '@type': 'MedicalSpecialty', name: '산부인과' },
       medicalAudience: { '@type': 'MedicalAudience', audienceType: '여성 환자' },
       lastReviewed: article.lastModified,
-      reviewedBy: { '@type': 'MedicalOrganization', name: '연세365산부인과' },
+      reviewedBy: { '@type': 'MedicalOrganization', name: '연세365산부인과의원' },
     },
     {
       '@context': 'https://schema.org', '@type': 'MedicalClinic',
-      name: '연세365산부인과', url: BASE, telephone: '02-585-3650',
-      address: { '@type': 'PostalAddress', streetAddress: '과천대로 939 3층', addressLocality: '관악구', addressRegion: '서울', addressCountry: 'KR' },
+      name: '연세365산부인과의원', url: BASE, telephone: '02-585-3650',
+      address: { '@type': 'PostalAddress', streetAddress: '과천대로 939, 3층', addressLocality: '관악구', addressRegion: '서울특별시', addressCountry: 'KR' },
       geo: { '@type': 'GeoCoordinates', latitude: 37.4875, longitude: 126.9822 },
       openingHours: ['Mo-Fr 10:00-17:30', 'Sa 09:00-16:30', 'Su,PH 10:00-14:00'],
     },
     {
       '@context': 'https://schema.org', '@type': 'HowTo',
       name: '임신중절수술 예약 방법',
-      description: '연세365산부인과 임신중절수술 예약부터 수술까지',
+      description: '연세365산부인과의원 임신중절수술 예약부터 수술까지',
       step: [
         { '@type': 'HowToStep', position: 1, name: '상담 예약', text: '전화(02-585-3650) 또는 카카오톡으로 예약합니다.' },
         { '@type': 'HowToStep', position: 2, name: '내원 및 검사', text: '신분증 지참 후 내원. 초음파로 주수 확인 후 비용 안내.' },
         { '@type': 'HowToStep', position: 3, name: '수술 및 귀가', text: '수면마취 후 10~30분 수술. 당일 귀가 가능.' },
       ],
-      tool: { '@type': 'HowToTool', name: '연세365산부인과' },
+      tool: { '@type': 'HowToTool', name: '연세365산부인과의원' },
     },
     {
       '@context': 'https://schema.org', '@type': 'WebPage',
@@ -260,7 +260,7 @@ export default function ArticlePage({ params }: { params: { category: string; sl
           {article.title}
         </h1>
         <p style={{ fontSize: '12px', color: C.tg, marginBottom: 0 }}>
-          {article.lastModified} · 내부 검토 · <ViewCounter slug={`health-hub-${params.category}-${params.slug}`} />
+          {article.lastModified} · 일반 건강정보 · <ViewCounter slug={`health-hub-${params.category}-${params.slug}`} />
         </p>
       </div>
 
@@ -377,7 +377,7 @@ export default function ArticlePage({ params }: { params: { category: string; sl
       {/* ── CTA 하단 ── */}
       <div style={{ background: `linear-gradient(135deg, ${C.pp}, ${C.p})`, borderRadius: '20px', padding: '28px 24px', textAlign: 'center' }}>
         <div style={{ fontSize: '16px', fontWeight: 900, color: '#fff', marginBottom: '6px' }}>더 궁금한 점이 있으신가요?</div>
-        <div style={{ fontSize: '12px', color: 'rgba(255,255,255,.8)', marginBottom: '18px' }}>사당역 4번출구 · 연세365산부인과 · 당일 예약 가능</div>
+        <div style={{ fontSize: '12px', color: 'rgba(255,255,255,.8)', marginBottom: '18px' }}>사당역 4번 출구 도보 3분 · 연세365산부인과의원 · 당일 예약 가능</div>
         <div className="article-cta-btns" style={{ display: 'flex', gap: '8px', justifyContent: 'center', flexWrap: 'wrap' }}>
           <a href="http://pf.kakao.com/_TpaBj/chat" target="_blank" rel="noopener noreferrer"
             style={{ background: '#FEE500', color: '#3B1B1B', fontSize: '13px', fontWeight: 700, padding: '11px 20px', borderRadius: '24px', textDecoration: 'none' }}>

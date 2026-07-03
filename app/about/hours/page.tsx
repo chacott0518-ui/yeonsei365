@@ -3,17 +3,17 @@ import Link from 'next/link'
 import { clinicSchema } from '@/lib/schemas'
 
 export const metadata: Metadata = {
-  title: '진료시간 안내 | 연세365산부인과',
-  description: '연세365산부인과 진료시간. 월~금 10:00~17:30, 토요일 09:00~16:30, 일·공휴일 10:00~14:00. 연중무휴 365일. 일요일 수술 가능. 02-585-3650.',
+  title: '진료시간 안내 | 연세365산부인과의원',
+  description: '연세365산부인과의원 진료시간. 월~금 10:00~17:30, 토요일 09:00~16:30, 일·공휴일 10:00~14:00. 연중무휴 365일. 일요일 수술 가능. 02-585-3650.',
   alternates: { canonical: 'https://www.yeonsei365.com/about/hours' },
-  openGraph: { title: '진료시간 안내 | 연세365산부인과', url: 'https://www.yeonsei365.com/about/hours', images: [{ url: 'https://www.yeonsei365.com/og-image.jpg', width: 1200, height: 630 }] },
+  openGraph: { title: '진료시간 안내 | 연세365산부인과의원', url: 'https://www.yeonsei365.com/about/hours', images: [{ url: 'https://www.yeonsei365.com/og-image.jpg', width: 1200, height: 630 }] },
 }
 
 const faqSchema = {
   '@context': 'https://schema.org', '@type': 'FAQPage',
   mainEntity: [
-    { '@type': 'Question', name: '연세365산부인과 진료시간이 어떻게 되나요?', acceptedAnswer: { '@type': 'Answer', text: '월~금 오전 10시~오후 5시 30분, 토요일 오전 9시~오후 4시 30분, 일·공휴일 오전 10시~오후 2시입니다. 연중무휴 365일 운영하며 일요일에도 수술이 가능합니다. 전화(02-585-3650) 또는 카카오톡으로 예약하세요.' } },
-    { '@type': 'Question', name: '연세365산부인과 일요일에도 진료하나요?', acceptedAnswer: { '@type': 'Answer', text: '네, 일요일과 공휴일에도 오전 10시~오후 2시 운영합니다. 일요일에도 수술이 가능합니다. 방문 전 02-585-3650으로 확인하세요.' } },
+    { '@type': 'Question', name: '연세365산부인과의원 진료시간이 어떻게 되나요?', acceptedAnswer: { '@type': 'Answer', text: '월~금 오전 10시~오후 5시 30분, 토요일 오전 9시~오후 4시 30분, 일·공휴일 오전 10시~오후 2시입니다. 연중무휴 365일 운영하며 일요일에도 수술이 가능합니다. 전화(02-585-3650) 또는 카카오톡으로 예약하세요.' } },
+    { '@type': 'Question', name: '연세365산부인과의원 일요일에도 진료하나요?', acceptedAnswer: { '@type': 'Answer', text: '네, 일요일과 공휴일에도 오전 10시~오후 2시 운영합니다. 일요일에도 수술이 가능합니다. 방문 전 02-585-3650으로 확인하세요.' } },
     { '@type': 'Question', name: '당일 예약도 가능한가요?', acceptedAnswer: { '@type': 'Answer', text: '네, 당일 예약과 수술 모두 가능합니다. 전화(02-585-3650) 또는 카카오톡으로 금식 여부와 예약 가능 시간을 먼저 확인하시면 빠르게 진행할 수 있습니다.' } },
   ],
 }
@@ -45,7 +45,7 @@ export default function HoursPage() {
           진료시간 안내<br />
           <span style={{ color: '#E8305A' }}>연중무휴 365일 운영</span>
         </h1>
-        <p style={{ fontSize: '13px', color: '#999', marginBottom: '28px' }}>연세365산부인과 · 02-585-3650</p>
+        <p style={{ fontSize: '13px', color: '#999', marginBottom: '28px' }}>연세365산부인과의원 · 02-585-3650</p>
 
         <div style={{ display: 'flex', gap: '6px', flexWrap: 'nowrap', marginBottom: '32px', overflow: 'hidden' }}>
           {subMenus.map(({ label, href, active }) => (
@@ -94,7 +94,7 @@ export default function HoursPage() {
         <div style={{ marginBottom: '32px' }}>
           {[
             { icon: '📞', title: '전화 예약', desc: '02-585-3650으로 전화하시면 바로 예약이 가능합니다. 당일 예약도 가능합니다.' },
-            { icon: '💬', title: '카카오톡 예약', desc: '카카오톡 채널에서 연세365산부인과를 검색하거나 아래 버튼을 눌러 상담하세요. 24시간 문의 가능합니다.' },
+            { icon: '💬', title: '카카오톡 예약', desc: '카카오톡 채널에서 연세365산부인과의원을 검색하거나 아래 버튼을 눌러 상담하세요. 24시간 문의 가능합니다.' },
             { icon: '🚶', title: '당일 방문', desc: '예약 없이 당일 방문도 가능합니다. 다만 대기 시간이 발생할 수 있으므로 사전 예약을 권장합니다.' },
           ].map(({ icon, title, desc }) => (
             <div key={title} style={{ display: 'flex', gap: '14px', marginBottom: '10px', padding: '16px 18px', background: '#FFFAFB', borderRadius: '12px', border: '1px solid #FFE0E8' }}>
@@ -110,7 +110,7 @@ export default function HoursPage() {
         <h2 style={{ fontSize: 'clamp(18px,4vw,22px)', fontWeight: 800, borderLeft: '4px solid #E8305A', paddingLeft: '14px', marginBottom: '16px' }}>자주 묻는 질문</h2>
         <div style={{ marginBottom: '32px' }}>
           {[
-            { q: '연세365산부인과 진료시간이 어떻게 되나요?', a: '월~금 오전 10시~오후 5시 30분, 토요일 오전 9시~오후 4시 30분, 일·공휴일 오전 10시~오후 2시입니다. 연중무휴 365일 운영하며 일요일에도 수술이 가능합니다.' },
+            { q: '연세365산부인과의원 진료시간이 어떻게 되나요?', a: '월~금 오전 10시~오후 5시 30분, 토요일 오전 9시~오후 4시 30분, 일·공휴일 오전 10시~오후 2시입니다. 연중무휴 365일 운영하며 일요일에도 수술이 가능합니다.' },
             { q: '일요일에도 진료하나요?', a: '네, 일요일과 공휴일에도 오전 10시~오후 2시 운영합니다. 일요일에도 수술이 가능합니다. 방문 전 02-585-3650으로 확인하세요.' },
             { q: '당일 예약도 가능한가요?', a: '네, 당일 예약과 수술 모두 가능합니다. 전화(02-585-3650) 또는 카카오톡으로 금식 여부와 예약 가능 시간을 먼저 확인하시면 빠르게 진행할 수 있습니다.' },
           ].map((item, i) => (

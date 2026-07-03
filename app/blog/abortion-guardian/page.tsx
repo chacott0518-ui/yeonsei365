@@ -5,14 +5,14 @@ import ViewCounter from '@/components/ViewCounter'
 
 export const metadata: Metadata = {
   title: '임신중절수술 보호자 | 혼자 가능한가? 동반 여부 완벽 안내 2026 | 연세365산부인과',
-  description: '임신중절수술 보호자 동반 여부를 완벽하게 안내합니다. 성인 혼자 가능 여부, 미성년자 보호자 필요 여부, 수술 후 귀가까지. 사당역 4번출구 연세365산부인과.',
+  description: '임신중절수술 보호자 동반 여부를 완벽하게 안내합니다. 성인 혼자 가능 여부, 미성년자 보호자 필요 여부, 수술 후 귀가까지. 사당역 4번 출구 연세365산부인과의원.',
   keywords: ['임신중절수술보호자','임신중절수술 보호자','낙태수술보호자','임신중절보호자','낙태보호자','임신중절수술혼자','낙태혼자가능','임신중절수술혼자가능','낙태수술혼자','임신중절수술미성년자','낙태미성년자','임신중절수술동반','사당역산부인과','임신중절수술비용','낙태비용'],
-  openGraph: { title: '임신중절수술 보호자 | 혼자 가능한가? | 연세365산부인과', description: '임신중절수술 보호자 동반 여부 완벽 안내. 사당역 4번출구.', url: 'https://www.yeonsei365.com/blog/abortion-guardian', images: [{ url: 'https://www.yeonsei365.com/og-image.jpg', width: 1200, height: 630 }] },
+  openGraph: { title: '임신중절수술 보호자 | 혼자 가능한가? | 연세365산부인과', description: '임신중절수술 보호자 동반 여부 완벽 안내. 사당역 4번 출구.', url: 'https://www.yeonsei365.com/blog/abortion-guardian', images: [{ url: 'https://www.yeonsei365.com/og-image.jpg', width: 1200, height: 630 }] },
   alternates: { canonical: 'https://www.yeonsei365.com/blog/abortion-guardian' },
   twitter: {
     card: 'summary_large_image',
     title: '임신중절수술 보호자 | 혼자 가능한가? 동반 여부 완벽 안내 2026 | 연세365산부인과',
-    description: '임신중절수술 보호자 동반 여부를 완벽하게 안내합니다. 성인 혼자 가능 여부, 미성년자 보호자 필요 여부, 수술 후 귀가까지. 사당역 4번출구 연세365산부인과.',
+    description: '임신중절수술 보호자 동반 여부를 완벽하게 안내합니다. 성인 혼자 가능 여부, 미성년자 보호자 필요 여부, 수술 후 귀가까지. 사당역 4번 출구 연세365산부인과의원.',
   },
 }
 
@@ -25,8 +25,8 @@ const articleSchema = {
   headline: '임신중절수술 보호자 | 혼자 가능한가? 동반 여부 완벽 안내 2026',
   datePublished: PAGE_DATE, dateModified: PAGE_MODIFIED,
   image: 'https://www.yeonsei365.com/og-image.jpg',
-  author: { '@type': 'Organization', name: '연세365산부인과', url: 'https://www.yeonsei365.com' },
-  publisher: { '@type': 'MedicalOrganization', name: '연세365산부인과', logo: { '@type': 'ImageObject', url: 'https://i.imgur.com/f7h5DY0.png' } },
+  author: { '@type': 'Organization', name: '연세365산부인과의원', url: 'https://www.yeonsei365.com' },
+  publisher: { '@type': 'MedicalOrganization', name: '연세365산부인과의원', logo: { '@type': 'ImageObject', url: 'https://i.imgur.com/f7h5DY0.png' } },
   mainEntityOfPage: { '@type': 'WebPage', '@id': PAGE_URL }, url: PAGE_URL,
 }
 const medicalWebPageSchema = {
@@ -36,7 +36,7 @@ const medicalWebPageSchema = {
   specialty: { '@type': 'MedicalSpecialty', name: '산부인과' },
   medicalAudience: { '@type': 'MedicalAudience', audienceType: '여성 환자' },
   lastReviewed: PAGE_DATE,
-  reviewedBy: { '@type': 'MedicalOrganization', name: '연세365산부인과', url: 'https://www.yeonsei365.com' },
+  reviewedBy: { '@type': 'MedicalOrganization', name: '연세365산부인과의원', url: 'https://www.yeonsei365.com' },
   about: { '@type': 'MedicalCondition', name: '임신중절수술 보호자 동반' },
 }
 const howToSchema = {
@@ -46,9 +46,9 @@ const howToSchema = {
   step: [
     { '@type': 'HowToStep', position: 1, name: '예약', text: '전화(02-585-3650) 또는 카카오톡으로 예약합니다.' },
     { '@type': 'HowToStep', position: 2, name: '신분증 지참', text: '성인은 신분증만 지참하면 혼자 내원 가능합니다.' },
-    { '@type': 'HowToStep', position: 3, name: '대중교통 이용', text: '수술 후 운전 불가. 사당역 4번출구 도보 2분 거리입니다.' },
+    { '@type': 'HowToStep', position: 3, name: '대중교통 이용', text: '수술 후 운전 불가. 사당역 4번 출구 도보 3분 거리입니다.' },
   ],
-  tool: { '@type': 'HowToTool', name: '연세365산부인과' },
+  tool: { '@type': 'HowToTool', name: '연세365산부인과의원' },
 }
 const speakableSchema = {
   '@context': 'https://schema.org', '@type': 'WebPage',
@@ -134,7 +134,7 @@ export default function AbortionGuardianPage() {
               </div>
             ))}
           </div>
-          <IBox>수술 후 운전은 절대 금지입니다. 혼자 내원하시는 경우 반드시 대중교통(지하철·버스·택시)을 이용하여 귀가하세요. 사당역 4번출구에서 도보 2분 거리에 위치합니다.</IBox>
+          <IBox>수술 후 운전은 절대 금지입니다. 혼자 내원하시는 경우 반드시 대중교통(지하철·버스·택시)을 이용하여 귀가하세요. 사당역 4번 출구에서 도보 3분 거리에 위치합니다.</IBox>
         </section>
         <Divider />
         <section style={{ marginBottom: '36px' }}>
@@ -167,8 +167,8 @@ export default function AbortionGuardianPage() {
           </div>
         </div>
         <div style={{ background: `linear-gradient(135deg, ${C.pp}, ${C.p})`, borderRadius: '20px', padding: 'clamp(24px,5vw,36px)', textAlign: 'center', color: '#fff' }}>
-          <div style={{ fontSize: 'clamp(18px,4vw,22px)', fontWeight: 900, marginBottom: '8px' }}>연세365산부인과</div>
-          <div style={{ fontSize: '14px', opacity: 0.85, marginBottom: '24px', lineHeight: 1.8 }}>사당역 4번출구 도보 2분 · 당일예약·당일시술<br />모든 상담은 철저히 비밀이 보장됩니다</div>
+          <div style={{ fontSize: 'clamp(18px,4vw,22px)', fontWeight: 900, marginBottom: '8px' }}>연세365산부인과의원</div>
+          <div style={{ fontSize: '14px', opacity: 0.85, marginBottom: '24px', lineHeight: 1.8 }}>사당역 4번 출구 도보 3분 · 당일예약·당일시술<br />모든 상담은 철저히 비밀이 보장됩니다</div>
           <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
             <a href="http://pf.kakao.com/_TpaBj/chat" target="_blank" rel="noopener noreferrer" style={{ background: '#FEE500', color: '#3B1B1B', fontSize: '15px', fontWeight: 700, padding: '14px 28px', borderRadius: '24px', textDecoration: 'none' }}>💬 카카오톡 상담</a>
             <a href="tel:02-585-3650" style={{ background: 'transparent', color: '#fff', fontSize: '15px', border: '1px solid rgba(255,255,255,0.5)', padding: '14px 28px', borderRadius: '24px', textDecoration: 'none' }}>📞 02-585-3650</a>

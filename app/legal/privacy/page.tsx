@@ -3,7 +3,7 @@ import Link from 'next/link'
 
 export const metadata: Metadata = {
   title: '개인정보처리방침 | 연세365산부인과',
-  description: '연세365산부인과 개인정보처리방침입니다. 수집 항목, 이용 목적, 보유 기간을 안내합니다.',
+  description: '연세365산부인과의원 개인정보처리방침입니다. 수집 항목, 이용 목적, 보유 기간을 안내합니다.',
   alternates: { canonical: 'https://www.yeonsei365.com/legal/privacy' },
 }
 
@@ -20,12 +20,12 @@ export default function PrivacyPage() {
         개인정보처리방침
       </h1>
       <p style={{ fontSize: '13px', color: '#999', marginBottom: '16px' }}>
-        연세365산부인과 · 시행일자: 2026년 1월 1일
+        연세365산부인과의원 · 시행일자: 2026년 1월 1일
       </p>
 
       <div style={{ background: '#FFF5F7', borderRadius: '12px', padding: '16px 20px', marginBottom: '32px', border: '1px solid #FFE0E8' }}>
         <p style={{ fontSize: '13px', color: '#554455', lineHeight: 1.85 }}>
-          연세365산부인과(이하 "본원")는 개인정보 보호를 매우 중요하게 생각합니다. 통신비밀보호법, 전기통신사업법, 정보통신망 이용촉진 등에 관한 법률, 개인정보보호법을 준수합니다.
+          연세365산부인과의원(이하 "본원")는 개인정보 보호를 매우 중요하게 생각합니다. 통신비밀보호법, 전기통신사업법, 정보통신망 이용촉진 등에 관한 법률, 개인정보보호법을 준수합니다.
         </p>
       </div>
 
@@ -111,7 +111,7 @@ export default function PrivacyPage() {
           title: '10. 개인정보관리책임자',
           content: `관리책임자: 대표원장 이진우
 소속: 연세365산부인과의원
-주소: 서울 관악구 과천대로 939 3층
+주소: 서울특별시 관악구 과천대로 939, 3층
 전화: 02-585-3650
 
 개인정보 침해 신고 기관:

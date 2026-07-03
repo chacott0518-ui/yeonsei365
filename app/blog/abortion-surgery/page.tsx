@@ -5,7 +5,7 @@ import ViewCounter from '@/components/ViewCounter'
 
 export const metadata: Metadata = {
   title: '임신중절수술 금액·합법기간·방법 안내 | 연세365산부인과',
-  description: '임신중절수술 금액 8주 미만 45만원. 합법 가능 기간, 합법 조건, 흡입술·소파술 방법, 수술 절차, 수술 후 관리, 부작용, 보험, 금식까지 투명하게 안내합니다. 사당역 4번출구 연세365산부인과.',
+  description: '임신중절수술 금액 8주 미만 45만원. 합법 가능 기간, 합법 조건, 흡입술·소파술 방법, 수술 절차, 수술 후 관리, 부작용, 보험, 금식까지 투명하게 안내합니다. 사당역 4번 출구 연세365산부인과의원.',
   keywords: [
     '임신중절수술', '임신중절수술금액', '임신중절수술 금액', '임신중절수술합법기간',
     '임신중절수술 합법기간', '임신중절수술기간', '임신중절수술방법', '임신중절수술 방법',
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: '임신중절수술 금액·합법기간·방법 안내 | 연세365산부인과',
-    description: '임신중절수술 금액 8주 미만 45만원. 합법 가능 기간, 합법 조건, 흡입술·소파술 방법, 수술 절차, 수술 후 관리, 부작용, 보험, 금식까지 투명하게 안내합니다. 사당역 4번출구 연세365산부인과.',
+    description: '임신중절수술 금액 8주 미만 45만원. 합법 가능 기간, 합법 조건, 흡입술·소파술 방법, 수술 절차, 수술 후 관리, 부작용, 보험, 금식까지 투명하게 안내합니다. 사당역 4번 출구 연세365산부인과의원.',
   },
 }
 
@@ -48,9 +48,9 @@ const jsonLd = {
 const PAGE_URL = 'https://www.yeonsei365.com/abortion/surgery'
 const PAGE_DATE = '2026-04-01'
 const PAGE_MODIFIED = '2026-05-22'
-const articleSchema = { '@context':'https://schema.org','@type':'Article', headline:'임신중절수술 금액·합법기간·방법 안내 | 연세365산부인과', datePublished:PAGE_DATE, dateModified:PAGE_MODIFIED, image:'https://www.yeonsei365.com/og-image.jpg', author:{'@type':'Organization',name:'연세365산부인과',url:'https://www.yeonsei365.com'}, publisher:{'@type':'MedicalOrganization',name:'연세365산부인과',logo:{'@type':'ImageObject',url:'https://i.imgur.com/f7h5DY0.png'}}, mainEntityOfPage:{'@type':'WebPage','@id':PAGE_URL}, url:PAGE_URL }
-const medicalWebPageSchema = { '@context':'https://schema.org','@type':'MedicalWebPage', name:'임신중절수술 금액·합법기간·방법 안내 | 연세365산부인과', url:PAGE_URL, specialty:{'@type':'MedicalSpecialty',name:'산부인과'}, medicalAudience:{'@type':'MedicalAudience',audienceType:'여성 환자'}, lastReviewed:PAGE_DATE, reviewedBy:{'@type':'MedicalOrganization',name:'연세365산부인과',url:'https://www.yeonsei365.com'}, about:{'@type':'MedicalCondition',name:'임신중절수술'} }
-const howToSchema = { '@context':'https://schema.org','@type':'HowTo', name:'임신중절수술 예약 방법', description:'연세365산부인과 임신중절수술 예약부터 수술까지', step:[ {'@type':'HowToStep',position:1,name:'상담 예약',text:'전화(02-585-3650) 또는 카카오톡으로 예약합니다.'}, {'@type':'HowToStep',position:2,name:'내원 및 검사',text:'신분증 지참 후 내원. 초음파로 주수 확인 후 비용 안내.'}, {'@type':'HowToStep',position:3,name:'수술 및 귀가',text:'수면마취 후 10~30분 수술. 당일 귀가 가능.'} ], tool:{'@type':'HowToTool',name:'연세365산부인과'} }
+const articleSchema = { '@context':'https://schema.org','@type':'Article', headline:'임신중절수술 금액·합법기간·방법 안내 | 연세365산부인과', datePublished:PAGE_DATE, dateModified:PAGE_MODIFIED, image:'https://www.yeonsei365.com/og-image.jpg', author:{'@type':'Organization',name:'연세365산부인과의원',url:'https://www.yeonsei365.com'}, publisher:{'@type':'MedicalOrganization',name:'연세365산부인과의원',logo:{'@type':'ImageObject',url:'https://i.imgur.com/f7h5DY0.png'}}, mainEntityOfPage:{'@type':'WebPage','@id':PAGE_URL}, url:PAGE_URL }
+const medicalWebPageSchema = { '@context':'https://schema.org','@type':'MedicalWebPage', name:'임신중절수술 금액·합법기간·방법 안내 | 연세365산부인과', url:PAGE_URL, specialty:{'@type':'MedicalSpecialty',name:'산부인과'}, medicalAudience:{'@type':'MedicalAudience',audienceType:'여성 환자'}, lastReviewed:PAGE_DATE, reviewedBy:{'@type':'MedicalOrganization',name:'연세365산부인과의원',url:'https://www.yeonsei365.com'}, about:{'@type':'MedicalCondition',name:'임신중절수술'} }
+const howToSchema = { '@context':'https://schema.org','@type':'HowTo', name:'임신중절수술 예약 방법', description:'연세365산부인과의원 임신중절수술 예약부터 수술까지', step:[ {'@type':'HowToStep',position:1,name:'상담 예약',text:'전화(02-585-3650) 또는 카카오톡으로 예약합니다.'}, {'@type':'HowToStep',position:2,name:'내원 및 검사',text:'신분증 지참 후 내원. 초음파로 주수 확인 후 비용 안내.'}, {'@type':'HowToStep',position:3,name:'수술 및 귀가',text:'수면마취 후 10~30분 수술. 당일 귀가 가능.'} ], tool:{'@type':'HowToTool',name:'연세365산부인과의원'} }
 const speakableSchema = { '@context':'https://schema.org','@type':'WebPage', name:'임신중절수술 금액·합법기간·방법 안내', url:PAGE_URL, speakable:{'@type':'SpeakableSpecification',cssSelector:['h1','h2']} }
 const breadcrumbSchema = { '@context':'https://schema.org','@type':'BreadcrumbList', itemListElement:[ {'@type':'ListItem',position:1,name:'홈',item:'https://www.yeonsei365.com'}, {'@type':'ListItem',position:2,name:'임신중절클리닉',item:'https://www.yeonsei365.com/abortion'}, {'@type':'ListItem',position:3,name:'임신중절수술',item:PAGE_URL} ] }
 
@@ -135,7 +135,7 @@ export default function AbortionSurgeryClinicPage() {
         <div style={{ margin: '28px 0 0' }}>
           <img
             src="/og-image.jpg"
-            alt="임신중절수술 금액 45만원 연세365산부인과 낙태비용 임신중절비용"
+            alt="임신중절수술 금액 45만원 연세365산부인과의원 낙태비용 임신중절비용"
             width="780"
             height="410"
             style={{ width: '100%', borderRadius: '18px', display: 'block' }}
@@ -179,7 +179,7 @@ export default function AbortionSurgeryClinicPage() {
         {/* 메타 */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '8px', fontSize: '12px', color: C.tm2, marginBottom: '28px', flexWrap: 'wrap' }}>
           <span style={{ background: C.pb, color: C.pt, fontSize: '11px', fontWeight: 700, padding: '3px 10px', borderRadius: '20px' }}>수술정보</span>
-          <span>2026.04</span><span>·</span><span>연세365산부인과</span><span>·</span><span>사당역 4번출구</span>
+          <span>2026.04</span><span>·</span><span>연세365산부인과</span><span>·</span><span>사당역 4번 출구</span>
         </div>
 
         {/* 목차 */}
@@ -211,7 +211,7 @@ export default function AbortionSurgeryClinicPage() {
             임신중절수술이란 임신된 태아를 자궁 밖으로 제거하는 의료 시술로, 정식 의학 명칭은 <strong>인공임신중절수술(人工姙娠中絶手術)</strong>입니다. 흔히 낙태수술이라고도 불리며, 약물 또는 수술적 방법으로 자궁 내 임신 조직을 안전하게 제거합니다.
           </p>
           <p style={baseText}>
-            연세365산부인과에서는 임신 주수와 환자 상태를 정밀하게 확인한 후 <strong>흡입술(진공흡입법)</strong> 또는 <strong>소파술(자궁소파술)</strong> 방식으로 수면마취 하에 안전하게 시행합니다. 임신 주수가 짧을수록 시술이 간단하고 회복이 빠르므로, 임신 사실을 확인하셨다면 가능한 빨리 전문의와 상담하시는 것을 권장합니다.
+            연세365산부인과의원에서는 임신 주수와 환자 상태를 정밀하게 확인한 후 <strong>흡입술(진공흡입법)</strong> 또는 <strong>소파술(자궁소파술)</strong> 방식으로 수면마취 하에 안전하게 시행합니다. 임신 주수가 짧을수록 시술이 간단하고 회복이 빠르므로, 임신 사실을 확인하셨다면 가능한 빨리 전문의와 상담하시는 것을 권장합니다.
           </p>
           <p style={baseText}>
             모든 시술은 산부인과 전문의가 직접 시행하며, 1인 프라이빗 회복실에서 충분한 안정을 취한 후 당일 귀가가 가능합니다. 상담부터 시술, 사후 관리까지 모든 과정은 철저히 비밀이 보장됩니다.
@@ -237,7 +237,7 @@ export default function AbortionSurgeryClinicPage() {
         <section style={{ marginBottom: '36px' }}>
           <SH n="2" title="임신중절수술 금액 — 주수별 투명 공개" />
           <p style={baseText}>
-            연세365산부인과는 임신중절수술 금액을 명확하게 공개합니다. <strong>카드·현금 동일가</strong>이며 상담 후 추가 비용이 발생하지 않습니다. 아래 금액에는 수술비·마취비·영양제·1인 회복실·부가세가 모두 포함된 최종 금액입니다.
+            연세365산부인과의원은 임신중절수술 금액을 명확하게 공개합니다. <strong>카드·현금 동일가</strong>이며 상담 후 추가 비용이 발생하지 않습니다. 아래 금액에는 수술비·마취비·영양제·1인 회복실·부가세가 모두 포함된 최종 금액입니다.
           </p>
           <p style={baseText}>
             임신중절수술 금액은 임신 주수에 따라 달라집니다. 주수가 늘어날수록 태아의 크기가 커지고 수술 난이도와 소요 시간이 증가하기 때문입니다. 정확한 주수는 내원 후 초음파 검사로 확인합니다. 마지막 생리일 기준 계산과 실제 초음파 주수가 다를 수 있으므로 내원 전 전화 상담을 권장합니다.
@@ -560,8 +560,8 @@ export default function AbortionSurgeryClinicPage() {
 
         {/* CTA */}
         <div style={{ background: `linear-gradient(135deg, ${C.pp}, ${C.p})`, borderRadius: '20px', padding: 'clamp(24px, 5vw, 36px)', textAlign: 'center', color: '#fff' }}>
-          <div style={{ fontSize: 'clamp(18px, 4vw, 22px)', fontWeight: 900, marginBottom: '8px' }}>연세365산부인과</div>
-          <div style={{ fontSize: '14px', opacity: 0.9, marginBottom: '6px' }}>사당역 4번출구 도보 2분</div>
+          <div style={{ fontSize: 'clamp(18px, 4vw, 22px)', fontWeight: 900, marginBottom: '8px' }}>연세365산부인과의원</div>
+          <div style={{ fontSize: '14px', opacity: 0.9, marginBottom: '6px' }}>사당역 4번 출구 도보 3분</div>
           <div style={{ fontSize: '14px', opacity: 0.85, marginBottom: '24px', lineHeight: 1.8 }}>
             당일예약 · 당일시술 · 산부인과 전문의 상담 · 1인 회복실 운영<br />
             모든 상담 내용은 철저히 비밀이 보장됩니다

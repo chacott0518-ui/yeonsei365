@@ -5,7 +5,7 @@ import ViewCounter from '@/components/ViewCounter'
 
 export const metadata: Metadata = {
   title: '임신중절수술 금식 | 수술 전 준비사항 완벽 안내 2026 | 연세365산부인과',
-  description: '임신중절수술 금식 기준을 완벽하게 안내합니다. 6시간 금식 이유, 금식 안 했을 때 위험성, 당일 준비물 체크리스트, 수술 당일 타임라인까지. 사당역 4번출구 연세365산부인과.',
+  description: '임신중절수술 금식 기준을 완벽하게 안내합니다. 6시간 금식 이유, 금식 안 했을 때 위험성, 당일 준비물 체크리스트, 수술 당일 타임라인까지. 사당역 4번 출구 연세365산부인과의원.',
   keywords: [
     '임신중절수술금식', '임신중절수술 금식', '낙태수술금식', '임신중절금식',
     '중절수술금식', '낙태금식', '임신중절수술전준비', '낙태수술전준비',
@@ -17,7 +17,7 @@ export const metadata: Metadata = {
   ],
   openGraph: {
     title: '임신중절수술 금식 | 수술 전 준비사항 완벽 안내 2026 | 연세365산부인과',
-    description: '임신중절수술 금식 기준·당일 준비사항 완벽 안내. 사당역 4번출구.',
+    description: '임신중절수술 금식 기준·당일 준비사항 완벽 안내. 사당역 4번 출구.',
     url: 'https://www.yeonsei365.com/blog/abortion-fasting',
     images: [{ url: 'https://www.yeonsei365.com/og-image.jpg', width: 1200, height: 630, alt: '임신중절수술 금식 연세365산부인과' }],
   },
@@ -25,7 +25,7 @@ export const metadata: Metadata = {
   twitter: {
     card: 'summary_large_image',
     title: '임신중절수술 금식 | 수술 전 준비사항 완벽 안내 2026 | 연세365산부인과',
-    description: '임신중절수술 금식 기준을 완벽하게 안내합니다. 6시간 금식 이유, 금식 안 했을 때 위험성, 당일 준비물 체크리스트, 수술 당일 타임라인까지. 사당역 4번출구 연세365산부인과.',
+    description: '임신중절수술 금식 기준을 완벽하게 안내합니다. 6시간 금식 이유, 금식 안 했을 때 위험성, 당일 준비물 체크리스트, 수술 당일 타임라인까지. 사당역 4번 출구 연세365산부인과의원.',
   },
 }
 
@@ -40,7 +40,7 @@ const medicalWebPageSchema = {
   specialty: { '@type': 'MedicalSpecialty', name: '산부인과' },
   medicalAudience: { '@type': 'MedicalAudience', audienceType: '여성 환자' },
   lastReviewed: PAGE_DATE,
-  reviewedBy: { '@type': 'MedicalOrganization', name: '연세365산부인과', url: 'https://www.yeonsei365.com' },
+  reviewedBy: { '@type': 'MedicalOrganization', name: '연세365산부인과의원', url: 'https://www.yeonsei365.com' },
   about: { '@type': 'MedicalCondition', name: '임신중절수술 금식' },
 }
 const howToSchema = {
@@ -53,7 +53,7 @@ const howToSchema = {
     { '@type': 'HowToStep', position: 3, name: '귀가 수단 준비', text: '수술 후 운전 불가. 대중교통 또는 동행인과 귀가를 준비합니다.' },
     { '@type': 'HowToStep', position: 4, name: '내원 및 수술', text: '신분증 지참 후 내원. 초음파 검사 후 수술을 진행합니다.' },
   ],
-  tool: { '@type': 'HowToTool', name: '연세365산부인과' },
+  tool: { '@type': 'HowToTool', name: '연세365산부인과의원' },
 }
 const speakableSchema = {
   '@context': 'https://schema.org', '@type': 'WebPage',
@@ -77,8 +77,8 @@ const articleSchema = {
   datePublished: PAGE_DATE,
   dateModified: PAGE_MODIFIED,
   image: 'https://www.yeonsei365.com/og-image.jpg',
-  author: { '@type': 'Organization', name: '연세365산부인과', url: 'https://www.yeonsei365.com' },
-  publisher: { '@type': 'MedicalOrganization', name: '연세365산부인과', logo: { '@type': 'ImageObject', url: 'https://i.imgur.com/f7h5DY0.png' } },
+  author: { '@type': 'Organization', name: '연세365산부인과의원', url: 'https://www.yeonsei365.com' },
+  publisher: { '@type': 'MedicalOrganization', name: '연세365산부인과의원', logo: { '@type': 'ImageObject', url: 'https://i.imgur.com/f7h5DY0.png' } },
   mainEntityOfPage: { '@type': 'WebPage', '@id': PAGE_URL },
   url: PAGE_URL,
 }
@@ -195,7 +195,7 @@ export default function AbortionFastingPage() {
 
         <section style={{ marginBottom: '36px' }}>
           <SH n="1" title="임신중절수술 금식이란?" />
-          <p style={bt}>임신중절수술 금식이란 수면마취를 안전하게 시행하기 위해 수술 전 일정 시간 동안 음식과 음료 섭취를 중단하는 것입니다. 연세365산부인과의 임신중절수술은 수면마취(정맥 마취)로 진행되므로, 금식은 반드시 지켜야 하는 가장 중요한 수술 전 준비사항입니다.</p>
+          <p style={bt}>임신중절수술 금식이란 수면마취를 안전하게 시행하기 위해 수술 전 일정 시간 동안 음식과 음료 섭취를 중단하는 것입니다. 연세365산부인과의원의 임신중절수술은 수면마취(정맥 마취)로 진행되므로, 금식은 반드시 지켜야 하는 가장 중요한 수술 전 준비사항입니다.</p>
           <p style={bt}>금식을 지키지 않으면 마취 중 위장 내 내용물이 역류하여 기도로 흡입될 수 있으며, 이는 흡인성 폐렴 등 심각한 합병증을 유발할 수 있습니다. 이 경우 수술이 즉시 중단되거나 연기될 수 있습니다. 따라서 금식은 환자 안전을 위한 가장 기본적인 규칙입니다.</p>
           <p style={bt}>금식 지침은 단순히 병원의 규칙이 아니라 마취과학적 근거에 기반한 안전 기준입니다. 전 세계 모든 의료기관에서 수면마취 전 금식을 요구하며, 이를 지키지 않으면 수술 자체가 불가능합니다.</p>
           <div style={{ background: `linear-gradient(135deg, ${C.pp}, ${C.p})`, borderRadius: '16px', padding: '24px', textAlign: 'center', margin: '20px 0' }}>
@@ -394,8 +394,8 @@ export default function AbortionFastingPage() {
         </div>
 
         <div style={{ background: `linear-gradient(135deg, ${C.pp}, ${C.p})`, borderRadius: '20px', padding: 'clamp(24px,5vw,36px)', textAlign: 'center', color: '#fff' }}>
-          <div style={{ fontSize: 'clamp(18px,4vw,22px)', fontWeight: 900, marginBottom: '8px' }}>연세365산부인과</div>
-          <div style={{ fontSize: '14px', opacity: 0.9, marginBottom: '6px' }}>사당역 4번출구 도보 2분</div>
+          <div style={{ fontSize: 'clamp(18px,4vw,22px)', fontWeight: 900, marginBottom: '8px' }}>연세365산부인과의원</div>
+          <div style={{ fontSize: '14px', opacity: 0.9, marginBottom: '6px' }}>사당역 4번 출구 도보 3분</div>
           <div style={{ fontSize: '14px', opacity: 0.85, marginBottom: '24px', lineHeight: 1.8 }}>당일예약·당일시술·1인 회복실 운영<br />모든 상담은 철저히 비밀이 보장됩니다</div>
           <div style={{ display: 'flex', gap: '12px', justifyContent: 'center', flexWrap: 'wrap' }}>
             <a href="http://pf.kakao.com/_TpaBj/chat" target="_blank" rel="noopener noreferrer" style={{ background: '#FEE500', color: '#3B1B1B', fontSize: '15px', fontWeight: 700, padding: '14px 28px', borderRadius: '24px', textDecoration: 'none' }}>💬 카카오톡 상담</a>
