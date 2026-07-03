@@ -173,7 +173,7 @@ export default function ArticlePage({ params }: { params: { category: string; sl
       name: '연세365산부인과', url: BASE, telephone: '02-585-3650',
       address: { '@type': 'PostalAddress', streetAddress: '과천대로 939 3층', addressLocality: '관악구', addressRegion: '서울', addressCountry: 'KR' },
       geo: { '@type': 'GeoCoordinates', latitude: 37.4875, longitude: 126.9822 },
-      openingHours: ['Mo-Fr 09:00-18:00', 'Sa 09:00-13:00'],
+      openingHours: ['Mo-Fr 10:00-17:30', 'Sa 09:00-16:30', 'Su,PH 10:00-14:00'],
     },
     {
       '@context': 'https://schema.org', '@type': 'HowTo',

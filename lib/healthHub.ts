@@ -1475,7 +1475,7 @@ export const CATEGORIES = {
     lastModified: '2026-06-30-PM 05:23',
     heroImage: "https://www.yeonsei365.com/images/hero-pregnancy-pc.svg",
     heroMobileImage: "https://www.yeonsei365.com/images/hero-pregnancy-mobile.svg",
-    originalTitle: '리 예정일이 지났는데 임신 주수는 어떻게 계산하나요? 마지막 관계일 기준인가요?',
+    originalTitle: '생리 예정일이 지났는데 임신 주수는 어떻게 계산하나요? 마지막 관계일 기준인가요?',
     suggestedTitle: '임신 주수 계산 방법 및 예정일 기준',
     titleSelection: 'original' as 'original' | 'suggested' | 'legacy',
     policyVersion: '1.0.0',

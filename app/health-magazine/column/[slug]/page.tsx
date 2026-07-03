@@ -172,7 +172,7 @@ export default function ColumnDetailPage({ params }: { params: { slug: string } 
       latitude: 37.4875,
       longitude: 126.9822,
     },
-    openingHours: ['Mo-Fr 09:00-18:00', 'Sa 09:00-13:00'],
+    openingHours: ['Mo-Fr 10:00-17:30', 'Sa 09:00-16:30', 'Su,PH 10:00-14:00'],
     medicalSpecialty: '산부인과',
     sameAs: [
       'http://pf.kakao.com/_TpaBj',

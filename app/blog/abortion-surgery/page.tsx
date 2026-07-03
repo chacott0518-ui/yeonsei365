@@ -577,8 +577,8 @@ export default function AbortionSurgeryClinicPage() {
             </a>
           </div>
           <div style={{ display: 'flex', justifyContent: 'center', gap: '20px', marginTop: '16px', fontSize: '13px', opacity: 0.8, flexWrap: 'wrap' }}>
-            <span>월~금 09:00~18:00</span>
-            <span>토 09:00~13:00</span>
+            <span>월~금 10:00~17:30</span>
+            <span>토 09:00~16:30</span>
             <span>카드·현금 동일</span>
           </div>
         </div>

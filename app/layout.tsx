@@ -110,14 +110,20 @@ export default function RootLayout({
                     {
                       "@type": "OpeningHoursSpecification",
                       "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
-                      "opens": "09:00",
-                      "closes": "19:00"
+                      "opens": "10:00",
+                      "closes": "17:30"
                     },
                     {
                       "@type": "OpeningHoursSpecification",
                       "dayOfWeek": "Saturday",
                       "opens": "09:00",
-                      "closes": "15:00"
+                      "closes": "16:30"
+                    },
+                    {
+                      "@type": "OpeningHoursSpecification",
+                      "dayOfWeek": ["Sunday", "PublicHoliday"],
+                      "opens": "10:00",
+                      "closes": "14:00"
                     }
                   ],
                   "medicalSpecialty": [

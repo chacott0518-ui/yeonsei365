@@ -66,11 +66,11 @@ const Booking: React.FC = () => {
                     <tbody>
                       <tr>
                         <td className="bg-primary/10 text-gray-800 font-bold py-3 px-4 border-b border-white/60 w-28">월 - 금</td>
-                        <td className="bg-white text-gray-700 py-3 px-4 border-b border-primary/5">오전 09:00 - 오후 18:00</td>
+                        <td className="bg-white text-gray-700 py-3 px-4 border-b border-primary/5">오전 10:00 - 오후 17:30</td>
                       </tr>
                       <tr>
                         <td className="bg-primary/10 text-gray-800 font-bold py-3 px-4 border-b border-white/60">토요일</td>
-                        <td className="bg-white text-gray-700 py-3 px-4 border-b border-primary/5">오전 09:00 - 오후 18:00</td>
+                        <td className="bg-white text-gray-700 py-3 px-4 border-b border-primary/5">오전 09:00 - 오후 16:30</td>
                       </tr>
                       <tr>
                         <td className="bg-primary/10 text-gray-800 font-bold py-3 px-4">일·공휴일</td>
@@ -148,14 +148,14 @@ const Booking: React.FC = () => {
                       <span className="mt-1.5 w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></span>
                       <span>
                         <strong className="inline-block w-28">월 - 금</strong>
-                        <span className="text-gray-500">:</span>&nbsp; 오전 09:00 - 오후 18:00
+                        <span className="text-gray-500">:</span>&nbsp; 오전 10:00 - 오후 17:30
                       </span>
                     </li>
                     <li className="flex items-start gap-2">
                       <span className="mt-1.5 w-1.5 h-1.5 bg-primary rounded-full flex-shrink-0"></span>
                       <span>
                         <strong className="inline-block w-28">토요일</strong>
-                        <span className="text-gray-500">:</span>&nbsp; 오전 09:00 - 오후 18:00
+                        <span className="text-gray-500">:</span>&nbsp; 오전 09:00 - 오후 16:30
                       </span>
                     </li>
                     <li className="flex items-start gap-2">

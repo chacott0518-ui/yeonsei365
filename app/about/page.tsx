@@ -25,7 +25,7 @@ const faqSchema = {
   mainEntity: [
     { '@type': 'Question', name: '연세365산부인과 원장님은 어떤 분인가요?', acceptedAnswer: { '@type': 'Answer', text: '이진우 대표원장은 연세대학교 의과대학을 졸업하고 신촌세브란스병원에서 산부인과 전문의 과정을 수료했습니다. 강남차이병원 여성센터장, 건국대학교 의학전문대학원 외래부교수를 역임했으며 사당역 연세365산부인과(02-585-3650)에서 모든 진료를 직접 담당합니다.' } },
     { '@type': 'Question', name: '연세365산부인과는 어디에 있나요?', acceptedAnswer: { '@type': 'Answer', text: '서울 관악구 과천대로 939 3층에 위치합니다. 지하철 사당역 4번출구 도보 3분 거리이며 2호선·4호선 환승역으로 접근이 편리합니다. 전화 02-585-3650으로 문의하세요.' } },
-    { '@type': 'Question', name: '연세365산부인과 진료시간은 어떻게 되나요?', acceptedAnswer: { '@type': 'Answer', text: '평일·토요일 오전 9시~오후 6시, 일·공휴일 오전 10시~오후 2시입니다. 연중무휴 365일 운영하며 일요일에도 수술이 가능합니다. 전화(02-585-3650) 또는 카카오톡으로 예약하세요.' } },
+    { '@type': 'Question', name: '연세365산부인과 진료시간은 어떻게 되나요?', acceptedAnswer: { '@type': 'Answer', text: '월~금 오전 10시~오후 5시 30분, 토요일 오전 9시~오후 4시 30분, 일·공휴일 오전 10시~오후 2시입니다. 연중무휴 365일 운영하며 일요일에도 수술이 가능합니다. 전화(02-585-3650) 또는 카카오톡으로 예약하세요.' } },
   ],
 }
 const articleSchema = { '@context': 'https://schema.org', '@type': 'Article', headline: '연세365산부인과 병원소개 및 의료진 안내', datePublished: PAGE_DATE, dateModified: PAGE_DATE, image: 'https://www.yeonsei365.com/og-image.jpg', author: { '@type': 'Organization', name: '연세365산부인과', url: 'https://www.yeonsei365.com' }, publisher: { '@type': 'MedicalOrganization', name: '연세365산부인과', logo: { '@type': 'ImageObject', url: 'https://i.imgur.com/f7h5DY0.png' } }, mainEntityOfPage: { '@type': 'WebPage', '@id': PAGE_URL }, url: PAGE_URL }
@@ -98,7 +98,7 @@ export default function AboutPage() {
             {[
               { label: '위치', value: '관악구 과천대로 939 3층' },
               { label: '전화', value: '02-585-3650' },
-              { label: '진료시간', value: '평일·토 09:00~18:00' },
+              { label: '진료시간', value: '월~금 10:00~17:30 / 토 09:00~16:30' },
               { label: '일·공휴일', value: '10:00~14:00' },
               { label: '전문의', value: '연세대 산부인과 전문의' },
               { label: '특징', value: '연중무휴 · 비밀보장' },
@@ -166,7 +166,7 @@ export default function AboutPage() {
           {[
             { q: '연세365산부인과 원장님은 어떤 분인가요?', a: '이진우 대표원장은 연세대학교 의과대학을 졸업하고 신촌세브란스병원에서 산부인과 전문의 과정을 수료했습니다. 강남차이병원 여성센터장, 건국대학교 의학전문대학원 외래부교수 등을 역임했으며 현재 사당역 연세365산부인과에서 모든 진료를 직접 담당합니다.' },
             { q: '연세365산부인과는 어디에 있나요?', a: '서울 관악구 과천대로 939 3층에 위치합니다. 사당역 4번출구 도보 3분 거리이며 2호선·4호선 환승역으로 접근이 편리합니다. 전화 02-585-3650으로 문의하세요.' },
-            { q: '연세365산부인과 진료시간은 어떻게 되나요?', a: '평일·토요일 오전 9시~오후 6시, 일·공휴일 오전 10시~오후 2시입니다. 연중무휴 365일 운영하며 일요일에도 수술이 가능합니다.' },
+            { q: '연세365산부인과 진료시간은 어떻게 되나요?', a: '월~금 오전 10시~오후 5시 30분, 토요일 오전 9시~오후 4시 30분, 일·공휴일 오전 10시~오후 2시입니다. 연중무휴 365일 운영하며 일요일에도 수술이 가능합니다.' },
           ].map((item, i) => (
             <div key={i} style={{ marginBottom: '10px', border: '1px solid #FFE0E8', borderRadius: '12px', overflow: 'hidden' }}>
               <div style={{ background: '#FFF5F7', padding: '14px 18px', fontWeight: 700, fontSize: '14px', color: '#E8305A' }}>Q. {item.q}</div>
