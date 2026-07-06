@@ -92,13 +92,7 @@ export default function FaqSlugPage({ params }: Props) {
     url: PAGE_URL,
     specialty: { '@type': 'MedicalSpecialty', name: '산부인과' },
     medicalAudience: { '@type': 'MedicalAudience', audienceType: '여성 환자' },
-    lastReviewed: '2026-06-01',
-    reviewedBy: {
-      '@type': 'MedicalOrganization',
-      name: '연세365산부인과의원',
-      url: 'https://www.yeonsei365.com',
-    },
-  }
+    }
 
   const breadcrumbSchema = {
     '@context': 'https://schema.org',

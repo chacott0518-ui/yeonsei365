@@ -2,6 +2,7 @@
 import Link from 'next/link'
 import { useState } from 'react'
 import ViewCounter from '@/components/ViewCounter'
+import { FAQ_COUNT } from '@/app/abortion/faq/FAQClient'
 
 const C = {
   p: '#D6336C', pd: '#993556', pp: '#5c0e20',
@@ -40,7 +41,7 @@ const RELATED = [
   { href: '/abortion/cost', label: '금액·비용 안내' },
   { href: '/abortion/legal', label: '합법화 안내' },
   { href: '/abortion/recovery', label: '수술 후 관리' },
-  { href: '/abortion/faq', label: '전체 217개 FAQ' },
+  { href: '/abortion/faq', label: `전체 ${FAQ_COUNT}개 FAQ` },
   { href: '/abortion/hospital', label: '병원 안내' },
 ]
 
@@ -495,7 +496,7 @@ export default function InfoClient() {
               <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
                 <Link href="/abortion/cost" style={{ color: C.p, textDecoration: 'none', fontSize: '13px' }}>→ 임신중절수술 주수별 비용 확인</Link>
                 <Link href="/abortion/hospital" style={{ color: C.p, textDecoration: 'none', fontSize: '13px' }}>→ 임신중절수술 병원 선택 기준</Link>
-                <Link href="/abortion/faq" style={{ color: C.p, textDecoration: 'none', fontSize: '13px' }}>→ 전체 217개 FAQ 보기</Link>
+                <Link href="/abortion/faq" style={{ color: C.p, textDecoration: 'none', fontSize: '13px' }}>→ 전체 {FAQ_COUNT}개 FAQ 보기</Link>
               </div>
             </div>
           </section>
@@ -516,7 +517,7 @@ export default function InfoClient() {
               ))}
             </div>
             <Link href="/abortion/faq" style={{ display: 'block', textAlign: 'center', background: C.pb, border: `0.5px solid ${C.pbd}`, borderRadius: '12px', padding: '14px', textDecoration: 'none', fontSize: '13px', fontWeight: 700, color: C.p }}>
-              전체 217개 FAQ 보기 →
+              전체 {FAQ_COUNT}개 FAQ 보기 →
             </Link>
           </section>
 
@@ -666,7 +667,7 @@ export default function InfoClient() {
             ))}
           </div>
           <Link href="/abortion/faq" style={{ display: 'block', textAlign: 'center', background: C.pb, border: `0.5px solid ${C.pbd}`, borderRadius: '10px', padding: '12px', textDecoration: 'none', fontSize: '12px', fontWeight: 700, color: C.p, marginBottom: '16px' }}>
-            전체 217개 FAQ 보기 →
+            전체 {FAQ_COUNT}개 FAQ 보기 →
           </Link>
           <div style={{ background: C.pb, border: `0.5px solid ${C.pbd}`, borderRadius: '12px', padding: '16px', marginBottom: '16px', fontSize: '12px', color: C.ts, lineHeight: 1.85 }}>
             <div style={{ fontSize: '12px', fontWeight: 700, color: C.tm, marginBottom: '8px' }}>의료정보 안내</div>

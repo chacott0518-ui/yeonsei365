@@ -100,7 +100,7 @@ const faqs = [
   },
   {
     q: 'Q. 임신중절수술비용에 포함되는 항목은 무엇인가요?',
-    a: '연세365산부인과의 임신중절수술비용에는 수술비, 마취비, 수술 후 영양수액 처치비가 모두 포함되어 있습니다. 현금과 카드 가격이 동일하며, 상담 시 안내받은 중절수술가격 외에 추가 비용은 발생하지 않습니다. 임신중절비용과 임신중절금액은 임신 주수에 따라 달라지며, 중절수술금액에 숨겨진 추가 비용은 일절 없습니다. 선택 항목으로 유착방지제(5만원)가 있으며, 이는 수술 후 자궁 내 유착을 예방하여 향후 임신 가능성을 보호하는 데 도움이 됩니다. 임신중절수술금액 부담을 최소화하기 위해 불필요한 검사나 추가 시술을 권하지 않으며, 환자분이 납득하신 범위 내에서만 진행합니다.'
+    a: '연세365산부인과의 임신중절수술비용에는 수술비, 마취비, 수술 후 영양수액 처치비가 모두 포함되어 있습니다. 현금과 카드 가격이 동일하며, 상담 시 안내받은 중절수술가격 외에 추가 비용은 발생하지 않습니다. 임신중절비용과 임신중절금액은 임신 주수에 따라 달라지며, 중절수술금액에 숨겨진 추가 비용은 일절 없습니다. 선택 항목으로 자궁유착방지제(5만원)가 있으며, 이는 수술 후 자궁 내 유착을 예방하여 향후 임신 가능성을 보호하는 데 도움이 됩니다. 임신중절수술금액 부담을 최소화하기 위해 불필요한 검사나 추가 시술을 권하지 않으며, 환자분이 납득하신 범위 내에서만 진행합니다.'
   },
   {
     q: 'Q. 임신 몇 주까지 낙태수술이 가능한가요?',
@@ -336,7 +336,7 @@ const Abortion: React.FC = () => {
                   </div>
                   <div className="bg-white/60 backdrop-blur-sm px-5 py-3 flex flex-col items-center gap-1 text-[10px] text-gray-600 font-medium">
                     <span className="flex items-center gap-1"><span className="text-primary font-bold">•</span>현금 카드 가격 통일</span>
-                    <span className="flex items-center gap-1"><span className="text-primary font-bold">•</span>선택사항 : 유착방지제 5만원</span>
+                    <span className="flex items-center gap-1"><span className="text-primary font-bold">•</span>선택사항 : 자궁유착방지제 5만원</span>
                   </div>
                 </div>
                 <div className="mt-4 p-4 bg-white/80 rounded-xl border border-primary/5">
@@ -622,7 +622,7 @@ const Abortion: React.FC = () => {
                   <span className="text-primary font-bold">•</span>현금 카드 가격 통일
                 </span>
                 <span className="flex items-center gap-1">
-                  <span className="text-primary font-bold">•</span>선택사항 : 유착방지제 5만원
+                  <span className="text-primary font-bold">•</span>선택사항 : 자궁유착방지제 5만원
                 </span>
               </div>
             </div>
@@ -886,8 +886,8 @@ const Abortion: React.FC = () => {
               </p>
               
               <div className="grid grid-cols-2 gap-6 mb-8">
-                <a 
-                  href="tel:02-547-2876"
+                <a
+                  href="tel:02-585-3650"
                   className="group bg-primary hover:bg-primary/90 text-white font-bold py-6 px-8 rounded-xl transition-all duration-300 shadow-lg hover:shadow-xl text-center flex items-center justify-center text-lg transform hover:scale-105"
                 >
                   <span>전화 상담</span>

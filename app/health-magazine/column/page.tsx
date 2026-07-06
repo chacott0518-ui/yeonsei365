@@ -90,8 +90,6 @@ const medicalWebPageSchema = {
   url: 'https://www.yeonsei365.com/health-magazine/column',
   specialty: { '@type': 'MedicalSpecialty', name: '산부인과' },
   medicalAudience: { '@type': 'MedicalAudience', audienceType: '여성 환자' },
-  lastReviewed: '2026-05-22',
-  reviewedBy: { '@type': 'MedicalOrganization', name: '연세365산부인과', url: 'https://www.yeonsei365.com' },
   about: { '@type': 'MedicalCondition', name: '임신중절수술' },
 }
 

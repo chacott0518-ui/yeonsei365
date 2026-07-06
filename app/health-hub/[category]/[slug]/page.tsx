@@ -165,26 +165,13 @@ export default function ArticlePage({ params }: { params: { category: string; sl
       name: article.title, description: article.description, url,
       specialty: { '@type': 'MedicalSpecialty', name: '산부인과' },
       medicalAudience: { '@type': 'MedicalAudience', audienceType: '여성 환자' },
-      lastReviewed: article.lastModified,
-      reviewedBy: { '@type': 'MedicalOrganization', name: '연세365산부인과의원' },
-    },
+      },
     {
       '@context': 'https://schema.org', '@type': 'MedicalClinic',
       name: '연세365산부인과의원', url: BASE, telephone: '02-585-3650',
       address: { '@type': 'PostalAddress', streetAddress: '과천대로 939, 3층', addressLocality: '관악구', addressRegion: '서울특별시', addressCountry: 'KR' },
       geo: { '@type': 'GeoCoordinates', latitude: 37.4875, longitude: 126.9822 },
       openingHours: ['Mo-Fr 10:00-17:30', 'Sa 09:00-16:30', 'Su,PH 10:00-14:00'],
-    },
-    {
-      '@context': 'https://schema.org', '@type': 'HowTo',
-      name: '임신중절수술 예약 방법',
-      description: '연세365산부인과의원 임신중절수술 예약부터 수술까지',
-      step: [
-        { '@type': 'HowToStep', position: 1, name: '상담 예약', text: '전화(02-585-3650) 또는 카카오톡으로 예약합니다.' },
-        { '@type': 'HowToStep', position: 2, name: '내원 및 검사', text: '신분증 지참 후 내원. 초음파로 주수 확인 후 비용 안내.' },
-        { '@type': 'HowToStep', position: 3, name: '수술 및 귀가', text: '수면마취 후 10~30분 수술. 당일 귀가 가능.' },
-      ],
-      tool: { '@type': 'HowToTool', name: '연세365산부인과의원' },
     },
     {
       '@context': 'https://schema.org', '@type': 'WebPage',

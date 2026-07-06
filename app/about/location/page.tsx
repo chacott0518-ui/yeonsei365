@@ -112,6 +112,10 @@ export default function LocationPage() {
           ))}
         </div>
 
+        <div style={{ textAlign: 'center', marginBottom: '32px' }}>
+          <Link href="/abortion/hospital" style={{ fontSize: '13px', color: '#AA5566', textDecoration: 'none' }}>임신중절수술 병원 안내 자세히 보기</Link>
+        </div>
+
         <div style={{ background: 'linear-gradient(135deg, #FF8FAB 0%, #E8305A 100%)', borderRadius: '20px', padding: 'clamp(20px,5vw,32px)', textAlign: 'center' }}>
           <p style={{ color: '#fff', fontSize: '20px', fontWeight: 900, marginBottom: '6px' }}>방문 전 미리 상담하세요</p>
           <p style={{ color: 'rgba(255,255,255,0.85)', fontSize: '14px', marginBottom: '22px' }}>사당역 4번 출구 도보 3분 · 당일 예약 가능 · 비밀보장</p>

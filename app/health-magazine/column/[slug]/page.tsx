@@ -94,12 +94,6 @@ export default function ColumnDetailPage({ params }: { params: { slug: string } 
     url,
     specialty: { '@type': 'MedicalSpecialty', name: '산부인과' },
     medicalAudience: { '@type': 'MedicalAudience', audienceType: '여성 환자' },
-    lastReviewed: col.date,
-    reviewedBy: {
-      '@type': 'MedicalOrganization',
-      name: '연세365산부인과',
-      url: BASE,
-    },
     about: {
       '@type': 'MedicalCondition',
       name: col.category,

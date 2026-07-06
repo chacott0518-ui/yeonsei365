@@ -29,7 +29,7 @@ const Footer: React.FC = () => {
               <p className="md:hidden">대표 : 이진우</p>
               <p className="md:hidden">사업자번호 : 719-20-00835</p>
               <p>대표전화 : 02-585-3650</p>
-              <p>고객센터 : 02-547-2876</p>
+              <p>여성성형진료상담 : 02-547-2876</p>
               {/* 협력병원 */}
 <div className="mt-4 pt-4 border-t border-primary/10">
   <p className="text-[10px] md:text-xs text-gray-500 mb-2">연세365산부인과의원 협력병원</p>

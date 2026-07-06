@@ -3,6 +3,7 @@ import { useState } from 'react'
 import { FAQS } from '../constants'
 import { ChevronDown, ChevronUp } from 'lucide-react'
 import Link from 'next/link'
+import { FAQ_COUNT } from '@/app/abortion/faq/FAQClient'
 
 export default function FAQ() {
   const [openIndex, setOpenIndex] = useState<number | null>(null)
@@ -146,10 +147,10 @@ export default function FAQ() {
             href="/abortion/faq"
             className="inline-flex items-center gap-2 bg-gradient-to-r from-[#5c0e20] to-[#D6336C] text-white font-bold text-[14px] px-10 py-4 rounded-xl hover:opacity-90 transition-opacity"
           >
-            전체 217개 FAQ 보기 →
+            전체 {FAQ_COUNT}개 FAQ 보기 →
           </Link>
           <p className="text-[11px] text-gray-400 mt-2">
-          비용·방법·주수·준비·후관리·법적기준·병원예약 총 217개
+          비용·방법·주수·준비·후관리·법적기준·병원예약 총 {FAQ_COUNT}개
           </p>
         </div>
       </div>

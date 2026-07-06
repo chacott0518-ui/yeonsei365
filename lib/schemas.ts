@@ -79,13 +79,6 @@ export const clinicSchema = {
     medicalSpecialty: '산부인과',
   },
   priceRange: '₩₩',
-  aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: '4.8',
-    reviewCount: '150',
-    bestRating: '5',
-    worstRating: '1',
-  },
   sameAs: [
     CLINIC_KAKAO,
     'https://map.naver.com/v5/search/연세365산부인과',
@@ -151,7 +144,6 @@ export function createMedicalWebPageSchema(options: {
   title: string
   url: string
   description?: string
-  lastReviewed?: string
   about?: string
 }) {
   return {
@@ -166,16 +158,10 @@ export function createMedicalWebPageSchema(options: {
       audienceType: '여성 환자',
       geographicArea: { '@type': 'AdministrativeArea', name: '서울' },
     },
-    lastReviewed: options.lastReviewed ?? new Date().toISOString().split('T')[0],
-    reviewedBy: {
-      '@type': 'Physician',
-      name: '이진우',
-      honorificPrefix: '원장',
-      affiliation: {
-        '@type': 'MedicalOrganization',
-        name: CLINIC_NAME,
-        url: BASE_URL,
-      },
+    publisher: {
+      '@type': 'MedicalOrganization',
+      name: CLINIC_NAME,
+      url: BASE_URL,
     },
     about: options.about
       ? { '@type': 'MedicalCondition', name: options.about }

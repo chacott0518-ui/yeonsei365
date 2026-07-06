@@ -53,7 +53,7 @@ const PAGE_URL = 'https://www.yeonsei365.com/blog/abortion-period'
 const PAGE_DATE = '2026-04-10'
 const PAGE_MODIFIED = '2026-05-22'
 const articleSchema = { '@context':'https://schema.org','@type':'Article', headline:'임신중절수술 기간 | 몇 주까지 가능한가? 합법 기간 완벽 안내 2026', datePublished:PAGE_DATE, dateModified:PAGE_MODIFIED, image:'https://www.yeonsei365.com/og-image.jpg', author:{'@type':'Organization',name:'연세365산부인과의원',url:'https://www.yeonsei365.com'}, publisher:{'@type':'MedicalOrganization',name:'연세365산부인과의원',logo:{'@type':'ImageObject',url:'https://i.imgur.com/f7h5DY0.png'}}, mainEntityOfPage:{'@type':'WebPage','@id':PAGE_URL}, url:PAGE_URL }
-const medicalWebPageSchema = { '@context':'https://schema.org','@type':'MedicalWebPage', name:'임신중절수술 기간 | 몇 주까지 가능한가? 합법 기간 완벽 안내 2026', url:PAGE_URL, specialty:{'@type':'MedicalSpecialty',name:'산부인과'}, medicalAudience:{'@type':'MedicalAudience',audienceType:'여성 환자'}, lastReviewed:PAGE_DATE, reviewedBy:{'@type':'MedicalOrganization',name:'연세365산부인과의원',url:'https://www.yeonsei365.com'}, about:{'@type':'MedicalCondition',name:'임신중절수술 가능 기간'} }
+const medicalWebPageSchema = { '@context':'https://schema.org','@type':'MedicalWebPage', name:'임신중절수술 기간 | 몇 주까지 가능한가? 합법 기간 완벽 안내 2026', url:PAGE_URL, specialty:{'@type':'MedicalSpecialty',name:'산부인과'}, medicalAudience:{'@type':'MedicalAudience',audienceType:'여성 환자'}, about:{'@type':'MedicalCondition',name:'임신중절수술 가능 기간'} }
 const howToSchema = { '@context':'https://schema.org','@type':'HowTo', name:'임신중절수술 가능 기간 확인 방법', description:'임신 주수 확인부터 수술까지 단계별 안내', step:[ {'@type':'HowToStep',position:1,name:'임신 주수 확인',text:'초음파 검사로 정확한 임신 주수를 확인합니다.'}, {'@type':'HowToStep',position:2,name:'수술 가능 기간 확인',text:'임신 10주 이내가 가장 안전합니다. 빠를수록 좋습니다.'}, {'@type':'HowToStep',position:3,name:'즉시 예약',text:'주수가 증가할수록 비용과 위험도가 높아지므로 빠르게 예약합니다.'} ], tool:{'@type':'HowToTool',name:'연세365산부인과의원'} }
 const speakableSchema = { '@context':'https://schema.org','@type':'WebPage', name:'임신중절수술 기간 | 몇 주까지 가능한가? 합법 기간 완벽 안내 2026', url:PAGE_URL, speakable:{'@type':'SpeakableSpecification',cssSelector:['h1','h2']} }
 const breadcrumbSchema = { '@context':'https://schema.org','@type':'BreadcrumbList', itemListElement:[ {'@type':'ListItem',position:1,name:'홈',item:'https://www.yeonsei365.com'}, {'@type':'ListItem',position:2,name:'임신중절수술정보',item:'https://www.yeonsei365.com/blog'}, {'@type':'ListItem',position:3,name:'임신중절수술 기간',item:PAGE_URL} ] }
@@ -296,7 +296,7 @@ export default function AbortionPeriodPage() {
             {[
               { t: '시술 간단함', d: '주수가 짧을수록 태아 크기가 작아 흡입술로 간단히 시술 가능합니다. 10~15분 내외로 완료됩니다.' },
               { t: '회복 빠름', d: '8주 이내는 1~2일이면 일상 복귀 가능합니다. 주수가 늘수록 회복 기간이 증가합니다.' },
-              { t: '비용 절감', d: '8주 미만 45만원. 주수가 늘면 60~80만원 이상으로 증가하므로 빠를수록 경제적입니다.' },
+              { t: '비용 절감', d: '8주 미만 45만원. 주수가 늘면 8주 60만원, 9주 70만원, 10주 80만원으로 증가하므로 빠를수록 경제적입니다.' },
               { t: '합병증 위험 감소', d: '주수가 짧을수록 출혈·감염·자궁 손상 등 합병증 위험이 현저히 낮습니다.' },
             ].map(c => (
               <div key={c.t} style={{ background: '#fff', border: `1px solid ${C.bd}`, borderRadius: '14px', padding: '16px' }}>
