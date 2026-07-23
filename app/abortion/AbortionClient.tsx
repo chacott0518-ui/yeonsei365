@@ -71,6 +71,7 @@ const RELATED = [
   { href: '/abortion/legal', label: '낙태 합법화·법적 기준' },
   { href: '/abortion/faq', label: `전체 ${FAQ_COUNT}개 FAQ 보기` },
   { href: '/abortion/hospital', label: '임신중절수술 병원 안내' },
+  { href: '/abortion/surgery', label: '수술 방법·절차·당일 진행 안내' },
 ]
 
 const FEATURED_FAQS = [
@@ -690,6 +691,9 @@ export default function AbortionClient() {
                 → {label}
               </Link>
             ))}
+            <Link href="/abortion/surgery" style={{ display: 'block', background: '#fff', border: `0.5px solid ${C.pbd}`, borderRadius: '8px', padding: '10px 12px', textDecoration: 'none', fontSize: '11px', fontWeight: 700, color: C.p, lineHeight: 1.4 }}>
+              → 수술 방법·절차·당일 진행 안내
+            </Link>
           </div>
           <Link href="/abortion/faq" style={{ display: 'block', textAlign: 'center', background: '#fff', border: `0.5px solid ${C.pbd}`, borderRadius: '10px', padding: '11px', textDecoration: 'none', fontSize: '12px', fontWeight: 700, color: C.p }}>
             전체 {FAQ_COUNT}개 FAQ 보기 →
