@@ -1,5 +1,5 @@
 'use client'
-import React, { useState, useEffect, useRef } from 'react'
+import React, { useState, useEffect, useRef, useCallback } from 'react'
 import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
 import { NAV_LINKS } from '../constants'
@@ -66,6 +66,34 @@ const SUB_MENUS: Record<string, { label: string; href: string }[]> = {
   ],
 }
 
+const pathMatches = (pathname: string, href: string) =>
+  pathname === href || pathname.startsWith(`${href}/`)
+
+/** 현재 경로에 해당하는 상위 메뉴 id는 최대 1개만 반환 (route active ≠ dropdown open) */
+const findActiveNavId = (pathname: string, activeSection: string): string | null => {
+  // 전용 상위 href 정확 일치 우선 (예: /abortion/review → 수술후기·사례)
+  for (const link of NAV_LINKS) {
+    if (link.href && pathname === link.href) return link.id
+  }
+
+  let best: { id: string; len: number } | null = null
+  for (const [id, items] of Object.entries(SUB_MENUS)) {
+    for (const s of items) {
+      if (pathMatches(pathname, s.href)) {
+        if (!best || s.href.length > best.len) best = { id, len: s.href.length }
+      }
+    }
+  }
+  if (best) return best.id
+
+  if (pathname.startsWith('/abortion')) return 'abortion-clinic'
+
+  if (pathname === '/' && activeSection) {
+    if (NAV_LINKS.some((l) => l.id === activeSection)) return activeSection
+  }
+  return null
+}
+
 const Header: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState(false)
   const [isVisible, setIsVisible] = useState(true)
@@ -76,6 +104,39 @@ const Header: React.FC = () => {
   const isClickScrolling = useRef(false)
   const pathname = usePathname()
   const dropdownTimer = useRef<ReturnType<typeof setTimeout> | null>(null)
+  const rootRef = useRef<HTMLDivElement>(null)
+
+  const closeAllMenus = useCallback(() => {
+    setOpenDropdown(null)
+    setMobileExpanded(null)
+    setIsMobileMenuOpen(false)
+  }, [])
+
+  useEffect(() => {
+    setOpenDropdown(null)
+    setMobileExpanded(null)
+    setIsMobileMenuOpen(false)
+  }, [pathname])
+
+  useEffect(() => {
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') closeAllMenus()
+    }
+    const onPointerDown = (e: MouseEvent | TouchEvent) => {
+      const target = e.target as Node
+      if (rootRef.current && !rootRef.current.contains(target)) {
+        setOpenDropdown(null)
+      }
+    }
+    document.addEventListener('keydown', onKeyDown)
+    document.addEventListener('mousedown', onPointerDown)
+    document.addEventListener('touchstart', onPointerDown, { passive: true })
+    return () => {
+      document.removeEventListener('keydown', onKeyDown)
+      document.removeEventListener('mousedown', onPointerDown)
+      document.removeEventListener('touchstart', onPointerDown)
+    }
+  }, [closeAllMenus])
 
   useEffect(() => {
     let lastScrollY = window.scrollY
@@ -121,6 +182,7 @@ const Header: React.FC = () => {
       window.scrollTo({ top: offsetPosition, behavior: 'smooth' })
       setTimeout(() => { isClickScrolling.current = false }, 1000)
       setIsMobileMenuOpen(false)
+      setMobileExpanded(null)
     }
   }
 
@@ -162,19 +224,12 @@ const Header: React.FC = () => {
     return () => { document.body.style.overflow = 'unset' }
   }, [isMobileMenuOpen])
 
-  const isLinkActive = (link: typeof NAV_LINKS[0]) => {
-    if (link.href) {
-      if (link.id === 'abortion-clinic') return pathname.startsWith('/abortion')
-      if (link.id === 'faq') return pathname.startsWith('/abortion/faq')
-      if (link.id === 'price') return pathname.startsWith('/abortion/cost') || pathname.startsWith('/blog/abortion')
-      return pathname === link.href || pathname.startsWith('/blog/abortion')
-    }
-    return activeSection === link.id
-  }
+  const activeNavId = findActiveNavId(pathname, activeSection)
+  const isLinkActive = (link: typeof NAV_LINKS[0]) => activeNavId === link.id
 
   const getLinkClass = (link: typeof NAV_LINKS[0]) => {
     const active = isLinkActive(link)
-    const base = 'relative text-[11px] font-semibold tracking-tight transition-all duration-200 whitespace-nowrap px-2 py-1 rounded-full flex items-center gap-0.5'
+    const base = 'relative text-[11px] font-semibold tracking-tight transition-all duration-200 whitespace-nowrap px-2 py-1 rounded-full flex items-center gap-0.5 focus:outline-none focus-visible:outline-none'
     if (active) return `${base} bg-primary text-white font-bold`
     if (link.highlight) return `${base} text-primary font-bold hover:bg-primary/10`
     return `${base} text-primary hover:bg-primary/10`
@@ -189,14 +244,19 @@ const Header: React.FC = () => {
     dropdownTimer.current = setTimeout(() => setOpenDropdown(null), 200)
   }
 
+  const blurIfFocused = (e: React.MouseEvent | React.FocusEvent) => {
+    const el = e.currentTarget as HTMLElement
+    if (document.activeElement === el) el.blur()
+  }
+
   return (
-    <>
+    <div ref={rootRef}>
       <motion.header
         initial={{ y: -100 }}
         animate={{ y: isVisible ? 0 : '-100%' }}
         transition={{ duration: 0.15, ease: 'circOut' }}
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md border-b border-primary/10 ${
-          isScrolled ? 'py-2 shadow-sm' : 'py-3'
+        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white/95 backdrop-blur-md border-b border-primary/10 py-3 ${
+          isScrolled ? 'shadow-sm' : ''
         }`}
       >
         <div className="container mx-auto px-10 flex items-center justify-between">
@@ -206,16 +266,17 @@ const Header: React.FC = () => {
           >
             <Image
               src="https://i.imgur.com/f7h5DY0.png"
-              alt="연세365 로고"
+              alt="연세365산부인과의원 로고"
               width={120}
               height={40}
-              className={`w-auto object-contain transition-all duration-300 ${isScrolled ? 'h-8' : 'h-9 md:h-10'}`}
+              className="w-auto object-contain h-9 md:h-10"
             />
           </div>
 
           <nav className="hidden lg:flex items-center justify-center gap-3 flex-1 mx-10">
             {NAV_LINKS.map((link) => {
               const hasSub = !!SUB_MENUS[link.id]
+              const isOpen = openDropdown === link.id
               return (
                 <div
                   key={link.id}
@@ -224,18 +285,32 @@ const Header: React.FC = () => {
                   onMouseLeave={handleMouseLeave}
                 >
                   {link.href ? (
-                    <a href={link.href} className={getLinkClass(link)}>
+                    <a
+                      href={link.href}
+                      className={getLinkClass(link)}
+                      aria-expanded={hasSub ? isOpen : undefined}
+                      onMouseLeave={blurIfFocused}
+                      onClick={(e) => {
+                        blurIfFocused(e)
+                        setOpenDropdown(null)
+                      }}
+                    >
                       {link.label}
-                      {hasSub && <ChevronDown size={10} className={`transition-transform duration-200 ${openDropdown === link.id ? 'rotate-180' : ''}`} />}
+                      {hasSub && <ChevronDown size={10} className={`transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />}
                     </a>
                   ) : (
-                    <button onClick={() => scrollToSection(link.id)} className={getLinkClass(link)}>
+                    <button
+                      onClick={() => { scrollToSection(link.id); setOpenDropdown(null) }}
+                      className={getLinkClass(link)}
+                      aria-expanded={hasSub ? isOpen : undefined}
+                      onMouseLeave={blurIfFocused}
+                    >
                       {link.label}
-                      {hasSub && <ChevronDown size={10} />}
+                      {hasSub && <ChevronDown size={10} className={`transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`} />}
                     </button>
                   )}
                   <AnimatePresence>
-                    {hasSub && openDropdown === link.id && (
+                    {hasSub && isOpen && (
                       <motion.div
                         initial={{ opacity: 0, y: 8 }}
                         animate={{ opacity: 1, y: 0 }}
@@ -250,11 +325,12 @@ const Header: React.FC = () => {
                             <a
                               key={sub.href}
                               href={sub.href}
-                              className={`block px-4 py-2.5 text-[12px] font-semibold transition-all duration-150 ${
+                              className={`block px-4 py-2.5 text-[12px] font-semibold transition-all duration-150 focus:outline-none ${
                                 pathname === sub.href
                                   ? 'bg-primary/10 text-primary'
                                   : 'text-gray-700 hover:bg-pink-50 hover:text-primary'
                               }`}
+                              onClick={() => setOpenDropdown(null)}
                             >
                               {sub.label}
                             </a>
@@ -297,18 +373,36 @@ const Header: React.FC = () => {
                 {NAV_LINKS.map((link) => {
                   const hasSub = !!SUB_MENUS[link.id]
                   const isExpanded = mobileExpanded === link.id
+                  const active = isLinkActive(link)
                   return (
                     <div key={link.id}>
-                      <div className={`flex items-center justify-between py-3 px-3 rounded-xl mb-1 text-[13px] font-semibold tracking-tight border-b border-gray-50 ${link.highlight ? 'text-primary font-bold bg-primary/5' : 'text-gray-700 hover:bg-gray-50'}`}>
+                      <div className={`flex items-center justify-between py-3 px-3 rounded-xl mb-1 text-[13px] font-semibold tracking-tight border-b border-gray-50 ${
+                        active
+                          ? 'text-primary font-bold bg-primary/10'
+                          : link.highlight
+                            ? 'text-primary font-bold'
+                            : 'text-gray-700 hover:bg-gray-50'
+                      }`}>
                         {link.href ? (
-                          <a href={hasSub ? undefined : link.href} onClick={() => hasSub ? setMobileExpanded(isExpanded ? null : link.id) : setIsMobileMenuOpen(false)} className="flex-1">
+                          <a
+                            href={link.href}
+                            onClick={() => {
+                              setIsMobileMenuOpen(false)
+                              setMobileExpanded(null)
+                            }}
+                            className="flex-1"
+                          >
                             {link.label}
                           </a>
                         ) : (
                           <button onClick={() => scrollToSection(link.id)} className="flex-1 text-left">{link.label}</button>
                         )}
                         {hasSub && (
-                          <button onClick={() => setMobileExpanded(isExpanded ? null : link.id)} className="p-1">
+                          <button
+                            onClick={() => setMobileExpanded(isExpanded ? null : link.id)}
+                            className="p-1"
+                            aria-expanded={isExpanded}
+                          >
                             <ChevronDown size={14} className={`text-primary transition-transform duration-200 ${isExpanded ? 'rotate-180' : ''}`} />
                           </button>
                         )}
@@ -322,8 +416,8 @@ const Header: React.FC = () => {
                           >
                             <div className="pl-4 pb-2 flex flex-col gap-0.5">
                               {SUB_MENUS[link.id].map((sub) => (
-                                <a key={sub.href} href={sub.href} onClick={() => setIsMobileMenuOpen(false)}
-                                  className={`flex items-center gap-2 py-2 px-3 rounded-lg text-[12px] font-semibold transition-all ${pathname === sub.href ? 'text-primary bg-primary/10' : 'text-gray-600 hover:text-primary hover:bg-pink-50'}`}>
+                                <a key={sub.href} href={sub.href} onClick={() => { setIsMobileMenuOpen(false); setMobileExpanded(null) }}
+                                  className={`flex items-center gap-2 py-2 px-3 rounded-lg text-[12px] font-semibold transition-all focus:outline-none ${pathname === sub.href ? 'text-primary bg-primary/10' : 'text-gray-600 hover:text-primary hover:bg-pink-50'}`}>
                                   <span className="w-1.5 h-1.5 rounded-full bg-primary/40 flex-shrink-0" />
                                   {sub.label}
                                 </a>
@@ -344,7 +438,7 @@ const Header: React.FC = () => {
           </>
         )}
       </AnimatePresence>
-    </>
+    </div>
   )
 }
 

@@ -269,21 +269,6 @@ export default function AbortionLegalPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(clinicSchema) }} />
-
-      {/* 헤더 */}
-      <header style={{ position: 'fixed', top: 0, left: 0, right: 0, zIndex: 50, background: 'rgba(255,255,255,0.95)', backdropFilter: 'blur(8px)', borderBottom: '1px solid #E0E0E0', padding: '14px 20px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-        <a href="/" aria-label="홈으로" style={{ textDecoration: 'none' }}>
-          <img src="https://i.imgur.com/f7h5DY0.png" alt="연세365 로고" style={{ height: '36px', width: 'auto' }} />
-        </a>
-        <div style={{ display: 'flex', gap: '12px', alignItems: 'center' }}>
-          <a href="/blog" style={{ fontSize: '13px', color: '#00897B', textDecoration: 'none', fontWeight: 600 }}>임신중절수술정보</a>
-          <a href="/" style={{ fontSize: '13px', color: '#666', textDecoration: 'none' }}>홈으로</a>
-          <a href="http://pf.kakao.com/_TpaBj/chat" target="_blank" rel="noopener noreferrer"
-            style={{ background: '#FEE500', color: '#3B1B1B', padding: '8px 14px', borderRadius: '20px', fontSize: '12px', fontWeight: 700, textDecoration: 'none' }}>
-            💬 카톡상담
-          </a>
-        </div>
-      </header>
       <div style={{ height: '64px' }} />
 
       <div style={{
