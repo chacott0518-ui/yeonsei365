@@ -4,7 +4,7 @@ import { clinicSchema } from '@/lib/schemas'
 import ViewCounter from '@/components/ViewCounter'
 
 export const metadata: Metadata = {
-  title: '인공임신중절수술 비용·시기·가격 완벽 안내 2026 | 연세365산부인과',
+  title: '인공임신중절수술 비용·시기·가격 완벽 안내 2026 | 연세365산부인과의원',
   description: '인공임신중절수술 비용, 시기, 가격을 주수별로 투명하게 안내합니다. 8주 미만 45만원. 합법적 조건 4가지, 수술 과정까지 전문의 직접 안내. 사당역 4번 출구 연세365산부인과의원.',
   keywords: [
     '인공임신중절', '인공임신중절수술', '인공임신중절비용', '인공임신중절금액',
@@ -24,7 +24,7 @@ export const metadata: Metadata = {
     '여성검진클리닉', '난임클리닉', '산부인과',
   ],
   openGraph: {
-    title: '인공임신중절수술 비용·시기·가격 완벽 안내 2026 | 연세365산부인과',
+    title: '인공임신중절수술 비용·시기·가격 완벽 안내 2026 | 연세365산부인과의원',
     description: '인공임신중절수술 비용 주수별 공개. 8주 미만 45만원. 사당역 4번 출구.',
     url: 'https://www.yeonsei365.com/blog/abortion-info',
     images: [{ url: 'https://www.yeonsei365.com/og', width: 1200, height: 630 }],
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: '인공임신중절수술 비용·시기·가격 완벽 안내 2026 | 연세365산부인과',
+    title: '인공임신중절수술 비용·시기·가격 완벽 안내 2026 | 연세365산부인과의원',
     description: '인공임신중절수술 비용, 시기, 가격을 주수별로 투명하게 안내합니다. 8주 미만 45만원. 합법적 조건 4가지, 수술 과정까지 전문의 직접 안내. 사당역 4번 출구 연세365산부인과의원.',
   },
 }
@@ -74,7 +74,7 @@ function HeroImage() {
     <div style={{ maxWidth: '400px', margin: '0 auto' }}>
       <img
         src="/price-main.png"
-        alt="인공임신중절수술 비용 인공임신중절금액 인공임신중절가격 8주미만 45만원 당일예약 당일퇴원 연세365산부인과"
+        alt="인공임신중절수술 비용 인공임신중절금액 인공임신중절가격 8주미만 45만원 당일예약 당일퇴원 연세365산부인과의원"
         width="400"
         height="400"
         style={{ width: '100%', borderRadius: '20px', display: 'block' }}

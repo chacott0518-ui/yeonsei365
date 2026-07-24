@@ -3,7 +3,7 @@ import ReviewClient from './ReviewClient';
 import { clinicSchema } from '@/lib/schemas';
 
 export const metadata: Metadata = {
-  title: '임신중절수술 후기 | 낙태 비용 가격·부작용·사례 안내 | 연세365산부인과',
+  title: '임신중절수술 후기 | 낙태 비용 가격·부작용·사례 안내 | 연세365산부인과의원',
   description:
     '임신중절수술 후기가 궁금하신가요? 낙태수술 후기, 중절수술 후기, 임신초기낙태 후기를 솔직하게 안내합니다. 임신중절수술 금액·비용·가격과 부작용 사례까지 한눈에 확인하세요. 사당역 연세365산부인과의원.',
   keywords: [
@@ -14,7 +14,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: 'https://www.yeonsei365.com/abortion/review' },
   openGraph: {
-    title: '임신중절수술 후기 | 낙태 비용 가격·부작용·사례 안내 | 연세365산부인과',
+    title: '임신중절수술 후기 | 낙태 비용 가격·부작용·사례 안내 | 연세365산부인과의원',
     description: '임신중절수술 후기, 낙태수술 부작용 사례 안내. 임신중절수술 금액·비용. 사당역 연세365산부인과의원.',
     url: 'https://www.yeonsei365.com/abortion/review',
     images: [{ url: 'https://www.yeonsei365.com/og-image.jpg', width: 1200, height: 630, alt: '임신중절수술 후기 낙태 비용 가격 연세365산부인과의원' }],
@@ -23,7 +23,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: '임신중절수술 후기 | 낙태 비용 가격·부작용·사례 안내 | 연세365산부인과',
+    title: '임신중절수술 후기 | 낙태 비용 가격·부작용·사례 안내 | 연세365산부인과의원',
     description:
       '임신중절수술 후기가 궁금하신가요? 낙태수술 후기, 중절수술 후기, 임신초기낙태 후기를 솔직하게 안내합니다. 임신중절수술 금액·비용·가격과 부작용 사례까지 한눈에 확인하세요. 사당역 연세365산부인과의원.',
   },

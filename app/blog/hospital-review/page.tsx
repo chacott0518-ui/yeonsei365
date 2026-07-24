@@ -9,7 +9,7 @@ export const metadata: Metadata = {
   keywords: ['사당역산부인과', '사당역산부인과후기', '연세365산부인과후기', '동작구산부인과'],
   alternates: { canonical: 'https://www.yeonsei365.com/blog/hospital-review' },
   openGraph: {
-    title: '사당역 산부인과 솔직 후기 | 연세365산부인과',
+    title: '사당역 산부인과 솔직 후기 | 연세365산부인과의원',
     description: '처음 방문이라 긴장했는데 생각보다 편안했어요.',
     url: 'https://www.yeonsei365.com/blog/hospital-review',
     images: [{ url: 'https://www.yeonsei365.com/og-image.jpg', width: 1200, height: 630 }],

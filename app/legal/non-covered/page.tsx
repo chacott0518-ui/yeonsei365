@@ -2,8 +2,8 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: '비급여 진료비 안내 | 연세365산부인과',
-  description: '연세365산부인과 비급여 진료비 항목 안내. 처치·수술비, 검사료, 제증명 수수료 전체 공개.',
+  title: '비급여 진료비 안내 | 연세365산부인과의원',
+  description: '연세365산부인과의원 비급여 진료비 항목 안내. 처치·수술비, 검사료, 제증명 수수료 전체 공개.',
   alternates: { canonical: 'https://www.yeonsei365.com/legal/non-covered' },
 }
 
@@ -80,7 +80,7 @@ export default function NonCoveredPage() {
         비급여 진료비 안내
       </h1>
       <p style={{ fontSize: '13px', color: '#999', marginBottom: '16px' }}>
-        연세365산부인과 · 기준일: 2026년 1월 1일
+        연세365산부인과의원 · 기준일: 2026년 1월 1일
       </p>
 
       <div style={{ background: '#FFF5F7', borderRadius: '12px', padding: '16px 20px', marginBottom: '32px', border: '1px solid #FFE0E8' }}>

@@ -10,7 +10,7 @@ const Hero = () => (
       <div className="absolute inset-0" style={{ filter: 'brightness(0.9)' }}>
         <Image
           src="/hero.jpg"
-          alt="연세365산부인과 배경"
+          alt="연세365산부인과의원 배경"
           fill
           priority
           sizes="100vw"

@@ -27,11 +27,11 @@ export const metadata: Metadata = {
 
 const faqData = [
   {
-    q: '사당역 연세365산부인과는 어디에 위치하나요?',
+    q: '사당역 연세365산부인과의원은 어디에 위치하나요?',
     a: '서울 지하철 4호선·2호선 사당역 4번 출구에서 도보로 이동 가능한 거리에 위치합니다. 별도의 주차 공간은 제한적이므로 대중교통 이용을 권장합니다. 사당역은 강남, 서초, 방배, 이수, 관악, 동작 등 다양한 지역에서 접근이 편리한 환승역으로 인근 지역 거주자뿐 아니라 멀리서 찾아오시는 분들도 많습니다. 정확한 위치는 네이버 지도에서 "연세365산부인과의원"으로 검색하시면 확인하실 수 있습니다. 방문 전 전화(02-585-3650)로 위치 안내를 받으시는 것도 가능합니다.',
   },
   {
-    q: '사당역 연세365산부인과 진료시간은 어떻게 되나요?',
+    q: '사당역 연세365산부인과의원 진료시간은 어떻게 되나요?',
     a: '월~금 오전 10시부터 오후 5시 30분까지, 토요일은 오전 9시부터 오후 4시 30분까지 진료합니다. 일·공휴일은 오전 10시부터 오후 2시까지 운영합니다. 방문 전 전화(02-585-3650)로 확인하시기 바랍니다. 초진 환자의 경우 진료 마감 30분~1시간 전에 접수하시는 것을 권장합니다. 당일 예약도 가능하므로 급하게 방문이 필요한 경우 오전 일찍 전화로 당일 예약 가능 여부를 확인해보세요. 카카오톡 채널을 통한 비대면 상담도 가능합니다.',
   },
   {
@@ -39,7 +39,7 @@ const faqData = [
     a: '연세365산부인과의원에서는 여성 건강과 관련된 폭넓은 진료를 받을 수 있습니다. 자궁경부암 검진, 골반 초음파, 질염 치료, 생리불순·생리통 상담, 피임 상담(미레나, 임플라논, 경구피임약), 난임 클리닉, 산전 관리, 웨딩 검진, 갱년기 관리, HPV 백신 접종, 여성 성형(소음순 성형) 등이 있습니다. 초음파부터 혈액 검사, 자궁경부 세포 검사까지 기본 검진 항목 대부분이 원내에서 당일 가능하며, 연세대학교 의과대학 출신 산부인과 전문의가 직접 진료합니다.',
   },
   {
-    q: '사당역 연세365산부인과 진료비는 얼마인가요?',
+    q: '사당역 연세365산부인과의원 진료비는 얼마인가요?',
     a: '기본 진찰료는 건강보험 적용 시 1~2만원 수준입니다. 국가건강검진 대상자(만 20세 이상, 2년 주기)라면 자궁경부암 검사는 무료로 받으실 수 있습니다. 초음파 검사, 질염 검사, 호르몬 검사 등 추가 항목은 건강보험 적용 여부에 따라 달라지며, 비급여 항목은 방문 전 전화로 미리 확인하시거나 접수 시 항목별로 문의하시면 투명하게 안내해드립니다. 미레나·임플라논 등 시술 비용도 방문 전 상담을 통해 확인 가능합니다. 현금과 카드 모두 동일가로 결제 가능합니다.',
   },
   {
@@ -129,7 +129,7 @@ const accessInfo = [
   { icon: '🚇', label: '지하철', value: '4호선·2호선 사당역 4번 출구 도보 이용' },
   { icon: '🚌', label: '버스', value: '사당역 정류장 하차 후 도보 이용' },
   { icon: '📞', label: '전화', value: '02-585-3650' },
-  { icon: '💬', label: '카카오톡', value: '연세365산부인과 채널 검색' },
+  { icon: '💬', label: '카카오톡', value: '연세365산부인과의원 채널 검색' },
   { icon: '🕐', label: '진료시간', value: '월~금 10:00 ~ 17:30 / 토 09:00 ~ 16:30 (방문 전 전화 확인 권장)' },
 ]
 
@@ -141,9 +141,9 @@ const unsplashImages = {
   const PAGE_URL = 'https://www.yeonsei365.com/womens-clinic/sadang'
   const PAGE_DATE = '2026-04-01'
   const PAGE_MODIFIED = '2026-05-22'
-  const articleSchema = { '@context':'https://schema.org','@type':'Article', headline:'사당역 산부인과 연세365산부인과의원 | 위치·진료항목·비용 2026', datePublished:PAGE_DATE, dateModified:PAGE_MODIFIED, image:'https://www.yeonsei365.com/og-image.jpg', author:{'@type':'Organization',name:'연세365산부인과',url:'https://www.yeonsei365.com'}, publisher:{'@type':'MedicalOrganization',name:'연세365산부인과',logo:{'@type':'ImageObject',url:'https://i.imgur.com/f7h5DY0.png'}}, mainEntityOfPage:{'@type':'WebPage','@id':PAGE_URL}, url:PAGE_URL }
+  const articleSchema = { '@context':'https://schema.org','@type':'Article', headline:'사당역 산부인과 연세365산부인과의원 | 위치·진료항목·비용 2026', datePublished:PAGE_DATE, dateModified:PAGE_MODIFIED, image:'https://www.yeonsei365.com/og-image.jpg', author:{'@type':'Organization',name:'연세365산부인과의원',url:'https://www.yeonsei365.com'}, publisher:{'@type':'MedicalOrganization',name:'연세365산부인과의원',logo:{'@type':'ImageObject',url:'https://i.imgur.com/f7h5DY0.png'}}, mainEntityOfPage:{'@type':'WebPage','@id':PAGE_URL}, url:PAGE_URL }
   const medicalWebPageSchema = { '@context':'https://schema.org','@type':'MedicalWebPage', name:'사당역 산부인과 연세365산부인과의원 위치 진료항목 비용', url:PAGE_URL, specialty:{'@type':'MedicalSpecialty',name:'산부인과'}, medicalAudience:{'@type':'MedicalAudience',audienceType:'여성 환자'}, about:{'@type':'MedicalCondition',name:'산부인과 진료'} }
-  const howToSchema = { '@context':'https://schema.org','@type':'HowTo', name:'사당역 연세365산부인과 예약 방법', description:'사당역 산부인과 예약 단계별 안내', step:[ {'@type':'HowToStep',position:1,name:'예약',text:'전화(02-585-3650) 또는 네이버·카카오톡으로 예약합니다.'}, {'@type':'HowToStep',position:2,name:'내원',text:'사당역 4번출구 도보 이동. 신분증 지참.'}, {'@type':'HowToStep',position:3,name:'진료',text:'초음파·혈액검사 등 필요한 항목 당일 진행. 결과 당일 확인.'} ], tool:{'@type':'HowToTool',name:'연세365산부인과'} }
+  const howToSchema = { '@context':'https://schema.org','@type':'HowTo', name:'사당역 연세365산부인과의원 예약 방법', description:'사당역 산부인과 예약 단계별 안내', step:[ {'@type':'HowToStep',position:1,name:'예약',text:'전화(02-585-3650) 또는 네이버·카카오톡으로 예약합니다.'}, {'@type':'HowToStep',position:2,name:'내원',text:'사당역 4번출구 도보 이동. 신분증 지참.'}, {'@type':'HowToStep',position:3,name:'진료',text:'초음파·혈액검사 등 필요한 항목 당일 진행. 결과 당일 확인.'} ], tool:{'@type':'HowToTool',name:'연세365산부인과의원'} }
   const speakableSchema = { '@context':'https://schema.org','@type':'WebPage', name:'사당역 산부인과 연세365산부인과의원 위치 진료항목 비용', url:PAGE_URL, speakable:{'@type':'SpeakableSpecification',cssSelector:['h1','h2']} }
   const breadcrumbSchema = { '@context':'https://schema.org','@type':'BreadcrumbList', itemListElement:[ {'@type':'ListItem',position:1,name:'홈',item:'https://www.yeonsei365.com'}, {'@type':'ListItem',position:2,name:'여성검진클리닉',item:'https://www.yeonsei365.com/womens-clinic'}, {'@type':'ListItem',position:3,name:'사당역 산부인과',item:PAGE_URL} ] }
 
@@ -264,7 +264,7 @@ export default function SadangObgynPage() {
         <div style={{ marginBottom: '44px', borderRadius: '14px', overflow: 'hidden' }}>
           <img
             src={unsplashImages.waiting}
-            alt="사당역 연세365산부인과 대기실"
+            alt="사당역 연세365산부인과의원 대기실"
             width={780}
             height={400}
             style={{ width: '100%', height: 'clamp(180px,38vw,380px)', objectFit: 'cover', display: 'block' }}
@@ -387,13 +387,13 @@ export default function SadangObgynPage() {
           marginBottom: '16px',
           wordBreak: 'keep-all',
         }}>
-          연세365산부인과를 선택하는 이유
+          연세365산부인과의원을 선택하는 이유
         </h2>
 
         <div style={{ marginBottom: '44px', borderRadius: '14px', overflow: 'hidden' }}>
           <img
             src={unsplashImages.clinic}
-            alt="연세365산부인과 진료실"
+            alt="연세365산부인과의원 진료실"
             width={780}
             height={380}
             style={{ width: '100%', height: 'clamp(160px,35vw,360px)', objectFit: 'cover', display: 'block' }}

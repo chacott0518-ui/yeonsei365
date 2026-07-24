@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 
 export const metadata: Metadata = {
-  title: '이용약관 | 연세365산부인과',
+  title: '이용약관 | 연세365산부인과의원',
   description: '연세365산부인과의원 홈페이지 이용약관입니다.',
   alternates: { canonical: 'https://www.yeonsei365.com/legal/terms' },
 }

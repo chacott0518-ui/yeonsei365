@@ -14,12 +14,12 @@ export async function generateMetadata({ params }: { params: { slug: string } })
   if (!col) return {}
   const url = `${BASE}/health-magazine/column/${col.slug}`
   return {
-    title: `${col.title} | 연세365산부인과 건강 칼럼`,
+    title: `${col.title} | 연세365산부인과의원 건강 칼럼`,
     description: col.description,
     keywords: col.keywords,
     alternates: { canonical: url },
     openGraph: {
-      title: `${col.title} | 연세365산부인과`,
+      title: `${col.title} | 연세365산부인과의원`,
       description: col.description,
       url,
       images: [{
@@ -33,7 +33,7 @@ export async function generateMetadata({ params }: { params: { slug: string } })
     },
     twitter: {
       card: 'summary_large_image',
-      title: `${col.title} | 연세365산부인과`,
+      title: `${col.title} | 연세365산부인과의원`,
       description: col.description,
       images: [col.heroImage || col.thumbnail || `${BASE}/og-image.jpg`],
     },
@@ -57,12 +57,12 @@ export default function ColumnDetailPage({ params }: { params: { slug: string } 
     image: col.heroImage || col.thumbnail || `${BASE}/og-image.jpg`,
     author: {
       '@type': 'Organization',
-      name: '연세365산부인과',
+      name: '연세365산부인과의원',
       url: BASE,
     },
     publisher: {
       '@type': 'MedicalOrganization',
-      name: '연세365산부인과',
+      name: '연세365산부인과의원',
       logo: { '@type': 'ImageObject', url: 'https://i.imgur.com/f7h5DY0.png' },
     },
     mainEntityOfPage: { '@type': 'WebPage', '@id': url },
@@ -115,7 +115,7 @@ export default function ColumnDetailPage({ params }: { params: { slug: string } 
     })),
     tool: {
       '@type': 'HowToTool',
-      name: '연세365산부인과',
+      name: '연세365산부인과의원',
     },
   } : null
 
@@ -151,7 +151,7 @@ export default function ColumnDetailPage({ params }: { params: { slug: string } 
   const clinicSchema = {
     '@context': 'https://schema.org',
     '@type': 'MedicalClinic',
-    name: '연세365산부인과',
+    name: '연세365산부인과의원',
     url: BASE,
     telephone: '02-585-3650',
     address: {

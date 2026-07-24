@@ -4,19 +4,19 @@ import PregnancyCalculator from './PregnancyCalculator';
 import ViewCounter from '@/components/ViewCounter'
 
 export const metadata: Metadata = {
-  title: '임신주수 계산기 | 출산예정일·태아발달 자동 계산 — 연세365산부인과',
-  description: '마지막 생리 시작일 입력 시 현재 임신주수, 출산예정일, 태아 발달 정보, 산전 검사 일정까지 한 번에 확인. 연세365산부인과 무료 임신주수 계산기.',
+  title: '임신주수 계산기 | 출산예정일·태아발달 자동 계산 — 연세365산부인과의원',
+  description: '마지막 생리 시작일 입력 시 현재 임신주수, 출산예정일, 태아 발달 정보, 산전 검사 일정까지 한 번에 확인. 연세365산부인과의원 무료 임신주수 계산기.',
   keywords: ['임신주수계산기','임신주수 계산','출산예정일 계산','임신 초기 증상','임신주수별 태아발달'],
   alternates: { canonical: 'https://www.yeonsei365.com/pregnancy-calculator' },
   openGraph: {
-    title: '임신주수 계산기 — 연세365산부인과',
+    title: '임신주수 계산기 — 연세365산부인과의원',
     description: '마지막 생리일 입력으로 임신주수·출산예정일·태아발달 즉시 확인',
     url: 'https://www.yeonsei365.com/pregnancy-calculator',
-    siteName: '연세365산부인과',
+    siteName: '연세365산부인과의원',
     locale: 'ko_KR',
     type: 'website',
   },
-  twitter: { card: 'summary_large_image', title: '임신주수 계산기 | 연세365산부인과', description: '마지막 생리일 입력으로 임신주수·출산예정일·태아발달 즉시 확인.' },
+  twitter: { card: 'summary_large_image', title: '임신주수 계산기 | 연세365산부인과의원', description: '마지막 생리일 입력으로 임신주수·출산예정일·태아발달 즉시 확인.' },
 };
 
 const WEEKS = [
@@ -33,12 +33,12 @@ const WEEKS = [
 const PAGE_URL = 'https://www.yeonsei365.com/pregnancy-calculator'
 const PAGE_DATE = '2026-04-01'
 const PAGE_MODIFIED = '2026-05-22'
-const articleSchema = { '@context':'https://schema.org','@type':'Article', headline:'임신주수 계산기 | 출산예정일·태아발달 자동 계산 연세365산부인과', datePublished:PAGE_DATE, dateModified:PAGE_MODIFIED, image:'https://www.yeonsei365.com/og-image.jpg', author:{'@type':'Organization',name:'연세365산부인과',url:'https://www.yeonsei365.com'}, publisher:{'@type':'MedicalOrganization',name:'연세365산부인과',logo:{'@type':'ImageObject',url:'https://i.imgur.com/f7h5DY0.png'}}, mainEntityOfPage:{'@type':'WebPage','@id':PAGE_URL}, url:PAGE_URL }
-const faqSchema = { '@context':'https://schema.org','@type':'FAQPage', mainEntity:[ {'@type':'Question',name:'임신주수는 어떻게 계산하나요?',acceptedAnswer:{'@type':'Answer',text:'마지막 생리 시작일(LMP)을 기준으로 계산합니다. 실제 수정일보다 약 2주 길게 계산되며 이는 전 세계 산부인과 표준 방법입니다.'}}, {'@type':'Question',name:'출산예정일은 어떻게 계산하나요?',acceptedAnswer:{'@type':'Answer',text:'마지막 생리 시작일로부터 280일(40주)을 더해 계산합니다. 네겔레 법칙이라고 하며 실제 출산은 예정일 전후 2주(38~42주) 사이가 정상입니다.'}}, {'@type':'Question',name:'임신주수 계산기가 정확한가요?',acceptedAnswer:{'@type':'Answer',text:'생리주기가 규칙적인 경우 높은 정확도를 보이나, 불규칙한 경우 산부인과 초음파 검사로 정확한 주수를 확인하는 것이 중요합니다. 사당역 연세365산부인과(02-585-3650)에서 정확한 주수 확인이 가능합니다.'}} ] }
+const articleSchema = { '@context':'https://schema.org','@type':'Article', headline:'임신주수 계산기 | 출산예정일·태아발달 자동 계산 연세365산부인과의원', datePublished:PAGE_DATE, dateModified:PAGE_MODIFIED, image:'https://www.yeonsei365.com/og-image.jpg', author:{'@type':'Organization',name:'연세365산부인과의원',url:'https://www.yeonsei365.com'}, publisher:{'@type':'MedicalOrganization',name:'연세365산부인과의원',logo:{'@type':'ImageObject',url:'https://i.imgur.com/f7h5DY0.png'}}, mainEntityOfPage:{'@type':'WebPage','@id':PAGE_URL}, url:PAGE_URL }
+const faqSchema = { '@context':'https://schema.org','@type':'FAQPage', mainEntity:[ {'@type':'Question',name:'임신주수는 어떻게 계산하나요?',acceptedAnswer:{'@type':'Answer',text:'마지막 생리 시작일(LMP)을 기준으로 계산합니다. 실제 수정일보다 약 2주 길게 계산되며 이는 전 세계 산부인과 표준 방법입니다.'}}, {'@type':'Question',name:'출산예정일은 어떻게 계산하나요?',acceptedAnswer:{'@type':'Answer',text:'마지막 생리 시작일로부터 280일(40주)을 더해 계산합니다. 네겔레 법칙이라고 하며 실제 출산은 예정일 전후 2주(38~42주) 사이가 정상입니다.'}}, {'@type':'Question',name:'임신주수 계산기가 정확한가요?',acceptedAnswer:{'@type':'Answer',text:'생리주기가 규칙적인 경우 높은 정확도를 보이나, 불규칙한 경우 산부인과 초음파 검사로 정확한 주수를 확인하는 것이 중요합니다. 사당역 연세365산부인과의원(02-585-3650)에서 정확한 주수 확인이 가능합니다.'}} ] }
 const breadcrumbSchema = { '@context':'https://schema.org','@type':'BreadcrumbList', itemListElement:[ {'@type':'ListItem',position:1,name:'홈',item:'https://www.yeonsei365.com'}, {'@type':'ListItem',position:2,name:'임신주수계산기',item:PAGE_URL} ] }
 const medicalWebPageSchema = { '@context':'https://schema.org','@type':'MedicalWebPage', name:'임신주수 계산기 | 출산예정일·태아발달 자동 계산', url:'https://www.yeonsei365.com/pregnancy-calculator', specialty:{'@type':'MedicalSpecialty',name:'산부인과'}, medicalAudience:{'@type':'MedicalAudience',audienceType:'여성 환자'}, about:{'@type':'MedicalCondition',name:'임신주수 계산'} }
-const howToSchema = { '@context':'https://schema.org','@type':'HowTo', name:'임신주수 계산하는 방법', description:'마지막 생리일로 임신주수·출산예정일 계산', step:[ {'@type':'HowToStep',position:1,name:'마지막 생리일 입력',text:'마지막 생리 시작일을 계산기에 입력합니다.'}, {'@type':'HowToStep',position:2,name:'임신주수 확인',text:'현재 임신주수와 출산예정일이 자동으로 계산됩니다.'}, {'@type':'HowToStep',position:3,name:'산부인과 확인',text:'정확한 주수는 연세365산부인과(02-585-3650) 초음파로 확인하세요.'} ], tool:{'@type':'HowToTool',name:'연세365산부인과'} }
-const speakableSchema = { '@context':'https://schema.org','@type':'WebPage', name:'임신주수 계산기 출산예정일 태아발달 자동 계산 연세365산부인과', url:PAGE_URL, speakable:{'@type':'SpeakableSpecification',cssSelector:['h1','h2']} }
+const howToSchema = { '@context':'https://schema.org','@type':'HowTo', name:'임신주수 계산하는 방법', description:'마지막 생리일로 임신주수·출산예정일 계산', step:[ {'@type':'HowToStep',position:1,name:'마지막 생리일 입력',text:'마지막 생리 시작일을 계산기에 입력합니다.'}, {'@type':'HowToStep',position:2,name:'임신주수 확인',text:'현재 임신주수와 출산예정일이 자동으로 계산됩니다.'}, {'@type':'HowToStep',position:3,name:'산부인과 확인',text:'정확한 주수는 연세365산부인과의원(02-585-3650) 초음파로 확인하세요.'} ], tool:{'@type':'HowToTool',name:'연세365산부인과의원'} }
+const speakableSchema = { '@context':'https://schema.org','@type':'WebPage', name:'임신주수 계산기 출산예정일 태아발달 자동 계산 연세365산부인과의원', url:PAGE_URL, speakable:{'@type':'SpeakableSpecification',cssSelector:['h1','h2']} }
 
 export default function Page() {
   return (

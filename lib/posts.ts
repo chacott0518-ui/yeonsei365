@@ -1,6 +1,6 @@
 export const posts = [
     // abortion 서비스 페이지
-    { title: '임신중절수술 안내', slug: '/abortion/surgery', description: '임신중절수술 전문 안내. 사당역 연세365산부인과.', date: '2024-04-08' },
+    { title: '임신중절수술 안내', slug: '/abortion/surgery', description: '임신중절수술 전문 안내. 사당역 연세365산부인과의원.', date: '2024-04-08' },
     { title: '임신중절수술 비용 안내', slug: '/abortion/cost', description: '임신중절수술 비용 상세 안내', date: '2024-04-07' },
     { title: '임신중절수술 방법', slug: '/abortion/method', description: '임신중절수술 방법 안내', date: '2024-04-06' },
     { title: '임신중절수술 법적 안내', slug: '/abortion/legal', description: '임신중절수술 법적 안내', date: '2024-04-05' },
@@ -25,7 +25,7 @@ export const posts = [
     { title: '임신중절수술 보험', slug: '/blog/abortion-insurance', description: '임신중절수술 보험 적용 여부', date: '2024-03-13' },
     { title: '임신중절수술 보호자', slug: '/blog/abortion-guardian', description: '보호자 동반 여부 안내', date: '2024-03-12' },
     // 수술후기
-    { title: '병원 방문 후기', slug: '/blog/hospital-review', description: '연세365산부인과 방문 후기', date: '2024-03-11' },
+    { title: '병원 방문 후기', slug: '/blog/hospital-review', description: '연세365산부인과의원 방문 후기', date: '2024-03-11' },
     // womens-clinic
     { title: '사당역 산부인과 연세365', slug: '/womens-clinic/sadang', description: '사당역 산부인과 안내', date: '2024-03-10' },
     { title: '산부인과 처음 방문 안내', slug: '/womens-clinic/first-visit', description: '처음 방문 안내', date: '2024-03-09' },

@@ -17,7 +17,7 @@ export const metadata: Metadata = {
     title: `임신중절수술 FAQ | 낙태 비용 가격 자주 묻는 질문 ${FAQ_COUNT}가지 | 연세365산부인과의원`,
     description: `임신중절수술 비용·방법·후관리 자주 묻는 질문 ${FAQ_COUNT}가지. 사당역 연세365산부인과의원.`,
     url: 'https://www.yeonsei365.com/abortion/faq',
-    images: [{ url: 'https://www.yeonsei365.com/og-image.jpg', width: 1200, height: 630, alt: '임신중절수술 FAQ 연세365산부인과' }],
+    images: [{ url: 'https://www.yeonsei365.com/og-image.jpg', width: 1200, height: 630, alt: '임신중절수술 FAQ 연세365산부인과의원' }],
     locale: 'ko_KR',
     type: 'website',
   },
@@ -35,7 +35,7 @@ const articleSchema = { '@context':'https://schema.org','@type':'Article', headl
 const medicalWebPageSchema = { '@context':'https://schema.org','@type':'MedicalWebPage', name:`임신중절수술 FAQ 자주 묻는 질문 ${FAQ_COUNT}가지`, url:PAGE_URL, specialty:{'@type':'MedicalSpecialty',name:'산부인과'}, medicalAudience:{'@type':'MedicalAudience',audienceType:'여성 환자'}, lastReviewed:PAGE_MODIFIED, provider:{'@id':'https://www.yeonsei365.com/#organization'}, about:{'@type':'MedicalCondition',name:'임신중절수술'} }
 const howToSchema = { '@context':'https://schema.org','@type':'HowTo', name:'임신중절수술 예약 방법', description:'연세365산부인과의원 임신중절수술 예약부터 수술까지', step:[ {'@type':'HowToStep',position:1,name:'상담 예약',text:'전화(02-585-3650) 또는 카카오톡으로 금식 방법과 예약 시간을 확인합니다.'}, {'@type':'HowToStep',position:2,name:'내원 및 검사',text:'신분증 지참 후 내원. 초음파와 혈액 검사로 주수 및 건강 상태 확인 후 비용 안내.'}, {'@type':'HowToStep',position:3,name:'수술 및 귀가',text:'수면마취 후 수술. 1인 회복실 안정 후 당일 귀가.'} ], tool:{'@type':'HowToTool',name:'연세365산부인과의원'} }
 const speakableSchema = { '@context':'https://schema.org','@type':'WebPage', name:`임신중절수술 FAQ 자주 묻는 질문 ${FAQ_COUNT}가지`, url:PAGE_URL, speakable:{'@type':'SpeakableSpecification',cssSelector:['h1','h2']} }
-const faqSchema = { '@context':'https://schema.org','@type':'FAQPage', mainEntity:[ {'@type':'Question',name:'임신중절수술 비용이 얼마인가요?',acceptedAnswer:{'@type':'Answer',text:'임신중절수술 비용은 8주 미만 45만원, 8주 60만원, 9주 70만원, 10주 80만원입니다. 연세365산부인과(02-585-3650)에서 정확한 비용을 안내드립니다.'}}, {'@type':'Question',name:'임신중절수술 당일 수술이 가능한가요?',acceptedAnswer:{'@type':'Answer',text:'네, 연세365산부인과는 당일 검사·상담·수술이 가능한 원스톱 시스템을 운영합니다. 사당역 4번출구 도보 3분입니다.'}}, {'@type':'Question',name:'임신중절수술 비밀보장이 되나요?',acceptedAnswer:{'@type':'Answer',text:'네, 연세365산부인과는 모든 상담과 진료 기록을 철저히 비밀보장하며 1:1 독립 상담실에서 진행합니다.'}} ] }
+const faqSchema = { '@context':'https://schema.org','@type':'FAQPage', mainEntity:[ {'@type':'Question',name:'임신중절수술 비용이 얼마인가요?',acceptedAnswer:{'@type':'Answer',text:'임신중절수술 비용은 8주 미만 45만원, 8주 60만원, 9주 70만원, 10주 80만원입니다. 연세365산부인과의원(02-585-3650)에서 정확한 비용을 안내드립니다.'}}, {'@type':'Question',name:'임신중절수술 당일 수술이 가능한가요?',acceptedAnswer:{'@type':'Answer',text:'네, 연세365산부인과의원은 당일 검사·상담·수술이 가능한 원스톱 시스템을 운영합니다. 사당역 4번출구 도보 3분입니다.'}}, {'@type':'Question',name:'임신중절수술 비밀보장이 되나요?',acceptedAnswer:{'@type':'Answer',text:'네, 연세365산부인과의원은 모든 상담과 진료 기록을 철저히 비밀보장하며 1:1 독립 상담실에서 진행합니다.'}} ] }
 const breadcrumbSchema = { '@context':'https://schema.org','@type':'BreadcrumbList', itemListElement:[ {'@type':'ListItem',position:1,name:'홈',item:'https://www.yeonsei365.com'}, {'@type':'ListItem',position:2,name:'임신중절클리닉',item:'https://www.yeonsei365.com/abortion'}, {'@type':'ListItem',position:3,name:'FAQ',item:PAGE_URL} ] }
 
 export default function FAQPage() {

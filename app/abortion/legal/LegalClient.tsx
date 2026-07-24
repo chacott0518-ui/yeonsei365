@@ -159,7 +159,7 @@ export default function LegalClient() {
               낙태 합법화 이후 임신 14주 이내에는 본인 동의만으로 임신중절수술이 가능합니다. 이는 낙태 수술 합법 시기로 가장 안전하고 낙태 비용 가격도 낮은 시기입니다. 14주~24주는 사회·경제적 사유 등 모자보건법상 인정되는 조건에 해당하는 경우 시술이 가능합니다.
             </p>
             <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '20px' }}>
-              낙태죄 폐지 이후에도 불법 시술(무허가 의료기관 또는 비전문의 시술)은 여전히 처벌 대상입니다. 반드시 산부인과 전문의가 있는 의료기관에서 합법적으로 시술받으시기 바랍니다. 연세365산부인과는 모든 관련 법규를 준수하며 합법적으로 임신중절수술을 시행합니다.
+              낙태죄 폐지 이후에도 불법 시술(무허가 의료기관 또는 비전문의 시술)은 여전히 처벌 대상입니다. 반드시 산부인과 전문의가 있는 의료기관에서 합법적으로 시술받으시기 바랍니다. 연세365산부인과의원은 모든 관련 법규를 준수하며 합법적으로 임신중절수술을 시행합니다.
             </p>
 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: '16px', marginBottom: '24px' }}>
@@ -210,7 +210,7 @@ export default function LegalClient() {
             <SectionTag>03 합법적 임신중절수술 절차</SectionTag>
             <h2 style={{ fontSize: '24px', fontWeight: 900, color: C.tm, marginBottom: '8px', letterSpacing: '-.02em' }}>합법적으로 시술받는 방법</h2>
             <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '20px' }}>
-              연세365산부인과는 모든 관련 법규를 준수하며 합법적으로 임신중절수술을 시행합니다. 아래 절차를 따라 안전하게 진행됩니다.
+              연세365산부인과의원은 모든 관련 법규를 준수하며 합법적으로 임신중절수술을 시행합니다. 아래 절차를 따라 안전하게 진행됩니다.
             </p>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: '12px' }}>
               {[

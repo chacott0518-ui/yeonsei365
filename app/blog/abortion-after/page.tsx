@@ -42,7 +42,7 @@ const breadcrumbSchema = {
 }
 
 export const metadata: Metadata = {
-  title: '임신중절수술 후 관리 | 회복 방법·주의사항 완벽 안내 2026 | 연세365산부인과',
+  title: '임신중절수술 후 관리 | 회복 방법·주의사항 완벽 안내 2026 | 연세365산부인과의원',
   description: '임신중절수술 후 관리 방법을 단계별로 안내합니다. 수술 당일·1주일·2~4주 단계별 주의사항, 즉시 내원 증상, 음식·운동·성관계 재개 시기까지. 사당역 4번 출구 연세365산부인과의원.',
   keywords: [
     '임신중절수술후관리', '임신중절수술 후 관리', '낙태수술후관리', '임신중절후관리',
@@ -56,15 +56,15 @@ export const metadata: Metadata = {
     '임신중절수술후샤워', '임신중절수술후목욕', '임신중절수술후사우나',
   ],
   openGraph: {
-    title: '임신중절수술 후 관리 | 회복 방법 완벽 안내 2026 | 연세365산부인과',
+    title: '임신중절수술 후 관리 | 회복 방법 완벽 안내 2026 | 연세365산부인과의원',
     description: '임신중절수술 후 관리 단계별 완벽 안내. 사당역 4번 출구.',
     url: 'https://www.yeonsei365.com/blog/abortion-after',
-    images: [{ url: 'https://www.yeonsei365.com/og-image.jpg', width: 1200, height: 630, alt: '임신중절수술 후 관리 연세365산부인과' }],
+    images: [{ url: 'https://www.yeonsei365.com/og-image.jpg', width: 1200, height: 630, alt: '임신중절수술 후 관리 연세365산부인과의원' }],
   },
   alternates: { canonical: 'https://www.yeonsei365.com/blog/abortion-after' },
   twitter: {
     card: 'summary_large_image',
-    title: '임신중절수술 후 관리 | 회복 방법·주의사항 완벽 안내 2026 | 연세365산부인과',
+    title: '임신중절수술 후 관리 | 회복 방법·주의사항 완벽 안내 2026 | 연세365산부인과의원',
     description: '임신중절수술 후 관리 방법을 단계별로 안내합니다. 수술 당일·1주일·2~4주 단계별 주의사항, 즉시 내원 증상, 음식·운동·성관계 재개 시기까지. 사당역 4번 출구 연세365산부인과의원.',
   },
 }

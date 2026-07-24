@@ -4,14 +4,14 @@ import { clinicSchema } from '@/lib/schemas'
 import ViewCounter from '@/components/ViewCounter'
 
 export const metadata: Metadata = {
-  title: '임신중절수술 보호자 | 혼자 가능한가? 동반 여부 완벽 안내 2026 | 연세365산부인과',
+  title: '임신중절수술 보호자 | 혼자 가능한가? 동반 여부 완벽 안내 2026 | 연세365산부인과의원',
   description: '임신중절수술 보호자 동반 여부를 완벽하게 안내합니다. 성인 혼자 가능 여부, 미성년자 보호자 필요 여부, 수술 후 귀가까지. 사당역 4번 출구 연세365산부인과의원.',
   keywords: ['임신중절수술보호자','임신중절수술 보호자','낙태수술보호자','임신중절보호자','낙태보호자','임신중절수술혼자','낙태혼자가능','임신중절수술혼자가능','낙태수술혼자','임신중절수술미성년자','낙태미성년자','임신중절수술동반','사당역산부인과','임신중절수술비용','낙태비용'],
-  openGraph: { title: '임신중절수술 보호자 | 혼자 가능한가? | 연세365산부인과', description: '임신중절수술 보호자 동반 여부 완벽 안내. 사당역 4번 출구.', url: 'https://www.yeonsei365.com/blog/abortion-guardian', images: [{ url: 'https://www.yeonsei365.com/og-image.jpg', width: 1200, height: 630 }] },
+  openGraph: { title: '임신중절수술 보호자 | 혼자 가능한가? | 연세365산부인과의원', description: '임신중절수술 보호자 동반 여부 완벽 안내. 사당역 4번 출구.', url: 'https://www.yeonsei365.com/blog/abortion-guardian', images: [{ url: 'https://www.yeonsei365.com/og-image.jpg', width: 1200, height: 630 }] },
   alternates: { canonical: 'https://www.yeonsei365.com/blog/abortion-guardian' },
   twitter: {
     card: 'summary_large_image',
-    title: '임신중절수술 보호자 | 혼자 가능한가? 동반 여부 완벽 안내 2026 | 연세365산부인과',
+    title: '임신중절수술 보호자 | 혼자 가능한가? 동반 여부 완벽 안내 2026 | 연세365산부인과의원',
     description: '임신중절수술 보호자 동반 여부를 완벽하게 안내합니다. 성인 혼자 가능 여부, 미성년자 보호자 필요 여부, 수술 후 귀가까지. 사당역 4번 출구 연세365산부인과의원.',
   },
 }
@@ -90,7 +90,7 @@ export default function AbortionGuardianPage() {
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(clinicSchema) }} />
       <div style={{ height: '60px' }} />
       <div style={{ maxWidth: '780px', margin: '0 auto', padding: '0 20px 100px', fontFamily: '"Pretendard", -apple-system, sans-serif' }}>
-        <div style={{ margin: '28px 0 0' }}><img src="/og-image.jpg" alt="임신중절수술 보호자 혼자가능 연세365산부인과" width="780" height="410" style={{ width: '100%', borderRadius: '18px', display: 'block' }} /></div>
+        <div style={{ margin: '28px 0 0' }}><img src="/og-image.jpg" alt="임신중절수술 보호자 혼자가능 연세365산부인과의원" width="780" height="410" style={{ width: '100%', borderRadius: '18px', display: 'block' }} /></div>
         <div style={{ background: `linear-gradient(160deg, ${C.pp} 0%, ${C.pd} 40%, ${C.p} 100%)`, borderRadius: '20px', padding: 'clamp(24px,5vw,40px) clamp(20px,5vw,36px)', margin: '20px 0 28px' }}>
           <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '16px' }}>{['보호자안내','혼자가능여부','미성년자','비밀보장'].map(t => <span key={t} style={{ background: 'rgba(255,255,255,0.18)', color: '#fff', fontSize: '11px', padding: '3px 12px', borderRadius: '20px' }}>{t}</span>)}</div>
           <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '20px', flexWrap: 'wrap' }}>

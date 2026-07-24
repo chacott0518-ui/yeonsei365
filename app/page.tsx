@@ -38,7 +38,7 @@ const speakableSchema = { '@context':'https://schema.org','@type':'WebPage', nam
 const breadcrumbSchema = { '@context':'https://schema.org','@type':'BreadcrumbList', itemListElement:[ {'@type':'ListItem',position:1,name:'홈',item:'https://www.yeonsei365.com'} ] }
 
 export const metadata: Metadata = {
-  title: '임신중절수술 금액·비용 | 낙태비용 가격 안내 | 연세365산부인과',
+  title: '임신중절수술 금액·비용 | 낙태비용 가격 안내 | 연세365산부인과의원',
   description: '낙태비용, 낙태금액, 낙태가격, 임신중절비용, 임신중절수술비용을 주수별로 투명하게 안내합니다. 8주 미만 45만원. 사당역 4번 출구 연세365산부인과의원.',
   keywords: [
     '임신중절수술금액', '임신중절수술 금액', '낙태금액', '낙태 금액',
@@ -77,7 +77,7 @@ export const metadata: Metadata = {
     '갱년기', '자궁근종', '피임상담', '미레나', '산부인과',
   ],
   openGraph: {
-    title: '낙태비용 가격 금액 | 임신중절수술비용 안내 | 연세365산부인과',
+    title: '낙태비용 가격 금액 | 임신중절수술비용 안내 | 연세365산부인과의원',
     description: '낙태비용 가격 주수별 투명 공개. 8주 미만 45만원. 사당역 4번 출구.',
     url: 'https://www.yeonsei365.com',
     images: [{ url: 'https://www.yeonsei365.com/og-image.jpg', width: 1200, height: 630, alt: '연세365산부인과의원 임신중절수술 비용 안내' }],

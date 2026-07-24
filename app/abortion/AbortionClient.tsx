@@ -244,13 +244,13 @@ export default function AbortionClient() {
                   <strong style={{ color: C.p }}>임신중절수술(인공임신중절수술)</strong>은 자궁 내 임신 조직을 의학적으로 안전하게 제거하는 시술입니다. 일반적으로 '낙태수술' 또는 '중절수술'이라고도 불립니다. 2021년 1월 낙태죄 처벌 조항이 효력을 상실한 이후, 임신 14주 이내에는 본인 동의만으로 합법적으로 시술받으실 수 있습니다.
                 </p>
                 <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '16px' }}>
-                  연세365산부인과에서는 산부인과 전문의가 직접 집도하며, 임신 주수와 자궁 상태를 확인하여 <strong style={{ color: C.p }}>흡입술(진공흡입법)</strong> 또는 <strong style={{ color: C.p }}>소파술(자궁소파술)</strong> 중 적합한 방법을 안내합니다. 수면마취 하에 진행되며, 일반적으로 10~15분 내외 소요됩니다.
+                  연세365산부인과의원에서는 산부인과 전문의가 직접 집도하며, 임신 주수와 자궁 상태를 확인하여 <strong style={{ color: C.p }}>흡입술(진공흡입법)</strong> 또는 <strong style={{ color: C.p }}>소파술(자궁소파술)</strong> 중 적합한 방법을 안내합니다. 수면마취 하에 진행되며, 일반적으로 10~15분 내외 소요됩니다.
                 </p>
                 <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '16px' }}>
                   <strong>임신중절수술 금액</strong>과 낙태 비용 가격은 임신 주수가 짧을수록 낮으며 회복도 빠릅니다. <strong>임신초기낙태</strong> 또는 <strong>임신초기중절수술</strong>은 보통 임신 8주 이내를 의미하며, 이 시기에 시술받는 것이 신체적 부담을 최소화할 수 있습니다.
                 </p>
                 <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '16px' }}>
-                  모든 상담과 진료는 의료법에 따라 철저히 비밀이 보장됩니다. 사당역 4번출구에 위치한 연세365산부인과는 독립된 1인 상담실과 1인 회복실을 운영하여 타인에게 노출될 걱정 없이 진료받으실 수 있습니다.
+                  모든 상담과 진료는 의료법에 따라 철저히 비밀이 보장됩니다. 사당역 4번출구에 위치한 연세365산부인과의원은 독립된 1인 상담실과 1인 회복실을 운영하여 타인에게 노출될 걱정 없이 진료받으실 수 있습니다.
                 </p>
                 <InfoBox>임신 4~5주는 태낭이 작아 초음파 확인이 어려울 수 있습니다. 6~7주 내원 시 정확한 진단에 유리합니다.</InfoBox>
               </div>
@@ -258,7 +258,7 @@ export default function AbortionClient() {
                 <div style={{ position: 'relative', borderRadius: '16px', overflow: 'hidden', marginBottom: '14px', height: '200px' }}>
                   <img
                     src="/images/hero-abortion-surgery.webp"
-                    alt="임신중절수술 전문의 연세365산부인과 사당역"
+                    alt="임신중절수술 전문의 연세365산부인과의원 사당역"
                     style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center' }}
                   />
                   <div style={{ position: 'absolute', inset: 0, background: 'rgba(0,0,0,0.50)', display: 'flex', alignItems: 'flex-end', padding: '16px' }}>
@@ -439,13 +439,13 @@ export default function AbortionClient() {
             </p>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '14px', marginBottom: '24px' }}>
               <div style={{ height: '160px', borderRadius: '12px', overflow: 'hidden', border: `0.5px solid ${C.pbd}` }}>
-                <img src="/images/hero-abortion-main.webp" alt="임신중절수술 상담 공간 연세365산부인과" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <img src="/images/hero-abortion-main.webp" alt="임신중절수술 상담 공간 연세365산부인과의원" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               </div>
               <div style={{ height: '160px', borderRadius: '12px', overflow: 'hidden', border: `0.5px solid ${C.pbd}` }}>
-                <img src="/images/hero-abortion-recovery.webp" alt="임신중절수술 후 회복실 연세365산부인과" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <img src="/images/hero-abortion-recovery.webp" alt="임신중절수술 후 회복실 연세365산부인과의원" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               </div>
               <div style={{ height: '160px', borderRadius: '12px', overflow: 'hidden', border: `0.5px solid ${C.pbd}` }}>
-                <img src="/images/hero-abortion-hospital.webp" alt="임신중절수술 병원 사당역 연세365산부인과" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
+                <img src="/images/hero-abortion-hospital.webp" alt="임신중절수술 병원 사당역 연세365산부인과의원" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
               </div>
             </div>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '20px' }}>

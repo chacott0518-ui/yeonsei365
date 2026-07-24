@@ -16,11 +16,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   if (!faq) return {}
   const url = `https://www.yeonsei365.com/abortion/faq/${faq.slug}`
   return {
-    title: `${faq.question} | 연세365산부인과`,
+    title: `${faq.question} | 연세365산부인과의원`,
     description: faq.answer.slice(0, 120),
     alternates: { canonical: url },
     openGraph: {
-      title: `${faq.question} | 연세365산부인과`,
+      title: `${faq.question} | 연세365산부인과의원`,
       description: faq.answer.slice(0, 120),
       url,
       images: [{ url: 'https://www.yeonsei365.com/og-image.jpg', width: 1200, height: 630 }],

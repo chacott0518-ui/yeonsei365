@@ -227,7 +227,7 @@ export default function MethodClient() {
             <SectionTag>03 가임력 보존과 수술 방법</SectionTag>
             <h2 style={{ fontSize: '24px', fontWeight: 900, color: C.tm, marginBottom: '8px', letterSpacing: '-.02em' }}>다음 임신에 영향이 있나요?</h2>
             <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '14px' }}>
-              전문의가 안전하게 시행한 임신중절수술은 향후 임신에 영향을 주지 않는 것이 일반적입니다. 연세365산부인과는 자궁 내막 손상을 최소화하는 정교한 수술 기법을 적용합니다. 특히 8주 이내 흡입술은 자궁 내막 손상이 가장 적어 가임력 보존에 가장 유리합니다.
+              전문의가 안전하게 시행한 임신중절수술은 향후 임신에 영향을 주지 않는 것이 일반적입니다. 연세365산부인과의원은 자궁 내막 손상을 최소화하는 정교한 수술 기법을 적용합니다. 특히 8주 이내 흡입술은 자궁 내막 손상이 가장 적어 가임력 보존에 가장 유리합니다.
             </p>
             <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '20px' }}>
               그러나 반복적인 임신중절수술은 자궁 내막에 누적적인 손상을 줄 수 있으므로 수술 후 적절한 피임 방법을 선택하는 것이 중요합니다. 수술 후 피임 상담도 함께 제공하고 있으니 내원 시 문의해 주시기 바랍니다.

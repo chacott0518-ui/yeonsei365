@@ -4,7 +4,7 @@ import { clinicSchema } from '@/lib/schemas'
 import ViewCounter from '@/components/ViewCounter'
 
 export const metadata: Metadata = {
-  title: '임신중절수술 기간 | 몇 주까지 가능한가? 합법 기간 완벽 안내 2026 | 연세365산부인과',
+  title: '임신중절수술 기간 | 몇 주까지 가능한가? 합법 기간 완벽 안내 2026 | 연세365산부인과의원',
   description: '임신중절수술 기간을 주수별로 완벽 정리했습니다. 임신중절수술 몇 주까지 가능한지, 합법 기간, 주수별 시술 방법 차이, 빠른 결정이 중요한 이유, 주수별 비용까지. 사당역 4번 출구 연세365산부인과의원.',
   keywords: [
     '임신중절수술기간', '임신중절수술 기간', '임신중절가능기간', '낙태가능기간',
@@ -17,15 +17,15 @@ export const metadata: Metadata = {
     '흡입술', '소파술', '인공임신중절수술기간', '임신초기중절수술기간',
   ],
   openGraph: {
-    title: '임신중절수술 기간 | 몇 주까지 가능한가? 2026 | 연세365산부인과',
+    title: '임신중절수술 기간 | 몇 주까지 가능한가? 2026 | 연세365산부인과의원',
     description: '임신중절수술 기간 주수별 완벽 안내. 합법 기준·방법·비용 차이. 사당역 4번 출구.',
     url: 'https://www.yeonsei365.com/blog/abortion-period',
-    images: [{ url: 'https://www.yeonsei365.com/og-image.jpg', width: 1200, height: 630, alt: '임신중절수술 기간 연세365산부인과' }],
+    images: [{ url: 'https://www.yeonsei365.com/og-image.jpg', width: 1200, height: 630, alt: '임신중절수술 기간 연세365산부인과의원' }],
   },
   alternates: { canonical: 'https://www.yeonsei365.com/blog/abortion-period' },
   twitter: {
     card: 'summary_large_image',
-    title: '임신중절수술 기간 | 몇 주까지 가능한가? 합법 기간 완벽 안내 2026 | 연세365산부인과',
+    title: '임신중절수술 기간 | 몇 주까지 가능한가? 합법 기간 완벽 안내 2026 | 연세365산부인과의원',
     description: '임신중절수술 기간을 주수별로 완벽 정리했습니다. 임신중절수술 몇 주까지 가능한지, 합법 기간, 주수별 시술 방법 차이, 빠른 결정이 중요한 이유, 주수별 비용까지. 사당역 4번 출구 연세365산부인과의원.',
   },
 }

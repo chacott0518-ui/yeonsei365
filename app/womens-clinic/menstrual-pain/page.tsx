@@ -3,20 +3,20 @@ import type { Metadata } from 'next'
 import ViewCounter from '@/components/ViewCounter'
 
 export const metadata: Metadata = {
-  title: '생리통 참으면 안 되는 이유 5가지 2026 | 자궁내막증·근종 신호 | 연세365산부인과',
-  description: '매달 진통제로 버티고 계신가요? 생리통을 방치하면 안 되는 의학적 이유 5가지와 산부인과를 가야 할 신호를 사당역 연세365산부인과가 정리했습니다.',
+  title: '생리통 참으면 안 되는 이유 5가지 2026 | 자궁내막증·근종 신호 | 연세365산부인과의원',
+  description: '매달 진통제로 버티고 계신가요? 생리통을 방치하면 안 되는 의학적 이유 5가지와 산부인과를 가야 할 신호를 사당역 연세365산부인과의원이 정리했습니다.',
   keywords: ['생리통심할때', '생리통산부인과', '자궁내막증증상', '생리불순', '사당역산부인과', '생리통원인', '자궁근종증상', '생리통치료'],
   alternates: { canonical: 'https://www.yeonsei365.com/womens-clinic/menstrual-pain' },
   openGraph: {
-    title: '생리통 참으면 안 되는 이유 5가지 2026 | 연세365산부인과',
+    title: '생리통 참으면 안 되는 이유 5가지 2026 | 연세365산부인과의원',
     description: '매달 진통제로 버티고 있다면 읽어보세요. 생리통 방치가 위험한 이유.',
     url: 'https://www.yeonsei365.com/womens-clinic/menstrual-pain',
     images: [{ url: 'https://www.yeonsei365.com/og-image.jpg', width: 1200, height: 630 }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: '생리통 참으면 안 되는 이유 5가지 2026 | 자궁내막증·근종 신호 | 연세365산부인과',
-    description: '매달 진통제로 버티고 계신가요? 생리통을 방치하면 안 되는 의학적 이유 5가지와 산부인과를 가야 할 신호를 사당역 연세365산부인과가 정리했습니다.',
+    title: '생리통 참으면 안 되는 이유 5가지 2026 | 자궁내막증·근종 신호 | 연세365산부인과의원',
+    description: '매달 진통제로 버티고 계신가요? 생리통을 방치하면 안 되는 의학적 이유 5가지와 산부인과를 가야 할 신호를 사당역 연세365산부인과의원이 정리했습니다.',
   },
 }
 
@@ -119,9 +119,9 @@ const warningSigns = [
 const PAGE_URL = 'https://www.yeonsei365.com/womens-clinic/menstrual-pain'
 const PAGE_DATE = '2026-04-01'
 const PAGE_MODIFIED = '2026-05-22'
-const articleSchema = { '@context':'https://schema.org','@type':'Article', headline:'생리통 참으면 안 되는 이유 5가지 2026 | 자궁내막증·근종 신호', datePublished:PAGE_DATE, dateModified:PAGE_MODIFIED, image:'https://www.yeonsei365.com/og-image.jpg', author:{'@type':'Organization',name:'연세365산부인과',url:'https://www.yeonsei365.com'}, publisher:{'@type':'MedicalOrganization',name:'연세365산부인과',logo:{'@type':'ImageObject',url:'https://i.imgur.com/f7h5DY0.png'}}, mainEntityOfPage:{'@type':'WebPage','@id':PAGE_URL}, url:PAGE_URL }
+const articleSchema = { '@context':'https://schema.org','@type':'Article', headline:'생리통 참으면 안 되는 이유 5가지 2026 | 자궁내막증·근종 신호', datePublished:PAGE_DATE, dateModified:PAGE_MODIFIED, image:'https://www.yeonsei365.com/og-image.jpg', author:{'@type':'Organization',name:'연세365산부인과의원',url:'https://www.yeonsei365.com'}, publisher:{'@type':'MedicalOrganization',name:'연세365산부인과의원',logo:{'@type':'ImageObject',url:'https://i.imgur.com/f7h5DY0.png'}}, mainEntityOfPage:{'@type':'WebPage','@id':PAGE_URL}, url:PAGE_URL }
 const medicalWebPageSchema = { '@context':'https://schema.org','@type':'MedicalWebPage', name:'생리통 참으면 안 되는 이유 5가지 자궁내막증 근종 신호', url:PAGE_URL, specialty:{'@type':'MedicalSpecialty',name:'산부인과'}, medicalAudience:{'@type':'MedicalAudience',audienceType:'여성 환자'}, about:{'@type':'MedicalCondition',name:'생리통 자궁내막증'} }
-const howToSchema = { '@context':'https://schema.org','@type':'HowTo', name:'생리통 산부인과 방문 방법', description:'생리통 심할 때 산부인과 방문 단계별 안내', step:[ {'@type':'HowToStep',position:1,name:'증상 확인',text:'진통제로 조절 안 되는 생리통, 생리 외 통증, 성관계 시 통증 등 확인.'}, {'@type':'HowToStep',position:2,name:'예약',text:'전화(02-585-3650) 또는 카카오톡으로 예약.'}, {'@type':'HowToStep',position:3,name:'초음파 검사',text:'자궁·난소 초음파로 자궁내막증·근종 여부 확인.'} ], tool:{'@type':'HowToTool',name:'연세365산부인과'} }
+const howToSchema = { '@context':'https://schema.org','@type':'HowTo', name:'생리통 산부인과 방문 방법', description:'생리통 심할 때 산부인과 방문 단계별 안내', step:[ {'@type':'HowToStep',position:1,name:'증상 확인',text:'진통제로 조절 안 되는 생리통, 생리 외 통증, 성관계 시 통증 등 확인.'}, {'@type':'HowToStep',position:2,name:'예약',text:'전화(02-585-3650) 또는 카카오톡으로 예약.'}, {'@type':'HowToStep',position:3,name:'초음파 검사',text:'자궁·난소 초음파로 자궁내막증·근종 여부 확인.'} ], tool:{'@type':'HowToTool',name:'연세365산부인과의원'} }
 const speakableSchema = { '@context':'https://schema.org','@type':'WebPage', name:'생리통 참으면 안 되는 이유 5가지 자궁내막증 근종 신호', url:PAGE_URL, speakable:{'@type':'SpeakableSpecification',cssSelector:['h1','h2']} }
 const breadcrumbSchema = { '@context':'https://schema.org','@type':'BreadcrumbList', itemListElement:[ {'@type':'ListItem',position:1,name:'홈',item:'https://www.yeonsei365.com'}, {'@type':'ListItem',position:2,name:'여성검진클리닉',item:'https://www.yeonsei365.com/womens-clinic'}, {'@type':'ListItem',position:3,name:'생리통 안내',item:PAGE_URL} ] }
 
@@ -166,7 +166,7 @@ export default function MenstrualPainPage() {
           <span style={{ color: '#E8305A' }}>자궁내막증 · 근종 · 난임 신호일 수 있어요</span>
         </h1>
         <p style={{ fontSize: 'clamp(11px,2.5vw,13px)', color: '#999', marginBottom: '28px' }}>
-          연세365산부인과 · 2026년 최신 업데이트 · <ViewCounter slug="womens-clinic-menstrual-pain" />
+          연세365산부인과의원 · 2026년 최신 업데이트 · <ViewCounter slug="womens-clinic-menstrual-pain" />
         </p>
 
         {/* 대표 이미지 자리 */}
@@ -484,7 +484,7 @@ export default function MenstrualPainPage() {
             생리통, 더 이상 혼자 참지 마세요
           </p>
           <p style={{ color: 'rgba(255,255,255,0.85)', fontSize: 'clamp(11px,2.5vw,13px)', marginBottom: '20px' }}>
-            📍 사당역 4번출구 연세365산부인과 · 1:1 비밀보장
+            📍 사당역 4번출구 연세365산부인과의원 · 1:1 비밀보장
           </p>
           <div style={{ display: 'flex', gap: '10px', justifyContent: 'center', flexWrap: 'wrap' }}>
             

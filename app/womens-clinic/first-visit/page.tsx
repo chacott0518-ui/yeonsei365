@@ -3,20 +3,20 @@ import type { Metadata } from 'next'
 import ViewCounter from '@/components/ViewCounter'
 
 export const metadata: Metadata = {
-  title: '산부인과 처음 가는 법 완전 가이드 2026 | 예약·준비물·진료순서 | 연세365산부인과',
-  description: '산부인과 처음 방문이 두려운 분들을 위한 완전 가이드. 예약 방법, 준비물, 진료 순서, 비용, 자주 묻는 질문까지 사당역 연세365산부인과가 정리했습니다.',
+  title: '산부인과 처음 가는 법 완전 가이드 2026 | 예약·준비물·진료순서 | 연세365산부인과의원',
+  description: '산부인과 처음 방문이 두려운 분들을 위한 완전 가이드. 예약 방법, 준비물, 진료 순서, 비용, 자주 묻는 질문까지 사당역 연세365산부인과의원이 정리했습니다.',
   keywords: ['산부인과처음', '산부인과가는법', '미혼산부인과', '산부인과준비물', '사당역산부인과', '산부인과진료순서'],
   alternates: { canonical: 'https://www.yeonsei365.com/womens-clinic/first-visit' },
   openGraph: {
-    title: '산부인과 처음 가는 법 완전 가이드 2026 | 연세365산부인과',
+    title: '산부인과 처음 가는 법 완전 가이드 2026 | 연세365산부인과의원',
     description: '예약부터 진료까지 처음 방문자를 위한 완전 가이드',
     url: 'https://www.yeonsei365.com/womens-clinic/first-visit',
     images: [{ url: 'https://www.yeonsei365.com/og-image.jpg', width: 1200, height: 630 }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: '산부인과 처음 가는 법 완전 가이드 2026 | 예약·준비물·진료순서 | 연세365산부인과',
-    description: '산부인과 처음 방문이 두려운 분들을 위한 완전 가이드. 예약 방법, 준비물, 진료 순서, 비용, 자주 묻는 질문까지 사당역 연세365산부인과가 정리했습니다.',
+    title: '산부인과 처음 가는 법 완전 가이드 2026 | 예약·준비물·진료순서 | 연세365산부인과의원',
+    description: '산부인과 처음 방문이 두려운 분들을 위한 완전 가이드. 예약 방법, 준비물, 진료 순서, 비용, 자주 묻는 질문까지 사당역 연세365산부인과의원이 정리했습니다.',
   },
 }
 
@@ -38,8 +38,8 @@ const faqData = [
     a: '자궁경부암 검사(PAP smear)는 자궁경부 세포를 면봉 모양의 기구로 살짝 채취하는 검사로, 대부분 2~3분 이내에 끝납니다. 통증보다는 약간의 불쾌감이나 이물감을 느끼는 분들이 있지만 심한 통증을 느끼는 경우는 드뭅니다. 검사 후 소량의 출혈이 있을 수 있으나 하루 이틀 내에 자연적으로 사라집니다. 산부인과 초음파 검사 역시 통증 없이 10분 내외로 진행됩니다. 처음이라 긴장될 수 있는데, 의료진에게 처음이라고 미리 말씀해주시면 더 천천히, 편안하게 진행해드립니다.',
   },
   {
-    q: '사당역 연세365산부인과 진료비는 어느 정도인가요?',
-    a: '기본 진찰료는 건강보험이 적용되어 1~2만원 수준입니다. 국가건강검진 대상자(만 20세 이상, 2년 주기)라면 자궁경부암 검사는 무료로 받으실 수 있습니다. 초음파 검사나 질염 검사 등 추가 항목은 건강보험 적용 여부에 따라 달라지며, 비급여 항목은 방문 전 전화로 미리 확인하시면 됩니다. 연세365산부인과는 진료 전에 예상 비용을 투명하게 안내해드리며, 현금과 카드 모두 동일가로 결제 가능합니다. 비용이 걱정된다면 접수 시 항목별로 여쭤보시면 친절하게 안내해드립니다.',
+    q: '사당역 연세365산부인과의원 진료비는 어느 정도인가요?',
+    a: '기본 진찰료는 건강보험이 적용되어 1~2만원 수준입니다. 국가건강검진 대상자(만 20세 이상, 2년 주기)라면 자궁경부암 검사는 무료로 받으실 수 있습니다. 초음파 검사나 질염 검사 등 추가 항목은 건강보험 적용 여부에 따라 달라지며, 비급여 항목은 방문 전 전화로 미리 확인하시면 됩니다. 연세365산부인과의원은 진료 전에 예상 비용을 투명하게 안내해드리며, 현금과 카드 모두 동일가로 결제 가능합니다. 비용이 걱정된다면 접수 시 항목별로 여쭤보시면 친절하게 안내해드립니다.',
   },
 ]
 
@@ -149,9 +149,9 @@ const examItems = [
 const PAGE_URL = 'https://www.yeonsei365.com/womens-clinic/first-visit'
 const PAGE_DATE = '2026-04-01'
 const PAGE_MODIFIED = '2026-05-22'
-const articleSchema = { '@context':'https://schema.org','@type':'Article', headline:'산부인과 처음 가는 법 완전 가이드 2026 | 예약·준비물·진료순서', datePublished:PAGE_DATE, dateModified:PAGE_MODIFIED, image:'https://www.yeonsei365.com/og-image.jpg', author:{'@type':'Organization',name:'연세365산부인과',url:'https://www.yeonsei365.com'}, publisher:{'@type':'MedicalOrganization',name:'연세365산부인과',logo:{'@type':'ImageObject',url:'https://i.imgur.com/f7h5DY0.png'}}, mainEntityOfPage:{'@type':'WebPage','@id':PAGE_URL}, url:PAGE_URL }
+const articleSchema = { '@context':'https://schema.org','@type':'Article', headline:'산부인과 처음 가는 법 완전 가이드 2026 | 예약·준비물·진료순서', datePublished:PAGE_DATE, dateModified:PAGE_MODIFIED, image:'https://www.yeonsei365.com/og-image.jpg', author:{'@type':'Organization',name:'연세365산부인과의원',url:'https://www.yeonsei365.com'}, publisher:{'@type':'MedicalOrganization',name:'연세365산부인과의원',logo:{'@type':'ImageObject',url:'https://i.imgur.com/f7h5DY0.png'}}, mainEntityOfPage:{'@type':'WebPage','@id':PAGE_URL}, url:PAGE_URL }
 const medicalWebPageSchema = { '@context':'https://schema.org','@type':'MedicalWebPage', name:'산부인과 처음 가는 법 완전 가이드 2026', url:PAGE_URL, specialty:{'@type':'MedicalSpecialty',name:'산부인과'}, medicalAudience:{'@type':'MedicalAudience',audienceType:'여성 환자'}, about:{'@type':'MedicalCondition',name:'산부인과 첫 방문'} }
-const howToSchema = { '@context':'https://schema.org','@type':'HowTo', name:'산부인과 처음 방문 방법 8단계', description:'예약부터 진료까지 처음 방문자 완전 가이드', step:[ {'@type':'HowToStep',position:1,name:'예약',text:'전화(02-585-3650) 또는 네이버로 예약. 처음이라면 초진으로 선택.'}, {'@type':'HowToStep',position:2,name:'내원 및 접수',text:'신분증 지참. 접수 시 방문 목적 간단히 말씀.'}, {'@type':'HowToStep',position:3,name:'문진표 작성',text:'마지막 생리 시작일, 주기, 증상 작성.'}, {'@type':'HowToStep',position:4,name:'의사 상담',text:'증상 편하게 말씀. 모든 내용 비밀 보장.'} ], tool:{'@type':'HowToTool',name:'연세365산부인과'} }
+const howToSchema = { '@context':'https://schema.org','@type':'HowTo', name:'산부인과 처음 방문 방법 8단계', description:'예약부터 진료까지 처음 방문자 완전 가이드', step:[ {'@type':'HowToStep',position:1,name:'예약',text:'전화(02-585-3650) 또는 네이버로 예약. 처음이라면 초진으로 선택.'}, {'@type':'HowToStep',position:2,name:'내원 및 접수',text:'신분증 지참. 접수 시 방문 목적 간단히 말씀.'}, {'@type':'HowToStep',position:3,name:'문진표 작성',text:'마지막 생리 시작일, 주기, 증상 작성.'}, {'@type':'HowToStep',position:4,name:'의사 상담',text:'증상 편하게 말씀. 모든 내용 비밀 보장.'} ], tool:{'@type':'HowToTool',name:'연세365산부인과의원'} }
 const speakableSchema = { '@context':'https://schema.org','@type':'WebPage', name:'산부인과 처음 가는 법 완전 가이드 2026', url:PAGE_URL, speakable:{'@type':'SpeakableSpecification',cssSelector:['h1','h2']} }
 const breadcrumbSchema = { '@context':'https://schema.org','@type':'BreadcrumbList', itemListElement:[ {'@type':'ListItem',position:1,name:'홈',item:'https://www.yeonsei365.com'}, {'@type':'ListItem',position:2,name:'여성검진클리닉',item:'https://www.yeonsei365.com/womens-clinic'}, {'@type':'ListItem',position:3,name:'처음 방문 안내',item:PAGE_URL} ] }
 
@@ -196,7 +196,7 @@ export default function FirstVisitPage() {
           <span style={{ color: '#E8305A' }}>예약 · 준비물 · 진료순서 · 비용 총정리</span>
         </h1>
         <p style={{ fontSize: 'clamp(11px,2.5vw,13px)', color: '#999', marginBottom: '28px' }}>
-          연세365산부인과 · 2026년 최신 업데이트 · <ViewCounter slug="womens-clinic-first-visit" />
+          연세365산부인과의원 · 2026년 최신 업데이트 · <ViewCounter slug="womens-clinic-first-visit" />
         </p>
 
         {/* 대표 이미지 자리 */}
@@ -315,7 +315,7 @@ export default function FirstVisitPage() {
           wordBreak: 'keep-all',
         }}>
           📞 전화 예약: <strong>02-585-3650</strong><br />
-          💬 카카오톡: 연세365산부인과 채널 검색 후 상담<br />
+          💬 카카오톡: 연세365산부인과의원 채널 검색 후 상담<br />
           🗺 네이버: "연세365산부인과의원" 검색 → 예약 탭 클릭<br />
           📍 위치: 서울 동작구 사당역 4번 출구 도보 이용 가능<br />
           🕐 진료시간: 월~금 오전 10시 ~ 오후 5시 30분, 토요일 오전 9시 ~ 오후 4시 30분 (내원 전 전화 확인 권장)
@@ -601,7 +601,7 @@ export default function FirstVisitPage() {
           textAlign: 'center',
         }}>
           <p style={{ color: '#fff', fontSize: 'clamp(16px,4vw,20px)', fontWeight: 900, marginBottom: '6px', wordBreak: 'keep-all' }}>
-            첫 방문도 편안하게 — 연세365산부인과
+            첫 방문도 편안하게 — 연세365산부인과의원
           </p>
           <p style={{ color: 'rgba(255,255,255,0.85)', fontSize: 'clamp(11px,2.5vw,13px)', marginBottom: '20px' }}>
             📍 사당역 4번출구 · 1:1 비밀보장 · 당일 예약 가능

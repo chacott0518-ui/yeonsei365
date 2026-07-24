@@ -4,7 +4,7 @@ import { clinicSchema } from '@/lib/schemas'
 import ViewCounter from '@/components/ViewCounter'
 
 export const metadata: Metadata = {
-  title: '낙태수술 합법화 뜻 시기와 비용 | 임신초기중절수술 병원 | 연세365산부인과',
+  title: '낙태수술 합법화 뜻 시기와 비용 | 임신초기중절수술 병원 | 연세365산부인과의원',
   description: '낙태수술 합법화 뜻과 시기, 합법적 조건 4가지, 임신초기중절수술 비용까지 완벽 정리. 8주 미만 45만원. 사당역 4번 출구 연세365산부인과의원 일반 건강정보 안내.',
   keywords: [
     // 합법화
@@ -52,7 +52,7 @@ export const metadata: Metadata = {
     '산부인과', '관악구산부인과',
   ],
   openGraph: {
-    title: '낙태수술 합법화 뜻 시기와 비용 | 연세365산부인과',
+    title: '낙태수술 합법화 뜻 시기와 비용 | 연세365산부인과의원',
     description: '낙태수술 합법화 뜻과 시기, 합법적 조건 4가지 완벽 정리. 8주 미만 45만원.',
     url: 'https://www.yeonsei365.com/blog/abortion-legal',
     images: [{ url: 'https://www.yeonsei365.com/og' }],
@@ -62,7 +62,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: '낙태수술 합법화 뜻 시기와 비용 | 임신초기중절수술 병원 | 연세365산부인과',
+    title: '낙태수술 합법화 뜻 시기와 비용 | 임신초기중절수술 병원 | 연세365산부인과의원',
     description: '낙태수술 합법화 뜻과 시기, 합법적 조건 4가지, 임신초기중절수술 비용까지 완벽 정리. 8주 미만 45만원. 사당역 4번 출구 연세365산부인과의원 일반 건강정보 안내.',
   },
 }
@@ -100,7 +100,7 @@ function HeroImage() {
     <div style={{ maxWidth: '400px', margin: '0 auto' }}>
       <img
         src="/price-main.png"
-        alt="낙태수술합법화 임신초기중절수술비용 임신초기중절수술금액 임신초기낙태비용 인공임신중절비용 중절수술비용 45만원 연세365산부인과"
+        alt="낙태수술합법화 임신초기중절수술비용 임신초기중절수술금액 임신초기낙태비용 인공임신중절비용 중절수술비용 45만원 연세365산부인과의원"
         width="400"
         height="400"
         style={{ width: '100%', borderRadius: '20px', display: 'block' }}

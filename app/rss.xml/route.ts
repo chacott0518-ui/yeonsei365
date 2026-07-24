@@ -22,9 +22,9 @@ export async function GET() {
   const rssFeed = `<?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
-<title>연세365산부인과 | 임신중절수술·낙태비용 안내</title>
+<title>연세365산부인과의원 | 임신중절수술·낙태비용 안내</title>
 <link>${BASE_URL}</link>
-<description>연세365산부인과 - 임신중절수술, 낙태비용, 여성건강 정보. 사당역 4번출구.</description>
+<description>연세365산부인과의원 - 임신중절수술, 낙태비용, 여성건강 정보. 사당역 4번출구.</description>
 <language>ko</language>
 <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
 <atom:link href="${BASE_URL}/rss.xml" rel="self" type="application/rss+xml"/>

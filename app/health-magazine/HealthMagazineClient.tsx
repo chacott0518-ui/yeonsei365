@@ -22,7 +22,7 @@ const COLUMNS = [
   { href: '/blog/abortion-insurance', label: '임신중절수술 보험 적용', tag: '보험', desc: '건강보험·실손보험 적용 여부를 명확히 안내합니다.' },
   { href: '/blog/abortion-menstruation', label: '임신중절수술 후 생리', tag: '후관리', desc: '수술 후 생리 재개 시기와 주의사항을 안내합니다.' },
   { href: '/blog/abortion-period', label: '임신중절수술 가능 기간', tag: '주수', desc: '주수별 수술 방법과 위험도를 비교 안내합니다.' },
-  { href: '/womens-clinic/sadang', label: '사당역 산부인과 연세365', tag: '병원', desc: '사당역 4번출구 1분, 연세365산부인과를 소개합니다.' },
+  { href: '/womens-clinic/sadang', label: '사당역 산부인과 연세365', tag: '병원', desc: '사당역 4번출구 1분, 연세365산부인과의원을 소개합니다.' },
   { href: '/blog/abortion-alone', label: '임신중절수술 혼자 가도 되나요?', tag: '정보', desc: '혼자 방문 가능 여부와 귀가 방법을 안내합니다.' },
   { href: '/blog/abortion-side', label: '임신중절수술 부작용', tag: '안전', desc: '전문의 시행 시 부작용이 드문 이유와 주의사항입니다.' },
   { href: '/blog/abortion-process', label: '임신중절수술 절차', tag: '절차', desc: '내원부터 귀가까지 전 과정을 단계별로 안내합니다.' },
@@ -60,7 +60,7 @@ export default function HealthMagazineClient() {
           </h1>
           <p style={{ color: 'rgba(255,255,255,.85)', fontSize: '15px', lineHeight: 1.8 }}>
             증상 자가진단부터 FAQ, 건강 칼럼까지<br />
-            연세365산부인과가 직접 답변합니다 · <ViewCounter slug="health-magazine" />
+            연세365산부인과의원이 직접 답변합니다 · <ViewCounter slug="health-magazine" />
           </p>
         </div>
       </div>
@@ -227,7 +227,7 @@ export default function HealthMagazineClient() {
       {/* CTA */}
       <section style={{ background: `linear-gradient(135deg, ${C.pp}, ${C.p})`, padding: '48px 20px', textAlign: 'center' }}>
         <div style={{ maxWidth: '600px', margin: '0 auto' }}>
-          <div style={{ fontSize: '22px', fontWeight: 900, color: '#fff', marginBottom: '6px' }}>연세365산부인과</div>
+          <div style={{ fontSize: '22px', fontWeight: 900, color: '#fff', marginBottom: '6px' }}>연세365산부인과의원</div>
           <div style={{ fontSize: '13px', color: 'rgba(255,255,255,.85)', marginBottom: '6px' }}>서울특별시 관악구 과천대로 939, 3층 · 사당역 4번 출구 도보 3분</div>
           <div style={{ fontSize: '12px', color: 'rgba(255,255,255,.7)', marginBottom: '24px' }}>당일예약 · 당일수술 · 비밀보장 · 전문의 직접 집도</div>
           <div style={{ display: 'flex', gap: '10px', justifyContent: 'center', flexWrap: 'wrap' }}>

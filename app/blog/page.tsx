@@ -3,7 +3,7 @@ import Link from 'next/link'
 import ViewCounter from '@/components/ViewCounter'
 
 export const metadata: Metadata = {
-  title: '임신중절수술 정보·후기 | 합법화·방법·비용 총정리 | 연세365산부인과',
+  title: '임신중절수술 정보·후기 | 합법화·방법·비용 총정리 | 연세365산부인과의원',
   description: '임신중절수술 합법 조건·방법·비용·후기를 일반 건강정보 안내합니다. 흡입술·소파술 방법 비교, 주수별 금액, 수술 후 관리까지. 사당역 4번 출구 연세365산부인과의원.',
   keywords: [
     '임신중절수술금액', '임신중절수술 금액', '낙태금액', '낙태 금액',
@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     '임신중절수술후임신', '낙태수술보호자', '낙태비용보험',
   ],
   openGraph: {
-    title: '임신중절수술 정보·후기 | 합법화·방법·비용 총정리 | 연세365산부인과',
+    title: '임신중절수술 정보·후기 | 합법화·방법·비용 총정리 | 연세365산부인과의원',
     description: '임신중절수술 합법 조건·방법·비용·후기를 일반 건강정보 안내합니다. 사당역 4번 출구 연세365산부인과의원.',
     url: 'https://www.yeonsei365.com/blog',
     images: [{ url: 'https://www.yeonsei365.com/og-image.jpg', width: 1200, height: 630 }],
@@ -54,14 +54,14 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: '임신중절수술 정보·후기 | 합법화·방법·비용 총정리 | 연세365산부인과',
+    title: '임신중절수술 정보·후기 | 합법화·방법·비용 총정리 | 연세365산부인과의원',
     description: '임신중절수술 합법 조건·방법·비용·후기를 일반 건강정보 안내합니다. 흡입술·소파술 비교, 주수별 금액, 수술 후 관리까지. 사당역 4번 출구 연세365산부인과의원.',
   },
 }
 const articleSchema = {
   '@context': 'https://schema.org',
   '@type': 'Article',
-  headline: '임신중절수술 정보 | 연세365산부인과',
+  headline: '임신중절수술 정보 | 연세365산부인과의원',
   description: '임신중절수술 비용, 과정, 후기 등 정확한 정보를 제공합니다.',
   datePublished: '2026-05-22',
   dateModified: '2026-05-22',
@@ -110,7 +110,7 @@ const faqSchema = {
 const medicalWebPageSchema = {
   '@context': 'https://schema.org',
   '@type': 'MedicalWebPage',
-  name: '임신중절수술 정보 | 연세365산부인과',
+  name: '임신중절수술 정보 | 연세365산부인과의원',
   description: '임신중절수술 비용, 과정, 후기 등 정확한 정보를 제공합니다.',
   url: 'https://www.yeonsei365.com/blog',
   specialty: { '@type': 'MedicalSpecialty', name: '산부인과' },
@@ -135,7 +135,7 @@ const howToSchema = {
 const speakableSchema = {
   '@context': 'https://schema.org',
   '@type': 'WebPage',
-  name: '임신중절수술 정보 | 연세365산부인과',
+  name: '임신중절수술 정보 | 연세365산부인과의원',
   url: 'https://www.yeonsei365.com/blog',
   speakable: {
     '@type': 'SpeakableSpecification',

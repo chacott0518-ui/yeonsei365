@@ -456,7 +456,7 @@ export default function FAQClient() {
         </div>
         <div style={{ textAlign: 'center', marginTop: '24px', display: 'flex', gap: '14px', justifyContent: 'center', flexWrap: 'wrap' }}>
           <a href="/abortion" style={{ fontSize: '13px', color: '#D6336C', textDecoration: 'none' }}>임신중절클리닉으로</a>
-          <a href="/abortion/hospital" style={{ fontSize: '13px', color: '#D6336C', textDecoration: 'none' }}>연세365산부인과 진료 안내</a>
+          <a href="/abortion/hospital" style={{ fontSize: '13px', color: '#D6336C', textDecoration: 'none' }}>연세365산부인과의원 진료 안내</a>
         </div>
       </div>
       <style>{`

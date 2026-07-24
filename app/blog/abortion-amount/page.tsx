@@ -4,7 +4,7 @@ import { clinicSchema } from '@/lib/schemas'
 import ViewCounter from '@/components/ViewCounter'
 
 export const metadata: Metadata = {
-  title: '임신중절수술 금액과 낙태의 정의 뜻 비용 가격 안내 2026 | 연세365산부인과',
+  title: '임신중절수술 금액과 낙태의 정의 뜻 비용 가격 안내 2026 | 연세365산부인과의원',
   description:
     '임신중절수술 금액 8주 미만 45만원부터 주수별 정리. 낙태 정의·뜻·합법 조건·비용 포함 항목까지 일반 건강정보 안내. 사당역 4번 출구 연세365산부인과의원.',
   keywords: [
@@ -21,14 +21,14 @@ export const metadata: Metadata = {
     '인공임신중절수술', '인공임신중절비용', '인공임신중절금액',
   ],
   openGraph: {
-    title: '임신중절수술 금액과 낙태의 정의 뜻 비용 가격 안내 2026 | 연세365산부인과',
+    title: '임신중절수술 금액과 낙태의 정의 뜻 비용 가격 안내 2026 | 연세365산부인과의원',
     description: '임신중절수술 금액 주수별 정리. 8주 미만 45만원. 낙태 정의·뜻·합법조건 안내. 사당역 4번 출구.',
     url: 'https://www.yeonsei365.com/blog/abortion-amount',
     images: [{
       url: 'https://www.yeonsei365.com/og-image.jpg',
       width: 1200,
       height: 630,
-      alt: '임신중절수술 금액 안내 연세365산부인과',
+      alt: '임신중절수술 금액 안내 연세365산부인과의원',
     }],
   },
   alternates: {
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: '임신중절수술 금액과 낙태의 정의 뜻 비용 가격 안내 2026 | 연세365산부인과',
+    title: '임신중절수술 금액과 낙태의 정의 뜻 비용 가격 안내 2026 | 연세365산부인과의원',
     description:
       '임신중절수술 금액 8주 미만 45만원부터 주수별 정리. 낙태 정의·뜻·합법 조건·비용 포함 항목까지 일반 건강정보 안내. 사당역 4번 출구 연세365산부인과의원.',
   },
@@ -127,7 +127,7 @@ function PriceImage() {
     <div style={{ maxWidth: '400px', margin: '0 auto' }}>
       <img
         src="/price-main.png"
-        alt="임신중절수술 금액 낙태금액 낙태비용 임신중절수술비용 당일예약 당일퇴원 연세365산부인과"
+        alt="임신중절수술 금액 낙태금액 낙태비용 임신중절수술비용 당일예약 당일퇴원 연세365산부인과의원"
         width="400"
         height="400"
         style={{ width: '100%', borderRadius: '16px', display: 'block' }}

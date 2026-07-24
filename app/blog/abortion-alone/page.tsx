@@ -3,7 +3,7 @@ import { clinicSchema } from '@/lib/schemas'
 import ViewCounter from '@/components/ViewCounter'
 
 export const metadata: Metadata = {
-  title: '임신중절수술 혼자 가도 되나요? 보호자 없이 가능한지 총정리 2026 | 연세365산부인과',
+  title: '임신중절수술 혼자 가도 되나요? 보호자 없이 가능한지 총정리 2026 | 연세365산부인과의원',
   description: '임신중절수술 혼자 가도 될까요? 보호자 동반 여부, 혼자 내원 시 주의사항, 당일 귀가 가능 여부까지 사당역 연세365산부인과의원의가 솔직하게 알려드립니다.',
   keywords: [
     '임신중절수술혼자', '임신중절수술보호자없이', '낙태혼자가능',
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: '임신중절수술 혼자 가도 되나요? 보호자 없이 가능한지 총정리 2026 | 연세365산부인과',
+    title: '임신중절수술 혼자 가도 되나요? 보호자 없이 가능한지 총정리 2026 | 연세365산부인과의원',
     description: '임신중절수술 혼자 가도 될까요? 보호자 동반 여부, 혼자 내원 시 주의사항, 당일 귀가 가능 여부까지 사당역 연세365산부인과의원의가 솔직하게 알려드립니다.',
   },
 }
@@ -152,7 +152,7 @@ export default function AbortionAlonePage() {
         <div className="relative w-full h-[280px] md:h-[420px] overflow-hidden">
           <img
             src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=2080&auto=format&fit=crop"
-            alt="임신중절수술 혼자 가도 되나요 - 연세365산부인과"
+            alt="임신중절수술 혼자 가도 되나요 - 연세365산부인과의원"
             className="w-full h-full object-cover brightness-[0.55]"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
