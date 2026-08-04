@@ -352,7 +352,7 @@ export default function AbortionAlonePage() {
           {/* CTA 버튼 */}
           <div className="bg-gradient-to-br from-primary/5 to-pink-50 rounded-2xl p-6 md:p-8 border border-primary/10">
             <h3 className="text-base md:text-lg font-bold text-gray-800 text-center mb-2">
-              사당역 연세365산부인과의원의
+              사당역 연세365산부인과의원
             </h3>
             <p className="text-xs md:text-sm text-gray-500 text-center mb-6 leading-relaxed">
               사당역 4번 출구 · 연중무휴 · 당일 수술 가능 · 철저한 비밀 보장

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { clinicSchema } from '@/lib/schemas'
 import Hero from '../components/Hero'
+import HomeSearchSection from '../components/home-search/HomeSearchSection'
 import dynamic from 'next/dynamic'
 
 const emptyFallback = () => <div aria-hidden="true" />
@@ -104,6 +105,7 @@ export default function Home() {
           <Hero />
           <div className="relative z-10 bg-white shadow-2xl">
             <About />
+            <HomeSearchSection />
             <Doctors />
             <Center />
             <Abortion />

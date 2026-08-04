@@ -3,8 +3,22 @@ import React, { useState, useEffect, useRef, useCallback } from 'react'
 import Image from 'next/image'
 import { motion, AnimatePresence } from 'framer-motion'
 import { NAV_LINKS } from '../constants'
-import { X, Menu, ChevronDown } from 'lucide-react'
+import { X, Menu, ChevronDown, Search } from 'lucide-react'
 import { usePathname } from 'next/navigation'
+
+const MEDICAL_SEARCH_HREF = '/#medical-search'
+const MEDICAL_SEARCH_ID = 'medical-search'
+const MEDICAL_SEARCH_INPUT_ID = 'medical-search-input'
+
+function MedicalSearchIcon({
+  size = 16,
+  strokeWidth = 1.9,
+}: {
+  size?: number
+  strokeWidth?: number
+}) {
+  return <Search size={size} strokeWidth={strokeWidth} aria-hidden="true" />
+}
 
 const SUB_MENUS: Record<string, { label: string; href: string }[]> = {
   'abortion-clinic': [
@@ -249,6 +263,33 @@ const Header: React.FC = () => {
     if (document.activeElement === el) el.blur()
   }
 
+  const focusMedicalSearchInput = useCallback(() => {
+    window.setTimeout(() => {
+      document.getElementById(MEDICAL_SEARCH_INPUT_ID)?.focus({ preventScroll: true })
+    }, 420)
+  }, [])
+
+  const goToMedicalSearch = useCallback(
+    (e: React.MouseEvent<HTMLAnchorElement>) => {
+      if (pathname !== '/') return
+      e.preventDefault()
+      setIsMobileMenuOpen(false)
+      setMobileExpanded(null)
+      setOpenDropdown(null)
+      const section = document.getElementById(MEDICAL_SEARCH_ID)
+      if (section) {
+        section.scrollIntoView({ behavior: 'smooth', block: 'start' })
+        focusMedicalSearchInput()
+      } else {
+        window.location.href = MEDICAL_SEARCH_HREF
+      }
+    },
+    [pathname, focusMedicalSearchInput]
+  )
+
+  const searchLinkClass =
+    'inline-flex shrink-0 items-center justify-center self-center rounded-full leading-none text-primary transition-colors hover:bg-primary/10 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary'
+
   return (
     <div ref={rootRef}>
       <motion.header
@@ -259,9 +300,9 @@ const Header: React.FC = () => {
           isScrolled ? 'shadow-sm' : ''
         }`}
       >
-        <div className="container mx-auto px-10 flex items-center justify-between">
+        <div className="container mx-auto grid min-w-0 grid-cols-[auto_minmax(0,1fr)] items-center gap-x-3 px-10">
           <div
-            className="cursor-pointer z-50 flex-shrink-0"
+            className="z-50 min-w-0 flex-shrink-0 cursor-pointer"
             onClick={() => { setActiveSection(''); if (pathname === '/') { window.scrollTo({ top: 0, behavior: 'smooth' }) } else { window.location.href = '/' } }}
           >
             <Image
@@ -269,11 +310,12 @@ const Header: React.FC = () => {
               alt="연세365산부인과의원 로고"
               width={120}
               height={40}
-              className="w-auto object-contain h-9 md:h-10"
+              className="h-9 w-auto object-contain md:h-10"
             />
           </div>
 
-          <nav className="hidden lg:flex items-center justify-center gap-3 flex-1 mx-10">
+          <div className="flex min-w-0 items-center justify-self-end">
+          <nav className="hidden h-full items-center gap-2 lg:flex min-[1440px]:gap-2.5">
             {NAV_LINKS.map((link) => {
               const hasSub = !!SUB_MENUS[link.id]
               const isOpen = openDropdown === link.id
@@ -342,12 +384,36 @@ const Header: React.FC = () => {
                 </div>
               )
             })}
+            <a
+              href={MEDICAL_SEARCH_HREF}
+              onClick={goToMedicalSearch}
+              aria-label="의료정보 검색으로 이동"
+              title="의료정보 검색"
+              className={`${searchLinkClass} h-8 w-8`}
+            >
+              <MedicalSearchIcon size={15} strokeWidth={1.9} />
+            </a>
           </nav>
 
-          <div className="lg:hidden flex items-center gap-2">
-            <button className="z-50 p-1.5 text-primary" onClick={() => setIsMobileMenuOpen(true)}>
+          <div className="flex shrink-0 items-center gap-1 lg:hidden">
+            <a
+              href={MEDICAL_SEARCH_HREF}
+              onClick={goToMedicalSearch}
+              aria-label="의료정보 검색으로 이동"
+              title="의료정보 검색"
+              className={`${searchLinkClass} h-10 w-10`}
+            >
+              <MedicalSearchIcon size={16} strokeWidth={1.9} />
+            </a>
+            <button
+              type="button"
+              className="z-50 p-1.5 text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+              onClick={() => setIsMobileMenuOpen(true)}
+              aria-label="메뉴 열기"
+            >
               <Menu size={24} />
             </button>
+          </div>
           </div>
         </div>
       </motion.header>
@@ -365,18 +431,25 @@ const Header: React.FC = () => {
               transition={{ type: 'spring', stiffness: 300, damping: 30 }}
               className="fixed top-0 right-0 h-full w-[260px] bg-white z-[61] lg:hidden flex flex-col shadow-2xl border-l border-primary/10"
             >
-              <div className="flex items-center justify-between p-4 border-b border-primary/10">
-                <span className="text-sm font-bold text-primary">메뉴</span>
-                <button onClick={() => setIsMobileMenuOpen(false)} className="p-1 text-primary"><X size={22} /></button>
+              <div className="flex items-center justify-between px-4 py-3 border-b border-primary/10">
+                <span className="text-[13px] font-extrabold text-primary">메뉴</span>
+                <button
+                  type="button"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="p-1 text-primary focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+                  aria-label="메뉴 닫기"
+                >
+                  <X size={22} />
+                </button>
               </div>
-              <div className="flex flex-col px-4 py-3 overflow-y-auto flex-grow">
+              <div className="flex flex-col px-4 pt-2 pb-[max(16px,env(safe-area-inset-bottom))] overflow-y-auto flex-grow">
                 {NAV_LINKS.map((link) => {
                   const hasSub = !!SUB_MENUS[link.id]
                   const isExpanded = mobileExpanded === link.id
                   const active = isLinkActive(link)
                   return (
                     <div key={link.id}>
-                      <div className={`flex items-center justify-between py-3 px-3 rounded-xl mb-1 text-[13px] font-semibold tracking-tight border-b border-gray-50 ${
+                      <div className={`flex items-center justify-between py-3 px-3 rounded-xl mb-0.5 text-[14.5px] font-semibold leading-[1.4] tracking-tight border-b border-gray-50 whitespace-nowrap ${
                         active
                           ? 'text-primary font-bold bg-primary/10'
                           : link.highlight
@@ -390,20 +463,21 @@ const Header: React.FC = () => {
                               setIsMobileMenuOpen(false)
                               setMobileExpanded(null)
                             }}
-                            className="flex-1"
+                            className="flex-1 min-w-0"
                           >
                             {link.label}
                           </a>
                         ) : (
-                          <button onClick={() => scrollToSection(link.id)} className="flex-1 text-left">{link.label}</button>
+                          <button onClick={() => scrollToSection(link.id)} className="flex-1 text-left min-w-0">{link.label}</button>
                         )}
                         {hasSub && (
                           <button
                             onClick={() => setMobileExpanded(isExpanded ? null : link.id)}
-                            className="p-1"
+                            className="p-1 shrink-0"
                             aria-expanded={isExpanded}
+                            aria-label={`${link.label} 하위 메뉴`}
                           >
-                            <ChevronDown size={14} className={`text-primary transition-transform duration-200 ${isExpanded ? 'rotate-180' : ''}`} />
+                            <ChevronDown size={13} className={`text-primary transition-transform duration-200 ${isExpanded ? 'rotate-180' : ''}`} />
                           </button>
                         )}
                       </div>
@@ -414,10 +488,10 @@ const Header: React.FC = () => {
                             transition={{ duration: 0.2 }}
                             className="overflow-hidden"
                           >
-                            <div className="pl-4 pb-2 flex flex-col gap-0.5">
+                            <div className="pl-3 pb-1.5 flex flex-col gap-0.5">
                               {SUB_MENUS[link.id].map((sub) => (
                                 <a key={sub.href} href={sub.href} onClick={() => { setIsMobileMenuOpen(false); setMobileExpanded(null) }}
-                                  className={`flex items-center gap-2 py-2 px-3 rounded-lg text-[12px] font-semibold transition-all focus:outline-none ${pathname === sub.href ? 'text-primary bg-primary/10' : 'text-gray-600 hover:text-primary hover:bg-pink-50'}`}>
+                                  className={`flex items-center gap-2 py-2 px-3 rounded-lg text-[13.5px] font-semibold leading-[1.45] transition-all focus:outline-none ${pathname === sub.href ? 'text-primary bg-primary/10' : 'text-gray-600 hover:text-primary hover:bg-pink-50'}`}>
                                   <span className="w-1.5 h-1.5 rounded-full bg-primary/40 flex-shrink-0" />
                                   {sub.label}
                                 </a>
@@ -429,10 +503,6 @@ const Header: React.FC = () => {
                     </div>
                   )
                 })}
-              </div>
-              <div className="p-4 bg-primary/5 border-t border-primary/10 space-y-2">
-                <a href="http://pf.kakao.com/_TpaBj/chat" target="_blank" rel="noopener noreferrer" className="block text-center bg-[#FEE500] text-[#3B1B1B] text-[13px] font-bold py-3 rounded-xl">💬 카카오톡 상담</a>
-                <a href="tel:02-585-3650" className="block text-center bg-primary text-white text-[13px] font-bold py-3 rounded-xl">📞 02-585-3650</a>
               </div>
             </motion.div>
           </>
