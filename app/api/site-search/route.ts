@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server'
-import { isQueryTooShort, searchSite } from '@/lib/siteSearch'
+import { isQueryTooShort } from '@/lib/siteSearch'
+import { buildSearchExperience } from '@/lib/healthSearchIntent'
 
 export const runtime = 'nodejs'
 
@@ -27,10 +28,11 @@ export async function POST(request: Request) {
       })
     }
 
-    const results = searchSite(query)
+    const experience = buildSearchExperience(query)
     return NextResponse.json({
-      results,
-      status: results.length > 0 ? 'success' : 'empty',
+      results: experience.results,
+      status: experience.status,
+      experience,
     })
   } catch {
     return NextResponse.json(

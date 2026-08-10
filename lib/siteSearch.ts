@@ -48,8 +48,17 @@ function truncate(text: string, max = MAX_DESC): string {
   return `${t.slice(0, max - 1).trim()}…`
 }
 
+// 동일 문자열(특히 문서 본문처럼 최대 4000자에 달하는 필드)이 동의어 매칭 과정에서
+// 여러 차례 반복 정규화되는 비용을 없애기 위한 순수 캐시. 점수/판정 로직은 전혀 바꾸지
+// 않고 normalizeQuery/compactText의 반환값만 메모이즈한다 (동일 입력 → 항상 동일 출력).
+const NORMALIZE_CACHE_LIMIT = 8000
+const normalizeCache = new Map<string, string>()
+const compactCache = new Map<string, string>()
+
 export function normalizeQuery(raw: string): string {
-  return raw
+  const cached = normalizeCache.get(raw)
+  if (cached !== undefined) return cached
+  const result = raw
     .normalize('NFKC')
     .trim()
     .toLowerCase()
@@ -57,10 +66,18 @@ export function normalizeQuery(raw: string): string {
     .replace(/[^\p{L}\p{N}\s]/gu, ' ')
     .replace(/\s+/g, ' ')
     .trim()
+  if (normalizeCache.size >= NORMALIZE_CACHE_LIMIT) normalizeCache.clear()
+  normalizeCache.set(raw, result)
+  return result
 }
 
 export function compactText(text: string): string {
-  return normalizeQuery(text).replace(/\s+/g, '')
+  const cached = compactCache.get(text)
+  if (cached !== undefined) return cached
+  const result = normalizeQuery(text).replace(/\s+/g, '')
+  if (compactCache.size >= NORMALIZE_CACHE_LIMIT) compactCache.clear()
+  compactCache.set(text, result)
+  return result
 }
 
 export function tokenize(normalized: string): string[] {

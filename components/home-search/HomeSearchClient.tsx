@@ -3,6 +3,8 @@
 import Link from 'next/link'
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { FEATURED_QUESTIONS } from '@/lib/homeSearchData'
+import SearchResultsExperience from '@/components/home-search/SearchResultsExperience'
+import type { SearchExperience } from '@/lib/healthSearchIntent'
 
 type SearchResult = {
   title: string
@@ -17,6 +19,7 @@ type PersistedSearchState = {
   query: string
   activeQuery: string
   results: SearchResult[]
+  experience: SearchExperience | null
   status: 'success' | 'empty'
   errorMessage: string | null
   page: number
@@ -51,6 +54,7 @@ function readPersistedState(): PersistedSearchState | null {
       query: parsed.query,
       activeQuery: parsed.activeQuery,
       results: parsed.results,
+      experience: parsed.experience ?? null,
       status: parsed.status,
       errorMessage: typeof parsed.errorMessage === 'string' ? parsed.errorMessage : null,
       page: typeof parsed.page === 'number' ? parsed.page : 0,
@@ -80,6 +84,7 @@ export default function HomeSearchClient() {
   const [activeQuery, setActiveQuery] = useState('')
   const [page, setPage] = useState(0)
   const [results, setResults] = useState<SearchResult[]>([])
+  const [experience, setExperience] = useState<SearchExperience | null>(null)
   const [status, setStatus] = useState<SearchStatus>('idle')
   const [errorMessage, setErrorMessage] = useState<string | null>(null)
 
@@ -98,6 +103,7 @@ export default function HomeSearchClient() {
     setQuery(saved.query)
     setActiveQuery(saved.activeQuery)
     setResults(saved.results)
+    setExperience(saved.experience)
     setStatus(saved.status)
     setErrorMessage(saved.errorMessage)
     setPage(saved.page)
@@ -126,6 +132,7 @@ export default function HomeSearchClient() {
               query,
               activeQuery,
               results,
+              experience,
               status,
               errorMessage,
               page: safePage,
@@ -138,7 +145,7 @@ export default function HomeSearchClient() {
         /* ignore */
       }
     },
-    [query, activeQuery, results, status, errorMessage, safePage]
+    [query, activeQuery, results, experience, status, errorMessage, safePage]
   )
 
   const goPrev = useCallback(() => {
@@ -156,6 +163,7 @@ export default function HomeSearchClient() {
     setQuery('')
     setActiveQuery('')
     setResults([])
+    setExperience(null)
     setStatus('idle')
     setErrorMessage(null)
     setPage(0)
@@ -172,6 +180,7 @@ export default function HomeSearchClient() {
     const requestId = ++requestIdRef.current
 
     setResults([])
+    setExperience(null)
     setErrorMessage(null)
     setActiveQuery(q)
     setStatus('loading')
@@ -186,6 +195,7 @@ export default function HomeSearchClient() {
       })
       const data = (await res.json()) as {
         results?: SearchResult[]
+        experience?: SearchExperience
         message?: string
         status?: string
       }
@@ -194,13 +204,16 @@ export default function HomeSearchClient() {
 
       if (!res.ok) {
         setResults([])
+        setExperience(null)
         setStatus('error')
         setErrorMessage(data.message || '검색 중 문제가 발생했습니다. 잠시 후 다시 시도해 주세요.')
         return
       }
 
       const next = Array.isArray(data.results) ? data.results : []
+      const nextExperience = data.experience ?? null
       setResults(next)
+      setExperience(nextExperience)
       if (next.length === 0) {
         setStatus('empty')
         setErrorMessage(data.message || null)
@@ -208,6 +221,7 @@ export default function HomeSearchClient() {
           query: q,
           activeQuery: q,
           results: [],
+          experience: nextExperience,
           status: 'empty',
           errorMessage: data.message || null,
           page: safePage,
@@ -218,6 +232,7 @@ export default function HomeSearchClient() {
           query: q,
           activeQuery: q,
           results: next,
+          experience: nextExperience,
           status: 'success',
           errorMessage: null,
           page: safePage,
@@ -227,6 +242,7 @@ export default function HomeSearchClient() {
       if ((err as Error).name === 'AbortError') return
       if (requestId !== requestIdRef.current) return
       setResults([])
+      setExperience(null)
       setStatus('error')
       setErrorMessage('검색 중 문제가 발생했습니다. 잠시 후 다시 시도해 주세요.')
     }
@@ -241,6 +257,7 @@ export default function HomeSearchClient() {
     setQuery(value)
     if (status !== 'idle' && status !== 'loading') {
       setResults([])
+      setExperience(null)
       setStatus('idle')
       setActiveQuery('')
       setErrorMessage(null)
@@ -381,38 +398,24 @@ export default function HomeSearchClient() {
         )}
 
         {status === 'success' && results.length > 0 && (
-          <div className="space-y-2.5 md:space-y-2">
-            <p className="text-[12px] font-bold text-primary-dark">
-              검색 결과 {results.length}건
-            </p>
-            {results.map((item) => (
-              <article
-                key={item.url}
-                className="rounded-[14px] border border-primary/15 bg-white px-4 py-3.5 shadow-sm md:rounded-xl md:py-3.5"
-              >
-                <p className="mb-0.5 text-[10.5px] font-bold text-primary md:text-[11px]">{item.category}</p>
-                <Link
-                  href={item.url}
-                  onClick={onResultNavigate}
-                  className="block text-[14.5px] font-bold leading-snug text-gray-dark [overflow-wrap:break-word] [text-wrap:balance] [word-break:keep-all] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary md:text-[15px]"
-                >
-                  <span className="line-clamp-2">{item.title}</span>
-                </Link>
-                <p className="mt-1 line-clamp-3 text-[12.5px] leading-[1.52] text-gray [overflow-wrap:break-word] [word-break:keep-all] md:line-clamp-2 md:text-[13px]">
-                  {item.description}
-                </p>
-              </article>
-            ))}
-          </div>
+          <SearchResultsExperience
+            experience={experience}
+            fallbackResults={results}
+            onNavigate={onResultNavigate}
+            onGoToSearch={() => {
+              inputRef.current?.scrollIntoView({ behavior: 'smooth', block: 'center' })
+              inputRef.current?.focus()
+            }}
+          />
         )}
 
         {status === 'empty' && (
           <div className="rounded-[14px] border border-primary/15 bg-white px-4 py-3.5 md:rounded-xl md:py-4">
             <p className="text-[13.5px] font-bold leading-snug text-gray-dark [word-break:keep-all] md:text-[14px]">
-              “{activeQuery}”와 일치하는 의료정보가 없습니다.
+              관련 정보를 찾지 못했습니다.
             </p>
             <p className="mt-1.5 text-[12.5px] leading-relaxed text-gray md:text-[13px]">
-              {errorMessage || '다른 검색어를 입력하거나 추천 질문을 확인해 주세요.'}
+              다른 표현이나 조금 더 구체적인 질문으로 검색해 보세요.
             </p>
           </div>
         )}

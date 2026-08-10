@@ -1,8 +1,9 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
-import { getArticleBySlug, getAllArticlePaths, CATEGORIES, HEALTH_ARTICLES } from '@/lib/healthHub'
+import { getArticleBySlug, getAllArticlePaths, CATEGORIES } from '@/lib/healthHub'
 import type { HealthArticle } from '@/lib/healthHub'
+import { getRelatedArticles } from '@/lib/healthHubRelated'
 import ViewCounter from '@/components/ViewCounter'
 import { AI_CONTENT_POLICY } from '@/config/aiContentPolicy'
 
@@ -133,14 +134,7 @@ export default function ArticlePage({ params }: { params: { category: string; sl
   const url = `${BASE}/health-hub/${params.category}/${params.slug}`
   const cat = CATEGORIES[article.category]
 
-  const related = HEALTH_ARTICLES
-    .filter(a => a.category === article.category && a.slug !== article.slug)
-    .sort((a, b) => {
-      const da = a.lastModified.replace(/[^0-9]/g, '')
-      const db = b.lastModified.replace(/[^0-9]/g, '')
-      return db.localeCompare(da)
-    })
-    .slice(0, 3)
+  const related = getRelatedArticles(article, 3)
 
   const schemas = [
     {
