@@ -65,7 +65,7 @@ const Hero = () => (
             {/* 검색 섹션(#medical-search) 내부 이동 anchor — 새 페이지/모달 없음, JS 없이도 동작 */}
             <a
               href="#medical-search"
-              className="inline-flex h-[40px] w-full items-center justify-center gap-1.5 whitespace-nowrap rounded-full border border-white/40 bg-white/10 px-5 text-[13px] font-semibold text-white/90 backdrop-blur-sm transition-colors duration-300 hover:bg-white/20 md:h-[56px] md:text-base"
+              className="group relative inline-flex h-[40px] w-full items-center justify-center gap-1.5 whitespace-nowrap rounded-full border-2 border-white/60 bg-white/25 px-5 text-[13px] font-bold text-white backdrop-blur-sm transition-all duration-300 hover:bg-white/35 shadow-lg shadow-black/20 md:h-[56px] md:text-base md:shadow-[#D1366F]/30"
             >
               <svg className="h-3.5 w-3.5 flex-shrink-0 md:h-[18px] md:w-[18px]" fill="none" stroke="currentColor" strokeWidth="2.5" viewBox="0 0 24 24">
                 <circle cx="11" cy="11" r="7" strokeLinecap="round" strokeLinejoin="round" />
