@@ -18,6 +18,7 @@ export default function FloatingBar() {
       <div className="w-[1px] h-5 bg-white/20"></div>
       <a href="#location" onClick={(e) => {
         e.preventDefault()
+        window.dispatchEvent(new Event('open-location-directions'))
         document.getElementById('location')?.scrollIntoView({ behavior: 'smooth' })
       }} className="flex items-center justify-center gap-1.5 flex-1 h-full active:bg-white/10 transition-colors">
         <MapPin size={16} className="text-white" />

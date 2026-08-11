@@ -414,7 +414,7 @@ const ConsultModal: React.FC = () => {
                       value={formData.memo}
                       onChange={handleChange}
                       rows={2}
-                      placeholder="궁금하신 내용을 간단히 적어주세요"
+                      placeholder="희망 상담 시간이나 궁금한 점을 편하게 적어주세요."
                       className="w-full resize-none rounded-xl border border-gray-200 bg-gray-50 px-4 py-2.5 text-sm outline-none transition-all focus:border-primary focus:ring-2 focus:ring-primary/30 md:py-3"
                     />
                   </div>
@@ -447,6 +447,9 @@ const ConsultModal: React.FC = () => {
                       </label>
                     </div>
                     {errors.agreed && <p className="text-red-500 text-xs mt-1">{errors.agreed}</p>}
+                    <p className="mt-1.5 text-[11px] leading-snug text-gray-400">
+                      입력하신 정보는 상담 접수 및 안내를 위해 필요한 범위에서 이용되며 개인정보처리방침에 따라 관리됩니다.
+                    </p>
                   </div>
 
                   {/* 제출 버튼 */}
@@ -466,7 +469,7 @@ const ConsultModal: React.FC = () => {
                     ) : (
                       <>
                         <Send size={16} />
-                        <span>상담 신청하기</span>
+                        <span>1:1 상담 신청하기</span>
                       </>
                     )}
                   </button>

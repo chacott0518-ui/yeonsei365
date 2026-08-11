@@ -1,5 +1,5 @@
 'use client'
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Phone, MapPin, MessageCircle, Send } from 'lucide-react';
@@ -7,6 +7,12 @@ import { Phone, MapPin, MessageCircle, Send } from 'lucide-react';
 const Booking: React.FC = () => {
   const [mobileTab, setMobileTab] = useState(0);
   const tabLabels = ['산부인과', '오시는길'];
+
+  useEffect(() => {
+    const handler = () => setMobileTab(1);
+    window.addEventListener('open-location-directions', handler);
+    return () => window.removeEventListener('open-location-directions', handler);
+  }, []);
 
   return (
     <section id="location" className="relative py-20 md:py-32 pb-28 md:pb-32 bg-background z-10">
