@@ -80,6 +80,7 @@ const Center: React.FC = () => {
                       className="object-cover"
                       sizes="50vw"
                       loading="lazy"
+                      unoptimized
                     />
                     <div className="absolute inset-0 bg-primary/20 mix-blend-multiply" />
                  </div>
@@ -126,6 +127,7 @@ const Center: React.FC = () => {
                     className="object-cover"
                     sizes="64px"
                     loading="lazy"
+                    unoptimized
                   />
                 </div>
                 {/* 텍스트 */}
@@ -160,6 +162,7 @@ const Center: React.FC = () => {
                         className="object-cover rounded-xl"
                         sizes="100vw"
                         loading="lazy"
+                        unoptimized
                       />
                       <div className="absolute inset-0 bg-primary/10 mix-blend-multiply rounded-xl" />
                     </div>

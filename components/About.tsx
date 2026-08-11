@@ -195,6 +195,7 @@ const About: React.FC = () => {
                         height={615}
                         className="w-full h-full object-cover"
                         loading="lazy"
+                        unoptimized
                       />
                     </motion.div>
                  </div>

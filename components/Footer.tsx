@@ -19,6 +19,7 @@ const Footer: React.FC = () => {
               height={80}
               className="h-10 md:h-20 w-auto object-contain self-start"
               loading="lazy"
+              unoptimized
             />
             <div className="text-[10px] md:text-xs text-gray-600 leading-relaxed space-y-0.5 md:space-y-1 text-left">
             <p className="font-bold text-sm text-gray-800 mb-2">

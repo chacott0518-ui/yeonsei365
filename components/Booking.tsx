@@ -108,6 +108,7 @@ const Booking: React.FC = () => {
                       height={600}
                       className="w-full aspect-[4/3] object-cover"
                       loading="lazy"
+                      unoptimized
                     />
                     <a
                       href="https://map.naver.com/p/entry/place/36298054?lng=126.9814415&lat=37.4743873&placePath=/home"
@@ -242,6 +243,7 @@ const Booking: React.FC = () => {
                   height={600}
                   className="w-full h-full object-cover"
                   loading="lazy"
+                  unoptimized
                 />
               </div>
 
