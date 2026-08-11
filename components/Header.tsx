@@ -240,6 +240,14 @@ const Header: React.FC = () => {
 
   const activeNavId = findActiveNavId(pathname, activeSection)
   const isLinkActive = (link: typeof NAV_LINKS[0]) => activeNavId === link.id
+  const headerNavLinks = NAV_LINKS.filter((link) => link.id !== 'location')
+
+  const openConsultModal = () => {
+    setIsMobileMenuOpen(false)
+    setMobileExpanded(null)
+    setOpenDropdown(null)
+    window.dispatchEvent(new Event('open-consult-modal'))
+  }
 
   const getLinkClass = (link: typeof NAV_LINKS[0]) => {
     const active = isLinkActive(link)
@@ -317,7 +325,7 @@ const Header: React.FC = () => {
 
           <div className="flex min-w-0 items-center justify-self-end">
           <nav className="hidden h-full items-center gap-2 lg:flex min-[1440px]:gap-2.5">
-            {NAV_LINKS.map((link) => {
+            {headerNavLinks.map((link) => {
               const hasSub = !!SUB_MENUS[link.id]
               const isOpen = openDropdown === link.id
               return (
@@ -385,6 +393,13 @@ const Header: React.FC = () => {
                 </div>
               )
             })}
+            <button
+              type="button"
+              onClick={openConsultModal}
+              className="relative whitespace-nowrap rounded-full bg-primary px-2.5 py-1 text-[11px] font-bold tracking-tight text-white transition-all duration-200 hover:bg-primary-dark focus:outline-none focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+            >
+              간편예약
+            </button>
             <a
               href={MEDICAL_SEARCH_HREF}
               onClick={goToMedicalSearch}
@@ -397,6 +412,13 @@ const Header: React.FC = () => {
           </nav>
 
           <div className="flex shrink-0 items-center gap-1 lg:hidden">
+            <button
+              type="button"
+              onClick={openConsultModal}
+              className="whitespace-nowrap rounded-full bg-primary px-2 py-1 text-[10px] font-bold leading-none tracking-tight text-white transition-colors hover:bg-primary-dark focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
+            >
+              간편예약
+            </button>
             <a
               href={MEDICAL_SEARCH_HREF}
               onClick={goToMedicalSearch}
@@ -444,7 +466,7 @@ const Header: React.FC = () => {
                 </button>
               </div>
               <div className="flex flex-col px-4 pt-2 pb-[max(16px,env(safe-area-inset-bottom))] overflow-y-auto flex-grow">
-                {NAV_LINKS.map((link) => {
+                {headerNavLinks.map((link) => {
                   const hasSub = !!SUB_MENUS[link.id]
                   const isExpanded = mobileExpanded === link.id
                   const active = isLinkActive(link)
