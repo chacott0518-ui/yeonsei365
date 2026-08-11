@@ -19,10 +19,22 @@ const C = {
 
 export async function generateStaticParams() { return getAllArticlePaths() }
 
+// 한글 semantic slug가 encoded 상태로 전달되는 경우를 대비해 비교 직전 안전하게 decode한다.
+// 기존 q-*/영문 slug는 decodeURIComponent가 no-op이므로 결과가 변하지 않는다.
+function safeDecode(value: string): string {
+  try {
+    return decodeURIComponent(value)
+  } catch {
+    return value
+  }
+}
+
 export async function generateMetadata({ params }: { params: { category: string; slug: string } }): Promise<Metadata> {
-  const a = getArticleBySlug(params.category, params.slug)
+  const category = safeDecode(params.category)
+  const slug = safeDecode(params.slug)
+  const a = getArticleBySlug(category, slug)
   if (!a) return {}
-  const url = `${BASE}/health-hub/${params.category}/${params.slug}`
+  const url = `${BASE}/health-hub/${category}/${slug}`
   return {
     title: `${a.title} | 연세365산부인과의원`,
     description: a.description,
@@ -129,9 +141,11 @@ function renderSection(sec: HealthArticle['sections'][number], i: number) {
 }
 
 export default function ArticlePage({ params }: { params: { category: string; slug: string } }) {
-  const article = getArticleBySlug(params.category, params.slug)
+  const category = safeDecode(params.category)
+  const slug = safeDecode(params.slug)
+  const article = getArticleBySlug(category, slug)
   if (!article) notFound()
-  const url = `${BASE}/health-hub/${params.category}/${params.slug}`
+  const url = `${BASE}/health-hub/${category}/${slug}`
   const cat = CATEGORIES[article.category]
 
   const related = getRelatedArticles(article, 3)
@@ -241,7 +255,7 @@ export default function ArticlePage({ params }: { params: { category: string; sl
           {article.title}
         </h1>
         <p style={{ fontSize: '12px', color: C.tg, marginBottom: 0 }}>
-          {article.lastModified} · 일반 건강정보 · <ViewCounter slug={`health-hub-${params.category}-${params.slug}`} />
+          {article.lastModified} · 일반 건강정보 · <ViewCounter slug={`health-hub-${category}-${slug}`} />
         </p>
       </div>
 
