@@ -304,7 +304,7 @@ const ConsultModal: React.FC = () => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.2 }}
-            className="fixed inset-0 z-[100] flex items-center justify-center p-4"
+            className="fixed inset-0 z-[100] flex items-center justify-center p-4 pb-[calc(56px+env(safe-area-inset-bottom)+16px)] md:pb-4"
             onClick={handleClose}
           >
             {/* 배경 오버레이 */}
@@ -317,10 +317,10 @@ const ConsultModal: React.FC = () => {
               exit={{ opacity: 0, scale: 0.95, y: 20 }}
               transition={{ duration: 0.25, ease: 'easeOut' }}
               onClick={(e) => e.stopPropagation()}
-              className="relative bg-white rounded-2xl shadow-2xl w-full max-w-md overflow-hidden"
+              className="relative flex w-full max-w-md max-h-[calc(100dvh-72px-env(safe-area-inset-bottom))] flex-col overflow-hidden rounded-2xl bg-white shadow-2xl md:max-h-none"
             >
               {/* 헤더 */}
-              <div className="bg-gradient-to-r from-primary to-pink-500 px-6 py-5 flex items-center justify-between">
+              <div className="flex shrink-0 items-center justify-between bg-gradient-to-r from-primary to-pink-500 px-5 py-3.5 md:px-6 md:py-5">
                 <div>
                   <p className="text-white/80 text-xs font-bold tracking-widest uppercase">Quick Booking</p>
                   <h3 className="text-white text-xl font-bold mt-1">간편 상담예약</h3>
@@ -335,7 +335,7 @@ const ConsultModal: React.FC = () => {
 
               {/* 성공 화면 */}
               {isSuccess ? (
-                <div className="p-8 text-center">
+                <div className="min-h-0 flex-1 overflow-y-auto p-6 text-center md:p-8">
                   <div className="w-16 h-16 bg-primary/10 rounded-full flex items-center justify-center mx-auto mb-5">
                     <CheckCircle size={36} className="text-primary" />
                   </div>
@@ -353,7 +353,7 @@ const ConsultModal: React.FC = () => {
                 </div>
               ) : (
                 /* 폼 */
-                <form onSubmit={handleSubmit} className="p-6 space-y-4">
+                <form onSubmit={handleSubmit} className="min-h-0 flex-1 space-y-3 overflow-y-auto p-4 md:space-y-4 md:p-6">
 
                   {/* 상담 분야 */}
                   <div>
@@ -362,7 +362,7 @@ const ConsultModal: React.FC = () => {
                       name="category"
                       value={formData.category}
                       onChange={handleChange}
-                      className="w-full px-4 py-3 border border-gray-200 rounded-xl bg-gray-50 focus:ring-2 focus:ring-primary/30 focus:border-primary outline-none transition-all text-sm"
+                      className="w-full rounded-xl border border-gray-200 bg-gray-50 px-4 py-2.5 text-sm outline-none transition-all focus:border-primary focus:ring-2 focus:ring-primary/30 md:py-3"
                     >
                       <option value="임신중절">임신중절</option>
                       <option value="여성검진">여성검진</option>
@@ -381,7 +381,7 @@ const ConsultModal: React.FC = () => {
                       value={formData.name}
                       onChange={handleChange}
                       placeholder="이름을 입력해주세요"
-                      className={`w-full px-4 py-3 border rounded-xl bg-gray-50 focus:ring-2 focus:ring-primary/30 focus:border-primary outline-none transition-all text-sm ${
+                      className={`w-full rounded-xl border bg-gray-50 px-4 py-2.5 text-sm outline-none transition-all focus:border-primary focus:ring-2 focus:ring-primary/30 md:py-3 ${
                         errors.name ? 'border-red-400' : 'border-gray-200'
                       }`}
                     />
@@ -399,7 +399,7 @@ const ConsultModal: React.FC = () => {
                       value={formData.phone}
                       onChange={handleChange}
                       placeholder="하이픈(-) 없이 입력"
-                      className={`w-full px-4 py-3 border rounded-xl bg-gray-50 focus:ring-2 focus:ring-primary/30 focus:border-primary outline-none transition-all text-sm ${
+                      className={`w-full rounded-xl border bg-gray-50 px-4 py-2.5 text-sm outline-none transition-all focus:border-primary focus:ring-2 focus:ring-primary/30 md:py-3 ${
                         errors.phone ? 'border-red-400' : 'border-gray-200'
                       }`}
                     />
@@ -415,7 +415,7 @@ const ConsultModal: React.FC = () => {
                       onChange={handleChange}
                       rows={2}
                       placeholder="궁금하신 내용을 간단히 적어주세요"
-                      className="w-full px-4 py-3 border border-gray-200 rounded-xl bg-gray-50 focus:ring-2 focus:ring-primary/30 focus:border-primary outline-none transition-all text-sm resize-none"
+                      className="w-full resize-none rounded-xl border border-gray-200 bg-gray-50 px-4 py-2.5 text-sm outline-none transition-all focus:border-primary focus:ring-2 focus:ring-primary/30 md:py-3"
                     />
                   </div>
 
@@ -453,7 +453,7 @@ const ConsultModal: React.FC = () => {
                   <button
                     type="submit"
                     disabled={isSubmitting}
-                    className="w-full bg-primary hover:bg-primary-dark disabled:opacity-60 disabled:cursor-not-allowed text-white font-bold py-3.5 px-6 rounded-xl transition-colors duration-300 flex items-center justify-center gap-2 shadow-lg shadow-primary/20"
+                    className="flex w-full items-center justify-center gap-2 rounded-xl bg-primary px-6 py-3 font-bold text-white shadow-lg shadow-primary/20 transition-colors duration-300 hover:bg-primary-dark disabled:cursor-not-allowed disabled:opacity-60 md:py-3.5"
                   >
                     {isSubmitting ? (
                       <>

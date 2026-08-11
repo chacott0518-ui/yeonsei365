@@ -166,32 +166,32 @@ export default function FloatingChip() {
             style={{
               background: '#D1366F', color: '#fff',
               border: 'none',
-              borderRadius: '10px',
-              padding: '12px 8px',
-              fontSize: '11px', fontWeight: 800,
+              borderRadius: '8px',
+              padding: '9px 6px',
+              fontSize: '10px', fontWeight: 800,
               cursor: 'pointer', fontFamily: 'inherit',
-              boxShadow: '-2px 0 10px rgba(209,54,111,0.4)',
+              boxShadow: '-1px 0 6px rgba(209,54,111,0.22)',
               touchAction: 'manipulation',
               writingMode: 'vertical-rl',
               letterSpacing: '0.1em',
             }}>
-            📅임신주수
+            임신주수
           </button>
           <button type="button"
             onClick={() => { setActiveTab('ov'); setIsOpen(true) }}
             style={{
               background: '#b02255', color: '#fff',
               border: 'none',
-              borderRadius: '10px 0 0 10px',
-              padding: '12px 8px',
-              fontSize: '11px', fontWeight: 800,
+              borderRadius: '8px 0 0 8px',
+              padding: '9px 6px',
+              fontSize: '10px', fontWeight: 800,
               cursor: 'pointer', fontFamily: 'inherit',
-              boxShadow: '-2px 0 10px rgba(176,34,85,0.4)',
+              boxShadow: '-1px 0 6px rgba(176,34,85,0.22)',
               touchAction: 'manipulation',
               writingMode: 'vertical-rl',
               letterSpacing: '0.1em',
             }}>
-            🌸배란일
+            배란일
           </button>
         </div>
       )}
