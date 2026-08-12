@@ -1,5 +1,5 @@
 'use client'
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { X, Send, CheckCircle, ChevronLeft } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
@@ -211,16 +211,41 @@ const ConsultModal: React.FC = () => {
     memo: '',
   });
   const [errors, setErrors] = useState<{ name?: string; phone?: string; agreed?: string }>({});
+  const autoOpenedFromUrlRef = useRef(false);
 
-  // 커스텀 이벤트로 모달 열기
+  // 커스텀 이벤트로 모달 열기 + ?consult=1 진입 시 자동 오픈
   useEffect(() => {
-    const handler = () => {
+    const openModal = () => {
       setIsOpen(true);
       setIsSuccess(false);
       setErrors({});
     };
-    window.addEventListener('open-consult-modal', handler);
-    return () => window.removeEventListener('open-consult-modal', handler);
+
+    window.addEventListener('open-consult-modal', openModal);
+
+    // 외부 유입(?consult=1) 자동 오픈 — 정확히 "1"일 때만, 1회만 실행
+    if (!autoOpenedFromUrlRef.current) {
+      try {
+        const params = new URLSearchParams(window.location.search);
+        if (params.get('consult') === '1') {
+          autoOpenedFromUrlRef.current = true;
+          openModal();
+
+          // 다른 query parameter·hash는 보존하고 consult=1만 제거 (reload 없음)
+          params.delete('consult');
+          const query = params.toString();
+          const newUrl =
+            window.location.pathname +
+            (query ? `?${query}` : '') +
+            window.location.hash;
+          window.history.replaceState(history.state, '', newUrl);
+        }
+      } catch {
+        // URL 파싱 실패 시 기존 동작에 영향 없음
+      }
+    }
+
+    return () => window.removeEventListener('open-consult-modal', openModal);
   }, []);
 
   // 모달 열릴 때 스크롤 방지
