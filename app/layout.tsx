@@ -6,6 +6,7 @@ import dynamic from 'next/dynamic'
 import PricePopup from '../components/PricePopup';
 import FloatingBar from '../components/FloatingBar';
 const FloatingChip = dynamic(() => import('../components/FloatingChip'), { ssr: false })
+const ConsultModal = dynamic(() => import('../components/ConsultModal'), { ssr: false })
 import Header from '../components/Header';
 
 const playfair = Playfair_Display({
@@ -179,6 +180,7 @@ export default function RootLayout({
       <Header /> 
         <PricePopup />
         {children}
+        <ConsultModal />
         <FloatingBar />
         <FloatingChip />
       </body>

@@ -14,7 +14,6 @@ const Review = dynamic(() => import('../components/Review'), { ssr: false, loadi
 const FAQ = dynamic(() => import('../components/FAQ'), { ssr: false, loading: emptyFallback })
 const Consultation = dynamic(() => import('../components/Booking'), { ssr: false, loading: emptyFallback })
 const Footer = dynamic(() => import('../components/Footer'), { ssr: false, loading: emptyFallback })
-const ConsultModal = dynamic(() => import('../components/ConsultModal'), { ssr: false, loading: emptyFallback })
 const FloatingBar = dynamic(() => import('../components/FloatingBar'), { ssr: false, loading: emptyFallback })
 
 const FAQ_SCHEMA = {
@@ -115,7 +114,6 @@ export default function Home() {
           </div>
         </main>
         <Footer />
-        <ConsultModal />
         <FloatingBar />
       </div>
     </>
