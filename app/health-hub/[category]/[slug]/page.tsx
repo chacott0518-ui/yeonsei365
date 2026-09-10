@@ -6,6 +6,7 @@ import type { HealthArticle } from '@/lib/healthHub'
 import { getRelatedArticles } from '@/lib/healthHubRelated'
 import ViewCounter from '@/components/ViewCounter'
 import { AI_CONTENT_POLICY } from '@/config/aiContentPolicy'
+import styles from './article.module.css'
 
 const BASE = 'https://www.yeonsei365.com'
 const C = {
@@ -141,6 +142,8 @@ function renderSection(sec: HealthArticle['sections'][number], i: number) {
 }
 
 export default function ArticlePage({ params }: { params: { category: string; slug: string } }) {
+  // 한글 semantic slug가 encoded 상태로 전달되는 경우를 대비해 비교 직전 안전하게 decode한다.
+  // 기존 q-*/영문 slug는 decodeURIComponent가 no-op이므로 결과가 변하지 않는다.
   const category = safeDecode(params.category)
   const slug = safeDecode(params.slug)
   const article = getArticleBySlug(category, slug)
@@ -203,28 +206,7 @@ export default function ArticlePage({ params }: { params: { category: string; sl
         <script key={i} type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }} />
       ))}
 
-      <style>{`
-        details { display: block; }
-        details[open] > summary::after { transform: rotate(180deg); }
-        summary::after {
-          content: '▾';
-          float: right;
-          font-size: 14px;
-          color: ${C.p};
-          transition: transform 0.2s;
-        }
-        summary::-webkit-details-marker { display: none; }
-        summary { user-select: none; }
-        @media (max-width: 768px) {
-          details { }
-          .article-hero-wrap { display: none !important; }
-          .article-stats { grid-template-columns: repeat(2, 1fr) !important; }
-          .article-checklist { grid-template-columns: 1fr !important; }
-          .article-cta-btns { flex-direction: column !important; }
-          .article-cta-btns a { text-align: center; }
-          .article-faq-a { padding-left: 16px !important; }
-        }
-      `}</style>
+      <div className={styles.articlePage}>
 
       {/* ── 브레드크럼 ── */}
       <div style={{ display: 'flex', gap: '6px', fontSize: '12px', color: C.tg, marginBottom: '16px', flexWrap: 'wrap', alignItems: 'center' }}>
@@ -237,7 +219,7 @@ export default function ArticlePage({ params }: { params: { category: string; sl
 
       {/* ── 히어로 이미지 — PC만 표시, 모바일은 CSS로 숨김 ── */}
       {article.heroImage && (
-        <div className="article-hero-wrap" style={{ borderRadius: '16px', overflow: 'hidden', marginBottom: '24px' }}>
+        <div className={styles.articleHeroWrap} style={{ borderRadius: '16px', overflow: 'hidden', marginBottom: '24px' }}>
           <img
             src={article.heroImage}
             alt={article.title}
@@ -261,7 +243,7 @@ export default function ArticlePage({ params }: { params: { category: string; sl
 
       {/* ── 통계 수치 ── */}
       {article.stats && article.stats.length > 0 && (
-        <div className="article-stats" style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '8px', marginBottom: '20px' }}>
+        <div className={styles.articleStats} style={{ display: 'grid', gridTemplateColumns: 'repeat(4, 1fr)', gap: '8px', marginBottom: '20px' }}>
           {article.stats.map((stat, i) => (
             <div key={i} style={{ background: C.pb, border: `0.5px solid ${C.pbd}`, borderRadius: '10px', padding: '12px 8px', textAlign: 'center' }}>
               <div style={{ fontSize: '18px', fontWeight: 900, color: C.p, marginBottom: '2px' }}>{stat.num}</div>
@@ -298,7 +280,7 @@ export default function ArticlePage({ params }: { params: { category: string; sl
                 <span style={{ color: C.p, fontWeight: 700, flexShrink: 0 }}>Q.</span>
                 <span style={{ flex: 1 }}>{f.q}</span>
               </summary>
-              <div className="article-faq-a" style={{ padding: '14px 16px 16px 36px', fontSize: '14px', color: C.ts, lineHeight: 1.9, background: '#fff8fa', borderTop: `0.5px dashed ${C.pbd}`, wordBreak: 'keep-all' }}>
+              <div className={styles.articleFaqA} style={{ padding: '14px 16px 16px 36px', fontSize: '14px', color: C.ts, lineHeight: 1.9, background: '#fff8fa', borderTop: `0.5px dashed ${C.pbd}`, wordBreak: 'keep-all' }}>
                 {f.a}
               </div>
             </details>
@@ -373,7 +355,7 @@ export default function ArticlePage({ params }: { params: { category: string; sl
       <div style={{ background: `linear-gradient(135deg, ${C.pp}, ${C.p})`, borderRadius: '20px', padding: '28px 24px', textAlign: 'center' }}>
         <div style={{ fontSize: '16px', fontWeight: 900, color: '#fff', marginBottom: '6px' }}>더 궁금한 점이 있으신가요?</div>
         <div style={{ fontSize: '12px', color: 'rgba(255,255,255,.8)', marginBottom: '18px' }}>사당역 4번 출구 도보 3분 · 연세365산부인과의원 · 당일 예약 가능</div>
-        <div className="article-cta-btns" style={{ display: 'flex', gap: '8px', justifyContent: 'center', flexWrap: 'wrap' }}>
+        <div className={styles.articleCtaBtns} style={{ display: 'flex', gap: '8px', justifyContent: 'center', flexWrap: 'wrap' }}>
           <a href="http://pf.kakao.com/_TpaBj/chat" target="_blank" rel="noopener noreferrer"
             style={{ background: '#FEE500', color: '#3B1B1B', fontSize: '13px', fontWeight: 700, padding: '11px 20px', borderRadius: '24px', textDecoration: 'none' }}>
             💬 카카오톡 상담
@@ -387,6 +369,8 @@ export default function ArticlePage({ params }: { params: { category: string; sl
             ✍️ 질문 남기기
           </Link>
         </div>
+      </div>
+
       </div>
     </>
   )

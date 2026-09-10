@@ -7,6 +7,7 @@ import {
   hasMedAbortionNotice,
   autoCorrectClinicName,
 } from '@/lib/contentValidator'
+import { generateSemanticSlug, ensureUniqueSlug } from '@/lib/healthHubSlug'
 
 const VALID_CATEGORIES = ['pregnancy', 'contraception', 'gynecology', 'surgery', 'womens']
 const DEFAULT_CATEGORY = 'gynecology'
@@ -94,12 +95,13 @@ export async function GET(req: Request) {
   const rawCategory = searchParams.get('category') || DEFAULT_CATEGORY
   const category = VALID_CATEGORIES.includes(rawCategory) ? rawCategory : DEFAULT_CATEGORY
   const categoryWasInvalid = rawCategory !== category
-  const slug = searchParams.get('slug') || `q-${Date.now()}`
   const question = searchParams.get('question') || ''
   const paramOriginalTitle = searchParams.get('originalTitle') || ''
   const paramSuggestedTitle = searchParams.get('suggestedTitle') || ''
+  // 신규 legacy 요청(slug 파라미터 누락)만 semantic slug로 폴백 생성 — 기존 q-* slug는 그대로 전달되어 변경되지 않음
+  const slug = searchParams.get('slug') || generateSemanticSlug(paramSuggestedTitle || paramOriginalTitle || question)
   const token = searchParams.get('token') || ''
-  const articleUrl = `https://www.yeonsei365.com/health-hub/${category}/${slug}`
+  let articleUrl = `https://www.yeonsei365.com/health-hub/${category}/${slug}`
 
   // ── 토큰 검증 ───────────────────────────────────────────────
   if (!verifyApproveToken(slug, action || '', token)) {
@@ -159,6 +161,12 @@ export async function GET(req: Request) {
   }
   // action이 없는 legacy 요청: selectedTitle은 빈 문자열 → AI가 제목 생성
 
+  // ── 최종 slug 확정 ─────────────────────────────────────────
+  // legacy(제목 선택 없음, 주로 과거 q-* 링크) 요청은 전달받은 slug를 그대로 유지한다.
+  // 원본/AI 제목을 선택한 신규 요청은 실제 선택된 제목 기준으로 semantic slug를 다시 계산해,
+  // "제출 시점 slug"와 "최종 선택 제목"이 어긋나는 문제를 막는다. 기존 발행된 q-* 글에는 영향 없음.
+  const publishSlug = titleSelection === 'legacy' ? slug : generateSemanticSlug(selectedTitle)
+
   // ── AI 콘텐츠 생성 ─────────────────────────────────────────
   const lastModified = new Date().toLocaleString('ko-KR', {
     timeZone: 'Asia/Seoul',
@@ -198,7 +206,7 @@ export async function GET(req: Request) {
         try {
           const parsed = JSON.parse(cleaned)
           if (parsed.title && parsed.sections && parsed.faq) {
-            parsed.slug = slug
+            parsed.slug = publishSlug
             articleData = parsed
           } else {
             aiFailReason = 'title/sections/faq 중 일부 필드 누락'
@@ -216,7 +224,7 @@ export async function GET(req: Request) {
   if (!articleData) {
     articleData = {
       title: (selectedTitle || question.slice(0, 45).replace(/[?!]/g, '').trim()) + (selectedTitle ? '' : ' 안내'),
-      slug,
+      slug: publishSlug,
       aiSummary: '정확한 진단을 위해 산부인과 전문의 상담이 필요합니다.',
       description: '산부인과 관련 질문에 대한 전문의 답변입니다. 정확한 진단과 치료는 직접 진료를 통해 받으시기 바랍니다.',
       heroAnswer: '해당 증상이나 상황에 대한 정확한 진단과 치료를 위해서는 산부인과 전문의의 직접 진료가 필요합니다.',
@@ -302,9 +310,9 @@ export async function GET(req: Request) {
       (_, t) => `"type": "${t}" as const`)
 
   const approvedAt = new Date().toISOString().slice(0, 10)
-  const newEntry = `
+  const buildNewEntry = (finalSlug: string) => `
   {
-    slug: '${slug}',
+    slug: '${finalSlug}',
     category: '${category}' as CategoryKey,
     title: '${s(title)}',
     description: '${s(description)}',
@@ -335,13 +343,14 @@ export async function GET(req: Request) {
         const fileData = await fileRes.json()
         const current: string = Buffer.from(fileData.content, 'base64').toString('utf-8')
 
-        if (current.includes(`slug: '${slug}'`)) {
-          return htmlPage(`
-            <div style="font-size:48px">⚠️</div>
-            <h1>이미 등록된 질문입니다</h1>
-            <p>슬러그 <code>${slug}</code>는 이미 등록되어 있습니다.</p>
-            <a href="/health-hub" class="btn">헬스허브로 이동</a>`)
+        // slug 충돌 시에만 질문 문자열 기반 짧은 deterministic suffix를 붙여 새 slug를 확보한다
+        // (기존 q-* slug는 이 경로에서 절대 재작성되지 않음 — 새로 생성될 slug만 대상)
+        const finalSlug = ensureUniqueSlug(publishSlug, (s2) => current.includes(`slug: '${s2}'`))
+        // publishSlug가 (제목 재계산 또는 충돌 회피로) 요청 slug와 달라졌다면 안내 URL도 최종 slug 기준으로 갱신
+        if (finalSlug !== slug) {
+          articleUrl = `https://www.yeonsei365.com/health-hub/${category}/${finalSlug}`
         }
+        const newEntry = buildNewEntry(finalSlug)
 
         const markerIdx = current.indexOf('export function getArticleBySlug')
         const insertIdx = current.lastIndexOf(']', markerIdx)

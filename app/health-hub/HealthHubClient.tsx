@@ -3,6 +3,7 @@ import { useState } from 'react'
 import Link from 'next/link'
 import { CATEGORIES, HEALTH_ARTICLES } from '@/lib/healthHub'
 import HealthHubPagination from '@/components/HealthHubPagination'
+import HealthHubCategoryTabs from '@/components/HealthHubCategoryTabs'
 
 const C = { p: '#D6336C', pd: '#993556', pp: '#5c0e20', pb: '#FFF5F7', pbd: '#f0d0dc', tm: '#1a1a1a', ts: '#444', tg: '#888' }
 const PER_PAGE = 5
@@ -40,6 +41,10 @@ export default function HealthHubPage() {
         <Link href="/health-hub/ask" style={{ display: 'block', background: C.p, color: '#fff', fontSize: '15px', fontWeight: 700, padding: '14px', borderRadius: '12px', textDecoration: 'none', textAlign: 'center' }}>✏️ 질문 남기기 →</Link>
       </div>
 
+      <div id="hh-mobile-chips" style={{ display: 'none' }}>
+        <HealthHubCategoryTabs />
+      </div>
+
       <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: '12px' }}>
         <div style={{ fontSize: '15px', fontWeight: 700, color: C.tm }}>AI 건강 Q&A</div>
         <span style={{ fontSize: '11px', color: C.tg }}>총 {total}개</span>
@@ -70,6 +75,7 @@ export default function HealthHubPage() {
           #hh-categories-grid { display: none !important; }
           #hh-categories { display: none !important; }
           #hh-ask-mob { display: block !important; }
+          #hh-mobile-chips { display: block !important; }
         }
       `}</style>
     </>

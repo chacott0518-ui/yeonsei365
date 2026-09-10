@@ -64,10 +64,36 @@ function MobileAccordion({ title, icon, children }: { title: string; icon: strin
   )
 }
 
+function MedicalSourceDetails({
+  published,
+  modified,
+  sources,
+}: {
+  published?: string
+  modified?: string
+  sources: string
+}) {
+  return (
+    <details className="mb-6 rounded-xl border border-[#D6336C]/20 bg-[#FFF5F7] px-3 py-2 md:mb-8 md:px-4 md:py-3">
+      <summary className="cursor-pointer list-none text-[13px] font-bold text-[#1a1a1a] md:text-[14px] [&::-webkit-details-marker]:hidden">
+        의료정보 작성·검수 및 공식 출처
+      </summary>
+      <div className="mt-2 space-y-1 break-keep text-[12px] leading-relaxed text-[#444] md:text-[13px]">
+        <div>정보 제공: 연세365산부인과의원</div>
+        <div>의료 검수: 이진우 대표원장 · 산부인과 전문의</div>
+        {published ? <div>최초 작성일: {published}</div> : null}
+        {modified ? <div>최종 검수일: {modified}</div> : null}
+        <div>공식 출처: {sources}</div>
+        <div className="pt-1 text-[#888]">이 내용은 일반적인 의료정보이며 개인의 진단과 치료를 대신하지 않습니다.</div>
+      </div>
+    </details>
+  )
+}
+
 const RELATED = [
   { href: '/abortion/cost', label: '임신중절수술 금액·비용·가격' },
   { href: '/abortion/method', label: '흡입술·소파술 방법 종류' },
-  { href: '/abortion/recovery', label: '수술 후 관리 완벽 안내' },
+  { href: '/abortion/recovery', label: '수술 후 관리 안내' },
   { href: '/abortion/legal', label: '낙태 합법화·법적 기준' },
   { href: '/abortion/faq', label: `전체 ${FAQ_COUNT}개 FAQ 보기` },
   { href: '/abortion/hospital', label: '임신중절수술 병원 안내' },
@@ -250,7 +276,7 @@ export default function AbortionClient() {
                   <strong>임신중절수술 금액</strong>과 낙태 비용 가격은 임신 주수가 짧을수록 낮으며 회복도 빠릅니다. <strong>임신초기낙태</strong> 또는 <strong>임신초기중절수술</strong>은 보통 임신 8주 이내를 의미하며, 이 시기에 시술받는 것이 신체적 부담을 최소화할 수 있습니다.
                 </p>
                 <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '16px' }}>
-                  모든 상담과 진료는 의료법에 따라 철저히 비밀이 보장됩니다. 사당역 4번출구에 위치한 연세365산부인과의원은 독립된 1인 상담실과 1인 회복실을 운영하여 타인에게 노출될 걱정 없이 진료받으실 수 있습니다.
+                  모든 상담과 진료는 의료법과 개인정보 보호 기준에 따라 진료정보를 보호합니다. 사당역 4번 출구 도보 3분에 위치한 연세365산부인과의원은 독립된 1인 상담실과 1인 회복실을 운영합니다.
                 </p>
                 <InfoBox>임신 4~5주는 태낭이 작아 초음파 확인이 어려울 수 있습니다. 6~7주 내원 시 정확한 진단에 유리합니다.</InfoBox>
               </div>
@@ -369,7 +395,7 @@ export default function AbortionClient() {
           {/* 섹션 4: 흡입술 vs 소파술 */}
           <section>
             <SectionTag>05 수술 방법 비교</SectionTag>
-            <h2 style={{ fontSize: '24px', fontWeight: 900, color: C.tm, marginBottom: '8px', letterSpacing: '-.02em' }}>흡입술 vs 소파술 — 완전 비교</h2>
+            <h2 style={{ fontSize: '24px', fontWeight: 900, color: C.tm, marginBottom: '8px', letterSpacing: '-.02em' }}>흡입술 vs 소파술 — 비교 안내</h2>
             <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, marginBottom: '20px', letterSpacing: '-.01em' }}>
               임신 주수와 자궁 상태에 따라 전문의가 가장 적합한 방법을 결정합니다. 두 방법 모두 수면마취 하에 진행되며, 시술 후 당일 귀가가 가능합니다.
             </p>
@@ -484,20 +510,11 @@ export default function AbortionClient() {
             </Link>
           </section>
 
-          {/* 의료정보 안내 */}
-          <section style={{ marginBottom: '44px', background: C.pb, border: `0.5px solid ${C.pbd}`, borderRadius: '14px', padding: '24px 28px' }}>
-            <SectionTag>의료정보 안내</SectionTag>
-            <h2 style={{ fontSize: '18px', fontWeight: 900, color: C.tm, marginBottom: '14px', letterSpacing: '-.02em' }}>
-              의료정보는 어떤 기준으로 작성되었나요?
-            </h2>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: '8px', fontSize: '13px', color: C.ts, lineHeight: 1.85 }}>
-              <div><strong style={{ color: C.tm }}>정보 제공:</strong> 연세365산부인과의원</div>
-              <div><strong style={{ color: C.tm }}>최초 작성일:</strong> 2026년 5월 21일</div>
-              <div><strong style={{ color: C.tm }}>최종 수정일:</strong> 2026년 6월 29일</div>
-              <div><strong style={{ color: C.tm }}>공식 출처:</strong> 모자보건법, 대한산부인과학회 임상 지침</div>
-              <div style={{ marginTop: '8px', fontSize: '12px', color: C.tg }}>본 정보는 일반적인 의료 안내이며 개인별 진료를 대신하지 않습니다. 정확한 진단과 치료는 의료기관을 방문하여 상담받으시기 바랍니다.</div>
-            </div>
-          </section>
+          <MedicalSourceDetails
+            published="2026년 5월 21일"
+            modified="2026년 6월 29일"
+            sources="모자보건법, 대한산부인과학회 임상 지침"
+          />
 
           {/* 관련 페이지 */}
           <div style={{ marginBottom: '40px' }}>
@@ -515,7 +532,7 @@ export default function AbortionClient() {
           <div style={{ background: `linear-gradient(135deg, ${C.pp}, ${C.p})`, borderRadius: '20px', padding: '36px', textAlign: 'center' }}>
             <div style={{ fontSize: '22px', fontWeight: 900, color: '#fff', marginBottom: '6px' }}>연세365산부인과의원</div>
             <div style={{ fontSize: '13px', color: 'rgba(255,255,255,.85)', marginBottom: '6px' }}>서울특별시 관악구 과천대로 939, 3층 · 사당역 4번 출구 도보 3분</div>
-            <div style={{ fontSize: '12px', color: 'rgba(255,255,255,.7)', marginBottom: '22px' }}>당일예약·당일수술 가능 · 비밀보장 · 전문의 직접 집도</div>
+            <div style={{ fontSize: '12px', color: 'rgba(255,255,255,.7)', marginBottom: '22px' }}>당일 진행은 검사·일정 후 확인 · 전문의 직접 집도</div>
             <div style={{ display: 'flex', gap: '10px', justifyContent: 'center' }}>
               <a href="http://pf.kakao.com/_TpaBj/chat" target="_blank" rel="noopener noreferrer" style={{ background: '#FEE500', color: '#3B1B1B', fontSize: '14px', fontWeight: 700, padding: '13px 28px', borderRadius: '24px', textDecoration: 'none' }}>💬 카카오톡 상담</a>
               <a href="tel:02-585-3650" style={{ background: 'rgba(255,255,255,.15)', color: '#fff', fontSize: '14px', border: '0.5px solid rgba(255,255,255,.4)', padding: '13px 28px', borderRadius: '24px', textDecoration: 'none' }}>📞 02-585-3650</a>
@@ -671,15 +688,12 @@ export default function AbortionClient() {
           </Link>
         </div>
 
-        {/* 모바일 의료정보 안내 */}
-        <div style={{ padding: '14px 16px', background: C.pb, borderTop: `0.5px solid ${C.pbd}` }}>
-          <div style={{ fontSize: '11px', fontWeight: 700, color: '#bbb', marginBottom: '8px', letterSpacing: '.04em' }}>의료정보 안내</div>
-          <div style={{ fontSize: '11px', color: C.tg, lineHeight: 1.8 }}>
-            <div>정보 제공: 연세365산부인과의원</div>
-            <div>최종 수정일: 2026년 6월 29일</div>
-            <div>출처: 모자보건법, 대한산부인과학회 임상 지침</div>
-            <div style={{ marginTop: '6px' }}>본 정보는 일반 의료 안내이며 개인별 진료를 대신하지 않습니다.</div>
-          </div>
+        <div style={{ padding: '14px 16px', borderTop: `0.5px solid ${C.pbd}` }}>
+          <MedicalSourceDetails
+            published="2026년 5월 21일"
+            modified="2026년 6월 29일"
+            sources="모자보건법, 대한산부인과학회 임상 지침"
+          />
         </div>
 
         {/* 모바일 관련 링크 */}

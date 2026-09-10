@@ -380,9 +380,9 @@ export default function MethodClient() {
 
       <div className="lg:hidden">
         <div style={{ backgroundImage: `linear-gradient(rgba(0,0,0,0.60), rgba(0,0,0,0.60)), url(/images/hero-abortion-method.webp)`, backgroundSize: 'cover', backgroundPosition: 'center', padding: '32px 20px' }}>
-          <h1 style={{ color: '#fff', fontSize: '24px', fontWeight: 900, lineHeight: 1.2, marginBottom: '10px', letterSpacing: '-.02em' }}>
+          <h2 style={{ color: '#fff', fontSize: '24px', fontWeight: 900, lineHeight: 1.2, marginBottom: '10px', letterSpacing: '-.02em' }}>
             임신중절수술 방법과 종류는<br />어떻게 결정될까요?
-          </h1>
+          </h2>
           <p style={{ color: 'rgba(255,255,255,.85)', fontSize: '12px', lineHeight: 1.7, marginBottom: '12px' }}>
             흡입술·소파술 차이와 주수별 선택 기준 안내
           </p>

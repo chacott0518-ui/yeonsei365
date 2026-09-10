@@ -4,6 +4,7 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { CATEGORIES, getArticlesByCategory } from '@/lib/healthHub'
 import type { CategoryKey } from '@/lib/healthHub'
+import HealthHubCategoryTabs from '@/components/HealthHubCategoryTabs'
 
 const BASE = 'https://www.yeonsei365.com'
 const C = {
@@ -160,6 +161,10 @@ export default function CategoryPage({
         >
           질문 남기기 →
         </Link>
+      </div>
+
+      <div id="hh-mobile-chips" style={{ display: 'none' }}>
+        <HealthHubCategoryTabs activeCategory={params.category as CategoryKey} />
       </div>
 
       {/* 아티클 목록 */}
@@ -382,6 +387,12 @@ export default function CategoryPage({
           </a>
         </div>
       </div>
+
+      <style>{`
+        @media (max-width: 768px) {
+          #hh-mobile-chips { display: block !important; }
+        }
+      `}</style>
     </>
   )
 }

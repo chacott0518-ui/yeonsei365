@@ -392,9 +392,9 @@ export default function CostClient() {
               <span key={t} style={{ background: 'rgba(255,255,255,.18)', color: '#fff', fontSize: '10px', fontWeight: 700, padding: '2px 10px', borderRadius: '20px' }}>{t}</span>
             ))}
           </div>
-          <h1 style={{ color: '#fff', fontSize: '22px', fontWeight: 900, lineHeight: 1.2, marginBottom: '10px', letterSpacing: '-.02em' }}>
+          <h2 style={{ color: '#fff', fontSize: '22px', fontWeight: 900, lineHeight: 1.2, marginBottom: '10px', letterSpacing: '-.02em' }}>
             임신중절수술 주수별 비용은<br />어떻게 달라질까요?
-          </h1>
+          </h2>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '6px', marginTop: '14px' }}>
             {[['8주 미만', '45만원'], ['8주', '60만원'], ['9주', '70만원'], ['10주', '80만원']].map(([v, l]) => (
               <div key={v} style={{ background: 'rgba(255,255,255,.12)', borderRadius: '8px', padding: '8px', textAlign: 'center' }}>

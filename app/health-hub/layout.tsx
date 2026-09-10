@@ -1,6 +1,5 @@
 import Link from 'next/link'
 import { CATEGORIES, HEALTH_ARTICLES } from '@/lib/healthHub'
-import HealthHubCategoryTabs from '@/components/HealthHubCategoryTabs'
 import type { CategoryKey } from '@/lib/healthHub'
 
 const C = { p: '#D6336C', pd: '#993556', pp: '#5c0e20', pb: '#FFF5F7', pbd: '#f0d0dc', tm: '#1a1a1a', tg: '#888' }
@@ -9,11 +8,6 @@ export default function HealthHubLayout({ children }: { children: React.ReactNod
   return (
     <>
       <div style={{ paddingTop: '60px' }}>
-        <div style={{ background: C.pb, borderBottom: `0.5px solid ${C.pbd}`, padding: '10px 20px' }}>
-          <div style={{ maxWidth: '1060px', margin: '0 auto' }}>
-            <HealthHubCategoryTabs />
-          </div>
-        </div>
         <div style={{ maxWidth: '1060px', margin: '0 auto', padding: '32px 20px 100px' }}>
           <div id="hh-grid" style={{ display: 'grid', gridTemplateColumns: '200px 1fr', gap: '32px', alignItems: 'start' }}>
             <aside id="hh-sidebar" style={{ position: 'sticky', top: '80px' }}>

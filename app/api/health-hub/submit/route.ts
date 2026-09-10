@@ -7,6 +7,7 @@ import {
   formatValidationForSlack,
   autoCorrectClinicName,
 } from '@/lib/contentValidator'
+import { generateSemanticSlug } from '@/lib/healthHubSlug'
 
 const TOKEN_LIFETIME_MS = 48 * 60 * 60 * 1000 // 생성 시점부터 정확히 48시간
 
@@ -54,7 +55,8 @@ export async function POST(req: Request) {
     const suggResult = validateTitle(corrSuggested, 'suggestedTitle')
 
     // 5. Slack 메시지 구성
-    const slug = `q-${Date.now()}`
+    // 신규 질문은 semantic slug 사용 (기존 q-* 타임스탬프 slug는 과거 발행분 유지 목적으로 변경하지 않음)
+    const slug = generateSemanticSlug(corrSuggested || cleanedQuestion)
     const baseUrl = process.env.NEXT_PUBLIC_BASE_URL || 'https://www.yeonsei365.com'
     const catLabel = CATEGORY_LABELS[category] || category
 
