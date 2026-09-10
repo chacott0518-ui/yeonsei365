@@ -4,6 +4,7 @@ import localFont from 'next/font/local';
 import '../index.css';
 import dynamic from 'next/dynamic'
 import PricePopup from '../components/PricePopup';
+import HolidayPopup from '../components/HolidayPopup';
 import FloatingBar from '../components/FloatingBar';
 const FloatingChip = dynamic(() => import('../components/FloatingChip'), { ssr: false })
 const ConsultModal = dynamic(() => import('../components/ConsultModal'), { ssr: false })
@@ -178,6 +179,7 @@ export default function RootLayout({
       </head>
       <body>
       <Header /> 
+        <HolidayPopup />
         <PricePopup />
         {children}
         <ConsultModal />
