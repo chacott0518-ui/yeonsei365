@@ -33,6 +33,7 @@ const pretendard = localFont({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://www.yeonsei365.com'),
   title: '임신중절수술 금액 및 낙태 비용 가격 | 사당역 연세365산부인과의원',
   description:
     '임신중절수술 금액 및 비용, 낙태 비용 가격을 주수별로 투명하게 안내합니다. 인공임신중절수술 뜻·방법·절차를 산부인과 전문의가 직접 설명합니다. 8주 미만 45만원~. 당일예약·당일수술 가능. 비밀보장. 사당역 4번 출구 연세365산부인과의원.',
@@ -45,7 +46,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: '임신중절수술 금액 및 낙태 비용 가격 | 사당역 연세365산부인과의원',
     description: '낙태 비용 가격 주수별 투명 공개. 8주 미만 45만원. 사당역 4번 출구 연세365산부인과의원.',
-    url: 'https://www.yeonsei365.com',
+    url: 'https://www.yeonsei365.com/',
     images: [
       {
         url: 'https://www.yeonsei365.com/og-image.jpg',
