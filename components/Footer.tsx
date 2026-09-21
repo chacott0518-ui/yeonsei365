@@ -40,6 +40,18 @@ const Footer: React.FC = () => {
     ))}
   </div>
 </div>
+              {/* 관련 정보 사이트 (보조 링크) */}
+<div className="mt-3 pt-3 border-t border-primary/10">
+  <p className="text-[10px] md:text-xs text-gray-500 mb-1">관련 정보 사이트</p>
+  <a
+    href="https://abortioninfo.co.kr"
+    target="_blank"
+    rel="noopener noreferrer nofollow"
+    className="text-[9px] md:text-xs text-gray-500 hover:text-[#D14D72] underline underline-offset-2"
+  >
+    임신중절 정보 사이트 (abortioninfo.co.kr)
+  </a>
+</div>
             </div>
           </div>
 
