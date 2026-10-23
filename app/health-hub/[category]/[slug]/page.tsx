@@ -18,6 +18,22 @@ const C = {
   blue: '#185FA5', blueBg: '#E6F1FB',
 }
 
+const ABORTION_OWNER_LINKS: Record<string, string> = {
+  'q-1779760840012': '임신중절수술 병원 상담 안내',
+  'q-1779760859762': '임신중절수술 후 상담 안내',
+}
+
+const ownerLinkBoxStyle = {
+  background: C.pb,
+  border: `0.5px solid ${C.pbd}`,
+  borderRadius: '10px',
+  color: C.ts,
+  fontSize: '13px',
+  lineHeight: 1.8,
+  margin: '-16px 0 32px',
+  padding: '12px 16px',
+} as const
+
 export async function generateStaticParams() { return getAllArticlePaths() }
 
 // 한글 semantic slug가 encoded 상태로 전달되는 경우를 대비해 비교 직전 안전하게 decode한다.
@@ -150,6 +166,7 @@ export default function ArticlePage({ params }: { params: { category: string; sl
   if (!article) notFound()
   const url = `${BASE}/health-hub/${category}/${slug}`
   const cat = CATEGORIES[article.category]
+  const ownerLinkLabel = ABORTION_OWNER_LINKS[article.slug]
 
   const related = getRelatedArticles(article, 3)
 
@@ -263,6 +280,16 @@ export default function ArticlePage({ params }: { params: { category: string; sl
           {article.faq[0]?.a}
         </p>
       </div>
+
+      {ownerLinkLabel && (
+        <div style={ownerLinkBoxStyle}>
+          관련 검사·상담·회복 정보는{' '}
+          <Link href="/abortion" style={{ color: C.pd, fontWeight: 800 }}>
+            {ownerLinkLabel}
+          </Link>
+          에서 확인할 수 있습니다.
+        </div>
+      )}
 
       {/* ── 본문 섹션 ── */}
       {article.sections.map((sec, i) => renderSection(sec, i))}

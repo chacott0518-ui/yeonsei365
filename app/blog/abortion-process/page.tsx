@@ -16,19 +16,52 @@ export const metadata: Metadata = {
   },
 }
 
+const processFaqs = [
+  {
+    q: '임신 중절 수술 전 상담은 어떤 내용을 확인하나요?',
+    a: '상담에서는 임신 위치와 주수, 현재 증상, 복용 중인 약, 알레르기, 과거 수술과 질환을 확인합니다. 검사 결과를 바탕으로 가능한 수술 방법과 마취, 준비사항, 회복 및 후속 진료 방법을 안내합니다.',
+  },
+  {
+    q: '임신 중절 수술 전에 필요한 검사는 무엇인가요?',
+    a: '우선 초음파로 임신이 자궁 안에 위치하는지와 임신 주수를 확인합니다. 혈액검사 등 추가 검사는 임신 주수, 수술 방법, 마취 방식과 개인 건강 상태를 고려해 의료진이 결정합니다.',
+  },
+  {
+    q: '임신중절수술은 어떤 과정으로 진행되나요?',
+    a: '일반적으로 임신 위치와 주수 확인, 건강 상태 문진, 필요한 검사, 의료진 상담, 수술과 회복 확인 순서로 진행됩니다. 구체적인 방법은 임신 주수와 개인 상태에 따라 달라질 수 있습니다.',
+  },
+  {
+    q: '임신 중절 수술 후 회복 기간은 어느 정도인가요?',
+    a: '회복 속도는 임신 주수, 수술 방법과 개인 상태에 따라 다릅니다. 정해진 기간만으로 판단하기보다 출혈과 통증이 줄어드는지 살피고, 안내받은 주의사항과 진료 일정을 따르는 것이 중요합니다.',
+  },
+  {
+    q: '임신중절수술 전체 소요 시간이 얼마나 되나요?',
+    a: '수술 자체는 10~30분이지만 검사·상담·회복을 포함하면 전체 내원 시간은 약 2~3시간입니다. 당일 검사 결과와 회복 상태에 따라 달라질 수 있으므로 여유 있게 일정을 잡는 것이 좋습니다.',
+  },
+  {
+    q: '혼자 내원해도 되나요?',
+    a: '내원 가능 여부와 귀가 방법은 마취 방식과 개인 상태에 따라 달라질 수 있습니다. 수면마취 후에는 운전하지 말고, 의료진이 안내한 방법에 따라 대중교통을 이용하거나 동행인과 귀가해야 합니다.',
+  },
+  {
+    q: '예약 없이 당일 내원도 가능한가요?',
+    a: '당일 상담과 수술 가능 여부는 예약 상황, 금식 여부, 검사 결과와 개인 상태에 따라 달라집니다. 방문 전에 전화나 카카오톡으로 가능한 시간과 준비사항을 확인해 주세요.',
+  },
+]
+
 const jsonLd = {
-  '@context': 'https://schema.org', '@type': 'FAQPage',
-  mainEntity: [
-    { '@type': 'Question', name: '임신중절수술 절차는 어떻게 되나요?', acceptedAnswer: { '@type': 'Answer', text: '내원 및 접수 → 초음파·혈액 검사 → 전문의 상담 → 수면마취 → 수술(10~30분) → 1인 회복실 안정(1~2시간) → 처방약 안내 후 당일 퇴원 순으로 진행됩니다.' } },
-    { '@type': 'Question', name: '임신중절수술 소요 시간은 얼마나 되나요?', acceptedAnswer: { '@type': 'Answer', text: '수술 자체는 10~30분이지만 검사·상담·회복 시간을 포함하면 전체 내원 시간은 약 2~3시간입니다.' } },
-  ],
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: processFaqs.map(faq => ({
+    '@type': 'Question',
+    name: faq.q,
+    acceptedAnswer: { '@type': 'Answer', text: faq.a },
+  })),
 }
 const PAGE_URL = 'https://www.yeonsei365.com/blog/abortion-process'
 const PAGE_DATE = '2026-04-10'
-const PAGE_MODIFIED = '2026-05-22'
+const PAGE_MODIFIED = '2026-10-23'
 const articleSchema = { '@context':'https://schema.org','@type':'Article', headline:'임신중절수술 절차 | 수술 과정 단계별 완벽 안내 2026', datePublished:PAGE_DATE, dateModified:PAGE_MODIFIED, image:'https://www.yeonsei365.com/og-image.jpg', author:{'@type':'Organization',name:'연세365산부인과의원',url:'https://www.yeonsei365.com'}, publisher:{'@type':'MedicalOrganization',name:'연세365산부인과의원',logo:{'@type':'ImageObject',url:'https://i.imgur.com/f7h5DY0.png'}}, mainEntityOfPage:{'@type':'WebPage','@id':PAGE_URL}, url:PAGE_URL }
 const medicalWebPageSchema = { '@context':'https://schema.org','@type':'MedicalWebPage', name:'임신중절수술 절차 | 수술 과정 단계별 완벽 안내 2026', url:PAGE_URL, specialty:{'@type':'MedicalSpecialty',name:'산부인과'}, medicalAudience:{'@type':'MedicalAudience',audienceType:'여성 환자'}, about:{'@type':'MedicalCondition',name:'임신중절수술 절차'} }
-const howToSchema = { '@context':'https://schema.org','@type':'HowTo', name:'임신중절수술 절차', description:'임신중절수술 내원부터 퇴원까지 단계별 안내', step:[ {'@type':'HowToStep',position:1,name:'내원 및 접수',text:'신분증 지참 후 내원하여 동의서를 작성합니다.'}, {'@type':'HowToStep',position:2,name:'초음파·혈액 검사',text:'초음파로 임신 주수를 확인하고 혈액 검사를 진행합니다.'}, {'@type':'HowToStep',position:3,name:'수술 및 회복',text:'수면마취 후 10~30분 수술, 1~2시간 회복 후 당일 퇴원합니다.'} ], tool:{'@type':'HowToTool',name:'연세365산부인과의원'} }
+const howToSchema = { '@context':'https://schema.org','@type':'HowTo', name:'임신중절수술 절차', description:'임신중절수술 내원부터 퇴원까지 단계별 안내', step:[ {'@type':'HowToStep',position:1,name:'내원 및 접수',text:'접수 후 현재 증상과 병력, 복용약을 확인하고 동의 절차를 진행합니다.'}, {'@type':'HowToStep',position:2,name:'초음파·필요 검사',text:'초음파로 임신 위치와 주수를 확인하고 개인 상태와 마취 계획에 따라 필요한 검사를 진행합니다.'}, {'@type':'HowToStep',position:3,name:'수술 및 회복',text:'상담 결과에 따른 수술과 회복 관찰을 진행하고 상태가 안정된 것을 확인한 뒤 귀가 안내를 받습니다.'} ], tool:{'@type':'HowToTool',name:'연세365산부인과의원'} }
 const speakableSchema = { '@context':'https://schema.org','@type':'WebPage', name:'임신중절수술 절차 | 수술 과정 단계별 완벽 안내 2026', url:PAGE_URL, speakable:{'@type':'SpeakableSpecification',cssSelector:['h1','h2']} }
 const breadcrumbSchema = { '@context':'https://schema.org','@type':'BreadcrumbList', itemListElement:[ {'@type':'ListItem',position:1,name:'홈',item:'https://www.yeonsei365.com'}, {'@type':'ListItem',position:2,name:'임신중절수술정보',item:'https://www.yeonsei365.com/blog'}, {'@type':'ListItem',position:3,name:'임신중절수술 절차',item:PAGE_URL} ] }
 const C = { p: '#CC2D5E', pd: '#8C1A4A', pp: '#4A0E2E', pb: '#FCE8EF', pt: '#B0456E', bd: '#FFE0E8', tm: '#1A0A10', ts: '#444455', tm2: '#888' }
@@ -70,16 +103,23 @@ export default function AbortionProcessPage() {
         <section style={{ marginBottom: '36px' }}>
           <SH n="1" title="임신중절수술 절차 전체 과정" />
           <p style={bt}>임신중절수술은 내원부터 퇴원까지 체계적인 절차로 진행됩니다. 수술 자체는 10~30분이지만 검사·상담·회복을 포함하면 전체 내원 시간은 약 2~3시간입니다. 모든 과정은 1:1 프라이빗 환경에서 진행되며 철저히 비밀이 보장됩니다.</p>
+          <IBox>
+            <Link href="/abortion" style={{ color: C.pd, fontWeight: 800 }}>
+              임신중절수술
+            </Link>
+            은 임신 위치와 주수 확인, 건강 상태 문진, 필요한 검사, 의료진 상담,
+            수술과 회복 확인 순서로 진행되며 세부 과정은 개인 상태에 따라 달라질 수 있습니다.
+          </IBox>
           <div style={{ position: 'relative', paddingLeft: '32px' }}>
             <div style={{ position: 'absolute', left: '12px', top: 0, bottom: 0, width: '2px', background: `linear-gradient(180deg, ${C.p}, ${C.pd})`, borderRadius: '2px' }} />
             {[
-              { n: '01', t: '내원 및 접수', d: '신분증 지참 필수. 수술 동의서 작성. 1:1 프라이빗 상담실에서 진행됩니다. 예약 없이 당일 내원도 가능합니다.', time: '약 10분' },
-              { n: '02', t: '초음파·혈액 검사', d: '초음파로 정확한 임신 주수 확인. 혈액형·혈액검사로 기본 건강 상태를 확인합니다. 자궁외임신 여부도 확인합니다.', time: '약 15~20분' },
+              { n: '01', t: '내원 및 접수', d: '접수 후 현재 증상과 병력, 복용약을 확인하고 동의 절차를 진행합니다. 당일 가능 여부와 준비사항은 방문 전에 확인하세요.', time: '약 10분' },
+              { n: '02', t: '초음파·필요 검사', d: '초음파로 임신 위치와 주수를 확인합니다. 혈액검사 등 추가 검사는 개인 건강 상태와 마취 계획에 따라 결정합니다.', time: '약 15~20분' },
               { n: '03', t: '전문의 상담', d: '초음파 결과 기반 시술 방법·비용·주의사항 최종 안내. 궁금한 사항은 무엇이든 질문하세요. 모든 내용은 비밀이 보장됩니다.', time: '약 10~15분' },
-              { n: '04', t: '수면마취 준비', d: '정맥 라인 확보 후 수면마취 약물 투여. 서서히 잠들게 되며 수술 중 통증·기억이 없습니다.', time: '약 5~10분' },
-              { n: '05', t: '임신중절수술 시행', d: '주수에 따라 흡입술 또는 소파술로 시행됩니다. 수면마취 상태에서 진행되어 통증이 없습니다.', time: '10~30분' },
+              { n: '04', t: '마취 준비', d: '마취 전 건강 상태를 다시 확인하고 모니터링을 준비합니다. 마취 방식과 주의사항은 상담 결과에 따라 안내합니다.', time: '약 5~10분' },
+              { n: '05', t: '임신중절수술 시행', d: '임신 주수와 개인 상태에 맞는 수술적 방법으로 진행합니다. 마취 후 통증이나 불편감의 정도는 개인마다 다를 수 있습니다.', time: '10~30분' },
               { n: '06', t: '1인 회복실 안정', d: '프라이빗 1인 회복실에서 안정을 취합니다. 혈압·출혈량·통증을 확인하며 충분히 회복합니다.', time: '1~2시간' },
-              { n: '07', t: '처방약 안내 후 퇴원', d: '처방약·귀가 후 주의사항을 상세히 안내받고 당일 퇴원합니다. 당일 운전 절대 금지입니다.', time: '약 10분' },
+              { n: '07', t: '처방약 안내 후 퇴원', d: '회복 상태가 안정된 것을 확인한 뒤 처방약과 귀가 후 주의사항을 안내합니다. 수면마취를 받은 당일에는 운전하지 마세요.', time: '약 10분' },
             ].map((s, i, arr) => (
               <div key={s.n}>
                 <div style={{ display: 'flex', gap: '14px', marginBottom: '4px' }}>
@@ -102,11 +142,7 @@ export default function AbortionProcessPage() {
         <Divider />
         <section style={{ marginBottom: '36px' }}>
           <SH n="2" title="자주 묻는 질문" />
-          {[
-            { q: '임신중절수술 전체 소요 시간이 얼마나 되나요?', a: '수술 자체는 10~30분이지만 검사·상담·회복을 포함하면 전체 내원 시간은 약 2~3시간입니다. 여유 있게 시간을 비워두시기 바랍니다.' },
-            { q: '혼자 내원해도 되나요?', a: '수술 자체는 혼자도 가능합니다. 다만 수면마취 후 운전이 불가하므로 대중교통 이용 또는 동행인과 함께 귀가하시는 것을 강력히 권장합니다.' },
-            { q: '예약 없이 당일 내원도 가능한가요?', a: '가능합니다. 다만 예약 시 대기 시간을 크게 줄일 수 있습니다. 전화 또는 카카오톡으로 미리 예약하시면 더욱 원활하게 진료받으실 수 있습니다.' },
-          ].map((f, i) => (
+          {processFaqs.map((f, i) => (
             <div key={i} style={{ border: `1px solid ${C.bd}`, borderRadius: '14px', overflow: 'hidden', marginBottom: '10px', background: '#fff' }}>
               <div style={{ background: '#FFF8FA', padding: '14px 18px', fontSize: '14px', fontWeight: 700, color: C.tm, borderBottom: `1px solid ${C.bd}` }}>Q. {f.q}</div>
               <div style={{ padding: '14px 18px', fontSize: '14px', color: C.ts, lineHeight: 1.85 }}>{f.a}</div>
