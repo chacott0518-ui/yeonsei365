@@ -1,5 +1,6 @@
 'use client'
 import Link from 'next/link'
+import Image from 'next/image'
 import { useState } from 'react'
 import ViewCounter from '@/components/ViewCounter'
 import { FAQ_COUNT } from '@/app/abortion/faq/FAQClient'
@@ -98,6 +99,34 @@ const RELATED = [
   { href: '/abortion/faq', label: `전체 ${FAQ_COUNT}개 FAQ 보기` },
   { href: '/abortion/hospital', label: '임신중절수술 병원 안내' },
   { href: '/abortion/surgery', label: '수술 방법·절차·당일 진행 안내' },
+  { href: '/blog/abortion-period', label: '시기·주수 안내' },
+  { href: '/abortion/review', label: '후기·사례 확인' },
+  { href: '/abortion/info', label: '보호자·금식·보험 안내' },
+]
+
+/** AI 후속 질문 여정: exact → 비용 → 주수 → 방법 → 절차 → 병원 → 회복 → 법률 → 후기·준비 */
+const NEXT_QUESTIONS = [
+  { q: '임신중절수술 비용은 얼마인가요?', href: '/abortion/cost', intent: '금액·비용' },
+  { q: '몇 주까지 가능한가요?', href: '/blog/abortion-period', intent: '시기·주수' },
+  { q: '흡입술과 소파술 중 어떤 방법인가요?', href: '/abortion/method', intent: '방법·종류' },
+  { q: '당일 절차는 어떻게 진행되나요?', href: '/abortion/surgery', intent: '절차·당일' },
+  { q: '병원은 어떤 기준으로 고르나요?', href: '/abortion/hospital', intent: '병원' },
+  { q: '수술 후 회복은 얼마나 걸리나요?', href: '/abortion/recovery', intent: '회복' },
+  { q: '합법·법률 기준은 어떻게 확인하나요?', href: '/abortion/legal', intent: '합법·법률' },
+  { q: '후기는 어떤 기준으로 보면 되나요?', href: '/abortion/review', intent: '후기' },
+  { q: '보호자·금식·보험은 어떻게 준비하나요?', href: '/abortion/info', intent: '준비' },
+]
+
+/** /abortion 발견성 허브: SUPPORT·세부 OWNER 대표 8개 (헤더 메뉴 추가 없음) */
+const INFO_HUB = [
+  { href: '/abortion/cost', label: '금액·비용 안내' },
+  { href: '/abortion/method', label: '방법·종류 안내' },
+  { href: '/blog/abortion-period', label: '시기·주수 안내' },
+  { href: '/abortion/hospital', label: '병원 선택 기준' },
+  { href: '/abortion/legal', label: '합법·법률 안내' },
+  { href: '/abortion/recovery', label: '회복·후관리' },
+  { href: '/blog/abortion-fasting', label: '금식·당일 준비' },
+  { href: '/blog/abortion-alone', label: '혼자 방문 안내' },
 ]
 
 const FEATURED_FAQS = [
@@ -144,61 +173,200 @@ function FeaturedFAQItem({ question, answer }: { question: string; answer: strin
 export default function AbortionClient() {
   return (
     <>
-      {/* ── PC 레이아웃 ── */}
-      <div className="hidden lg:block">
-
-        {/* 히어로 */}
-        <div style={{
-          backgroundImage: `linear-gradient(rgba(0,0,0,0.60), rgba(0,0,0,0.60)), url(/images/hero-abortion-main.webp)`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          minHeight: '440px',
-          padding: '52px 80px',
-          display: 'flex',
-          gap: '48px',
-          alignItems: 'center',
-        }}>
-          <div style={{ flex: 1, minWidth: 0 }}>
-            <div style={{ display: 'flex', gap: '7px', flexWrap: 'wrap', marginBottom: '18px' }}>
-              {['임신중절클리닉', '당일수술', '비밀보장', '사당역 4번출구'].map(t => (
-                <span key={t} style={{ background: 'rgba(255,255,255,.18)', color: '#fff', fontSize: '11px', fontWeight: 700, padding: '3px 12px', borderRadius: '20px', border: '0.5px solid rgba(255,255,255,.3)' }}>{t}</span>
-              ))}
-            </div>
-            <h1 style={{ color: '#fff', fontSize: '40px', fontWeight: 900, lineHeight: 1.2, letterSpacing: '-.03em', marginBottom: '16px' }}>
-              임신중절수술<br />
-              <span style={{ fontSize: '26px', fontWeight: 700, opacity: .88 }}>주수 확인부터 수술 방법·비용·회복까지</span>
-            </h1>
-            <p style={{ color: 'rgba(255,255,255,.9)', fontSize: '14px', lineHeight: 1.95, marginBottom: '22px', letterSpacing: '-.01em' }}>
-              초음파로 임신 주수와 상태를 확인한 뒤 산부인과 전문의가 상담과 수술 방법을 안내합니다.<br />
-              수술 전 준비부터 당일 절차와 회복 관리까지 필요한 내용을 확인할 수 있습니다. · <ViewCounter slug="abortion" />
-            </p>
-            <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '24px' }}>
-              {['당일예약 가능', '1인 회복실 운영', '산부인과 전문의 상담', '카드·현금 동일가'].map(t => (
-                <span key={t} style={{ background: 'rgba(255,255,255,.15)', color: '#fff', fontSize: '12px', fontWeight: 700, padding: '7px 16px', borderRadius: '20px', border: '0.5px solid rgba(255,255,255,.3)' }}>{t}</span>
-              ))}
-            </div>
-            <div style={{ display: 'flex', gap: '10px' }}>
-              <a href="http://pf.kakao.com/_TpaBj/chat" target="_blank" rel="noopener noreferrer" style={{ background: '#FEE500', color: '#3B1B1B', fontSize: '13px', fontWeight: 700, padding: '12px 24px', borderRadius: '24px', textDecoration: 'none' }}>💬 카카오톡 상담</a>
-              <a href="tel:02-585-3650" style={{ background: 'rgba(255,255,255,.15)', color: '#fff', fontSize: '13px', fontWeight: 700, padding: '12px 24px', borderRadius: '24px', textDecoration: 'none', border: '0.5px solid rgba(255,255,255,.4)' }}>📞 02-585-3650</a>
-            </div>
+      {/* ── 히어로: H1·부제·설명 DOM 1회 + Next Image (동일 URL) ── */}
+      <div className="relative flex flex-col gap-6 overflow-hidden px-5 py-8 lg:min-h-[440px] lg:flex-row lg:items-center lg:gap-12 lg:px-20 lg:py-[52px]">
+        <Image
+          src="/images/hero-abortion-main.webp"
+          alt="임신중절수술 상담 안내 연세365산부인과의원"
+          fill
+          priority
+          fetchPriority="high"
+          sizes="100vw"
+          className="absolute inset-0 z-0 object-cover object-center"
+        />
+        <div className="absolute inset-0 z-[1] bg-black/60" aria-hidden="true" />
+        <div className="relative z-10 min-w-0 flex-1">
+          <div className="mb-3.5 flex flex-wrap gap-1.5 lg:mb-[18px] lg:gap-[7px]">
+            {['임신중절클리닉', '검사 후 당일 확인', '비밀보장', '사당역 4번출구'].map(t => (
+              <span
+                key={t}
+                className="rounded-full border border-white/30 bg-white/20 px-2.5 py-0.5 text-[10px] font-bold text-white lg:px-3 lg:py-[3px] lg:text-[11px]"
+              >
+                {t}
+              </span>
+            ))}
           </div>
-          <div style={{ flexShrink: 0, display: 'flex', flexDirection: 'column', gap: '12px' }}>
-            <div style={{ background: 'rgba(255,255,255,.12)', border: '0.5px solid rgba(255,255,255,.25)', borderRadius: '16px', padding: '20px 28px', textAlign: 'center' }}>
+          <h1
+            className="mb-3 text-[28px] font-black tracking-tight text-white lg:mb-3 lg:text-[40px]"
+            style={{ lineHeight: 1.2, letterSpacing: '-.03em' }}
+          >
+            임신중절수술
+          </h1>
+          <p
+            className="mb-3 text-[16px] font-bold text-white/90 lg:mb-4 lg:text-[26px]"
+            style={{ lineHeight: 1.35 }}
+          >
+            금액·비용부터 주수 확인, 수술 방법과 회복까지
+          </p>
+          <p
+            className="mb-5 text-[13px] leading-relaxed text-white/90 lg:mb-[22px] lg:text-[14px] lg:leading-[1.95]"
+            style={{ letterSpacing: '-.01em' }}
+          >
+            임신 주수와 건강 상태를 확인한 뒤 검사 결과와 상담을 바탕으로 수술 방법과 주의사항을 안내합니다. 금액·비용, 검사·준비, 절차와 회복 과정은 개인 상태와 임신 주수에 따라 달라질 수 있습니다.
+            {' · '}
+            <ViewCounter slug="abortion" />
+          </p>
+          <div className="mb-5 hidden flex-wrap gap-2 lg:mb-6 lg:flex">
+            {['당일예약 가능', '1인 회복실 운영', '산부인과 전문의 상담', '카드·현금 동일가'].map(t => (
+              <span
+                key={t}
+                style={{ background: 'rgba(255,255,255,.15)', color: '#fff', fontSize: '12px', fontWeight: 700, padding: '7px 16px', borderRadius: '20px', border: '0.5px solid rgba(255,255,255,.3)' }}
+              >
+                {t}
+              </span>
+            ))}
+          </div>
+          <div className="hidden gap-2.5 lg:flex">
+            <a href="http://pf.kakao.com/_TpaBj/chat" target="_blank" rel="noopener noreferrer" style={{ background: '#FEE500', color: '#3B1B1B', fontSize: '13px', fontWeight: 700, padding: '12px 24px', borderRadius: '24px', textDecoration: 'none' }}>💬 카카오톡 상담</a>
+            <a href="tel:02-585-3650" style={{ background: 'rgba(255,255,255,.15)', color: '#fff', fontSize: '13px', fontWeight: 700, padding: '12px 24px', borderRadius: '24px', textDecoration: 'none', border: '0.5px solid rgba(255,255,255,.4)' }}>📞 02-585-3650</a>
+          </div>
+        </div>
+
+        {/* 가격·지표 카드 (기존 문구 유지, 레이아웃만 반응형) */}
+        <div className="relative z-10 flex shrink-0 flex-col gap-3">
+          <div
+            className="flex items-center justify-between gap-4 rounded-[14px] border border-white/20 bg-white/10 p-4 lg:block lg:rounded-2xl lg:px-7 lg:py-5 lg:text-center"
+          >
+            <div>
               <div style={{ color: 'rgba(255,255,255,.75)', fontSize: '11px', marginBottom: '4px' }}>8주 미만 기준</div>
-              <div style={{ color: '#FFD700', fontSize: '60px', fontWeight: 900, lineHeight: 1 }}>45</div>
+              <div className="text-[44px] font-black leading-none text-[#FFD700] lg:text-[60px]">45</div>
               <div style={{ color: 'rgba(255,255,255,.9)', fontSize: '13px', marginTop: '4px' }}>만원 (영양제 포함)</div>
             </div>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px' }}>
+            <div className="grid grid-cols-2 gap-1.5 lg:mt-3 lg:gap-2">
               {[['15분', '수술시간'], ['당일', '귀가가능'], ['의료법', '비밀보장'], ['1인실', '회복실']].map(([v, l]) => (
-                <div key={l} style={{ background: 'rgba(255,255,255,.12)', border: '0.5px solid rgba(255,255,255,.2)', borderRadius: '10px', padding: '10px', textAlign: 'center' }}>
-                  <div style={{ color: '#FFD700', fontSize: '18px', fontWeight: 900 }}>{v}</div>
-                  <div style={{ color: 'rgba(255,255,255,.7)', fontSize: '10px', marginTop: '3px' }}>{l}</div>
+                <div key={l} style={{ background: 'rgba(255,255,255,.12)', border: '0.5px solid rgba(255,255,255,.2)', borderRadius: '10px', padding: '8px 10px', textAlign: 'center' }}>
+                  <div style={{ color: '#FFD700', fontSize: '16px', fontWeight: 900 }} className="lg:text-[18px]">{v}</div>
+                  <div style={{ color: 'rgba(255,255,255,.7)', fontSize: '9px', marginTop: '2px' }} className="lg:text-[10px]">{l}</div>
                 </div>
               ))}
             </div>
           </div>
+          <div className="flex gap-2.5 lg:hidden">
+            <a href="http://pf.kakao.com/_TpaBj/chat" target="_blank" rel="noopener noreferrer" style={{ flex: 1, textAlign: 'center', background: '#FEE500', color: '#3B1B1B', fontSize: '13px', fontWeight: 700, padding: '12px 16px', borderRadius: '24px', textDecoration: 'none' }}>💬 카카오톡 상담</a>
+            <a href="tel:02-585-3650" style={{ flex: 1, textAlign: 'center', background: 'rgba(255,255,255,.15)', color: '#fff', fontSize: '13px', fontWeight: 700, padding: '12px 16px', borderRadius: '24px', textDecoration: 'none', border: '0.5px solid rgba(255,255,255,.4)' }}>📞 전화</a>
+          </div>
         </div>
+      </div>
 
+      {/* ── PC·모바일 공통: 직접답변·요약·허브 안내 (DOM 1회) ── */}
+      <div style={{ maxWidth: '900px', margin: '0 auto', padding: '24px 16px 8px' }} className="lg:px-10">
+        <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '14px' }}>
+          임신중절수술(임신중절·인공임신중절, 임신 중절 수술이라고도 부릅니다)은 임신 여부와 위치, 주수를 확인한 뒤 건강 상태와 검사 결과를 바탕으로 의료진과 방법 및 주의사항을 결정하는 진료입니다. 금액과 회복 과정은 임신 주수와 개인 상태에 따라 달라질 수 있으므로 진료를 통해 확인해야 합니다.
+        </p>
+        <div style={{ background: C.pb, border: `0.5px solid ${C.pbd}`, borderRadius: '12px', padding: '14px 18px', marginBottom: '20px', fontSize: '12px', fontWeight: 700, color: C.pd, lineHeight: 1.7 }}>
+          핵심: 임신 위치·주수 확인 | 검사 결과에 따른 방법 결정 | 비용·회복은 개인별 상이 | 기준일 2026.11
+        </div>
+        <section style={{ marginBottom: '8px' }}>
+          <h2
+            className="text-[18px] font-black tracking-tight text-[#1a1a1a] lg:text-[24px]"
+            style={{ marginBottom: '8px', lineHeight: 1.4 }}
+          >
+            임신중절수술 금액·방법·회복은 어디서 확인하나요?
+          </h2>
+          <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '14px' }}>
+            금액과 비용 포함 항목은{' '}
+            <Link href="/abortion/cost" style={{ color: C.p, fontWeight: 700, textDecoration: 'underline' }}>비용·금액 안내</Link>
+            , 의료적 방법과 주의사항은{' '}
+            <Link href="/abortion/method" style={{ color: C.p, fontWeight: 700, textDecoration: 'underline' }}>수술 방법 안내</Link>
+            , 출혈·통증·일상 복귀는{' '}
+            <Link href="/abortion/recovery" style={{ color: C.p, fontWeight: 700, textDecoration: 'underline' }}>회복·후관리 안내</Link>
+            에서 확인할 수 있습니다.             검사와 절차, 병원 선택, 법률, 후기와 준비사항은 아래 주제별 안내에서 확인할 수 있습니다.
+          </p>
+          <figure style={{ margin: '8px 0 20px' }}>
+            <Image
+              src="/images/abortion/abortion-guide-01.webp"
+              alt="임신중절수술 절차와 시기·비용 안내"
+              width={1254}
+              height={1254}
+              sizes="(max-width: 900px) 100vw, 860px"
+              style={{ width: '100%', height: 'auto', borderRadius: '14px', display: 'block' }}
+            />
+          </figure>
+        </section>
+        <section style={{ marginBottom: '24px' }} aria-label="관련 질문 다음 탐색">
+          <h2
+            className="text-[18px] font-black tracking-tight text-[#1a1a1a] lg:text-[22px]"
+            style={{ marginBottom: '10px', lineHeight: 1.4 }}
+          >
+            이어서 확인할 관련 질문은 무엇인가요?
+          </h2>
+          <p style={{ fontSize: '13px', color: C.ts, lineHeight: 1.85, marginBottom: '12px' }}>
+            종합 안내 다음으로 많이 이어지는 질문입니다. 각 질문은 해당 안내 페이지에서 직접 답변과 조건을 확인하세요. (검토·기준일 2026.11)
+          </p>
+          <ol style={{ margin: 0, padding: 0, listStyle: 'none', display: 'flex', flexDirection: 'column', gap: '8px' }}>
+            {NEXT_QUESTIONS.map(({ q, href, intent }, i) => (
+              <li key={href}>
+                <Link
+                  href={href}
+                  style={{
+                    display: 'flex',
+                    gap: '10px',
+                    alignItems: 'flex-start',
+                    background: C.pb,
+                    border: `0.5px solid ${C.pbd}`,
+                    borderRadius: '10px',
+                    padding: '12px 14px',
+                    textDecoration: 'none',
+                    color: C.tm,
+                  }}
+                >
+                  <span style={{ fontSize: '11px', fontWeight: 800, color: C.p, minWidth: '18px' }}>{i + 1}</span>
+                  <span style={{ flex: 1 }}>
+                    <span style={{ display: 'block', fontSize: '13px', fontWeight: 700, lineHeight: 1.45 }}>{q}</span>
+                    <span style={{ display: 'block', fontSize: '11px', color: C.tg, marginTop: '4px' }}>{intent} 안내 →</span>
+                  </span>
+                </Link>
+              </li>
+            ))}
+          </ol>
+        </section>
+        <section style={{ marginBottom: '28px' }} aria-label="임신중절수술 관련 정보">
+          <h2
+            className="text-[18px] font-black tracking-tight text-[#1a1a1a] lg:text-[22px]"
+            style={{ marginBottom: '8px', lineHeight: 1.4 }}
+          >
+            임신중절수술 관련 정보는 어디서 더 보나요?
+          </h2>
+          <p style={{ fontSize: '13px', color: C.ts, lineHeight: 1.85, marginBottom: '12px' }}>
+            종합 안내 외에 비용·시기·병원·합법·회복·준비 등 세부 주제는 아래 관련 정보에서 바로 확인할 수 있습니다.
+          </p>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', gap: '8px' }}>
+            {INFO_HUB.map(({ href, label }) => (
+              <Link
+                key={href}
+                href={href}
+                style={{
+                  display: 'block',
+                  background: C.pb,
+                  border: `0.5px solid ${C.pbd}`,
+                  borderRadius: '10px',
+                  padding: '12px 14px',
+                  textDecoration: 'none',
+                  fontSize: '13px',
+                  fontWeight: 700,
+                  color: C.p,
+                  lineHeight: 1.4,
+                }}
+              >
+                {label}
+              </Link>
+            ))}
+          </div>
+        </section>
+      </div>
+
+      {/* ── PC 본문 ── */}
+      <div className="hidden lg:block">
         <div style={{ maxWidth: '900px', margin: '0 auto', padding: '0 40px 100px' }}>
 
           {/* 브레드크럼 */}
@@ -229,11 +397,16 @@ export default function AbortionClient() {
             <p className="speakable-summary" style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '16px' }}>
               임신중절수술 전에는 초음파로 자궁 내 임신 여부와 정확한 임신 주수를 확인해야 합니다. 이후 현재 건강 상태, 과거 병력, 복용 중인 약과 검사 결과를 바탕으로 수술 가능 여부와 적절한 방법을 의료진이 안내합니다. 연세365산부인과의원은 약물중절을 시행하지 않으며 수술적 방법에 대해서만 상담합니다.
             </p>
+            <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '16px' }}>
+              진료 전에는 임신 여부와 위치, 임신 주수, 현재 건강 상태, 복용 중인 약과 과거 병력을 확인해야 합니다. 필요한 검사와 준비사항은 개인별로 달라질 수 있으므로 예약 또는 진료 과정에서 안내받아야 합니다.
+            </p>
             <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '20px' }}>
-              비용은 8주 미만 45만원, 8주 60만원, 9주 70만원, 10주 80만원을 기준으로 안내합니다. 정확한 비용과 당일 진행 가능 여부는 초음파 검사 결과, 금식 상태, 예약 상황과 추가 처치 필요 여부에 따라 달라질 수 있습니다.
+              비용은 8주 미만 45만원, 8주 60만원, 9주 70만원, 10주 80만원을 기준으로 안내합니다. 정확한 비용과 당일 진행 가능 여부는 초음파 검사 결과, 금식 상태, 예약 상황과 추가 처치 필요 여부에 따라 달라질 수 있습니다. 임신 주수에 따른 가능 시기는{' '}
+              <Link href="/blog/abortion-period" style={{ color: C.p, fontWeight: 700, textDecoration: 'underline' }}>임신중절수술은 몇 주까지 가능한지</Link>
+              에서 확인할 수 있습니다.
             </p>
             <div style={{ background: C.pb, border: `0.5px solid ${C.pbd}`, borderRadius: '12px', padding: '14px 18px', marginBottom: '20px', fontSize: '12px', fontWeight: 700, color: C.pd }}>
-              핵심: 초음파로 임신 주수·위치 확인 | 수술적 방법만 상담 | 8주 미만 45만원부터 | 당일 진행은 검사 후 결정 | 2026.06
+              요약: 초음파로 임신 주수·위치 확인 | 수술적 방법만 상담 | 8주 미만 45만원부터 | 당일 진행은 검사 후 결정 | 2026.06
             </div>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(5,1fr)', gap: '10px', marginBottom: '14px' }}>
               {[
@@ -267,7 +440,7 @@ export default function AbortionClient() {
                   임신중절수술은 자궁 내 임신을 의료적으로 종료하는 수술로, 초음파와 진료를 통해 임신 주수와 건강 상태를 확인한 뒤 진행 여부와 방법을 결정합니다.
                 </p>
                 <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '16px' }}>
-                  <strong style={{ color: C.p }}>임신중절수술(인공임신중절수술)</strong>은 자궁 내 임신 조직을 의학적으로 안전하게 제거하는 시술입니다. 일반적으로 '낙태수술' 또는 '중절수술'이라고도 불립니다. 2021년 1월 낙태죄 처벌 조항이 효력을 상실한 이후, 임신 14주 이내에는 본인 동의만으로 합법적으로 시술받으실 수 있습니다.
+                  <strong style={{ color: C.p }}>임신중절수술(인공임신중절수술)</strong>은 자궁 내 임신 조직을 의학적으로 제거하는 시술입니다. 일반적으로 '낙태수술' 또는 '중절수술'이라고도 불립니다. 2021년 1월 낙태죄 처벌 조항이 효력을 상실한 이후 관련 법률 적용 범위가 바뀌었으며, 구체적인 가능 여부와 동의·서류 요건은 임신 주수와 상황에 따라 달라질 수 있어 검사와 의료진 상담을 통해 확인해야 합니다.
                 </p>
                 <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '16px' }}>
                   연세365산부인과의원에서는 산부인과 전문의가 직접 집도하며, 임신 주수와 자궁 상태를 확인하여 <strong style={{ color: C.p }}>흡입술(진공흡입법)</strong> 또는 <strong style={{ color: C.p }}>소파술(자궁소파술)</strong> 중 적합한 방법을 안내합니다. 수면마취 하에 진행되며, 일반적으로 10~15분 내외 소요됩니다.
@@ -281,23 +454,30 @@ export default function AbortionClient() {
                 <InfoBox>임신 4~5주는 태낭이 작아 초음파 확인이 어려울 수 있습니다. 6~7주 내원 시 정확한 진단에 유리합니다.</InfoBox>
               </div>
               <div>
-                <div style={{ position: 'relative', borderRadius: '16px', overflow: 'hidden', marginBottom: '14px', height: '200px' }}>
-                  <img
-                    src="/images/hero-abortion-surgery.webp"
-                    alt="임신중절수술 전문의 연세365산부인과의원 사당역"
-                    style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center' }}
-                  />
-                  <div style={{ position: 'absolute', inset: 0, background: 'rgba(0,0,0,0.50)', display: 'flex', alignItems: 'flex-end', padding: '16px' }}>
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px', width: '100%' }}>
-                      {[['15분', '수술시간'], ['당일', '귀가가능'], ['의료법', '비밀보장'], ['1인실', '회복실']].map(([v, l]) => (
-                        <div key={l} style={{ background: 'rgba(255,255,255,.15)', borderRadius: '8px', padding: '8px', textAlign: 'center' }}>
-                          <div style={{ color: '#FFD700', fontSize: '16px', fontWeight: 900, lineHeight: 1 }}>{v}</div>
-                          <div style={{ color: 'rgba(255,255,255,.8)', fontSize: '9px', marginTop: '3px' }}>{l}</div>
-                        </div>
-                      ))}
+                <figure style={{ margin: '0 0 14px' }}>
+                  <div style={{ position: 'relative', borderRadius: '16px', overflow: 'hidden', height: '200px' }}>
+                    <Image
+                      src="/images/hero-abortion-surgery.webp"
+                      alt="수술 전 검사와 상담을 준비하는 진료 공간"
+                      fill
+                      sizes="(max-width: 1024px) 100vw, 360px"
+                      className="object-cover object-center"
+                    />
+                    <div style={{ position: 'absolute', inset: 0, background: 'rgba(0,0,0,0.50)', display: 'flex', alignItems: 'flex-end', padding: '16px' }}>
+                      <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px', width: '100%' }}>
+                        {[['15분', '수술시간'], ['당일', '귀가가능'], ['의료법', '비밀보장'], ['1인실', '회복실']].map(([v, l]) => (
+                          <div key={l} style={{ background: 'rgba(255,255,255,.15)', borderRadius: '8px', padding: '8px', textAlign: 'center' }}>
+                            <div style={{ color: '#FFD700', fontSize: '16px', fontWeight: 900, lineHeight: 1 }}>{v}</div>
+                            <div style={{ color: 'rgba(255,255,255,.8)', fontSize: '9px', marginTop: '3px' }}>{l}</div>
+                          </div>
+                        ))}
+                      </div>
                     </div>
                   </div>
-                </div>
+                  <figcaption style={{ marginTop: '8px', fontSize: '12px', color: C.tg, lineHeight: 1.5 }}>
+                    수술 전 검사와 상담을 준비하는 진료 공간
+                  </figcaption>
+                </figure>
                 <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px' }}>
                   <StatCard value="15분" label="수술 시간" />
                   <StatCard value="당일" label="귀가 가능" />
@@ -313,9 +493,11 @@ export default function AbortionClient() {
           {/* 섹션 2: 비용 */}
           <section>
             <SectionTag>03 임신중절수술 금액·비용·가격</SectionTag>
-            <h2 style={{ fontSize: '24px', fontWeight: 900, color: C.tm, marginBottom: '8px', letterSpacing: '-.02em' }}>낙태 비용 가격 — 주수별 투명 공개</h2>
+            <h2 style={{ fontSize: '24px', fontWeight: 900, color: C.tm, marginBottom: '8px', letterSpacing: '-.02em' }}>임신중절 수술 금액·비용은 주수별로 어떻게 다른가요?</h2>
             <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '16px' }}>
-              연세365산부인과의원의 비용은 8주 미만 45만원, 8주 60만원, 9주 70만원, 10주 80만원이며 정확한 금액은 초음파로 주수를 확인한 뒤 안내합니다. 임신중절수술 비용은 임신 주수와 수술 방법에 따라 결정되며, 모든 낙태 비용 가격을 사전에 투명하게 공개합니다. 수술비·마취비·영양제·부가세가 포함된 금액이며 카드·현금 동일가입니다.
+              연세365산부인과의원의 비용은 8주 미만 45만원, 8주 60만원, 9주 70만원, 10주 80만원이며 정확한 금액은 초음파로 주수를 확인한 뒤 안내합니다. 임신중절수술 비용·낙태비용·낙태수술 비용은 임신 주수와 수술 방법에 따라 달라질 수 있으며, 낙태 비용 가격·낙태가격·낙태금액 기준도 같은 안내를 따릅니다. 수술비·마취비·영양제·부가세 포함 여부는 상담에서 확인하고, 카드·현금 동일가입니다. 상세 표는{' '}
+              <Link href="/abortion/cost" style={{ color: C.p, fontWeight: 700, textDecoration: 'underline' }}>금액·비용 안내</Link>
+              에서 볼 수 있습니다.
             </p>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: '12px', marginBottom: '16px' }}>
               {[
@@ -346,17 +528,19 @@ export default function AbortionClient() {
           {/* 섹션 3: 합법 기준 + 벤다이어그램 */}
           <section>
             <SectionTag>04 임신중절수술 합법 기준</SectionTag>
-            <h2 style={{ fontSize: '24px', fontWeight: 900, color: C.tm, marginBottom: '18px', letterSpacing: '-.02em' }}>낙태 합법화 — 현재 법적 기준</h2>
+            <h2 style={{ fontSize: '24px', fontWeight: 900, color: C.tm, marginBottom: '18px', letterSpacing: '-.02em' }}>임신중절수술 합법 기준은 어떻게 확인하나요?</h2>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '28px', alignItems: 'start' }}>
               <div>
                 <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, marginBottom: '16px', letterSpacing: '-.01em' }}>
-                  2021년 1월 낙태죄 처벌 조항이 효력을 상실했습니다. 현재 임신 14주 이내는 본인 동의만으로 가능하며, 14~24주는 사회·경제적 사유 등 조건부로 시술이 가능합니다.
+                  낙태 합법화 논의와 함께 2021년 1월 낙태죄 처벌 조항이 효력을 상실했습니다. 임신중절수술 합법 여부는 임신 주수·상황·의료기관 기준에 따라 달라질 수 있어, 검사와 의료진 상담으로 확인해야 합니다. 세부 합법·법률 안내는{' '}
+                  <Link href="/abortion/legal" style={{ color: C.p, fontWeight: 700, textDecoration: 'underline' }}>합법·법률 안내</Link>
+                  에서 확인할 수 있습니다.
                 </p>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
                   {[
-                    { label: '14주 이내 — 본인 동의로 가능', sub: '본인 동의서만으로 진행 가능한 기간입니다. 주수가 짧을수록 수술이 간단하고 회복에 유리합니다.', color: C.p, icon: '✓' },
-                    { label: '14~24주 — 조건부 가능', sub: '사유 확인 필요. 전문의 상담이 필수입니다.', color: '#E29000', icon: '!' },
-                    { label: '24주 이후 — 극히 제한', sub: '모체 생명 위협 등 예외적인 경우만 해당됩니다.', color: '#aaa', icon: '×' },
+                    { label: '초기 주수 — 상담·검사 후 확인', sub: '주수가 짧을수록 수술 부담이 상대적으로 적을 수 있으나, 가능 여부는 검사와 상담으로 확인합니다.', color: C.p, icon: '✓' },
+                    { label: '중기 주수 — 조건부 검토', sub: '사유·건강 상태 확인이 필요할 수 있으며 전문의 상담이 중요합니다.', color: '#E29000', icon: '!' },
+                    { label: '늦은 주수 — 매우 제한적', sub: '예외적인 경우에만 해당될 수 있어 개별 상담이 필요합니다.', color: '#aaa', icon: '×' },
                   ].map(({ label, sub, color, icon }) => (
                     <div key={label} style={{ display: 'flex', gap: '12px', alignItems: 'flex-start' }}>
                       <div style={{ width: '32px', height: '32px', background: color, borderRadius: '50%', display: 'flex', alignItems: 'center', justifyContent: 'center', color: '#fff', fontSize: '14px', fontWeight: 700, flexShrink: 0 }}>{icon}</div>
@@ -395,9 +579,9 @@ export default function AbortionClient() {
           {/* 섹션 4: 흡입술 vs 소파술 */}
           <section>
             <SectionTag>05 수술 방법 비교</SectionTag>
-            <h2 style={{ fontSize: '24px', fontWeight: 900, color: C.tm, marginBottom: '8px', letterSpacing: '-.02em' }}>흡입술 vs 소파술 — 비교 안내</h2>
+            <h2 style={{ fontSize: '24px', fontWeight: 900, color: C.tm, marginBottom: '8px', letterSpacing: '-.02em' }}>임신 중절수술 방법: 흡입술과 소파술</h2>
             <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, marginBottom: '20px', letterSpacing: '-.01em' }}>
-              임신 주수와 자궁 상태에 따라 전문의가 가장 적합한 방법을 결정합니다. 두 방법 모두 수면마취 하에 진행되며, 시술 후 당일 귀가가 가능합니다.
+              임신 중절수술·낙태수술 방법은 임신 주수와 자궁 상태에 따라 전문의가 안내합니다. 연세365산부인과의원에서는 흡입술과 소파술을 중심으로 상담하며, 두 방법 모두 수면마취 하에 진행되는 경우가 많고 시술 후 당일 귀가 여부는 회복 상태에 따라 달라집니다.
             </p>
             <div style={{ border: `0.5px solid ${C.pbd}`, borderRadius: '14px', overflow: 'hidden' }}>
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr' }}>
@@ -461,18 +645,43 @@ export default function AbortionClient() {
             <SectionTag>07 수술 후 관리</SectionTag>
             <h2 style={{ fontSize: '24px', fontWeight: 900, color: C.tm, marginBottom: '8px', letterSpacing: '-.02em' }}>임신중절수술 후 회복 가이드</h2>
             <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, marginBottom: '20px', letterSpacing: '-.01em' }}>
-              수술 후 빠른 회복을 위해 아래 사항을 지켜주세요. 수술 후 1주일 이내에 사후 검진을 받으시는 것을 권장합니다.
+              수술 후 회복·몸조리와 이상 증상 확인은 개인차가 큽니다. 병원 선택 시에는 낙태병원·낙태수술병원의 회복 안내·사후 검진 체계도 함께 보시면 좋습니다. 자세한 후관리와 회복 기준은{' '}
+              <Link href="/abortion/recovery" style={{ color: C.p, fontWeight: 700, textDecoration: 'underline' }}>회복·후관리 안내</Link>
+              ·{' '}
+              <Link href="/abortion/hospital" style={{ color: C.p, fontWeight: 700, textDecoration: 'underline' }}>병원 선택 기준</Link>
+              에서 확인하세요.
             </p>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '14px', marginBottom: '24px' }}>
-              <div style={{ height: '160px', borderRadius: '12px', overflow: 'hidden', border: `0.5px solid ${C.pbd}` }}>
-                <img src="/images/hero-abortion-main.webp" alt="임신중절수술 상담 공간 연세365산부인과의원" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-              </div>
-              <div style={{ height: '160px', borderRadius: '12px', overflow: 'hidden', border: `0.5px solid ${C.pbd}` }}>
-                <img src="/images/hero-abortion-recovery.webp" alt="임신중절수술 후 회복실 연세365산부인과의원" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-              </div>
-              <div style={{ height: '160px', borderRadius: '12px', overflow: 'hidden', border: `0.5px solid ${C.pbd}` }}>
-                <img src="/images/hero-abortion-hospital.webp" alt="임신중절수술 병원 사당역 연세365산부인과의원" style={{ width: '100%', height: '100%', objectFit: 'cover' }} />
-              </div>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '14px', marginBottom: '24px' }}>
+              <figure style={{ margin: 0 }}>
+                <div style={{ position: 'relative', height: '160px', borderRadius: '12px', overflow: 'hidden', border: `0.5px solid ${C.pbd}` }}>
+                  <Image
+                    src="/images/hero-abortion-recovery.webp"
+                    alt="수술 후 안정을 위한 1인 회복 공간"
+                    width={1920}
+                    height={1080}
+                    sizes="(max-width: 1024px) 50vw, 280px"
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+                <figcaption style={{ marginTop: '8px', fontSize: '12px', color: C.tg, lineHeight: 1.5 }}>
+                  수술 후 안정을 위한 1인 회복 공간
+                </figcaption>
+              </figure>
+              <figure style={{ margin: 0 }}>
+                <div style={{ position: 'relative', height: '160px', borderRadius: '12px', overflow: 'hidden', border: `0.5px solid ${C.pbd}` }}>
+                  <Image
+                    src="/images/hero-abortion-hospital.webp"
+                    alt="사당역 연세365산부인과의원 내원 안내"
+                    width={1920}
+                    height={1080}
+                    sizes="(max-width: 1024px) 50vw, 280px"
+                    className="h-full w-full object-cover"
+                  />
+                </div>
+                <figcaption style={{ marginTop: '8px', fontSize: '12px', color: C.tg, lineHeight: 1.5 }}>
+                  사당역 연세365산부인과의원 내원 안내
+                </figcaption>
+              </figure>
             </div>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '16px', marginBottom: '20px' }}>
               <div style={{ border: `0.5px solid ${C.greenBorder}`, borderRadius: '12px', padding: '18px', background: C.greenBg }}>
@@ -512,8 +721,8 @@ export default function AbortionClient() {
 
           <MedicalSourceDetails
             published="2026년 5월 21일"
-            modified="2026년 6월 29일"
-            sources="모자보건법, 대한산부인과학회 임상 지침"
+            modified="2026년 11월 4일"
+            sources="모자보건법, 대한산부인과학회 임상 지침 (확인·검토일 2026.11)"
           />
 
           {/* 관련 페이지 */}
@@ -526,6 +735,18 @@ export default function AbortionClient() {
                 </Link>
               ))}
             </div>
+            <p style={{ marginTop: '14px', fontSize: '13px', color: C.ts, lineHeight: 1.7 }}>
+              주제별 일반 안내가 더 필요하면{' '}
+              <a
+                href="https://abortioninfo.co.kr/의료정보"
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{ color: C.p, fontWeight: 700, textDecoration: 'underline' }}
+              >
+                임신중절 관련 의료정보 허브
+              </a>
+              에서 카테고리별로 확인할 수 있습니다.
+            </p>
           </div>
 
           {/* CTA */}
@@ -541,43 +762,8 @@ export default function AbortionClient() {
         </div>
       </div>
 
-      {/* ── 모바일 레이아웃 ── */}
+      {/* ── 모바일 본문 ── */}
       <div className="lg:hidden">
-
-        {/* 모바일 히어로 */}
-        <div style={{
-          backgroundImage: `linear-gradient(rgba(0,0,0,0.60), rgba(0,0,0,0.60)), url(/images/hero-abortion-main.webp)`,
-          backgroundSize: 'cover',
-          backgroundPosition: 'center',
-          padding: '32px 20px',
-        }}>
-          <div style={{ display: 'flex', gap: '6px', flexWrap: 'wrap', marginBottom: '14px' }}>
-            {['임신중절클리닉', '당일수술', '사당역 4번출구'].map(t => (
-              <span key={t} style={{ background: 'rgba(255,255,255,.18)', color: '#fff', fontSize: '10px', fontWeight: 700, padding: '2px 10px', borderRadius: '20px' }}>{t}</span>
-            ))}
-          </div>
-          <h2 style={{ color: '#fff', fontSize: '28px', fontWeight: 900, lineHeight: 1.2, marginBottom: '12px', letterSpacing: '-.02em' }}>
-            임신중절수술<br /><span style={{ fontSize: '18px', fontWeight: 700, opacity: .88 }}>주수 확인부터 수술 방법·비용·회복까지</span>
-          </h2>
-          <p style={{ color: 'rgba(255,255,255,.88)', fontSize: '13px', lineHeight: 1.85, marginBottom: '20px' }}>
-            초음파로 임신 주수 확인 후 산부인과 전문의가 수술 방법을 안내합니다.
-          </p>
-          <div style={{ background: 'rgba(255,255,255,.1)', border: '0.5px solid rgba(255,255,255,.2)', borderRadius: '14px', padding: '16px', display: 'flex', alignItems: 'center', justifyContent: 'space-between' }}>
-            <div>
-              <div style={{ color: 'rgba(255,255,255,.7)', fontSize: '11px' }}>8주 미만 기준</div>
-              <div style={{ color: '#FFD700', fontSize: '44px', fontWeight: 900, lineHeight: 1 }}>45</div>
-              <div style={{ color: 'rgba(255,255,255,.85)', fontSize: '12px' }}>만원 (영양제 포함)</div>
-            </div>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '6px' }}>
-              {[['15분', '수술시간'], ['당일', '귀가'], ['의료법', '비밀보장'], ['1인실', '회복실']].map(([v, l]) => (
-                <div key={l} style={{ background: 'rgba(255,255,255,.12)', borderRadius: '8px', padding: '8px', textAlign: 'center' }}>
-                  <div style={{ color: '#FFD700', fontSize: '14px', fontWeight: 900 }}>{v}</div>
-                  <div style={{ color: 'rgba(255,255,255,.7)', fontSize: '9px', marginTop: '2px' }}>{l}</div>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
 
         {/* 모바일 먼저 확인할 내용 */}
         <section style={{ padding: '20px 16px 4px', borderBottom: `0.5px solid ${C.pbd}` }}>
@@ -589,7 +775,9 @@ export default function AbortionClient() {
             임신중절수술 전에는 초음파로 자궁 내 임신 여부와 정확한 임신 주수를 확인해야 합니다. 이후 건강 상태, 과거 병력, 복용 중인 약과 검사 결과를 바탕으로 의료진이 수술 가능 여부와 방법을 안내합니다. 연세365산부인과의원은 약물중절을 시행하지 않으며 수술적 방법에 대해서만 상담합니다.
           </p>
           <p style={{ fontSize: '13px', color: C.ts, lineHeight: 1.9, marginBottom: '14px' }}>
-            비용은 8주 미만 45만원, 8주 60만원, 9주 70만원, 10주 80만원이며, 당일 진행 가능 여부는 금식 상태와 검사 결과에 따라 달라집니다.
+            비용은 8주 미만 45만원, 8주 60만원, 9주 70만원, 10주 80만원이며, 당일 진행 가능 여부는 금식 상태와 검사 결과에 따라 달라집니다. 주수별 가능 시기는{' '}
+            <Link href="/blog/abortion-period" style={{ color: C.p, fontWeight: 700, textDecoration: 'underline' }}>임신중절수술 시기</Link>
+            안내에서 확인할 수 있습니다.
           </p>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px', marginBottom: '10px' }}>
             {[
@@ -616,7 +804,7 @@ export default function AbortionClient() {
             <strong style={{ color: C.p }}>임신중절수술</strong>은 자궁 내 임신 조직을 안전하게 제거하는 의료 시술입니다. 흡입술과 소파술로 나뉘며, 임신 주수에 따라 최적의 방법을 선택합니다.
           </p>
           <p style={{ fontSize: '13px', color: C.ts, lineHeight: 1.9, marginBottom: '12px' }}>
-            2021년 낙태죄 폐지 후 14주 이내는 본인 동의만으로 가능합니다. 임신초기낙태·임신초기중절수술은 8주 이내로 비용도 낮고 회복도 빠릅니다.
+            2021년 낙태죄 처벌 조항 효력 상실 이후에도 구체적인 가능 여부와 동의·서류 요건은 임신 주수와 상황에 따라 달라질 수 있습니다. 임신초기 중절은 주수가 짧을수록 검사·상담 후 부담이 상대적으로 적을 수 있으나 개인별로 다릅니다.
           </p>
           <InfoBox>6~7주 내원 시 정확한 주수 진단에 유리합니다.</InfoBox>
         </MobileAccordion>
@@ -691,8 +879,8 @@ export default function AbortionClient() {
         <div style={{ padding: '14px 16px', borderTop: `0.5px solid ${C.pbd}` }}>
           <MedicalSourceDetails
             published="2026년 5월 21일"
-            modified="2026년 6월 29일"
-            sources="모자보건법, 대한산부인과학회 임상 지침"
+            modified="2026년 11월 4일"
+            sources="모자보건법, 대한산부인과학회 임상 지침 (확인·검토일 2026.11)"
           />
         </div>
 
@@ -700,18 +888,27 @@ export default function AbortionClient() {
         <div style={{ padding: '16px', background: C.pb, borderTop: `0.5px solid ${C.pbd}` }}>
           <div style={{ fontSize: '12px', fontWeight: 700, color: C.tm, marginBottom: '10px' }}>더 자세히 보기</div>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '6px', marginBottom: '12px' }}>
-            {RELATED.slice(0, 4).map(({ href, label }) => (
+            {RELATED.map(({ href, label }) => (
               <Link key={href} href={href} style={{ display: 'block', background: '#fff', border: `0.5px solid ${C.pbd}`, borderRadius: '8px', padding: '10px 12px', textDecoration: 'none', fontSize: '11px', fontWeight: 700, color: C.p, lineHeight: 1.4 }}>
                 → {label}
               </Link>
             ))}
-            <Link href="/abortion/surgery" style={{ display: 'block', background: '#fff', border: `0.5px solid ${C.pbd}`, borderRadius: '8px', padding: '10px 12px', textDecoration: 'none', fontSize: '11px', fontWeight: 700, color: C.p, lineHeight: 1.4 }}>
-              → 수술 방법·절차·당일 진행 안내
-            </Link>
           </div>
           <Link href="/abortion/faq" style={{ display: 'block', textAlign: 'center', background: '#fff', border: `0.5px solid ${C.pbd}`, borderRadius: '10px', padding: '11px', textDecoration: 'none', fontSize: '12px', fontWeight: 700, color: C.p }}>
             전체 {FAQ_COUNT}개 FAQ 보기 →
           </Link>
+          <p style={{ marginTop: '12px', fontSize: '12px', color: C.ts, lineHeight: 1.7 }}>
+            주제별 일반 안내는{' '}
+            <a
+              href="https://abortioninfo.co.kr/의료정보"
+              target="_blank"
+              rel="noopener noreferrer"
+              style={{ color: C.p, fontWeight: 700, textDecoration: 'underline' }}
+            >
+              임신중절 관련 의료정보 허브
+            </a>
+            에서 확인할 수 있습니다.
+          </p>
         </div>
 
       </div>

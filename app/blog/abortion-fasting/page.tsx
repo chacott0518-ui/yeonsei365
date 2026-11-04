@@ -4,8 +4,8 @@ import { clinicSchema } from '@/lib/schemas'
 import ViewCounter from '@/components/ViewCounter'
 
 export const metadata: Metadata = {
-  title: '임신중절수술 금식 | 수술 전 준비사항 완벽 안내 2026 | 연세365산부인과의원',
-  description: '임신중절수술 금식 기준을 완벽하게 안내합니다. 6시간 금식 이유, 금식 안 했을 때 위험성, 당일 준비물 체크리스트, 수술 당일 타임라인까지. 사당역 4번 출구 연세365산부인과의원.',
+  title: '임신중절수술 금식 | 수술 전 준비사항 안내 | 연세365산부인과의원',
+  description: '임신중절수술 금식 기준을 안내합니다. 6시간 금식 이유, 금식 미준수 시 위험, 당일 준비물 체크리스트, 수술 당일 타임라인까지. 사당역 4번 출구 연세365산부인과의원.',
   keywords: [
     '임신중절수술금식', '임신중절수술 금식', '낙태수술금식', '임신중절금식',
     '중절수술금식', '낙태금식', '임신중절수술전준비', '낙태수술전준비',
@@ -16,7 +16,7 @@ export const metadata: Metadata = {
     '임신중절수술전날', '낙태수술전날', '임신중절수술복장',
   ],
   openGraph: {
-    title: '임신중절수술 금식 | 수술 전 준비사항 완벽 안내 2026 | 연세365산부인과의원',
+    title: '임신중절수술 금식 | 수술 전 준비사항 안내 | 연세365산부인과의원',
     description: '임신중절수술 금식 기준·당일 준비사항 완벽 안내. 사당역 4번 출구.',
     url: 'https://www.yeonsei365.com/blog/abortion-fasting',
     images: [{ url: 'https://www.yeonsei365.com/og-image.jpg', width: 1200, height: 630, alt: '임신중절수술 금식 연세365산부인과의원' }],
@@ -24,8 +24,8 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://www.yeonsei365.com/blog/abortion-fasting' },
   twitter: {
     card: 'summary_large_image',
-    title: '임신중절수술 금식 | 수술 전 준비사항 완벽 안내 2026 | 연세365산부인과의원',
-    description: '임신중절수술 금식 기준을 완벽하게 안내합니다. 6시간 금식 이유, 금식 안 했을 때 위험성, 당일 준비물 체크리스트, 수술 당일 타임라인까지. 사당역 4번 출구 연세365산부인과의원.',
+    title: '임신중절수술 금식 | 수술 전 준비사항 안내 | 연세365산부인과의원',
+    description: '임신중절수술 금식 기준을 안내합니다. 6시간 금식 이유, 금식 미준수 시 위험, 당일 준비물 체크리스트, 수술 당일 타임라인까지. 사당역 4번 출구 연세365산부인과의원.',
   },
 }
 
@@ -84,10 +84,12 @@ const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
   mainEntity: [
-    { '@type': 'Question', name: '임신중절수술 전 금식은 몇 시간 해야 하나요?', acceptedAnswer: { '@type': 'Answer', text: '수면마취를 위해 시술 최소 6시간 전부터 물을 포함하여 아무것도 드시면 안 됩니다. 금식을 지키지 않으면 마취 시 기도로 음식물이 흡입될 위험이 있어 시술이 연기될 수 있습니다.' } },
-    { '@type': 'Question', name: '금식 중 약은 먹어도 되나요?', acceptedAnswer: { '@type': 'Answer', text: '평소 복용 중인 약이 있다면 반드시 사전에 의료진에게 알려야 합니다. 혈압약 등 특정 약물은 소량의 물로 복용 가능할 수 있으나 반드시 의사 지시에 따르세요.' } },
-    { '@type': 'Question', name: '수술 당일 무엇을 준비해야 하나요?', acceptedAnswer: { '@type': 'Answer', text: '신분증, 편안한 복장, 안경(렌즈 대신), 생리대, 처방약 수령을 위한 약국 방문 준비가 필요합니다. 수술 후 운전이 불가하므로 대중교통 또는 동행인 준비도 필수입니다.' } },
-    { '@type': 'Question', name: '금식을 지키지 않았을 때 어떻게 되나요?', acceptedAnswer: { '@type': 'Answer', text: '금식을 지키지 않으면 수술이 당일 연기됩니다. 마취 중 위 내용물이 역류하여 기도로 흡입될 경우 흡인성 폐렴 등 심각한 합병증이 발생할 수 있습니다. 반드시 의료진에게 정직하게 알려주세요.' } },
+    { '@type': 'Question', name: '임신중절수술 전 금식은 몇 시간 해야 하나요?', acceptedAnswer: { '@type': 'Answer', text: '수면마취를 위해 시술 최소 6시간 전부터 물을 포함하여 아무것도 드시면 안 됩니다. 금식을 지키지 않으면 마취 시 위 내용물이 기도로 흡입될 위험이 있어 수술이 연기될 수 있습니다.' } },
+    { '@type': 'Question', name: '금식 중 물도 마시면 안 되나요?', acceptedAnswer: { '@type': 'Answer', text: '네, 수술 6시간 전부터는 물도 마시면 안 됩니다. 소량의 물이라도 위를 자극하여 마취 중 역류 위험을 높일 수 있습니다. 헷갈리신다면 전날 자정 이후 아무것도 드시지 않는 것이 더 안전합니다.' } },
+    { '@type': 'Question', name: '실수로 음식을 먹었는데 어떻게 하나요?', acceptedAnswer: { '@type': 'Answer', text: '절대 숨기지 말고 내원 시 즉시 의료진에게 알려주세요. 먹은 시간과 음식 종류를 알려주시면 의료진이 안전하게 판단합니다. 수술이 연기될 수 있지만 이는 안전을 위한 올바른 결정입니다.' } },
+    { '@type': 'Question', name: '혈압약을 매일 복용 중인데 수술 당일에도 먹어야 하나요?', acceptedAnswer: { '@type': 'Answer', text: '혈압약은 보통 소량의 물(30ml 이내)과 함께 복용 가능하나, 반드시 사전에 의료진에게 알려 지시에 따르세요. 혈압을 조절하지 않으면 수술 중 위험할 수 있습니다.' } },
+    { '@type': 'Question', name: '수술 당일 화장을 해도 되나요?', acceptedAnswer: { '@type': 'Answer', text: '화장은 피하는 것이 좋습니다. 특히 손발톱 매니큐어는 혈중 산소 포화도 측정을 방해할 수 있으므로 지워오세요. 렌즈 착용도 금지이므로 반드시 안경을 착용하고 오시기 바랍니다.' } },
+    { '@type': 'Question', name: '수술 전날 술을 마셨는데 괜찮나요?', acceptedAnswer: { '@type': 'Answer', text: '음주는 마취 효과와 출혈에 영향을 줄 수 있습니다. 수술 전날 음주 사실을 반드시 의료진에게 알려주세요. 음주량에 따라 수술 가능 여부를 판단합니다. 수술 전 최소 24시간 전부터는 음주를 삼가세요.' } },
   ],
 }
 
@@ -152,7 +154,7 @@ export default function AbortionFastingPage() {
               <h1 style={{ color: '#fff', fontSize: 'clamp(20px,4vw,26px)', fontWeight: 900, lineHeight: 1.45, margin: '0 0 12px' }}>임신중절수술 금식<br />수술 전 준비사항 완벽 안내</h1>
               <p style={{ color: 'rgba(255,255,255,0.88)', fontSize: 'clamp(12px,3vw,14px)', lineHeight: 1.8, margin: '0 0 16px' }}>금식 기준, 금식 이유, 금식 안 지켰을 때 위험성, 당일 준비물, 수술 당일 타임라인까지 전문의가 투명하게 안내합니다. · <ViewCounter slug="blog-abortion-fasting" /></p>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '7px' }}>
-                {['당일예약 가능', '당일시술 가능', '1인 회복실', '비밀보장'].map(b => (
+                {['당일예약 문의', '당일 진행은 상담 후 확인', '1인 회복실', '비밀보장'].map(b => (
                   <span key={b} style={{ background: 'rgba(255,255,255,0.15)', border: '1px solid rgba(255,255,255,0.3)', color: '#fff', fontSize: '11px', padding: '4px 12px', borderRadius: '20px' }}>{b}</span>
                 ))}
               </div>
@@ -184,7 +186,9 @@ export default function AbortionFastingPage() {
 
         <section style={{ marginBottom: '36px' }}>
           <SH n="1" title="임신중절수술 금식이란?" />
-          <p style={bt}>임신중절수술 금식이란 수면마취를 안전하게 시행하기 위해 수술 전 일정 시간 동안 음식과 음료 섭취를 중단하는 것입니다. 연세365산부인과의원의 임신중절수술은 수면마취(정맥 마취)로 진행되므로, 금식은 반드시 지켜야 하는 가장 중요한 수술 전 준비사항입니다.</p>
+          <p style={bt}>임신중절수술 금식이란 수면마취를 안전하게 시행하기 위해 수술 전 일정 시간 동안 음식과 음료 섭취를 중단하는 것입니다. 연세365산부인과의원의 임신중절수술은 수면마취(정맥 마취)로 진행되므로, 금식은 반드시 지켜야 하는 가장 중요한 수술 전 준비사항입니다. 금액·절차·시기까지 한곳에서 보려면{' '}
+            <Link href="/abortion" style={{ color: C.p, fontWeight: 700, textDecoration: 'underline' }}>임신 중절수술</Link>
+            {' '}종합 안내를 함께 확인하세요.</p>
           <p style={bt}>금식을 지키지 않으면 마취 중 위장 내 내용물이 역류하여 기도로 흡입될 수 있으며, 이는 흡인성 폐렴 등 심각한 합병증을 유발할 수 있습니다. 이 경우 수술이 즉시 중단되거나 연기될 수 있습니다. 따라서 금식은 환자 안전을 위한 가장 기본적인 규칙입니다.</p>
           <p style={bt}>금식 지침은 단순히 병원의 규칙이 아니라 마취과학적 근거에 기반한 안전 기준입니다. 전 세계 모든 의료기관에서 수면마취 전 금식을 요구하며, 이를 지키지 않으면 수술 자체가 불가능합니다.</p>
           <div style={{ background: `linear-gradient(135deg, ${C.pp}, ${C.p})`, borderRadius: '16px', padding: '24px', textAlign: 'center', margin: '20px 0' }}>
@@ -219,7 +223,7 @@ export default function AbortionFastingPage() {
 
         <section style={{ marginBottom: '36px' }}>
           <SH n="3" title="금식 기준 상세 안내" />
-          <p style={bt}>임신중절수술 금식 기준은 음식의 종류에 따라 다소 다를 수 있습니다. 아래 기준을 반드시 확인하고 지켜주세요. 가장 안전한 방법은 수술 예약 시간 6시간 전부터 물을 포함한 모든 음식과 음료를 완전히 끊는 것입니다.</p>
+          <p style={bt}>임신중절수술 금식 기준은 음식의 종류에 따라 다소 다를 수 있습니다. 아래 기준을 반드시 확인하고 지켜주세요. 권장되는 방법은 수술 예약 시간 6시간 전부터 물을 포함한 모든 음식과 음료를 완전히 끊는 것입니다.</p>
           <div style={{ overflowX: 'auto', WebkitOverflowScrolling: 'touch' }}>
             <div style={{ border: `1px solid ${C.bd}`, borderRadius: '12px', overflow: 'hidden', minWidth: '360px' }}>
               <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '14px' }}>
@@ -250,7 +254,7 @@ export default function AbortionFastingPage() {
               </table>
             </div>
           </div>
-          <IBox><strong>실제 예시:</strong> 오전 10시 수술이라면 오전 4시 이전에 식사를 마쳐야 합니다. 오후 2시 수술이라면 오전 8시 이전에 식사를 마쳐야 합니다. 헷갈린다면 전날 자정 이후 아무것도 드시지 않는 것이 가장 안전합니다.</IBox>
+          <IBox><strong>실제 예시:</strong> 오전 10시 수술이라면 오전 4시 이전에 식사를 마쳐야 합니다. 오후 2시 수술이라면 오전 8시 이전에 식사를 마쳐야 합니다. 헷갈린다면 전날 자정 이후 아무것도 드시지 않는 것이 더 안전합니다.</IBox>
         </section>
 
         <Divider />
@@ -353,7 +357,7 @@ export default function AbortionFastingPage() {
           <SH n="8" title="자주 묻는 질문" />
           {[
             { q: '임신중절수술 전 금식은 몇 시간 해야 하나요?', a: '수면마취를 위해 시술 최소 6시간 전부터 물을 포함하여 아무것도 드시면 안 됩니다. 금식을 지키지 않으면 마취 시 위 내용물이 기도로 흡입될 위험이 있어 수술이 연기될 수 있습니다.' },
-            { q: '금식 중 물도 마시면 안 되나요?', a: '네, 수술 6시간 전부터는 물도 마시면 안 됩니다. 소량의 물이라도 위를 자극하여 마취 중 역류 위험을 높일 수 있습니다. 헷갈리신다면 전날 자정 이후 아무것도 드시지 않는 것이 가장 안전합니다.' },
+            { q: '금식 중 물도 마시면 안 되나요?', a: '네, 수술 6시간 전부터는 물도 마시면 안 됩니다. 소량의 물이라도 위를 자극하여 마취 중 역류 위험을 높일 수 있습니다. 헷갈리신다면 전날 자정 이후 아무것도 드시지 않는 것이 더 안전합니다.' },
             { q: '실수로 음식을 먹었는데 어떻게 하나요?', a: '절대 숨기지 말고 내원 시 즉시 의료진에게 알려주세요. 먹은 시간과 음식 종류를 알려주시면 의료진이 안전하게 판단합니다. 수술이 연기될 수 있지만 이는 안전을 위한 올바른 결정입니다.' },
             { q: '혈압약을 매일 복용 중인데 수술 당일에도 먹어야 하나요?', a: '혈압약은 보통 소량의 물(30ml 이내)과 함께 복용 가능하나, 반드시 사전에 의료진에게 알려 지시에 따르세요. 혈압을 조절하지 않으면 수술 중 위험할 수 있습니다.' },
             { q: '수술 당일 화장을 해도 되나요?', a: '화장은 피하는 것이 좋습니다. 특히 손발톱 매니큐어는 혈중 산소 포화도 측정을 방해할 수 있으므로 지워오세요. 렌즈 착용도 금지이므로 반드시 안경을 착용하고 오시기 바랍니다.' },
@@ -370,11 +374,14 @@ export default function AbortionFastingPage() {
           <div style={{ fontSize: '14px', fontWeight: 700, color: C.tm, marginBottom: '14px' }}>관련 정보 더 보기</div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '10px' }}>
             {[
-              { href: '/abortion/surgery', label: '임신중절수술 금액·방법 안내' },
+              { href: '/abortion/surgery', label: '임신중절수술 절차·당일 안내' },
+              { href: '/abortion/cost', label: '임신중절수술 금액 안내' },
+              { href: '/abortion/method', label: '임신중절수술 방법·종류 안내' },
               { href: '/blog/abortion-period', label: '임신중절수술 기간' },
               { href: '/blog/abortion-after', label: '임신중절수술 후 관리' },
               { href: '/blog/abortion-cost', label: '임신중절수술 비용' },
               { href: '/blog/abortion-legal', label: '낙태합법화 안내' },
+              { href: '/abortion', label: '임신중절클리닉 안내' },
               { href: '/blog', label: '전체 수술정보 보기' },
             ].map(l => (
               <Link key={l.href} href={l.href} style={{ display: 'block', background: C.pb, border: `1px solid ${C.bd}`, borderRadius: '10px', padding: '12px 16px', textDecoration: 'none', fontSize: '13px', color: C.p, fontWeight: 700 }}>→ {l.label}</Link>

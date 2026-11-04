@@ -159,7 +159,7 @@ export default function FloatingChip() {
           zIndex: 9998,
           display: 'flex',
           flexDirection: 'column',
-          gap: '4px',
+          gap: '10px',
         }}>
           <button type="button"
             onClick={() => { setActiveTab('week'); setIsOpen(true) }}

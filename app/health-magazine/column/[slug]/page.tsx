@@ -151,6 +151,7 @@ export default function ColumnDetailPage({ params }: { params: { slug: string } 
   const clinicSchema = {
     '@context': 'https://schema.org',
     '@type': 'MedicalClinic',
+    '@id': 'https://www.yeonsei365.com/#organization',
     name: '연세365산부인과의원',
     url: BASE,
     telephone: '02-585-3650',
@@ -163,8 +164,8 @@ export default function ColumnDetailPage({ params }: { params: { slug: string } 
     },
     geo: {
       '@type': 'GeoCoordinates',
-      latitude: 37.4875,
-      longitude: 126.9822,
+      latitude: 37.4769,
+      longitude: 126.9819,
     },
     openingHours: ['Mo-Fr 10:00-17:30', 'Sa 09:00-16:30', 'Su,PH 10:00-14:00'],
     medicalSpecialty: '산부인과',

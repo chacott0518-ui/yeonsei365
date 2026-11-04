@@ -61,6 +61,7 @@ const faqJsonLd = {
 const localBusinessJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'MedicalClinic',
+  '@id': 'https://www.yeonsei365.com/#organization',
   name: '연세365산부인과의원',
   description: '사당역 4번출구 산부인과 전문의원. 여성검진, 피임상담, 난임클리닉, 자궁경부암 검진.',
   address: {
@@ -409,8 +410,8 @@ export default function SadangObgynPage() {
             },
             {
               icon: '🔒',
-              title: '1:1 완벽한 비밀 보장',
-              desc: '모든 상담과 진료 내용은 철저히 비밀이 보장됩니다. 의료법과 개인정보보호법에 따라 진료 정보는 절대 외부에 유출되지 않으며, 다른 환자와 마주칠 가능성을 최소화한 동선 설계로 프라이버시를 보호합니다.',
+              title: '1:1 개인정보 보호',
+              desc: '모든 상담과 진료 내용은 철저히 비밀이 보장됩니다. 의료법과 개인정보보호법에 따라 진료 정보는 법령에 따라 외부 공개가 제한되며, 다른 환자와 마주칠 가능성을 최소화한 동선 설계로 프라이버시를 보호합니다.',
             },
             {
               icon: '📋',

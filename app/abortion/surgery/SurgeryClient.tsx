@@ -128,7 +128,7 @@ export default function SurgeryClient() {
               <div style={{ color: 'rgba(255,255,255,.9)', fontSize: '13px', marginTop: '4px' }}>시간 (검사·수술·회복 포함)</div>
             </div>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px' }}>
-              {[['10~15분', '실제 수술'], ['수면마취', '무통 진행'], ['당일', '귀가 가능'], ['1인실', '회복 진행']].map(([v, l]) => (
+              {[['10~15분', '실제 수술'], ['수면마취', '마취 후 진행'], ['당일', '귀가 가능'], ['1인실', '회복 진행']].map(([v, l]) => (
                 <div key={v} style={{ background: 'rgba(255,255,255,.12)', border: '0.5px solid rgba(255,255,255,.2)', borderRadius: '10px', padding: '10px', textAlign: 'center' }}>
                   <div style={{ color: '#FFD700', fontSize: '14px', fontWeight: 900 }}>{v}</div>
                   <div style={{ color: 'rgba(255,255,255,.7)', fontSize: '10px', marginTop: '3px' }}>{l}</div>
@@ -191,7 +191,7 @@ export default function SurgeryClient() {
                   { n: '1', t: '내원·접수', s: '신분증·동의서 작성', color: C.p, time: '0분' },
                   { n: '2', t: '초음파·혈액검사', s: '주수 확인 정밀 진단', color: '#C02860', time: '15~20분' },
                   { n: '3', t: '전문의 상담', s: '방법·비용 최종 확인', color: '#A01E4E', time: '10~15분' },
-                  { n: '4', t: '수면마취·수술', s: '10~15분 무통 진행', color: '#831638', time: '10~30분' },
+                  { n: '4', t: '수면마취·수술', s: '수면마취 후 진행(개인차 있음)', color: '#831638', time: '10~30분' },
                   { n: '5', t: '회복실·귀가', s: '1인실 1~2시간 안정', color: C.pp, time: '1~2시간' },
                 ].map(({ n, t, s, color, time }) => (
                   <div key={n} style={{ textAlign: 'center' }}>
@@ -332,7 +332,7 @@ export default function SurgeryClient() {
                   { step: '마취 전 확인', desc: '활력징후 측정, 금식 여부 재확인, 알레르기 이력 확인' },
                   { step: '정맥 라인 확보', desc: '손등 또는 팔꿈치 안쪽에 정맥 주사 삽입' },
                   { step: '마취제 투여', desc: '프로포폴 등 안전한 마취제 정맥 투여, 수 초 내 의식 소실' },
-                  { step: '수술 진행', desc: '의식 없는 상태로 무통 수술 진행, 지속적 모니터링' },
+                  { step: '수술 진행', desc: '수면마취 후 수술을 진행하며 지속적으로 모니터링' },
                   { step: '마취 종료', desc: '수술 완료 후 마취 중단, 서서히 의식 회복 시작' },
                   { step: '회복실 이동', desc: '의식 완전 회복까지 1인 회복실에서 전문 케어' },
                 ].map(({ step, desc }, i) => (
@@ -390,7 +390,7 @@ export default function SurgeryClient() {
 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: '14px', marginBottom: '24px' }}>
               {[
-                { icon: '👨‍⚕️', title: '전문의 직접 집도', desc: '산부인과 전문의가 모든 수술을 직접 집도합니다. 비전문의 대리 수술은 절대 없으며, 풍부한 임상 경험으로 안전하게 진행합니다.' },
+                { icon: '👨‍⚕️', title: '전문의 직접 집도', desc: '산부인과 전문의가 모든 수술을 직접 집도합니다. 비전문의가 대신 수술하지 않으며, 풍부한 임상 경험으로 안전하게 진행합니다.' },
                 { icon: '💉', title: '마취 전문의 협진', desc: '수면마취는 마취 전문의와 협진하여 안전하게 진행합니다. 환자 상태에 맞는 정밀한 마취 용량을 계산하고 전 과정을 모니터링합니다.' },
                 { icon: '🏥', title: '응급 처치 시스템', desc: '응급 약품과 의료 장비를 완비하고 있습니다. 인근 상급 병원과의 협력 체계로 만일의 사태에도 신속 대응이 가능합니다.' },
                 { icon: '🔬', title: '멸균 수술 환경', desc: '모든 수술 기구는 1회용이거나 완벽한 고압증기 멸균을 거칩니다. 수술실은 정기적 소독으로 감염 위험을 최소화합니다.' },
@@ -507,7 +507,7 @@ export default function SurgeryClient() {
             <span style={{ display: 'block', fontSize: '15px', fontWeight: 700, opacity: .88, marginTop: '6px' }}>수술 전 검사부터 회복실 귀가까지</span>
           </h2>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '6px', marginTop: '14px' }}>
-            {[['2~3시간', '총 소요'], ['10~15분', '실제 수술'], ['수면마취', '무통 진행'], ['당일귀가', '1인 회복실']].map(([v, l]) => (
+            {[['2~3시간', '총 소요'], ['10~15분', '실제 수술'], ['수면마취', '마취 후 진행'], ['당일귀가', '1인 회복실']].map(([v, l]) => (
               <div key={v} style={{ background: 'rgba(255,255,255,.12)', borderRadius: '8px', padding: '8px', textAlign: 'center' }}>
                 <div style={{ color: '#FFD700', fontSize: '14px', fontWeight: 900 }}>{v}</div>
                 <div style={{ color: 'rgba(255,255,255,.7)', fontSize: '10px', marginTop: '2px' }}>{l}</div>
@@ -570,7 +570,7 @@ export default function SurgeryClient() {
 
         <MobileAccordion title="수술 안전 시스템" icon="🏥">
           <p style={{ fontSize: '12px', color: C.ts, lineHeight: 1.85, marginBottom: '10px' }}>
-            산부인과 전문의 직접 집도, 마취 전문의 협진, 응급 장비 완비, 멸균 수술 환경, 인근 상급 병원 협력 체계를 갖추고 있습니다. 비전문의 대리 수술은 절대 없으며 모든 과정은 의료법과 표준 지침을 준수합니다.
+            산부인과 전문의 직접 집도, 마취 전문의 협진, 응급 장비 완비, 멸균 수술 환경, 인근 상급 병원 협력 체계를 갖추고 있습니다. 비전문의가 대신 수술하지 않으며 모든 과정은 의료법과 표준 지침을 준수합니다.
           </p>
           <InfoBox type="green">전문의 직접 집도 · 마취 전문의 협진 · 응급 장비 완비 · 멸균 수술 환경</InfoBox>
         </MobileAccordion>

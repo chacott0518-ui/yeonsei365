@@ -4,8 +4,8 @@ import { clinicSchema } from '@/lib/schemas'
 import ViewCounter from '@/components/ViewCounter'
 
 export const metadata: Metadata = {
-  title: '인공임신중절수술 비용·시기·가격 완벽 안내 2026 | 연세365산부인과의원',
-  description: '인공임신중절수술 비용, 시기, 가격을 주수별로 투명하게 안내합니다. 8주 미만 45만원. 합법적 조건 4가지, 수술 과정까지 전문의 직접 안내. 사당역 4번 출구 연세365산부인과의원.',
+  title: '인공임신중절수술이란? 뜻·용어와 수술적 방법 안내 | 연세365산부인과의원',
+  description: '인공임신중절수술의 뜻과 용어, 수술적 방법(흡입·소파)을 알기 쉽게 안내합니다. 금액·합법·시기는 각 안내 페이지에서 확인하세요. 사당역 연세365산부인과의원.',
   keywords: [
     '인공임신중절', '인공임신중절수술', '인공임신중절비용', '인공임신중절금액',
     '인공임신중절가격', '인공임신중절수술비용', '인공임신중절수술금액',
@@ -24,8 +24,8 @@ export const metadata: Metadata = {
     '여성검진클리닉', '난임클리닉', '산부인과',
   ],
   openGraph: {
-    title: '인공임신중절수술 비용·시기·가격 완벽 안내 2026 | 연세365산부인과의원',
-    description: '인공임신중절수술 비용 주수별 공개. 8주 미만 45만원. 사당역 4번 출구.',
+    title: '인공임신중절수술이란? 뜻·용어와 수술적 방법 안내 | 연세365산부인과의원',
+    description: '인공임신중절수술의 뜻·용어와 수술적 방법 안내. 사당역 연세365산부인과의원.',
     url: 'https://www.yeonsei365.com/blog/abortion-info',
     images: [{ url: 'https://www.yeonsei365.com/og', width: 1200, height: 630 }],
   },
@@ -34,16 +34,16 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: '인공임신중절수술 비용·시기·가격 완벽 안내 2026 | 연세365산부인과의원',
-    description: '인공임신중절수술 비용, 시기, 가격을 주수별로 투명하게 안내합니다. 8주 미만 45만원. 합법적 조건 4가지, 수술 과정까지 전문의 직접 안내. 사당역 4번 출구 연세365산부인과의원.',
+    title: '인공임신중절수술이란? 뜻·용어와 수술적 방법 안내 | 연세365산부인과의원',
+    description: '인공임신중절수술의 뜻과 용어, 수술적 방법(흡입·소파)을 알기 쉽게 안내합니다. 금액·합법·시기는 각 안내 페이지에서 확인하세요. 사당역 연세365산부인과의원.',
   },
 }
 
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Article',
-  headline: '인공임신중절수술 비용·시기·가격 완벽 안내 2026',
-  description: '인공임신중절수술 비용, 시기, 가격 및 합법적 조건 안내',
+  headline: '인공임신중절수술이란? 뜻·용어와 수술적 방법 안내',
+  description: '인공임신중절수술의 뜻·용어와 수술적 방법 안내',
   author: { '@type': 'Organization', name: '연세365산부인과의원' },
   publisher: { '@type': 'Organization', name: '연세365산부인과의원' },
   datePublished: '2026-03-30',
@@ -54,19 +54,22 @@ const faqJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
   mainEntity: [
-    { '@type': 'Question', name: '인공임신중절수술 비용이 얼마인가요?', acceptedAnswer: { '@type': 'Answer', text: '연세365산부인과의원 기준 8주 미만 45만원, 8주 60만원, 9주 70만원, 10주 80만원입니다. 영양제와 1인 회복실이 포함된 가격입니다.' } },
-    { '@type': 'Question', name: '인공임신중절수술은 언제까지 가능한가요?', acceptedAnswer: { '@type': 'Answer', text: '임신 14주 이내가 권장되며, 주수가 늘어날수록 난이도가 높아집니다. 가능한 한 빠른 결정을 권장합니다.' } },
-    { '@type': 'Question', name: '인공임신중절수술이 합법인가요?', acceptedAnswer: { '@type': 'Answer', text: '2021년 1월 1일부터 낙태죄 처벌 조항이 효력을 상실했습니다. 현재 임신 14주 이내는 사실상 처벌 공백 상태이며, 모자보건법 제14조에 따라 일정 조건 하에 합법적으로 시술 가능합니다.' } },
+    { '@type': 'Question', name: '인공임신중절수술 비용이 얼마인가요?', acceptedAnswer: { '@type': 'Answer', text: '8주 미만 45만원, 8주 60만원, 9주 70만원, 10주 80만원입니다. 영양제와 1인 회복실이 포함된 가격이며 포함 항목 외 추가 검사·처치가 필요하면 상담에서 별도로 안내합니다.' } },
+    { '@type': 'Question', name: '인공임신중절수술은 언제까지 가능한가요?', acceptedAnswer: { '@type': 'Answer', text: '임신 14주 이내가 권장됩니다. 주수가 늘어날수록 수술 난이도가 높아지고 비용도 올라가므로 가능한 한 빠른 결정을 권장합니다.' } },
+    { '@type': 'Question', name: '수술이 합법인가요?', acceptedAnswer: { '@type': 'Answer', text: '2021년 1월 1일부터 낙태죄 처벌 조항이 효력을 상실했습니다. 이후 구체적 기준은 법령 정비 상황에 따라 달라질 수 있어 최신 법령과 의료기관 확인이 필요합니다.' } },
+    { '@type': 'Question', name: '혼자 내원해도 되나요?', acceptedAnswer: { '@type': 'Answer', text: '성인이라면 혼자 내원하셔도 됩니다. 수술 후 운전은 불가능하므로 대중교통을 이용하시거나 동행인과 함께 오시는 것을 권장합니다.' } },
     { '@type': 'Question', name: '당일 수술이 가능한가요?', acceptedAnswer: { '@type': 'Answer', text: '네, 예약 당일 초음파 확인 후 수술 진행이 가능합니다. 수술 후 당일 퇴원도 가능합니다.' } },
-    { '@type': 'Question', name: '혼자 내원해도 되나요?', acceptedAnswer: { '@type': 'Answer', text: '성인이라면 혼자 내원하셔도 됩니다. 다만 수술 후 운전은 불가능하므로 대중교통을 이용하시기 바랍니다.' } },
+    { '@type': 'Question', name: '미성년자도 수술이 가능한가요?', acceptedAnswer: { '@type': 'Answer', text: '미성년자는 법정대리인의 동의가 필요합니다. 보호자와 함께 내원하셔야 합니다.' } },
+    { '@type': 'Question', name: '비밀이 보장되나요?', acceptedAnswer: { '@type': 'Answer', text: '네, 모든 상담과 진료는 1:1로 진행되며 의료법에 따라 개인정보는 절대 외부에 유출되지 않습니다.' } },
+    { '@type': 'Question', name: '예약은 어떻게 하나요?', acceptedAnswer: { '@type': 'Answer', text: '전화(02-585-3650) 또는 카카오톡 채널로 상담 및 예약이 가능합니다. 당일 예약 및 당일 수술도 가능합니다.' } },
   ],
 }
 
 const PAGE_URL = 'https://www.yeonsei365.com/blog/abortion-info'
 const PAGE_DATE = '2026-03-30'
-const medicalWebPageSchema = { '@context':'https://schema.org','@type':'MedicalWebPage', name:'인공임신중절수술 비용·시기·가격 완벽 안내 2026', url:PAGE_URL, specialty:{'@type':'MedicalSpecialty',name:'산부인과'}, medicalAudience:{'@type':'MedicalAudience',audienceType:'여성 환자'}, about:{'@type':'MedicalCondition',name:'인공임신중절수술'} }
+const medicalWebPageSchema = { '@context':'https://schema.org','@type':'MedicalWebPage', name:'인공임신중절수술이란? 뜻·용어와 수술적 방법 안내', url:PAGE_URL, specialty:{'@type':'MedicalSpecialty',name:'산부인과'}, medicalAudience:{'@type':'MedicalAudience',audienceType:'여성 환자'}, about:{'@type':'MedicalCondition',name:'인공임신중절수술'} }
 const howToSchema = { '@context':'https://schema.org','@type':'HowTo', name:'인공임신중절수술 예약 방법', description:'인공임신중절수술 예약부터 수술까지', step:[ {'@type':'HowToStep',position:1,name:'임신 확인',text:'초음파로 임신 여부와 주수를 확인합니다.'}, {'@type':'HowToStep',position:2,name:'비용 안내',text:'주수에 따른 비용을 안내받습니다. 8주 미만 45만원.'}, {'@type':'HowToStep',position:3,name:'수술 당일',text:'6시간 금식 후 내원하여 수술을 진행합니다.'} ], tool:{'@type':'HowToTool',name:'연세365산부인과의원'} }
-const speakableSchema = { '@context':'https://schema.org','@type':'WebPage', name:'인공임신중절수술 비용·시기·가격 완벽 안내 2026', url:PAGE_URL, speakable:{'@type':'SpeakableSpecification',cssSelector:['h1','h2']} }
+const speakableSchema = { '@context':'https://schema.org','@type':'WebPage', name:'인공임신중절수술이란? 뜻·용어와 수술적 방법 안내', url:PAGE_URL, speakable:{'@type':'SpeakableSpecification',cssSelector:['h1','h2']} }
 const breadcrumbSchema = { '@context':'https://schema.org','@type':'BreadcrumbList', itemListElement:[ {'@type':'ListItem',position:1,name:'홈',item:'https://www.yeonsei365.com'}, {'@type':'ListItem',position:2,name:'임신중절수술정보',item:'https://www.yeonsei365.com/blog'}, {'@type':'ListItem',position:3,name:'인공임신중절수술',item:PAGE_URL} ] }
 
 function HeroImage() {
@@ -175,8 +178,8 @@ function ProcessCard() {
 function ReasonCard() {
   const items = [
     { icon: '👩‍⚕️', title: '산부인과 전문의 직접 시행', desc: '경험 풍부한 전문의가 처음부터 끝까지 직접 집도합니다. 대리 수술 없음.' },
-    { icon: '🔒', title: '완벽한 비밀 보장', desc: '1:1 개인 상담실 운영. 의료법에 따라 개인정보 철저 보호.' },
-    { icon: '💰', title: '투명한 비용 공개', desc: '처음 안내한 가격이 최종 가격. 숨겨진 추가 비용 없음.' },
+    { icon: '🔒', title: '개인정보 보호', desc: '1:1 개인 상담실 운영. 의료법에 따라 개인정보 철저 보호.' },
+    { icon: '💰', title: '투명한 비용 공개', desc: '처음 안내한 가격이 최종 가격. 포함·별도 항목을 구분해 안내.' },
     { icon: '🏥', title: '당일 수술·당일 퇴원', desc: '예약 당일 초음파 확인 후 수술 진행. 불필요한 입원 없음.' },
     { icon: '📍', title: '사당역 4번 출구 도보 3분', desc: '관악구·동작구·서초구·강남·과천 어디서든 접근 편리.' },
   ]
@@ -227,9 +230,20 @@ export default function AbortionInfoPage() {
 
         {/* H1 */}
         <h1 style={{ fontSize: '26px', fontWeight: 900, color: '#1A0A10', lineHeight: 1.35, marginBottom: '10px' }}>
-          인공임신중절수술 비용·시기·가격<br />
-          <span style={{ color: '#FF6600' }}>2026 완벽 안내</span>
+          인공임신중절수술이란?
         </h1>
+        <p style={{ fontSize: '15px', color: '#444', lineHeight: 1.9, marginBottom: '12px' }}>
+          인공임신중절수술은 자궁 내 임신을 의료적으로 종료하는 시술의 공식 표현으로, 흔히 낙태수술·임신중절수술이라고도 불립니다. 연세365산부인과의원은 약물중절을 시행하지 않으며, 초음파로 주수와 위치를 확인한 뒤 수술적 방법(흡입술·소파술 등)만 상담·안내합니다.
+        </p>
+        <p style={{ fontSize: '14px', color: '#664422', lineHeight: 1.85, marginBottom: '16px' }}>
+          금액·포함 항목은{' '}
+          <Link href="/abortion/cost" style={{ color: '#FF6600', fontWeight: 700 }}>비용 안내</Link>
+          에서, 합법·시기 요약은{' '}
+          <Link href="/abortion/legal" style={{ color: '#FF6600', fontWeight: 700 }}>합법 안내</Link>
+          와{' '}
+          <Link href="/abortion" style={{ color: '#FF6600', fontWeight: 700 }}>임신중절수술 전체 안내</Link>
+          에서 확인하실 수 있습니다.
+        </p>
         <div style={{ fontSize: '12px', color: '#999', marginBottom: '28px' }}>
           연세365산부인과의원 · 2026년 3월 업데이트 · <ViewCounter slug="blog-abortion-info" />
         </div>
@@ -265,13 +279,13 @@ export default function AbortionInfoPage() {
           1. 인공임신중절수술이란? 뜻과 정의
         </h2>
         <p style={{ marginBottom: '14px' }}>
-          인공임신중절수술이란 자연적인 분만 전에 인위적으로 임신을 종결하는 의료 시술을 말합니다. 흔히 낙태수술이라고도 불리며, 약물 또는 수술적 방법으로 자궁 내 임신 조직을 제거합니다.
+          인공임신중절수술이란 자연적인 분만 전에 인위적으로 임신을 종결하는 의료 시술을 말합니다. 의학 용어로는 인공임신중절, 일상어로는 낙태수술·임신중절수술로 불리며 같은 시술을 가리킵니다.
         </p>
         <p style={{ marginBottom: '14px' }}>
-          인공임신중절수술은 의학적으로 <strong>임신 초기일수록 안전하고 회복이 빠릅니다.</strong> 임신 주수가 늘어날수록 수술 난이도가 높아지고 회복 기간도 길어지므로, 결정하셨다면 가능한 한 빠르게 전문의와 상담하시는 것을 권장합니다.
+          진행 방식은 크게 약물적 방법과 수술적 방법으로 나뉩니다. 본원에서는 약물중절을 시행하지 않으며, 상담 시에는 초음파·문진 결과를 바탕으로 흡입술·소파술 등 <strong>수술적 방법</strong>만 안내합니다.
         </p>
         <p style={{ marginBottom: '14px' }}>
-          연세365산부인과의원은 산부인과 전문의가 직접 인공임신중절수술을 시행하며, 안전하고 위생적인 환경에서 수술을 진행합니다. 모든 상담과 진료는 1:1 비밀이 보장됩니다.
+          연세365산부인과의원은 산부인과 전문의가 직접 상담부터 시술·회복 안내까지 진행하며, 모든 상담과 진료는 1:1 비밀이 보장됩니다.
         </p>
         <div style={{ background: 'linear-gradient(135deg, #FF8C00, #FF5500)', borderRadius: '14px', padding: '18px 20px', marginBottom: '32px' }}>
           <p style={{ fontSize: '13px', color: 'rgba(255,255,255,0.95)', margin: 0, lineHeight: 1.9 }}>
@@ -288,12 +302,17 @@ export default function AbortionInfoPage() {
           2. 인공임신중절수술 합법 시기
         </h2>
         <p style={{ marginBottom: '14px' }}>
-          2019년 헌법재판소는 낙태를 처벌하는 형법 조항이 여성의 자기결정권을 침해한다며 헌법불합치 결정을 내렸습니다. 이후 2021년 1월 1일부터 해당 조항의 효력이 상실되어 현재는 <strong>임신 14주 이내의 인공임신중절이 사실상 처벌 공백 상태</strong>에 있습니다.
+          합법·가능 시기 판단은 주수와 개인 상황에 따라 달라질 수 있어, 온라인 총론만으로 단정하기보다 의료기관에서 확인하는 것이 안전합니다. 상세 기준은{' '}
+          <Link href="/abortion/legal" style={{ color: '#FF6600', fontWeight: 700 }}>낙태 합법·시기 안내</Link>
+          를 참고하시고, 아래는 이해를 돕는 요약입니다.
+        </p>
+        <p style={{ marginBottom: '14px' }}>
+          2019년 헌법재판소는 낙태를 처벌하는 형법 조항이 여성의 자기결정권을 침해한다며 헌법불합치 결정을 내렸습니다. 이후 2021년 1월 1일부터 해당 조항의 효력이 상실되어 현재는 <strong>구체적 기준이 법령 정비 상황에 따라 달라질 수 있는 상태</strong>이므로 최신 법령과 의료기관 상담으로 확인해야 합니다.
         </p>
         {[
           { year: '2019년', title: '헌법불합치 결정', desc: '헌법재판소가 낙태죄 처벌 조항에 헌법불합치 결정. 여성의 자기결정권 인정.' },
-          { year: '2021년', title: '처벌 공백 시작', desc: '2021년 1월 1일부터 낙태죄 처벌 조항 효력 상실. 현재까지 지속.' },
-          { year: '현재', title: '14주 이내 사실상 허용', desc: '임신 14주 이내 인공임신중절은 처벌 공백 상태. 단 합법적 의료기관 이용 권장.' },
+          { year: '2021년', title: '조항 효력 상실', desc: '2021년 1월 1일부터 낙태죄 처벌 조항 효력 상실. 현재까지 지속.' },
+          { year: '현재', title: '법령 정비 진행 중', desc: '구체적 기준은 최신 법령과 의료기관 상담으로 확인하세요. 합법적 의료기관 이용을 권장합니다.' },
         ].map(({ year, title, desc }) => (
           <div key={year} style={{ display: 'flex', gap: '16px', marginBottom: '12px', padding: '14px 16px', background: '#FFF8F0', borderRadius: '12px', border: '1px solid #FFD0A0' }}>
             <div style={{ minWidth: '60px', flexShrink: 0 }}>
@@ -320,7 +339,7 @@ export default function AbortionInfoPage() {
         <div style={{ background: 'linear-gradient(135deg, #FF8C00, #FF5500)', borderRadius: '12px', padding: '16px 18px', marginBottom: '32px', marginTop: '16px' }}>
           <p style={{ fontSize: '13px', color: 'rgba(255,255,255,0.95)', margin: 0, lineHeight: 1.9 }}>
             📌 <span style={{ fontWeight: 700 }}>중요 안내</span><br />
-            · 위 4가지 외에도 임신 14주 이내는 사실상 처벌 공백 상태<br />
+            · 법령 변화에 따라 기준이 달라질 수 있어 최신 정보 확인 필요<br />
             · 모든 시술은 반드시 합법적 의료기관에서 받을 것을 권장<br />
             · 불법 시술은 생명을 위협할 수 있으므로 절대 금지
           </p>
@@ -331,7 +350,9 @@ export default function AbortionInfoPage() {
           4. 주수별 비용·가격 공개
         </h2>
         <p style={{ marginBottom: '20px' }}>
-          인공임신중절수술 비용은 임신 주수에 따라 달라집니다. 연세365산부인과의원은 수술비, 영양제, 1인 회복실이 모두 포함된 투명한 가격을 안내드립니다.
+          비용은 주수·검사·마취·사후관리 범위에 따라 달라질 수 있습니다. 아래는 이해를 돕는 요약 표이며, 포함 항목·최종 금액 확인은{' '}
+          <Link href="/abortion/cost" style={{ color: '#FF6600', fontWeight: 700 }}>임신중절수술 금액·비용 안내</Link>
+          를 우선 참고하세요. 연세365산부인과의원은 수술비·영양제·1인 회복실이 포함된 투명한 가격을 안내드립니다.
         </p>
         <div style={{ marginBottom: '20px' }}>
           <PriceTable />
@@ -432,9 +453,9 @@ export default function AbortionInfoPage() {
           9. 자주 묻는 질문
         </h2>
         {[
-          { q: '인공임신중절수술 비용이 얼마인가요?', a: '8주 미만 45만원, 8주 60만원, 9주 70만원, 10주 80만원입니다. 영양제와 1인 회복실이 포함된 가격이며 추가 비용이 없습니다.' },
+          { q: '인공임신중절수술 비용이 얼마인가요?', a: '8주 미만 45만원, 8주 60만원, 9주 70만원, 10주 80만원입니다. 영양제와 1인 회복실이 포함된 가격이며 포함 항목 외 추가 검사·처치가 필요하면 상담에서 별도로 안내합니다.' },
           { q: '인공임신중절수술은 언제까지 가능한가요?', a: '임신 14주 이내가 권장됩니다. 주수가 늘어날수록 수술 난이도가 높아지고 비용도 올라가므로 가능한 한 빠른 결정을 권장합니다.' },
-          { q: '수술이 합법인가요?', a: '2021년 1월 1일부터 낙태죄 처벌 조항이 효력을 상실했습니다. 현재 임신 14주 이내는 사실상 처벌 공백 상태입니다.' },
+          { q: '수술이 합법인가요?', a: '2021년 1월 1일부터 낙태죄 처벌 조항이 효력을 상실했습니다. 이후 구체적 기준은 법령 정비 상황에 따라 달라질 수 있어 최신 법령과 의료기관 확인이 필요합니다.' },
           { q: '혼자 내원해도 되나요?', a: '성인이라면 혼자 내원하셔도 됩니다. 수술 후 운전은 불가능하므로 대중교통을 이용하시거나 동행인과 함께 오시는 것을 권장합니다.' },
           { q: '당일 수술이 가능한가요?', a: '네, 예약 당일 초음파 확인 후 수술 진행이 가능합니다. 수술 후 당일 퇴원도 가능합니다.' },
           { q: '미성년자도 수술이 가능한가요?', a: '미성년자는 법정대리인의 동의가 필요합니다. 보호자와 함께 내원하셔야 합니다.' },
@@ -469,6 +490,7 @@ export default function AbortionInfoPage() {
           <Link href="/blog/abortion-cost" style={{ color: '#FF6600', textDecoration: 'none', fontSize: '13px', fontWeight: 600 }}>→ 임신중절수술 비용 정보</Link>
           <Link href="/blog/abortion-price" style={{ color: '#FF6600', textDecoration: 'none', fontSize: '13px', fontWeight: 600 }}>→ 낙태 비용 가격 정보</Link>
           <Link href="/blog/abortion-legal" style={{ color: '#FF6600', textDecoration: 'none', fontSize: '13px', fontWeight: 600 }}>→ 낙태수술 합법화 안내</Link>
+          <Link href="/abortion/method" style={{ color: '#FF6600', textDecoration: 'none', fontSize: '13px', fontWeight: 600 }}>→ 수술 방법 안내</Link>
         </div>
 
       </div>

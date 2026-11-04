@@ -4,8 +4,8 @@ import { clinicSchema } from '@/lib/schemas'
 import ViewCounter from '@/components/ViewCounter'
 
 export const metadata: Metadata = {
-  title: '임신중절수술 금액·합법기간·방법 안내 | 연세365산부인과의원',
-  description: '임신중절수술 금액 8주 미만 45만원. 합법 가능 기간, 합법 조건, 흡입술·소파술 방법, 수술 절차, 수술 후 관리, 부작용, 보험, 금식까지 투명하게 안내합니다. 사당역 4번 출구 연세365산부인과의원.',
+  title: '임신초기 주수 확인과 수술 방법 선택 포인트 | 연세365산부인과의원',
+  description: '임신초기 주수를 초음파로 확인하고 흡입술·소파술 등 초기 수술 방법을 결정할 때 확인할 내용을 안내합니다. 전체 안내는 임신중절수술 안내 페이지에서 확인하세요.',
   keywords: [
     '임신중절수술', '임신중절수술금액', '임신중절수술 금액', '임신중절수술합법기간',
     '임신중절수술 합법기간', '임신중절수술기간', '임신중절수술방법', '임신중절수술 방법',
@@ -18,16 +18,16 @@ export const metadata: Metadata = {
     '관악구산부인과', '중절수술', '임신중절합법조건', '낙태합법기간',
   ],
   openGraph: {
-    title: '임신중절수술 금액·합법기간·방법 안내 | 연세365산부인과의원',
-    description: '임신중절수술 금액 8주 미만 45만원. 합법기간·조건·방법·후관리 투명 안내.',
+    title: '임신초기 주수 확인과 수술 방법 선택 포인트 | 연세365산부인과의원',
+    description: '임신초기 주수 확인과 초기 수술 방법 선택 시 확인할 내용을 안내합니다.',
     url: 'https://www.yeonsei365.com/abortion/surgery',
-    images: [{ url: 'https://www.yeonsei365.com/og-image.jpg', width: 1200, height: 630, alt: '임신중절수술 금액 45만원 연세365산부인과의원' }],
+    images: [{ url: 'https://www.yeonsei365.com/og-image.jpg', width: 1200, height: 630, alt: '임신초기 주수 확인과 수술 방법 안내 연세365산부인과의원' }],
   },
   alternates: { canonical: 'https://www.yeonsei365.com/abortion/surgery' },
   twitter: {
     card: 'summary_large_image',
-    title: '임신중절수술 금액·합법기간·방법 안내 | 연세365산부인과의원',
-    description: '임신중절수술 금액 8주 미만 45만원. 합법 가능 기간, 합법 조건, 흡입술·소파술 방법, 수술 절차, 수술 후 관리, 부작용, 보험, 금식까지 투명하게 안내합니다. 사당역 4번 출구 연세365산부인과의원.',
+    title: '임신초기 주수 확인과 수술 방법 선택 포인트 | 연세365산부인과의원',
+    description: '임신초기 주수를 초음파로 확인하고 초기 수술 방법을 결정할 때 확인할 내용을 안내합니다. 전체 안내는 임신중절수술 안내 페이지에서 확인하세요.',
   },
 }
 
@@ -35,24 +35,26 @@ const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
   mainEntity: [
-    { '@type': 'Question', name: '임신중절수술 금액이 얼마인가요?', acceptedAnswer: { '@type': 'Answer', text: '8주 미만 45만원, 8주 60만원, 9주 70만원, 10주 80만원입니다. 수술비·마취비·영양제·부가세 포함이며 카드·현금 동일가입니다.' } },
-    { '@type': 'Question', name: '임신중절수술 합법 기간과 조건은?', acceptedAnswer: { '@type': 'Answer', text: '2021년 낙태죄 실효 이후 임신 14주 이내는 본인 동의만으로 가능합니다. 모자보건법 제14조에 따라 유전질환·전염성질환·강간임신·근친임신·모체건강위협 등 조건 시 24주까지 가능합니다.' } },
-    { '@type': 'Question', name: '임신중절수술 후 관리는 어떻게 하나요?', acceptedAnswer: { '@type': 'Answer', text: '수술 당일은 충분한 휴식, 1주일간 성관계·격렬한 운동·탕목욕·음주 금지, 처방약 복용. 38도 이상 고열·과다출혈·악취 분비물 시 즉시 내원.' } },
-    { '@type': 'Question', name: '임신중절수술 부작용이 있나요?', acceptedAnswer: { '@type': 'Answer', text: '전문의가 안전하게 시행할 경우 부작용이 드뭅니다. 출혈·감염·자궁경부 손상·불완전 수술 등의 위험이 있으나 적절한 사후관리로 예방 가능합니다.' } },
-    { '@type': 'Question', name: '임신중절수술 전 금식이 필요한가요?', acceptedAnswer: { '@type': 'Answer', text: '수면마취를 위해 시술 최소 6시간 전부터 물 포함 아무것도 드시면 안 됩니다.' } },
-    { '@type': 'Question', name: '임신중절수술 후 생리는 언제 시작되나요?', acceptedAnswer: { '@type': 'Answer', text: '보통 수술 후 4~6주 내에 첫 생리가 재개됩니다. 8주 이상 없다면 내원하여 확인하세요.' } },
-    { '@type': 'Question', name: '임신중절수술 보험이 적용되나요?', acceptedAnswer: { '@type': 'Answer', text: '인공임신중절수술은 건강보험 비급여 항목으로 실손보험도 대부분 적용되지 않습니다.' } },
-    { '@type': 'Question', name: '흡입술과 소파술 중 어떤 방법이 좋은가요?', acceptedAnswer: { '@type': 'Answer', text: '8주 이내라면 흡입술이 안전하고 회복이 빠릅니다. 8~12주는 소파술이 적합하며 전문의가 주수와 상태에 따라 결정합니다.' } },
+    { '@type': 'Question', name: '임신중절수술 금액이 얼마인가요?', acceptedAnswer: { '@type': 'Answer', text: '8주 미만 45만원, 8주 60만원, 9주 70만원, 10주 80만원입니다. 수술비·마취비·영양제·1인 회복실·부가세가 모두 포함된 최종 금액이며, 카드·현금 동일가입니다.' } },
+    { '@type': 'Question', name: '임신중절수술 합법 기간과 조건은 무엇인가요?', acceptedAnswer: { '@type': 'Answer', text: '법률 적용은 주수와 상황에 따라 달라질 수 있어 검사·상담으로 확인해야 합니다. 합법·법률 상세는 합법·법률 안내(/abortion/legal)에서 확인하세요.' } },
+    { '@type': 'Question', name: '혼자 내원해도 되나요?', acceptedAnswer: { '@type': 'Answer', text: '수술 자체는 혼자도 가능합니다. 다만 수면마취 후에는 운전이 불가하오니 대중교통 이용 또는 동행인과 함께 오시는 것을 강력히 권장합니다.' } },
+    { '@type': 'Question', name: '임신중절수술 후 관리는 어떻게 하나요?', acceptedAnswer: { '@type': 'Answer', text: '2주간 성관계·격렬한 운동·음주·탕목욕을 삼가고 처방약을 규칙적으로 복용하세요. 38도 이상 고열, 과다출혈, 악취 분비물 발생 시 즉시 내원하세요.' } },
+    { '@type': 'Question', name: '임신중절수술 부작용이 있나요?', acceptedAnswer: { '@type': 'Answer', text: '전문의가 안전하게 시행할 경우 부작용이 드뭅니다. 출혈·감염·자궁 손상 등의 위험이 있으나 적절한 사후관리로 예방 가능합니다. 이상 증상 시 즉시 내원하세요.' } },
+    { '@type': 'Question', name: '임신중절수술 전 금식이 필요한가요?', acceptedAnswer: { '@type': 'Answer', text: '수면마취를 위해 시술 최소 6시간 전부터 물 포함 아무것도 드시면 안 됩니다. 금식 미준수 시 시술이 연기될 수 있습니다.' } },
+    { '@type': 'Question', name: '임신중절수술 후 생리는 언제 시작되나요?', acceptedAnswer: { '@type': 'Answer', text: '보통 수술 후 4~6주 내에 첫 생리가 재개됩니다. 8주 이상 생리가 없다면 내원하여 확인하세요.' } },
+    { '@type': 'Question', name: '임신중절수술 보험이 적용되나요?', acceptedAnswer: { '@type': 'Answer', text: '건강보험 비급여 항목으로 실손보험도 대부분 적용되지 않습니다. 자부담으로 진행됩니다.' } },
+    { '@type': 'Question', name: '미성년자도 수술이 가능한가요?', acceptedAnswer: { '@type': 'Answer', text: '원칙적으로 법정대리인 동의가 필요합니다. 당사자가 원치 않는 경우 개별 상담으로 판단합니다. 전화로 먼저 문의 주세요.' } },
+    { '@type': 'Question', name: '수술 후 언제부터 일상 복귀가 가능한가요?', acceptedAnswer: { '@type': 'Answer', text: '사무직의 경우 2~3일, 육체적 노동이 많은 직업은 1주일 정도 휴식을 권장합니다. 개인차가 있으므로 컨디션에 따라 조절하세요.' } },
   ],
 }
 const PAGE_URL = 'https://www.yeonsei365.com/abortion/surgery'
 const PAGE_DATE = '2026-04-01'
 const PAGE_MODIFIED = '2026-05-22'
-const articleSchema = { '@context':'https://schema.org','@type':'Article', headline:'임신중절수술 금액·합법기간·방법 안내 | 연세365산부인과의원', datePublished:PAGE_DATE, dateModified:PAGE_MODIFIED, image:'https://www.yeonsei365.com/og-image.jpg', author:{'@type':'Organization',name:'연세365산부인과의원',url:'https://www.yeonsei365.com'}, publisher:{'@type':'MedicalOrganization',name:'연세365산부인과의원',logo:{'@type':'ImageObject',url:'https://i.imgur.com/f7h5DY0.png'}}, mainEntityOfPage:{'@type':'WebPage','@id':PAGE_URL}, url:PAGE_URL }
-const medicalWebPageSchema = { '@context':'https://schema.org','@type':'MedicalWebPage', name:'임신중절수술 금액·합법기간·방법 안내 | 연세365산부인과의원', url:PAGE_URL, specialty:{'@type':'MedicalSpecialty',name:'산부인과'}, medicalAudience:{'@type':'MedicalAudience',audienceType:'여성 환자'}, about:{'@type':'MedicalCondition',name:'임신중절수술'} }
-const howToSchema = { '@context':'https://schema.org','@type':'HowTo', name:'임신중절수술 예약 방법', description:'연세365산부인과의원 임신중절수술 예약부터 수술까지', step:[ {'@type':'HowToStep',position:1,name:'상담 예약',text:'전화(02-585-3650) 또는 카카오톡으로 예약합니다.'}, {'@type':'HowToStep',position:2,name:'내원 및 검사',text:'신분증 지참 후 내원. 초음파로 주수 확인 후 비용 안내.'}, {'@type':'HowToStep',position:3,name:'수술 및 귀가',text:'수면마취 후 10~30분 수술. 당일 귀가 가능.'} ], tool:{'@type':'HowToTool',name:'연세365산부인과의원'} }
-const speakableSchema = { '@context':'https://schema.org','@type':'WebPage', name:'임신중절수술 금액·합법기간·방법 안내', url:PAGE_URL, speakable:{'@type':'SpeakableSpecification',cssSelector:['h1','h2']} }
-const breadcrumbSchema = { '@context':'https://schema.org','@type':'BreadcrumbList', itemListElement:[ {'@type':'ListItem',position:1,name:'홈',item:'https://www.yeonsei365.com'}, {'@type':'ListItem',position:2,name:'임신중절클리닉',item:'https://www.yeonsei365.com/abortion'}, {'@type':'ListItem',position:3,name:'임신중절수술',item:PAGE_URL} ] }
+const articleSchema = { '@context':'https://schema.org','@type':'Article', headline:'임신초기 주수 확인과 수술 방법 선택 포인트', datePublished:PAGE_DATE, dateModified:PAGE_MODIFIED, image:'https://www.yeonsei365.com/og-image.jpg', author:{'@type':'Organization',name:'연세365산부인과의원',url:'https://www.yeonsei365.com'}, publisher:{'@type':'MedicalOrganization',name:'연세365산부인과의원',logo:{'@type':'ImageObject',url:'https://i.imgur.com/f7h5DY0.png'}}, mainEntityOfPage:{'@type':'WebPage','@id':PAGE_URL}, url:PAGE_URL }
+const medicalWebPageSchema = { '@context':'https://schema.org','@type':'MedicalWebPage', name:'임신초기 주수 확인과 수술 방법 선택 포인트', url:PAGE_URL, specialty:{'@type':'MedicalSpecialty',name:'산부인과'}, medicalAudience:{'@type':'MedicalAudience',audienceType:'여성 환자'}, about:{'@type':'MedicalCondition',name:'임신초기중절'} }
+const howToSchema = { '@context':'https://schema.org','@type':'HowTo', name:'임신초기 주수 확인 후 방법 상담', description:'초음파로 초기 주수를 확인하고 수술 방법 상담으로 이어지는 흐름', step:[ {'@type':'HowToStep',position:1,name:'초음파 주수 확인',text:'초음파로 임신 위치와 초기 주수를 확인합니다.'}, {'@type':'HowToStep',position:2,name:'방법 상담',text:'주수·상태에 따라 흡입술·소파술 등 초기 수술 방법 안내를 받습니다.'}, {'@type':'HowToStep',position:3,name:'세부 안내 확인',text:'전체·방법·시기 안내는 각 주제 페이지에서 확인합니다.'} ], tool:{'@type':'HowToTool',name:'연세365산부인과의원'} }
+const speakableSchema = { '@context':'https://schema.org','@type':'WebPage', name:'임신초기 주수 확인과 수술 방법 선택 포인트', url:PAGE_URL, speakable:{'@type':'SpeakableSpecification',cssSelector:['h1','h2']} }
+const breadcrumbSchema = { '@context':'https://schema.org','@type':'BreadcrumbList', itemListElement:[ {'@type':'ListItem',position:1,name:'홈',item:'https://www.yeonsei365.com'}, {'@type':'ListItem',position:2,name:'임신중절수술',item:'https://www.yeonsei365.com/abortion'}, {'@type':'ListItem',position:3,name:'임신초기 주수·방법',item:PAGE_URL} ] }
 
 const C = {
   p: '#CC2D5E', pd: '#8C1A4A', pp: '#4A0E2E',
@@ -113,7 +115,7 @@ export default function AbortionSurgeryClinicPage() {
         <div style={{ margin: '28px 0 0' }}>
           <img
             src="/og-image.jpg"
-            alt="임신중절수술 금액 45만원 연세365산부인과의원 낙태비용 임신중절비용"
+            alt="임신초기 주수 확인과 수술 방법 안내 연세365산부인과의원"
             width="780"
             height="410"
             style={{ width: '100%', borderRadius: '18px', display: 'block' }}
@@ -128,17 +130,19 @@ export default function AbortionSurgeryClinicPage() {
         }}>
           <div style={{ position: 'absolute', width: '200px', height: '200px', borderRadius: '50%', border: '1px solid rgba(255,255,255,0.06)', top: '-60px', left: '-40px', pointerEvents: 'none' }} />
           <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '16px' }}>
-            {['수술정보', '금액안내', '법적기준', '합법조건', '후관리'].map(t => (
+            {['임신초기', '주수 확인', '방법 선택', '초음파'].map(t => (
               <span key={t} style={{ background: 'rgba(255,255,255,0.18)', color: '#fff', fontSize: '11px', padding: '3px 12px', borderRadius: '20px' }}>{t}</span>
             ))}
           </div>
           <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '20px', flexWrap: 'wrap' }}>
             <div style={{ flex: 1, minWidth: '180px' }}>
               <h1 style={{ color: '#fff', fontSize: 'clamp(20px, 4vw, 26px)', fontWeight: 900, lineHeight: 1.45, margin: '0 0 12px' }}>
-                임신중절수술<br />금액·합법기간·방법 안내
+                임신초기 주수 확인과<br />수술 방법 선택 포인트
               </h1>
               <p style={{ color: 'rgba(255,255,255,0.88)', fontSize: 'clamp(12px, 3vw, 14px)', lineHeight: 1.8, margin: '0 0 16px' }}>
-                임신중절수술 금액, 합법 가능 기간과 조건, 흡입술·소파술 방법, 수술 절차, 수술 후 관리까지 연세365산부인과의원이 투명하게 안내합니다. · <ViewCounter slug="blog-abortion-surgery" />
+                초음파로 초기 주수를 확인한 뒤 흡입술·소파술 등 방법을 상담할 때 확인할 내용을 정리합니다. 전체 안내는{' '}
+                <Link href="/abortion" style={{ color: '#FFD700', fontWeight: 700 }}>임신중절수술 전체 안내</Link>
+                에서 확인하세요. · <ViewCounter slug="blog-abortion-surgery" />
               </p>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '7px' }}>
                 {['당일예약 가능', '여의사 상담', '1인실 운영', '카드·현금 동일', '비밀보장'].map(b => (
@@ -165,9 +169,9 @@ export default function AbortionSurgeryClinicPage() {
           <div style={{ fontSize: '11px', fontWeight: 700, color: C.tm2, marginBottom: '14px', letterSpacing: '0.5px' }}>목차</div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '8px' }}>
             {[
-              ['1', '임신중절수술 뜻과 정의'],
-              ['2', '주수별 금액 투명 공개'],
-              ['3', '합법 기간과 합법 조건'],
+              ['1', '초기 주수 확인이 중요한 이유'],
+              ['2', '금액 요약과 비용 안내'],
+              ['3', '합법·시기 요약'],
               ['4', '흡입술 vs 소파술 비교'],
               ['5', '시술 절차와 준비사항'],
               ['6', '수술 후 관리와 부작용'],
@@ -182,24 +186,28 @@ export default function AbortionSurgeryClinicPage() {
           </div>
         </div>
 
-        {/* 섹션 1 — 뜻과 정의 */}
+        {/* 섹션 1 — 초기 주수·방법 */}
         <section style={{ marginBottom: '36px' }}>
-          <SH n="1" title="임신중절수술이란? 뜻과 정의" />
+          <SH n="1" title="초기 주수 확인이 중요한 이유" />
           <p style={baseText}>
-            임신중절수술이란 임신된 태아를 자궁 밖으로 제거하는 의료 시술로, 정식 의학 명칭은 <strong>인공임신중절수술(人工姙娠中絶手術)</strong>입니다. 흔히 낙태수술이라고도 불리며, 약물 또는 수술적 방법으로 자궁 내 임신 조직을 안전하게 제거합니다.
+            임신초기에는 초음파로 임신 위치와 주수를 먼저 확인해야 방법 안내가 정확해집니다. 테스트기 양성만으로는 주수를 확정하기 어렵고, 같은 초기라도 주수에 따라 흡입술·소파술 안내가 달라질 수 있습니다.
           </p>
           <p style={baseText}>
-            연세365산부인과의원에서는 임신 주수와 환자 상태를 정밀하게 확인한 후 <strong>흡입술(진공흡입법)</strong> 또는 <strong>소파술(자궁소파술)</strong> 방식으로 수면마취 하에 안전하게 시행합니다. 임신 주수가 짧을수록 시술이 간단하고 회복이 빠르므로, 임신 사실을 확인하셨다면 가능한 빨리 전문의와 상담하시는 것을 권장합니다.
+            연세365산부인과의원에서는 주수·상태를 확인한 뒤 <strong>흡입술(진공흡입법)</strong> 또는 <strong>소파술(자궁소파술)</strong> 등 수술적 방법만 상담합니다. 방법·종류 상세는{' '}
+            <Link href="/abortion/method" style={{ color: C.p, fontWeight: 700 }}>수술 방법 안내</Link>
+            에서, 기간·주수 상세는{' '}
+            <Link href="/blog/abortion-period" style={{ color: C.p, fontWeight: 700 }}>시기·주수 안내</Link>
+            에서 확인하세요.
           </p>
           <p style={baseText}>
-            모든 시술은 산부인과 전문의가 직접 시행하며, 1인 프라이빗 회복실에서 충분한 안정을 취한 후 당일 귀가가 가능합니다. 상담부터 시술, 사후 관리까지 모든 과정은 철저히 비밀이 보장됩니다.
+            금액·합법·전체 절차를 한 번에 정리한 종합 안내는 임신중절수술 전체 안내를 참고하시면 됩니다. 이 글은 초기 주수 확인과 방법 선택 포인트에 집중합니다.
           </p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(160px, 1fr))', gap: '12px', marginTop: '20px' }}>
             {[
               { t: '당일 시술 가능', b: '8주 이내 기준 15분 내외 시술. 1~2시간 안정 후 당일 귀가 가능합니다.' },
               { t: '수면마취 진행', b: '통증 없이 수면마취 상태에서 진행. 시술 중 의식이 없어 공포감 없습니다.' },
               { t: '빠른 회복', b: '2~3일 내 일상 복귀 가능. 생리는 4~6주 내 재개됩니다.' },
-              { t: '완벽한 비밀보장', b: '모든 상담과 진료는 의료법에 따라 1:1 비밀이 보장됩니다.' },
+              { t: '개인정보 보호', b: '모든 상담과 진료는 의료법에 따라 1:1 비밀이 보장됩니다.' },
             ].map(c => (
               <div key={c.t} style={{ background: '#fff', border: `1px solid ${C.bd}`, borderRadius: '14px', padding: '16px' }}>
                 <div style={{ fontSize: '14px', fontWeight: 700, color: C.tm, marginBottom: '7px' }}>{c.t}</div>
@@ -213,12 +221,11 @@ export default function AbortionSurgeryClinicPage() {
 
         {/* 섹션 2 — 금액 */}
         <section style={{ marginBottom: '36px' }}>
-          <SH n="2" title="임신중절수술 금액 — 주수별 투명 공개" />
+          <SH n="2" title="금액 요약 — 자세한 비용 안내" />
           <p style={baseText}>
-            연세365산부인과의원은 임신중절수술 금액을 명확하게 공개합니다. <strong>카드·현금 동일가</strong>이며 상담 후 추가 비용이 발생하지 않습니다. 아래 금액에는 수술비·마취비·영양제·1인 회복실·부가세가 모두 포함된 최종 금액입니다.
-          </p>
-          <p style={baseText}>
-            임신중절수술 금액은 임신 주수에 따라 달라집니다. 주수가 늘어날수록 태아의 크기가 커지고 수술 난이도와 소요 시간이 증가하기 때문입니다. 정확한 주수는 내원 후 초음파 검사로 확인합니다. 마지막 생리일 기준 계산과 실제 초음파 주수가 다를 수 있으므로 내원 전 전화 상담을 권장합니다.
+            초기 주수일수록 안내 금액이 달라질 수 있습니다. 연세365 기준 요약은 8주 미만 45만원부터이며, 포함 항목·최종액 상세는{' '}
+            <Link href="/abortion/cost" style={{ color: C.p, fontWeight: 700 }}>비용·금액 안내</Link>
+            에서 확인하세요. 정확한 주수는 초음파 확인 후 안내됩니다.
           </p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))', gap: '10px', marginBottom: '20px' }}>
             {[
@@ -273,23 +280,21 @@ export default function AbortionSurgeryClinicPage() {
 
         {/* 섹션 3 — 합법 기간 + 합법 조건 */}
         <section style={{ marginBottom: '36px' }}>
-          <SH n="3" title="임신중절수술 합법 기간과 합법 조건" />
+          <SH n="3" title="합법·시기 요약" />
           <p style={baseText}>
-            2021년 1월 1일부터 낙태죄(형법 제269조·제270조)가 효력을 잃었습니다. 헌법재판소는 2019년 낙태죄에 대해 헌법불합치 결정을 내렸고, 국회가 법을 개정하지 않은 채 시한이 지나 해당 조항이 실효되었습니다. 이에 따라 현재 <strong>임신 14주 이내 인공임신중절수술은 법적으로 처벌받지 않습니다.</strong>
+            법률 적용은 주수와 상황에 따라 달라질 수 있어 검사·상담으로 확인해야 합니다. 합법·법률 상세는{' '}
+            <Link href="/abortion/legal" style={{ color: C.p, fontWeight: 700 }}>합법·법률 안내</Link>
+            에서 확인하세요. 아래는 이해를 돕는 요약입니다.
           </p>
           <p style={baseText}>
-            모자보건법 제14조에 따르면 아래 조건에 해당하는 경우 임신 24주 이내에도 합법적으로 임신중절수술을 받을 수 있습니다.
+            모자보건법 등 관련 기준에 따라 조건부 적용이 달라질 수 있으며, 구체적인 가능 여부는 의료진 상담을 통해 확인합니다.
           </p>
           <LBox>
-            <p style={{ margin: '0 0 10px', fontWeight: 700 }}>14주 이내 — 자유 시술 가능 (본인 동의만으로 가능)</p>
-            <p style={{ margin: '0 0 6px' }}>14주~24주 — 아래 조건 중 하나 해당 시 가능:</p>
-            <p style={{ margin: '0 0 6px', paddingLeft: '12px' }}>① 본인 또는 배우자가 유전학적 정신장애·신체질환이 있는 경우</p>
-            <p style={{ margin: '0 0 6px', paddingLeft: '12px' }}>② 본인 또는 배우자가 전염성 질환이 있는 경우</p>
-            <p style={{ margin: '0 0 6px', paddingLeft: '12px' }}>③ 강간 또는 준강간에 의하여 임신된 경우</p>
-            <p style={{ margin: '0 0 6px', paddingLeft: '12px' }}>④ 법률상 혼인할 수 없는 혈족·인척 간에 임신된 경우</p>
-            <p style={{ margin: '0', paddingLeft: '12px' }}>⑤ 임신 지속이 모체 건강을 심각하게 해치거나 해칠 우려가 있는 경우</p>
+            <p style={{ margin: '0 0 10px', fontWeight: 700 }}>초기 주수 — 검사·상담 후 가능 여부 확인</p>
+            <p style={{ margin: '0 0 6px' }}>중기 주수 — 사유·건강 상태 확인이 필요할 수 있음</p>
+            <p style={{ margin: '0' }}>세부 기준·서류·동의 요건은 합법·법률 안내와 내원 상담에서 확인하세요.</p>
           </LBox>
-          <WBox>⚠ 시술 전 본인 확인 및 동의서 필수. 미성년자(만 19세 미만)는 법정대리인 동의가 필요할 수 있으나 당사자가 원치 않는 경우 개별 상담으로 판단합니다. 모든 상담 내용은 철저히 비밀이 보장됩니다.</WBox>
+          <WBox>⚠ 시술 전 본인 확인 및 동의서 등 준비사항은 예약·상담 안내를 따르세요. 미성년자 동의 요건은 개별 상황에 따라 달라질 수 있습니다. 상담 내용은 비밀이 보장됩니다.</WBox>
           <div style={{ overflowX: 'auto', WebkitOverflowScrolling: 'touch' }}>
             <div style={{ border: `1px solid ${C.bd}`, borderRadius: '12px', overflow: 'hidden', minWidth: '380px', marginTop: '12px' }}>
               <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '14px' }}>
@@ -302,9 +307,9 @@ export default function AbortionSurgeryClinicPage() {
                 </thead>
                 <tbody>
                   {[
-                    ['~14주', '자유 시술 가능', '본인 동의서', '가장 안전한 시기'],
-                    ['14~24주', '조건부 가능', '모자보건법 사유', '전문의 상담 필수'],
-                    ['24주 이후', '극히 제한적', '모체 생명 위협', '상급병원 의뢰'],
+                    ['초기 주수', '상담·검사 후 확인', '동의·서류 안내', '초음파 주수 우선'],
+                    ['중기 주수', '상황별 확인', '관련 기준·상담', '전문의 상담 필수'],
+                    ['후기 주수', '매우 제한적', '응급·의뢰 기준', '상급병원 의뢰 가능'],
                   ].map((row, i) => (
                     <tr key={i} style={{ borderTop: `1px solid ${C.bd}` }}>
                       <td style={{ padding: '12px 14px', color: C.tm, fontWeight: 600, whiteSpace: 'nowrap' }}>{row[0]}</td>
@@ -488,7 +493,7 @@ export default function AbortionSurgeryClinicPage() {
           <SH n="8" title="자주 묻는 질문 (FAQ)" />
           {[
             { q: '임신중절수술 금액이 얼마인가요?', a: '8주 미만 45만원, 8주 60만원, 9주 70만원, 10주 80만원입니다. 수술비·마취비·영양제·1인 회복실·부가세가 모두 포함된 최종 금액이며, 카드·현금 동일가입니다.' },
-            { q: '임신중절수술 합법 기간과 조건은 무엇인가요?', a: '2021년 낙태죄 실효 이후 14주 이내는 본인 동의만으로 가능합니다. 모자보건법 제14조에 따라 유전질환·전염성질환·강간임신·근친임신·모체건강위협 등 조건 해당 시 14~24주도 가능합니다.' },
+            { q: '임신중절수술 합법 기간과 조건은 무엇인가요?', a: '법률 적용은 주수와 상황에 따라 달라질 수 있어 검사·상담으로 확인해야 합니다. 합법·법률 상세는 합법·법률 안내(/abortion/legal)에서 확인하세요.' },
             { q: '혼자 내원해도 되나요?', a: '수술 자체는 혼자도 가능합니다. 다만 수면마취 후에는 운전이 불가하오니 대중교통 이용 또는 동행인과 함께 오시는 것을 강력히 권장합니다.' },
             { q: '임신중절수술 후 관리는 어떻게 하나요?', a: '2주간 성관계·격렬한 운동·음주·탕목욕을 삼가고 처방약을 규칙적으로 복용하세요. 38도 이상 고열, 과다출혈, 악취 분비물 발생 시 즉시 내원하세요.' },
             { q: '임신중절수술 부작용이 있나요?', a: '전문의가 안전하게 시행할 경우 부작용이 드뭅니다. 출혈·감염·자궁 손상 등의 위험이 있으나 적절한 사후관리로 예방 가능합니다. 이상 증상 시 즉시 내원하세요.' },
@@ -562,7 +567,7 @@ export default function AbortionSurgeryClinicPage() {
         </div>
 
         <div style={{ textAlign: 'center', marginTop: '28px' }}>
-          <Link href="/abortion" style={{ fontSize: '14px', color: C.pt, textDecoration: 'none' }}>← 임신중절클리닉으로</Link>
+          <span style={{ fontSize: '14px', color: C.pt }}>← 임신중절클리닉으로</span>
         </div>
       </div>
     </>

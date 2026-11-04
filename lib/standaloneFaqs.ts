@@ -566,8 +566,8 @@ export const STANDALONE_FAQS: StandaloneFaq[] = [
   {
     slug: 'parents-privacy',
     q: '부모 몰래 중절수술 가능한가요?',
-    a: '성인의 경우 본인 동의만으로 수술이 가능하며 개인정보는 법적으로 보호됩니다. 미성년자는 법정대리인 동의가 필요할 수 있으니 상담 시 개별 확인이 필요합니다.',
-    aiSummary: '성인은 본인 동의만으로 가능합니다. 미성년자는 개별 확인이 필요합니다.',
+    a: '성인의 경우 본인 동의가 원칙이며 개인정보는 의료법에 따라 보호됩니다. 미성년자는 법정대리인 동의가 필요할 수 있으니 상담 시 개별 확인이 필요합니다.',
+    aiSummary: '성인은 본인 동의가 원칙입니다. 미성년자는 개별 확인이 필요합니다.',
     tags: ['부모몰래', '비밀보장', '성인'],
     related: ['medical-record-privacy', 'alone-visit'],
     intent: 'privacy',
@@ -592,8 +592,8 @@ export const STANDALONE_FAQS: StandaloneFaq[] = [
   {
     slug: 'companion-needed',
     q: '보호자 없이 수면마취 수술 가능한가요?',
-    a: '법적으로 성인 본인 동의만 있으면 됩니다. 다만 수면마취 후 귀가 안전을 위해 보호자 동반이나 대중교통 이용을 권장합니다.',
-    aiSummary: '법적으로 본인 동의만으로 가능하지만 귀가 안전을 위해 동반이 권장됩니다.',
+    a: '성인은 본인 동의가 원칙입니다. 다만 수면마취 후 귀가 안전을 위해 보호자 동반이나 대중교통 이용을 권장합니다.',
+    aiSummary: '본인 동의가 원칙이며 귀가 안전을 위해 동반이 권장됩니다.',
     tags: ['보호자', '수면마취'],
     related: ['alone-visit', 'driving-after-surgery'],
     intent: 'informational',
@@ -644,8 +644,8 @@ export const STANDALONE_FAQS: StandaloneFaq[] = [
   {
     slug: 'boyfriend-consent-needed',
     q: '남자친구 동의 없이 혼자 결정해도 법적으로 문제없나요?',
-    a: '미혼 여성의 경우 법적으로 본인 동의만으로 임신중절이 가능합니다. 파트너의 동의는 법적 요건이 아닙니다.',
-    aiSummary: '미혼 여성은 본인 동의만으로 가능합니다. 파트너 동의는 법적 요건이 아닙니다.',
+    a: '미혼 여성의 경우 본인 동의가 원칙이며, 파트너 동의가 필요한지는 개별 상황에 따라 상담에서 확인합니다.',
+    aiSummary: '미혼 여성은 본인 동의가 원칙이며 파트너 동의 필요 여부는 상담에서 확인합니다.',
     tags: ['남자친구동의', '법적권리', '혼자결정'],
     related: ['alone-visit', 'parents-privacy'],
     intent: 'privacy',
@@ -952,7 +952,7 @@ export const STANDALONE_FAQS: StandaloneFaq[] = [
   {
     slug: 'parents-find-out',
     q: '엄마 몰래 가능해요?',
-    a: '성인이라면 보호자 동의 없이 혼자 수술받을 수 있으며 병원에서 가족에게 연락하는 일은 절대 없습니다. 의료법 제19조에 따라 환자 정보는 본인 동의 없이 어떤 경우에도 외부에 공개되지 않습니다.',
+    a: '성인이라면 본인 동의가 원칙이며 동행 필요 여부는 마취 방식과 개인 상태에 따라 달라질 수 있습니다. 병원은 환자 동의 없이 가족에게 진료 사실을 알리지 않습니다. 의료법 제19조에 따라 환자 정보는 본인 동의 없이 어떤 경우에도 외부에 공개되지 않습니다.',
     aiSummary: '성인은 보호자 동의 없이 수술 가능하며 가족에게 알리지 않습니다.',
     tags: ['엄마몰래', '부모몰래', '비밀'],
     related: ['parents-privacy', 'alone-visit'],
@@ -978,8 +978,8 @@ export const STANDALONE_FAQS: StandaloneFaq[] = [
   {
     slug: 'boyfriend-knows-abortion',
     q: '남자친구한테 수술 사실 안 알려도 되나요?',
-    a: '법적으로 미혼 여성은 본인 동의만으로 수술이 가능하며 파트너에게 알릴 의무가 전혀 없습니다. 의료진도 환자 동의 없이는 어떤 제3자에게도 진료 사실을 알릴 수 없어 완전한 비밀이 보장됩니다.',
-    aiSummary: '미혼 여성은 파트너에게 알릴 법적 의무가 없으며 완전한 비밀이 보장됩니다.',
+    a: '미혼 여성은 본인 동의가 원칙이며 파트너 동의가 필요한지는 개별 상황에 따라 상담에서 확인합니다. 의료진도 환자 동의 없이는 어떤 제3자에게도 진료 사실을 알릴 수 없어 진료 정보는 의료법에 따라 보호됩니다.',
+    aiSummary: '미혼 여성의 파트너 동의 필요 여부는 상담에서 확인하며 진료 정보는 의료법에 따라 보호됩니다.',
     tags: ['남자친구', '비밀보장', '동의'],
     related: ['boyfriend-consent-needed', 'alone-visit'],
     intent: 'privacy',

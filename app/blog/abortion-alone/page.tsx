@@ -1,10 +1,11 @@
 import type { Metadata } from 'next'
+import Link from 'next/link'
 import { clinicSchema } from '@/lib/schemas'
 import ViewCounter from '@/components/ViewCounter'
 
 export const metadata: Metadata = {
-  title: '임신중절수술 혼자 가도 되나요? 보호자 없이 가능한지 총정리 2026 | 연세365산부인과의원',
-  description: '임신중절수술 혼자 가도 될까요? 보호자 동반 여부, 혼자 내원 시 주의사항, 당일 귀가 가능 여부까지 사당역 연세365산부인과의원의가 솔직하게 알려드립니다.',
+  title: '임신중절수술 혼자 가도 되나요? 보호자·귀가 안내 | 연세365산부인과의원',
+  description: '임신중절수술 혼자 가도 될까요? 보호자 동반 여부, 혼자 내원 시 주의사항, 당일 귀가 가능 여부까지 사당역 연세365산부인과의원이 솔직하게 알려드립니다.',
   keywords: [
     '임신중절수술혼자', '임신중절수술보호자없이', '낙태혼자가능',
     '임신중절혼자', '낙태수술혼자', '임신중절수술보호자',
@@ -13,15 +14,15 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: 'https://www.yeonsei365.com/blog/abortion-alone' },
   openGraph: {
-    title: '임신중절수술 혼자 가도 되나요? 보호자 없이 가능한지 총정리',
-    description: '임신중절수술 혼자 가도 될까요? 보호자 동반 여부와 당일 귀가 가능 여부까지 총정리.',
+    title: '임신중절수술 혼자 가도 되나요? 보호자·귀가 안내',
+    description: '임신중절수술 혼자 가도 될까요? 보호자 동반 여부와 당일 귀가 가능 여부 안내.',
     url: 'https://www.yeonsei365.com/blog/abortion-alone',
     images: [{ url: 'https://www.yeonsei365.com/og-image.jpg', width: 1200, height: 630 }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: '임신중절수술 혼자 가도 되나요? 보호자 없이 가능한지 총정리 2026 | 연세365산부인과의원',
-    description: '임신중절수술 혼자 가도 될까요? 보호자 동반 여부, 혼자 내원 시 주의사항, 당일 귀가 가능 여부까지 사당역 연세365산부인과의원의가 솔직하게 알려드립니다.',
+    title: '임신중절수술 혼자 가도 되나요? 보호자·귀가 안내 | 연세365산부인과의원',
+    description: '임신중절수술 혼자 가도 될까요? 보호자 동반 여부, 혼자 내원 시 주의사항, 당일 귀가 가능 여부까지 사당역 연세365산부인과의원이 솔직하게 알려드립니다.',
   },
 }
 
@@ -31,7 +32,7 @@ const PAGE_MODIFIED = '2026-05-22'
 
 const articleSchema = {
   '@context': 'https://schema.org', '@type': 'Article',
-  headline: '임신중절수술 혼자 가도 되나요? 보호자 없이 가능한지 총정리 2026',
+  headline: '임신중절수술 혼자 가도 되나요? 보호자·귀가 안내',
   datePublished: PAGE_DATE, dateModified: PAGE_MODIFIED,
   image: 'https://www.yeonsei365.com/og-image.jpg',
   author: { '@type': 'Organization', name: '연세365산부인과의원', url: 'https://www.yeonsei365.com' },
@@ -40,7 +41,7 @@ const articleSchema = {
 }
 const medicalWebPageSchema = {
   '@context': 'https://schema.org', '@type': 'MedicalWebPage',
-  name: '임신중절수술 혼자 가도 되나요? 보호자 없이 가능한지 총정리 2026',
+  name: '임신중절수술 혼자 가도 되나요? 보호자·귀가 안내',
   url: PAGE_URL,
   specialty: { '@type': 'MedicalSpecialty', name: '산부인과' },
   medicalAudience: { '@type': 'MedicalAudience', audienceType: '여성 환자' },
@@ -59,7 +60,7 @@ const howToSchema = {
 }
 const speakableSchema = {
   '@context': 'https://schema.org', '@type': 'WebPage',
-  name: '임신중절수술 혼자 가도 되나요? 보호자 없이 가능한지 총정리 2026',
+  name: '임신중절수술 혼자 가도 되나요? 보호자·귀가 안내',
   url: PAGE_URL,
   speakable: { '@type': 'SpeakableSpecification', cssSelector: ['h1', 'h2'] },
 }
@@ -117,7 +118,7 @@ const faqData = [
   },
   {
     q: '주변에 알리지 않고 비밀로 수술받을 수 있나요?',
-    a: `네, 완전히 비밀이 보장됩니다. 연세365산부인과의원은 환자분의 프라이버시 보호를 가장 중요하게 생각합니다.
+    a: `네, 진료 정보는 의료법에 따라 보호됩니다. 연세365산부인과의원은 환자분의 프라이버시 보호를 가장 중요하게 생각합니다.
 
 의료법에 따라 모든 진료 기록과 상담 내용은 본인의 동의 없이는 가족, 배우자, 직장, 보험사 등 어떠한 제3자에게도 절대 공개되지 않습니다. 건강보험 적용이 되지 않는 비급여 항목이기 때문에 실손보험 청구나 직장 건강검진 기록에도 남지 않습니다.
 
@@ -163,7 +164,7 @@ export default function AbortionAlonePage() {
             <h1 className="text-xl md:text-4xl font-bold text-white leading-snug md:leading-tight font-serif drop-shadow-lg">
               임신중절수술<br className="md:hidden" /> 혼자 가도 되나요?<br />
               <span className="text-pink-200 text-lg md:text-3xl font-medium">
-                보호자 없이 가능한지 총정리
+                보호자·귀가 안내
               </span>
             </h1>
           </div>
@@ -346,6 +347,13 @@ export default function AbortionAlonePage() {
               궁금한 점이 있으시다면 내원 전 카카오톡 또는 전화로
               먼저 상담을 받아보세요. 모든 상담 내용은 철저히 비밀이
               보장되며, 부담 없이 질문하실 수 있습니다.
+            </p>
+            <p className="text-[15px] md:text-base text-gray-700 leading-[1.95] md:leading-[2.0]">
+              혼자 내원 전 주수·방법·회복 흐름을 한곳에 보고 싶다면{' '}
+              <Link href="/abortion" className="text-primary font-bold underline underline-offset-2">
+                임신중절수술
+              </Link>
+              {' '}종합 안내를 함께 참고해 주세요.
             </p>
           </div>
 

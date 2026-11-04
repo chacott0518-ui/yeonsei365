@@ -104,7 +104,7 @@ export default function MethodClient() {
             </div>
             <h1 style={{ color: '#fff', fontSize: '38px', fontWeight: 900, lineHeight: 1.25, letterSpacing: '-.03em', marginBottom: '16px' }}>
               임신중절수술 방법과 종류는<br />어떻게 결정될까요?
-              <span style={{ display: 'block', fontSize: '20px', fontWeight: 700, opacity: .88, marginTop: '8px' }}>흡입술·소파술·주수별 선택 기준 완전 안내</span>
+              <span style={{ display: 'block', fontSize: '20px', fontWeight: 700, opacity: .88, marginTop: '8px' }}>흡입술·소파술·주수별 선택 기준 안내</span>
             </h1>
             <p style={{ color: 'rgba(255,255,255,.9)', fontSize: '14px', lineHeight: 1.95, marginBottom: '22px', letterSpacing: '-.01em' }}>
               임신 주수와 자궁 상태에 따라 가장 적합한 수술 방법을 선택합니다.<br />
@@ -137,7 +137,7 @@ export default function MethodClient() {
             <SectionTag>01 먼저 확인할 내용</SectionTag>
             <h2 style={{ fontSize: '24px', fontWeight: 900, color: C.tm, marginBottom: '8px', letterSpacing: '-.02em' }}>임신중절수술 방법은 어떤 기준으로 선택하나요?</h2>
             <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '14px' }}>
-              임신중절수술 방법은 임신 주수, 초음파 검사에서 확인한 자궁 상태, 개인 건강 조건을 종합하여 전문의가 결정합니다. 연세365산부인과의원은 수술 전 정밀 초음파 검사를 진행하고, 흡입술과 소파술 중 적합한 방법을 안내합니다. 약물중절은 연세365산부인과의원에서 시행하지 않습니다.
+              임신중절수술 방법·낙태수술 방법(인공임신중절의 수술적 방법)은 임신 주수, 초음파 검사에서 확인한 자궁 상태, 개인 건강 조건을 종합하여 전문의가 안내합니다. 연세365산부인과의원은 수술 전 정밀 초음파 검사를 진행하고, 흡입술과 소파술 중 적합한 방법을 상담합니다. 약물중절은 연세365산부인과의원에서 시행하지 않습니다.
             </p>
             <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '14px' }}>
               임신 8주 이내에는 흡입술이 권장되며, 8주 이상에서는 소파술이 일반적으로 적용됩니다. 정확한 임신 주수는 마지막 월경일과 초음파 검사 결과를 함께 확인해야 합니다. 초음파 전에는 수술 방법과 비용을 확정하기 어려우므로, 내원 후 검사 결과를 바탕으로 안내드립니다.

@@ -146,10 +146,10 @@ export default function ReviewClient() {
               </div>
             </div>
             <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '14px' }}>
-              임신중절수술 후기는 병원을 선택할 때 참고 자료가 됩니다. 연세365산부인과의원을 방문하신 분들의 공통적인 후기는 <strong style={{ color: C.p }}>따뜻한 상담, 빠른 수술, 비밀보장 철저, 추가 비용 없음</strong>입니다.
+              임신중절수술 후기는 병원을 선택할 때 참고 자료가 됩니다. 연세365산부인과의원을 방문하신 분들의 공통적인 후기는 <strong style={{ color: C.p }}>따뜻한 상담, 빠른 수술, 개인정보 보호, 비용 구성 안내</strong>입니다.
             </p>
             <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '20px' }}>
-              낙태수술 후기를 보실 때는 병원의 전문성, 비밀보장 여부, 낙태 비용 가격의 투명성을 함께 확인하시는 것이 좋습니다. 연세365산부인과의원은 임신중절수술 금액을 사전에 투명하게 공개하며, 상담 시 안내된 금액 외 추가 비용은 절대 없습니다.
+              낙태수술 후기를 보실 때는 병원의 전문성, 개인정보 보호, 비용 안내의 투명성을 함께 확인하시는 것이 좋습니다. 연세365산부인과의원은 임신중절수술 금액을 사전에 안내하며, 검사나 추가 처치가 필요한 경우 최종 비용은 진료 후 달라질 수 있습니다. (기준일 2026.11)
             </p>
 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: '16px', marginBottom: '24px' }}>

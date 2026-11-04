@@ -3,13 +3,11 @@
 export const NAV_LINKS = [
   { id: 'about', label: '병원소개', href: '/about' },
   { id: 'clinics', label: '여성검진클리닉' },
-  { id: 'abortion-clinic', label: '임신중절클리닉', href: '/abortion' },
-  { id: 'pregnancy-calc', label: '임신주수계산기', href: '/pregnancy-calculator', highlight: false },
-  { id: 'abortion-surgery', label: '임신중절수술', href: '/abortion', highlight: true },
+  { id: 'abortion-clinic', label: '임신중절수술', href: '/abortion' },
+  { id: 'abortion-surgery', label: '수술 전후 안내', href: '/abortion/recovery', highlight: true },
   { id: 'price', label: '낙태 비용 가격', href: '/blog/abortion-price', highlight: true },
-  { id: 'review', label: '수술후기·사례', href: '/abortion/review' },
-  { id: 'faq', label: '건강매거진', href: '/health-magazine' },
-  { id: 'health-hub', label: 'AI 건강 Q&A', href: '/health-hub' },
+  { id: 'faq', label: '여성건강 칼럼', href: '/health-magazine' },
+  { id: 'health-hub', label: '건강정보 허브', href: '/health-hub' },
   { id: 'location', label: '상담예약', highlight: true },
 ]
 

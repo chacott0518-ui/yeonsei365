@@ -23,7 +23,6 @@ export const CLINIC_ADDRESS = {
   streetAddress: '과천대로 939, 3층',
   addressLocality: '관악구',
   addressRegion: '서울특별시',
-  postalCode: '08790',
   addressCountry: 'KR',
 }
 
@@ -31,6 +30,7 @@ export const CLINIC_ADDRESS = {
 export const clinicSchema = {
   '@context': 'https://schema.org',
   '@type': 'MedicalClinic',
+  '@id': `${BASE_URL}/#organization`,
   name: CLINIC_NAME,
   alternateName: [...CLINIC_ALTERNATE_NAMES],
   url: BASE_URL,
@@ -38,7 +38,7 @@ export const clinicSchema = {
   image: 'https://i.imgur.com/f7h5DY0.png',
   description: '사당역 4번 출구 도보 3분. 연중무휴·일요일 수술 가능. 임신중절수술·여성클리닉 전문. 비밀보장.',
   address: CLINIC_ADDRESS,
-  geo: { '@type': 'GeoCoordinates', latitude: 37.4875, longitude: 126.9822 },
+  geo: { '@type': 'GeoCoordinates', latitude: 37.4769, longitude: 126.9819 },
   openingHoursSpecification: [
     {
       '@type': 'OpeningHoursSpecification',
@@ -60,13 +60,12 @@ export const clinicSchema = {
     },
   ],
   medicalSpecialty: '산부인과',
-  hasMap: 'https://naver.me/x9TDR8bU',
+  hasMap: 'https://map.naver.com/v5/search/연세365산부인과',
   contactPoint: {
     '@type': 'ContactPoint',
     telephone: CLINIC_PHONE,
     contactType: 'customer service',
     availableLanguage: ['Korean'],
-    contactOption: 'TollFree',
   },
   employee: {
     '@type': 'Physician',
@@ -105,12 +104,14 @@ export function createArticleSchema(options: {
     dateModified: options.dateModified ?? options.datePublished,
     image: options.image ?? `${BASE_URL}/og-image.jpg`,
     author: {
-      '@type': 'Organization',
+      '@type': 'MedicalOrganization',
+      '@id': `${BASE_URL}/#organization`,
       name: CLINIC_NAME,
       url: BASE_URL,
     },
     publisher: {
       '@type': 'MedicalOrganization',
+      '@id': `${BASE_URL}/#organization`,
       name: CLINIC_NAME,
       logo: { '@type': 'ImageObject', url: 'https://i.imgur.com/f7h5DY0.png' },
     },
@@ -160,6 +161,7 @@ export function createMedicalWebPageSchema(options: {
     },
     publisher: {
       '@type': 'MedicalOrganization',
+      '@id': `${BASE_URL}/#organization`,
       name: CLINIC_NAME,
       url: BASE_URL,
     },

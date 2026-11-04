@@ -154,10 +154,12 @@ export default function RecoveryClient() {
               </div>
             </div>
             <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '14px' }}>
-              임신중절수술 후 회복 기간은 개인차가 있지만 일반적으로 수술 다음 날부터 가벼운 일상생활이 가능합니다. 낙태 수술 후 관리를 잘 하면 빠른 회복이 가능합니다. 연세365산부인과의원은 수술 당일부터 4주까지 단계별 주의사항과 가능한 활동 범위를 상세히 안내합니다.
+              낙태수술 후 회복기간·몸조리는 개인차가 있지만 일반적으로 수술 다음 날부터 가벼운 일상생활이 가능한 경우가 많습니다. 연세365산부인과의원은 수술 당일부터 4주까지 단계별 주의사항과 가능한 활동 범위를 안내합니다. 낙태수술 부작용이 의심되면 즉시 의료기관에 문의하세요.
             </p>
             <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '20px' }}>
-              임신중절수술 후 생리는 보통 4~6주 안에 재개됩니다. 첫 생리는 평소보다 양이 많거나 통증이 강할 수 있으며, 이는 자궁 내막이 새롭게 형성되는 자연스러운 과정입니다. 8주가 지나도 생리가 없다면 내원하여 검진을 받으시기 바랍니다.
+              임신중절수술 후 생리는 보통 4~6주 안에 재개됩니다. 첫 생리는 평소보다 양이 많거나 통증이 강할 수 있으며, 이는 자궁 내막이 새롭게 형성되는 자연스러운 과정입니다. 8주가 지나도 생리가 없다면 내원하여 검진을 받으시기 바랍니다. 생리 재개 세부 안내는{' '}
+              <Link href="/blog/abortion-menstruation" style={{ color: C.p, fontWeight: 700, textDecoration: 'underline' }}>수술 후 생리 안내</Link>
+              에서도 확인할 수 있습니다.
             </p>
 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(4,1fr)', gap: '12px', marginBottom: '24px' }}>
@@ -329,8 +331,9 @@ export default function RecoveryClient() {
             <div style={{ marginTop: '16px' }}>
               <div style={{ fontSize: '13px', fontWeight: 700, color: C.tm, marginBottom: '10px' }}>관련 내용 더 보기</div>
               <div style={{ display: 'flex', flexDirection: 'column', gap: '6px' }}>
-                <Link href="/abortion/surgery" style={{ color: C.p, textDecoration: 'none', fontSize: '13px' }}>→ 임신중절수술 당일 절차와 회복 과정</Link>
-                <Link href="/abortion/info" style={{ color: C.p, textDecoration: 'none', fontSize: '13px' }}>→ 임신중절수술 준비사항 안내</Link>
+                <Link href="/blog/abortion-menstruation" style={{ color: C.p, textDecoration: 'none', fontSize: '13px' }}>→ 임신중절수술 후 생리 안내</Link>
+                <Link href="/blog/abortion-side" style={{ color: C.p, textDecoration: 'none', fontSize: '13px' }}>→ 부작용·주의 증상 안내</Link>
+                <Link href="/abortion/info" style={{ color: C.p, textDecoration: 'none', fontSize: '13px' }}>→ 준비·보호자 안내</Link>
                 <Link href="/abortion/faq" style={{ color: C.p, textDecoration: 'none', fontSize: '13px' }}>→ 전체 {FAQ_COUNT}개 FAQ 보기</Link>
               </div>
             </div>

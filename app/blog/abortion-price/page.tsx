@@ -44,7 +44,7 @@ export const metadata: Metadata = {
     title: '낙태 비용 가격 총정리 2026 | 연세365산부인과의원',
     description: '낙태 비용 가격 주수별 투명 공개. 8주 미만 45만원. 사당역 4번 출구.',
     url: 'https://www.yeonsei365.com/blog/abortion-price',
-    images: [{ url: 'https://www.yeonsei365.com/og', width: 1200, height: 630 }],
+    images: [{ url: 'https://www.yeonsei365.com/images/abortion/hero-abortion-price.webp', width: 1254, height: 1254, alt: '낙태 비용 가격과 임신중절수술 비용 안내' }],
   },
   alternates: {
     canonical: 'https://www.yeonsei365.com/blog/abortion-price',
@@ -53,14 +53,17 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: '낙태 비용 가격 총정리 2026 | 주수별 가격 완벽 공개 | 연세365산부인과의원',
     description: '낙태 비용 가격을 주수별로 투명하게 공개합니다. 8주 미만 45만원부터 시작. 숨겨진 추가 비용 없이 영양제·회복실 포함. 사당역 4번 출구 연세365산부인과의원.',
+    images: ['https://www.yeonsei365.com/images/abortion/hero-abortion-price.webp'],
   },
 }
 
+const PRICE_IMAGE = 'https://www.yeonsei365.com/images/abortion/hero-abortion-price.webp'
 const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Article',
   headline: '낙태 비용 가격 총정리 2026',
   description: '주수별 낙태 비용 가격 및 합법적 조건 안내',
+  image: PRICE_IMAGE,
   author: { '@type': 'Organization', name: '연세365산부인과의원' },
   publisher: { '@type': 'Organization', name: '연세365산부인과의원' },
   datePublished: '2026-03-16',
@@ -80,19 +83,19 @@ const faqJsonLd = {
 }
 const PAGE_URL = 'https://www.yeonsei365.com/blog/abortion-price'
 const PAGE_DATE = '2026-03-16'
-const medicalWebPageSchema = { '@context':'https://schema.org','@type':'MedicalWebPage', name:'낙태 비용 가격 총정리 2026 | 주수별 가격 완벽 공개', url:PAGE_URL, specialty:{'@type':'MedicalSpecialty',name:'산부인과'}, medicalAudience:{'@type':'MedicalAudience',audienceType:'여성 환자'}, about:{'@type':'MedicalCondition',name:'낙태 비용'} }
+const medicalWebPageSchema = { '@context':'https://schema.org','@type':'MedicalWebPage', name:'낙태 비용 가격 총정리 2026 | 주수별 가격 완벽 공개', url:PAGE_URL, image:PRICE_IMAGE, specialty:{'@type':'MedicalSpecialty',name:'산부인과'}, medicalAudience:{'@type':'MedicalAudience',audienceType:'여성 환자'}, about:{'@type':'MedicalCondition',name:'낙태 비용'} }
 const howToSchema = { '@context':'https://schema.org','@type':'HowTo', name:'낙태 비용 확인 및 예약 방법', description:'낙태 비용 확인부터 예약까지 단계별 안내', step:[ {'@type':'HowToStep',position:1,name:'주수 확인',text:'초음파로 임신 주수를 확인합니다.'}, {'@type':'HowToStep',position:2,name:'비용 안내',text:'8주 미만 45만원부터 주수별 비용을 안내받습니다.'}, {'@type':'HowToStep',position:3,name:'예약 진행',text:'비용 확인 후 당일 예약 및 수술이 가능합니다.'} ], tool:{'@type':'HowToTool',name:'연세365산부인과의원'} }
-const speakableSchema = { '@context':'https://schema.org','@type':'WebPage', name:'낙태 비용 가격 총정리 2026', url:PAGE_URL, speakable:{'@type':'SpeakableSpecification',cssSelector:['h1','h2']} }
+const speakableSchema = { '@context':'https://schema.org','@type':'WebPage', name:'낙태 비용 가격 총정리 2026', url:PAGE_URL, image:PRICE_IMAGE, speakable:{'@type':'SpeakableSpecification',cssSelector:['h1','h2']} }
 const breadcrumbSchema = { '@context':'https://schema.org','@type':'BreadcrumbList', itemListElement:[ {'@type':'ListItem',position:1,name:'홈',item:'https://www.yeonsei365.com'}, {'@type':'ListItem',position:2,name:'임신중절수술정보',item:'https://www.yeonsei365.com/blog'}, {'@type':'ListItem',position:3,name:'낙태 비용 가격',item:PAGE_URL} ] }
 
 function PriceHero() {
   return (
     <div style={{ maxWidth: '400px', margin: '0 auto 8px' }}>
       <img
-        src="/price-main.png"
-        alt="낙태비용 낙태금액 낙태가격 임신중절수술비용 임신중절수술금액 임신중절수술가격 중절수술비용 당일예약 당일퇴원 45만원 연세365산부인과의원"
-        width="400"
-        height="400"
+        src="/images/abortion/hero-abortion-price.webp"
+        alt="낙태 비용 가격과 임신중절수술 비용 안내"
+        width="1254"
+        height="1254"
         style={{ width: '100%', borderRadius: '20px', display: 'block' }}
       />
     </div>

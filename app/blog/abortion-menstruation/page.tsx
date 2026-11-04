@@ -19,9 +19,9 @@ export const metadata: Metadata = {
 const jsonLd = {
   '@context': 'https://schema.org', '@type': 'FAQPage',
   mainEntity: [
-    { '@type': 'Question', name: '임신중절수술 후 생리는 언제 시작되나요?', acceptedAnswer: { '@type': 'Answer', text: '보통 수술 후 4~6주 내에 첫 생리가 재개됩니다. 개인차가 있으며 8주 이상 생리가 없다면 내원하여 확인하세요.' } },
-    { '@type': 'Question', name: '임신중절수술 후 생리량이 달라질 수 있나요?', acceptedAnswer: { '@type': 'Answer', text: '처음 1~2번의 생리는 양이 평소보다 적거나 많을 수 있습니다. 대부분 2~3회 생리 후 정상으로 돌아옵니다.' } },
-    { '@type': 'Question', name: '임신중절수술 후 생리 전에도 임신이 가능한가요?', acceptedAnswer: { '@type': 'Answer', text: '네, 수술 후 첫 생리가 시작되기 전에도 배란이 일어나 임신이 가능합니다. 반드시 피임을 하세요.' } },
+    { '@type': 'Question', name: '임신중절수술 후 생리는 언제 시작되나요?', acceptedAnswer: { '@type': 'Answer', text: '보통 수술 후 4~6주 내에 첫 생리가 재개됩니다. 개인차가 있으며 8주 이상 생리가 없다면 내원하여 자궁 상태를 확인하세요.' } },
+    { '@type': 'Question', name: '수술 후 생리량이 줄어도 괜찮은가요?', acceptedAnswer: { '@type': 'Answer', text: '처음 1~2번의 생리는 평소보다 양이 적을 수 있습니다. 이는 자궁 내막이 재형성되는 과정에서 나타나는 정상적인 변화입니다. 2~3회 후 평소 양으로 돌아옵니다.' } },
+    { '@type': 'Question', name: '생리 전에도 피임을 해야 하나요?', acceptedAnswer: { '@type': 'Answer', text: '네, 반드시 피임이 필요합니다. 수술 후 첫 생리가 시작되기 전에도 배란이 일어나 임신이 가능합니다.' } },
   ],
 }
 const PAGE_URL = 'https://www.yeonsei365.com/blog/abortion-menstruation'
@@ -44,7 +44,6 @@ export default function AbortionMenstruationPage() {
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(medicalWebPageSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(speakableSchema) }} />
@@ -135,7 +134,7 @@ export default function AbortionMenstruationPage() {
         <div style={{ marginBottom: '32px' }}>
           <div style={{ fontSize: '14px', fontWeight: 700, color: C.tm, marginBottom: '14px' }}>관련 정보 더 보기</div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '10px' }}>
-            {[{href:'/abortion/surgery',label:'임신중절수술 금액·방법'},{href:'/blog/abortion-after',label:'임신중절수술 후 관리'},{href:'/blog/abortion-side',label:'임신중절수술 부작용'},{href:'/blog/abortion-period',label:'임신중절수술 기간'},{href:'/blog/abortion-cost',label:'임신중절수술 비용'},{href:'/blog',label:'전체 수술정보 보기'}].map(l => (
+            {[{href:'/abortion/cost',label:'임신중절수술 금액'},{href:'/abortion/method',label:'임신중절수술 방법·종류'},{href:'/blog/abortion-after',label:'임신중절수술 후 관리'},{href:'/blog/abortion-side',label:'임신중절수술 부작용'},{href:'/blog/abortion-period',label:'임신중절수술 기간'},{href:'/blog/abortion-cost',label:'임신중절수술 비용'},{href:'/abortion',label:'임신중절수술 종합 안내'},{href:'/blog',label:'전체 수술정보 보기'}].map(l => (
               <Link key={l.href} href={l.href} style={{ display: 'block', background: C.pb, border: `1px solid ${C.bd}`, borderRadius: '10px', padding: '12px 16px', textDecoration: 'none', fontSize: '13px', color: C.p, fontWeight: 700 }}>→ {l.label}</Link>
             ))}
           </div>

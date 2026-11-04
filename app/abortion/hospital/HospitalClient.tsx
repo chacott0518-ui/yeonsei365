@@ -68,7 +68,7 @@ const FEATURED_FAQS = [
   },
   {
     q: '가족이나 지인에게 알리지 않고 혼자 방문할 수 있나요?',
-    a: '성인 기준으로 본인 동의만으로 방문과 수술이 가능합니다. 접수부터 상담, 수술, 귀가까지 독립된 동선으로 진행되어 다른 방문자와 마주치는 상황을 최소화합니다. 의료 기록은 의료법에 따라 본인 동의 없이는 외부에 공개되지 않습니다.',
+    a: '성인은 본인 동의를 원칙으로 방문할 수 있으며, 수술 가능 여부와 동행·서류는 상담에서 확인합니다. 접수부터 상담, 수술, 귀가까지 독립된 동선으로 진행되어 다른 방문자와 마주치는 상황을 최소화합니다. 의료 기록은 의료법에 따라 본인 동의 없이는 외부에 공개되지 않습니다.',
   },
 ]
 
@@ -182,7 +182,13 @@ export default function HospitalClient() {
               </div>
             </div>
             <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '14px' }}>
-              임신중절수술 병원을 선택할 때 확인해야 할 기준은 안전성입니다. 낙태 비용이 저렴하다는 이유만으로 병원을 선택하면 안전하지 않은 환경에서 시술을 받을 위험이 있습니다. 임신중절수술은 산부인과 전문의가 직접 집도하는 의료기관에서 진행하는 것이 중요하며, 수술 전 건강 상태와 마취 관련 주의사항을 확인하고 수술 후 회복 상태를 관찰하는 체계가 있는지를 함께 확인하시기 바랍니다.
+              임신중절수술 병원·낙태병원·낙태수술병원을 선택할 때 확인해야 할 기준은 안전성입니다. 낙태 비용이 저렴하다는 이유만으로 병원을 고르면 안전하지 않은 환경에서 시술받을 위험이 있습니다. 산부인과 전문의가 직접 집도하는지, 수술 전 초음파·상담과 회복 관찰 체계가 있는지를 함께 확인하시기 바랍니다. 후기·보호자·회복 기준도{' '}
+              <Link href="/abortion/review" style={{ color: C.p, fontWeight: 700, textDecoration: 'underline' }}>후기 판단 기준</Link>
+              ·{' '}
+              <Link href="/abortion/info" style={{ color: C.p, fontWeight: 700, textDecoration: 'underline' }}>준비·보호자 안내</Link>
+              ·{' '}
+              <Link href="/abortion/recovery" style={{ color: C.p, fontWeight: 700, textDecoration: 'underline' }}>회복 안내</Link>
+              에서 이어서 확인할 수 있습니다.
             </p>
             <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '14px' }}>
               사당역에 위치한 산부인과인 연세365산부인과의원은 지하철 2호선·4호선 환승역에서 접근할 수 있습니다. 사당역 4번 출구 도보 3분 거리에 위치합니다.

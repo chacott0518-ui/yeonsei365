@@ -4,8 +4,8 @@ import { clinicSchema } from '@/lib/schemas'
 import ViewCounter from '@/components/ViewCounter'
 
 export const metadata: Metadata = {
-  title: '임신중절수술 기간 | 몇 주까지 가능한가? 합법 기간 완벽 안내 2026 | 연세365산부인과의원',
-  description: '임신중절수술 기간을 주수별로 완벽 정리했습니다. 임신중절수술 몇 주까지 가능한지, 합법 기간, 주수별 시술 방법 차이, 빠른 결정이 중요한 이유, 주수별 비용까지. 사당역 4번 출구 연세365산부인과의원.',
+  title: '임신중절수술 몇 주까지? 주수별 가능 시기 확인 | 연세365산부인과의원',
+  description: '임신중절수술이 몇 주까지 가능한지, 초음파로 주수를 확인하는 이유를 안내합니다. 전체 안내는 클리닉, 법률 기준은 합법 안내에서 확인하세요. 사당역 연세365산부인과의원.',
   keywords: [
     '임신중절수술기간', '임신중절수술 기간', '임신중절가능기간', '낙태가능기간',
     '임신중절수술몇주', '임신중절수술몇주까지', '낙태몇주까지', '낙태가능주수',
@@ -17,24 +17,25 @@ export const metadata: Metadata = {
     '흡입술', '소파술', '인공임신중절수술기간', '임신초기중절수술기간',
   ],
   openGraph: {
-    title: '임신중절수술 기간 | 몇 주까지 가능한가? 2026 | 연세365산부인과의원',
-    description: '임신중절수술 기간 주수별 완벽 안내. 합법 기준·방법·비용 차이. 사당역 4번 출구.',
+    title: '임신중절수술 몇 주까지? 주수별 가능 시기 확인 | 연세365산부인과의원',
+    description: '초음파 주수 확인과 주수별 가능 시기 안내. 사당역 연세365산부인과의원.',
     url: 'https://www.yeonsei365.com/blog/abortion-period',
-    images: [{ url: 'https://www.yeonsei365.com/og-image.jpg', width: 1200, height: 630, alt: '임신중절수술 기간 연세365산부인과의원' }],
+    images: [{ url: 'https://www.yeonsei365.com/images/abortion/hero-abortion-period.webp', width: 1254, height: 1254, alt: '임신중절수술 시기와 임신 주수 안내' }],
   },
   alternates: { canonical: 'https://www.yeonsei365.com/blog/abortion-period' },
   twitter: {
     card: 'summary_large_image',
-    title: '임신중절수술 기간 | 몇 주까지 가능한가? 합법 기간 완벽 안내 2026 | 연세365산부인과의원',
-    description: '임신중절수술 기간을 주수별로 완벽 정리했습니다. 임신중절수술 몇 주까지 가능한지, 합법 기간, 주수별 시술 방법 차이, 빠른 결정이 중요한 이유, 주수별 비용까지. 사당역 4번 출구 연세365산부인과의원.',
+    title: '임신중절수술 몇 주까지? 주수별 가능 시기 확인 | 연세365산부인과의원',
+    description: '임신중절수술이 몇 주까지 가능한지, 초음파로 주수를 확인하는 이유를 안내합니다. 전체 안내는 클리닉, 법률 기준은 합법 안내에서 확인하세요. 사당역 연세365산부인과의원.',
+    images: ['https://www.yeonsei365.com/images/abortion/hero-abortion-period.webp'],
   },
 }
 
 const articleJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'Article',
-  headline: '임신중절수술 기간 | 몇 주까지 가능한가? 합법 기간 완벽 안내 2026',
-  description: '임신중절수술 기간을 주수별로 완벽 정리했습니다.',
+  headline: '임신중절수술 몇 주까지? 주수별 가능 시기 확인',
+  description: '초음파 주수 확인과 주수별 가능 시기 안내',
   author: { '@type': 'Organization', name: '연세365산부인과의원' },
   publisher: { '@type': 'Organization', name: '연세365산부인과의원' },
 }
@@ -43,19 +44,22 @@ const jsonLd = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
   mainEntity: [
-    { '@type': 'Question', name: '임신중절수술은 몇 주까지 가능한가요?', acceptedAnswer: { '@type': 'Answer', text: '의학적으로는 임신 10주 이내가 가장 안전합니다. 현행 법률 기준으로는 임신 14주 이내가 사실상 처벌 공백 상태이며, 모자보건법 제14조 조건에 해당하는 경우 24주까지도 가능합니다. 연세365산부인과의원은 임신 10주까지 당일 시술이 가능하며, 이후 주수는 별도 상담 후 안내드립니다.' } },
-    { '@type': 'Question', name: '임신중절수술 기간이 짧을수록 좋은 이유는?', acceptedAnswer: { '@type': 'Answer', text: '임신 주수가 짧을수록 태아 크기가 작아 시술이 간단하고 출혈이 적으며 회복이 빠릅니다. 8주 미만 기준 45만원이며 주수가 늘어날수록 비용도 증가합니다.' } },
-    { '@type': 'Question', name: '임신 10주 이후에도 수술이 가능한가요?', acceptedAnswer: { '@type': 'Answer', text: '임신 10주 이후에도 수술이 가능하나 난이도가 높아지고 비용이 증가합니다. 11주 이상은 별도 상담 후 안내드립니다.' } },
-    { '@type': 'Question', name: '임신 주수를 모르는데 어떻게 하나요?', acceptedAnswer: { '@type': 'Answer', text: '내원하여 초음파 검사를 받으시면 정확한 임신 주수를 확인할 수 있습니다. 마지막 생리일을 모르거나 생리 주기가 불규칙한 경우에도 초음파로 정확하게 확인 가능합니다.' } },
+    { '@type': 'Question', name: '임신중절수술은 몇 주까지 가능한가요?', acceptedAnswer: { '@type': 'Answer', text: '의학적으로는 임신 10주 이내가 가장 안전합니다. 현행 법률의 구체적 기준은 정비 상황과 개별 조건에 따라 달라질 수 있어 주수별 가능 여부는 초음파 확인 후 의료진과 상담해야 합니다. 연세365산부인과의원은 임신 10주까지 당일 시술이 가능하며, 이후 주수는 별도 상담 후 안내드립니다.' } },
+    { '@type': 'Question', name: '임신 주수를 모르는데 어떻게 하나요?', acceptedAnswer: { '@type': 'Answer', text: '내원하여 초음파 검사를 받으시면 정확한 임신 주수를 확인할 수 있습니다. 마지막 생리일을 모르거나 생리 주기가 불규칙한 경우에도 초음파로 정확하게 확인 가능합니다. 내원 전 전화 상담도 가능합니다.' } },
+    { '@type': 'Question', name: '임신 8주와 10주의 차이가 얼마나 큰가요?', acceptedAnswer: { '@type': 'Answer', text: '8주는 흡입술로 15분 이내 시술이 가능하며 45~60만원입니다. 10주는 소파술로 20~30분 소요되며 80만원입니다. 회복 기간도 8주는 1~2일, 10주는 2~4일로 차이가 납니다. 시술 중 출혈량도 8주가 훨씬 적습니다.' } },
+    { '@type': 'Question', name: '임신 테스트기에서 양성이 나왔는데 바로 수술이 가능한가요?', acceptedAnswer: { '@type': 'Answer', text: '임신 테스트기 양성만으로는 수술이 불가합니다. 반드시 초음파 검사를 통해 자궁 내 임신 여부와 정확한 주수를 확인한 후 시술이 진행됩니다. 자궁외임신 여부 확인도 안전을 위해 필수입니다.' } },
+    { '@type': 'Question', name: '11주인데 수술이 가능한가요?', acceptedAnswer: { '@type': 'Answer', text: '11주 이상은 별도 상담 후 안내드립니다. 전화(02-585-3650) 또는 카카오톡으로 먼저 문의 주시면 정확히 안내해드리겠습니다.' } },
+    { '@type': 'Question', name: '생리 주기가 불규칙한데 주수를 어떻게 계산하나요?', acceptedAnswer: { '@type': 'Answer', text: '생리 주기가 불규칙한 경우 마지막 생리일 기준 계산이 부정확할 수 있습니다. 내원 후 초음파 검사를 받으시면 태아 크기를 기준으로 정확한 주수를 산출해드립니다.' } },
   ],
 }
 const PAGE_URL = 'https://www.yeonsei365.com/blog/abortion-period'
 const PAGE_DATE = '2026-04-10'
 const PAGE_MODIFIED = '2026-05-22'
-const articleSchema = { '@context':'https://schema.org','@type':'Article', headline:'임신중절수술 기간 | 몇 주까지 가능한가? 합법 기간 완벽 안내 2026', datePublished:PAGE_DATE, dateModified:PAGE_MODIFIED, image:'https://www.yeonsei365.com/og-image.jpg', author:{'@type':'Organization',name:'연세365산부인과의원',url:'https://www.yeonsei365.com'}, publisher:{'@type':'MedicalOrganization',name:'연세365산부인과의원',logo:{'@type':'ImageObject',url:'https://i.imgur.com/f7h5DY0.png'}}, mainEntityOfPage:{'@type':'WebPage','@id':PAGE_URL}, url:PAGE_URL }
-const medicalWebPageSchema = { '@context':'https://schema.org','@type':'MedicalWebPage', name:'임신중절수술 기간 | 몇 주까지 가능한가? 합법 기간 완벽 안내 2026', url:PAGE_URL, specialty:{'@type':'MedicalSpecialty',name:'산부인과'}, medicalAudience:{'@type':'MedicalAudience',audienceType:'여성 환자'}, about:{'@type':'MedicalCondition',name:'임신중절수술 가능 기간'} }
+const PERIOD_IMAGE = 'https://www.yeonsei365.com/images/abortion/hero-abortion-period.webp'
+const articleSchema = { '@context':'https://schema.org','@type':'Article', headline:'임신중절수술 몇 주까지? 주수별 가능 시기 확인', datePublished:PAGE_DATE, dateModified:PAGE_MODIFIED, image:PERIOD_IMAGE, author:{'@type':'Organization',name:'연세365산부인과의원',url:'https://www.yeonsei365.com'}, publisher:{'@type':'MedicalOrganization',name:'연세365산부인과의원',logo:{'@type':'ImageObject',url:'https://i.imgur.com/f7h5DY0.png'}}, mainEntityOfPage:{'@type':'WebPage','@id':PAGE_URL}, url:PAGE_URL }
+const medicalWebPageSchema = { '@context':'https://schema.org','@type':'MedicalWebPage', name:'임신중절수술 몇 주까지? 주수별 가능 시기 확인', url:PAGE_URL, image:PERIOD_IMAGE, specialty:{'@type':'MedicalSpecialty',name:'산부인과'}, medicalAudience:{'@type':'MedicalAudience',audienceType:'여성 환자'}, about:{'@type':'MedicalCondition',name:'임신중절수술 가능 기간'} }
 const howToSchema = { '@context':'https://schema.org','@type':'HowTo', name:'임신중절수술 가능 기간 확인 방법', description:'임신 주수 확인부터 수술까지 단계별 안내', step:[ {'@type':'HowToStep',position:1,name:'임신 주수 확인',text:'초음파 검사로 정확한 임신 주수를 확인합니다.'}, {'@type':'HowToStep',position:2,name:'수술 가능 기간 확인',text:'임신 10주 이내가 가장 안전합니다. 빠를수록 좋습니다.'}, {'@type':'HowToStep',position:3,name:'즉시 예약',text:'주수가 증가할수록 비용과 위험도가 높아지므로 빠르게 예약합니다.'} ], tool:{'@type':'HowToTool',name:'연세365산부인과의원'} }
-const speakableSchema = { '@context':'https://schema.org','@type':'WebPage', name:'임신중절수술 기간 | 몇 주까지 가능한가? 합법 기간 완벽 안내 2026', url:PAGE_URL, speakable:{'@type':'SpeakableSpecification',cssSelector:['h1','h2']} }
+const speakableSchema = { '@context':'https://schema.org','@type':'WebPage', name:'임신중절수술 몇 주까지? 주수별 가능 시기 확인', url:PAGE_URL, image:PERIOD_IMAGE, speakable:{'@type':'SpeakableSpecification',cssSelector:['h1','h2']} }
 const breadcrumbSchema = { '@context':'https://schema.org','@type':'BreadcrumbList', itemListElement:[ {'@type':'ListItem',position:1,name:'홈',item:'https://www.yeonsei365.com'}, {'@type':'ListItem',position:2,name:'임신중절수술정보',item:'https://www.yeonsei365.com/blog'}, {'@type':'ListItem',position:3,name:'임신중절수술 기간',item:PAGE_URL} ] }
 
 const C = {
@@ -100,11 +104,7 @@ export default function AbortionPeriodPage() {
       <div style={{ height: '60px' }} />
 
       <div style={{ maxWidth: '780px', margin: '0 auto', padding: '0 20px 100px', fontFamily: '"Pretendard", -apple-system, sans-serif' }}>
-        <div style={{ margin: '28px 0 0' }}>
-          <img src="/og-image.jpg" alt="임신중절수술 기간 몇주까지 가능 연세365산부인과의원 낙태가능기간 임신중절합법기간" width="780" height="410" style={{ width: '100%', borderRadius: '18px', display: 'block' }} />
-        </div>
-
-        <div style={{ background: `linear-gradient(160deg, ${C.pp} 0%, ${C.pd} 40%, ${C.p} 100%)`, borderRadius: '20px', padding: 'clamp(24px,5vw,40px) clamp(20px,5vw,36px)', margin: '20px 0 28px', position: 'relative', overflow: 'hidden' }}>
+        <div style={{ background: `linear-gradient(160deg, ${C.pp} 0%, ${C.pd} 40%, ${C.p} 100%)`, borderRadius: '20px', padding: 'clamp(24px,5vw,40px) clamp(20px,5vw,36px)', margin: '28px 0 28px', position: 'relative', overflow: 'hidden' }}>
           <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap', marginBottom: '16px' }}>
             {['기간안내', '합법기준', '주수별안내', '비용공개'].map(t => (
               <span key={t} style={{ background: 'rgba(255,255,255,0.18)', color: '#fff', fontSize: '11px', padding: '3px 12px', borderRadius: '20px' }}>{t}</span>
@@ -112,10 +112,10 @@ export default function AbortionPeriodPage() {
           </div>
           <div style={{ display: 'flex', alignItems: 'flex-start', justifyContent: 'space-between', gap: '20px', flexWrap: 'wrap' }}>
             <div style={{ flex: 1, minWidth: '180px' }}>
-              <h1 style={{ color: '#fff', fontSize: 'clamp(20px,4vw,26px)', fontWeight: 900, lineHeight: 1.45, margin: '0 0 12px' }}>임신중절수술 기간<br />몇 주까지 가능한가?</h1>
-              <p style={{ color: 'rgba(255,255,255,0.88)', fontSize: 'clamp(12px,3vw,14px)', lineHeight: 1.8, margin: '0 0 16px' }}>임신중절수술 가능 기간, 주수별 시술 방법 차이, 합법 기준, 빠른 결정이 중요한 이유까지 전문의가 투명하게 안내합니다. · <ViewCounter slug="blog-abortion-period" /></p>
+              <h1 style={{ color: '#fff', fontSize: 'clamp(20px,4vw,26px)', fontWeight: 900, lineHeight: 1.45, margin: '0 0 12px' }}>임신중절수술은<br />몇 주까지 가능한가요?</h1>
+              <p style={{ color: 'rgba(255,255,255,0.88)', fontSize: 'clamp(12px,3vw,14px)', lineHeight: 1.8, margin: '0 0 16px' }}>가능 여부는 초음파로 확인한 임신 주수가 기준입니다. 전체 흐름은 클리닉 안내에서, 법률 기준은 합법 안내에서 확인하세요. · <ViewCounter slug="blog-abortion-period" /></p>
               <div style={{ display: 'flex', flexWrap: 'wrap', gap: '7px' }}>
-                {['당일예약 가능', '당일시술 가능', '1인 회복실', '비밀보장'].map(b => (
+                {['당일예약 문의', '당일 진행은 상담 후 확인', '1인 회복실', '비밀보장'].map(b => (
                   <span key={b} style={{ background: 'rgba(255,255,255,0.15)', border: '1px solid rgba(255,255,255,0.3)', color: '#fff', fontSize: '11px', padding: '4px 12px', borderRadius: '20px' }}>{b}</span>
                 ))}
               </div>
@@ -147,9 +147,20 @@ export default function AbortionPeriodPage() {
 
         <section style={{ marginBottom: '36px' }}>
           <SH n="1" title="임신중절수술 기간이란?" />
-          <p style={bt}>임신중절수술 기간이란 임신중절수술을 안전하게 받을 수 있는 임신 주수 범위를 의미합니다. 임신 주수는 마지막 생리 시작일을 기준으로 계산하며, 정확한 주수는 반드시 초음파 검사를 통해 확인해야 합니다. 임신 주수가 짧을수록 시술이 간단하고 회복이 빠르며 비용도 저렴하기 때문에, 임신 사실을 인지한 즉시 전문의와 상담하시는 것이 중요합니다.</p>
-          <p style={bt}>임신 초기라도 방치하면 급격히 주수가 늘어납니다. 임신 6주와 10주는 불과 4주 차이지만 수술 난이도, 비용, 회복 기간에서 큰 차이가 납니다. 임신 여부가 의심된다면 가능한 한 빨리 산부인과를 방문하여 초음파 검사를 받으시기 바랍니다.</p>
-          <p style={bt}>임신중절수술 기간은 단순히 법적 허용 주수만을 의미하는 것이 아닙니다. 의학적으로 안전하게 시술받을 수 있는 최적의 기간이 따로 있으며, 연세365산부인과의원에서는 임신 10주 이내를 가장 안전한 시술 기간으로 권장합니다. 임신 10주 이후에도 시술이 가능하지만 난이도와 비용, 회복 기간이 모두 증가합니다.</p>
+          <figure style={{ margin: '0 0 16px' }}>
+            <img src="/images/abortion/hero-abortion-period.webp" alt="임신중절수술 기간과 임신 주수 안내" width="1254" height="1254" style={{ width: '100%', borderRadius: '18px', display: 'block' }} />
+          </figure>
+          <p style={bt}>
+            임신중절수술 기간·시기(몇 주까지 가능한지)는 마지막 생리일 추정만으로 확정하지 않습니다. 초음파로 자궁 내 임신 여부와 현재 주수를 확인한 뒤, 건강 상태와 함께 상담하는 것이 우선입니다. 전체 진료 흐름은{' '}
+            <Link href="/abortion" style={{ color: C.p, fontWeight: 700 }}>임신중절수술 전체 안내</Link>
+            에서, 법률·시기 기준은{' '}
+            <Link href="/abortion/legal" style={{ color: C.p, fontWeight: 700 }}>합법 안내</Link>
+            에서 확인하실 수 있습니다.
+          </p>
+          <p style={bt}>임신초기중절수술·임신초기낙태라도 시간이 지나면 주수가 늘어납니다. 임신 6주와 10주는 불과 4주 차이지만 수술 난이도·회복에서 차이가 날 수 있어, 임신이 의심되면 초음파로 주수를 먼저 확인하는 것이 좋습니다. 주수별 금액은{' '}
+            <Link href="/abortion/cost" style={{ color: C.p, fontWeight: 700 }}>비용 안내</Link>
+            에서 확인할 수 있습니다.</p>
+          <p style={bt}>법적 허용 주수와 의학적으로 비교적 안전한 시기는 구분해서 이해해야 합니다. 연세365산부인과의원에서는 임신 10주 이내를 상대적으로 안전한 시술 기간으로 안내하며, 이후 주수는 검사·상담 결과에 따라 별도 안내합니다.</p>
           <IBox>임신 주수 계산은 마지막 생리 시작일 기준입니다. 실제 초음파 주수와 생리일 기준 주수가 다를 수 있으므로 내원 후 초음파로 정확한 주수를 확인하는 것이 필수입니다. 주수에 따라 비용과 시술 방법이 달라집니다.</IBox>
         </section>
 
@@ -189,7 +200,12 @@ export default function AbortionPeriodPage() {
 
         <section style={{ marginBottom: '36px' }}>
           <SH n="3" title="합법적 가능 기간과 조건" />
-          <p style={bt}>2021년 1월 1일부로 낙태죄(형법 제269조·제270조)의 효력이 상실되었습니다. 헌법재판소는 2019년 해당 조항에 대해 헌법불합치 결정을 내렸으며, 국회가 법률을 개정하지 않은 채 시한이 경과하여 자동으로 효력을 잃었습니다. 이에 따라 현재 임신 14주 이내의 인공임신중절수술은 법적으로 처벌받지 않습니다.</p>
+          <p style={bt}>
+            법률·합법 시기 총론은{' '}
+            <Link href="/abortion/legal" style={{ color: C.p, fontWeight: 700 }}>합법 안내</Link>
+            를 우선 확인하세요. 아래는 이해를 돕는 요약입니다.
+          </p>
+          <p style={bt}>2021년 1월 1일부로 낙태죄(형법 제269조·제270조)의 효력이 상실되었습니다. 헌법재판소는 2019년 해당 조항에 대해 헌법불합치 결정을 내렸으며, 국회가 법률을 개정하지 않은 채 시한이 경과하여 자동으로 효력을 잃었습니다. 이후 구체적 기준은 법령 정비 상황에 따라 달라질 수 있어 최신 법령과 의료기관 상담으로 확인해야 합니다.</p>
           <p style={bt}>다만 완전한 법제화가 이루어지지 않은 법적 공백 상태이므로, 반드시 합법적인 의료기관에서 산부인과 전문의에게 시술받으시기 바랍니다. 불법 시술이나 비전문가에 의한 시술은 생명을 위협할 수 있으므로 절대 피해야 합니다.</p>
           <div style={{ overflowX: 'auto', WebkitOverflowScrolling: 'touch' }}>
             <div style={{ border: `1px solid ${C.bd}`, borderRadius: '12px', overflow: 'hidden', minWidth: '380px' }}>
@@ -203,7 +219,7 @@ export default function AbortionPeriodPage() {
                 </thead>
                 <tbody>
                   {[
-                    ['~14주', '처벌 공백 상태', '본인 동의서', '✅ 가능 (안전)'],
+                    ['~14주', '법령·상담 확인', '본인 동의서(원칙)', '초음파 확인 후 상담'],
                     ['14~24주', '조건부 가능', '모자보건법 제14조 사유', '⚠️ 조건 충족 시'],
                     ['24주 이후', '극히 제한', '모체 생명 위협', '❌ 상급병원 의뢰'],
                   ].map((row, i) => (
@@ -257,7 +273,11 @@ export default function AbortionPeriodPage() {
 
         <section style={{ marginBottom: '36px' }}>
           <SH n="5" title="주수별 비용 차이" />
-          <p style={bt}>임신중절수술 비용은 임신 주수가 늘어날수록 증가합니다. 연세365산부인과의원은 수술비·마취비·영양제·1인 회복실·부가세가 모두 포함된 투명한 가격을 안내합니다. 카드·현금 동일가이며 상담 후 추가 비용이 발생하지 않습니다. 처음 안내한 가격이 최종 가격입니다.</p>
+          <p style={bt}>
+            주수별 최종 금액·포함 항목은{' '}
+            <Link href="/abortion/cost" style={{ color: C.p, fontWeight: 700 }}>금액·비용 안내</Link>
+            에서 확인하세요. 요약하면, 주수가 늘어날수록 비용이 증가할 수 있으며 연세365산부인과의원은 수술비·마취비·영양제·1인 회복실·부가세가 포함된 투명한 가격을 안내합니다. 카드·현금 동일가이며 상담 후 추가 비용이 발생하지 않는 것을 원칙으로 합니다.
+          </p>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(130px, 1fr))', gap: '10px', marginBottom: '16px' }}>
             {[{w:'8주 미만',p:'45',bar:56},{w:'8주',p:'60',bar:75},{w:'9주',p:'70',bar:87},{w:'10주',p:'80',bar:100}].map(p => (
               <div key={p.w} style={{ background: '#fff', border: `1px solid ${C.bd}`, borderRadius: '14px', padding: '16px', textAlign: 'center' }}>
@@ -311,7 +331,7 @@ export default function AbortionPeriodPage() {
         <section style={{ marginBottom: '36px' }}>
           <SH n="8" title="자주 묻는 질문" />
           {[
-            { q: '임신중절수술은 몇 주까지 가능한가요?', a: '의학적으로는 임신 10주 이내가 가장 안전합니다. 현행 법률 기준으로 14주 이내는 사실상 처벌 공백 상태이며, 모자보건법 제14조 조건에 해당하는 경우 24주까지도 가능합니다. 연세365산부인과의원은 임신 10주까지 당일 시술이 가능하며, 이후 주수는 별도 상담 후 안내드립니다.' },
+            { q: '임신중절수술은 몇 주까지 가능한가요?', a: '의학적으로는 임신 10주 이내가 가장 안전합니다. 현행 법률의 구체적 기준은 정비 상황과 개별 조건에 따라 달라질 수 있어 주수별 가능 여부는 초음파 확인 후 의료진과 상담해야 합니다. 연세365산부인과의원은 임신 10주까지 당일 시술이 가능하며, 이후 주수는 별도 상담 후 안내드립니다.' },
             { q: '임신 주수를 모르는데 어떻게 하나요?', a: '내원하여 초음파 검사를 받으시면 정확한 임신 주수를 확인할 수 있습니다. 마지막 생리일을 모르거나 생리 주기가 불규칙한 경우에도 초음파로 정확하게 확인 가능합니다. 내원 전 전화 상담도 가능합니다.' },
             { q: '임신 8주와 10주의 차이가 얼마나 큰가요?', a: '8주는 흡입술로 15분 이내 시술이 가능하며 45~60만원입니다. 10주는 소파술로 20~30분 소요되며 80만원입니다. 회복 기간도 8주는 1~2일, 10주는 2~4일로 차이가 납니다. 시술 중 출혈량도 8주가 훨씬 적습니다.' },
             { q: '임신 테스트기에서 양성이 나왔는데 바로 수술이 가능한가요?', a: '임신 테스트기 양성만으로는 수술이 불가합니다. 반드시 초음파 검사를 통해 자궁 내 임신 여부와 정확한 주수를 확인한 후 시술이 진행됩니다. 자궁외임신 여부 확인도 안전을 위해 필수입니다.' },
@@ -334,6 +354,7 @@ export default function AbortionPeriodPage() {
               { href: '/blog/abortion-fasting', label: '임신중절수술 금식 안내' },
               { href: '/blog/abortion-cost', label: '임신중절수술 비용' },
               { href: '/blog/abortion-legal', label: '낙태합법화 안내' },
+              { href: '/abortion/method', label: '수술 방법 안내' },
               { href: '/blog', label: '전체 수술정보 보기' },
             ].map(l => (
               <Link key={l.href} href={l.href} style={{ display: 'block', background: C.pb, border: `1px solid ${C.bd}`, borderRadius: '10px', padding: '12px 16px', textDecoration: 'none', fontSize: '13px', color: C.p, fontWeight: 700 }}>→ {l.label}</Link>

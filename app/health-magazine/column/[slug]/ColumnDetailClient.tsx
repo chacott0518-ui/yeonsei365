@@ -1,5 +1,5 @@
 'use client'
-import { useState } from 'react'
+import { useState, type ReactNode } from 'react'
 import Link from 'next/link'
 import { ChevronDown, ChevronUp } from 'lucide-react'
 import type { Column } from '@/lib/columns'
@@ -14,7 +14,50 @@ const C = {
   green: '#0f6e56', greenBg: '#f0faf5', greenBorder: '#5dcaa5',
 }
 
-function InfoBox({ children, type = 'pink' }: { children: React.ReactNode; type?: 'pink' | 'amber' | 'green' | 'warn' }) {
+const ABORTION_OWNER_ANCHORS: Record<string, string> = {
+  '/abortion': '임신중절수술 전체 안내',
+  '/abortion/cost': '임신중절수술 금액·비용 안내',
+  '/abortion/method': '임신중절수술 방법·종류 안내',
+  '/abortion/surgery': '임신중절수술 절차·당일 안내',
+  '/blog/abortion-period': '임신중절수술 시기·주수 안내',
+  '/abortion/hospital': '임신중절수술 병원 안내',
+  '/abortion/legal': '임신중절수술 합법·법률 안내',
+  '/abortion/recovery': '수술 후 회복 안내',
+  '/abortion/info': '수술 전 준비 안내',
+  '/abortion/review': '수술 후기·사례 안내',
+}
+
+const ABORTION_URL_RE =
+  /https:\/\/(?:www\.)?yeonsei365\.com(\/(?:abortion(?:\/(?:cost|method|surgery|hospital|legal|recovery|info|review))?|blog\/abortion-period))(?=[\s.,，。)）]|$)/g
+
+function linkifyAbortionOwnerText(text: string, hubUsed: { current: boolean }): ReactNode {
+  const nodes: ReactNode[] = []
+  let last = 0
+  let match: RegExpExecArray | null
+  const re = new RegExp(ABORTION_URL_RE.source, 'g')
+  while ((match = re.exec(text)) !== null) {
+    const full = match[0]
+    const path = match[1]
+    if (match.index > last) nodes.push(text.slice(last, match.index))
+    const isHub = path === '/abortion'
+    if (isHub && hubUsed.current) {
+      nodes.push(ABORTION_OWNER_ANCHORS['/abortion'])
+    } else {
+      if (isHub) hubUsed.current = true
+      const label = ABORTION_OWNER_ANCHORS[path] || ABORTION_OWNER_ANCHORS['/abortion']
+      nodes.push(
+        <Link key={`${path}-${match.index}`} href={path} style={{ color: C.p, fontWeight: 700, textDecoration: 'underline' }}>
+          {label}
+        </Link>,
+      )
+    }
+    last = match.index + full.length
+  }
+  if (last < text.length) nodes.push(text.slice(last))
+  return nodes.length ? nodes : text
+}
+
+function InfoBox({ children, type = 'pink' }: { children: ReactNode; type?: 'pink' | 'amber' | 'green' | 'warn' }) {
   const s = {
     pink: { bg: C.pb, border: C.p, text: '#7A2040' },
     amber: { bg: C.amberBg, border: C.amber, text: '#633806' },
@@ -30,6 +73,7 @@ function InfoBox({ children, type = 'pink' }: { children: React.ReactNode; type?
 
 export default function ColumnDetailClient({ column }: { column: Column }) {
   const [openFaq, setOpenFaq] = useState<number | null>(null)
+  const hubUsed = { current: false }
 
   const renderSection = (sec: Column['sections'][number], i: number) => {
     switch (sec.type) {
@@ -42,18 +86,18 @@ export default function ColumnDetailClient({ column }: { column: Column }) {
                 {sec.title}
               </h2>
             )}
-            <p style={{ fontSize: '15px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em' }}>{sec.content}</p>
+            <p style={{ fontSize: '15px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em' }}>{linkifyAbortionOwnerText(sec.content, hubUsed)}</p>
           </section>
         )
 
       case 'infobox':
-        return <InfoBox key={i} type="pink">{sec.content}</InfoBox>
+        return <InfoBox key={i} type="pink">{linkifyAbortionOwnerText(sec.content, hubUsed)}</InfoBox>
 
       case 'warnbox':
-        return <InfoBox key={i} type="warn">{sec.content}</InfoBox>
+        return <InfoBox key={i} type="warn">{linkifyAbortionOwnerText(sec.content, hubUsed)}</InfoBox>
 
       case 'greenbox':
-        return <InfoBox key={i} type="green">{sec.content}</InfoBox>
+        return <InfoBox key={i} type="green">{linkifyAbortionOwnerText(sec.content, hubUsed)}</InfoBox>
 
       case 'checklist':
         return (
@@ -278,7 +322,7 @@ export default function ColumnDetailClient({ column }: { column: Column }) {
                   </button>
                   {openFaq === i && (
                     <div style={{ padding: '12px 18px 16px 40px', fontSize: '14px', color: C.ts, lineHeight: 1.85, background: '#fff8fa', borderTop: `0.5px dashed ${C.pbd}` }}>
-                      {f.a}
+                      {linkifyAbortionOwnerText(f.a, hubUsed)}
                     </div>
                   )}
                 </div>

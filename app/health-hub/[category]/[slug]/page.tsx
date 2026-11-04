@@ -18,9 +18,75 @@ const C = {
   blue: '#185FA5', blueBg: '#E6F1FB',
 }
 
-const ABORTION_OWNER_LINKS: Record<string, string> = {
-  'q-1779760840012': '임신중절수술 병원 상담 안내',
-  'q-1779760859762': '임신중절수술 후 상담 안내',
+const ABORTION_OWNER_LINKS: Record<string, { href: string; label: string }> = {
+  'contraception-failure-pregnancy-abortion-consultation': { href: '/abortion', label: '임신중절수술 전체 안내' },
+  'abortion-surgery-aftercare-and-duration': { href: '/abortion/recovery', label: '수술 후 회복 안내' },
+  'q-1778486157352': { href: '/abortion', label: '임신중절수술 전체 안내' },
+  'q-1778649862207': { href: '/abortion/info', label: '수술 전 준비 안내' },
+  'q-1779006554800': { href: '/abortion/recovery', label: '수술 후 회복 안내' },
+  'q-1779101247507': { href: '/abortion/method', label: '임신중절수술 방법·종류 안내' },
+  'q-1779375730626': { href: '/abortion/cost', label: '임신중절수술 금액·비용 안내' },
+  'q-1779443862703': { href: '/abortion/cost', label: '임신중절수술 금액·비용 안내' },
+  'q-1779443965256': { href: '/abortion/surgery', label: '임신중절수술 절차·당일 안내' },
+  'q-1779443952625': { href: '/abortion/cost', label: '임신중절수술 금액·비용 안내' },
+  'q-1779443974674': { href: '/blog/abortion-period', label: '임신중절수술 시기·주수 안내' },
+  'q-1779444885704': { href: '/abortion/recovery', label: '수술 후 회복 안내' },
+  'q-1779757413124': { href: '/abortion', label: '임신중절수술 전체 안내' },
+  'q-1779760820464': { href: '/abortion/hospital', label: '임신중절수술 병원 안내' },
+  'q-1779760840012': { href: '/abortion/hospital', label: '임신중절수술 병원 안내' },
+  'q-1779760859762': { href: '/abortion/recovery', label: '수술 후 회복 안내' },
+  'q-1779760880021': { href: '/abortion/method', label: '임신중절수술 방법·종류 안내' },
+  'q-1779767313861': { href: '/abortion', label: '임신중절수술 전체 안내' },
+  'q-1779845578116': { href: '/abortion/surgery', label: '임신중절수술 절차·당일 안내' },
+  'q-1779845620647': { href: '/abortion/recovery', label: '수술 후 회복 안내' },
+  'q-1779845656644': { href: '/abortion/recovery', label: '수술 후 회복 안내' },
+  'q-1779854144174': { href: '/abortion/cost', label: '임신중절수술 금액·비용 안내' },
+  'q-1779854166980': { href: '/abortion/recovery', label: '수술 후 회복 안내' },
+  'q-1779854196968': { href: '/abortion', label: '임신중절수술 전체 안내' },
+  'q-1779854232855': { href: '/abortion', label: '임신중절수술 전체 안내' },
+  'q-1779854243940': { href: '/abortion/recovery', label: '수술 후 회복 안내' },
+  'q-1779854222647': { href: '/abortion/recovery', label: '수술 후 회복 안내' },
+  'q-1780028639130': { href: '/abortion/cost', label: '임신중절수술 금액·비용 안내' },
+  'q-1780028718652': { href: '/abortion', label: '임신중절수술 전체 안내' },
+  'q-1780028758191': { href: '/abortion', label: '임신중절수술 전체 안내' },
+  'q-1780028799580': { href: '/abortion/hospital', label: '임신중절수술 병원 안내' },
+  'q-1780028877798': { href: '/abortion', label: '임신중절수술 전체 안내' },
+  'q-1780028906592': { href: '/abortion/method', label: '임신중절수술 방법·종류 안내' },
+  'q-1780205464006': { href: '/abortion/hospital', label: '임신중절수술 병원 안내' },
+  'q-1780543361251': { href: '/abortion/cost', label: '임신중절수술 금액·비용 안내' },
+  'q-1780731401833': { href: '/abortion/recovery', label: '수술 후 회복 안내' },
+  'q-1780736446356': { href: '/abortion/method', label: '임신중절수술 방법·종류 안내' },
+  'q-1780916798154': { href: '/abortion/recovery', label: '수술 후 회복 안내' },
+  'q-1780982964454': { href: '/abortion', label: '임신중절수술 전체 안내' },
+  'q-1781849484517': { href: '/abortion/surgery', label: '임신중절수술 절차·당일 안내' },
+  'q-1782393790093': { href: '/abortion/surgery', label: '임신중절수술 절차·당일 안내' },
+  'q-1782393893396': { href: '/abortion/surgery', label: '임신중절수술 절차·당일 안내' },
+  'q-1782393915471': { href: '/abortion/method', label: '임신중절수술 방법·종류 안내' },
+  'q-1782394017786': { href: '/abortion/cost', label: '임신중절수술 금액·비용 안내' },
+  'q-1782394326837': { href: '/blog/abortion-period', label: '임신중절수술 시기·주수 안내' },
+  'q-1782461168998': { href: '/abortion/method', label: '임신중절수술 방법·종류 안내' },
+  'q-1782462227239': { href: '/abortion/hospital', label: '임신중절수술 병원 안내' },
+  'q-1782462522221': { href: '/abortion', label: '임신중절수술 전체 안내' },
+  'q-1782722373550': { href: '/abortion', label: '임신중절수술 전체 안내' },
+  'q-1782722416893': { href: '/abortion/recovery', label: '수술 후 회복 안내' },
+  'q-1782807148236': { href: '/abortion/recovery', label: '수술 후 회복 안내' },
+  'q-1782883522075': { href: '/abortion/recovery', label: '수술 후 회복 안내' },
+  'q-1783050117855': { href: '/abortion/recovery', label: '수술 후 회복 안내' },
+  'q-1783227393592': { href: '/abortion', label: '임신중절수술 전체 안내' },
+  'q-1783336371757': { href: '/blog/abortion-period', label: '임신중절수술 시기·주수 안내' },
+  'q-1783507553435': { href: '/abortion/hospital', label: '임신중절수술 병원 안내' },
+  'q-1783926059877': { href: '/abortion', label: '임신중절수술 전체 안내' },
+  'q-1783926114816': { href: '/abortion/method', label: '임신중절수술 방법·종류 안내' },
+  'q-1784197245960': { href: '/abortion/recovery', label: '수술 후 회복 안내' },
+  'q-1784565037824': { href: '/blog/abortion-period', label: '임신중절수술 시기·주수 안내' },
+  'q-1784739739757': { href: '/abortion/legal', label: '임신중절수술 합법·법률 안내' },
+  'q-1785820096756': { href: '/abortion/hospital', label: '임신중절수술 병원 안내' },
+  'q-1778648522974': { href: '/blog/abortion-period', label: '임신중절수술 시기·주수 안내' },
+  'q-1782462547500': { href: '/abortion/method', label: '임신중절수술 방법·종류 안내' },
+  '임신중절수술-후-출근': { href: '/abortion/recovery', label: '수술 후 회복 안내' },
+  '임신-14주-상담': { href: '/blog/abortion-period', label: '임신중절수술 시기·주수 안내' },
+  '임신-중절-결정-전-고민상담': { href: '/abortion', label: '임신중절수술 전체 안내' },
+  '임신중절-후회-고민': { href: '/abortion/recovery', label: '수술 후 회복 안내' },
 }
 
 const ownerLinkBoxStyle = {
@@ -61,7 +127,7 @@ export async function generateMetadata({ params }: { params: { category: string;
       title: `${a.title} | 연세365산부인과의원`,
       description: a.description,
       url,
-      images: [{ url: a.heroImage || `${BASE}/og-image.jpg`, width: 1200, height: 630 }],
+      images: [{ url: a.heroImage && !/\.svg(\?|$)/i.test(a.heroImage) ? a.heroImage : `${BASE}/og-image.jpg`, width: 1200, height: 630 }],
       locale: 'ko_KR',
       type: 'article',
     },
@@ -166,7 +232,7 @@ export default function ArticlePage({ params }: { params: { category: string; sl
   if (!article) notFound()
   const url = `${BASE}/health-hub/${category}/${slug}`
   const cat = CATEGORIES[article.category]
-  const ownerLinkLabel = ABORTION_OWNER_LINKS[article.slug]
+  const ownerLink = ABORTION_OWNER_LINKS[article.slug]
 
   const related = getRelatedArticles(article, 3)
 
@@ -175,7 +241,7 @@ export default function ArticlePage({ params }: { params: { category: string; sl
       '@context': 'https://schema.org', '@type': 'Article',
       headline: article.title, description: article.description,
       datePublished: article.lastModified, dateModified: article.lastModified,
-      image: article.heroImage || `${BASE}/og-image.jpg`,
+      image: article.heroImage && !/\.svg(\?|$)/i.test(article.heroImage) ? article.heroImage : `${BASE}/og-image.jpg`,
       author: { '@type': 'Organization', name: '연세365산부인과의원', url: BASE },
       publisher: { '@type': 'MedicalOrganization', name: '연세365산부인과의원', logo: { '@type': 'ImageObject', url: `${BASE}/logo.png` } },
       mainEntityOfPage: { '@type': 'WebPage', '@id': url },
@@ -196,9 +262,10 @@ export default function ArticlePage({ params }: { params: { category: string; sl
       },
     {
       '@context': 'https://schema.org', '@type': 'MedicalClinic',
+      '@id': 'https://www.yeonsei365.com/#organization',
       name: '연세365산부인과의원', url: BASE, telephone: '02-585-3650',
       address: { '@type': 'PostalAddress', streetAddress: '과천대로 939, 3층', addressLocality: '관악구', addressRegion: '서울특별시', addressCountry: 'KR' },
-      geo: { '@type': 'GeoCoordinates', latitude: 37.4875, longitude: 126.9822 },
+      geo: { '@type': 'GeoCoordinates', latitude: 37.4769, longitude: 126.9819 },
       openingHours: ['Mo-Fr 10:00-17:30', 'Sa 09:00-16:30', 'Su,PH 10:00-14:00'],
     },
     {
@@ -281,11 +348,11 @@ export default function ArticlePage({ params }: { params: { category: string; sl
         </p>
       </div>
 
-      {ownerLinkLabel && (
+      {ownerLink && (
         <div style={ownerLinkBoxStyle}>
           관련 검사·상담·회복 정보는{' '}
-          <Link href="/abortion" style={{ color: C.pd, fontWeight: 800 }}>
-            {ownerLinkLabel}
+          <Link href={ownerLink.href} style={{ color: C.pd, fontWeight: 800 }}>
+            {ownerLink.label}
           </Link>
           에서 확인할 수 있습니다.
         </div>

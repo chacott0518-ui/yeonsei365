@@ -49,7 +49,7 @@ const RELATED = [
 const FEATURED_FAQS = [
   {
     q: '임신중절수술의 법률 기준은 어떻게 확인해야 하나요?',
-    a: '2021년 1월 낙태죄 폐지 이후 임신 14주 이내는 본인 동의만으로 의료기관에서 수술이 가능합니다. 14주~24주는 모자보건법 제14조에서 정한 사유(유전적 질환, 전염성 질환, 강간, 근친, 모체 건강 위협)에 해당하는 경우에 한해 가능합니다. 법적 기준의 최신 적용 여부는 진료 상담을 통해 확인하시기 바랍니다.',
+    a: '2021년 1월 형법상 낙태죄 처벌 조항이 효력을 상실했습니다. 모자보건법 제14조 열거 사유와 의료기관 정책, 초음파로 확인된 주수·건강 상태에 따라 진료 가능 범위가 달라질 수 있으므로 최신 적용 여부는 진료 상담으로 확인하시기 바랍니다. (확인일 2026.11)',
   },
   {
     q: '임신 14주 이내면 누구나 수술이 가능한가요?',
@@ -98,7 +98,7 @@ export default function LegalClient() {
         }}>
           <div style={{ flex: 1, minWidth: 0 }}>
             <div style={{ display: 'flex', gap: '7px', flexWrap: 'wrap', marginBottom: '18px' }}>
-              {['낙태 합법화', '낙태죄 폐지', '14주 이내 가능', '모자보건법'].map(t => (
+              {['낙태 합법화', '낙태죄 폐지', '법령 확인 필요', '모자보건법'].map(t => (
                 <span key={t} style={{ background: 'rgba(255,255,255,.18)', color: '#fff', fontSize: '11px', fontWeight: 700, padding: '3px 12px', borderRadius: '20px', border: '0.5px solid rgba(255,255,255,.3)' }}>{t}</span>
               ))}
             </div>
@@ -126,6 +126,15 @@ export default function LegalClient() {
         </div>
 
         <div style={{ maxWidth: '900px', margin: '0 auto', padding: '0 40px 100px' }}>
+          <figure style={{ margin: '28px 0 8px' }}>
+            <img
+              src="/images/hero-abortion-legal.webp"
+              alt="낙태 합법화와 임신중절수술 법률 기준"
+              width={1920}
+              height={1080}
+              style={{ width: '100%', height: 'auto', borderRadius: '16px', display: 'block' }}
+            />
+          </figure>
           <div style={{ display: 'flex', alignItems: 'center', gap: '6px', fontSize: '12px', color: C.tg, padding: '20px 0 32px' }}>
             <Link href="/" style={{ color: C.tg, textDecoration: 'none' }}>홈</Link><span>›</span>
             <Link href="/abortion" style={{ color: C.tg, textDecoration: 'none' }}>임신중절클리닉</Link><span>›</span>
@@ -134,9 +143,11 @@ export default function LegalClient() {
 
           <section>
             <SectionTag>01 먼저 확인할 내용</SectionTag>
-            <h2 style={{ fontSize: '24px', fontWeight: 900, color: C.tm, marginBottom: '8px', letterSpacing: '-.02em' }}>임신중절수술의 법률 기준은 현재 어떻게 확인해야 하나요?</h2>
+            <h2 style={{ fontSize: '24px', fontWeight: 900, color: C.tm, marginBottom: '8px', letterSpacing: '-.02em' }}>낙태 합법화 이후 임신중절수술 합법 기준은 어떻게 확인하나요?</h2>
             <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '14px' }}>
-              2021년 1월 1일부터 형법 제269조·제270조의 낙태죄 처벌 조항이 효력을 상실했습니다. 현재 임신중절수술은 모자보건법이 정한 범위 안에서 의료기관에서 합법적으로 시행되고 있습니다. 14주 이내에는 본인 동의만으로 의료기관에서 수술이 가능하며, 14주~24주는 모자보건법 제14조에서 정한 사유에 해당하는 경우에 한해 가능합니다.
+              낙태 합법화 이후인 2021년 1월 1일부터 형법 제269조·제270조의 낙태죄 처벌 조항이 효력을 상실했습니다. 현재 임신중절수술 합법·낙태수술 합법 여부는 모자보건법과 의료기관 정책이 정한 범위 안에서 안내되며, 실제 가능 주수·요건은 초음파 확인과 상담 후 달라질 수 있습니다. 금액이 궁금하면{' '}
+              <Link href="/abortion/cost" style={{ color: C.p, fontWeight: 700, textDecoration: 'underline' }}>낙태 비용 가격</Link>
+              {' '}안내를 함께 확인하세요.
             </p>
             <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '14px' }}>
               법적 기준의 세부 해석이나 최신 적용 범위는 의료기관 상담을 통해 개인 상황에 맞게 확인하는 것이 가장 정확합니다. 낙태죄 폐지 이후에도 무허가 의료기관이나 비전문의에 의한 시술은 처벌 대상임을 유의해야 합니다. 구체적인 법적 사항은 법률 전문가 상담을 병행하시기 바랍니다.
@@ -144,7 +155,7 @@ export default function LegalClient() {
             <div style={{ background: C.pb, border: `0.5px solid ${C.pbd}`, borderRadius: '12px', padding: '16px 20px', marginBottom: '20px' }}>
               <div style={{ fontSize: '12px', fontWeight: 700, color: C.pd, marginBottom: '10px' }}>핵심 | 최종 수정일 2026.06</div>
               <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px' }}>
-                {[['낙태죄 폐지', '2021.01.01 시행'], ['14주 이내', '본인 동의만으로 가능'], ['14~24주', '모자보건법 사유 확인 필요'], ['불법 시술', '여전히 처벌 대상']].map(([k, v]) => (
+                {[['낙태죄 효력 상실', '2021.01.01'], ['가능 범위', '상담·초음파 후 확인'], ['모자보건법', '열거 사유·기관 정책 확인'], ['불법 시술', '여전히 처벌 대상']].map(([k, v]) => (
                   <div key={k} style={{ background: '#fff', border: `0.5px solid ${C.pbd}`, borderRadius: '8px', padding: '10px 14px' }}>
                     <div style={{ fontSize: '11px', fontWeight: 700, color: C.p, marginBottom: '3px' }}>{k}</div>
                     <div style={{ fontSize: '12px', color: C.ts }}>{v}</div>
@@ -156,7 +167,7 @@ export default function LegalClient() {
               2019년 4월 헌법재판소가 낙태죄 처벌 조항에 대해 헌법불합치 결정을 내렸습니다. 이에 따라 2021년 1월 1일부터 형법 제269조(자기낙태죄) 및 제270조(의사낙태죄)가 효력을 상실했습니다. 현재 <strong style={{ color: C.p }}>임신중절수술은 모자보건법 범위 내에서 합법적으로 시행되고 있습니다.</strong>
             </p>
             <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '14px' }}>
-              낙태 합법화 이후 임신 14주 이내에는 본인 동의만으로 임신중절수술이 가능합니다. 이는 낙태 수술 합법 시기로 가장 안전하고 낙태 비용 가격도 낮은 시기입니다. 14주~24주는 사회·경제적 사유 등 모자보건법상 인정되는 조건에 해당하는 경우 시술이 가능합니다.
+              형법상 처벌 조항 효력 상실 이후에도 실제 진료 가능 범위는 모자보건법 열거 사유, 의료기관 정책, 주수·건강 상태에 따라 달라질 수 있습니다. 사회·경제적 사유만으로 가능하다고 단정하지 않으며, 개인 기준은 상담으로 확인하시기 바랍니다. (확인일 2026.11)
             </p>
             <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '20px' }}>
               낙태죄 폐지 이후에도 불법 시술(무허가 의료기관 또는 비전문의 시술)은 여전히 처벌 대상입니다. 반드시 산부인과 전문의가 있는 의료기관에서 합법적으로 시술받으시기 바랍니다. 연세365산부인과의원은 모든 관련 법규를 준수하며 합법적으로 임신중절수술을 시행합니다.
@@ -164,7 +175,7 @@ export default function LegalClient() {
 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: '16px', marginBottom: '24px' }}>
               {[
-                { period: '14주 이내', status: '자유 시술 가능', color: C.green, bg: C.greenBg, border: C.greenBorder, icon: '✓', desc: '본인 동의서만으로 가능합니다. 가장 안전하고 낙태 비용이 낮은 시기입니다.' },
+                { period: '초기 주수', status: '상담 후 안내', color: C.green, bg: C.greenBg, border: C.greenBorder, icon: '✓', desc: '초음파로 주수·상태를 확인한 뒤 가능 여부와 방법을 안내합니다.' },
                 { period: '14~24주', status: '조건부 가능', color: C.amber, bg: C.amberBg, border: '#f0c060', icon: '!', desc: '모자보건법 사유 확인 후 전문의 상담이 필수입니다.' },
                 { period: '24주 이후', status: '극히 제한', color: '#aaa', bg: '#f8f8f8', border: '#ddd', icon: '×', desc: '모체 생명 위협 등 극히 예외적인 경우에만 해당됩니다.' },
               ].map(({ period, status, color, bg, border, icon, desc }) => (
@@ -369,14 +380,23 @@ export default function LegalClient() {
           </div>
         </div>
 
+        <figure style={{ margin: '16px 16px 0' }}>
+          <img
+            src="/images/hero-abortion-legal.webp"
+            alt="낙태 합법화와 임신중절수술 법률 기준"
+            width={1920}
+            height={1080}
+            style={{ width: '100%', height: 'auto', borderRadius: '14px', display: 'block' }}
+          />
+        </figure>
 
         <div style={{ padding: '18px 16px', background: '#fff', borderBottom: `0.5px solid ${C.pbd}` }}>
           <div style={{ fontSize: '13px', fontWeight: 900, color: C.tm, marginBottom: '8px' }}>임신중절수술의 법률 기준은 현재 어떻게 확인해야 하나요?</div>
           <p style={{ fontSize: '12px', color: C.ts, lineHeight: 1.85, marginBottom: '10px' }}>
-            2021년 1월부터 형법 낙태죄 처벌 조항이 효력을 상실했습니다. 현재 14주 이내는 본인 동의만으로 의료기관에서 수술이 가능합니다. 14~24주는 모자보건법 제14조 사유 해당 시 가능하며, 정확한 주수는 초음파 검사로 확인합니다.
+            2021년 1월부터 형법 낙태죄 처벌 조항이 효력을 상실했습니다. 실제 가능 범위는 모자보건법·의료기관 정책·초음파 주수에 따라 달라질 수 있어 단정하지 않으며, 상담으로 확인합니다. (확인일 2026.11)
           </p>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '6px' }}>
-            {[['낙태죄 폐지', '2021.01.01~'], ['14주 이내', '본인 동의 가능'], ['14~24주', '사유 확인 필요'], ['합법 시술', '의료기관에서만']].map(([k, v]) => (
+            {[['낙태죄 효력 상실', '2021.01.01~'], ['가능 범위', '상담·초음파 확인'], ['모자보건법', '열거 사유 확인'], ['합법 시술', '의료기관에서만']].map(([k, v]) => (
               <div key={k} style={{ background: C.pb, border: `0.5px solid ${C.pbd}`, borderRadius: '8px', padding: '8px 10px' }}>
                 <div style={{ fontSize: '11px', fontWeight: 700, color: C.p, marginBottom: '2px' }}>{k}</div>
                 <div style={{ fontSize: '10px', color: C.ts }}>{v}</div>
@@ -387,13 +407,13 @@ export default function LegalClient() {
 
         <MobileAccordion title="낙태 합법화 현황" icon="⚖️">
           <p style={{ fontSize: '12px', color: C.ts, lineHeight: 1.85, marginBottom: '10px' }}>
-            2021년 1월 낙태죄가 폐지되어 임신 14주 이내는 본인 동의만으로 합법적으로 임신중절수술이 가능합니다. 14~24주는 모자보건법상 사유 해당 시 가능하며, 24주 이후는 극히 제한적입니다.
+            2021년 1월 형법상 낙태죄 처벌 조항이 효력을 상실했습니다. 가능 범위는 모자보건법·의료기관 정책·주수 확인에 따라 달라질 수 있어 단정하지 않으며, 상담으로 확인합니다. (확인일 2026.11)
           </p>
           <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
             {[
-              { period: '14주 이내', status: '본인 동의로 가능', color: C.green, desc: '본인 동의만으로 진행 가능한 기간입니다. 주수가 짧을수록 수술이 간단합니다.' },
-              { period: '14~24주', status: '조건부 가능', color: C.amber, desc: '모자보건법 사유 해당 시 전문의 상담 필수.' },
-              { period: '24주 이후', status: '극히 제한', color: '#aaa', desc: '모체 생명 위협 등 예외적인 경우만 해당.' },
+              { period: '초기 주수', status: '상담 후 안내', color: C.green, desc: '초음파로 주수·상태를 확인한 뒤 가능 여부와 방법을 안내합니다.' },
+              { period: '중기 주수', status: '요건·상담 확인', color: C.amber, desc: '모자보건법 열거 사유와 의료기관 정책을 상담으로 확인합니다.' },
+              { period: '후기 주수', status: '매우 제한적', color: '#aaa', desc: '모체 생명 위협 등 예외 상황은 개별 상담이 필요합니다.' },
             ].map(({ period, status, color, desc }) => (
               <div key={period} style={{ border: `0.5px solid ${C.pbd}`, borderRadius: '10px', padding: '12px 16px', background: '#fff' }}>
                 <div style={{ display: 'flex', gap: '8px', alignItems: 'center', marginBottom: '4px' }}>

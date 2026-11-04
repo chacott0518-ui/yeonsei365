@@ -111,7 +111,7 @@ export default function CostClient() {
             </div>
             <h1 style={{ color: '#fff', fontSize: '38px', fontWeight: 900, lineHeight: 1.25, letterSpacing: '-.03em', marginBottom: '16px' }}>
               임신중절수술 주수별 비용은 어떻게 달라질까요?<br />
-              <span style={{ fontSize: '24px', fontWeight: 700, opacity: .88 }}>주수별 금액 안내 | 연세365산부인과의원</span>
+              <span style={{ fontSize: '24px', fontWeight: 700, opacity: .88 }}>주수별 금액 안내</span>
             </h1>
             <p style={{ color: 'rgba(255,255,255,.9)', fontSize: '14px', lineHeight: 1.95, marginBottom: '22px', letterSpacing: '-.01em' }}>
               임신중절수술 비용은 임신 주수에 따라 달라집니다.<br />
@@ -171,7 +171,7 @@ export default function CostClient() {
             <h2 style={{ fontSize: '24px', fontWeight: 900, color: C.tm, marginBottom: '8px', letterSpacing: '-.02em' }}>임신중절수술 비용은 임신 주수에 따라 어떻게 달라지나요?</h2>
             <div className="speakable-summary">
               <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '14px' }}>
-                임신중절수술 비용은 임신 주수와 수술 방법에 따라 다릅니다. 연세365산부인과의원의 주수별 기준 비용은 8주 미만 45만원, 8주 60만원, 9주 70만원, 10주 80만원입니다. 수술 전 초음파 검사로 정확한 주수를 확인한 후 적합한 수술 방법과 비용을 안내합니다.
+                임신중절수술 비용·금액·가격과 낙태 비용 가격·낙태비용·낙태수술 비용은 임신 주수와 수술 방법에 따라 달라질 수 있습니다. 연세365산부인과의원의 주수별 기준 비용은 8주 미만 45만원, 8주 60만원, 9주 70만원, 10주 80만원입니다. 임신초기낙태 비용도 초음파로 확인한 주수를 기준으로 안내하며, 수술 전 검사 후 적합한 방법과 금액을 확인합니다.
               </p>
               <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '14px' }}>
                 안내된 주수별 비용은 수술비 기준이며, 초음파·처방약·마취 등 포함 여부는 진료 상담 시 확인하시기 바랍니다. 검사 결과에 따라 최종 비용은 달라질 수 있습니다. 11주 이상은 별도 상담 필요합니다.

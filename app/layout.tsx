@@ -6,6 +6,7 @@ import dynamic from 'next/dynamic'
 import PricePopup from '../components/PricePopup';
 import HolidayPopup from '../components/HolidayPopup';
 import FloatingBar from '../components/FloatingBar';
+import PcFloatingRail from '../components/PcFloatingRail';
 const FloatingChip = dynamic(() => import('../components/FloatingChip'), { ssr: false })
 const ConsultModal = dynamic(() => import('../components/ConsultModal'), { ssr: false })
 import Header from '../components/Header';
@@ -185,6 +186,7 @@ export default function RootLayout({
         {children}
         <ConsultModal />
         <FloatingBar />
+        <PcFloatingRail />
         <FloatingChip />
       </body>
     </html>

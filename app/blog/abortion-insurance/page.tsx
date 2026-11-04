@@ -29,8 +29,9 @@ const articleJsonLd = {
 const jsonLd = {
   '@context': 'https://schema.org', '@type': 'FAQPage',
   mainEntity: [
-    { '@type': 'Question', name: '임신중절수술 건강보험이 적용되나요?', acceptedAnswer: { '@type': 'Answer', text: '인공임신중절수술은 건강보험 비급여 항목으로 건강보험이 적용되지 않습니다. 전액 본인 부담입니다.' } },
-    { '@type': 'Question', name: '임신중절수술 실손보험이 적용되나요?', acceptedAnswer: { '@type': 'Answer', text: '대부분의 실손보험에서 임신중절수술은 보장 제외 항목입니다. 다만 보험사와 가입 상품에 따라 다를 수 있으므로 본인 보험사에 직접 문의하세요.' } },
+    { '@type': 'Question', name: '임신중절수술 비용이 보험 처리가 되나요?', acceptedAnswer: { '@type': 'Answer', text: '인공임신중절수술은 건강보험 비급여 항목으로 건강보험이 적용되지 않습니다. 실손보험도 대부분 보장 제외 항목입니다. 모자보건법상 사유에 해당하는 경우 일부 가능할 수 있으나 반드시 보험사에 사전 확인하세요.' } },
+    { '@type': 'Question', name: '영수증 발급이 가능한가요?', acceptedAnswer: { '@type': 'Answer', text: '네, 요청하시면 의료비 영수증을 발급해드립니다. 비급여 항목으로 처리되며 현금영수증도 발급 가능합니다.' } },
+    { '@type': 'Question', name: '카드 결제가 가능한가요?', acceptedAnswer: { '@type': 'Answer', text: '네, 카드와 현금 모두 결제 가능하며 동일한 가격입니다. 추가 검사·처치가 필요하면 상담에서 별도로 안내하며, 포함 항목을 먼저 확인하세요.' } },
   ],
 }
 const PAGE_URL = 'https://www.yeonsei365.com/blog/abortion-insurance'
@@ -78,7 +79,9 @@ export default function AbortionInsurancePage() {
         <section style={{ marginBottom: '36px' }}>
           <SH n="1" title="임신중절수술 건강보험 적용 여부" />
           <p style={bt}>인공임신중절수술은 건강보험 비급여 항목으로 건강보험이 적용되지 않습니다. 따라서 수술 비용 전액이 본인 부담입니다. 이는 임신중절수술이 의학적 필요성이 아닌 개인적 선택에 의한 시술로 분류되기 때문입니다.</p>
-          <p style={bt}>다만 모자보건법 제14조에 해당하는 사유(유전질환, 강간임신, 모체 건강 위협 등)로 시행되는 경우에는 일부 보험 적용이 가능할 수 있습니다. 이 경우에도 보험 적용 여부는 보험사와 가입 상품에 따라 달라질 수 있으므로 반드시 사전에 확인하시기 바랍니다.</p>
+          <p style={bt}>다만 모자보건법 제14조에 해당하는 사유(유전질환, 강간임신, 모체 건강 위협 등)로 시행되는 경우에는 일부 보험 적용이 가능할 수 있습니다. 이 경우에도 보험 적용 여부는 보험사와 가입 상품에 따라 달라질 수 있으므로 반드시 사전에 확인하시기 바랍니다. 비용·절차·준비사항 등{' '}
+            <Link href="/abortion" style={{ color: C.p, fontWeight: 700, textDecoration: 'underline' }}>임신중절수술 관련 정보</Link>
+            는 종합 안내 페이지에서 이어서 확인할 수 있습니다.</p>
           <div style={{ overflowX: 'auto', WebkitOverflowScrolling: 'touch' }}>
             <div style={{ border: `1px solid ${C.bd}`, borderRadius: '12px', overflow: 'hidden', minWidth: '340px' }}>
               <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '14px' }}>
@@ -110,7 +113,7 @@ export default function AbortionInsurancePage() {
           {[
             { q: '임신중절수술 비용이 보험 처리가 되나요?', a: '인공임신중절수술은 건강보험 비급여 항목으로 건강보험이 적용되지 않습니다. 실손보험도 대부분 보장 제외 항목입니다. 모자보건법상 사유에 해당하는 경우 일부 가능할 수 있으나 반드시 보험사에 사전 확인하세요.' },
             { q: '영수증 발급이 가능한가요?', a: '네, 요청하시면 의료비 영수증을 발급해드립니다. 비급여 항목으로 처리되며 현금영수증도 발급 가능합니다.' },
-            { q: '카드 결제가 가능한가요?', a: '네, 카드와 현금 모두 결제 가능하며 동일한 가격입니다. 추가 비용 없이 처음 안내한 가격이 최종 가격입니다.' },
+            { q: '카드 결제가 가능한가요?', a: '네, 카드와 현금 모두 결제 가능하며 동일한 가격입니다. 추가 검사·처치가 필요하면 상담에서 별도로 안내하며, 포함 항목을 먼저 확인하세요.' },
           ].map((f, i) => (
             <div key={i} style={{ border: `1px solid ${C.bd}`, borderRadius: '14px', overflow: 'hidden', marginBottom: '10px', background: '#fff' }}>
               <div style={{ background: '#FFF8FA', padding: '14px 18px', fontSize: '14px', fontWeight: 700, color: C.tm, borderBottom: `1px solid ${C.bd}` }}>Q. {f.q}</div>
@@ -121,7 +124,7 @@ export default function AbortionInsurancePage() {
         <div style={{ marginBottom: '32px' }}>
           <div style={{ fontSize: '14px', fontWeight: 700, color: C.tm, marginBottom: '14px' }}>관련 정보 더 보기</div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '10px' }}>
-            {[{href:'/abortion/surgery',label:'임신중절수술 금액·방법'},{href:'/blog/abortion-cost',label:'임신중절수술 비용'},{href:'/blog/abortion-after',label:'임신중절수술 후 관리'},{href:'/blog/abortion-period',label:'임신중절수술 기간'},{href:'/blog/abortion-legal',label:'낙태합법화 안내'},{href:'/blog',label:'전체 수술정보 보기'}].map(l => (
+            {[{href:'/abortion/cost',label:'임신중절수술 금액'},{href:'/abortion/method',label:'임신중절수술 방법·종류'},{href:'/blog/abortion-cost',label:'임신중절수술 비용'},{href:'/blog/abortion-after',label:'임신중절수술 후 관리'},{href:'/blog/abortion-period',label:'임신중절수술 기간'},{href:'/blog/abortion-legal',label:'낙태합법화 안내'},{href:'/abortion',label:'임신중절수술 전체 안내'},{href:'/blog',label:'전체 수술정보 보기'}].map(l => (
               <Link key={l.href} href={l.href} style={{ display: 'block', background: C.pb, border: `1px solid ${C.bd}`, borderRadius: '10px', padding: '12px 16px', textDecoration: 'none', fontSize: '13px', color: C.p, fontWeight: 700 }}>→ {l.label}</Link>
             ))}
           </div>

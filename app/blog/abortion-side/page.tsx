@@ -4,30 +4,30 @@ import { clinicSchema } from '@/lib/schemas'
 import ViewCounter from '@/components/ViewCounter'
 
 export const metadata: Metadata = {
-  title: '임신중절수술 부작용 | 위험성·합병증 완벽 안내 2026 | 연세365산부인과의원',
-  description: '임신중절수술 부작용과 합병증을 완벽하게 안내합니다. 출혈·감염·자궁손상 등 부작용 종류, 예방법, 즉시 내원 증상까지. 사당역 4번 출구 연세365산부인과의원.',
+  title: '임신중절수술 부작용 | 위험성·합병증 안내 | 연세365산부인과의원',
+  description: '임신중절수술 부작용과 합병증을 안내합니다. 출혈·감염·자궁손상 등 유형, 예방법, 즉시 내원 증상까지. 사당역 4번 출구 연세365산부인과의원.',
   keywords: ['임신중절수술부작용','임신중절수술 부작용','낙태부작용','낙태수술부작용','임신중절후유증','낙태후유증','중절수술부작용','임신중절합병증','낙태합병증','임신중절수술위험','낙태수술위험','임신중절수술감염','임신중절수술출혈','임신중절수술자궁손상','사당역산부인과','임신중절수술비용','낙태비용'],
   openGraph: { title: '임신중절수술 부작용 | 연세365산부인과의원', description: '임신중절수술 부작용·합병증 완벽 안내. 사당역 4번 출구.', url: 'https://www.yeonsei365.com/blog/abortion-side', images: [{ url: 'https://www.yeonsei365.com/og-image.jpg', width: 1200, height: 630 }] },
   alternates: { canonical: 'https://www.yeonsei365.com/blog/abortion-side' },
   twitter: {
     card: 'summary_large_image',
-    title: '임신중절수술 부작용 | 위험성·합병증 완벽 안내 2026 | 연세365산부인과의원',
-    description: '임신중절수술 부작용과 합병증을 완벽하게 안내합니다. 출혈·감염·자궁손상 등 부작용 종류, 예방법, 즉시 내원 증상까지. 사당역 4번 출구 연세365산부인과의원.',
+    title: '임신중절수술 부작용 | 위험성·합병증 안내 | 연세365산부인과의원',
+    description: '임신중절수술 부작용과 합병증을 안내합니다. 출혈·감염·자궁손상 등 유형, 예방법, 즉시 내원 증상까지. 사당역 4번 출구 연세365산부인과의원.',
   },
 }
 
 const jsonLd = {
   '@context': 'https://schema.org', '@type': 'FAQPage',
   mainEntity: [
-    { '@type': 'Question', name: '임신중절수술 부작용이 있나요?', acceptedAnswer: { '@type': 'Answer', text: '전문의가 안전하게 시행할 경우 부작용이 드뭅니다. 출혈·감염·자궁경부 손상·불완전 수술 등의 위험이 있으나 적절한 사후관리로 예방 가능합니다.' } },
-    { '@type': 'Question', name: '임신중절수술 후 즉시 병원에 가야 하는 증상은?', acceptedAnswer: { '@type': 'Answer', text: '38도 이상 고열 지속, 과다출혈, 악취 분비물, 심한 복통이 지속되는 경우 즉시 내원하세요.' } },
-    { '@type': 'Question', name: '임신중절수술 후 임신이 어려워지나요?', acceptedAnswer: { '@type': 'Answer', text: '전문의가 안전하게 시행한 경우 향후 임신에 영향이 거의 없습니다. 반복 시술은 자궁 내막에 영향을 줄 수 있으므로 피임 상담을 권장합니다.' } },
+    { '@type': 'Question', name: '임신중절수술 후 불임이 될 수 있나요?', acceptedAnswer: { '@type': 'Answer', text: '전문의가 안전하게 시행한 경우 불임으로 이어지는 경우는 매우 드뭅니다. 반복적인 임신중절수술은 자궁 내막에 영향을 줄 수 있으므로, 향후 임신 계획이 있다면 피임 방법에 대해 전문의와 상담하시기 바랍니다.' } },
+    { '@type': 'Question', name: '임신중절수술 부작용으로 자궁이 손상될 수 있나요?', acceptedAnswer: { '@type': 'Answer', text: '자궁 손상은 경험 풍부한 전문의가 시술할 경우 매우 드뭅니다. 연세365산부인과의원은 산부인과 전문의가 직접 시술하며 최신 의료 장비를 갖추고 있어 자궁 손상 위험을 최소화합니다.' } },
+    { '@type': 'Question', name: '임신중절수술 후 정서적 부작용도 있나요?', acceptedAnswer: { '@type': 'Answer', text: '일부 여성은 수술 후 슬픔, 죄책감, 우울감 등 정서적 어려움을 경험할 수 있습니다. 이는 정상적인 반응이며 개인차가 큽니다. 심리적 어려움이 지속된다면 전문 상담을 받으시기를 권장합니다.' } },
   ],
 }
 const PAGE_URL = 'https://www.yeonsei365.com/blog/abortion-side'
 const PAGE_DATE = '2026-04-10'
 const PAGE_MODIFIED = '2026-05-22'
-const articleSchema = { '@context':'https://schema.org','@type':'Article', headline:'임신중절수술 부작용 | 위험성·합병증 완벽 안내 2026', datePublished:PAGE_DATE, dateModified:PAGE_MODIFIED, image:'https://www.yeonsei365.com/og-image.jpg', author:{'@type':'Organization',name:'연세365산부인과의원',url:'https://www.yeonsei365.com'}, publisher:{'@type':'MedicalOrganization',name:'연세365산부인과의원',logo:{'@type':'ImageObject',url:'https://i.imgur.com/f7h5DY0.png'}}, mainEntityOfPage:{'@type':'WebPage','@id':PAGE_URL}, url:PAGE_URL }
+const articleSchema = { '@context':'https://schema.org','@type':'Article', headline:'임신중절수술 부작용 | 위험성·합병증 안내', datePublished:PAGE_DATE, dateModified:PAGE_MODIFIED, image:'https://www.yeonsei365.com/og-image.jpg', author:{'@type':'Organization',name:'연세365산부인과의원',url:'https://www.yeonsei365.com'}, publisher:{'@type':'MedicalOrganization',name:'연세365산부인과의원',logo:{'@type':'ImageObject',url:'https://i.imgur.com/f7h5DY0.png'}}, mainEntityOfPage:{'@type':'WebPage','@id':PAGE_URL}, url:PAGE_URL }
 const medicalWebPageSchema = { '@context':'https://schema.org','@type':'MedicalWebPage', name:'임신중절수술 부작용 | 위험성·합병증 완벽 안내 2026', url:PAGE_URL, specialty:{'@type':'MedicalSpecialty',name:'산부인과'}, medicalAudience:{'@type':'MedicalAudience',audienceType:'여성 환자'}, about:{'@type':'MedicalCondition',name:'임신중절수술 부작용'} }
 const howToSchema = { '@context':'https://schema.org','@type':'HowTo', name:'임신중절수술 부작용 예방 방법', description:'임신중절수술 후 부작용 예방 단계별 안내', step:[ {'@type':'HowToStep',position:1,name:'처방약 복용',text:'처방받은 항생제와 지혈제를 빠짐없이 복용합니다.'}, {'@type':'HowToStep',position:2,name:'안정 취하기',text:'수술 후 1주일간 무리한 활동을 피하고 안정을 취합니다.'}, {'@type':'HowToStep',position:3,name:'이상 증상 시 내원',text:'고열, 심한 복통, 과다출혈 시 즉시 내원합니다.'} ], tool:{'@type':'HowToTool',name:'연세365산부인과의원'} }
 const speakableSchema = { '@context':'https://schema.org','@type':'WebPage', name:'임신중절수술 부작용 | 위험성·합병증 완벽 안내 2026', url:PAGE_URL, speakable:{'@type':'SpeakableSpecification',cssSelector:['h1','h2']} }
@@ -156,7 +156,7 @@ export default function AbortionSidePage() {
         <div style={{ marginBottom: '32px' }}>
           <div style={{ fontSize: '14px', fontWeight: 700, color: C.tm, marginBottom: '14px' }}>관련 정보 더 보기</div>
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(180px, 1fr))', gap: '10px' }}>
-            {[{href:'/abortion/surgery',label:'임신중절수술 금액·방법'},{href:'/blog/abortion-after',label:'임신중절수술 후 관리'},{href:'/blog/abortion-period',label:'임신중절수술 기간'},{href:'/blog/abortion-fasting',label:'임신중절수술 금식'},{href:'/blog/abortion-cost',label:'임신중절수술 비용'},{href:'/blog',label:'전체 수술정보 보기'}].map(l => (
+            {[{href:'/abortion/cost',label:'임신중절수술 금액'},{href:'/abortion/method',label:'임신중절수술 방법·종류'},{href:'/blog/abortion-after',label:'임신중절수술 후 관리'},{href:'/blog/abortion-period',label:'임신중절수술 기간'},{href:'/blog/abortion-fasting',label:'임신중절수술 금식'},{href:'/blog/abortion-cost',label:'임신중절수술 비용'},{href:'/abortion',label:'임신중절수술 전체 안내'},{href:'/blog',label:'전체 수술정보 보기'}].map(l => (
               <Link key={l.href} href={l.href} style={{ display: 'block', background: C.pb, border: `1px solid ${C.bd}`, borderRadius: '10px', padding: '12px 16px', textDecoration: 'none', fontSize: '13px', color: C.p, fontWeight: 700 }}>→ {l.label}</Link>
             ))}
           </div>

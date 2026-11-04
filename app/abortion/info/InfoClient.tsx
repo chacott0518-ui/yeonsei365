@@ -37,12 +37,12 @@ function MobileAccordion({ title, icon, children }: { title: string; icon: strin
 }
 
 const RELATED = [
-  { href: '/abortion', label: '임신중절수술이란' },
-  { href: '/abortion/cost', label: '금액·비용 안내' },
-  { href: '/abortion/legal', label: '합법화 안내' },
+  { href: '/abortion', label: '임신중절수술 종합 안내' },
+  { href: '/blog/abortion-alone', label: '혼자 방문 안내' },
+  { href: '/blog/abortion-insurance', label: '보험 안내' },
+  { href: '/blog/abortion-fasting', label: '금식·준비 안내' },
+  { href: '/abortion/review', label: '후기 판단 기준' },
   { href: '/abortion/recovery', label: '수술 후 관리' },
-  { href: '/abortion/faq', label: `전체 ${FAQ_COUNT}개 FAQ` },
-  { href: '/abortion/hospital', label: '병원 안내' },
 ]
 
 const FEATURED_FAQS = [
@@ -52,7 +52,7 @@ const FEATURED_FAQS = [
   },
   {
     q: '혼자 수술받을 수 있나요?',
-    a: '성인은 본인 동의만으로 수술이 가능하며, 반드시 보호자가 동반해야 하는 것은 아닙니다. 다만 수면마취 후에는 자가 운전이 어려우므로 귀가 시 동행자가 있으면 더 안전합니다. 정확한 조건은 예약 시 확인해 주시기 바랍니다.',
+    a: '성인은 본인 동의가 원칙이며, 보호자 동행 여부는 마취 방식·건강 상태·병원 안내에 따라 달라질 수 있습니다. 다만 수면마취 후에는 자가 운전이 어려우므로 귀가 시 동행자가 있으면 더 안전합니다. 정확한 조건은 예약 시 확인해 주시기 바랍니다.',
   },
   {
     q: '비밀이 보장되나요?',
@@ -104,7 +104,7 @@ export default function InfoClient() {
             </div>
             <h1 style={{ color: '#fff', fontSize: '38px', fontWeight: 900, lineHeight: 1.25, letterSpacing: '-.03em', marginBottom: '16px' }}>
               임신중절수술 전 준비사항과<br />
-              보호자 동행 기준<span style={{ display: 'block', fontSize: '20px', fontWeight: 700, opacity: .88, marginTop: '8px' }}>금식·준비물·보호자 동행·비밀보장 완전 안내</span>
+              보호자 동행 기준<span style={{ display: 'block', fontSize: '20px', fontWeight: 700, opacity: .88, marginTop: '8px' }}>금식·준비물·보호자 동행·비밀보장 안내</span>
             </h1>
             <p style={{ color: 'rgba(255,255,255,.9)', fontSize: '14px', lineHeight: 1.95, marginBottom: '22px', letterSpacing: '-.01em' }}>
               임신중절수술 전 궁금한 것들을 모두 안내드립니다.<br />
@@ -125,7 +125,7 @@ export default function InfoClient() {
             {[
               { q: '혼자 와도 되나요?', a: '성인은 가능' },
               { q: '보험 적용되나요?', a: '비급여 항목' },
-              { q: '비밀 보장되나요?', a: '100% 보장' },
+              { q: '비밀 보장되나요?', a: '의료법에 따라 보호' },
             ].map(({ q, a }) => (
               <div key={q} style={{ background: 'rgba(255,255,255,.12)', border: '0.5px solid rgba(255,255,255,.2)', borderRadius: '12px', padding: '14px 20px' }}>
                 <div style={{ color: 'rgba(255,255,255,.75)', fontSize: '11px', marginBottom: '4px' }}>{q}</div>
@@ -158,9 +158,9 @@ export default function InfoClient() {
           {/* 섹션 1: 보호자 */}
           <section>
             <SectionTag>01 먼저 확인할 내용</SectionTag>
-            <h2 style={{ fontSize: '24px', fontWeight: 900, color: C.tm, marginBottom: '8px', letterSpacing: '-.02em' }}>임신중절수술 전에는 무엇을 준비해야 하나요?</h2>
+            <h2 style={{ fontSize: '24px', fontWeight: 900, color: C.tm, marginBottom: '8px', letterSpacing: '-.02em' }}>임신중절수술 보호자·금식·보험은 어떻게 준비하나요?</h2>
             <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '14px' }}>
-              수술 6시간 전부터 물을 포함한 완전 금식이 필요합니다. 신분증(주민등록증 또는 운전면허증)을 반드시 지참해야 하며, 복용 중인 약물이 있다면 예약 시 또는 내원 직후 의료진에게 알려야 합니다. 네일아트·젤 네일은 마취 중 혈중 산소 측정에 영향을 주므로 사전에 제거해야 합니다.
+              임신중절수술 전 금식(보통 6시간, 물 포함)과 신분증 지참이 필요합니다. 보호자 동행·혼자 방문 가능 여부는 연령·마취·귀가 상황에 따라 달라질 수 있고, 임신중절수술 보험은 대부분 비급여로 사전 확인이 필요합니다. 복용 중인 약이 있으면 예약 시 알려 주세요. 네일아트·젤 네일은 마취 중 혈중 산소 측정에 영향을 줄 수 있어 사전에 제거하는 것이 좋습니다.
             </p>
             <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '14px' }}>
               성인(만 19세 이상)은 보호자 없이 혼자 내원하여 수술이 가능합니다. 미성년자의 경우 법정대리인 동의가 원칙이지만 특수한 상황은 개별 상담을 통해 확인합니다. 수면마취 후에는 자가 운전이 불가하므로 귀가 방법을 미리 결정해 두는 것이 좋습니다.
@@ -199,7 +199,7 @@ export default function InfoClient() {
                   ['동의서', '본인 서명으로 완료'],
                   ['귀가 방법', '대중교통 이용 권장'],
                   ['자가 운전', '수면마취 후 절대 불가'],
-                  ['비밀보장', '의료법에 따라 100% 보장'],
+                  ['비밀보장', '의료법에 따라 보호'],
                 ].map(([k, v]) => (
                   <div key={k} style={{ display: 'flex', justifyContent: 'space-between', padding: '8px 0', borderBottom: `0.5px solid ${C.greenBorder}`, fontSize: '13px' }}>
                     <span style={{ color: C.green, fontWeight: 600 }}>{k}</span>
@@ -215,7 +215,7 @@ export default function InfoClient() {
                   ['신분증', '본인 + 법정대리인'],
                   ['서류', '가족관계증명서'],
                   ['특수 상황', '개별 상담 후 안내'],
-                  ['비밀보장', '동일하게 100% 보장'],
+                  ['비밀보장', '동일하게 의료법에 따라 보호'],
                 ].map(([k, v]) => (
                   <div key={k} style={{ display: 'flex', justifyContent: 'space-between', padding: '8px 0', borderBottom: `0.5px solid ${C.pbd}`, fontSize: '13px' }}>
                     <span style={{ color: C.pd, fontWeight: 600 }}>{k}</span>
@@ -344,7 +344,7 @@ export default function InfoClient() {
           {/* 섹션 4: 비밀보장 */}
           <section>
             <SectionTag>04 비밀 보장 시스템</SectionTag>
-            <h2 style={{ fontSize: '24px', fontWeight: 900, color: C.tm, marginBottom: '8px', letterSpacing: '-.02em' }}>100% 비밀이 보장됩니다</h2>
+            <h2 style={{ fontSize: '24px', fontWeight: 900, color: C.tm, marginBottom: '8px', letterSpacing: '-.02em' }}>진료 정보는 의료법에 따라 보호됩니다</h2>
             <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '14px' }}>
               임신중절수술을 결심하셨을 때 가장 걱정되는 것 중 하나가 비밀 유지입니다. 가족이나 직장 동료에게 알려질까 걱정하시는 분들이 매우 많습니다. 연세365산부인과의원은 환자의 프라이버시 보호를 최우선으로 합니다.
             </p>
@@ -352,14 +352,16 @@ export default function InfoClient() {
               모든 상담과 진료 기록은 의료법 제19조에 따라 철저히 보호되며, 본인 동의 없이는 가족을 포함한 누구에게도 공개되지 않습니다. 독립된 1인 상담실에서 비공개 상담이 진행되며, 다른 환자와 마주칠 일이 없도록 동선을 분리하여 운영합니다.
             </p>
             <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '20px' }}>
-              전산 시스템의 개인 정보는 고도의 보안 시스템으로 관리되며, 외부에 절대 유출되지 않습니다. 수술 후 회복 역시 1인 회복실에서 완전한 프라이버시가 보장됩니다. 연세365산부인과의원을 방문하신 분들의 후기에서 가장 많이 언급되는 키워드가 바로 '비밀보장 철저'입니다.
+              전산 시스템의 개인 정보는 고도의 보안 시스템으로 관리되며, 외부에 절대 유출되지 않습니다. 수술 후 회복 역시 1인 회복실에서 완전한 프라이버시가 보장됩니다. 온라인 후기를 참고할 때는{' '}
+              <Link href="/abortion/review" style={{ color: C.p, fontWeight: 700, textDecoration: 'underline' }}>후기 판단 기준</Link>
+              을 함께 확인하세요. 방문하신 분들의 후기에서 가장 많이 언급되는 키워드가 바로 '비밀보장 철저'입니다.
             </p>
 
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3,1fr)', gap: '14px', marginBottom: '20px' }}>
               {[
                 { icon: '🔒', title: '1인 상담실', desc: '독립된 공간에서 비공개 1:1 상담이 진행됩니다. 다른 환자와 마주칠 일이 없으며 목소리도 외부에 전달되지 않습니다.' },
                 { icon: '🛏️', title: '1인 회복실', desc: '수술 후 독립된 1인 회복실에서 안정을 취합니다. 완전한 프라이버시 보장으로 누구와도 마주칠 염려가 없습니다.' },
-                { icon: '💻', title: '의료 기록 보호', desc: '의료법에 따라 모든 개인 정보와 진료 기록을 철저히 보호합니다. 고도의 보안 시스템으로 외부 유출은 절대 없습니다.' },
+                { icon: '💻', title: '의료 기록 보호', desc: '의료법에 따라 모든 개인 정보와 진료 기록을 철저히 보호합니다. 보안 시스템과 접근 권한 관리로 외부 유출 방지에 노력합니다.' },
                 { icon: '🚶', title: '독립 동선 운영', desc: '접수부터 수술, 회복, 귀가까지 모든 동선이 독립적으로 분리됩니다. 병원 방문 자체를 다른 사람이 알기 어렵습니다.' },
                 { icon: '📱', title: '상담 비밀보장', desc: '전화·카카오톡 상담 내용도 철저히 비밀이 보장됩니다. 익명 상담도 가능하며 이름을 밝히지 않아도 됩니다.' },
                 { icon: '⚖️', title: '법적 보호', desc: '의료법 제19조에 의해 의료인은 환자의 개인 정보를 외부에 누설할 수 없습니다. 법적으로 완벽하게 보호됩니다.' },
@@ -385,7 +387,7 @@ export default function InfoClient() {
             </p>
             <div style={{ display: 'flex', flexDirection: 'column', gap: '12px' }}>
               {[
-                { q: '남자친구나 가족에게 알리지 않고 혼자 수술이 가능한가요?', a: '성인의 경우 본인 동의만으로 수술이 가능합니다. 보호자에게 알리지 않아도 되며, 모든 과정은 철저히 비밀이 보장됩니다. 접수부터 귀가까지 독립된 동선으로 진행됩니다.' },
+                { q: '남자친구나 가족에게 알리지 않고 혼자 수술이 가능한가요?', a: '성인의 경우 본인 동의가 원칙이며, 동행이나 추가 확인 필요 여부는 개인 상태에 따라 달라질 수 있습니다. 상담·진료 내용은 의료법에 따라 보호됩니다. 접수부터 귀가까지 독립된 동선으로 진행됩니다.' },
                 { q: '수술 당일 혼자 가서 혼자 귀가할 수 있나요?', a: '내원은 혼자 가능하지만 수면마취 후에는 자가 운전이 절대 불가합니다. 귀가 시에는 반드시 대중교통을 이용하시거나 보호자와 함께 하셔야 합니다.' },
                 { q: '직장에서 쓸 수 있는 진단서나 서류 발급이 가능한가요?', a: '환자 본인 요청 시 진단서, 확인서, 소견서 등 필요한 서류 발급이 가능합니다. 모든 서류 발급 과정에서도 개인 정보 보호를 철저히 합니다.' },
                 { q: '카드 결제 내역에 어떻게 표시되나요?', a: '병원명으로 표시되며, 임신중절수술이나 관련 내용이 직접 노출되지 않습니다. 현금 결제를 원하시는 경우 현금영수증 발급도 가능합니다.' },
@@ -451,7 +453,7 @@ export default function InfoClient() {
             <SectionTag>06 혼자 방문 vs 보호자 동행 확인사항</SectionTag>
             <h2 style={{ fontSize: '24px', fontWeight: 900, color: C.tm, marginBottom: '8px', letterSpacing: '-.02em' }}>혼자 방문하거나 보호자와 동행할 때 각각 무엇을 확인해야 하나요?</h2>
             <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '14px' }}>
-              성인(만 19세 이상)은 본인 동의만으로 임신중절수술이 가능합니다. 혼자 방문하더라도 수술 전 동의서 작성, 초음파 검사, 수술, 회복실 안정 후 귀가까지 모든 과정이 가능합니다. 다만 수면마취 후 자가 운전은 절대 불가하므로, 혼자 방문하는 경우 반드시 대중교통으로 귀가해야 합니다.
+              성인(만 19세 이상)은 본인 동의가 원칙이며, 개인 상태와 병원 안내에 따라 추가 확인이 필요할 수 있습니다. 혼자 방문하더라도 수술 전 동의서 작성, 초음파 검사, 수술, 회복실 안정 후 귀가까지 모든 과정이 가능합니다. 다만 수면마취 후 자가 운전은 절대 불가하므로, 혼자 방문하는 경우 반드시 대중교통으로 귀가해야 합니다.
             </p>
             <p style={{ fontSize: '14px', color: C.ts, lineHeight: 2, letterSpacing: '-.01em', marginBottom: '14px' }}>
               보호자와 함께 방문하는 경우, 보호자는 대기실에서 기다리며 수술 과정에는 참여하지 않는 것이 일반적입니다. 개인정보 보호를 위해 보호자에게도 수술 세부 내용을 알리지 않을 수 있으며, 이는 사전에 상담을 통해 결정할 수 있습니다. 미성년자의 경우 법정대리인 동의가 원칙이지만, 특수 상황은 예약 시 개별 안내를 받으시기 바랍니다.
@@ -570,7 +572,7 @@ export default function InfoClient() {
             임신중절수술 전 준비사항과<br />보호자 동행 기준<span style={{ display: 'block', fontSize: '15px', fontWeight: 700, opacity: .88, marginTop: '6px' }}>금식·준비물·보호자·비밀보장 안내</span>
           </h2>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr 1fr', gap: '6px', marginTop: '14px' }}>
-            {[['혼자 가능', '성인 기준'], ['비밀보장', '100%'], ['비급여', '보험 불가']].map(([v, l]) => (
+            {[['혼자 방문', '상담 후 확인'], ['비밀보장', '의료법 준수'], ['비급여', '보험 적용 별도 확인']].map(([v, l]) => (
               <div key={v} style={{ background: 'rgba(255,255,255,.12)', borderRadius: '8px', padding: '8px', textAlign: 'center' }}>
                 <div style={{ color: '#FFD700', fontSize: '13px', fontWeight: 900 }}>{v}</div>
                 <div style={{ color: 'rgba(255,255,255,.7)', fontSize: '10px', marginTop: '2px' }}>{l}</div>
@@ -649,14 +651,14 @@ export default function InfoClient() {
 
         <MobileAccordion title="비밀 보장 시스템" icon="🔒">
           <p style={{ fontSize: '12px', color: C.ts, lineHeight: 1.85, marginBottom: '10px' }}>
-            1인 상담실·1인 회복실·독립 동선 운영으로 완전한 프라이버시를 보장합니다. 의료 기록은 의료법 제19조에 따라 철저히 보호되며 본인 동의 없이는 누구에게도 공개되지 않습니다. 카드 내역에도 임신중절 관련 내용이 직접 노출되지 않습니다.
+            1인 상담실·1인 회복실·독립 동선 운영으로 프라이버시를 보호합니다. 의료 기록은 의료법 제19조에 따라 철저히 보호되며 본인 동의 없이는 누구에게도 공개되지 않습니다. 카드 내역에도 임신중절 관련 내용이 직접 노출되지 않습니다.
           </p>
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '8px' }}>
             {['1인 상담실', '1인 회복실', '독립 동선', '법적 보호'].map(t => (
               <div key={t} style={{ background: C.pb, borderRadius: '8px', padding: '8px 12px', border: `0.5px solid ${C.pbd}`, fontSize: '12px', fontWeight: 700, color: C.p, textAlign: 'center' }}>🔒 {t}</div>
             ))}
           </div>
-          <InfoBox>의료법 제19조에 따라 모든 진료 내용은 법적으로 보호됩니다. 외부 유출은 절대 없습니다.</InfoBox>
+          <InfoBox>의료법 제19조에 따라 모든 진료 내용은 법적으로 보호됩니다. 외부 공개는 법령에 따라 제한됩니다.</InfoBox>
         </MobileAccordion>
 
         <div style={{ padding: '16px 16px 0' }}>

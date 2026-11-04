@@ -45,7 +45,6 @@ export default function Page() {
     <main className="min-h-screen" style={{ background: '#f7eef2' }}>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({ '@context':'https://schema.org','@type':'WebApplication', name:'임신주수 계산기', description:'임신주수, 출산예정일, 태아 발달 정보를 자동으로 계산합니다.', url:PAGE_URL, applicationCategory:'HealthApplication', offers:{'@type':'Offer',price:'0',priceCurrency:'KRW'} }) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(medicalWebPageSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }} />
