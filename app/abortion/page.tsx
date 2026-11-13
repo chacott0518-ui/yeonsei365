@@ -9,7 +9,7 @@ const PAGE_DESCRIPTION =
   '임신중절수술의 금액·절차·시기·병원·합법 안내를 한곳에서 확인하세요. 임신 주수와 건강 상태에 따라 검사·방법·회복 과정이 달라질 수 있어 진료를 통해 안내합니다.'
 
 export const metadata: Metadata = {
-  title: '임신중절수술 | 금액·절차·시기·병원·합법 안내 | 연세365산부인과의원',
+  title: '임신중절수술 | 연세365산부인과의원',
   description:
     PAGE_DESCRIPTION,
   keywords: [
@@ -20,7 +20,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: PAGE_URL },
   openGraph: {
-    title: '임신중절수술 | 금액·절차·시기·병원·합법 안내 | 연세365산부인과의원',
+    title: '임신중절수술 | 연세365산부인과의원',
     description: PAGE_DESCRIPTION,
     url: PAGE_URL,
     images: [{ url: 'https://www.yeonsei365.com/images/hero-abortion-main.webp', width: 1920, height: 1080, alt: '임신중절수술 상담 안내 연세365산부인과의원' }],
@@ -29,7 +29,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: '임신중절수술 | 금액·절차·시기·병원·합법 안내 | 연세365산부인과의원',
+    title: '임신중절수술 | 연세365산부인과의원',
     description: PAGE_DESCRIPTION,
     images: ['https://www.yeonsei365.com/images/hero-abortion-main.webp'],
   },

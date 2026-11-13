@@ -209,10 +209,10 @@ export default function AbortionClient() {
             금액·비용부터 주수 확인, 수술 방법과 회복까지
           </p>
           <p
-            className="mb-5 text-[13px] leading-relaxed text-white/90 lg:mb-[22px] lg:text-[14px] lg:leading-[1.95]"
+            className="speakable-summary mb-5 text-[13px] leading-relaxed text-white/90 lg:mb-[22px] lg:text-[14px] lg:leading-[1.95]"
             style={{ letterSpacing: '-.01em' }}
           >
-            임신 주수와 건강 상태를 확인한 뒤 검사 결과와 상담을 바탕으로 수술 방법과 주의사항을 안내합니다. 금액·비용, 검사·준비, 절차와 회복 과정은 개인 상태와 임신 주수에 따라 달라질 수 있습니다.
+            임신중절수술은 임신을 의료적으로 종결하는 수술입니다. 초음파로 임신 여부와 위치, 주수를 확인하고 건강 상태와 검사 결과를 바탕으로 의료진과 방법·주의사항을 결정합니다. 비용과 회복 과정은 임신 주수와 개인 상태에 따라 달라질 수 있습니다.
             {' · '}
             <ViewCounter slug="abortion" />
           </p>
