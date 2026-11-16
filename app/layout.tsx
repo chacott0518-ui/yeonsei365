@@ -10,6 +10,7 @@ import FloatingBar from '../components/FloatingBar';
 import PcFloatingRail from '../components/PcFloatingRail';
 const FloatingChip = dynamic(() => import('../components/FloatingChip'), { ssr: false })
 const ConsultModal = dynamic(() => import('../components/ConsultModal'), { ssr: false })
+const AnalyticsBootstrap = dynamic(() => import('../components/analytics/AnalyticsBootstrap'), { ssr: false })
 import Header from '../components/Header';
 
 const playfair = Playfair_Display({
@@ -203,6 +204,7 @@ export default function RootLayout({
             style={{ display: 'none', visibility: 'hidden' }}
           />
         </noscript>
+        <AnalyticsBootstrap />
       <Header /> 
         <HolidayPopup />
         <PricePopup />

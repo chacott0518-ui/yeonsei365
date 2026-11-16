@@ -2,6 +2,8 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { X, Send, CheckCircle, ChevronLeft } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { getAttributionSnapshot } from '@/lib/analytics/attribution';
+import { trackBookingOpen, trackBookingSubmit } from '@/lib/analytics/track';
 
 const API_URL = 'https://script.google.com/macros/s/AKfycbw8vBdb2FuJ4-QluyrGm7D2_FdSdn5ET237Y2Qra5ioZzu0-wVsKVKCIEIbcWDjYqvk/exec';
 
@@ -258,6 +260,16 @@ const ConsultModal: React.FC = () => {
     return () => { document.body.style.overflow = ''; };
   }, [isOpen]);
 
+  // 모달 실제 OPEN 1회당 booking_open 1회 (Strict Mode 중복 방지)
+  const lastBookingOpenAtRef = useRef(0);
+  useEffect(() => {
+    if (!isOpen) return;
+    const now = Date.now();
+    if (now - lastBookingOpenAtRef.current < 800) return;
+    lastBookingOpenAtRef.current = now;
+    trackBookingOpen();
+  }, [isOpen]);
+
   const handleClose = () => {
     setIsOpen(false);
     setIsSuccess(false);
@@ -287,11 +299,22 @@ const ConsultModal: React.FC = () => {
     setIsSubmitting(true);
     try {
       const cleanPhone = formData.phone.replace(/-/g, '');
+      const attribution = getAttributionSnapshot();
+      // 기존 category/name/phone/memo 유지 + attribution 필드 추가
+      // Apps Script가 미수신해도 기존 저장이 깨지지 않도록 additive only
       const payload = {
         category: formData.category,
         name: formData.name,
         phone: cleanPhone,
         memo: formData.memo,
+        utm_source: attribution.utm_source,
+        utm_medium: attribution.utm_medium,
+        utm_campaign: attribution.utm_campaign,
+        referrer: attribution.referrer,
+        landing_page: attribution.landing_page,
+        current_page: attribution.current_page,
+        gclid: attribution.gclid,
+        msclkid: attribution.msclkid,
       };
 
       // POST with JSON body — Content-Type: text/plain to avoid CORS preflight
@@ -302,6 +325,8 @@ const ConsultModal: React.FC = () => {
         body: JSON.stringify(payload),
       });
 
+      // no-cors: 실제 Sheets ACK 불가 → 성공 UI 전환 시점을 booking_submit 기준으로 사용
+      trackBookingSubmit();
       setIsSuccess(true);
       setFormData({ category: '임신중절', name: '', phone: '', memo: '' });
       setAgreed(false);
