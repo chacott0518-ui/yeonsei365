@@ -13,8 +13,8 @@ function isTelHref(href: string): boolean {
 }
 
 function isKakaoHref(href: string): boolean {
-  const value = href.trim().toLowerCase()
-  return value.includes('pf.kakao.com/_tpabj') || value.includes('pf.kakao.com')
+  // 실제 카카오 상담 채널 링크만 (일반 kakao 문자열 오탐 금지)
+  return href.trim().toLowerCase().includes('pf.kakao.com')
 }
 
 function isLocationHref(href: string): boolean {
@@ -44,7 +44,7 @@ export default function AnalyticsBootstrap() {
     const onClick = (event: MouseEvent) => {
       const target = event.target
       if (!(target instanceof Element)) return
-      const anchor = target.closest('a')
+      const anchor = target.closest('a[href]')
       if (!anchor) return
 
       const href = anchor.getAttribute('href') || ''

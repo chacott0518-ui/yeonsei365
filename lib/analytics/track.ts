@@ -32,6 +32,15 @@ export type GaEventName =
   | 'kakao_click'
   | 'location_click'
 
+export type AnalyticsPayload = {
+  current_page?: string
+  landing_page?: string
+  traffic_source?: string
+  traffic_medium?: string
+  utm_campaign?: string
+  referrer_domain?: string
+}
+
 function sanitizeParams(
   params: Record<string, string | undefined>,
 ): Record<string, string> {
@@ -42,6 +51,19 @@ function sanitizeParams(
     out[key] = String(value)
   }
   return out
+}
+
+/** 4개 전환 이벤트 공통 context (PII 없음) */
+export function getAnalyticsContext(): Required<AnalyticsPayload> {
+  const a = getAttributionSnapshot()
+  return {
+    current_page: a.current_page,
+    landing_page: a.landing_page,
+    traffic_source: a.traffic_source,
+    traffic_medium: a.traffic_medium,
+    utm_campaign: a.utm_campaign,
+    referrer_domain: a.referrer_domain || getReferrerDomain(a.referrer),
+  }
 }
 
 export function pushGaEvent(
@@ -59,49 +81,49 @@ export function pushGaEvent(
   window.dataLayer.push(payload)
 }
 
-export function trackBookingOpen(): void {
-  const a = getAttributionSnapshot()
-  pushGaEvent('booking_open', {
-    current_page: a.current_page,
-    landing_page: a.landing_page,
-    traffic_source: a.traffic_source,
-    traffic_medium: a.traffic_medium,
-    utm_campaign: a.utm_campaign,
+export function trackAnalyticsEvent(
+  eventName: Exclude<GaEventName, 'location_click'>,
+  payload: AnalyticsPayload = {},
+): void {
+  pushGaEvent(eventName, {
+    ...getAnalyticsContext(),
+    ...payload,
   })
+}
+
+// Strict Mode remount / 동일 클릭 버블 대비: 짧은 창에서 동일 event 중복 push 차단
+const lastPushAt: Record<Exclude<GaEventName, 'location_click'>, number> = {
+  booking_open: 0,
+  booking_submit: 0,
+  tel_click: 0,
+  kakao_click: 0,
+}
+
+function trackOnce(
+  eventName: Exclude<GaEventName, 'location_click'>,
+  windowMs = 400,
+): void {
+  const now = Date.now()
+  if (now - lastPushAt[eventName] < windowMs) return
+  lastPushAt[eventName] = now
+  trackAnalyticsEvent(eventName)
+}
+
+export function trackBookingOpen(): void {
+  trackOnce('booking_open')
 }
 
 export function trackBookingSubmit(): void {
-  const a = getAttributionSnapshot()
-  pushGaEvent('booking_submit', {
-    current_page: a.current_page,
-    landing_page: a.landing_page,
-    traffic_source: a.traffic_source,
-    traffic_medium: a.traffic_medium,
-    utm_campaign: a.utm_campaign,
-    referrer_domain: a.referrer_domain || getReferrerDomain(a.referrer),
-  })
+  trackOnce('booking_submit')
 }
 
 export function trackTelClick(): void {
-  const a = getAttributionSnapshot()
-  pushGaEvent('tel_click', {
-    current_page: a.current_page,
-    landing_page: a.landing_page,
-    traffic_source: a.traffic_source,
-    traffic_medium: a.traffic_medium,
-  })
+  trackOnce('tel_click')
 }
 
 export function trackKakaoClick(): void {
-  const a = getAttributionSnapshot()
-  pushGaEvent('kakao_click', {
-    current_page: a.current_page,
-    landing_page: a.landing_page,
-    traffic_source: a.traffic_source,
-    traffic_medium: a.traffic_medium,
-  })
+  trackOnce('kakao_click')
 }
-
 export function trackLocationClick(): void {
   const a = getAttributionSnapshot()
   pushGaEvent('location_click', {

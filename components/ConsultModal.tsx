@@ -260,13 +260,15 @@ const ConsultModal: React.FC = () => {
     return () => { document.body.style.overflow = ''; };
   }, [isOpen]);
 
-  // 모달 실제 OPEN 1회당 booking_open 1회 (Strict Mode 중복 방지)
-  const lastBookingOpenAtRef = useRef(0);
+  // CLOSED → OPEN 전이 1회만 booking_open (닫히면 다음 open을 위해 리셋)
+  const wasBookingOpenRef = useRef(false);
   useEffect(() => {
-    if (!isOpen) return;
-    const now = Date.now();
-    if (now - lastBookingOpenAtRef.current < 800) return;
-    lastBookingOpenAtRef.current = now;
+    if (!isOpen) {
+      wasBookingOpenRef.current = false;
+      return;
+    }
+    if (wasBookingOpenRef.current) return;
+    wasBookingOpenRef.current = true;
     trackBookingOpen();
   }, [isOpen]);
 
