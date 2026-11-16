@@ -51,7 +51,128 @@ function hostIn(hostname: string, roots: string[]): boolean {
   return roots.some((root) => hostEqualsOrSubdomain(hostname, root))
 }
 
-/** UTM 우선 → referrer hostname 분류 → direct */
+/** UTM/alias 분류용 normalize. RAW utm_source 원본은 별도 보존. */
+export function normalizeSource(value: string): string {
+  return (value || '')
+    .trim()
+    .toLowerCase()
+    .replace(/^https?:\/\//, '')
+    .replace(/^www\./, '')
+    .replace(/\/.*$/, '')
+}
+
+const SEARCH_SOURCE_ALIASES: Record<string, string> = {
+  google: 'google',
+  'google.com': 'google',
+  naver: 'naver',
+  'naver.com': 'naver',
+  'search.naver.com': 'naver',
+  bing: 'bing',
+  'bing.com': 'bing',
+  daum: 'daum',
+  'daum.net': 'daum',
+  'search.daum.net': 'daum',
+  zum: 'zum',
+  'zum.com': 'zum',
+}
+
+const AI_SOURCE_ALIASES: Record<string, string> = {
+  chatgpt: 'chatgpt',
+  'chatgpt.com': 'chatgpt',
+  'chat.openai.com': 'chatgpt',
+  openai: 'chatgpt',
+  'openai.com': 'chatgpt',
+  claude: 'claude',
+  'claude.ai': 'claude',
+  anthropic: 'claude',
+  perplexity: 'perplexity',
+  'perplexity.ai': 'perplexity',
+  gemini: 'gemini',
+  'gemini.google.com': 'gemini',
+  copilot: 'copilot',
+  'copilot.microsoft.com': 'copilot',
+  grok: 'grok',
+  'grok.com': 'grok',
+  manus: 'manus',
+  'manus.im': 'manus',
+  genspark: 'genspark',
+  'genspark.ai': 'genspark',
+  mistral: 'mistral',
+  'mistral.ai': 'mistral',
+  'chat.mistral.ai': 'mistral',
+  deepseek: 'deepseek',
+  'deepseek.com': 'deepseek',
+  'chat.deepseek.com': 'deepseek',
+  you: 'you',
+  'you.com': 'you',
+  'meta-ai': 'meta-ai',
+  'meta.ai': 'meta-ai',
+  poe: 'poe',
+  'poe.com': 'poe',
+  phind: 'phind',
+  'phind.com': 'phind',
+  brave: 'brave',
+  'brave.com': 'brave',
+  'search.brave.com': 'brave',
+}
+
+const SOCIAL_SOURCE_ALIASES: Record<string, string> = {
+  kakao: 'kakao',
+  'kakao.com': 'kakao',
+  'pf.kakao.com': 'kakao',
+  instagram: 'instagram',
+  'instagram.com': 'instagram',
+  'l.instagram.com': 'instagram',
+  facebook: 'facebook',
+  'facebook.com': 'facebook',
+  'l.facebook.com': 'facebook',
+  'm.facebook.com': 'facebook',
+  youtube: 'youtube',
+  'youtube.com': 'youtube',
+  'www.youtube.com': 'youtube',
+}
+
+/** 알려진 UTM source → search/ai/social. unknown이면 null (true campaign). */
+export function classifyKnownUtmSource(
+  utmSourceRaw: string,
+  utmMediumRaw: string,
+): TrafficClassification | null {
+  const normalized = normalizeSource(utmSourceRaw)
+  if (!normalized) return null
+
+  const medium = (utmMediumRaw || '').trim().toLowerCase()
+
+  const searchSource = SEARCH_SOURCE_ALIASES[normalized]
+  if (searchSource) {
+    return {
+      source_group: 'search',
+      traffic_source: searchSource,
+      traffic_medium: medium || 'organic',
+    }
+  }
+
+  const aiSource = AI_SOURCE_ALIASES[normalized]
+  if (aiSource) {
+    return {
+      source_group: 'ai',
+      traffic_source: aiSource,
+      traffic_medium: medium || 'referral',
+    }
+  }
+
+  const socialSource = SOCIAL_SOURCE_ALIASES[normalized]
+  if (socialSource) {
+    return {
+      source_group: 'social',
+      traffic_source: socialSource,
+      traffic_medium: medium || 'referral',
+    }
+  }
+
+  return null
+}
+
+/** UTM 우선(알려진 source 분류) → referrer hostname → direct */
 export function classifyTraffic(
   params: URLSearchParams,
   referrer: string,
@@ -60,8 +181,12 @@ export function classifyTraffic(
   const utmMedium = (params.get('utm_medium') || '').trim()
 
   if (utmSource) {
+    const known = classifyKnownUtmSource(utmSource, utmMedium)
+    if (known) return known
+
+    // 알려진 검색/AI/social이 아닐 때만 true campaign
     return {
-      traffic_source: utmSource.toLowerCase(),
+      traffic_source: normalizeSource(utmSource) || utmSource.toLowerCase(),
       traffic_medium: (utmMedium || 'campaign').toLowerCase(),
       source_group: 'campaign',
     }
@@ -251,12 +376,12 @@ export function getFirstTouch(): FirstTouchAttribution | null {
   return captureFirstTouchOnce()
 }
 
-/** 구버전 first-touch(source_group 없음)도 덮어쓰지 않고 읽기 시 보강 */
+/**
+ * landing_page/raw UTM/referrer는 first-touch 그대로 유지.
+ * traffic_* / source_group만 현재 classifier로 재계산
+ * (구버전 "UTM=전부 campaign" 오분류 교정, 페이지 이동으로 landing은 덮어쓰지 않음)
+ */
 function normalizeFirstTouch(first: FirstTouchAttribution): FirstTouchAttribution {
-  if (first.source_group && first.traffic_source && first.traffic_medium) {
-    return first
-  }
-
   const params = new URLSearchParams()
   if (first.utm_source) params.set('utm_source', first.utm_source)
   if (first.utm_medium) params.set('utm_medium', first.utm_medium)
@@ -264,9 +389,9 @@ function normalizeFirstTouch(first: FirstTouchAttribution): FirstTouchAttributio
 
   return {
     ...first,
-    traffic_source: first.traffic_source || classified.traffic_source,
-    traffic_medium: first.traffic_medium || classified.traffic_medium,
-    source_group: first.source_group || classified.source_group,
+    traffic_source: classified.traffic_source,
+    traffic_medium: classified.traffic_medium,
+    source_group: classified.source_group,
   }
 }
 
