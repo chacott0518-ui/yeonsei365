@@ -37,6 +37,7 @@ export type AnalyticsPayload = {
   landing_page?: string
   traffic_source?: string
   traffic_medium?: string
+  source_group?: string
   utm_campaign?: string
   referrer_domain?: string
 }
@@ -61,6 +62,7 @@ export function getAnalyticsContext(): Required<AnalyticsPayload> {
     landing_page: a.landing_page,
     traffic_source: a.traffic_source,
     traffic_medium: a.traffic_medium,
+    source_group: a.source_group,
     utm_campaign: a.utm_campaign,
     referrer_domain: a.referrer_domain || getReferrerDomain(a.referrer),
   }

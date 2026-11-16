@@ -302,21 +302,24 @@ const ConsultModal: React.FC = () => {
     try {
       const cleanPhone = formData.phone.replace(/-/g, '');
       const attribution = getAttributionSnapshot();
-      // 기존 category/name/phone/memo 유지 + attribution 필드 추가
-      // Apps Script가 미수신해도 기존 저장이 깨지지 않도록 additive only
+      // 기존 category/name/phone/memo 유지 + attribution additive only
+      // Apps Script가 미수신해도 기존 저장이 깨지지 않도록 필드 삭제 금지
       const payload = {
         category: formData.category,
         name: formData.name,
         phone: cleanPhone,
         memo: formData.memo,
-        utm_source: attribution.utm_source,
-        utm_medium: attribution.utm_medium,
-        utm_campaign: attribution.utm_campaign,
-        referrer: attribution.referrer,
-        landing_page: attribution.landing_page,
-        current_page: attribution.current_page,
-        gclid: attribution.gclid,
-        msclkid: attribution.msclkid,
+        source_group: attribution.source_group || '',
+        traffic_source: attribution.traffic_source || '',
+        traffic_medium: attribution.traffic_medium || '',
+        utm_source: attribution.utm_source || '',
+        utm_medium: attribution.utm_medium || '',
+        utm_campaign: attribution.utm_campaign || '',
+        referrer: attribution.referrer || '',
+        landing_page: attribution.landing_page || '',
+        current_page: attribution.current_page || '',
+        gclid: attribution.gclid || '',
+        msclkid: attribution.msclkid || '',
       };
 
       // POST with JSON body — Content-Type: text/plain to avoid CORS preflight
