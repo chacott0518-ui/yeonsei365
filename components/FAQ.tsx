@@ -49,7 +49,11 @@ export default function FAQ() {
               }`}
             >
               <button
+                type="button"
                 onClick={() => toggle(i)}
+                aria-expanded={openIndex === i}
+                aria-controls={`home-faq-desktop-answer-${i}`}
+                id={`home-faq-desktop-question-${i}`}
                 className="w-full flex items-start justify-between p-5 text-left bg-white"
               >
                 <div className="flex gap-3 items-start flex-1 pr-2">
@@ -64,14 +68,18 @@ export default function FAQ() {
                   ? <ChevronUp size={16} className="text-[#D6336C] flex-shrink-0 mt-0.5" />
                   : <ChevronDown size={16} className="text-gray-300 flex-shrink-0 mt-0.5" />}
               </button>
-              {openIndex === i && (
-                <div className="px-5 pb-5 pt-0 bg-[#fff8fa] border-t border-dashed border-[#f0d0dc]">
-                  <div className="flex gap-3 pt-3">
-                    <span className="text-[13px] font-black text-[#D6336C]/50 flex-shrink-0">A.</span>
-                    <p className="text-[13px] text-gray-600 leading-relaxed">{faq.answer}</p>
-                  </div>
+              <div
+                id={`home-faq-desktop-answer-${i}`}
+                role="region"
+                aria-labelledby={`home-faq-desktop-question-${i}`}
+                hidden={openIndex !== i}
+                className="px-5 pb-5 pt-0 bg-[#fff8fa] border-t border-dashed border-[#f0d0dc]"
+              >
+                <div className="flex gap-3 pt-3">
+                  <span className="text-[13px] font-black text-[#D6336C]/50 flex-shrink-0">A.</span>
+                  <p className="text-[13px] text-gray-600 leading-relaxed">{faq.answer}</p>
                 </div>
-              )}
+              </div>
             </div>
           ))}
         </div>
@@ -86,7 +94,11 @@ export default function FAQ() {
               }`}
             >
               <button
+                type="button"
                 onClick={() => toggle(i)}
+                aria-expanded={openIndex === i}
+                aria-controls={`home-faq-mobile-answer-${i}`}
+                id={`home-faq-mobile-question-${i}`}
                 className="w-full flex items-start justify-between p-4 text-left bg-white"
               >
                 <div className="flex gap-2 items-start flex-1 pr-2">
@@ -101,14 +113,18 @@ export default function FAQ() {
                   ? <ChevronUp size={15} className="text-[#D6336C] flex-shrink-0 mt-0.5" />
                   : <ChevronDown size={15} className="text-gray-300 flex-shrink-0 mt-0.5" />}
               </button>
-              {openIndex === i && (
-                <div className="px-4 pb-4 bg-[#fff8fa] border-t border-dashed border-[#f0d0dc]">
-                  <div className="flex gap-2 pt-3">
-                    <span className="text-[12px] font-black text-[#D6336C]/50 flex-shrink-0">A.</span>
-                    <p className="text-[13px] text-gray-600 leading-relaxed">{faq.answer}</p>
-                  </div>
+              <div
+                id={`home-faq-mobile-answer-${i}`}
+                role="region"
+                aria-labelledby={`home-faq-mobile-question-${i}`}
+                hidden={openIndex !== i}
+                className="px-4 pb-4 bg-[#fff8fa] border-t border-dashed border-[#f0d0dc]"
+              >
+                <div className="flex gap-2 pt-3">
+                  <span className="text-[12px] font-black text-[#D6336C]/50 flex-shrink-0">A.</span>
+                  <p className="text-[13px] text-gray-600 leading-relaxed">{faq.answer}</p>
                 </div>
-              )}
+              </div>
             </div>
           ))}
         </div>

@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import { getColumnBySlug, getAllColumnSlugs } from '@/lib/columns'
+import { normalizeHealthArticleDate } from '@/lib/healthArticleDate'
 import ColumnDetailClient from './ColumnDetailClient'
 
 const BASE = 'https://www.yeonsei365.com'
@@ -45,6 +46,7 @@ export default function ColumnDetailPage({ params }: { params: { slug: string } 
   if (!col) notFound()
 
   const url = `${BASE}/health-magazine/column/${col.slug}`
+  const structuredDate = normalizeHealthArticleDate(col.date.replace(/\./g, '-'))
 
   // ── 1. Article 스키마 ──────────────────────────────────────────
   const articleSchema = {
@@ -52,8 +54,7 @@ export default function ColumnDetailPage({ params }: { params: { slug: string } 
     '@type': 'Article',
     headline: col.title,
     description: col.description,
-    datePublished: col.date,
-    dateModified: col.date,
+    ...(structuredDate ? { datePublished: structuredDate, dateModified: structuredDate } : {}),
     image: col.heroImage || col.thumbnail || `${BASE}/og-image.jpg`,
     author: {
       '@type': 'Organization',

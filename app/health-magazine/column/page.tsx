@@ -2,6 +2,7 @@ import { clinicSchema } from '@/lib/schemas'
 import type { Metadata } from 'next'
 import ColumnClient from './ColumnClient'
 import { COLUMNS } from '@/lib/columns'
+import { normalizeHealthArticleDate } from '@/lib/healthArticleDate'
 
 const SCHEMA = {
   '@context': 'https://schema.org',
@@ -16,14 +17,18 @@ const SCHEMA = {
     address: { '@type': 'PostalAddress', streetAddress: '과천대로 939, 3층', addressLocality: '관악구', addressRegion: '서울특별시', addressCountry: 'KR' },
     telephone: '02-585-3650',
   },
-  hasPart: COLUMNS.map(col => ({
-    '@type': 'Article',
-    headline: col.title,
-    description: col.description,
-    url: `https://www.yeonsei365.com/health-magazine/column/${col.slug}`,
-    datePublished: col.date,
-    keywords: col.keywords.join(', '),
-  })),
+  hasPart: COLUMNS.map(col => {
+    const structuredDate = normalizeHealthArticleDate(col.date.replace(/\./g, '-'))
+
+    return {
+      '@type': 'Article',
+      headline: col.title,
+      description: col.description,
+      url: `https://www.yeonsei365.com/health-magazine/column/${col.slug}`,
+      ...(structuredDate ? { datePublished: structuredDate } : {}),
+      keywords: col.keywords.join(', '),
+    }
+  }),
 }
 
 export const metadata: Metadata = {

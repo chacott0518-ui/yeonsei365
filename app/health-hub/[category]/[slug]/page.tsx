@@ -88,6 +88,18 @@ const ABORTION_OWNER_LINKS: Record<string, { href: string; label: string }> = {
   '임신-14주-상담': { href: '/blog/abortion-period', label: '임신중절수술 시기·주수 안내' },
   '임신-중절-결정-전-고민상담': { href: '/abortion', label: '임신중절수술 전체 안내' },
   '임신중절-후회-고민': { href: '/abortion/recovery', label: '수술 후 회복 안내' },
+  '임신-초기-중절수술을-고려할-때-가능한-기간은-어떻게-확인하나요': {
+    href: '/blog/abortion-period',
+    label: '임신중절수술 시기·주수 안내',
+  },
+  '임신-중절을-상담할-병원은-어떤-기준으로-확인해야-하나요': {
+    href: '/abortion/hospital',
+    label: '임신중절수술 병원 안내',
+  },
+  '임신을-중절한-뒤-생리는-언제-다시-시작되고-무엇을-확인해야-하나요': {
+    href: '/blog/abortion-menstruation',
+    label: '임신중절수술 후 생리 안내',
+  },
 }
 
 const ownerLinkBoxStyle = {
