@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { clinicSchema } from '@/lib/schemas'
+import { FAQS } from '@/constants'
 import Hero from '../components/Hero'
 import HomeSearchSection from '../components/home-search/HomeSearchSection'
 import dynamic from 'next/dynamic'
@@ -10,7 +11,6 @@ const About = dynamic(() => import('../components/About'), { ssr: false, loading
 const Doctors = dynamic(() => import('../components/Doctors'), { ssr: false, loading: emptyFallback })
 const Center = dynamic(() => import('../components/Center'), { ssr: false, loading: emptyFallback })
 const Abortion = dynamic(() => import('../components/Abortion'), { ssr: false, loading: emptyFallback })
-const Review = dynamic(() => import('../components/Review'), { ssr: false, loading: emptyFallback })
 const FAQ = dynamic(() => import('../components/FAQ'), { ssr: false, loading: emptyFallback })
 const Consultation = dynamic(() => import('../components/Booking'), { ssr: false, loading: emptyFallback })
 const Footer = dynamic(() => import('../components/Footer'), { ssr: false, loading: emptyFallback })
@@ -19,21 +19,18 @@ const FloatingBar = dynamic(() => import('../components/FloatingBar'), { ssr: fa
 const FAQ_SCHEMA = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
-  mainEntity: [
-    { '@type': 'Question', name: '임신중절수술 금액이 얼마인가요?', acceptedAnswer: { '@type': 'Answer', text: '사당역 연세365산부인과의원 기준 8주 미만 45만원, 8주 60만원, 9주 70만원, 10주 80만원. 수술·마취·영양제·부가세 포함 최종 금액, 카드·현금 동일가, 추가 비용 없음.' } },
-    { '@type': 'Question', name: '임신중절수술 합법 기간은 언제까지인가요?', acceptedAnswer: { '@type': 'Answer', text: '2021년 낙태죄 폐지 이후 임신 14주 이내는 본인 동의만으로 합법적으로 수술 가능. 14~24주는 모자보건법 사유 해당 시 조건부 가능.' } },
-    { '@type': 'Question', name: '임신중절수술 혼자 가도 되나요?', acceptedAnswer: { '@type': 'Answer', text: '성인(만 19세 이상)은 보호자 없이 혼자 수술 가능. 수면마취 후 자가 운전은 불가하므로 귀가 시 대중교통 이용 필수. 사당역 4번 출구 도보 3분.' } },
-    { '@type': 'Question', name: '흡입술과 소파술 중 어떤 방법이 더 안전한가요?', acceptedAnswer: { '@type': 'Answer', text: '8주 이내라면 흡입술이 자궁 내막 손상이 가장 적고 회복이 빠름. 8~12주는 소파술이 적합. 두 방법 모두 수면마취 하에 진행, 수술 중 통증 없음.' } },
-    { '@type': 'Question', name: '임신중절수술 당일 절차가 어떻게 되나요?', acceptedAnswer: { '@type': 'Answer', text: '내원·접수 → 초음파·혈액검사 → 전문의 상담 → 수면마취 후 시술(10~15분) → 1인 회복실 안정 → 당일 귀가. 총 소요 시간 2~3시간.' } },
-    { '@type': 'Question', name: '낙태수술 기록이 타인에게 알려질 수 있나요?', acceptedAnswer: { '@type': 'Answer', text: '의료법 제19조에 따라 진료 기록은 본인 동의 없이 외부에 절대 공개 불가. 1인 상담실·1인 회복실·독립 동선으로 완전 비밀 보장.' } },
-  ],
+  mainEntity: FAQS.slice(0, 6).map(({ question, answer }) => ({
+    '@type': 'Question',
+    name: question,
+    acceptedAnswer: { '@type': 'Answer', text: answer },
+  })),
 }
 const PAGE_URL = 'https://www.yeonsei365.com'
 const PAGE_DATE = '2026-04-01'
-const PAGE_MODIFIED = '2026-05-22'
+const PAGE_MODIFIED = '2026-11-17'
 const articleSchema = { '@context':'https://schema.org','@type':'Article', headline:'임신중절수술 금액·비용 | 낙태비용 가격 안내 | 연세365산부인과의원', datePublished:PAGE_DATE, dateModified:PAGE_MODIFIED, image:'https://www.yeonsei365.com/og-image.jpg', author:{'@type':'Organization',name:'연세365산부인과의원',url:'https://www.yeonsei365.com'}, publisher:{'@type':'MedicalOrganization',name:'연세365산부인과의원',logo:{'@type':'ImageObject',url:'https://i.imgur.com/f7h5DY0.png'}}, mainEntityOfPage:{'@type':'WebPage','@id':PAGE_URL}, url:PAGE_URL }
 const medicalWebPageSchema = { '@context':'https://schema.org','@type':'MedicalWebPage', name:'임신중절수술 금액·비용 낙태비용 가격 안내 연세365산부인과의원', url:PAGE_URL, specialty:{'@type':'MedicalSpecialty',name:'산부인과'}, medicalAudience:{'@type':'MedicalAudience',audienceType:'여성 환자'}, about:{'@type':'MedicalCondition',name:'임신중절수술'} }
-const howToSchema = { '@context':'https://schema.org','@type':'HowTo', name:'임신중절수술 예약 방법', description:'연세365산부인과의원 예약부터 수술까지', step:[ {'@type':'HowToStep',position:1,name:'상담 예약',text:'전화(02-585-3650) 또는 카카오톡으로 예약합니다.'}, {'@type':'HowToStep',position:2,name:'내원 및 검사',text:'사당역 4번 출구 도보 3분. 초음파 주수 확인 후 비용 안내.'}, {'@type':'HowToStep',position:3,name:'수술 및 귀가',text:'수면마취 후 10~30분 수술. 당일 귀가 가능.'} ], tool:{'@type':'HowToTool',name:'연세365산부인과의원'} }
+const howToSchema = { '@context':'https://schema.org','@type':'HowTo', name:'임신중절수술 상담 및 진행 방법', description:'연세365산부인과의원 상담부터 진료 후 안내까지', step:[ {'@type':'HowToStep',position:1,name:'상담 예약',text:'전화(02-585-3650) 또는 카카오톡으로 상담 가능 시간과 준비사항을 확인합니다.'}, {'@type':'HowToStep',position:2,name:'내원 및 검사',text:'초음파로 주수와 상태를 확인하고 필요한 검사와 비용을 안내받습니다.'}, {'@type':'HowToStep',position:3,name:'진료 후 결정',text:'검사 결과와 건강 상태를 바탕으로 의료진과 방법·주의사항·귀가 계획을 확인합니다.'} ], tool:{'@type':'HowToTool',name:'연세365산부인과의원'} }
 const speakableSchema = { '@context':'https://schema.org','@type':'WebPage', name:'임신중절수술 금액·비용 낙태비용 가격 안내 연세365산부인과의원', url:PAGE_URL, speakable:{'@type':'SpeakableSpecification',cssSelector:['h1','h2']} }
 const breadcrumbSchema = { '@context':'https://schema.org','@type':'BreadcrumbList', itemListElement:[ {'@type':'ListItem',position:1,name:'홈',item:'https://www.yeonsei365.com'} ] }
 
@@ -108,7 +105,6 @@ export default function Home() {
             <Doctors />
             <Center />
             <Abortion />
-            <Review />
             <FAQ />
             <Consultation />
           </div>

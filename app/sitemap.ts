@@ -5,13 +5,13 @@ import { HEALTH_ARTICLES } from '@/lib/healthHub'
 const BASE_URL = 'https://www.yeonsei365.com'
 
 const staticPages: MetadataRoute.Sitemap = [
-  { url: `${BASE_URL}`, changeFrequency: 'weekly', priority: 1.0 },
-  { url: `${BASE_URL}/abortion`, changeFrequency: 'weekly', priority: 0.95 },
+  { url: `${BASE_URL}`, lastModified: new Date('2026-11-17'), changeFrequency: 'weekly', priority: 1.0 },
+  { url: `${BASE_URL}/abortion`, lastModified: new Date('2026-11-13'), changeFrequency: 'weekly', priority: 0.95 },
   { url: `${BASE_URL}/about`, changeFrequency: 'monthly', priority: 0.7 },
   { url: `${BASE_URL}/about/hours`, changeFrequency: 'monthly', priority: 0.6 },
   { url: `${BASE_URL}/about/location`, changeFrequency: 'monthly', priority: 0.6 },
   { url: `${BASE_URL}/about/tour`, changeFrequency: 'monthly', priority: 0.6 },
-  { url: `${BASE_URL}/abortion/cost`, changeFrequency: 'weekly', priority: 0.95 },
+  { url: `${BASE_URL}/abortion/cost`, lastModified: new Date('2026-05-22'), changeFrequency: 'weekly', priority: 0.95 },
   { url: `${BASE_URL}/abortion/faq`, changeFrequency: 'monthly', priority: 0.9 },
   { url: `${BASE_URL}/abortion/surgery`, changeFrequency: 'monthly', priority: 0.9 },
   { url: `${BASE_URL}/abortion/method`, changeFrequency: 'monthly', priority: 0.9 },

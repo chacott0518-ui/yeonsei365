@@ -12,7 +12,7 @@ export const posts: SearchPost[] = [
     title: '임신중절수술',
     slug: '/abortion',
     description: '임신중절수술의 금액·절차·시기·병원·합법 안내를 한곳에서 확인하세요. 임신 주수와 건강 상태에 따라 검사·방법·회복 과정이 달라질 수 있어 진료를 통해 안내합니다.',
-    date: '2026-11-04',
+    date: '2026-11-13',
     keywords: [
       '임신중절수술',
       '낙태수술',
@@ -43,7 +43,7 @@ export const posts: SearchPost[] = [
     title: '임신중절수술 비용 안내',
     slug: '/abortion/cost',
     description: '임신중절수술 비용 상세 안내',
-    date: '2024-04-07',
+    date: '2026-05-22',
     keywords: ['비용', '가격', '금액', '수술비', '진료비', '임신중절수술 비용'],
     priority: 80,
   },

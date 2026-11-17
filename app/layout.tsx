@@ -63,6 +63,9 @@ export const metadata: Metadata = {
   },
   alternates: {
     canonical: 'https://www.yeonsei365.com/',
+    types: {
+      'application/rss+xml': 'https://www.yeonsei365.com/rss.xml',
+    },
   },
 };
 

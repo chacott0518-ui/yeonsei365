@@ -4,7 +4,7 @@ import { clinicSchema } from '@/lib/schemas';
 
 const PAGE_URL = 'https://www.yeonsei365.com/abortion'
 const PAGE_DATE = '2026-05-21'
-const PAGE_MODIFIED = '2026-11-04'
+const PAGE_MODIFIED = '2026-11-13'
 const PAGE_DESCRIPTION =
   '임신중절수술의 금액·절차·시기·병원·합법 안내를 한곳에서 확인하세요. 임신 주수와 건강 상태에 따라 검사·방법·회복 과정이 달라질 수 있어 진료를 통해 안내합니다.'
 

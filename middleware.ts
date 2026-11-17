@@ -27,6 +27,12 @@ export function middleware(request: NextRequest) {
     decodedPathname = pathname
   }
 
+  if (decodedPathname === '/' && request.nextUrl.searchParams.has('abmode')) {
+    const url = request.nextUrl.clone()
+    url.search = ''
+    return NextResponse.redirect(url, 301)
+  }
+
   if (decodedPathname === '/임신주수계산기') {
     const url = request.nextUrl.clone()
     url.pathname = '/pregnancy-calculator'

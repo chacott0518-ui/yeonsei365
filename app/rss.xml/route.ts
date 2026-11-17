@@ -3,6 +3,12 @@ import { posts } from '@/lib/posts';
 const BASE_URL = 'https://www.yeonsei365.com';
 
 export async function GET() {
+  const latestPostTimestamp = posts.reduce((latest, post) => {
+    const timestamp = new Date(post.date).getTime();
+    return Number.isNaN(timestamp) ? latest : Math.max(latest, timestamp);
+  }, 0);
+  const lastBuildDate = new Date(latestPostTimestamp || 0).toUTCString();
+
   const rssItems = posts
     .slice()
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
@@ -26,7 +32,7 @@ export async function GET() {
 <link>${BASE_URL}</link>
 <description>연세365산부인과의원 - 임신중절수술, 낙태비용, 여성건강 정보. 사당역 4번출구.</description>
 <language>ko</language>
-<lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
+<lastBuildDate>${lastBuildDate}</lastBuildDate>
 <atom:link href="${BASE_URL}/rss.xml" rel="self" type="application/rss+xml"/>
 ${rssItems}
 </channel>
