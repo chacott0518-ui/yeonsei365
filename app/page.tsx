@@ -7,11 +7,43 @@ import dynamic from 'next/dynamic'
 
 const emptyFallback = () => <div aria-hidden="true" />
 
+const abortionFallback = () => (
+  <section id="abortion-clinic" className="relative py-20 md:py-32 bg-white z-10">
+    <div className="container mx-auto px-5 md:px-12 text-center">
+      <h2 className="text-[28px] md:text-[38px] font-black text-gray-900 mb-4">
+        임신중절수술 금액·비용 안내
+      </h2>
+      <p className="text-[14px] md:text-[16px] text-gray-600 leading-relaxed">
+        임신중절수술 안내 금액은 8주 미만 45만원, 8주 60만원, 9주 70만원, 10주 80만원입니다.
+        정확한 주수와 필요한 검사·마취·처치에 따라 최종 금액과 포함 항목이 달라질 수 있으므로 초음파 확인 후 상담에서 안내드립니다.
+      </p>
+    </div>
+  </section>
+)
+
+const faqFallback = () => (
+  <section id="faq" className="relative py-20 md:py-28 bg-white">
+    <div className="container mx-auto px-5 md:px-10 max-w-5xl">
+      <h2 className="text-[28px] md:text-[38px] font-black text-gray-900 mb-6 text-center">
+        임신중절수술 자주 묻는 질문
+      </h2>
+      <div className="space-y-4">
+        {FAQS.slice(0, 6).map(({ question, answer }) => (
+          <article key={question} className="border border-[#f0d0dc] rounded-xl p-5">
+            <h3 className="text-[14px] font-bold text-gray-800 mb-2">{question}</h3>
+            <p className="text-[13px] text-gray-600 leading-relaxed">{answer}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+)
+
 const About = dynamic(() => import('../components/About'), { ssr: false, loading: emptyFallback })
 const Doctors = dynamic(() => import('../components/Doctors'), { ssr: false, loading: emptyFallback })
 const Center = dynamic(() => import('../components/Center'), { ssr: false, loading: emptyFallback })
-const Abortion = dynamic(() => import('../components/Abortion'), { ssr: false, loading: emptyFallback })
-const FAQ = dynamic(() => import('../components/FAQ'), { ssr: false, loading: emptyFallback })
+const Abortion = dynamic(() => import('../components/Abortion'), { ssr: false, loading: abortionFallback })
+const FAQ = dynamic(() => import('../components/FAQ'), { ssr: false, loading: faqFallback })
 const Consultation = dynamic(() => import('../components/Booking'), { ssr: false, loading: emptyFallback })
 const Footer = dynamic(() => import('../components/Footer'), { ssr: false, loading: emptyFallback })
 const FloatingBar = dynamic(() => import('../components/FloatingBar'), { ssr: false, loading: emptyFallback })

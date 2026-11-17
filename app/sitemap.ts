@@ -1,6 +1,7 @@
 import type { MetadataRoute } from 'next'
 import { COLUMNS } from '@/lib/columns'
 import { HEALTH_ARTICLES } from '@/lib/healthHub'
+import { normalizeHealthArticleDate } from '@/lib/healthArticleDate'
 
 const BASE_URL = 'https://www.yeonsei365.com'
 
@@ -61,12 +62,16 @@ const columnPages: MetadataRoute.Sitemap = COLUMNS.map(col => ({
   priority: 0.8,
 }))
 
-const healthHubPages: MetadataRoute.Sitemap = HEALTH_ARTICLES.map(a => ({
-  url: `${BASE_URL}/health-hub/${a.category}/${a.slug}`,
-  ...(a.lastModified && !isNaN(new Date(a.lastModified).getTime()) ? { lastModified: new Date(a.lastModified) } : {}),
-  changeFrequency: 'monthly' as const,
-  priority: 0.75,
-}))
+const healthHubPages: MetadataRoute.Sitemap = HEALTH_ARTICLES.map(a => {
+  const normalizedLastModified = normalizeHealthArticleDate(a.lastModified)
+
+  return {
+    url: `${BASE_URL}/health-hub/${a.category}/${a.slug}`,
+    ...(normalizedLastModified ? { lastModified: new Date(normalizedLastModified) } : {}),
+    changeFrequency: 'monthly' as const,
+    priority: 0.75,
+  }
+})
 
 import { ALL_FAQS } from '@/lib/faqData'
 

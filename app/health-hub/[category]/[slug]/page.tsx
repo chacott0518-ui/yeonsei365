@@ -6,6 +6,7 @@ import type { HealthArticle } from '@/lib/healthHub'
 import { getRelatedArticles } from '@/lib/healthHubRelated'
 import ViewCounter from '@/components/ViewCounter'
 import { AI_CONTENT_POLICY } from '@/config/aiContentPolicy'
+import { normalizeHealthArticleDate } from '@/lib/healthArticleDate'
 import styles from './article.module.css'
 
 const BASE = 'https://www.yeonsei365.com'
@@ -233,6 +234,7 @@ export default function ArticlePage({ params }: { params: { category: string; sl
   const url = `${BASE}/health-hub/${category}/${slug}`
   const cat = CATEGORIES[article.category]
   const ownerLink = ABORTION_OWNER_LINKS[article.slug]
+  const structuredDate = normalizeHealthArticleDate(article.lastModified)
 
   const related = getRelatedArticles(article, 3)
 
@@ -240,7 +242,7 @@ export default function ArticlePage({ params }: { params: { category: string; sl
     {
       '@context': 'https://schema.org', '@type': 'Article',
       headline: article.title, description: article.description,
-      datePublished: article.lastModified, dateModified: article.lastModified,
+      ...(structuredDate ? { datePublished: structuredDate, dateModified: structuredDate } : {}),
       image: article.heroImage && !/\.svg(\?|$)/i.test(article.heroImage) ? article.heroImage : `${BASE}/og-image.jpg`,
       author: { '@type': 'Organization', name: '연세365산부인과의원', url: BASE },
       publisher: { '@type': 'MedicalOrganization', name: '연세365산부인과의원', logo: { '@type': 'ImageObject', url: `${BASE}/logo.png` } },
